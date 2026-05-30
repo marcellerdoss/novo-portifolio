@@ -1,0 +1,80 @@
+{
+  "nav": {
+    "about": "About",
+    "cases": "Cases",
+    "skills": "Skills",
+    "experience": "Experience",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "common": {
+    "skip_to_content": "Skip to main content",
+    "toggle_theme": "Toggle theme",
+    "toggle_language": "Change language",
+    "close": "Close",
+    "see_all": "See all",
+    "min_read": "min read",
+    "present": "Present"
+  },
+  "hero": {
+    "name": "Marcelle",
+    "role": "UX & Product Designer",
+    "subtitle": "I transform research and strategy into digital products with real impact.",
+    "cta_primary": "See Cases",
+    "cta_secondary": "Download CV"
+  },
+  "about": {
+    "title": "About Me",
+    "bio": "I'm a UX & Product Designer focused on solving complex problems through a user-centered approach. I combine qualitative research, strategic design, and prototyping to create experiences that balance user needs with business goals.",
+    "years_label": "Years of experience",
+    "projects_label": "Projects delivered",
+    "markets_label": "Markets served",
+    "years_value": "5+",
+    "projects_value": "30+",
+    "markets_value": "3"
+  },
+  "cases": {
+    "title": "Cases",
+    "filter_all": "All",
+    "see_case": "See Case",
+    "problem": "Problem",
+    "process": "Process",
+    "outcome": "Outcome",
+    "close": "Close",
+    "metrics": "Impact"
+  },
+  "skills": {
+    "title": "Skills & Tools",
+    "design": "Design",
+    "research": "Research",
+    "prototyping": "Prototyping",
+    "handoff": "Handoff",
+    "soft": "Soft Skills"
+  },
+  "experience": {
+    "title": "Experience",
+    "present": "Present"
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Thoughts on design, process, and product.",
+    "see_all": "See all articles",
+    "min_read": "min read",
+    "search_placeholder": "Search articles...",
+    "filter_all": "All"
+  },
+  "contact": {
+    "title": "Let's work together?",
+    "subtitle": "Open to freelance projects, full-time positions, and talks on design and product.",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "behance": "Behance",
+    "github": "GitHub",
+    "dribbble": "Dribbble"
+  },
+  "footer": {
+    "credit": "Designed & built by",
+    "quick_links": "Quick links",
+    "github_repo": "View repository"
+  }
+}

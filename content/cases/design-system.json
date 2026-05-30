@@ -1,0 +1,31 @@
+{
+  "slug": "design-system",
+  "title": { "pt": "Design System para Fintech", "en": "Fintech Design System" },
+  "category": "Design System",
+  "tags": ["Design System", "Components", "Tokens", "Acessibilidade"],
+  "coverImage": "",
+  "summary": {
+    "pt": "Criação de um design system escalável para uma plataforma fintech com mais de 2 milhões de usuários.",
+    "en": "Building a scalable design system for a fintech platform with over 2 million users."
+  },
+  "problem": {
+    "pt": "A plataforma cresceu rapidamente e acumulou inconsistências visuais entre times. Com 5 squads trabalhando em paralelo, cada equipe criava componentes do zero, gerando retrabalho e experiências fragmentadas para os usuários.",
+    "en": "The platform grew rapidly and accumulated visual inconsistencies across teams. With 5 squads working in parallel, each team created components from scratch, generating rework and fragmented user experiences."
+  },
+  "process": {
+    "pt": "Conduzi uma auditoria completa da interface, mapeando 340+ componentes únicos. Realizei entrevistas com devs e designers de cada squad para entender pontos de dor. A partir disso, criei a base de tokens de design, estabelecemos princípios de acessibilidade (WCAG 2.1 AA) e construímos uma biblioteca de 80 componentes documentados no Storybook.",
+    "en": "I conducted a full UI audit, mapping 340+ unique components. I interviewed devs and designers from each squad to understand pain points. From there, I created a design token foundation, established accessibility principles (WCAG 2.1 AA), and built a library of 80 components documented in Storybook."
+  },
+  "outcome": {
+    "pt": "O design system foi adotado por 100% dos squads em 6 meses. O tempo de entrega de novas features caiu 40% e o eNPS de design subiu de 32 para 71 pontos.",
+    "en": "The design system was adopted by 100% of squads within 6 months. New feature delivery time dropped 40% and design eNPS rose from 32 to 71 points."
+  },
+  "metrics": [
+    { "label": "Adoção", "value": "100%", "description": "dos squads em 6 meses" },
+    { "label": "Eficiência", "value": "-40%", "description": "tempo de entrega" },
+    { "label": "eNPS", "value": "+39pts", "description": "satisfação do time" }
+  ],
+  "images": [],
+  "year": 2024,
+  "featured": true
+}

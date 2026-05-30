@@ -1,0 +1,31 @@
+{
+  "slug": "mobile-app",
+  "title": { "pt": "App de Saúde Mental", "en": "Mental Health App" },
+  "category": "Mobile App",
+  "tags": ["iOS", "Android", "Research", "Acessibilidade"],
+  "coverImage": "",
+  "summary": {
+    "pt": "Redesign de um app de saúde mental com foco em acessibilidade e redução de fricção no onboarding.",
+    "en": "Complete redesign of a mental health app focused on accessibility and reducing onboarding friction."
+  },
+  "problem": {
+    "pt": "O app tinha 68% de abandono no onboarding. Pesquisas indicaram que o fluxo era longo demais e usava linguagem clínica que afastava usuários em estado de vulnerabilidade emocional.",
+    "en": "The app had a 68% drop-off rate during onboarding. Research indicated the flow was too long and used clinical language that pushed away users in emotionally vulnerable states."
+  },
+  "process": {
+    "pt": "Realizei 12 entrevistas com usuários, 3 testes de usabilidade remotos e análise quantitativa dos dados de abandono. Mapeei a jornada completa e identifiquei 7 momentos críticos de fricção. Criei 4 protótipos iterativos testados com 40 usuários.",
+    "en": "I conducted 12 user interviews, 3 remote usability tests, and quantitative analysis of dropout data. I mapped the full journey and identified 7 critical friction moments. I created 4 iterative prototypes tested with 40 users."
+  },
+  "outcome": {
+    "pt": "A taxa de conclusão do onboarding subiu de 32% para 74%. O NPS do app saltou de 18 para 51 pontos em 3 meses. Retenção D30 cresceu 2,3x.",
+    "en": "Onboarding completion rate rose from 32% to 74%. App NPS jumped from 18 to 51 points within 3 months. D30 retention grew 2.3x."
+  },
+  "metrics": [
+    { "label": "Onboarding", "value": "+42pp", "description": "conclusão do fluxo" },
+    { "label": "NPS", "value": "+33pts", "description": "em 3 meses" },
+    { "label": "Retenção D30", "value": "2.3×", "description": "crescimento" }
+  ],
+  "images": [],
+  "year": 2024,
+  "featured": true
+}

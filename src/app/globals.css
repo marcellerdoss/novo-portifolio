@@ -1,0 +1,228 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* Dark mode via .dark class (next-themes class strategy) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ─── Brand palette — static tokens ─────────────────────── */
+@theme {
+  /* Accent */
+  --color-primary: #0066cc;
+  --color-primary-focus: #0071e3;
+  --color-primary-on-dark: #2997ff;
+
+  /* Light surfaces */
+  --color-canvas: #ffffff;
+  --color-canvas-parchment: #f5f5f7;
+  --color-surface-pearl: #fafafc;
+
+  /* Dark surfaces (tile system) */
+  --color-surface-tile-1: #272729;
+  --color-surface-tile-2: #2a2a2c;
+  --color-surface-tile-3: #252527;
+  --color-surface-black: #000000;
+
+  /* Text */
+  --color-ink: #1d1d1f;
+  --color-ink-muted-80: #333333;
+  --color-ink-muted-48: #7a7a7a;
+  --color-body-on-dark: #ffffff;
+  --color-body-muted: #cccccc;
+
+  /* Borders */
+  --color-divider-soft: #f0f0f0;
+  --color-hairline: #e0e0e0;
+
+  /* Font */
+  --font-sans: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* ─── Spacing scale (base unit: 8px) ─── */
+  --spacing-xxs: 0.25rem;   /* 4px  */
+  --spacing-xs: 0.5rem;     /* 8px  */
+  --spacing-sm: 0.75rem;    /* 12px */
+  --spacing-md: 1.0625rem;  /* 17px */
+  --spacing-lg: 1.5rem;     /* 24px */
+  --spacing-xl: 2rem;       /* 32px */
+  --spacing-xxl: 3rem;      /* 48px */
+  --spacing-section: 5rem;  /* 80px */
+
+  /* ─── Border radius ─── */
+  --radius-none: 0px;
+  --radius-xs: 5px;
+  --radius-sm: 8px;
+  --radius-md: 11px;
+  --radius-lg: 18px;
+  --radius-pill: 9999px;
+  --radius-full: 9999px;
+
+  /* ─── Shadow — reserved for product imagery only ─── */
+  --shadow-product: rgba(0, 0, 0, 0.22) 3px 5px 30px 0px;
+}
+
+/* ─── Semantic tokens — change between light / dark ─────── */
+:root {
+  --bg: #ffffff;
+  --bg-secondary: #f5f5f7;
+  --fg: #1d1d1f;
+  --fg-muted: #333333;
+  --fg-subtle: #7a7a7a;
+  --border-token: #e0e0e0;
+}
+
+.dark {
+  --bg: #1d1d1f;
+  --bg-secondary: #272729;
+  --fg: #f5f5f7;
+  --fg-muted: #cccccc;
+  /* #aaaaaa on #272729 → contrast ~5.6:1 (passes WCAG AA normal text) */
+  --fg-subtle: #aaaaaa;
+  --border-token: rgba(255, 255, 255, 0.1);
+}
+
+/* Map semantic tokens to Tailwind utilities via @theme inline */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-fg-subtle: var(--fg-subtle);
+  --color-border: var(--border-token);
+}
+
+/* ─── Base styles ─────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;  /* 17px — intentional, not 16px */
+  line-height: 1.47;
+  letter-spacing: -0.374px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+/* ─── Typography utility classes ─────────────────────────── */
+@layer utilities {
+  .type-hero {
+    font-size: 3.5rem;       /* 56px */
+    font-weight: 600;
+    line-height: 1.07;
+    letter-spacing: -0.28px;
+  }
+
+  .type-display-lg {
+    font-size: 2.5rem;       /* 40px */
+    font-weight: 600;
+    line-height: 1.10;
+    letter-spacing: 0;
+  }
+
+  .type-display-md {
+    font-size: 2.125rem;     /* 34px */
+    font-weight: 600;
+    line-height: 1.47;
+    letter-spacing: -0.374px;
+  }
+
+  .type-lead {
+    font-size: 1.75rem;      /* 28px */
+    font-weight: 400;
+    line-height: 1.14;
+    letter-spacing: 0.196px;
+  }
+
+  .type-lead-airy {
+    font-size: 1.5rem;       /* 24px */
+    font-weight: 300;
+    line-height: 1.5;
+    letter-spacing: 0;
+  }
+
+  .type-tagline {
+    font-size: 1.3125rem;    /* 21px */
+    font-weight: 600;
+    line-height: 1.19;
+    letter-spacing: 0.231px;
+  }
+
+  .type-body-strong {
+    font-size: 1.0625rem;    /* 17px */
+    font-weight: 600;
+    line-height: 1.24;
+    letter-spacing: -0.374px;
+  }
+
+  .type-body {
+    font-size: 1.0625rem;    /* 17px */
+    font-weight: 400;
+    line-height: 1.47;
+    letter-spacing: -0.374px;
+  }
+
+  .type-caption {
+    font-size: 0.875rem;     /* 14px */
+    font-weight: 400;
+    line-height: 1.43;
+    letter-spacing: -0.224px;
+  }
+
+  .type-caption-strong {
+    font-size: 0.875rem;     /* 14px */
+    font-weight: 600;
+    line-height: 1.29;
+    letter-spacing: -0.224px;
+  }
+
+  .type-button-large {
+    font-size: 1.125rem;     /* 18px */
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: 0;
+  }
+
+  .type-button-utility {
+    font-size: 0.875rem;     /* 14px */
+    font-weight: 400;
+    line-height: 1.29;
+    letter-spacing: -0.224px;
+  }
+
+  .type-fine-print {
+    font-size: 0.75rem;      /* 12px */
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.12px;
+  }
+
+  .type-nav-link {
+    font-size: 0.75rem;      /* 12px */
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.12px;
+  }
+}
+
+/* ─── Global focus-visible for prose links (MDX content) ────── */
+.prose a:focus-visible {
+  outline: 2px solid var(--color-primary-focus);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ─── Screen-reader-only utility ─────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

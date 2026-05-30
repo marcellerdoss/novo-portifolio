@@ -1,0 +1,29 @@
+[
+  {
+    "company": "Empresa A",
+    "role": { "pt": "Senior UX Designer", "en": "Senior UX Designer" },
+    "period": "2023 – Presente",
+    "description": {
+      "pt": "Liderança do time de design de produto (3 designers). Responsável pela estratégia de design, evolução do design system e pesquisa com usuários em projetos de alta complexidade para +2M de usuários.",
+      "en": "Leading the product design team (3 designers). Responsible for design strategy, design system evolution, and user research on high-complexity projects for 2M+ users."
+    }
+  },
+  {
+    "company": "Empresa B",
+    "role": { "pt": "UX Designer Pleno", "en": "Mid-level UX Designer" },
+    "period": "2021 – 2022",
+    "description": {
+      "pt": "Design de produto para plataforma B2B SaaS com +10k usuários. Foco em research qualitativo, prototipagem e facilitação de workshops com stakeholders.",
+      "en": "Product design for a B2B SaaS platform with 10k+ users. Focus on qualitative research, prototyping, and stakeholder workshop facilitation."
+    }
+  },
+  {
+    "company": "Empresa C",
+    "role": { "pt": "UX/UI Designer", "en": "UX/UI Designer" },
+    "period": "2019 – 2021",
+    "description": {
+      "pt": "Design de interfaces para clientes de e-commerce, edtech e healthtech. Entrega de fluxos de usuário, wireframes e protótipos de alta fidelidade.",
+      "en": "Interface design for e-commerce, edtech, and healthtech clients. Delivery of user flows, wireframes, and high-fidelity prototypes."
+    }
+  }
+]

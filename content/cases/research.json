@@ -1,0 +1,31 @@
+{
+  "slug": "research",
+  "title": { "pt": "Pesquisa de Descoberta — B2B SaaS", "en": "Discovery Research — B2B SaaS" },
+  "category": "Research",
+  "tags": ["User Research", "Entrevistas", "Jobs to be Done", "B2B"],
+  "coverImage": "",
+  "summary": {
+    "pt": "Pesquisa de descoberta com 28 empresas para identificar oportunidades em um SaaS B2B de gestão de contratos.",
+    "en": "Discovery research with 28 companies to identify opportunities in a B2B contract management SaaS."
+  },
+  "problem": {
+    "pt": "O produto estava estagnado em crescimento. O time tinha hipóteses divergentes sobre o que os usuários precisavam, sem dados qualitativos para embasar as decisões de roadmap.",
+    "en": "The product was stagnating in growth. The team had diverging hypotheses about what users needed, with no qualitative data to support roadmap decisions."
+  },
+  "process": {
+    "pt": "Desenhei um protocolo de pesquisa baseado em Jobs to be Done (JTBD). Conduzi 28 entrevistas com compradores, usuários finais e campeões internos em empresas de 50 a 2.000 funcionários. Sintetizei os achados em um framework de oportunidades com 6 jobs principais.",
+    "en": "I designed a research protocol based on Jobs to be Done (JTBD). I conducted 28 interviews with buyers, end users, and internal champions at companies with 50–2,000 employees. I synthesized findings into an opportunity framework with 6 main jobs."
+  },
+  "outcome": {
+    "pt": "O framework de oportunidades orientou o roadmap do semestre seguinte. 2 das 6 oportunidades foram priorizadas e desenvolvidas, resultando em expansão de receita de +18% ARR em 9 meses.",
+    "en": "The opportunity framework shaped the next semester's roadmap. 2 of the 6 opportunities were prioritized and developed, resulting in +18% ARR revenue expansion in 9 months."
+  },
+  "metrics": [
+    { "label": "Empresas", "value": "28", "description": "entrevistas realizadas" },
+    { "label": "Oportunidades", "value": "6", "description": "jobs mapeados" },
+    { "label": "ARR", "value": "+18%", "description": "em 9 meses" }
+  ],
+  "images": [],
+  "year": 2023,
+  "featured": false
+}
