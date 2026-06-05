@@ -18,11 +18,11 @@ export function Badge({
   'aria-pressed': ariaPressed,
 }: BadgeProps) {
   const classes = cn(
-    'inline-flex items-center type-caption rounded-pill px-3 py-1.5 transition-colors duration-150',
-    variant === 'default' && 'bg-canvas border border-hairline text-ink dark:bg-surface-tile-2 dark:border-white/10 dark:text-body-on-dark',
-    variant === 'category' && 'bg-canvas-parchment text-ink-muted-80 dark:bg-surface-tile-1 dark:text-body-muted',
-    variant === 'active' && 'bg-primary text-white border-2 border-primary-focus',
-    onClick && 'cursor-pointer hover:border-primary hover:text-primary',
+    'inline-flex items-center type-body-sm rounded-pill px-3 py-1.5 transition-colors duration-150',
+    variant === 'default' && 'bg-bg border border-border text-fg',
+    variant === 'category' && 'bg-bg-secondary text-fg-muted',
+    variant === 'active' && 'bg-primary text-on-primary',
+    onClick && 'cursor-pointer hover:border-fg hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg',
     className,
   );
 

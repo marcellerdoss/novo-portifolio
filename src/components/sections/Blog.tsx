@@ -26,7 +26,7 @@ export function BlogPreview({ posts }: Props) {
     <section
       id="blog"
       aria-labelledby="blog-heading"
-      className="py-section px-6 bg-canvas-parchment dark:bg-surface-tile-2"
+      className="py-section px-6 bg-bg-secondary"
     >
       <div className="max-w-6xl mx-auto">
         <div className="flex items-end justify-between mb-xxl gap-4">
@@ -59,18 +59,18 @@ export function BlogPreview({ posts }: Props) {
               <motion.article key={post.slug} variants={fadeInUp}>
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="group block h-full bg-canvas dark:bg-surface-tile-1 rounded-lg border border-hairline dark:border-white/10 p-6 transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_4px_24px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_4px_24px_rgba(0,0,0,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-focus"
+                  className="group block h-full bg-bg rounded-lg border border-border p-6 transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_4px_24px_rgba(0,0,0,0.06)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg"
                 >
-                  <span className="type-fine-print text-primary uppercase tracking-wider mb-3 block">
+                  <span className="type-caption text-fg-subtle mb-3 block">
                     {post.category}
                   </span>
-                  <h3 className="type-body-strong text-fg mb-3 group-hover:text-primary transition-colors duration-150">
+                  <h3 className="type-body-strong text-fg mb-3 group-hover:underline transition-all duration-150">
                     {post.title}
                   </h3>
-                  <p className="type-caption text-fg-muted line-clamp-3 mb-4">
+                  <p className="type-body-sm text-fg-muted line-clamp-3 mb-4">
                     {post.excerpt}
                   </p>
-                  <div className="flex items-center gap-3 type-fine-print text-fg-subtle">
+                  <div className="flex items-center gap-3 type-caption text-fg-subtle">
                     <time dateTime={post.date}>{formatDate(post.date, locale)}</time>
                     <span aria-hidden="true">·</span>
                     <span>{post.readingTime} {t('min_read')}</span>

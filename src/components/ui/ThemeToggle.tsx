@@ -26,7 +26,7 @@ export function ThemeToggle({ ariaLabel = 'Alternar tema' }: Props) {
       className={cn(
         'w-11 h-11 rounded-full flex items-center justify-center overflow-hidden',
         'text-fg-muted hover:text-fg transition-colors duration-150',
-        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-focus focus-visible:ring-offset-2',
+        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg focus-visible:ring-offset-2',
       )}
     >
       <AnimatePresence mode="wait" initial={false}>

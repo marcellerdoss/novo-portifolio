@@ -27,7 +27,7 @@ export function CaseCard({
   return (
     <Link
       href={href}
-      className="group relative block h-[300px] md:h-[340px] rounded-[16px] overflow-hidden border-[0.5px] border-border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-focus"
+      className="group relative block h-[300px] md:h-[340px] rounded-[16px] overflow-hidden border-[0.5px] border-border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-fg"
     >
       <span className="sr-only">{title} — {category}</span>
 
@@ -87,7 +87,7 @@ export function CaseCard({
             </span>
           ))}
         </div>
-        <span className="text-[13px] font-medium text-primary">
+        <span className="text-[13px] font-medium text-fg">
           Ver case →
         </span>
       </div>

@@ -27,7 +27,7 @@ export function CaseCardCompact({
   return (
     <Link
       href={href}
-      className="group relative block h-[220px] rounded-[16px] overflow-hidden border-[0.5px] border-border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-focus"
+      className="group relative block h-[220px] rounded-[16px] overflow-hidden border-[0.5px] border-border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-fg"
     >
       <span className="sr-only">{title} — {label} — {category}</span>
 
@@ -89,7 +89,7 @@ export function CaseCardCompact({
             </span>
           ))}
         </div>
-        <span className="text-[12px] font-medium text-primary">
+        <span className="text-[12px] font-medium text-fg">
           Ver case →
         </span>
       </div>

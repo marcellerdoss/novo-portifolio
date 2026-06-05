@@ -15,7 +15,7 @@ export function LanguageSwitcher({ ariaLabel = 'Mudar idioma' }: Props) {
       {(['pt', 'en'] as const).map((lang, i) => (
         <span key={lang} className="flex items-center">
           {i > 0 && (
-            <span className="type-fine-print text-fg-subtle mx-1" aria-hidden="true">
+            <span className="type-caption text-fg-subtle mx-1" aria-hidden="true">
               |
             </span>
           )}
@@ -24,10 +24,10 @@ export function LanguageSwitcher({ ariaLabel = 'Mudar idioma' }: Props) {
             locale={lang}
             aria-current={locale === lang ? 'true' : undefined}
             className={cn(
-              'type-fine-print uppercase px-1 py-0.5 rounded transition-colors duration-150',
-              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-focus',
+              'type-body-sm uppercase px-1 py-0.5 rounded transition-colors duration-150',
+              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg',
               locale === lang
-                ? 'text-fg font-semibold'
+                ? 'text-fg font-[540]'
                 : 'text-fg-muted hover:text-fg',
             )}
           >

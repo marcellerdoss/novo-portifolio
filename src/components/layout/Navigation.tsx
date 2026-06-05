@@ -33,8 +33,8 @@ export function Navigation({ className, itemClassName, onClick }: Props) {
               href={href}
               onClick={onClick}
               className={cn(
-                'type-caption text-fg-muted hover:text-fg transition-colors duration-150',
-                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-focus rounded',
+                'type-body-sm text-fg-muted hover:text-fg transition-colors duration-150',
+                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg rounded',
                 itemClassName,
               )}
             >

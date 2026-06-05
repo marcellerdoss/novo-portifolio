@@ -24,25 +24,21 @@ export function Header() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Close mobile menu when resizing to desktop
   useEffect(() => {
     const onResize = () => { if (window.innerWidth >= 768) setMenuOpen(false); };
     window.addEventListener('resize', onResize);
     return () => window.removeEventListener('resize', onResize);
   }, []);
 
-  // Focus first link when menu opens; return focus to hamburger on close
   useEffect(() => {
     if (menuOpen) {
       const first = menuRef.current?.querySelector<HTMLElement>('a, button');
       first?.focus();
     } else {
-      // Only return focus if menu was previously open (not on mount)
       if (menuRef.current) hamburgerRef.current?.focus();
     }
   }, [menuOpen]);
 
-  // Close mobile menu on Escape
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
     if (e.key === 'Escape' && menuOpen) setMenuOpen(false);
   }, [menuOpen]);
@@ -61,8 +57,8 @@ export function Header() {
         href="#main-content"
         className={cn(
           'sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100]',
-          'px-4 py-2 bg-primary text-white rounded-pill type-caption-strong',
-          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-focus',
+          'px-4 py-2 bg-primary text-on-primary rounded-pill type-caption',
+          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg',
         )}
       >
         {t('skip_to_content')}
@@ -81,8 +77,8 @@ export function Header() {
           <Link
             href="/"
             className={cn(
-              'type-tagline text-fg hover:text-primary transition-colors duration-150',
-              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-focus rounded',
+              'type-headline text-fg hover:opacity-70 transition-opacity duration-150',
+              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg rounded',
             )}
           >
             Marcelle
@@ -111,7 +107,7 @@ export function Header() {
               className={cn(
                 'w-11 h-11 flex items-center justify-center rounded-full',
                 'text-fg-muted hover:text-fg transition-colors duration-150',
-                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-focus',
+                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg',
               )}
             >
               {menuOpen

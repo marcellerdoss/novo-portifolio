@@ -38,32 +38,27 @@ export function Modal({
 
   useEffect(() => setMounted(true), []);
 
-  // Capture trigger element before opening
   useEffect(() => {
     if (isOpen) triggerRef.current = document.activeElement;
   }, [isOpen]);
 
-  // Return focus to trigger on close
   useEffect(() => {
     if (!isOpen && triggerRef.current instanceof HTMLElement) {
       triggerRef.current.focus();
     }
   }, [isOpen]);
 
-  // Focus first focusable element on open
   useEffect(() => {
     if (!isOpen || !modalRef.current) return;
     const first = modalRef.current.querySelector<HTMLElement>(FOCUSABLE);
     first?.focus();
   }, [isOpen]);
 
-  // Lock body scroll
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [isOpen]);
 
-  // Escape + focus trap
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
       if (!isOpen || !modalRef.current) return;
@@ -102,7 +97,7 @@ export function Modal({
 
   const transition: Transition = prefersReduced
     ? { duration: 0 }
-    : { duration: 0.2, ease: [0, 0, 0.58, 1] }; // cubic-bezier easeOut
+    : { duration: 0.2, ease: [0, 0, 0.58, 1] };
 
   return createPortal(
     <AnimatePresence>
@@ -116,7 +111,7 @@ export function Modal({
         >
           {/* Backdrop */}
           <div
-            className="fixed inset-0 bg-surface-black/60 backdrop-blur-sm"
+            className="fixed inset-0 bg-inverse-canvas/60 backdrop-blur-sm"
             aria-hidden="true"
             onClick={onClose}
           />
@@ -130,7 +125,7 @@ export function Modal({
             tabIndex={-1}
             className={cn(
               'relative z-10 w-full max-w-3xl my-auto',
-              'bg-bg rounded-lg shadow-product',
+              'bg-bg rounded-lg shadow-[0_8px_40px_rgba(0,0,0,0.15)] dark:shadow-[0_8px_40px_rgba(0,0,0,0.45)]',
               'focus:outline-none',
               className,
             )}
@@ -148,7 +143,7 @@ export function Modal({
                 'absolute top-4 right-4 z-10',
                 'w-11 h-11 rounded-full flex items-center justify-center',
                 'text-fg-muted hover:text-fg transition-colors duration-150',
-                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-focus',
+                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg',
               )}
             >
               <X size={20} aria-hidden="true" />
@@ -159,7 +154,7 @@ export function Modal({
               {title && (
                 <h2
                   id="modal-title"
-                  className="type-display-md text-fg pr-12 mb-lg"
+                  className="type-headline text-fg pr-12 mb-lg"
                 >
                   {title}
                 </h2>

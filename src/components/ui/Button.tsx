@@ -7,24 +7,24 @@ type Size = 'sm' | 'md' | 'lg';
 
 const base =
   'inline-flex items-center justify-center gap-2 cursor-pointer transition-all duration-150 ' +
-  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-focus ' +
+  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-fg ' +
   'disabled:opacity-50 disabled:cursor-not-allowed select-none';
 
 const variants: Record<Variant, string> = {
   primary:
-    'bg-primary text-white rounded-pill active:scale-95 hover:opacity-90',
+    'bg-primary text-on-primary rounded-pill active:scale-95 hover:opacity-90',
   secondary:
-    'border border-primary text-primary rounded-pill bg-transparent active:scale-95 hover:bg-primary/5',
+    'border border-fg/30 text-fg rounded-pill bg-transparent active:scale-95 hover:bg-fg/5',
   ghost:
     'text-fg-muted hover:text-fg bg-transparent rounded-sm active:scale-95',
   icon:
-    'w-11 h-11 rounded-full bg-[rgba(210,210,215,0.64)] text-ink hover:bg-[rgba(210,210,215,0.80)] active:scale-95',
+    'w-11 h-11 rounded-full bg-fg/10 text-fg hover:bg-fg/20 active:scale-95',
 };
 
 const sizes: Record<Size, string> = {
-  sm: 'px-4 py-2 type-button-utility',
-  md: 'px-[22px] py-[11px] type-body',
-  lg: 'px-7 py-3.5 type-button-large',
+  sm: 'px-4 py-2 type-body-sm',
+  md: 'px-[22px] py-[11px] type-button',
+  lg: 'px-7 py-3.5 type-button',
 };
 
 export function buttonVariants({

@@ -15,7 +15,7 @@ export function Hero() {
     <section
       id="home"
       aria-label="Apresentação"
-      className="relative min-h-screen flex flex-col items-center justify-center px-6 bg-canvas dark:bg-surface-black"
+      className="relative min-h-screen flex flex-col items-center justify-center px-6 bg-bg"
     >
       <motion.div
         className="max-w-3xl mx-auto text-center"
@@ -25,21 +25,21 @@ export function Hero() {
       >
         <motion.p
           variants={fadeInUp}
-          className="type-tagline text-primary mb-6 tracking-wide"
+          className="type-body-lg text-fg-muted mb-6"
         >
           {t('role')}
         </motion.p>
 
         <motion.h1
           variants={fadeInUp}
-          className="type-hero text-fg mb-6"
+          className="type-display-xl text-fg mb-6"
         >
           {t('name')}
         </motion.h1>
 
         <motion.p
           variants={fadeInUp}
-          className="type-lead text-fg-muted max-w-xl mx-auto mb-10"
+          className="type-body-lg text-fg-muted max-w-xl mx-auto mb-10"
         >
           {t('subtitle')}
         </motion.p>

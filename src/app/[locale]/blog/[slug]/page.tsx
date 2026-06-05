@@ -94,7 +94,7 @@ export default async function BlogPostPage({ params }: { params: Params }) {
       <JsonLd data={articleSchema} />
       <ScrollProgress />
 
-      <div className="min-h-screen bg-canvas dark:bg-surface-tile-1 py-section px-6">
+      <div className="min-h-screen bg-bg py-section px-6">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_240px] gap-12 xl:gap-16">
 
@@ -103,9 +103,9 @@ export default async function BlogPostPage({ params }: { params: Params }) {
               {/* Header */}
               <header className="mb-12">
                 <Badge variant="category" className="mb-6">{post.frontmatter.category}</Badge>
-                <h1 className="type-hero text-fg mb-6">{post.frontmatter.title}</h1>
-                <p className="type-lead-airy text-fg-muted mb-8">{post.frontmatter.excerpt}</p>
-                <div className="flex flex-wrap items-center gap-4 type-caption text-fg-subtle">
+                <h1 className="type-display-xl text-fg mb-6">{post.frontmatter.title}</h1>
+                <p className="type-subhead text-fg-muted mb-8">{post.frontmatter.excerpt}</p>
+                <div className="flex flex-wrap items-center gap-4 type-body-sm text-fg-subtle">
                   <time dateTime={post.frontmatter.date}>{formattedDate}</time>
                   <span aria-hidden="true">·</span>
                   <span>{post.readingTime} {t('min_read')}</span>
@@ -120,7 +120,7 @@ export default async function BlogPostPage({ params }: { params: Params }) {
               </header>
 
               {/* MDX content */}
-              <div className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-semibold prose-headings:text-fg prose-p:text-fg-muted prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-code:text-primary prose-pre:bg-surface-tile-1 dark:prose-pre:bg-surface-black">
+              <div className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-semibold prose-headings:text-fg prose-p:text-fg-muted prose-a:text-fg prose-a:underline prose-code:text-fg prose-pre:bg-bg-secondary dark:prose-pre:bg-bg-secondary">
                 <MDXRemote
                   source={post.content}
                   options={{

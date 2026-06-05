@@ -37,17 +37,17 @@ export function TableOfContents({ headings, label = 'Neste artigo' }: Props) {
 
   return (
     <nav aria-label={label} className="sticky top-24">
-      <p className="type-caption-strong text-fg uppercase tracking-wider mb-4">{label}</p>
-      <ul className="space-y-2 border-l border-hairline dark:border-white/10 pl-4">
+      <p className="type-caption text-fg mb-4">{label}</p>
+      <ul className="space-y-2 border-l border-border pl-4">
         {headings.map(({ id, text, level }) => (
           <li key={id}>
             <a
               href={`#${id}`}
               className={cn(
-                'type-caption block transition-colors duration-150 leading-snug',
+                'type-body-sm block transition-colors duration-150 leading-snug',
                 level === 3 && 'pl-3',
                 activeId === id
-                  ? 'text-primary font-semibold'
+                  ? 'text-fg font-[480]'
                   : 'text-fg-muted hover:text-fg',
               )}
             >

@@ -39,7 +39,7 @@ export function Skills() {
     <section
       id="skills"
       aria-labelledby="skills-heading"
-      className="py-section px-6 bg-canvas-parchment dark:bg-surface-tile-2"
+      className="py-section px-6 bg-bg-secondary"
     >
       <div className="max-w-6xl mx-auto">
         <motion.h2
@@ -62,7 +62,7 @@ export function Skills() {
         >
           {categories.map(({ key, items }) => (
             <motion.div key={key} variants={fadeInUp}>
-              <h3 className="type-caption-strong text-fg mb-4 uppercase tracking-wider">
+              <h3 className="type-caption text-fg mb-4">
                 {t(key)}
               </h3>
               <motion.div
@@ -73,7 +73,7 @@ export function Skills() {
                   <motion.span
                     key={skill}
                     variants={fadeInUp}
-                    className="type-caption text-fg-muted bg-canvas dark:bg-surface-tile-1 border border-hairline dark:border-white/10 rounded-pill px-3 py-1.5"
+                    className="type-body-sm text-fg-muted bg-bg border border-border rounded-pill px-3 py-1.5"
                   >
                     {skill}
                   </motion.span>

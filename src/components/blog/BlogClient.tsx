@@ -34,7 +34,7 @@ export function BlogClient({ posts }: Props) {
   }, [posts, activeCategory, query]);
 
   return (
-    <div className="min-h-screen bg-canvas dark:bg-surface-tile-1 py-section px-6">
+    <div className="min-h-screen bg-bg py-section px-6">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
@@ -64,7 +64,7 @@ export function BlogClient({ posts }: Props) {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             aria-label={t('search_placeholder')}
-            className="w-full max-w-md pl-10 pr-4 py-3 bg-canvas dark:bg-surface-tile-2 border border-hairline dark:border-white/10 rounded-pill type-body text-fg placeholder:text-fg-subtle focus:outline-none focus:ring-2 focus:ring-primary-focus transition-colors"
+            className="w-full max-w-md pl-10 pr-4 py-3 bg-bg-secondary border border-border rounded-pill type-body text-fg placeholder:text-fg-subtle focus:outline-none focus:ring-2 focus:ring-fg transition-colors"
           />
         </div>
 

@@ -10,7 +10,7 @@ type Props = { cases?: Case[] };
 
 export function CasesSection(_props: Props) {
   return (
-    <section id="cases" aria-labelledby="cases-heading" className="py-section px-6 bg-canvas dark:bg-surface-tile-2">
+    <section id="cases" aria-labelledby="cases-heading" className="py-section px-6 bg-bg-secondary">
       <div className="max-w-6xl mx-auto space-y-20">
 
         {/* ── Sellbie ──────────────────────────────────────────── */}

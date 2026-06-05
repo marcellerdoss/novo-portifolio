@@ -47,7 +47,7 @@ export function Contact() {
     <section
       id="contato"
       aria-labelledby="contact-heading"
-      className="py-section px-6 bg-canvas dark:bg-surface-tile-1"
+      className="py-section px-6 bg-bg"
     >
       <div className="max-w-3xl mx-auto text-center">
         <motion.div
@@ -84,10 +84,10 @@ export function Contact() {
                 aria-label={label}
                 title={label}
                 variants={fadeInUp}
-                className="group flex flex-col items-center gap-2 p-5 rounded-lg bg-canvas-parchment dark:bg-surface-tile-2 border border-hairline dark:border-white/10 min-w-[96px] transition-all duration-150 hover:-translate-y-[3px] hover:border-primary hover:text-primary hover:shadow-[0_4px_16px_rgba(0,0,0,0.08)] text-fg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-focus"
+                className="group flex flex-col items-center gap-2 p-5 rounded-lg bg-bg-secondary border border-border min-w-[96px] transition-all duration-150 hover:-translate-y-[3px] hover:border-fg hover:shadow-[0_4px_16px_rgba(0,0,0,0.08)] text-fg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg"
               >
                 {icon}
-                <span className="type-fine-print">{label}</span>
+                <span className="type-caption">{label}</span>
               </motion.a>
             ))}
           </motion.div>

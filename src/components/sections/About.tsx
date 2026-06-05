@@ -19,7 +19,7 @@ export function About() {
     <section
       id="sobre"
       aria-labelledby="about-heading"
-      className="py-section px-6 bg-canvas-parchment dark:bg-surface-tile-1"
+      className="py-section px-6 bg-bg-secondary"
     >
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
 
@@ -34,7 +34,7 @@ export function About() {
           {/* Photo */}
           <motion.div
             variants={fadeIn}
-            className="relative w-full aspect-square max-w-sm mx-auto md:mx-0 rounded-lg overflow-hidden bg-canvas-parchment dark:bg-surface-tile-2 border border-hairline dark:border-white/10"
+            className="relative w-full aspect-square max-w-sm mx-auto md:mx-0 rounded-lg overflow-hidden border border-border"
           >
             <Image
               src={siteConfig.about.photo}
@@ -55,10 +55,10 @@ export function About() {
               <motion.div
                 key={label}
                 variants={fadeInUp}
-                className="text-center p-4 rounded-lg bg-canvas dark:bg-surface-tile-2 border border-hairline dark:border-white/10"
+                className="text-center p-4 rounded-lg bg-bg border border-border"
               >
-                <p className="type-display-md text-primary">{value}</p>
-                <p className="type-fine-print text-fg-muted mt-1">{label}</p>
+                <p className="type-headline text-fg">{value}</p>
+                <p className="type-caption text-fg-subtle mt-1">{label}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -74,7 +74,7 @@ export function About() {
           <motion.h2 id="about-heading" variants={fadeInUp} className="type-display-lg text-fg mb-8">
             {t('title')}
           </motion.h2>
-          <motion.p variants={fadeInUp} className="type-body text-fg-muted leading-relaxed">
+          <motion.p variants={fadeInUp} className="type-body text-fg-muted">
             {t('bio')}
           </motion.p>
         </motion.div>
