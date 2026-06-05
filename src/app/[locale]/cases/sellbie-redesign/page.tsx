@@ -227,7 +227,7 @@ export default async function SellbieRedesignPage() {
 
               {/* [imagem: drawer-decisao] */}
               <CaseEditorial
-                imageSrc="/images/cases/sellbie/redesign/sellbie-redesign-criacao-envio-depois.png"
+                imageSrc="/images/cases/sellbie/redesign/sellbie-redesign-criacao-envio.png"
                 imageAlt="Novo drawer contextual com campanha visível"
                 title="A decisão que mudou o fluxo"
                 body="A decisão central do redesign — criar o envio no contexto da campanha."

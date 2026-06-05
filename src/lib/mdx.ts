@@ -13,6 +13,8 @@ type Frontmatter = {
   tags: string[];
   excerpt: string;
   coverImage?: string;
+  externalUrl?: string;
+  readingTime?: number;
 };
 
 type PostDetail = {
@@ -72,8 +74,9 @@ export async function getAllPosts(locale: Locale): Promise<BlogPost[]> {
       excerpt: (data.excerpt as string) ?? '',
       category: (data.category as string) ?? '',
       date: (data.date as string) ?? '',
-      readingTime: Math.ceil(stats.minutes),
+      readingTime: typeof data.readingTime === 'number' ? data.readingTime : Math.ceil(stats.minutes),
       coverImage: (data.coverImage as string) ?? '',
+      externalUrl: (data.externalUrl as string) ?? undefined,
     };
   });
 

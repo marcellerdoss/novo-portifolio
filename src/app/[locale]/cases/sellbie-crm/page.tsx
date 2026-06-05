@@ -126,7 +126,7 @@ export default async function SellbieCrmPage() {
 
               {/* [imagem: levantamento] */}
               <CaseHero
-                imageSrc="/images/cases/sellbie/crm/sellbie-crm-relatorio-levantamento-materiais.png"
+                imageSrc="/images/cases/sellbie/crm/sellbie-crm-relatorio-mapa-oportunidades.png"
                 imageAlt="Materiais que o CS usava antes do relatório"
                 caption="Materiais que o CS usava antes — ponto de partida para entender lacunas."
                 accentBg={ACCENT_BG}

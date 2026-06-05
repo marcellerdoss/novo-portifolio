@@ -47,7 +47,7 @@ export function CasesSection(_props: Props) {
               description="Navegação, campanhas e criação de envio redesenhados do zero"
               tags={['UX Research', 'Redesign', 'Design System']}
               href="/cases/sellbie-redesign"
-              imageSrc="/images/cases/sellbie-redesign-preview.png"
+              imageSrc="/images/cases/sellbie/redesign/sellbie-redesign-preview.png"
               imageAlt="Tela principal do redesign da plataforma Sellbie"
               accentBg="var(--color-project-sellbie-redesign-bg)"
               accentText="var(--color-project-sellbie-redesign-text)"
@@ -58,7 +58,7 @@ export function CasesSection(_props: Props) {
               description="Produto novo para orquestrar jornadas com gatilhos comportamentais"
               tags={['Produto Novo', 'Workflow', 'Multicanal']}
               href="/cases/sellbie-jornadas"
-              imageSrc="/images/cases/sellbie-jornadas-preview.png"
+              imageSrc="/images/cases/sellbie/jornadas/sellbie-jornadas-preview.png"
               imageAlt="Canvas de criação de jornada na plataforma Sellbie"
               accentBg="var(--color-project-sellbie-jornadas-bg)"
               accentText="var(--color-project-sellbie-jornadas-text)"
@@ -79,7 +79,7 @@ export function CasesSection(_props: Props) {
               title="Arquitetura de informação"
               tags={['Card Sorting', 'IA', 'Navegação']}
               href="/cases/sellbie-arq-info"
-              imageSrc="/images/cases/sellbie-arq-info-preview.png"
+              imageSrc="/images/cases/sellbie/arquitetura/sellbie-arq-info-preview.png"
               imageAlt="Board de card sorting da arquitetura de informação"
               accentBg="var(--color-project-sellbie-arq-info-bg)"
               accentText="var(--color-project-sellbie-arq-info-text)"
@@ -90,7 +90,7 @@ export function CasesSection(_props: Props) {
               title="Métricas de produto com HEART"
               tags={['HEART', 'OKR', 'Produto']}
               href="/cases/sellbie-metricas"
-              imageSrc="/images/cases/sellbie-metricas-preview.png"
+              imageSrc="/images/cases/sellbie/metricas/sellbie-metricas-preview.png"
               imageAlt="Framework HEART estruturado no FigJam"
               accentBg="var(--color-project-sellbie-metricas-bg)"
               accentText="var(--color-project-sellbie-metricas-text)"
@@ -101,7 +101,7 @@ export function CasesSection(_props: Props) {
               title="CRM — Relatório de performance"
               tags={['CRM', 'Figma Make', 'CS']}
               href="/cases/sellbie-crm"
-              imageSrc="/images/cases/sellbie-crm-preview.png"
+              imageSrc="/images/cases/sellbie/crm/sellbie-crm-preview.png"
               imageAlt="Dashboard de diagnóstico CRM no Figma Make"
               accentBg="var(--color-project-sellbie-crm-bg)"
               accentText="var(--color-project-sellbie-crm-text)"
@@ -112,7 +112,7 @@ export function CasesSection(_props: Props) {
               title="Cashback — Relatório de ROAS"
               tags={['Cashback', 'ROAS', 'Figma Make']}
               href="/cases/sellbie-cashback"
-              imageSrc="/images/cases/sellbie-cashback-preview.png"
+              imageSrc="/images/cases/sellbie/cashback/sellbie-cashback-preview.png"
               imageAlt="Dashboard de ROAS do programa de cashback"
               accentBg="var(--color-project-sellbie-cashback-bg)"
               accentText="var(--color-project-sellbie-cashback-text)"
@@ -148,7 +148,7 @@ export function CasesSection(_props: Props) {
               description="Fases, modelos de questão e matriz de proficiência para IA adaptativa"
               tags={['Educação', 'IA', 'Design System']}
               href="/cases/jg-alfabetizacao"
-              imageSrc="/images/cases/jg-alfabetizacao-preview.png"
+              imageSrc="/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-preview.png"
               imageAlt="Modelos de questão do sistema de alfabetização"
               accentBg="var(--color-project-jg-alfabetizacao-bg)"
               accentText="var(--color-project-jg-alfabetizacao-text)"
@@ -159,7 +159,7 @@ export function CasesSection(_props: Props) {
               description="Três entradas de persona, busca contextual e empty states com saída"
               tags={['Help Center', 'UX', 'Navegação']}
               href="/cases/jg-central-ajuda"
-              imageSrc="/images/cases/jg-central-ajuda-preview.png"
+              imageSrc="/images/cases/jovens-genios/central-de-ajuda/jg-central-ajuda-preview.png"
               imageAlt="Página inicial da central de ajuda com atalhos por perfil"
               accentBg="var(--color-project-jg-central-ajuda-bg)"
               accentText="var(--color-project-jg-central-ajuda-text)"

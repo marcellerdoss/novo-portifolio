@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useTranslations, useLocale } from 'next-intl';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ExternalLink } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 import { LinkButton } from '@/components/ui/Button';
 import { fadeInUp, stagger } from '@/lib/animations';
@@ -55,15 +55,18 @@ export function BlogPreview({ posts }: Props) {
             viewport={{ once: true, amount: 0.1 }}
             className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-10"
           >
-            {posts.map((post) => (
-              <motion.article key={post.slug} variants={fadeInUp}>
-                <Link
-                  href={`/blog/${post.slug}`}
-                  className="group block h-full bg-bg rounded-lg border border-border p-6 transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_4px_24px_rgba(0,0,0,0.06)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg"
-                >
-                  <span className="type-caption text-fg-subtle mb-3 block">
-                    {post.category}
-                  </span>
+            {posts.map((post) => {
+              const cardClass = "group block h-full bg-bg rounded-lg border border-border p-6 transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_4px_24px_rgba(0,0,0,0.06)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg";
+              const inner = (
+                <>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="type-caption text-fg-subtle">{post.category}</span>
+                    {post.externalUrl && (
+                      <span className="type-caption text-fg-subtle flex items-center gap-1">
+                        Medium <ExternalLink size={10} aria-hidden="true" />
+                      </span>
+                    )}
+                  </div>
                   <h3 className="type-body-strong text-fg mb-3 group-hover:underline transition-all duration-150">
                     {post.title}
                   </h3>
@@ -75,9 +78,22 @@ export function BlogPreview({ posts }: Props) {
                     <span aria-hidden="true">·</span>
                     <span>{post.readingTime} {t('min_read')}</span>
                   </div>
-                </Link>
-              </motion.article>
-            ))}
+                </>
+              );
+              return (
+                <motion.article key={post.slug} variants={fadeInUp}>
+                  {post.externalUrl ? (
+                    <a href={post.externalUrl} target="_blank" rel="noopener noreferrer" className={cardClass}>
+                      {inner}
+                    </a>
+                  ) : (
+                    <Link href={`/blog/${post.slug}`} className={cardClass}>
+                      {inner}
+                    </Link>
+                  )}
+                </motion.article>
+              );
+            })}
           </motion.div>
         )}
 

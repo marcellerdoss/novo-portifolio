@@ -58,5 +58,53 @@
       "pt": "Interfaces e campanhas digitais para e-commerce. Hotsites e e-mails em HTML, campanhas sazonais e Black Friday para desktop, mobile e app.",
       "en": "Digital interfaces and campaigns for e-commerce. HTML hotsites and emails, seasonal campaigns, and Black Friday for desktop, mobile, and app."
     }
+  },
+  {
+    "company": "Americanas S.A.",
+    "role": {
+      "pt": "Web Designer Pleno — Design Digital e Campanhas",
+      "en": "Web Designer — Digital Design & Campaigns"
+    },
+    "period": "Dez 2013 – Fev 2017",
+    "description": {
+      "pt": "Design digital para comunicação e campanhas de e-commerce de larga escala. Criação de hotsites, e-mails HTML, peças para redes sociais e materiais de datas sazonais para desktop e mobile.",
+      "en": "Digital design for communication and large-scale e-commerce campaigns. Creation of hotsites, HTML emails, social media assets, and seasonal materials for desktop and mobile."
+    }
+  },
+  {
+    "company": "Hermes S.A.",
+    "role": {
+      "pt": "Web Designer Júnior — Design Visual e Produção Digital",
+      "en": "Junior Web Designer — Visual Design & Digital Production"
+    },
+    "period": "Mai 2013 – Nov 2013",
+    "description": {
+      "pt": "Design visual e produção digital para empresa de venda direta. Criação de newsletters, catálogos digitais e peças promocionais.",
+      "en": "Visual design and digital production for a direct sales company. Creation of newsletters, digital catalogs, and promotional materials."
+    }
+  },
+  {
+    "company": "Hermes S.A.",
+    "role": {
+      "pt": "Estagiária de Web Design",
+      "en": "Web Design Intern"
+    },
+    "period": "Set 2012 – Mai 2013",
+    "description": {
+      "pt": "Produção de materiais digitais e apoio ao time de design na criação de peças para comunicação online e campanhas.",
+      "en": "Production of digital materials and support to the design team in creating assets for online communication and campaigns."
+    }
+  },
+  {
+    "company": "Up Selling",
+    "role": {
+      "pt": "Estagiária de Qualidade",
+      "en": "Quality Assurance Intern"
+    },
+    "period": "Mar 2012 – Set 2012",
+    "description": {
+      "pt": "Monitoria de qualidade no atendimento ao cliente e pesquisa de satisfação. Primeiro contato com análise de experiência do consumidor.",
+      "en": "Quality monitoring in customer service and satisfaction surveys. First exposure to consumer experience analysis."
+    }
   }
 ]

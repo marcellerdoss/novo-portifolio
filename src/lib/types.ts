@@ -43,4 +43,5 @@ export type BlogPost = {
   date: string;
   readingTime: number;
   coverImage?: string;
+  externalUrl?: string;
 };
