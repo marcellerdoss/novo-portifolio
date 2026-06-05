@@ -1,0 +1,196 @@
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import { routing } from '@/i18n/routing';
+import { ScrollProgress } from '@/components/ui/ScrollProgress';
+import { CaseLightbox } from '@/components/case/CaseLightbox';
+import { CaseScrollCanvas } from '@/components/case/CaseScrollCanvas';
+
+type Props = { params: Promise<{ locale: string }> };
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  return {
+    title: 'Sellbie — Métricas de Produto · Marcelle Rocha',
+    description:
+      'Estruturação de métricas de produto na Sellbie com o framework HEART — metas, sinais e objetivos definidos para cinco módulos do produto.',
+    openGraph: {
+      title: 'Sellbie — Métricas de Produto',
+      description:
+        'Framework HEART aplicado a cinco módulos da Sellbie — metas, sinais e objetivos de produto.',
+      locale: locale === 'en' ? 'en_US' : 'pt_BR',
+      type: 'article',
+    },
+  };
+}
+
+const ACCENT_BG   = 'var(--color-project-sellbie-metricas-bg)';
+const ACCENT_TEXT = 'var(--color-project-sellbie-metricas-text)';
+
+/* ─── Layout helpers ─────────────────────────────────────── */
+
+function Eyebrow({ children }: { children: React.ReactNode }) {
+  return <p className="type-caption text-fg-subtle mb-4">{children}</p>;
+}
+
+function SectionHeading({ children }: { children: React.ReactNode }) {
+  return <h2 className="type-headline text-fg mb-6">{children}</h2>;
+}
+
+function Body({ children }: { children: React.ReactNode }) {
+  return <p className="type-body text-fg-muted">{children}</p>;
+}
+
+function Divider() {
+  return <hr className="border-border" />;
+}
+
+/* ─── Page ───────────────────────────────────────────────── */
+
+export default async function SellbieMetricasPage() {
+  return (
+    <>
+      <ScrollProgress />
+
+      <div className="min-h-screen bg-bg">
+        {/* ── Case header ───────────────────────────────── */}
+        <header className="py-section px-6 border-b border-border">
+          <div className="max-w-5xl mx-auto">
+            <Link
+              href="/"
+              className="type-caption text-fg-subtle hover:text-fg transition-colors mb-10 inline-block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg rounded"
+            >
+              ← Todos os cases
+            </Link>
+
+            <div className="flex flex-wrap items-start gap-3 mb-8">
+              <span
+                className="type-caption rounded-full px-3 py-1.5 leading-none"
+                style={{ backgroundColor: ACCENT_BG, color: ACCENT_TEXT }}
+              >
+                Métricas de Produto
+              </span>
+              <span className="type-caption text-fg-subtle">2024</span>
+              <span className="type-caption text-fg-subtle">Sellbie</span>
+            </div>
+
+            <h1 className="type-display-lg text-fg mb-6">
+              Métricas<br />de produto
+            </h1>
+
+            <p className="type-body-lg text-fg-muted max-w-2xl">
+              Estruturação de métricas de produto para cinco módulos da
+              Sellbie usando o framework HEART — conectando cada dimensão
+              de qualidade a metas de negócio, sinais mensuráveis e
+              objetivos de produto rastreáveis.
+            </p>
+
+            <dl className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 pt-8 border-t border-border">
+              {[
+                { label: 'Papel', value: 'Product Designer' },
+                { label: 'Duração', value: '6 semanas' },
+                { label: 'Escopo', value: '5 módulos do produto' },
+                { label: 'Entregas', value: 'Framework · Documentação' },
+              ].map(({ label, value }) => (
+                <div key={label}>
+                  <dt className="type-caption text-fg-subtle mb-1">{label}</dt>
+                  <dd className="type-body-sm text-fg font-[480]">{value}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </header>
+
+        {/* ── Sections ──────────────────────────────────── */}
+        <article className="py-section px-6 space-y-24">
+          <div className="max-w-5xl mx-auto space-y-24">
+
+            {/* ── 1. A estrutura HEART ─────────────────── */}
+            <section className="space-y-8">
+              <div>
+                <Eyebrow>01 · Framework</Eyebrow>
+                <SectionHeading>A estrutura que conecta qualidade a resultado</SectionHeading>
+                <Body>
+                  O HEART organiza a qualidade de experiência em cinco
+                  dimensões — Happiness, Engagement, Adoption, Retention e
+                  Task Success. Para cada dimensão de cada módulo, definimos
+                  uma meta de produto, os sinais observáveis que indicam
+                  progresso e os objetivos concretos que tornam a meta
+                  mensurável. Sem essa estrutura, a equipe media o que era
+                  fácil medir, não o que importava.
+                </Body>
+              </div>
+
+              {/* [imagem: heart-estrutura] */}
+              <CaseLightbox
+                imageSrc="/images/cases/sellbie/metricas/sellbie-metricas-heart-estrutura-mae.png"
+                imageAlt="Framework HEART com cada métrica conectada a meta, sinal e objetivo"
+                caption="Framework HEART — cada métrica conectada a meta, sinal e objetivo de produto."
+                height={380}
+                accentBg={ACCENT_BG}
+                accentText={ACCENT_TEXT}
+              />
+            </section>
+
+            <Divider />
+
+            {/* ── 2. Os cinco módulos ───────────────────── */}
+            <section className="space-y-8">
+              <div>
+                <Eyebrow>02 · Aplicação</Eyebrow>
+                <SectionHeading>Cinco módulos com a mesma estrutura — resultados comparáveis</SectionHeading>
+                <Body>
+                  Aplicar o HEART a módulos diferentes com estruturas diferentes
+                  cria um problema de comparabilidade. A decisão foi manter
+                  exatamente o mesmo template para todos os cinco módulos —
+                  Campanhas, Jornadas, Contatos, Loja e Relatórios — de modo
+                  que o time de produto pudesse comparar dimensões equivalentes
+                  entre áreas distintas e priorizar investimentos com um
+                  critério comum.
+                </Body>
+              </div>
+
+              {/* [imagem: heart-modulos] */}
+              <CaseScrollCanvas
+                imageSrc="/images/cases/sellbie/metricas/sellbie-metricas-heart-modulos-lado-a-lado.png"
+                imageAlt="Cinco módulos com a mesma estrutura HEART lado a lado"
+                title="Cinco módulos com a mesma estrutura HEART"
+                containerHeight={340}
+                accentBg={ACCENT_BG}
+                accentText={ACCENT_TEXT}
+              />
+            </section>
+
+            <Divider />
+
+            {/* ── Resultado ─────────────────────────────── */}
+            <section className="space-y-6">
+              <Eyebrow>Resultado</Eyebrow>
+              <SectionHeading>Métricas que o time usa — não só documenta</SectionHeading>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {[
+                  { stat: '5', label: 'Módulos cobertos com a mesma estrutura HEART' },
+                  { stat: '3', label: 'Dimensões priorizadas no primeiro ciclo de OKRs' },
+                  { stat: '1 critério', label: 'Comum para priorização entre áreas diferentes' },
+                ].map(({ stat, label }) => (
+                  <div
+                    key={label}
+                    className="bg-bg-secondary border border-border rounded-[16px] p-8"
+                  >
+                    <p className="type-headline text-fg mb-2">{stat}</p>
+                    <p className="type-body-sm text-fg-muted">{label}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+          </div>
+        </article>
+      </div>
+    </>
+  );
+}
