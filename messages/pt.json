@@ -3,8 +3,8 @@
     "about": "Sobre",
     "cases": "Cases",
     "skills": "Skills",
-    "experience": "Experiência",
-    "blog": "Blog",
+    "experience": "Trajetória",
+    "blog": "Artigos",
     "contact": "Contato"
   },
   "common": {
@@ -17,21 +17,21 @@
     "present": "Presente"
   },
   "hero": {
-    "name": "Marcelle",
-    "role": "UX & Product Designer",
-    "subtitle": "Transformo pesquisa e estratégia em produtos digitais com impacto real.",
+    "name": "Marcelle Rocha",
+    "role": "Product Designer",
+    "subtitle": "Comportamento real. Produto estratégico.",
     "cta_primary": "Ver Cases",
     "cta_secondary": "Download CV"
   },
   "about": {
-    "title": "Sobre Mim",
-    "bio": "Sou UX & Product Designer com foco em resolver problemas complexos através de uma abordagem centrada no usuário. Combino pesquisa qualitativa, design estratégico e prototipagem para criar experiências que equilibram necessidades dos usuários com objetivos de negócio.",
+    "title": "Sobre",
+    "bio": "Trabalho com produtos digitais desde 2012. Comecei no web design, passei pelo marketing digital, fui para o UX e cheguei ao product design — não por acidente, mas porque cada etapa me deu uma camada diferente de entendimento sobre como as pessoas se relacionam com produtos digitais. Hoje minha atuação é estratégica: conecto pesquisa, comportamento do usuário e dados para orientar decisões de produto. Tenho especial interesse em plataformas complexas com IA, onde a experiência precisa ser ao mesmo tempo poderosa e compreensível.",
     "years_label": "Anos de experiência",
-    "projects_label": "Projetos entregues",
-    "markets_label": "Mercados atendidos",
-    "years_value": "5+",
-    "projects_value": "30+",
-    "markets_value": "3"
+    "projects_label": "Anos em E-commerce",
+    "markets_label": "Plataformas com IA",
+    "years_value": "13+",
+    "projects_value": "11+",
+    "markets_value": "2"
   },
   "cases": {
     "title": "Cases",
@@ -45,27 +45,27 @@
   },
   "skills": {
     "title": "Skills & Ferramentas",
-    "design": "Design",
+    "design": "UX/UI Design",
     "research": "Research",
-    "prototyping": "Prototipagem",
-    "handoff": "Handoff",
+    "strategy": "Estratégia",
+    "ai": "IA & Tecnologia",
     "soft": "Soft Skills"
   },
   "experience": {
-    "title": "Experiência",
+    "title": "Trajetória",
     "present": "Presente"
   },
   "blog": {
-    "title": "Blog",
-    "subtitle": "Reflexões sobre design, processo e produto.",
+    "title": "Artigos",
+    "subtitle": "Reflexões sobre UX, CX, produto e IA.",
     "see_all": "Ver todos os artigos",
     "min_read": "min de leitura",
     "search_placeholder": "Buscar artigos...",
     "filter_all": "Todos"
   },
   "contact": {
-    "title": "Vamos trabalhar juntos?",
-    "subtitle": "Aberta a projetos freelance, posições CLT e palestras sobre design e produto.",
+    "title": "Vamos nos conectar?",
+    "subtitle": "Disponível para oportunidades CLT, projetos freelance e palestras sobre UX, CX e produto.",
     "email": "E-mail",
     "linkedin": "LinkedIn",
     "behance": "Behance",
@@ -74,7 +74,7 @@
   },
   "footer": {
     "credit": "Designed & built by",
-    "quick_links": "Links rápidos",
+    "quick_links": "Navegação",
     "github_repo": "Ver repositório"
   }
 }

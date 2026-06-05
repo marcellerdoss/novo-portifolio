@@ -1,29 +1,62 @@
 [
   {
-    "company": "Empresa A",
-    "role": { "pt": "Senior UX Designer", "en": "Senior UX Designer" },
-    "period": "2023 – Presente",
+    "company": "Sellbie",
+    "role": {
+      "pt": "UX Strategy & Product Experience",
+      "en": "UX Strategy & Product Experience"
+    },
+    "period": "Fev 2026 – Presente",
     "description": {
-      "pt": "Liderança do time de design de produto (3 designers). Responsável pela estratégia de design, evolução do design system e pesquisa com usuários em projetos de alta complexidade para +2M de usuários.",
-      "en": "Leading the product design team (3 designers). Responsible for design strategy, design system evolution, and user research on high-complexity projects for 2M+ users."
+      "pt": "Pesquisa estratégica, mapeamento de oportunidades e validação de hipóteses com base em dados e comportamento do usuário. Redesenho de fluxos críticos e jornadas em plataforma de marketing multicanal com IA.",
+      "en": "Strategic research, opportunity mapping, and hypothesis validation based on data and user behavior. Redesign of critical flows and journeys on a multichannel AI marketing platform."
     }
   },
   {
-    "company": "Empresa B",
-    "role": { "pt": "UX Designer Pleno", "en": "Mid-level UX Designer" },
-    "period": "2021 – 2022",
+    "company": "Sellbie",
+    "role": {
+      "pt": "Product Designer — Redesign e Evolução do Core",
+      "en": "Product Designer — Redesign & Core Evolution"
+    },
+    "period": "Jan 2024 – Fev 2026",
     "description": {
-      "pt": "Design de produto para plataforma B2B SaaS com +10k usuários. Foco em research qualitativo, prototipagem e facilitação de workshops com stakeholders.",
-      "en": "Product design for a B2B SaaS platform with 10k+ users. Focus on qualitative research, prototyping, and stakeholder workshop facilitation."
+      "pt": "Redesign dos fluxos core, WhatsApp Oficial, automações com IA e biblioteca de templates para plataforma SaaS B2B de marketing multicanal para o varejo.",
+      "en": "Redesign of core flows, Official WhatsApp, AI automations, and template library for a B2B SaaS multichannel marketing platform for retail."
     }
   },
   {
-    "company": "Empresa C",
-    "role": { "pt": "UX/UI Designer", "en": "UX/UI Designer" },
-    "period": "2019 – 2021",
+    "company": "Jovens Gênios",
+    "role": {
+      "pt": "Product Designer — UX Research & Product Experience",
+      "en": "Product Designer — UX Research & Product Experience"
+    },
+    "period": "Ago 2022 – Jul 2024",
     "description": {
-      "pt": "Design de interfaces para clientes de e-commerce, edtech e healthtech. Entrega de fluxos de usuário, wireframes e protótipos de alta fidelidade.",
-      "en": "Interface design for e-commerce, edtech, and healthtech clients. Delivery of user flows, wireframes, and high-fidelity prototypes."
+      "pt": "Pesquisa com professores e coordenadores em escolas públicas e particulares. Estruturação de jornadas pedagógicas, redesign de fluxos de acesso e central de ajuda personalizada por perfil em EdTech B2B e B2Gov com IA.",
+      "en": "Research with teachers and coordinators in public and private schools. Structuring pedagogical journeys, redesigning access flows, and a personalized help center by profile in a B2B and B2Gov EdTech with AI."
+    }
+  },
+  {
+    "company": "Americanas S.A.",
+    "role": {
+      "pt": "Analista de Marketing Sênior — CX & Experiência Digital",
+      "en": "Senior Marketing Analyst — CX & Digital Experience"
+    },
+    "period": "Dez 2019 – Nov 2021",
+    "description": {
+      "pt": "Experiência do consumidor em Cross Border (Americanas Mundo) e Logística Reversa (Soub!). Análise de jornada, estratégia de conteúdo e apoio ao desenvolvimento do novo app Soub!",
+      "en": "Consumer experience in Cross Border (Americanas Mundo) and Reverse Logistics (Soub!). Journey analysis, content strategy, and support for the new Soub! app development."
+    }
+  },
+  {
+    "company": "Americanas S.A.",
+    "role": {
+      "pt": "Web Designer Sênior — Experiência Digital para E-commerce",
+      "en": "Senior Web Designer — Digital Experience for E-commerce"
+    },
+    "period": "Fev 2017 – Dez 2019",
+    "description": {
+      "pt": "Interfaces e campanhas digitais para e-commerce. Hotsites e e-mails em HTML, campanhas sazonais e Black Friday para desktop, mobile e app.",
+      "en": "Digital interfaces and campaigns for e-commerce. HTML hotsites and emails, seasonal campaigns, and Black Friday for desktop, mobile, and app."
     }
   }
 ]

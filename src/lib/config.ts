@@ -1,11 +1,11 @@
 export const siteConfig = {
-  name: 'Marcelle',
-  role: 'UX & Product Designer',
+  name: 'Marcelle Rocha',
+  role: 'Product Designer',
   contact: {
     email: 'marcelle.rdoss@gmail.com',
-    linkedin: 'https://linkedin.com/in/marcelle',
-    behance: 'https://behance.net/marcelle',
-    github: 'https://github.com/marcelle',
+    linkedin: 'https://linkedin.com/in/marcelle-rocha-dos-santos',
+    behance: '',
+    github: '',
     dribbble: '',
   },
   cv: {
@@ -15,9 +15,9 @@ export const siteConfig = {
   about: {
     photo: '/images/profile.jpg',
     stats: {
-      years: '5+',
-      projects: '30+',
-      markets: '3',
+      years: '13+',
+      projects: '11+',
+      markets: '2',
     },
   },
 };

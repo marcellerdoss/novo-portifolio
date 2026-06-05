@@ -67,6 +67,31 @@
   --fg-muted: #333333;
   --fg-subtle: #7a7a7a;
   --border-token: #e0e0e0;
+  
+/* Tokens de cor por projeto */
+--color-project-sellbie-redesign-bg:   #c5b0f4;
+--color-project-sellbie-redesign-text: #000000;
+
+--color-project-sellbie-jornadas-bg:   #dceeb1;
+--color-project-sellbie-jornadas-text: #000000;
+
+--color-project-sellbie-arq-info-bg:   #c8e6cd;
+--color-project-sellbie-arq-info-text: #000000;
+
+--color-project-sellbie-metricas-bg:   #f4ecd6;
+--color-project-sellbie-metricas-text: #000000;
+
+--color-project-sellbie-crm-bg:        #efd4d4;
+--color-project-sellbie-crm-text:      #000000;
+
+--color-project-sellbie-cashback-bg:   #f3c9b6;
+--color-project-sellbie-cashback-text: #000000;
+
+--color-project-jg-alfabetizacao-bg:   #dceeb1;
+--color-project-jg-alfabetizacao-text: #000000;
+
+--color-project-jg-central-ajuda-bg:   #c8e6cd;
+--color-project-jg-central-ajuda-text: #000000;
 }
 
 .dark {
