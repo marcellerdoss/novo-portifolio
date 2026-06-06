@@ -12,9 +12,58 @@ type Props = { posts: BlogPost[] };
 function formatDate(dateStr: string, locale: string) {
   return new Date(dateStr).toLocaleDateString(locale === 'pt' ? 'pt-BR' : 'en-US', {
     year: 'numeric',
-    month: 'long',
+    month: 'short',
     day: 'numeric',
   });
+}
+
+function ArticleCard({ post, locale, t }: { post: BlogPost; locale: string; t: ReturnType<typeof useTranslations> }) {
+  const inner = (
+    <div className="group flex flex-col h-full rounded-[16px] bg-bg border border-black/10 p-6 transition-all duration-200 hover:-translate-y-1 hover:border-black/20 hover:shadow-[0_4px_20px_rgba(0,0,0,0.07)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg">
+      {/* Category */}
+      <span className="type-caption text-fg-muted mb-4 inline-block">
+        {post.category}
+      </span>
+
+      {/* Title */}
+      <h3 className="type-body-strong text-fg mb-3 leading-snug flex-1">
+        {post.title}
+      </h3>
+
+      {/* Excerpt */}
+      <p className="type-body-sm text-fg-muted line-clamp-3 mb-6">
+        {post.excerpt}
+      </p>
+
+      {/* Footer */}
+      <div className="flex items-center justify-between gap-2 type-caption text-fg-muted mt-auto">
+        <div className="flex items-center gap-2">
+          <time dateTime={post.date}>{formatDate(post.date, locale)}</time>
+          <span aria-hidden="true">·</span>
+          <span>{post.readingTime} {t('min_read')}</span>
+        </div>
+        <ArrowUpRight
+          size={14}
+          aria-hidden="true"
+          className="shrink-0 text-fg-muted group-hover:text-fg transition-colors"
+        />
+      </div>
+    </div>
+  );
+
+  if (post.externalUrl) {
+    return (
+      <a href={post.externalUrl} target="_blank" rel="noopener noreferrer" className="block h-full">
+        {inner}
+      </a>
+    );
+  }
+
+  return (
+    <Link href={`/blog/${post.slug}`} className="block h-full">
+      {inner}
+    </Link>
+  );
 }
 
 export function BlogPreview({ posts }: Props) {
@@ -52,71 +101,22 @@ export function BlogPreview({ posts }: Props) {
             </a>
           </div>
 
-          {/* Editorial article rows */}
+          {/* Cards grid */}
           {posts.length === 0 ? (
-            <p className="type-body text-fg-muted border-t border-black/15 pt-6">{t('subtitle')}</p>
+            <p className="type-body text-fg-muted">{t('subtitle')}</p>
           ) : (
             <motion.div
               variants={stagger}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.1 }}
-              className="border-t border-black/15"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
             >
-              {posts.map((post) => {
-                const rowClass =
-                  'group grid grid-cols-[80px_1fr_24px] md:grid-cols-[120px_1fr_24px] gap-4 md:gap-8 py-6 border-b border-black/15 transition-opacity duration-150 hover:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg rounded';
-
-                const inner = (
-                  <>
-                    {/* Category — margin column */}
-                    <span className="type-caption text-fg-muted pt-0.5 leading-snug">
-                      {post.category}
-                    </span>
-
-                    {/* Content */}
-                    <div>
-                      <h3 className="type-body-strong text-fg mb-1.5">
-                        {post.title}
-                      </h3>
-                      <p className="type-body-sm text-fg-muted line-clamp-2 mb-3">
-                        {post.excerpt}
-                      </p>
-                      <div className="flex items-center gap-3 type-caption text-fg-muted">
-                        <time dateTime={post.date}>{formatDate(post.date, locale)}</time>
-                        <span aria-hidden="true">·</span>
-                        <span>{post.readingTime} {t('min_read')}</span>
-                      </div>
-                    </div>
-
-                    {/* Arrow */}
-                    <ArrowUpRight
-                      size={16}
-                      aria-hidden="true"
-                      className="mt-0.5 shrink-0 text-fg-muted group-hover:text-fg transition-colors"
-                    />
-                  </>
-                );
-
-                return (
-                  <motion.article key={post.slug} variants={fadeInUp}>
-                    {post.externalUrl ? (
-                      <a
-                        href={post.externalUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={rowClass}
-                      >
-                        {inner}
-                      </a>
-                    ) : (
-                      <Link href={`/blog/${post.slug}`} className={rowClass}>
-                        {inner}
-                      </Link>
-                    )}
-                  </motion.article>
-                );
-              })}
+              {posts.map((post) => (
+                <motion.article key={post.slug} variants={fadeInUp} className="h-full">
+                  <ArticleCard post={post} locale={locale} t={t} />
+                </motion.article>
+              ))}
             </motion.div>
           )}
 
