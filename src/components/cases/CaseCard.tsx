@@ -52,7 +52,7 @@ export function CaseCard({
         aria-hidden="true"
       >
         <p className="type-caption text-fg-subtle">{category}</p>
-        <p className="type-body-sm text-fg font-[480] truncate">{title}</p>
+        <p className="type-body-strong text-fg truncate">{title}</p>
       </div>
 
       {/* Hover panel — slides up from below */}

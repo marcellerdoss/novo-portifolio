@@ -52,7 +52,7 @@ export function CaseCardCompact({
         aria-hidden="true"
       >
         <p className="type-caption text-fg-subtle">{category}</p>
-        <p className="type-body-sm text-fg font-[480] truncate">{title}</p>
+        <p className="type-body-strong text-fg truncate">{title}</p>
       </div>
 
       {/* Hover panel — slides up from below */}
@@ -66,7 +66,7 @@ export function CaseCardCompact({
             {label}
           </span>
         </div>
-        <p className="type-body-sm text-fg font-[480] mb-2">{title}</p>
+        <p className="type-body-strong text-fg mb-2">{title}</p>
         <div className="flex flex-wrap gap-1 mb-2">
           {tags.map((tag) => (
             <span
