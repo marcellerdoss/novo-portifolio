@@ -39,7 +39,7 @@ export function Skills() {
     <section
       id="skills"
       aria-labelledby="skills-heading"
-      className="py-section bg-block-lime"
+      className="py-section bg-block-mint"
     >
       <div className="max-w-6xl mx-auto px-6">
         <motion.h2
