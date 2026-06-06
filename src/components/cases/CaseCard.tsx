@@ -40,7 +40,7 @@ export function CaseCard({
           alt={imageAlt}
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
-          className="object-cover object-top"
+          className="object-cover object-left-top"
         />
 
         {/* Company badge */}

@@ -39,7 +39,7 @@ export function CaseCardCompact({
           alt={imageAlt}
           fill
           sizes="(max-width: 640px) 50vw, 25vw"
-          className="object-cover object-top"
+          className="object-cover object-left-top"
         />
 
         {/* Company badge */}
