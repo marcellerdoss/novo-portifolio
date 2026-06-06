@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { ChevronRight } from 'lucide-react';
 import { fadeInUp, stagger } from '@/lib/animations';
 
 const phases = [
@@ -58,6 +59,16 @@ const phases = [
   },
 ];
 
+function RowDivider({ label }: { label: string }) {
+  return (
+    <div className="flex items-center gap-3">
+      <span className="type-caption text-fg-subtle whitespace-nowrap">{label}</span>
+      <div className="flex-1 border-t border-dashed border-border" />
+      <ChevronRight size={12} className="text-fg-subtle flex-shrink-0" />
+    </div>
+  );
+}
+
 export function Racional() {
   return (
     <section
@@ -65,7 +76,7 @@ export function Racional() {
       aria-labelledby="racional-heading"
       className="py-section bg-bg border-t border-border"
     >
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-6 space-y-6">
 
         <motion.h2
           variants={fadeInUp}
@@ -73,32 +84,29 @@ export function Racional() {
           whileInView="visible"
           viewport={{ once: true }}
           id="racional-heading"
-          className="type-display-lg text-fg mb-xxl"
+          className="type-display-lg text-fg"
         >
           Racional
         </motion.h2>
 
-        {/* Design Journey label — desktop only */}
-        <div className="hidden lg:flex items-center gap-3 mb-6">
-          <div className="flex-1 border-t border-dashed border-border" />
-          <span className="type-caption text-fg-subtle">Design Journey</span>
-          <div className="flex-1 border-t border-dashed border-border" />
-        </div>
+        {/* ── Design Journey row label ── */}
+        <RowDivider label="Design Journey" />
 
+        {/* ── Journey cards ── */}
         <motion.div
           variants={stagger}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-5"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
         >
-          {phases.map(({ num, type, title, journeyCard, processCard }) => (
+          {phases.map(({ num, type, title, journeyCard }) => (
             <motion.div key={num} variants={fadeInUp} className="flex flex-col gap-4">
 
               {/* Phase header */}
               <div className="flex items-start gap-3">
                 <div
-                  className="w-7 h-7 bg-fg text-bg flex items-center justify-center rounded-sm flex-shrink-0 type-caption"
+                  className="w-7 h-7 bg-block-navy text-white flex items-center justify-center rounded-sm flex-shrink-0 type-caption"
                   aria-hidden="true"
                 >
                   {num}
@@ -111,26 +119,35 @@ export function Racional() {
 
               {/* Journey card */}
               <div className="rounded-xl border border-border p-4 bg-bg flex-1">
-                <p className="type-body-sm text-fg font-[480] mb-1.5">{journeyCard.title}</p>
+                <p className="type-body-sm text-fg font-bold mb-1.5">{journeyCard.title}</p>
                 <p className="type-body-sm text-fg-muted leading-relaxed">{journeyCard.text}</p>
-              </div>
-
-              {/* Como trabalho divider */}
-              <div className="flex items-center gap-2">
-                <div className="flex-1 border-t border-dashed border-border" />
-                <span className="type-caption text-fg-subtle whitespace-nowrap">Como trabalho</span>
-                <div className="flex-1 border-t border-dashed border-border" />
-              </div>
-
-              {/* Process card */}
-              <div className="rounded-xl border border-border p-4 bg-surface-soft flex-1">
-                <p className="type-body-sm text-fg font-[480] mb-1.5">{processCard.title}</p>
-                <p className="type-body-sm text-fg-muted leading-relaxed">{processCard.text}</p>
               </div>
 
             </motion.div>
           ))}
         </motion.div>
+
+        {/* ── Como trabalho row label — full width, once ── */}
+        <RowDivider label="Como trabalho" />
+
+        {/* ── Process cards ── */}
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
+        >
+          {phases.map(({ num, processCard }) => (
+            <motion.div key={num} variants={fadeInUp}>
+              <div className="rounded-xl border border-border p-4 bg-surface-soft">
+                <p className="type-body-sm text-fg font-bold mb-1.5">{processCard.title}</p>
+                <p className="type-body-sm text-fg-muted leading-relaxed">{processCard.text}</p>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+
       </div>
     </section>
   );
