@@ -15,38 +15,43 @@ export function Hero() {
     <section
       id="home"
       aria-label="Apresentação"
-      className="relative min-h-screen flex flex-col items-center justify-center px-6 bg-bg"
+      className="relative min-h-screen flex flex-col px-6 bg-bg pt-32 pb-16"
     >
       <motion.div
-        className="max-w-5xl mx-auto text-center"
+        className="max-w-6xl mx-auto w-full flex-1 flex flex-col justify-center"
         variants={stagger}
         initial="hidden"
         animate="visible"
       >
+        {/* Role label — eyebrow */}
         <motion.p
           variants={fadeInUp}
-          className="type-body-lg text-fg-muted mb-6"
+          className="type-caption text-fg-muted mb-14"
         >
           {t('role')}
         </motion.p>
 
-        <motion.h1
-          variants={fadeInUp}
-          className="type-display-xl text-fg mb-6"
-        >
-          {t('name')}
-        </motion.h1>
+        {/* Name + Tagline — agrupados */}
+        <div className="mb-12">
+          <motion.p
+            variants={fadeInUp}
+            className="type-body-sm text-fg-muted mb-3"
+          >
+            {t('name')}
+          </motion.p>
 
-        <motion.p
-          variants={fadeInUp}
-          className="text-[clamp(2.25rem,5.5vw,5.375rem)] font-[340] leading-[1.05] tracking-[-1.5px] text-accent-magenta mb-10"
-        >
-          {t('subtitle')}
-        </motion.p>
+          <motion.h1
+            variants={fadeInUp}
+            className="text-[clamp(2.75rem,8vw,6.5rem)] font-bold leading-[1.0] tracking-[-2.5px] text-fg"
+          >
+            {t('subtitle')}
+          </motion.h1>
+        </div>
 
+        {/* CTAs */}
         <motion.div
           variants={fadeInUp}
-          className="flex flex-wrap items-center justify-center gap-4"
+          className="flex flex-wrap items-center gap-4"
         >
           <Button
             onClick={() =>
@@ -67,7 +72,7 @@ export function Hero() {
 
       {/* Scroll indicator */}
       <motion.div
-        className="absolute bottom-10 flex flex-col items-center text-fg-subtle"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center text-fg-subtle"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.6 }}

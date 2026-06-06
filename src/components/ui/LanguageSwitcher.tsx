@@ -16,7 +16,7 @@ export function LanguageSwitcher({ ariaLabel = 'Mudar idioma' }: Props) {
         <span key={lang} className="flex items-center">
           {i > 0 && (
             <span className="type-caption text-fg-subtle mx-1" aria-hidden="true">
-              |
+              ·
             </span>
           )}
           <Link
