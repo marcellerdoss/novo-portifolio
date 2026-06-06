@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 import fs from 'fs';
 import path from 'path';
 import { Link } from '@/i18n/navigation';
@@ -41,7 +41,7 @@ const ACCENT_BG   = 'var(--color-project-sellbie-jornadas-bg)';
 const ACCENT_TEXT = 'var(--color-project-sellbie-jornadas-text)';
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
-  return <p className="type-caption text-fg-subtle mb-4">{children}</p>;
+  return <p className="type-caption text-block-navy mb-4">{children}</p>;
 }
 function SectionHeading({ children }: { children: React.ReactNode }) {
   return <h2 className="type-headline text-fg mb-6">{children}</h2>;

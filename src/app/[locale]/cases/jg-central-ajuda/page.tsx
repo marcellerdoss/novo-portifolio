@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 import fs from 'fs';
 import path from 'path';
 import { Link } from '@/i18n/navigation';
@@ -42,7 +42,7 @@ const ACCENT_TEXT = 'var(--color-project-jg-central-ajuda-text)';
 /* ─── Layout helpers ─────────────────────────────────────── */
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
-  return <p className="type-caption text-fg-subtle mb-4">{children}</p>;
+  return <p className="type-caption text-block-navy mb-4">{children}</p>;
 }
 
 function SectionHeading({ children }: { children: React.ReactNode }) {
