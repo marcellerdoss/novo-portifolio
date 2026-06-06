@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useTranslations, useLocale } from 'next-intl';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Download } from 'lucide-react';
 import { Button, LinkButton } from '@/components/ui/Button';
 import { fadeInUp, stagger } from '@/lib/animations';
 import { siteConfig } from '@/lib/config';
@@ -60,7 +60,7 @@ export function Hero() {
             variant="secondary"
             download="CV-Marcelle.pdf"
           >
-            {t('cta_secondary')}
+            {t('cta_secondary')} <Download size={16} aria-hidden="true" />
           </LinkButton>
         </motion.div>
       </motion.div>
