@@ -12,19 +12,19 @@ const base =
 
 const variants: Record<Variant, string> = {
   primary:
-    'bg-primary text-on-primary rounded-pill active:scale-95 hover:opacity-90',
+    'bg-primary text-on-primary rounded-pill hover:opacity-85 active:scale-[0.97]',
   secondary:
-    'border border-fg/30 text-fg rounded-pill bg-transparent active:scale-95 hover:bg-fg/5',
+    'border border-black/15 text-fg rounded-pill bg-transparent hover:border-black/40 active:scale-[0.97]',
   ghost:
-    'text-fg-muted hover:text-fg bg-transparent rounded-sm active:scale-95',
+    'text-fg bg-transparent rounded-full hover:underline underline-offset-4',
   icon:
-    'w-11 h-11 rounded-full bg-fg/10 text-fg hover:bg-fg/20 active:scale-95',
+    'w-10 h-10 rounded-full bg-surface-soft text-fg hover:bg-fg/10 active:scale-95',
 };
 
 const sizes: Record<Size, string> = {
-  sm: 'px-4 py-2 type-body-sm',
-  md: 'px-[22px] py-[11px] type-button',
-  lg: 'px-7 py-3.5 type-button',
+  sm: 'px-5 py-2 type-body-sm',
+  md: 'px-5 py-[10px] type-button',
+  lg: 'px-7 py-[14px] type-button',
 };
 
 export function buttonVariants({

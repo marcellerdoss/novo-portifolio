@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Globe, MessageCircle } from 'lucide-react';
+import { Button } from '@/components/ui/Button';
 import { fadeInUp, stagger } from '@/lib/animations';
 import { siteConfig } from '@/lib/config';
 
@@ -52,12 +53,9 @@ function ContactForm({ email }: { email: string }) {
         onChange={(e) => setMessage(e.target.value)}
         className={`${inputClass} resize-none`}
       />
-      <button
-        type="submit"
-        className="self-start bg-primary text-on-primary type-body-strong rounded-pill px-6 py-3 transition-opacity duration-150 hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg"
-      >
+      <Button type="submit" className="self-start">
         Enviar mensagem
-      </button>
+      </Button>
     </form>
   );
 }
