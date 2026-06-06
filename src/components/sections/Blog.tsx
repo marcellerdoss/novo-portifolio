@@ -40,7 +40,7 @@ export function BlogPreview({ posts }: Props) {
             <p className="type-body text-fg-muted mt-2">{t('subtitle')}</p>
           </motion.div>
 
-          <LinkButton href="/blog" variant="ghost" className="shrink-0 hidden sm:flex">
+          <LinkButton href="https://medium.com/@marcelle.rdoss" variant="ghost" external className="shrink-0 hidden sm:flex">
             {t('see_all')} <ArrowRight size={16} aria-hidden="true" />
           </LinkButton>
         </div>
@@ -98,7 +98,7 @@ export function BlogPreview({ posts }: Props) {
         )}
 
         <div className="sm:hidden text-center">
-          <LinkButton href="/blog" variant="secondary">
+          <LinkButton href="https://medium.com/@marcelle.rdoss" variant="secondary" external>
             {t('see_all')}
           </LinkButton>
         </div>
