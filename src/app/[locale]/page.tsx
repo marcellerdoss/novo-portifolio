@@ -4,6 +4,7 @@ import { MarqueeStrip } from '@/components/sections/MarqueeStrip';
 import { About } from '@/components/sections/About';
 import { CasesSection } from '@/components/sections/Cases';
 import { Skills } from '@/components/sections/Skills';
+import { Racional } from '@/components/sections/Racional';
 import { Experience } from '@/components/sections/Experience';
 import { BlogPreview } from '@/components/sections/Blog';
 import { Contact } from '@/components/sections/Contact';
@@ -78,6 +79,7 @@ export default async function Home({ params }: Props) {
       <CasesSection cases={cases} />
       <BlogPreview posts={posts.slice(0, 3)} />
       <Skills />
+      <Racional />
       <Experience items={experience} />
       <Contact />
     </>

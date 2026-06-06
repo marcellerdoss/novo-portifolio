@@ -1,10 +1,17 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import fs from 'fs';
+import path from 'path';
+import { Link } from '@/i18n/navigation';
+import { MDXRemote } from 'next-mdx-remote/rsc';
 import { routing } from '@/i18n/routing';
 import { ScrollProgress } from '@/components/ui/ScrollProgress';
 import { CaseHero } from '@/components/case/CaseHero';
 import { CaseBento } from '@/components/case/CaseBento';
 import { CaseLightbox } from '@/components/case/CaseLightbox';
+import { CasePageShell } from '@/components/case/CasePageShell';
+import { CaseEditorialWrapper } from '@/components/case/CaseEditorialWrapper';
+import { getCaseNav } from '@/lib/casesConfig';
+import { CaseOverviewLayout } from '@/components/case/CaseOverviewLayout';
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -52,16 +59,39 @@ function Divider() {
 /* ─── Page ───────────────────────────────────────────────── */
 
 export default async function SellbieCashbackPage() {
+  const { prev, next } = getCaseNav('sellbie-cashback');
+
+  const mdPath = path.join(process.cwd(), 'docs', 'cases', 'sellbie-cashback.md');
+  const mdSource = fs.existsSync(mdPath)
+    ? fs.readFileSync(mdPath, 'utf8').replace(/\]\(\.\.\/\.\.\//g, '](/')
+    : '';
+
+  const detailedContent = (
+    <CaseEditorialWrapper
+      sidebar={[
+        { label: 'Empresa', content: 'Sellbie' },
+        { label: 'Período', content: '2024' },
+        { label: 'Papel', content: 'Product Designer' },
+        { label: 'Usuários', content: 'Comercial · Financeiro · CS' },
+        { label: 'Métodos', content: 'Discovery · Entrevistas · Relatórios' },
+        { label: 'Entregas', content: 'ROAS operacional · Precificação · Handoff' },
+      ]}
+    >
+      {mdSource ? <MDXRemote source={mdSource} /> : <p>Conteúdo detalhado em breve.</p>}
+    </CaseEditorialWrapper>
+  );
+
   return (
     <>
       <ScrollProgress />
 
-      <div className="min-h-screen bg-bg">
+      <CasePageShell detailedContent={detailedContent} prevCase={prev} nextCase={next}>
+        <div className="min-h-screen bg-bg">
         {/* ── Case header ───────────────────────────────── */}
         <header className="py-section px-6 border-b border-border">
           <div className="max-w-5xl mx-auto">
             <Link
-              href="/"
+              href="/#cases"
               className="type-caption text-fg-subtle hover:text-fg transition-colors mb-10 inline-block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg rounded"
             >
               ← Todos os cases
@@ -97,10 +127,9 @@ export default async function SellbieCashbackPage() {
               ))}
             </div>
 
-            <dl className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 pt-8 border-t border-border">
+            <dl className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-12 pt-8 border-t border-border">
               {[
                 { label: 'Papel', value: 'Product Designer' },
-                { label: 'Duração', value: '10 semanas' },
                 { label: 'Usuários', value: 'Comercial · Financeiro · CS' },
                 { label: 'Entregas', value: 'Discovery · Relatórios · Handoff' },
               ].map(({ label, value }) => (
@@ -114,8 +143,16 @@ export default async function SellbieCashbackPage() {
         </header>
 
         {/* ── Sections ──────────────────────────────────── */}
-        <article className="py-section px-6 space-y-24">
-          <div className="max-w-5xl mx-auto space-y-24">
+        <CaseOverviewLayout
+          sidebar={[
+            { label: 'Empresa', content: 'Sellbie' },
+            { label: 'Período', content: '2024' },
+            { label: 'Papel', content: 'Product Designer' },
+            { label: 'Usuários', content: 'Comercial · Financeiro · CS' },
+            { label: 'Métodos', content: 'Discovery · Entrevistas · Relatórios' },
+            { label: 'Entregas', content: 'ROAS operacional · Precificação · Handoff' },
+          ]}
+        >
 
             {/* ── 1. Discovery ─────────────────────────── */}
             <section className="space-y-8">
@@ -264,7 +301,7 @@ export default async function SellbieCashbackPage() {
                 ].map(({ stat, label }) => (
                   <div
                     key={label}
-                    className="bg-bg-secondary border border-border rounded-[16px] p-8"
+                    className="bg-block-mint border border-border rounded-[16px] p-8"
                   >
                     <p className="type-headline text-fg mb-2">{stat}</p>
                     <p className="type-body-sm text-fg-muted">{label}</p>
@@ -273,9 +310,9 @@ export default async function SellbieCashbackPage() {
               </div>
             </section>
 
-          </div>
-        </article>
+        </CaseOverviewLayout>
       </div>
+      </CasePageShell>
     </>
   );
 }

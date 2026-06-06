@@ -1,11 +1,18 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import fs from 'fs';
+import path from 'path';
+import { Link } from '@/i18n/navigation';
+import { MDXRemote } from 'next-mdx-remote/rsc';
 import { routing } from '@/i18n/routing';
 import { ScrollProgress } from '@/components/ui/ScrollProgress';
 import { CaseHero } from '@/components/case/CaseHero';
 import { CaseBento } from '@/components/case/CaseBento';
 import { CaseEditorial } from '@/components/case/CaseEditorial';
 import { CaseBeforeAfter } from '@/components/case/CaseBeforeAfter';
+import { CasePageShell } from '@/components/case/CasePageShell';
+import { CaseEditorialWrapper } from '@/components/case/CaseEditorialWrapper';
+import { getCaseNav } from '@/lib/casesConfig';
+import { CaseOverviewLayout } from '@/components/case/CaseOverviewLayout';
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -53,16 +60,39 @@ function Divider() {
 /* ─── Page ───────────────────────────────────────────────── */
 
 export default async function JgCentralAjudaPage() {
+  const { prev, next } = getCaseNav('jg-central-ajuda');
+
+  const mdPath = path.join(process.cwd(), 'docs', 'cases', 'jg-central-ajuda.md');
+  const mdSource = fs.existsSync(mdPath)
+    ? fs.readFileSync(mdPath, 'utf8').replace(/\]\(\.\.\/\.\.\//g, '](/')
+    : '';
+
+  const detailedContent = (
+    <CaseEditorialWrapper
+      sidebar={[
+        { label: 'Empresa', content: 'Jovens Gênios' },
+        { label: 'Período', content: 'ago 2022 – jul 2024' },
+        { label: 'Papel', content: 'Product Designer' },
+        { label: 'Plataforma', content: 'EdTech · B2C · B2B' },
+        { label: 'Métodos', content: 'Arquitetura de Informação · Benchmarking · Personalização por perfil' },
+        { label: 'Entregas', content: 'Navegação por perfil · Busca filtrada · Empty states · Handoff' },
+      ]}
+    >
+      {mdSource ? <MDXRemote source={mdSource} /> : <p>Conteúdo detalhado em breve.</p>}
+    </CaseEditorialWrapper>
+  );
+
   return (
     <>
       <ScrollProgress />
 
-      <div className="min-h-screen bg-bg">
+      <CasePageShell detailedContent={detailedContent} prevCase={prev} nextCase={next}>
+        <div className="min-h-screen bg-bg">
         {/* ── Case header ───────────────────────────────── */}
         <header className="py-section px-6 border-b border-border">
           <div className="max-w-5xl mx-auto">
             <Link
-              href="/"
+              href="/#cases"
               className="type-caption text-fg-subtle hover:text-fg transition-colors mb-10 inline-block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg rounded"
             >
               ← Todos os cases
@@ -99,10 +129,9 @@ export default async function JgCentralAjudaPage() {
               ))}
             </div>
 
-            <dl className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 pt-8 border-t border-border">
+            <dl className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-12 pt-8 border-t border-border">
               {[
                 { label: 'Papel', value: 'Product Designer' },
-                { label: 'Duração', value: '6 semanas' },
                 { label: 'Perfis', value: 'Educadores · Exploradores · Responsáveis' },
                 { label: 'Entregas', value: 'UX · UI · Handoff' },
               ].map(({ label, value }) => (
@@ -116,8 +145,16 @@ export default async function JgCentralAjudaPage() {
         </header>
 
         {/* ── Sections ──────────────────────────────────── */}
-        <article className="py-section px-6 space-y-24">
-          <div className="max-w-5xl mx-auto space-y-24">
+        <CaseOverviewLayout
+          sidebar={[
+            { label: 'Empresa', content: 'Jovens Gênios' },
+            { label: 'Período', content: 'ago 2022 – jul 2024' },
+            { label: 'Papel', content: 'Product Designer' },
+            { label: 'Contexto', content: 'EdTech · B2C · B2B' },
+            { label: 'Métodos', content: 'Arquitetura de Informação · Benchmarking · Personalização por perfil' },
+            { label: 'Entregas', content: 'Navegação por perfil · Busca filtrada · Empty states · Handoff' },
+          ]}
+        >
 
             {/* ── 1. Página inicial ────────────────────── */}
             <section className="space-y-8">
@@ -289,7 +326,7 @@ export default async function JgCentralAjudaPage() {
                 ].map(({ stat, label }) => (
                   <div
                     key={label}
-                    className="bg-bg-secondary border border-border rounded-[16px] p-8"
+                    className="bg-block-mint border border-border rounded-[16px] p-8"
                   >
                     <p className="type-headline text-fg mb-2">{stat}</p>
                     <p className="type-body-sm text-fg-muted">{label}</p>
@@ -298,9 +335,9 @@ export default async function JgCentralAjudaPage() {
               </div>
             </section>
 
-          </div>
-        </article>
+        </CaseOverviewLayout>
       </div>
+      </CasePageShell>
     </>
   );
 }

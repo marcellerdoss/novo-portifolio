@@ -73,7 +73,7 @@ export function Skills() {
                   <motion.span
                     key={skill}
                     variants={fadeInUp}
-                    className="type-body-sm text-fg-muted bg-white/60 border border-black/10 rounded-pill px-3 py-1.5"
+                    className="type-caption text-fg-subtle border border-border rounded-full px-3 py-1.5 leading-none"
                   >
                     {skill}
                   </motion.span>

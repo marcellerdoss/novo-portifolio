@@ -66,7 +66,7 @@ export function CaseCardCompact({
           {tags.map((tag) => (
             <span
               key={tag}
-              className="type-caption text-fg-subtle border-[0.5px] border-border rounded-full px-2 py-1"
+              className="type-caption text-fg-subtle border border-border rounded-full px-3 py-1.5 leading-none"
             >
               {tag}
             </span>
