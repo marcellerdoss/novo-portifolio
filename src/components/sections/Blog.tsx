@@ -20,7 +20,7 @@ function ArticleCard({ post, locale, t }: { post: BlogPost; locale: string; t: R
   const inner = (
     <div className="group flex flex-col h-full rounded-[16px] bg-surface-soft border border-black/10 p-6 transition-all duration-200 hover:-translate-y-1 hover:border-black/20 hover:shadow-[0_4px_20px_rgba(0,0,0,0.07)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg">
       {/* Category */}
-      <span className="type-caption text-fg-muted mb-4 inline-block">
+      <span className="type-caption text-accent-magenta mb-4 inline-block">
         {post.category}
       </span>
 
@@ -93,9 +93,9 @@ export function BlogPreview({ posts }: Props) {
               href="https://medium.com/@marcelle.rdoss"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:inline-flex items-center gap-2 type-body-sm text-fg shrink-0 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg rounded"
+              className="hidden sm:inline-flex items-center gap-1.5 type-caption text-accent-magenta shrink-0 hover:underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg rounded"
             >
-              {t('see_all')} <ArrowUpRight size={14} aria-hidden="true" />
+              {t('see_all')} <ArrowUpRight size={12} aria-hidden="true" />
             </a>
           </div>
 
@@ -124,9 +124,9 @@ export function BlogPreview({ posts }: Props) {
               href="https://medium.com/@marcelle.rdoss"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 type-body-sm text-fg hover:underline"
+              className="inline-flex items-center gap-1.5 type-caption text-accent-magenta hover:underline underline-offset-2"
             >
-              {t('see_all')} <ArrowUpRight size={14} aria-hidden="true" />
+              {t('see_all')} <ArrowUpRight size={12} aria-hidden="true" />
             </a>
           </div>
 

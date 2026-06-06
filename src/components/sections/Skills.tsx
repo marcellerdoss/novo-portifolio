@@ -62,7 +62,7 @@ export function Skills() {
         >
           {categories.map(({ key, items }) => (
             <motion.div key={key} variants={fadeInUp}>
-              <h3 className="type-caption text-fg mb-4">
+              <h3 className="type-caption text-accent-magenta mb-4">
                 {t(key)}
               </h3>
               <motion.div

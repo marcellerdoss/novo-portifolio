@@ -74,7 +74,7 @@ export function CaseCard({
             </span>
           ))}
         </div>
-        <div className="mt-auto inline-flex items-center gap-1.5 type-caption text-fg-muted">
+        <div className="mt-auto inline-flex items-center gap-1.5 type-caption text-accent-magenta">
           <span>Ver case</span>
           <ArrowUpRight size={12} aria-hidden="true" className="shrink-0" />
         </div>

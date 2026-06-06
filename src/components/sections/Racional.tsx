@@ -112,7 +112,7 @@ export function Racional() {
                   {num}
                 </div>
                 <div>
-                  <p className="type-caption text-fg-subtle mb-0.5">{type}</p>
+                  <p className="type-caption text-accent-magenta mb-0.5">{type}</p>
                   <p className="type-body-sm text-fg font-[480] leading-snug">{title}</p>
                 </div>
               </div>
