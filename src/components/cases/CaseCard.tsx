@@ -27,13 +27,13 @@ export function CaseCard({
   return (
     <Link
       href={href}
-      className="group relative block h-[300px] md:h-[340px] rounded-[16px] overflow-hidden border-[0.5px] border-border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-fg"
+      className="group relative block h-[380px] md:h-[440px] rounded-[16px] overflow-hidden border-[0.5px] border-border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-fg"
     >
       <span className="sr-only">{title} — {category}</span>
 
-      {/* Image area — slides up 80px on hover */}
+      {/* Image area — slides up 96px on hover */}
       <div
-        className="absolute inset-0 bg-surface-soft transition-transform duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-[80px]"
+        className="absolute inset-0 bg-surface-soft transition-transform duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-[96px]"
       >
         <div className="absolute inset-[24px]">
           <Image
@@ -46,26 +46,25 @@ export function CaseCard({
         </div>
       </div>
 
-      {/* Repose panel — 80px, visible at rest, fades on hover */}
+      {/* Repose panel — 96px, title only, fades on hover */}
       <div
-        className="absolute bottom-0 inset-x-0 h-[80px] bg-bg border-t border-[0.5px] border-border px-5 flex flex-col justify-center gap-1.5 transition-opacity duration-200 group-hover:opacity-0"
+        className="absolute bottom-0 inset-x-0 h-[96px] bg-bg border-t border-[0.5px] border-border px-5 flex flex-col justify-center transition-opacity duration-200 group-hover:opacity-0"
         aria-hidden="true"
       >
-        <p className="type-caption text-fg-subtle">{category}</p>
-        <p className="type-body-strong text-fg truncate">{title}</p>
+        <p className="type-body-strong text-fg leading-snug">{title}</p>
       </div>
 
       {/* Hover panel — slides up from below */}
       <div
-        className="absolute bottom-0 inset-x-0 bg-bg border-t border-[0.5px] border-border px-5 py-5 translate-y-full group-hover:translate-y-0 transition-transform duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
+        className="absolute bottom-0 inset-x-0 bg-bg border-t border-[0.5px] border-border px-5 py-5 translate-y-full group-hover:translate-y-0 transition-transform duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col"
         aria-hidden="true"
       >
         <p className="type-caption mb-2" style={{ color: accentText }}>
           {category}
         </p>
-        <p className="type-body-strong text-fg mb-2">{title}</p>
-        <p className="type-body-sm text-fg-muted line-clamp-2 mb-3">{description}</p>
-        <div className="flex flex-wrap gap-1.5 mb-3">
+        <p className="type-body-strong text-fg leading-snug mb-3">{title}</p>
+        <p className="type-body-sm text-fg-muted line-clamp-2 mb-4">{description}</p>
+        <div className="flex flex-wrap gap-1.5">
           {tags.map((tag) => (
             <span
               key={tag}
@@ -75,9 +74,10 @@ export function CaseCard({
             </span>
           ))}
         </div>
-        <span className="inline-flex items-center gap-1 type-body-sm font-[480] text-fg">
-          Ver case <ArrowUpRight size={14} aria-hidden="true" />
-        </span>
+        <div className="mt-5 flex items-center justify-between gap-2 type-caption text-fg-muted">
+          <span>Ver case</span>
+          <ArrowUpRight size={14} aria-hidden="true" className="shrink-0 text-fg-muted group-hover:text-fg transition-colors" />
+        </div>
       </div>
     </Link>
   );
