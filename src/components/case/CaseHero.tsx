@@ -19,8 +19,7 @@ export function CaseHero({
   return (
     <figure className="w-full">
       <div
-        className="group relative w-full h-[260px] md:h-[480px] rounded-[16px] overflow-hidden"
-        style={{ backgroundColor: accentBg }}
+        className="group relative w-full h-[260px] md:h-[480px] rounded-[16px] overflow-hidden bg-surface-soft"
       >
         {/* Image — inset 32px on all sides */}
         <div className="absolute inset-8">

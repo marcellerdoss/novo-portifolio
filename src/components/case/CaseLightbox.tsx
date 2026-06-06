@@ -57,8 +57,8 @@ export function CaseLightbox({
       <figure>
         <button
           type="button"
-          className="group relative block w-full rounded-[12px] overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg focus-visible:ring-offset-2"
-          style={{ backgroundColor: accentBg, height }}
+          className="group relative block w-full rounded-[12px] overflow-hidden bg-surface-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg focus-visible:ring-offset-2"
+          style={{ height }}
           aria-label={`Ampliar: ${imageAlt}`}
           aria-haspopup="dialog"
           onClick={() => setIsOpen(true)}
@@ -128,9 +128,8 @@ export function CaseLightbox({
 
               {/* Full image in accent container */}
               <div
-                className="relative rounded-[16px] overflow-hidden"
+                className="relative rounded-[16px] overflow-hidden bg-surface-soft"
                 style={{
-                  backgroundColor: accentBg,
                   maxWidth: '90vw',
                   maxHeight: '75vh',
                   width: 'min(900px, 90vw)',

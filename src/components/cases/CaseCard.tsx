@@ -33,8 +33,7 @@ export function CaseCard({
 
       {/* Image area — slides up 72px on hover */}
       <div
-        className="absolute inset-0 transition-transform duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-[72px]"
-        style={{ backgroundColor: accentBg }}
+        className="absolute inset-0 bg-surface-soft transition-transform duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-[72px]"
       >
         <div className="absolute inset-[24px]">
           <Image

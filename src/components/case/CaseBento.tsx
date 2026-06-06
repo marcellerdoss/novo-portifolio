@@ -23,8 +23,7 @@ export function CaseBento({
       {/* Main image — spans 2 columns, full height on desktop */}
       <figure className="md:col-span-2 md:h-full">
         <div
-          className="group relative h-[280px] md:h-full rounded-[12px] overflow-hidden"
-          style={{ backgroundColor: accentBg }}
+          className="group relative h-[280px] md:h-full rounded-[12px] overflow-hidden bg-surface-soft"
         >
           <div className="absolute inset-5 transition-transform duration-[300ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.02]">
             <Image
@@ -49,8 +48,7 @@ export function CaseBento({
         {images.map((img, i) => (
           <figure key={i} className="flex-1 min-h-[120px]">
             <div
-              className="group relative h-full min-h-[120px] rounded-[12px] overflow-hidden"
-              style={{ backgroundColor: accentBg }}
+              className="group relative h-full min-h-[120px] rounded-[12px] overflow-hidden bg-surface-soft"
             >
               <div className="absolute inset-5 transition-transform duration-[300ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.02]">
                 <Image
