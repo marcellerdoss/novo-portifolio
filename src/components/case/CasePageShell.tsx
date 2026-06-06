@@ -52,28 +52,22 @@ export function CasePageShell({
         >
           <div className="max-w-5xl mx-auto px-6 py-12 grid grid-cols-2 gap-6">
             {prevCase ? (
-              <Link href={prevCase.href} className="group flex flex-col gap-1">
-                <span className="type-caption text-fg-subtle flex items-center gap-1">
-                  <ArrowLeft size={12} aria-hidden="true" /> Anterior
+              <Link href={prevCase.href} className="group flex flex-col gap-3">
+                <span className="inline-flex items-center gap-2 px-5 py-2 type-body-sm border border-black/15 text-fg-muted rounded-pill bg-transparent group-hover:border-black/40 group-hover:text-fg active:scale-[0.97] transition-all duration-150 self-start focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-fg">
+                  <ArrowLeft size={14} aria-hidden="true" /> Anterior
                 </span>
-                <span className="type-body-strong text-fg group-hover:text-fg-muted transition-colors leading-snug">
-                  {prevCase.title}
-                </span>
-                <span className="type-caption text-fg-muted">{prevCase.company}</span>
+                <span className="type-body-sm text-fg-muted leading-snug pl-1">{prevCase.title}</span>
               </Link>
             ) : (
               <div />
             )}
 
             {nextCase ? (
-              <Link href={nextCase.href} className="group flex flex-col gap-1 text-right items-end">
-                <span className="type-caption text-fg-subtle flex items-center gap-1">
-                  Próximo <ArrowRight size={12} aria-hidden="true" />
+              <Link href={nextCase.href} className="group flex flex-col gap-3 items-end">
+                <span className="inline-flex items-center gap-2 px-5 py-2 type-body-sm border border-black/15 text-fg-muted rounded-pill bg-transparent group-hover:border-black/40 group-hover:text-fg active:scale-[0.97] transition-all duration-150 self-end focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-fg">
+                  Próximo <ArrowRight size={14} aria-hidden="true" />
                 </span>
-                <span className="type-body-strong text-fg group-hover:text-fg-muted transition-colors leading-snug">
-                  {nextCase.title}
-                </span>
-                <span className="type-caption text-fg-muted">{nextCase.company}</span>
+                <span className="type-body-sm text-fg-muted leading-snug pr-1 text-right">{nextCase.title}</span>
               </Link>
             ) : (
               <div />

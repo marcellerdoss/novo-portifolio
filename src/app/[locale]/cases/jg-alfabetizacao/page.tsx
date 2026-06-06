@@ -90,12 +90,12 @@ export default async function JgAlfabetizacaoPage() {
             <div className="max-w-5xl mx-auto">
               <Link
                 href="/#cases"
-                className="type-caption text-fg-subtle hover:text-fg transition-colors mb-10 inline-block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg rounded"
+                className="inline-flex items-center gap-2 px-5 py-2 type-body-sm border border-black/15 text-fg-muted rounded-pill bg-transparent hover:border-black/40 hover:text-fg active:scale-[0.97] transition-all duration-150 mb-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-fg"
               >
                 ← Todos os cases
               </Link>
 
-              <div className="flex flex-wrap items-start gap-3 mb-8">
+              <div className="flex flex-wrap items-center gap-3 mb-8">
                 <span className="type-caption rounded-full px-3 py-1.5 leading-none" style={{ backgroundColor: ACCENT_BG, color: ACCENT_TEXT }}>
                   Produto Educacional · Alfabetização
                 </span>
@@ -122,18 +122,6 @@ export default async function JgAlfabetizacaoPage() {
                 ))}
               </div>
 
-              <dl className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-12 pt-8 border-t border-border">
-                {[
-                  { label: 'Papel', value: 'Product Designer' },
-                  { label: 'Colaboração', value: 'Pedagogia · Tecnologia · Design' },
-                  { label: 'Entregas', value: 'Sistema · Matriz · Modelos' },
-                ].map(({ label, value }) => (
-                  <div key={label}>
-                    <dt className="type-caption text-fg-subtle mb-1">{label}</dt>
-                    <dd className="type-body-sm text-fg font-[480]">{value}</dd>
-                  </div>
-                ))}
-              </dl>
             </div>
           </header>
 
