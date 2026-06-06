@@ -19,9 +19,11 @@ export function About() {
     <section
       id="sobre"
       aria-labelledby="about-heading"
-      className="py-section px-6 bg-bg-secondary"
+      className="py-section px-6 bg-bg"
     >
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+      <div className="max-w-6xl mx-auto">
+      <div className="rounded-[24px] p-8 md:p-12 bg-block-cream">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
 
         {/* Left — photo + stats */}
         <motion.div
@@ -34,7 +36,7 @@ export function About() {
           {/* Photo */}
           <motion.div
             variants={fadeIn}
-            className="relative w-full aspect-square max-w-sm mx-auto md:mx-0 rounded-lg overflow-hidden border border-border"
+            className="relative w-full aspect-square max-w-sm mx-auto md:mx-0 rounded-lg overflow-hidden border border-black/10"
           >
             <Image
               src={siteConfig.about.photo}
@@ -55,7 +57,7 @@ export function About() {
               <motion.div
                 key={label}
                 variants={fadeInUp}
-                className="text-center p-4 rounded-lg bg-bg border border-border"
+                className="text-center p-4 rounded-lg bg-white/70 border border-black/10"
               >
                 <p className="type-headline text-fg">{value}</p>
                 <p className="type-caption text-fg-subtle mt-1">{label}</p>
@@ -78,6 +80,8 @@ export function About() {
             {t('bio')}
           </motion.p>
         </motion.div>
+      </div>
+      </div>
       </div>
     </section>
   );

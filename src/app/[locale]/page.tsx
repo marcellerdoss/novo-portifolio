@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Hero } from '@/components/sections/Hero';
+import { MarqueeStrip } from '@/components/sections/MarqueeStrip';
 import { About } from '@/components/sections/About';
 import { CasesSection } from '@/components/sections/Cases';
 import { Skills } from '@/components/sections/Skills';
@@ -72,6 +73,7 @@ export default async function Home({ params }: Props) {
     <>
       <JsonLd data={personSchema} />
       <Hero />
+      <MarqueeStrip />
       <About />
       <CasesSection cases={cases} />
       <Skills />

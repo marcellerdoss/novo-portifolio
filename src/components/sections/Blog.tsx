@@ -26,7 +26,7 @@ export function BlogPreview({ posts }: Props) {
     <section
       id="blog"
       aria-labelledby="blog-heading"
-      className="py-section px-6 bg-bg-secondary"
+      className="py-section px-6 bg-bg"
     >
       <div className="max-w-6xl mx-auto">
         <div className="flex items-end justify-between mb-xxl gap-4">

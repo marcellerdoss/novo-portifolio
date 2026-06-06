@@ -18,13 +18,14 @@ export function Experience({ items }: Props) {
       className="py-section px-6 bg-bg"
     >
       <div className="max-w-3xl mx-auto">
+        <div className="rounded-[24px] p-8 md:p-12 bg-block-navy">
         <motion.h2
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           id="experience-heading"
-          className="type-display-lg text-fg mb-xxl"
+          className="type-display-lg text-white mb-xxl"
         >
           {t('title')}
         </motion.h2>
@@ -35,7 +36,7 @@ export function Experience({ items }: Props) {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="relative border-l-2 border-border pl-8 space-y-12"
+          className="relative border-l-2 border-white/20 pl-8 space-y-12"
         >
           {items.map((item, i) => (
             <motion.li
@@ -45,26 +46,27 @@ export function Experience({ items }: Props) {
             >
               {/* Timeline dot */}
               <span
-                className="absolute -left-[2.625rem] top-1 w-3 h-3 rounded-full bg-primary border-2 border-bg"
+                className="absolute -left-[2.625rem] top-1 w-3 h-3 rounded-full bg-white border-2 border-block-navy"
                 aria-hidden="true"
               />
 
               <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
                 <div>
-                  <h3 className="type-body-strong text-fg">{item.role[locale]}</h3>
-                  <p className="type-body-sm text-fg-muted">{item.company}</p>
+                  <h3 className="type-body-strong text-white">{item.role[locale]}</h3>
+                  <p className="type-body-sm text-white/70">{item.company}</p>
                 </div>
-                <time className="type-body-sm text-fg-subtle shrink-0">
+                <time className="type-body-sm text-white/50 shrink-0">
                   {item.period.includes('Presente') && locale === 'en'
                     ? item.period.replace('Presente', t('present'))
                     : item.period}
                 </time>
               </div>
 
-              <p className="type-body text-fg-muted">{item.description[locale]}</p>
+              <p className="type-body text-white/70">{item.description[locale]}</p>
             </motion.li>
           ))}
         </motion.ol>
+        </div>
       </div>
     </section>
   );

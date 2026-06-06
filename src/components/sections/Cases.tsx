@@ -8,132 +8,33 @@ import type { Case } from '@/lib/types';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 type Props = { cases?: Case[] };
 
+function GroupHeader({ id, title, description }: { id?: string; title: string; description: string }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      className="mb-8"
+    >
+      <h2 id={id} className="type-display-lg text-fg">{title}</h2>
+      <p className="type-body text-fg-muted mt-2">{description}</p>
+    </motion.div>
+  );
+}
+
 export function CasesSection(_props: Props) {
   return (
-    <section id="cases" aria-labelledby="cases-heading" className="py-section px-6 bg-bg-secondary">
+    <section id="cases" aria-labelledby="cases-heading" className="py-section px-6 bg-bg">
       <div className="max-w-6xl mx-auto space-y-20">
 
-        {/* ── Sellbie ──────────────────────────────────────────── */}
+        {/* ── Product Design ──────────────────────────────────── */}
         <div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="mb-8"
-          >
-            <h2
-              id="cases-heading"
-              className="type-display-lg text-fg"
-            >
-              Sellbie
-            </h2>
-            <p className="type-body text-fg-muted mt-2">
-              Plataforma de CRM e marketing para o varejo
-            </p>
-          </motion.div>
-
-          {/* Main cases — 2-col grid */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4"
-          >
-            <CaseCard
-              category="Product Design"
-              title="Redesign do core da plataforma Sellbie"
-              description="Navegação, campanhas e criação de envio redesenhados do zero"
-              tags={['UX Research', 'Redesign', 'Design System']}
-              href="/cases/sellbie-redesign"
-              imageSrc="/images/cases/sellbie/redesign/sellbie-redesign-preview.png"
-              imageAlt="Tela principal do redesign da plataforma Sellbie"
-              accentBg="var(--color-project-sellbie-redesign-bg)"
-              accentText="var(--color-project-sellbie-redesign-text)"
-            />
-            <CaseCard
-              category="Product Design"
-              title="Jornadas — automação de comunicação multicanal"
-              description="Produto novo para orquestrar jornadas com gatilhos comportamentais"
-              tags={['Produto Novo', 'Workflow', 'Multicanal']}
-              href="/cases/sellbie-jornadas"
-              imageSrc="/images/cases/sellbie/jornadas/sellbie-jornadas-preview.png"
-              imageAlt="Canvas de criação de jornada na plataforma Sellbie"
-              accentBg="var(--color-project-sellbie-jornadas-bg)"
-              accentText="var(--color-project-sellbie-jornadas-text)"
-            />
-          </motion.div>
-
-          {/* Compact cases — 2-col / 4-col grid */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-4"
-          >
-            <CaseCardCompact
-              category="Arquitetura de navegação"
-              label="Foundations"
-              title="Arquitetura de informação"
-              tags={['Card Sorting', 'IA', 'Navegação']}
-              href="/cases/sellbie-arq-info"
-              imageSrc="/images/cases/sellbie/arquitetura/sellbie-arq-info-preview.png"
-              imageAlt="Board de card sorting da arquitetura de informação"
-              accentBg="var(--color-project-sellbie-arq-info-bg)"
-              accentText="var(--color-project-sellbie-arq-info-text)"
-            />
-            <CaseCardCompact
-              category="Framework de métricas"
-              label="Strategy"
-              title="Métricas de produto com HEART"
-              tags={['HEART', 'OKR', 'Produto']}
-              href="/cases/sellbie-metricas"
-              imageSrc="/images/cases/sellbie/metricas/sellbie-metricas-preview.png"
-              imageAlt="Framework HEART estruturado no FigJam"
-              accentBg="var(--color-project-sellbie-metricas-bg)"
-              accentText="var(--color-project-sellbie-metricas-text)"
-            />
-            <CaseCardCompact
-              category="Relatório estratégico"
-              label="Strategy"
-              title="CRM — Relatório de performance"
-              tags={['CRM', 'Figma Make', 'CS']}
-              href="/cases/sellbie-crm"
-              imageSrc="/images/cases/sellbie/crm/sellbie-crm-preview.png"
-              imageAlt="Dashboard de diagnóstico CRM no Figma Make"
-              accentBg="var(--color-project-sellbie-crm-bg)"
-              accentText="var(--color-project-sellbie-crm-text)"
-            />
-            <CaseCardCompact
-              category="Relatório estratégico"
-              label="Strategy"
-              title="Cashback — Relatório de ROAS"
-              tags={['Cashback', 'ROAS', 'Figma Make']}
-              href="/cases/sellbie-cashback"
-              imageSrc="/images/cases/sellbie/cashback/sellbie-cashback-preview.png"
-              imageAlt="Dashboard de ROAS do programa de cashback"
-              accentBg="var(--color-project-sellbie-cashback-bg)"
-              accentText="var(--color-project-sellbie-cashback-text)"
-            />
-          </motion.div>
-        </div>
-
-        {/* ── Jovens Gênios ─────────────────────────────────────── */}
-        <div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="mb-8"
-          >
-            <h2 className="type-display-lg text-fg">Jovens Gênios</h2>
-            <p className="type-body text-fg-muted mt-2">
-              Plataforma de educação adaptativa para o Ensino Fundamental
-            </p>
-          </motion.div>
+          <GroupHeader
+            id="cases-heading"
+            title="Product Design"
+            description="Interfaces, fluxos e produtos construídos ou redesenhados"
+          />
 
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -144,7 +45,29 @@ export function CasesSection(_props: Props) {
           >
             <CaseCard
               category="Product Design"
-              title="JG Alfabetização — sistema pedagógico e modelos de questão"
+              title="Redesign do core da plataforma — Sellbie"
+              description="Navegação, campanhas e criação de envio redesenhados do zero"
+              tags={['UX Research', 'Redesign', 'Design System']}
+              href="/cases/sellbie-redesign"
+              imageSrc="/images/cases/sellbie/redesign/sellbie-redesign-preview.png"
+              imageAlt="Tela principal do redesign da plataforma Sellbie"
+              accentBg="var(--color-project-sellbie-redesign-bg)"
+              accentText="var(--color-project-sellbie-redesign-text)"
+            />
+            <CaseCard
+              category="Product Design"
+              title="Jornadas — automação multicanal — Sellbie"
+              description="Canvas de fluxo com 20+ gatilhos, múltiplos canais e lógica comportamental"
+              tags={['Produto Novo', 'Workflow', 'Multicanal']}
+              href="/cases/sellbie-jornadas"
+              imageSrc="/images/cases/sellbie/jornadas/sellbie-jornadas-preview.png"
+              imageAlt="Canvas de criação de jornada na plataforma Sellbie"
+              accentBg="var(--color-project-sellbie-jornadas-bg)"
+              accentText="var(--color-project-sellbie-jornadas-text)"
+            />
+            <CaseCard
+              category="Product Design"
+              title="JG Alfabetização — sistema pedagógico e modelos de questão — Jovens Gênios"
               description="Fases, modelos de questão e matriz de proficiência para IA adaptativa"
               tags={['Educação', 'IA', 'Design System']}
               href="/cases/jg-alfabetizacao"
@@ -155,14 +78,92 @@ export function CasesSection(_props: Props) {
             />
             <CaseCard
               category="Product Design"
-              title="Central de Ajuda — experiência segmentada por perfil"
-              description="Três entradas de persona, busca contextual e empty states com saída"
+              title="Central de Ajuda segmentada por perfil — Jovens Gênios"
+              description="Três perfis, busca filtrada e empty states que mantêm o usuário no caminho"
               tags={['Help Center', 'UX', 'Navegação']}
               href="/cases/jg-central-ajuda"
               imageSrc="/images/cases/jovens-genios/central-de-ajuda/jg-central-ajuda-preview.png"
               imageAlt="Página inicial da central de ajuda com atalhos por perfil"
               accentBg="var(--color-project-jg-central-ajuda-bg)"
               accentText="var(--color-project-jg-central-ajuda-text)"
+            />
+          </motion.div>
+        </div>
+
+        {/* ── Strategy ────────────────────────────────────────── */}
+        <div>
+          <GroupHeader
+            title="Strategy"
+            description="Produto orientado por dados, métricas e decisão"
+          />
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+          >
+            <CaseCardCompact
+              category="Framework de métricas"
+              label="Strategy"
+              title="Métricas de produto com HEART — Sellbie"
+              tags={['HEART', 'OKR', 'Produto']}
+              href="/cases/sellbie-metricas"
+              imageSrc="/images/cases/sellbie/metricas/sellbie-metricas-preview.png"
+              imageAlt="Framework HEART estruturado no FigJam"
+              accentBg="var(--color-project-sellbie-metricas-bg)"
+              accentText="var(--color-project-sellbie-metricas-text)"
+            />
+            <CaseCardCompact
+              category="Relatório estratégico"
+              label="Strategy"
+              title="CRM — Relatório de performance — Sellbie"
+              tags={['CRM', 'Figma Make', 'CS']}
+              href="/cases/sellbie-crm"
+              imageSrc="/images/cases/sellbie/crm/sellbie-crm-preview.png"
+              imageAlt="Dashboard de diagnóstico CRM no Figma Make"
+              accentBg="var(--color-project-sellbie-crm-bg)"
+              accentText="var(--color-project-sellbie-crm-text)"
+            />
+            <CaseCardCompact
+              category="Relatório estratégico"
+              label="Strategy"
+              title="Cashback — Relatório de ROAS — Sellbie"
+              tags={['Cashback', 'ROAS', 'Figma Make']}
+              href="/cases/sellbie-cashback"
+              imageSrc="/images/cases/sellbie/cashback/sellbie-cashback-preview.png"
+              imageAlt="Dashboard de ROAS do programa de cashback"
+              accentBg="var(--color-project-sellbie-cashback-bg)"
+              accentText="var(--color-project-sellbie-cashback-text)"
+            />
+          </motion.div>
+        </div>
+
+        {/* ── Foundations ─────────────────────────────────────── */}
+        <div>
+          <GroupHeader
+            title="Foundations"
+            description="Estrutura e arquitetura que sustentam o produto"
+          />
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+          >
+            <CaseCardCompact
+              category="Arquitetura de navegação"
+              label="Foundations"
+              title="Arquitetura de informação — Sellbie"
+              tags={['Card Sorting', 'IA', 'Navegação']}
+              href="/cases/sellbie-arq-info"
+              imageSrc="/images/cases/sellbie/arquitetura/sellbie-arq-info-preview.png"
+              imageAlt="Board de card sorting da arquitetura de informação"
+              accentBg="var(--color-project-sellbie-arq-info-bg)"
+              accentText="var(--color-project-sellbie-arq-info-text)"
             />
           </motion.div>
         </div>

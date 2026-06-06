@@ -49,7 +49,8 @@ export function Contact() {
       aria-labelledby="contact-heading"
       className="py-section px-6 bg-bg"
     >
-      <div className="max-w-3xl mx-auto text-center">
+      <div className="max-w-3xl mx-auto">
+      <div className="rounded-[24px] p-8 md:p-12 bg-block-lime text-center">
         <motion.div
           variants={stagger}
           initial="hidden"
@@ -84,7 +85,7 @@ export function Contact() {
                 aria-label={label}
                 title={label}
                 variants={fadeInUp}
-                className="group flex flex-col items-center gap-2 p-5 rounded-lg bg-bg-secondary border border-border min-w-[96px] transition-all duration-150 hover:-translate-y-[3px] hover:border-fg hover:shadow-[0_4px_16px_rgba(0,0,0,0.08)] text-fg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg"
+                className="group flex flex-col items-center gap-2 p-5 rounded-lg bg-white/60 border border-black/10 min-w-[96px] transition-all duration-150 hover:-translate-y-[3px] hover:border-black/30 hover:shadow-[0_4px_16px_rgba(0,0,0,0.08)] text-fg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg"
               >
                 {icon}
                 <span className="type-caption">{label}</span>
@@ -92,6 +93,7 @@ export function Contact() {
             ))}
           </motion.div>
         </motion.div>
+      </div>
       </div>
     </section>
   );

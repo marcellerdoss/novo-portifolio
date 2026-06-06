@@ -39,9 +39,10 @@ export function Skills() {
     <section
       id="skills"
       aria-labelledby="skills-heading"
-      className="py-section px-6 bg-bg-secondary"
+      className="py-section px-6 bg-bg"
     >
       <div className="max-w-6xl mx-auto">
+      <div className="rounded-[24px] p-8 md:p-12 bg-block-lime">
         <motion.h2
           variants={fadeInUp}
           initial="hidden"
@@ -73,7 +74,7 @@ export function Skills() {
                   <motion.span
                     key={skill}
                     variants={fadeInUp}
-                    className="type-body-sm text-fg-muted bg-bg border border-border rounded-pill px-3 py-1.5"
+                    className="type-body-sm text-fg-muted bg-white/60 border border-black/10 rounded-pill px-3 py-1.5"
                   >
                     {skill}
                   </motion.span>
@@ -82,6 +83,7 @@ export function Skills() {
             </motion.div>
           ))}
         </motion.div>
+      </div>
       </div>
     </section>
   );

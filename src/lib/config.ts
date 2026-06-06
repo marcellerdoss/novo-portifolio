@@ -3,7 +3,7 @@ export const siteConfig = {
   role: 'Product Designer',
   contact: {
     email: 'marcelle.rdoss@gmail.com',
-    linkedin: 'https://linkedin.com/in/marcelle-rocha-dos-santos',
+    linkedin: 'https://www.linkedin.com/in/marcelle-rocha-dos-santos/',
     behance: '',
     github: '',
     dribbble: '',
@@ -13,7 +13,7 @@ export const siteConfig = {
     en: '/cv-en.pdf',
   },
   about: {
-    photo: '/images/profile.jpg',
+    photo: '/images/profile/img_sobre.png',
     stats: {
       years: '13+',
       projects: '11+',
