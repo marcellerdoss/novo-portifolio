@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 
 export interface CaseCardProps {
+  company?: string;
   category: string;
   title: string;
   description: string;
@@ -15,21 +16,20 @@ export interface CaseCardProps {
 }
 
 export function CaseCard({
-  category,
+  company,
   title,
   description,
   tags,
   href,
   imageSrc,
   imageAlt,
-  accentText,
 }: CaseCardProps) {
   return (
     <Link
       href={href}
       className="group relative block h-[380px] md:h-[440px] rounded-[16px] overflow-hidden border-[0.5px] border-border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-fg"
     >
-      <span className="sr-only">{title} — {category}</span>
+      <span className="sr-only">{title}</span>
 
       {/* Image area — slides up 96px on hover */}
       <div
@@ -44,9 +44,16 @@ export function CaseCard({
             className="object-contain"
           />
         </div>
+
+        {/* Company badge — sobreposto à imagem */}
+        {company && (
+          <div className="absolute top-3 left-3 bg-white/75 backdrop-blur-sm rounded-full px-3 py-1">
+            <span className="type-caption text-fg-muted">{company}</span>
+          </div>
+        )}
       </div>
 
-      {/* Repose panel — 96px, title only, fades on hover */}
+      {/* Repose panel — título completo, sem categoria */}
       <div
         className="absolute bottom-0 inset-x-0 h-[96px] bg-bg border-t border-[0.5px] border-border px-5 flex flex-col justify-center transition-opacity duration-200 group-hover:opacity-0"
         aria-hidden="true"
@@ -54,17 +61,14 @@ export function CaseCard({
         <p className="type-body-strong text-fg leading-snug">{title}</p>
       </div>
 
-      {/* Hover panel — slides up from below */}
+      {/* Hover panel — título completo, sem categoria, botão junto */}
       <div
         className="absolute bottom-0 inset-x-0 bg-bg border-t border-[0.5px] border-border px-5 py-5 translate-y-full group-hover:translate-y-0 transition-transform duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col"
         aria-hidden="true"
       >
-        <p className="type-caption mb-2" style={{ color: accentText }}>
-          {category}
-        </p>
         <p className="type-body-strong text-fg leading-snug mb-3">{title}</p>
         <p className="type-body-sm text-fg-muted line-clamp-2 mb-4">{description}</p>
-        <div className="flex flex-wrap gap-1.5">
+        <div className="flex flex-wrap gap-1.5 mb-5">
           {tags.map((tag) => (
             <span
               key={tag}
@@ -74,9 +78,9 @@ export function CaseCard({
             </span>
           ))}
         </div>
-        <div className="mt-5 flex items-center justify-between gap-2 type-caption text-fg-muted">
+        <div className="mt-auto inline-flex items-center gap-1.5 type-caption text-fg-muted">
           <span>Ver case</span>
-          <ArrowUpRight size={14} aria-hidden="true" className="shrink-0 text-fg-muted group-hover:text-fg transition-colors" />
+          <ArrowUpRight size={12} aria-hidden="true" className="shrink-0" />
         </div>
       </div>
     </Link>

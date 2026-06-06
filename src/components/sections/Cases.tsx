@@ -55,8 +55,9 @@ export function CasesSection(_props: Props) {
             className="grid grid-cols-1 md:grid-cols-2 gap-4"
           >
             <CaseCard
+              company="Sellbie"
               category="Product Design"
-              title="Redesign do core da plataforma — Sellbie"
+              title="Redesign do core da plataforma"
               description="Navegação, campanhas e criação de envio redesenhados do zero"
               tags={['UX Research', 'Redesign', 'Omnichannel']}
               href="/cases/sellbie-redesign"
@@ -66,8 +67,9 @@ export function CasesSection(_props: Props) {
               accentText="var(--color-project-sellbie-redesign-text)"
             />
             <CaseCard
+              company="Sellbie"
               category="Product Design"
-              title="Jornadas — automação multicanal — Sellbie"
+              title="Jornadas de automação multicanal"
               description="Canvas de fluxo com 20+ gatilhos, múltiplos canais e lógica comportamental"
               tags={['Produto Novo', 'IA & Automação', 'Workflow']}
               href="/cases/sellbie-jornadas"
@@ -77,8 +79,9 @@ export function CasesSection(_props: Props) {
               accentText="var(--color-project-sellbie-jornadas-text)"
             />
             <CaseCard
+              company="Jovens Gênios"
               category="Product Design"
-              title="JG Alfabetização — sistema pedagógico e modelos de questão — Jovens Gênios"
+              title="JG Alfabetização: sistema pedagógico e modelos de questão"
               description="Fases, modelos de questão e matriz de proficiência para IA adaptativa"
               tags={['UX Research', 'BNCC', 'Design System']}
               href="/cases/jg-alfabetizacao"
@@ -88,8 +91,9 @@ export function CasesSection(_props: Props) {
               accentText="var(--color-project-jg-alfabetizacao-text)"
             />
             <CaseCard
+              company="Jovens Gênios"
               category="Product Design"
-              title="Central de Ajuda segmentada por perfil — Jovens Gênios"
+              title="Central de Ajuda segmentada por perfil"
               description="Três perfis, busca filtrada e empty states que mantêm o usuário no caminho"
               tags={['Arquitetura de Informação', 'Pesquisa', 'Personalização']}
               href="/cases/jg-central-ajuda"
@@ -116,9 +120,10 @@ export function CasesSection(_props: Props) {
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
           >
             <CaseCardCompact
+              company="Sellbie"
               category="Framework de métricas"
               label="Strategy"
-              title="Métricas de produto com HEART — Sellbie"
+              title="Métricas de produto com HEART"
               tags={['HEART', 'OKR', 'Produto']}
               href="/cases/sellbie-metricas"
               imageSrc="/images/cases/sellbie/metricas/sellbie-metricas-preview.png"
@@ -127,9 +132,10 @@ export function CasesSection(_props: Props) {
               accentText="var(--color-project-sellbie-metricas-text)"
             />
             <CaseCardCompact
+              company="Sellbie"
               category="Relatório estratégico"
               label="Strategy"
-              title="CRM — Relatório de performance — Sellbie"
+              title="Relatório de performance CRM"
               tags={['Mapa de oportunidades', 'Figma Make', 'CS']}
               href="/cases/sellbie-crm"
               imageSrc="/images/cases/sellbie/crm/sellbie-crm-preview.png"
@@ -138,9 +144,10 @@ export function CasesSection(_props: Props) {
               accentText="var(--color-project-sellbie-crm-text)"
             />
             <CaseCardCompact
+              company="Sellbie"
               category="Relatório estratégico"
               label="Strategy"
-              title="Cashback — Relatório de ROAS — Sellbie"
+              title="Cashback: Relatório de ROAS"
               tags={['Entrevistas com CS', 'ROAS', 'Figma Make']}
               href="/cases/sellbie-cashback"
               imageSrc="/images/cases/sellbie/cashback/sellbie-cashback-preview.png"
@@ -166,9 +173,10 @@ export function CasesSection(_props: Props) {
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
           >
             <CaseCardCompact
+              company="Sellbie"
               category="Arquitetura de navegação"
               label="Foundations"
-              title="Arquitetura de informação — Sellbie"
+              title="Arquitetura de informação"
               tags={['Card Sorting', 'IA', 'Navegação']}
               href="/cases/sellbie-arq-info"
               imageSrc="/images/cases/sellbie/arquitetura/sellbie-arq-info-preview.png"
