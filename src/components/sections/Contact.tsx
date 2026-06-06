@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { Mail, Globe, MessageCircle } from 'lucide-react';
+import { Globe, MessageCircle } from 'lucide-react';
 import { fadeInUp, stagger } from '@/lib/animations';
 import { siteConfig } from '@/lib/config';
 
@@ -71,12 +71,6 @@ export function Contact() {
       href: WA_HREF,
       icon: <MessageCircle size={22} aria-hidden="true" />,
       label: 'WhatsApp',
-    },
-    {
-      key: 'email',
-      href: `mailto:${siteConfig.contact.email}`,
-      icon: <Mail size={22} aria-hidden="true" />,
-      label: t('email'),
     },
     {
       key: 'linkedin',
