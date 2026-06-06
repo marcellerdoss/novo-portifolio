@@ -88,7 +88,7 @@ export default async function SellbieArqInfoPage() {
       <CasePageShell detailedContent={detailedContent} prevCase={prev} nextCase={next}>
         <div className="min-h-screen bg-bg">
         {/* ── Case header ───────────────────────────────── */}
-        <header className="py-section px-6 border-b border-border">
+        <header className="pt-section pb-8 px-6 border-b border-border">
           <div className="max-w-5xl mx-auto">
             <Link
               href="/#cases"

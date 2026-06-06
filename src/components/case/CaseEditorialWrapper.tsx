@@ -1,4 +1,5 @@
 import React from 'react';
+import { CaseToggleBar } from './CaseToggleBar';
 
 export interface SidebarBlock {
   label: string;
@@ -13,23 +14,26 @@ interface CaseEditorialWrapperProps {
 export function CaseEditorialWrapper({ sidebar, children }: CaseEditorialWrapperProps) {
   return (
     <div className="min-h-screen bg-bg">
-      <div className="px-6 py-section">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_240px] gap-12 lg:gap-16 items-start">
+      <div className="px-6 pb-section">
+        <div className="max-w-5xl mx-auto">
 
-          {/* Main narrative content */}
-          <article className="case-editorial-prose">{children}</article>
+          {/* Toggle — consistente com a view simplificada */}
+          <CaseToggleBar />
 
-          {/* Sticky sidebar */}
-          <aside className="lg:sticky lg:top-28 rounded-[16px] border border-border overflow-hidden divide-y divide-border">
-            {sidebar.map((block) => (
-              <div key={block.label} className="px-5 py-5">
-                <p className="type-caption text-fg-subtle uppercase tracking-wide mb-2">
-                  {block.label}
-                </p>
-                <p className="type-body-sm text-fg-muted leading-relaxed">{block.content}</p>
-              </div>
-            ))}
-          </aside>
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_240px] gap-12 lg:gap-16 items-start">
+            <article className="case-editorial-prose">{children}</article>
+
+            <aside className="lg:sticky lg:top-28 rounded-[16px] border border-border overflow-hidden divide-y divide-border">
+              {sidebar.map((block) => (
+                <div key={block.label} className="px-5 py-5">
+                  <p className="type-caption text-fg-subtle uppercase tracking-wide mb-2">
+                    {block.label}
+                  </p>
+                  <p className="type-body-sm text-fg-muted leading-relaxed">{block.content}</p>
+                </div>
+              ))}
+            </aside>
+          </div>
 
         </div>
       </div>

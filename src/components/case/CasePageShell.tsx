@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { ChevronUp, ArrowLeft, ArrowRight } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
+import { CaseViewContext } from './CaseViewContext';
 import type { CaseNavItem } from '@/lib/casesConfig';
 
 interface CasePageShellProps {
@@ -37,36 +38,7 @@ export function CasePageShell({
   };
 
   return (
-    <>
-      {/* ── View toggle — sticky below fixed header (h-16 = 64px) ── */}
-      <div className="sticky top-16 z-30 bg-bg/90 backdrop-blur-sm border-b border-border">
-        <div className="max-w-5xl mx-auto px-6 py-3 flex items-center gap-3">
-          <span className="type-caption text-fg-subtle hidden sm:inline">Visualização:</span>
-          <div className="inline-flex rounded-full border border-border overflow-hidden">
-            <button
-              onClick={() => switchView('overview')}
-              className={`px-4 py-1.5 type-caption transition-colors leading-none ${
-                view === 'overview'
-                  ? 'bg-fg text-bg'
-                  : 'text-fg-muted hover:text-fg'
-              }`}
-            >
-              Visão geral
-            </button>
-            <button
-              onClick={() => switchView('detailed')}
-              className={`px-4 py-1.5 type-caption transition-colors leading-none ${
-                view === 'detailed'
-                  ? 'bg-fg text-bg'
-                  : 'text-fg-muted hover:text-fg'
-              }`}
-            >
-              Processo completo
-            </button>
-          </div>
-        </div>
-      </div>
-
+    <CaseViewContext.Provider value={{ view, switchView }}>
       {/* ── Content area ── */}
       <div key={view}>
         {view === 'overview' ? children : detailedContent}
@@ -122,6 +94,6 @@ export function CasePageShell({
       >
         <ChevronUp size={18} aria-hidden="true" />
       </button>
-    </>
+    </CaseViewContext.Provider>
   );
 }
