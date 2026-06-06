@@ -124,7 +124,7 @@ export function Contact() {
                     aria-label={label}
                     title={label}
                     variants={fadeInUp}
-                    className="group flex flex-col items-center gap-2 p-5 rounded-lg bg-white/10 border border-white/20 min-w-[96px] transition-all duration-150 hover:-translate-y-[3px] hover:border-white/40 hover:shadow-[0_4px_24px_rgba(0,0,0,0.24)] text-white/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                    className="group flex flex-col items-center gap-2 p-5 rounded-lg bg-transparent border border-accent-magenta min-w-[96px] transition-all duration-150 hover:-translate-y-[3px] hover:bg-accent-magenta/10 text-accent-magenta focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-magenta"
                   >
                     {icon}
                     <span className="type-caption">{label}</span>
