@@ -46,9 +46,7 @@ export function CaseCardCompact({
 
         {/* Company badge */}
         {company && (
-          <div className="absolute top-3 left-3 bg-white/75 backdrop-blur-sm rounded-full px-3 py-1">
-            <span className="type-caption text-fg-muted">{company}</span>
-          </div>
+          <span className="absolute top-3 right-3 type-caption text-fg-muted">{company}</span>
         )}
       </div>
 

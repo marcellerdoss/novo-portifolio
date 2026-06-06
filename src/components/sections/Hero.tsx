@@ -35,7 +35,7 @@ export function Hero() {
         <div className="mb-12">
           <motion.p
             variants={fadeInUp}
-            className="text-[2rem] font-[340] leading-[1.10] tracking-[-0.5px] text-accent-magenta mb-3"
+            className="text-[2rem] font-[340] leading-[1.10] tracking-[-0.5px] text-block-navy mb-3"
           >
             {t('name')}
           </motion.p>
