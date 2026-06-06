@@ -16,11 +16,9 @@ function formatDate(dateStr: string, locale: string) {
   });
 }
 
-const CARD_COLORS = ['bg-block-mint', 'bg-block-pink', 'bg-block-coral'];
-
-function ArticleCard({ post, locale, t, cardBg }: { post: BlogPost; locale: string; t: ReturnType<typeof useTranslations>; cardBg: string }) {
+function ArticleCard({ post, locale, t }: { post: BlogPost; locale: string; t: ReturnType<typeof useTranslations> }) {
   const inner = (
-    <div className={`group flex flex-col h-full rounded-[16px] ${cardBg} border border-black/10 p-6 transition-all duration-200 hover:-translate-y-1 hover:border-black/20 hover:shadow-[0_4px_20px_rgba(0,0,0,0.07)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg`}>
+    <div className="group flex flex-col h-full rounded-[16px] bg-surface-soft border border-black/10 p-6 transition-all duration-200 hover:-translate-y-1 hover:border-black/20 hover:shadow-[0_4px_20px_rgba(0,0,0,0.07)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg">
       {/* Category */}
       <span className="type-caption text-fg-muted mb-4 inline-block">
         {post.category}
@@ -112,9 +110,9 @@ export function BlogPreview({ posts }: Props) {
               viewport={{ once: true, amount: 0.1 }}
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
             >
-              {posts.map((post, i) => (
+              {posts.map((post) => (
                 <motion.article key={post.slug} variants={fadeInUp} className="h-full">
-                  <ArticleCard post={post} locale={locale} t={t} cardBg={CARD_COLORS[i % 3]} />
+                  <ArticleCard post={post} locale={locale} t={t} />
                 </motion.article>
               ))}
             </motion.div>

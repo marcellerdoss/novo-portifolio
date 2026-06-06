@@ -33,17 +33,15 @@ export function CaseCard({
 
       {/* Image area — slides up 96px on hover */}
       <div
-        className="absolute inset-0 bg-surface-soft transition-transform duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-[96px]"
+        className="absolute inset-0 bg-canvas transition-transform duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-[96px]"
       >
-        <div className="absolute inset-[24px]">
-          <Image
-            src={imageSrc}
-            alt={imageAlt}
-            fill
-            sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-contain"
-          />
-        </div>
+        <Image
+          src={imageSrc}
+          alt={imageAlt}
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          className="object-cover object-top"
+        />
 
         {/* Company badge */}
         {company && (
