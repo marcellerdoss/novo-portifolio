@@ -18,7 +18,7 @@ export function Hero() {
       className="relative min-h-screen flex flex-col items-center justify-center px-6 bg-bg"
     >
       <motion.div
-        className="max-w-3xl mx-auto text-center"
+        className="max-w-5xl mx-auto text-center"
         variants={stagger}
         initial="hidden"
         animate="visible"
@@ -39,7 +39,7 @@ export function Hero() {
 
         <motion.p
           variants={fadeInUp}
-          className="type-body-lg text-fg-muted max-w-xl mx-auto mb-10"
+          className="text-[clamp(2.25rem,5.5vw,5.375rem)] font-[340] leading-[1.05] tracking-[-1.5px] text-accent-magenta mb-10"
         >
           {t('subtitle')}
         </motion.p>
