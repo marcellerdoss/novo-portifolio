@@ -8,7 +8,7 @@ import type { Case } from '@/lib/types';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 type Props = { cases?: Case[] };
 
-function GroupHeader({ id, title, description }: { id?: string; title: string; description: string }) {
+function GroupHeader({ title, description }: { title: string; description: string }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -17,7 +17,7 @@ function GroupHeader({ id, title, description }: { id?: string; title: string; d
       transition={{ duration: 0.5 }}
       className="mb-8"
     >
-      <h2 id={id} className="type-display-lg text-fg">{title}</h2>
+      <h3 className="type-headline text-fg">{title}</h3>
       <p className="type-body text-fg-muted mt-2">{description}</p>
     </motion.div>
   );
@@ -28,10 +28,21 @@ export function CasesSection(_props: Props) {
     <section id="cases" aria-labelledby="cases-heading" className="py-section px-6 bg-bg">
       <div className="max-w-6xl mx-auto space-y-20">
 
+        {/* ── Título da seção ─────────────────────────────────── */}
+        <motion.h2
+          id="cases-heading"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="type-display-lg text-fg"
+        >
+          Cases
+        </motion.h2>
+
         {/* ── Product Design ──────────────────────────────────── */}
         <div>
           <GroupHeader
-            id="cases-heading"
             title="Product Design"
             description="Interfaces, fluxos e produtos construídos ou redesenhados"
           />
