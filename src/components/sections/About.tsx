@@ -19,10 +19,9 @@ export function About() {
     <section
       id="sobre"
       aria-labelledby="about-heading"
-      className="py-section px-6 bg-bg"
+      className="py-section bg-block-cream"
     >
-      <div className="max-w-6xl mx-auto">
-      <div className="rounded-[24px] p-8 md:p-12 bg-block-cream">
+      <div className="max-w-6xl mx-auto px-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
 
         {/* Left — photo + stats */}
@@ -80,7 +79,6 @@ export function About() {
             {t('bio')}
           </motion.p>
         </motion.div>
-      </div>
       </div>
       </div>
     </section>

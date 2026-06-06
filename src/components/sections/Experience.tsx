@@ -15,10 +15,9 @@ export function Experience({ items }: Props) {
     <section
       id="experiencia"
       aria-labelledby="experience-heading"
-      className="py-section px-6 bg-bg"
+      className="py-section bg-block-navy"
     >
-      <div className="max-w-6xl mx-auto">
-        <div className="rounded-[24px] p-8 md:p-12 bg-block-navy">
+      <div className="max-w-6xl mx-auto px-6">
         <motion.h2
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -66,7 +65,6 @@ export function Experience({ items }: Props) {
             </motion.li>
           ))}
         </motion.ol>
-        </div>
       </div>
     </section>
   );

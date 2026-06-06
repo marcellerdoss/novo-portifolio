@@ -39,10 +39,9 @@ export function Skills() {
     <section
       id="skills"
       aria-labelledby="skills-heading"
-      className="py-section px-6 bg-bg"
+      className="py-section bg-block-lime"
     >
-      <div className="max-w-6xl mx-auto">
-      <div className="rounded-[24px] p-8 md:p-12 bg-block-lime">
+      <div className="max-w-6xl mx-auto px-6">
         <motion.h2
           variants={fadeInUp}
           initial="hidden"
@@ -83,7 +82,6 @@ export function Skills() {
             </motion.div>
           ))}
         </motion.div>
-      </div>
       </div>
     </section>
   );
