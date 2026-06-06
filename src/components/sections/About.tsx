@@ -36,7 +36,7 @@ export function About() {
           {/* Photo */}
           <motion.div
             variants={fadeIn}
-            className="relative w-full aspect-square max-w-sm mx-auto md:mx-0 rounded-lg overflow-hidden border border-black/10"
+            className="relative w-full aspect-square rounded-lg overflow-hidden border border-black/10"
           >
             <Image
               src={siteConfig.about.photo}
