@@ -11,7 +11,6 @@ type Props = { posts: BlogPost[] };
 
 function formatDate(dateStr: string, locale: string) {
   return new Date(dateStr).toLocaleDateString(locale === 'pt' ? 'pt-BR' : 'en-US', {
-    year: 'numeric',
     month: 'short',
     day: 'numeric',
   });
@@ -39,10 +38,10 @@ function ArticleCard({ post, locale, t, cardBg }: { post: BlogPost; locale: stri
 
       {/* Footer */}
       <div className="flex items-center justify-between gap-2 type-caption text-fg-muted mt-auto">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 whitespace-nowrap">
           <time dateTime={post.date}>{formatDate(post.date, locale)}</time>
           <span aria-hidden="true">·</span>
-          <span>{post.readingTime} {t('min_read')}</span>
+          <span>{post.readingTime} min</span>
         </div>
         <ArrowUpRight
           size={14}
