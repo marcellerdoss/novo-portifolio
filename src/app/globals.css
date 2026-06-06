@@ -36,6 +36,7 @@
 
   /* Font */
   --font-sans: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, 'JetBrains Mono', Menlo, monospace;
 
   /* ─── Spacing scale (base unit: 8px) ─── */
   --spacing-hair:    1px;
@@ -203,7 +204,7 @@ body {
   }
 
   .type-eyebrow {
-    font-family: ui-monospace, 'Cascadia Code', Menlo, Consolas, monospace;
+    font-family: var(--font-mono);
     font-size: 1.125rem;     /* 18px */
     font-weight: 400;
     line-height: 1.30;
@@ -212,7 +213,7 @@ body {
   }
 
   .type-caption {
-    font-family: ui-monospace, 'Cascadia Code', Menlo, Consolas, monospace;
+    font-family: var(--font-mono);
     font-size: 0.75rem;      /* 12px */
     font-weight: 400;
     line-height: 1.00;
