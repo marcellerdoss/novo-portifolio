@@ -89,6 +89,14 @@ export default async function SellbieCashbackPage() {
               comercial e financeiro passaram a usar de verdade.
             </p>
 
+            <div className="flex flex-wrap gap-2 mt-6">
+              {['Entrevistas com CS', 'Plano estratégico', 'Dashboard de ROAS', 'Relatório de Precificação', 'Figma Make'].map(tag => (
+                <span key={tag} className="type-caption rounded-full border border-border px-3 py-1.5 leading-none text-fg-subtle">
+                  {tag}
+                </span>
+              ))}
+            </div>
+
             <dl className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 pt-8 border-t border-border">
               {[
                 { label: 'Papel', value: 'Product Designer' },

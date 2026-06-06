@@ -58,7 +58,7 @@ export function CasesSection(_props: Props) {
               category="Product Design"
               title="Redesign do core da plataforma — Sellbie"
               description="Navegação, campanhas e criação de envio redesenhados do zero"
-              tags={['UX Research', 'Redesign', 'Design System']}
+              tags={['UX Research', 'Redesign', 'Omnichannel']}
               href="/cases/sellbie-redesign"
               imageSrc="/images/cases/sellbie/redesign/sellbie-redesign-preview.png"
               imageAlt="Tela principal do redesign da plataforma Sellbie"
@@ -69,7 +69,7 @@ export function CasesSection(_props: Props) {
               category="Product Design"
               title="Jornadas — automação multicanal — Sellbie"
               description="Canvas de fluxo com 20+ gatilhos, múltiplos canais e lógica comportamental"
-              tags={['Produto Novo', 'Workflow', 'Multicanal']}
+              tags={['Produto Novo', 'IA & Automação', 'Workflow']}
               href="/cases/sellbie-jornadas"
               imageSrc="/images/cases/sellbie/jornadas/sellbie-jornadas-preview.png"
               imageAlt="Canvas de criação de jornada na plataforma Sellbie"
@@ -80,7 +80,7 @@ export function CasesSection(_props: Props) {
               category="Product Design"
               title="JG Alfabetização — sistema pedagógico e modelos de questão — Jovens Gênios"
               description="Fases, modelos de questão e matriz de proficiência para IA adaptativa"
-              tags={['Educação', 'IA', 'Design System']}
+              tags={['UX Research', 'BNCC', 'Design System']}
               href="/cases/jg-alfabetizacao"
               imageSrc="/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-preview.png"
               imageAlt="Modelos de questão do sistema de alfabetização"
@@ -91,7 +91,7 @@ export function CasesSection(_props: Props) {
               category="Product Design"
               title="Central de Ajuda segmentada por perfil — Jovens Gênios"
               description="Três perfis, busca filtrada e empty states que mantêm o usuário no caminho"
-              tags={['Help Center', 'UX', 'Navegação']}
+              tags={['Arquitetura de Informação', 'Pesquisa', 'Personalização']}
               href="/cases/jg-central-ajuda"
               imageSrc="/images/cases/jovens-genios/central-de-ajuda/jg-central-ajuda-preview.png"
               imageAlt="Página inicial da central de ajuda com atalhos por perfil"
@@ -130,7 +130,7 @@ export function CasesSection(_props: Props) {
               category="Relatório estratégico"
               label="Strategy"
               title="CRM — Relatório de performance — Sellbie"
-              tags={['CRM', 'Figma Make', 'CS']}
+              tags={['Mapa de oportunidades', 'Figma Make', 'CS']}
               href="/cases/sellbie-crm"
               imageSrc="/images/cases/sellbie/crm/sellbie-crm-preview.png"
               imageAlt="Dashboard de diagnóstico CRM no Figma Make"
@@ -141,7 +141,7 @@ export function CasesSection(_props: Props) {
               category="Relatório estratégico"
               label="Strategy"
               title="Cashback — Relatório de ROAS — Sellbie"
-              tags={['Cashback', 'ROAS', 'Figma Make']}
+              tags={['Entrevistas com CS', 'ROAS', 'Figma Make']}
               href="/cases/sellbie-cashback"
               imageSrc="/images/cases/sellbie/cashback/sellbie-cashback-preview.png"
               imageAlt="Dashboard de ROAS do programa de cashback"

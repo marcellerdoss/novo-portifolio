@@ -91,6 +91,14 @@ export default async function JgAlfabetizacaoPage() {
               cada nível de desenvolvimento da escrita.
             </p>
 
+            <div className="flex flex-wrap gap-2 mt-6">
+              {['UX Research', 'Arquitetura Pedagógica', 'Testes em Campo', 'Design System'].map(tag => (
+                <span key={tag} className="type-caption rounded-full border border-border px-3 py-1.5 leading-none text-fg-subtle">
+                  {tag}
+                </span>
+              ))}
+            </div>
+
             <dl className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 pt-8 border-t border-border">
               {[
                 { label: 'Papel', value: 'Product Designer' },

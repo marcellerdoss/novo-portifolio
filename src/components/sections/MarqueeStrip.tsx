@@ -1,8 +1,8 @@
 const ITEMS = [
-  'UX Research', 'Product Design', 'Design System', 'Figma',
-  'Entrevistas', 'Testes de Usabilidade', 'Prototipação',
-  'IA Adaptativa', 'SaaS B2B', 'Card Sorting', 'Estratégia de Produto',
-  'EdTech', 'E-commerce', 'Dev Mode', 'Framer', 'Acessibilidade',
+  'UX Strategy', 'UX Design', 'UX Research', 'Product Design',
+  'CX', 'E-commerce', 'Omnichannel', 'IA', 'Vibe Coding',
+  'Figma', 'Design System', 'Entrevistas', 'Testes de Usabilidade',
+  'Card Sorting', 'Acessibilidade', 'Figma Make',
 ];
 
 const SEP = '·';

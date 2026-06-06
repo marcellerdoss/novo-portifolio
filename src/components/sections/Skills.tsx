@@ -5,30 +5,30 @@ import { useTranslations } from 'next-intl';
 import { fadeInUp, stagger, staggerFast } from '@/lib/animations';
 
 type SkillCategory = {
-  key: 'design' | 'research' | 'prototyping' | 'handoff' | 'soft';
+  key: 'design' | 'research' | 'strategy' | 'ai' | 'soft';
   items: string[];
 };
 
 const categories: SkillCategory[] = [
   {
     key: 'design',
-    items: ['Figma', 'Adobe XD', 'UI Design', 'UX Design', 'Design System', 'Tokens', 'Acessibilidade'],
+    items: ['Figma', 'UI Design', 'UX Design', 'Design System', 'Arquitetura da Informação', 'Design de Fluxos', 'Acessibilidade'],
   },
   {
     key: 'research',
-    items: ['Entrevistas', 'Testes de Usabilidade', 'Pesquisa Quantitativa', 'Análise Heurística', 'Card Sorting', 'Tree Testing'],
+    items: ['Entrevistas com Usuários', 'Testes de Usabilidade', 'Card Sorting', 'Análise Heurística', 'Benchmarking', 'Tree Testing'],
   },
   {
-    key: 'prototyping',
-    items: ['Figma Prototype', 'Framer', 'ProtoPie', 'Micro-interações', 'Animação'],
+    key: 'strategy',
+    items: ['CX Strategy', 'Consumer Insights', 'Estratégia de Produto', 'Facilitação', 'Design Thinking', 'Agile'],
   },
   {
-    key: 'handoff',
-    items: ['Figma Dev Mode', 'Zeplin', 'Storybook', 'Design Tokens', 'Documentação'],
+    key: 'ai',
+    items: ['Plataformas com IA', 'Figma Make', 'Framer', 'Dev Mode', 'IA Adaptativa'],
   },
   {
     key: 'soft',
-    items: ['Facilitação', 'Design Thinking', 'Storytelling', 'Agile', 'Liderança', 'Comunicação'],
+    items: ['Comunicação', 'Storytelling', 'Liderança'],
   },
 ];
 
