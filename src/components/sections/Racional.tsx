@@ -62,9 +62,9 @@ const phases = [
 function RowDivider({ label }: { label: string }) {
   return (
     <div className="flex items-center gap-3">
-      <span className="type-caption text-fg-subtle whitespace-nowrap">{label}</span>
-      <div className="flex-1 border-t border-dashed border-border" />
-      <ChevronRight size={12} className="text-fg-subtle flex-shrink-0" />
+      <span className="type-caption text-accent-magenta whitespace-nowrap">{label}</span>
+      <div className="flex-1 border-t border-dashed border-accent-magenta" />
+      <ChevronRight size={12} className="text-accent-magenta flex-shrink-0" />
     </div>
   );
 }
@@ -112,7 +112,7 @@ export function Racional() {
                   {num}
                 </div>
                 <div>
-                  <p className="type-caption text-accent-magenta mb-0.5">{type}</p>
+                  <p className="type-caption text-fg-subtle mb-0.5">{type}</p>
                   <p className="type-body-sm text-fg font-[480] leading-snug">{title}</p>
                 </div>
               </div>

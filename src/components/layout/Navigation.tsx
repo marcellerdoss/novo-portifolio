@@ -11,7 +11,7 @@ const links: { key: NavKey; href: string }[] = [
   { key: 'cases',      href: '/#cases' },
   { key: 'skills',     href: '/#skills' },
   { key: 'experience', href: '/#experiencia' },
-  { key: 'blog',       href: '/blog' },
+  { key: 'blog',       href: '/#blog' },
   { key: 'contact',    href: '/#contato' },
 ];
 

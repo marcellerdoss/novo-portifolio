@@ -59,7 +59,7 @@ export function About() {
                 className="text-center p-4 rounded-lg bg-white/70 border border-black/10"
               >
                 <p className="type-headline text-fg">{value}</p>
-                <p className="type-caption text-fg-subtle mt-1">{label}</p>
+                <p className="type-caption text-fg-subtle mt-1 whitespace-pre-line">{label}</p>
               </motion.div>
             ))}
           </motion.div>

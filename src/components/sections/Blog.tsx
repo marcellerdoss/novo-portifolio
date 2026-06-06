@@ -20,7 +20,7 @@ function ArticleCard({ post, locale, t }: { post: BlogPost; locale: string; t: R
   const inner = (
     <div className="group flex flex-col h-full rounded-[16px] bg-surface-soft border border-black/10 p-6 transition-all duration-200 hover:-translate-y-1 hover:border-black/20 hover:shadow-[0_4px_20px_rgba(0,0,0,0.07)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg">
       {/* Category */}
-      <span className="type-caption text-accent-magenta mb-4 inline-block">
+      <span className="type-caption text-fg-muted mb-4 inline-block">
         {post.category}
       </span>
 
@@ -44,7 +44,7 @@ function ArticleCard({ post, locale, t }: { post: BlogPost; locale: string; t: R
         <ArrowUpRight
           size={14}
           aria-hidden="true"
-          className="shrink-0 text-fg-muted group-hover:text-fg transition-colors"
+          className="shrink-0 text-accent-magenta"
         />
       </div>
     </div>

@@ -42,9 +42,11 @@ export function Hero() {
 
           <motion.h1
             variants={fadeInUp}
-            className="text-[clamp(2rem,5vw,4rem)] font-bold leading-[1.05] tracking-[-1.5px] text-fg whitespace-pre-line"
+            className="text-[clamp(2rem,5vw,4rem)] font-bold leading-[1.05] tracking-[-1.5px] text-fg"
           >
-            {t('subtitle')}
+            {t('subtitle').split('\n').map((line, i) => (
+              <span key={i} className={`block${i === 1 ? ' text-block-navy' : ''}`}>{line}</span>
+            ))}
           </motion.h1>
         </div>
 
