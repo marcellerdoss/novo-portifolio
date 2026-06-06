@@ -75,7 +75,7 @@ export function BlogPreview({ posts }: Props) {
     <section
       id="blog"
       aria-labelledby="blog-heading"
-      className="py-section bg-surface-soft"
+      className="py-section bg-bg"
     >
       <div className="max-w-6xl mx-auto px-6">
 
