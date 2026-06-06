@@ -45,10 +45,8 @@ export function CaseEditorial({
 
       {/* Text block */}
       <div>
-        <h3 className="text-[18px] font-[500] text-fg mb-4 leading-snug">
-          {title}
-        </h3>
-        <p className="text-[15px] text-fg-muted leading-[1.7]">{body}</p>
+        <h3 className="type-body-strong text-fg mb-4">{title}</h3>
+        <p className="type-body-sm text-fg-muted">{body}</p>
       </div>
     </div>
   );

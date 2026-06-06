@@ -21,7 +21,6 @@ export function CaseCardCompact({
   href,
   imageSrc,
   imageAlt,
-  accentBg,
   accentText,
 }: CaseCardCompactProps) {
   return (
@@ -31,9 +30,9 @@ export function CaseCardCompact({
     >
       <span className="sr-only">{title} — {label} — {category}</span>
 
-      {/* Image area — slides up 60px on hover */}
+      {/* Image area — slides up 68px on hover */}
       <div
-        className="absolute inset-0 bg-surface-soft transition-transform duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-[60px]"
+        className="absolute inset-0 bg-surface-soft transition-transform duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-[68px]"
       >
         <div className="absolute inset-[20px]">
           <Image
@@ -46,51 +45,38 @@ export function CaseCardCompact({
         </div>
       </div>
 
-      {/* Repose panel — 60px, fades on hover */}
+      {/* Repose panel — 68px, fades on hover */}
       <div
-        className="absolute bottom-0 inset-x-0 h-[60px] bg-bg border-t border-[0.5px] border-border px-4 flex flex-col justify-center gap-1 transition-opacity duration-200 group-hover:opacity-0"
+        className="absolute bottom-0 inset-x-0 h-[68px] bg-bg border-t border-[0.5px] border-border px-4 flex flex-col justify-center gap-1.5 transition-opacity duration-200 group-hover:opacity-0"
         aria-hidden="true"
       >
-        <p className="text-[10px] font-medium uppercase tracking-wider text-fg-subtle leading-none">
-          {category}
-        </p>
-        <p className="text-[13px] font-medium leading-tight text-fg truncate">
-          {title}
-        </p>
+        <p className="type-caption text-fg-subtle">{category}</p>
+        <p className="type-body-sm text-fg font-[480] truncate">{title}</p>
       </div>
 
       {/* Hover panel — slides up from below */}
       <div
-        className="absolute bottom-0 inset-x-0 bg-bg border-t border-[0.5px] border-border px-4 py-3 translate-y-full group-hover:translate-y-0 transition-transform duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
+        className="absolute bottom-0 inset-x-0 bg-bg border-t border-[0.5px] border-border px-4 py-4 translate-y-full group-hover:translate-y-0 transition-transform duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
         aria-hidden="true"
       >
-        <div className="flex items-center gap-2 mb-1.5">
-          <p
-            className="text-[10px] font-medium uppercase tracking-wider leading-none"
-            style={{ color: accentText }}
-          >
-            {category}
-          </p>
-          <span className="text-[10px] text-fg-subtle border-[0.5px] border-border rounded-full px-1.5 py-0.5 leading-none">
+        <div className="flex items-center gap-2 mb-2">
+          <p className="type-caption" style={{ color: accentText }}>{category}</p>
+          <span className="type-caption text-fg-subtle border-[0.5px] border-border rounded-full px-1.5 py-1">
             {label}
           </span>
         </div>
-        <p className="text-[13px] font-medium leading-tight text-fg mb-2">
-          {title}
-        </p>
+        <p className="type-body-sm text-fg font-[480] mb-2">{title}</p>
         <div className="flex flex-wrap gap-1 mb-2">
           {tags.map((tag) => (
             <span
               key={tag}
-              className="text-[10px] text-fg-subtle border-[0.5px] border-border rounded-full px-2 py-0.5 leading-none"
+              className="type-caption text-fg-subtle border-[0.5px] border-border rounded-full px-2 py-1"
             >
               {tag}
             </span>
           ))}
         </div>
-        <span className="text-[12px] font-medium text-fg">
-          Ver case →
-        </span>
+        <span className="type-body-sm font-[480] text-fg">Ver case →</span>
       </div>
     </Link>
   );

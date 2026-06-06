@@ -41,7 +41,7 @@ export function CaseHero({
       </div>
 
       {caption && (
-        <figcaption className="mt-3 text-[13px] text-fg-subtle">
+        <figcaption className="mt-3 type-body-sm text-fg-subtle">
           {caption}
         </figcaption>
       )}

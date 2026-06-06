@@ -41,7 +41,7 @@ export function CaseBeforeAfter({
           style={{ backgroundColor: accentBg }}
         >
           <span
-            className="absolute top-3 left-3 z-10 text-[11px] font-medium rounded-full px-2.5 py-1 leading-none"
+            className="absolute top-3 left-3 z-10 type-caption rounded-full px-2.5 py-1"
             style={BADGE_BEFORE}
           >
             Antes
@@ -58,7 +58,7 @@ export function CaseBeforeAfter({
           </div>
         </div>
         {captionBefore && (
-          <figcaption className="mt-2 text-[12px] text-fg-subtle">
+          <figcaption className="mt-2 type-body-sm text-fg-subtle">
             {captionBefore}
           </figcaption>
         )}
@@ -71,7 +71,7 @@ export function CaseBeforeAfter({
           style={{ backgroundColor: accentBg }}
         >
           <span
-            className="absolute top-3 left-3 z-10 text-[11px] font-medium rounded-full px-2.5 py-1 leading-none"
+            className="absolute top-3 left-3 z-10 type-caption rounded-full px-2.5 py-1"
             style={BADGE_AFTER}
           >
             Depois
@@ -88,7 +88,7 @@ export function CaseBeforeAfter({
           </div>
         </div>
         {captionAfter && (
-          <figcaption className="mt-2 text-[12px] text-fg-subtle">
+          <figcaption className="mt-2 type-body-sm text-fg-subtle">
             {captionAfter}
           </figcaption>
         )}

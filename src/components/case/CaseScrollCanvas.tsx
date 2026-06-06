@@ -49,9 +49,9 @@ export function CaseScrollCanvas({
     <div className="w-full">
       {/* Header */}
       <div className="flex items-center gap-3 mb-3">
-        <span className="text-[14px] font-[500] text-fg">{title}</span>
+        <span className="type-body-sm text-fg font-[480]">{title}</span>
         <span
-          className="text-[11px] font-medium rounded-full px-2.5 py-1 leading-none"
+          className="type-caption rounded-full px-2.5 py-1"
           style={{ backgroundColor: accentBg, color: accentText }}
         >
           arraste para explorar
@@ -109,7 +109,7 @@ export function CaseScrollCanvas({
             strokeLinejoin="round"
           />
         </svg>
-        <span className="text-[11px] text-fg-subtle">scroll horizontal</span>
+        <span className="type-caption text-fg-subtle">scroll horizontal</span>
       </div>
     </div>
   );

@@ -34,7 +34,7 @@ export function CaseZoom({
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       {/* Overview panel */}
       <div>
-        <p className="text-[11px] uppercase tracking-wider text-fg-subtle mb-2">
+        <p className="type-caption text-fg-subtle mb-2">
           Visão geral
         </p>
         <div
@@ -71,7 +71,7 @@ export function CaseZoom({
 
       {/* Zoom panel */}
       <div>
-        <p className="text-[11px] uppercase tracking-wider text-fg-subtle mb-2">
+        <p className="type-caption text-fg-subtle mb-2">
           Zoom — {zoomLabel}
         </p>
         <div
