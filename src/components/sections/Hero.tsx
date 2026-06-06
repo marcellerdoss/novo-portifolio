@@ -35,14 +35,14 @@ export function Hero() {
         <div className="mb-12">
           <motion.p
             variants={fadeInUp}
-            className="type-body-sm text-fg-muted mb-3"
+            className="type-display-lg text-accent-magenta mb-3"
           >
             {t('name')}
           </motion.p>
 
           <motion.h1
             variants={fadeInUp}
-            className="text-[clamp(2.75rem,8vw,6.5rem)] font-bold leading-[1.0] tracking-[-2.5px] text-fg"
+            className="text-[clamp(2rem,5vw,4rem)] font-bold leading-[1.05] tracking-[-1.5px] text-fg"
           >
             {t('subtitle')}
           </motion.h1>
