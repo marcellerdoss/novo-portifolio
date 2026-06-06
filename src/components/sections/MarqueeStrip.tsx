@@ -13,7 +13,7 @@ export function MarqueeStrip() {
   return (
     <div
       aria-hidden="true"
-      className="w-full overflow-hidden bg-primary h-9 flex items-center"
+      className="w-full overflow-hidden bg-accent-magenta h-9 flex items-center"
     >
       <div
         className="flex gap-8 whitespace-nowrap"
