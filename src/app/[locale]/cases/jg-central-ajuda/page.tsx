@@ -93,7 +93,7 @@ export default async function JgCentralAjudaPage() {
           <div className="max-w-5xl mx-auto">
             <Link
               href="/#cases"
-              className="inline-flex items-center gap-2 px-5 py-2 type-body-sm border border-black/15 text-fg-muted rounded-pill bg-transparent hover:border-black/40 hover:text-fg active:scale-[0.97] transition-all duration-150 mb-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-fg"
+              className="inline-flex items-center gap-2 px-5 py-2 type-body-sm border border-accent-magenta text-accent-magenta rounded-pill bg-transparent hover:bg-accent-magenta/10 active:scale-[0.97] transition-all duration-150 mb-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-fg"
             >
               ← Todos os cases
             </Link>
