@@ -49,7 +49,7 @@ export function Contact() {
       aria-labelledby="contact-heading"
       className="py-section px-6 bg-bg"
     >
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-6xl mx-auto">
       <div className="rounded-[24px] p-8 md:p-12 bg-block-lime text-center">
         <motion.div
           variants={stagger}

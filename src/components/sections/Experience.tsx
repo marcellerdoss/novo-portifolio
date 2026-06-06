@@ -17,7 +17,7 @@ export function Experience({ items }: Props) {
       aria-labelledby="experience-heading"
       className="py-section px-6 bg-bg"
     >
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <div className="rounded-[24px] p-8 md:p-12 bg-block-navy">
         <motion.h2
           initial={{ opacity: 0, y: 24 }}
