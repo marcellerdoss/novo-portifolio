@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { ArrowUpRight } from 'lucide-react';
 
 export interface CaseCardProps {
   category: string;
@@ -74,7 +75,9 @@ export function CaseCard({
             </span>
           ))}
         </div>
-        <span className="type-body-sm font-[480] text-fg">Ver case →</span>
+        <span className="inline-flex items-center gap-1 type-body-sm font-[480] text-fg">
+          Ver case <ArrowUpRight size={14} aria-hidden="true" />
+        </span>
       </div>
     </Link>
   );

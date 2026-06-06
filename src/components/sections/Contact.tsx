@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Globe, MessageCircle } from 'lucide-react';
-import { Button } from '@/components/ui/Button';
 import { fadeInUp, stagger } from '@/lib/animations';
 import { siteConfig } from '@/lib/config';
 
@@ -23,7 +22,7 @@ function ContactForm({ email }: { email: string }) {
   }
 
   const inputClass =
-    'w-full bg-white/60 border border-black/10 rounded-md px-4 py-3 type-body text-fg placeholder:text-fg-subtle focus:outline-none focus:ring-2 focus:ring-fg/40';
+    'w-full bg-white/10 border border-white/20 rounded-md px-4 py-3 type-body text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-white/40';
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4 text-left">
@@ -53,9 +52,12 @@ function ContactForm({ email }: { email: string }) {
         onChange={(e) => setMessage(e.target.value)}
         className={`${inputClass} resize-none`}
       />
-      <Button type="submit" className="self-start">
+      <button
+        type="submit"
+        className="self-start inline-flex items-center gap-2 px-5 py-[10px] type-button bg-white text-[#1f1d3d] rounded-pill hover:opacity-90 active:scale-[0.97] transition-opacity duration-150"
+      >
         Enviar mensagem
-      </Button>
+      </button>
     </form>
   );
 }
@@ -82,7 +84,7 @@ export function Contact() {
     <section
       id="contato"
       aria-labelledby="contact-heading"
-      className="py-section bg-block-lime"
+      className="py-section bg-block-navy"
     >
       <div className="max-w-6xl mx-auto px-6">
           <motion.div
@@ -97,14 +99,14 @@ export function Contact() {
               <motion.h2
                 id="contact-heading"
                 variants={fadeInUp}
-                className="type-display-lg text-fg mb-4"
+                className="type-display-lg text-white mb-4"
               >
                 {t('title')}
               </motion.h2>
 
               <motion.p
                 variants={fadeInUp}
-                className="type-body text-fg-muted mb-8"
+                className="type-body text-white/70 mb-8"
               >
                 {t('subtitle')}
               </motion.p>
@@ -122,7 +124,7 @@ export function Contact() {
                     aria-label={label}
                     title={label}
                     variants={fadeInUp}
-                    className="group flex flex-col items-center gap-2 p-5 rounded-lg bg-white/60 border border-black/10 min-w-[96px] transition-all duration-150 hover:-translate-y-[3px] hover:border-black/30 hover:shadow-[0_4px_16px_rgba(0,0,0,0.08)] text-fg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg"
+                    className="group flex flex-col items-center gap-2 p-5 rounded-lg bg-white/10 border border-white/20 min-w-[96px] transition-all duration-150 hover:-translate-y-[3px] hover:border-white/40 hover:shadow-[0_4px_24px_rgba(0,0,0,0.24)] text-white/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
                   >
                     {icon}
                     <span className="type-caption">{label}</span>
