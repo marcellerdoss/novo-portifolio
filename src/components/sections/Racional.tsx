@@ -74,7 +74,7 @@ export function Racional() {
     <section
       id="racional"
       aria-labelledby="racional-heading"
-      className="py-section bg-bg border-t border-border"
+      className="py-section bg-bg"
     >
       <div className="max-w-6xl mx-auto px-6 space-y-6">
 

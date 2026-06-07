@@ -45,12 +45,18 @@ export async function Footer() {
             </ul>
           </nav>
 
-          {/* Credit */}
-          <div>
+          {/* Credit + meta link */}
+          <div className="space-y-3">
             <p className="type-body-sm text-white/60">
               {t('credit')}{' '}
               <span className="text-white font-[540]">Marcelle</span>
             </p>
+            <Link
+              href="/racional"
+              className="inline-flex items-center gap-1.5 type-caption text-white/40 hover:text-white/70 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded"
+            >
+              Racional do projeto →
+            </Link>
           </div>
         </div>
 
