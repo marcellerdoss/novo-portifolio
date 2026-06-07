@@ -36,7 +36,7 @@ const ACCENT_BG   = 'var(--color-project-sellbie-jornadas-bg)';
 const ACCENT_TEXT = 'var(--color-project-sellbie-jornadas-text)';
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
-  return <p className="type-caption text-block-navy dark:text-accent-magenta mb-4">{children}</p>;
+  return <p className="type-caption text-accent-magenta mb-4">{children}</p>;
 }
 function SectionHeading({ children }: { children: React.ReactNode }) {
   return <h2 className="type-headline text-fg mb-6">{children}</h2>;
@@ -353,9 +353,9 @@ export default async function SellbieJornadasPage() {
                 { stat: '3', label: 'Canais nativos — e-mail, WhatsApp e SMS' },
                 { stat: '0→1', label: 'Módulo inteiramente novo — sem legado' },
               ].map(({ stat, label }) => (
-                <div key={label} className="bg-block-mint border border-border rounded-[16px] p-8">
-                  <p className="type-headline text-fg mb-2">{stat}</p>
-                  <p className="type-body-sm text-fg-muted">{label}</p>
+                <div key={label} className="border border-border rounded-[16px] p-8" style={{ backgroundColor: ACCENT_BG }}>
+                  <p className="type-headline mb-2" style={{ color: ACCENT_TEXT }}>{stat}</p>
+                  <p className="type-body-sm opacity-70" style={{ color: ACCENT_TEXT }}>{label}</p>
                 </div>
               ))}
             </div>

@@ -6,7 +6,7 @@ export function CaseToggleBar() {
   const { view, switchView } = useCaseView();
 
   return (
-    <div className="sticky top-16 z-50 bg-bg flex items-center gap-3 py-4 border-b border-border mb-10">
+    <div id="case-toggle" className="sticky top-16 z-50 bg-bg flex items-center gap-3 py-4 border-b border-border mb-10">
       <span className="type-body-sm text-fg-subtle hidden sm:inline whitespace-nowrap">
         Visualização do case:
       </span>

@@ -36,7 +36,7 @@ const ACCENT_BG   = 'var(--color-project-jg-alfabetizacao-bg)';
 const ACCENT_TEXT = 'var(--color-project-jg-alfabetizacao-text)';
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
-  return <p className="type-caption text-block-navy dark:text-accent-magenta mb-4">{children}</p>;
+  return <p className="type-caption text-accent-magenta mb-4">{children}</p>;
 }
 function SectionHeading({ children }: { children: React.ReactNode }) {
   return <h2 className="type-headline text-fg mb-6">{children}</h2>;
@@ -364,9 +364,9 @@ export default async function JgAlfabetizacaoPage() {
                 { stat: '9+', label: 'Modelos de questão adaptados por fase de desenvolvimento' },
                 { stat: '1 código', label: 'Operacional compartilhado entre design, pedagogia e tecnologia' },
               ].map(({ stat, label }) => (
-                <div key={label} className="bg-block-mint border border-border rounded-[16px] p-8">
-                  <p className="type-headline text-fg mb-2">{stat}</p>
-                  <p className="type-body-sm text-fg-muted">{label}</p>
+                <div key={label} className="border border-border rounded-[16px] p-8" style={{ backgroundColor: ACCENT_BG }}>
+                  <p className="type-headline mb-2" style={{ color: ACCENT_TEXT }}>{stat}</p>
+                  <p className="type-body-sm opacity-70" style={{ color: ACCENT_TEXT }}>{label}</p>
                 </div>
               ))}
             </div>

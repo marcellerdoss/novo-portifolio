@@ -106,9 +106,6 @@
   --color-accent-magenta: #C8236A;
 }
 
-.dark .case-editorial-prose h2 {
-  color: var(--color-accent-magenta);
-}
 
 /* Map semantic tokens to Tailwind utilities */
 @theme inline {
@@ -238,7 +235,7 @@ body {
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-block-navy);
+  color: var(--color-accent-magenta);
   margin-top: 4rem;
   margin-bottom: 0.5rem;
   line-height: 1;

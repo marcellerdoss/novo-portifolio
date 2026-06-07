@@ -21,6 +21,7 @@ export function CasePageShell({
 }: CasePageShellProps) {
   const [view, setView] = useState<'overview' | 'detailed'>('overview');
   const [showTop, setShowTop] = useState(false);
+  const [pendingScroll, setPendingScroll] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setShowTop(window.scrollY > 400);
@@ -32,9 +33,19 @@ export function CasePageShell({
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
+  useEffect(() => {
+    if (!pendingScroll) return;
+    setPendingScroll(false);
+    const el = document.getElementById('case-toggle');
+    if (el) {
+      const top = el.getBoundingClientRect().top + window.scrollY - 64;
+      window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+    }
+  }, [pendingScroll, view]);
+
   const switchView = (next: 'overview' | 'detailed') => {
     setView(next);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setPendingScroll(true);
   };
 
   return (

@@ -102,7 +102,7 @@ export default async function BlogPostPage({ params }: { params: Params }) {
             <article>
               {/* Header */}
               <header className="mb-12">
-                <Badge variant="category" className="mb-6">{post.frontmatter.category}</Badge>
+                <span className="type-caption text-accent-magenta mb-6 block">{post.frontmatter.category}</span>
                 <h1 className="type-display-xl text-fg mb-6">{post.frontmatter.title}</h1>
                 <p className="type-subhead text-fg-muted mb-8">{post.frontmatter.excerpt}</p>
                 <div className="flex flex-wrap items-center gap-4 type-body-sm text-fg-subtle">
