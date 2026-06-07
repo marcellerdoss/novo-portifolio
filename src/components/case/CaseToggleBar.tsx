@@ -28,13 +28,13 @@ export function CaseToggleBar() {
       <span className="type-body-sm text-fg-subtle hidden sm:inline whitespace-nowrap">
         Visualização do case:
       </span>
-      <div className="inline-flex rounded-pill border border-black/15 overflow-hidden">
+      <div className="inline-flex rounded-pill border border-black/15 dark:border-white/15 overflow-hidden">
         <button
           onClick={() => handleSwitch('overview')}
           className={`px-5 py-2 type-body-sm transition-all duration-150 leading-none ${
             view === 'overview'
               ? 'bg-fg text-bg'
-              : 'text-fg-muted hover:text-fg hover:bg-black/5'
+              : 'text-fg-muted hover:text-fg hover:bg-black/5 dark:hover:bg-white/5'
           }`}
         >
           Simplificada
@@ -44,7 +44,7 @@ export function CaseToggleBar() {
           className={`px-5 py-2 type-body-sm transition-all duration-150 leading-none ${
             view === 'detailed'
               ? 'bg-fg text-bg'
-              : 'text-fg-muted hover:text-fg hover:bg-black/5'
+              : 'text-fg-muted hover:text-fg hover:bg-black/5 dark:hover:bg-white/5'
           }`}
         >
           Detalhada

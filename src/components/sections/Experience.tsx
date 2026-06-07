@@ -35,7 +35,7 @@ export function Experience({ items }: Props) {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="relative border-l-2 border-black/15 pl-8 space-y-12"
+          className="relative border-l-2 border-black/15 dark:border-white/15 pl-8 space-y-12"
         >
           {items.map((item, i) => (
             <motion.li

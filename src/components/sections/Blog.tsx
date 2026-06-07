@@ -18,7 +18,7 @@ function formatDate(dateStr: string, locale: string) {
 
 function ArticleCard({ post, locale, t }: { post: BlogPost; locale: string; t: ReturnType<typeof useTranslations> }) {
   const inner = (
-    <div className="group flex flex-col h-full rounded-[16px] bg-surface-soft border border-black/10 p-6 transition-all duration-200 hover:-translate-y-1 hover:border-black/20 hover:shadow-[0_4px_20px_rgba(0,0,0,0.07)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg">
+    <div className="group flex flex-col h-full rounded-[16px] bg-surface-soft border border-black/10 dark:border-white/10 p-6 transition-all duration-200 hover:-translate-y-1 hover:border-black/20 dark:hover:border-white/15 hover:shadow-[0_4px_20px_rgba(0,0,0,0.07)] dark:hover:shadow-[0_4px_24px_rgba(0,0,0,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg">
       {/* Category */}
       <span className="type-caption text-fg-subtle bg-surface-soft rounded-full px-3 py-1.5 mb-4 inline-block">
         {post.category}

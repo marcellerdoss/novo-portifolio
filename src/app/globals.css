@@ -94,6 +94,12 @@
   --fg-muted:     #e4e4e7;
   --fg-subtle:    #a1a1aa;
   --border-token: rgba(255, 255, 255, 0.12);
+
+  /* Static color token overrides for dark mode */
+  --color-surface-soft:   #1a1836;
+  --color-block-pink:     #261724;
+  --color-block-cream:    #1e1c31;
+  --color-accent-magenta: #ff78ac;
 }
 
 /* Map semantic tokens to Tailwind utilities */
