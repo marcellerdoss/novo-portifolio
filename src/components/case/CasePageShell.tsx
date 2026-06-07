@@ -51,30 +51,6 @@ export function CasePageShell({
   return (
     <CaseViewContext.Provider value={{ view, switchView }}>
 
-      {/* ── Mini nav superior — discreta, sem chamar atenção ── */}
-      {(prevCase || nextCase) && (
-        <div className="flex items-center max-w-5xl mx-auto px-6 pt-6 pb-0">
-          {prevCase && (
-            <Link
-              href={prevCase.href}
-              className="inline-flex items-center gap-1.5 type-caption text-fg-subtle hover:text-fg transition-colors duration-150 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-fg rounded"
-            >
-              <ArrowLeft size={11} aria-hidden="true" />
-              <span className="max-w-[38vw] truncate">{prevCase.title}</span>
-            </Link>
-          )}
-          {nextCase && (
-            <Link
-              href={nextCase.href}
-              className="ml-auto inline-flex items-center gap-1.5 type-caption text-fg-subtle hover:text-fg transition-colors duration-150 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-fg rounded"
-            >
-              <span className="max-w-[38vw] truncate">{nextCase.title}</span>
-              <ArrowRight size={11} aria-hidden="true" />
-            </Link>
-          )}
-        </div>
-      )}
-
       {/* ── Content area ── */}
       <div key={view}>
         {view === 'overview' ? children : detailedContent}
@@ -116,13 +92,14 @@ export function CasePageShell({
       <button
         onClick={scrollToTop}
         aria-label="Voltar ao topo"
-        className={`fixed bottom-8 right-8 z-50 w-11 h-11 rounded-full bg-fg text-bg dark:bg-accent-magenta dark:text-white flex items-center justify-center shadow-lg transition-all duration-300 ${
+        className={`fixed bottom-8 right-8 z-50 inline-flex items-center gap-2 px-4 py-2.5 rounded-pill bg-fg text-bg dark:bg-accent-magenta dark:text-white type-caption shadow-lg transition-all duration-300 ${
           showTop
             ? 'opacity-100 translate-y-0'
             : 'opacity-0 translate-y-4 pointer-events-none'
         }`}
       >
-        <ChevronUp size={18} aria-hidden="true" />
+        <ChevronUp size={14} aria-hidden="true" />
+        Voltar ao topo
       </button>
     </CaseViewContext.Provider>
   );
