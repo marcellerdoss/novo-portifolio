@@ -45,7 +45,7 @@ export function Experience({ items }: Props) {
             >
               {/* Timeline dot */}
               <span
-                className="absolute -left-[2.625rem] top-[7px] w-3 h-3 rounded-full bg-accent-magenta border-2 border-block-cream"
+                className="absolute -left-[39px] top-[7px] w-3 h-3 rounded-full bg-accent-magenta border-2 border-block-cream"
                 aria-hidden="true"
               />
 

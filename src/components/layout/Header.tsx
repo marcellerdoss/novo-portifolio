@@ -52,21 +52,9 @@ export function Header() {
 
   return (
     <>
-      {/* Skip link */}
-      <a
-        href="#main-content"
-        className={cn(
-          'sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100]',
-          'px-4 py-2 bg-primary text-on-primary rounded-pill type-caption',
-          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg',
-        )}
-      >
-        {t('skip_to_content')}
-      </a>
-
       <header
         className={cn(
-          'fixed top-0 left-0 right-0 z-40 transition-all duration-200',
+          'fixed top-9 left-0 right-0 z-40 transition-all duration-200',
           scrolled
             ? 'bg-bg/80 backdrop-blur-md border-b border-border'
             : 'bg-transparent',

@@ -35,7 +35,7 @@ export function Navigation({ className, itemClassName, onClick }: Props) {
   );
 
   return (
-    <nav aria-label="Navegação principal">
+    <nav id="main-nav" aria-label="Navegação principal">
       <ul className={cn('flex items-center gap-6', className)}>
         {!isHome && (
           <li>
