@@ -31,7 +31,7 @@
   --color-block-navy:     #1f1d3d;
 
   /* Accent / semantic */
-  --color-accent-magenta:   #ff3d8b;
+  --color-accent-magenta:   #C8236A;
   --color-semantic-success: #1ea64a;
 
   /* Font */
@@ -103,7 +103,7 @@
   --color-block-lime:     #151f0a;
   --color-block-lilac:    #1c1535;
   --color-block-coral:    #2b1410;
-  --color-accent-magenta: #ff78ac;
+  --color-accent-magenta: #C8236A;
 }
 
 .dark .case-editorial-prose h2 {
@@ -204,7 +204,7 @@ body {
   }
 
   .type-caption {
-    font-family: var(--font-mono);
+    font-family: var(--font-sans);
     font-size: 0.75rem;      /* 12px */
     font-weight: 400;
     line-height: 1.00;
