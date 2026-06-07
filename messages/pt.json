@@ -63,7 +63,10 @@
     "see_all": "Ver todos os artigos",
     "min_read": "min de leitura",
     "search_placeholder": "Buscar artigos...",
-    "filter_all": "Todos"
+    "filter_all": "Todos",
+    "no_results": "Nenhum artigo encontrado.",
+    "result_single": "artigo encontrado",
+    "results_plural": "artigos encontrados"
   },
   "contact": {
     "title": "Vamos nos conectar?",
@@ -82,6 +85,8 @@
   "footer": {
     "credit": "Designed & built by",
     "quick_links": "Navegação",
-    "github_repo": "Ver repositório"
+    "github_repo": "Ver repositório",
+    "rationale": "Racional do projeto →",
+    "copyright": "Todos os direitos reservados."
   }
 }

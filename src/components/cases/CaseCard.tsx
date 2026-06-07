@@ -14,6 +14,7 @@ export interface CaseCardProps {
   accentBg: string;
   accentText: string;
   mockup?: 'mobile' | 'desktop';
+  ctaLabel?: string;
 }
 
 function PhoneMockup({ src, alt }: { src: string; alt: string }) {
@@ -69,6 +70,7 @@ export function CaseCard({
   imageAlt,
   accentBg,
   mockup,
+  ctaLabel = 'Ver case',
 }: CaseCardProps) {
   return (
     <Link
@@ -130,7 +132,7 @@ export function CaseCard({
         </div>
         <div className="mt-auto flex justify-end">
           <span className="inline-flex items-center gap-2 px-5 py-2 type-body-sm border border-fg text-fg rounded-pill bg-transparent">
-            Ver case <ArrowUpRight size={12} aria-hidden="true" className="shrink-0" />
+            {ctaLabel} <ArrowUpRight size={12} aria-hidden="true" className="shrink-0" />
           </span>
         </div>
       </div>

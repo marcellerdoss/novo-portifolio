@@ -88,13 +88,13 @@ export function BlogClient({ posts }: Props) {
 
         {/* Live region for screen readers */}
         <p className="sr-only" aria-live="polite" aria-atomic="true">
-          {filtered.length} {filtered.length === 1 ? 'artigo encontrado' : 'artigos encontrados'}
+          {filtered.length} {filtered.length === 1 ? t('result_single') : t('results_plural')}
         </p>
 
         {/* Grid */}
         {filtered.length === 0 ? (
           <p className="type-body text-fg-muted text-center py-16">
-            Nenhum artigo encontrado.
+            {t('no_results')}
           </p>
         ) : (
           <motion.div

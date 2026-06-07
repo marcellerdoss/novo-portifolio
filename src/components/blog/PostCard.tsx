@@ -16,7 +16,7 @@ function formatDate(dateStr: string, locale: string) {
 }
 
 const cardClass =
-  'group block h-full bg-bg rounded-lg border border-border p-6 transition-transform duration-200 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg';
+  'group block h-full bg-surface-soft rounded-lg border border-border p-6 transition-transform duration-200 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg';
 
 function CardContent({ post, locale, minRead }: Props) {
   return (

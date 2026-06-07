@@ -30,7 +30,7 @@ export function About() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            className="relative w-full aspect-square rounded-lg overflow-hidden border border-black/10 dark:border-white/10"
+            className="relative w-full aspect-[4/3] sm:aspect-square rounded-lg overflow-hidden border border-black/10 dark:border-white/10"
           >
             <Image
               src={siteConfig.about.photo}
@@ -63,10 +63,10 @@ export function About() {
                 <motion.div
                   key={label}
                   variants={fadeInUp}
-                  className="text-center p-4 rounded-lg bg-white/70 dark:bg-white/5 border border-black/10 dark:border-white/10"
+                  className="text-center p-2 sm:p-4 rounded-lg bg-white/70 dark:bg-white/5 border border-black/10 dark:border-white/10"
                 >
                   <p className="type-headline text-fg">{value}</p>
-                  <p className="type-caption text-fg-subtle mt-1 whitespace-pre-line">{label}</p>
+                  <p className="type-caption text-fg-subtle mt-1 whitespace-pre-line break-words hyphens-auto">{label}</p>
                 </motion.div>
               ))}
             </motion.div>

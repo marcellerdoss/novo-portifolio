@@ -105,8 +105,8 @@ export default async function BlogPostPage({ params }: { params: Params }) {
               {/* Header */}
               <header className="mb-12">
                 <span className="type-caption text-accent-magenta mb-6 block">{post.frontmatter.category}</span>
-                <h1 className="type-display-xl text-fg mb-6">{post.frontmatter.title}</h1>
-                <p className="type-subhead text-fg-muted mb-8">{post.frontmatter.excerpt}</p>
+                <h1 className="type-display-xl text-fg mb-6 break-words">{post.frontmatter.title}</h1>
+                <p className="type-subhead text-fg-muted mb-8 break-words">{post.frontmatter.excerpt}</p>
                 <div className="flex flex-wrap items-center gap-4 type-body-sm text-fg-subtle">
                   <time dateTime={post.frontmatter.date}>{formattedDate}</time>
                   <span aria-hidden="true">·</span>

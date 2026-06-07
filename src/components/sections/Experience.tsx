@@ -35,33 +35,44 @@ export function Experience({ items }: Props) {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="relative border-l-2 border-black/15 dark:border-white/15 pl-8 space-y-12"
+          className="relative space-y-12"
         >
+          {/* Vertical line — centrada no dot (dot = 12px, center = 6px → line left = 5px) */}
+          <div
+            className="absolute top-0 bottom-0 left-[5px] w-[2px] bg-black/15 dark:bg-white/15"
+            aria-hidden="true"
+          />
+
           {items.map((item, i) => (
             <motion.li
               key={`${item.company}-${i}`}
               variants={slideInLeft}
-              className="relative"
+              className="relative flex gap-8"
             >
-              {/* Timeline dot */}
-              <span
-                className="absolute -left-[39px] top-[7px] w-3 h-3 rounded-full bg-accent-magenta border-2 border-block-cream"
-                aria-hidden="true"
-              />
-
-              <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
-                <div>
-                  <h3 className="type-body-strong text-fg">{item.role[locale]}</h3>
-                  <p className="type-body-sm text-fg-muted">{item.company}</p>
-                </div>
-                <time className="type-caption text-block-navy dark:text-fg-subtle shrink-0">
-                  {item.period.includes('Presente') && locale === 'en'
-                    ? item.period.replace('Presente', t('present'))
-                    : item.period}
-                </time>
+              {/* Dot — coluna fixa de 12px, centrada na linha vertical */}
+              <div className="shrink-0 pt-[7px]">
+                <span
+                  className="block w-3 h-3 rounded-full bg-accent-magenta border-2 border-block-cream"
+                  aria-hidden="true"
+                />
               </div>
 
-              <p className="type-body text-fg-muted">{item.description[locale]}</p>
+              {/* Content */}
+              <div className="flex-1 min-w-0">
+                <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
+                  <div>
+                    <h3 className="type-body-strong text-fg">{item.role[locale]}</h3>
+                    <p className="type-body-sm text-fg-muted">{item.company}</p>
+                  </div>
+                  <time className="type-caption text-block-navy dark:text-fg-subtle shrink-0">
+                    {item.period.includes('Presente') && locale === 'en'
+                      ? item.period.replace('Presente', t('present'))
+                      : item.period}
+                  </time>
+                </div>
+
+                <p className="type-body text-fg-muted">{item.description[locale]}</p>
+              </div>
             </motion.li>
           ))}
         </motion.ol>

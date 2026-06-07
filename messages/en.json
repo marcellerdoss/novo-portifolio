@@ -63,7 +63,10 @@
     "see_all": "See all articles",
     "min_read": "min read",
     "search_placeholder": "Search articles...",
-    "filter_all": "All"
+    "filter_all": "All",
+    "no_results": "No articles found.",
+    "result_single": "article found",
+    "results_plural": "articles found"
   },
   "contact": {
     "title": "Let's connect?",
@@ -82,6 +85,8 @@
   "footer": {
     "credit": "Designed & built by",
     "quick_links": "Navigation",
-    "github_repo": "View repository"
+    "github_repo": "View repository",
+    "rationale": "Project rationale →",
+    "copyright": "All rights reserved."
   }
 }

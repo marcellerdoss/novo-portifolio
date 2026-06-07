@@ -40,16 +40,17 @@ export function AccessibilityBar() {
         {/* Skip links — WCAG 2.4.1, e-MAG 1.1 */}
         <ul className="flex items-center m-0 p-0 list-none" role="list">
           {skipLinks.map(({ label, num, href }, i) => (
-            <li key={num} className="flex items-center">
+            <li key={num} className={`flex items-center ${i > 0 ? 'hidden sm:flex' : ''}`}>
               <a
                 href={href}
                 className={`text-white/80 hover:text-white text-[11px] font-medium tracking-[0.06em] uppercase px-3 py-1 hover:underline underline-offset-2 ${btnBase}`}
               >
-                {label}{' '}
+                <span className="hidden sm:inline">{label}{' '}</span>
+                <span className="sm:hidden">{i === 0 ? 'Conteúdo' : label}{' '}</span>
                 <span className="opacity-40">[{num}]</span>
               </a>
               {i < skipLinks.length - 1 && (
-                <span className="text-white/20 text-xs select-none" aria-hidden="true">|</span>
+                <span className="text-white/20 text-xs select-none hidden sm:inline" aria-hidden="true">|</span>
               )}
             </li>
           ))}

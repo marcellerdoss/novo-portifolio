@@ -113,7 +113,7 @@ export function Contact() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-start"
         >
           {/* Left — title + links */}
           <div>

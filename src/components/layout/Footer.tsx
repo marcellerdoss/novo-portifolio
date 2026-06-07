@@ -18,9 +18,9 @@ export async function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer id="footer" className="bg-[#121124] border-t border-white/10 py-16">
+    <footer id="footer" className="bg-[#121124] border-t border-white/10 py-10 md:py-16">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-8 md:mb-12">
 
           {/* Brand */}
           <div>
@@ -55,7 +55,7 @@ export async function Footer() {
               href="/racional"
               className="inline-flex items-center gap-1.5 type-caption text-white/40 hover:text-white/70 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded"
             >
-              Racional do projeto →
+              {t('rationale')}
             </Link>
           </div>
         </div>
@@ -63,7 +63,7 @@ export async function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-white/10 pt-6">
           <p className="type-caption text-white/40">
-            © {year} Marcelle. Todos os direitos reservados.
+            © {year} Marcelle. {t('copyright')}
           </p>
         </div>
       </div>
