@@ -8,43 +8,7 @@ import { Link } from '@/i18n/navigation';
 import { Navigation } from './Navigation';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher';
-import { useFontSize } from '@/lib/hooks/useFontSize';
 import { cn } from '@/lib/utils';
-
-function FontSizeControls({ className }: { className?: string }) {
-  const t = useTranslations('common');
-  const { fontSize, applyFont } = useFontSize();
-
-  const base = cn(
-    'w-9 h-9 flex items-center justify-center rounded-full transition-colors duration-150',
-    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg',
-  );
-
-  return (
-    <div className={cn('flex items-center', className)} role="group" aria-label={t('font_increase')}>
-      <button
-        type="button"
-        onClick={() => applyFont('sm')}
-        aria-label={t('font_decrease')}
-        aria-pressed={fontSize === 'sm'}
-        title={t('font_decrease')}
-        className={cn(base, fontSize === 'sm' ? 'text-fg' : 'text-fg-subtle hover:text-fg')}
-      >
-        <span className="text-[11px] font-semibold leading-none select-none" aria-hidden="true">A-</span>
-      </button>
-      <button
-        type="button"
-        onClick={() => applyFont('lg')}
-        aria-label={t('font_increase')}
-        aria-pressed={fontSize === 'lg'}
-        title={t('font_increase')}
-        className={cn(base, fontSize === 'lg' ? 'text-fg' : 'text-fg-subtle hover:text-fg')}
-      >
-        <span className="text-[13px] font-semibold leading-none select-none" aria-hidden="true">A+</span>
-      </button>
-    </div>
-  );
-}
 
 export function Header() {
   const t = useTranslations('common');
@@ -112,7 +76,6 @@ export function Header() {
           <div className="hidden md:flex items-center gap-4">
             <Navigation />
             <div className="flex items-center gap-1 border-l border-border pl-4">
-              <FontSizeControls />
               <LanguageSwitcher ariaLabel={t('toggle_language')} />
               <ThemeToggle ariaLabel={t('toggle_theme')} />
             </div>
@@ -120,7 +83,6 @@ export function Header() {
 
           {/* Mobile controls */}
           <div className="flex md:hidden items-center gap-1">
-            <FontSizeControls />
             <LanguageSwitcher ariaLabel={t('toggle_language')} />
             <ThemeToggle ariaLabel={t('toggle_theme')} />
             <button
