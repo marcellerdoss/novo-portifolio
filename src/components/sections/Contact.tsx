@@ -3,6 +3,10 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
+import { Button } from '@/components/ui/Button';
+import { fadeInUp, stagger } from '@/lib/animations';
+import { siteConfig } from '@/lib/config';
+
 function IconWhatsApp() {
   return (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -18,21 +22,19 @@ function IconLinkedIn() {
     </svg>
   );
 }
-import { Button } from '@/components/ui/Button';
-import { fadeInUp, stagger } from '@/lib/animations';
-import { siteConfig } from '@/lib/config';
 
 const WA_HREF = 'https://wa.me/5521979165494';
 
 function ContactForm({ email }: { email: string }) {
+  const t = useTranslations('contact');
   const [name, setName] = useState('');
   const [userEmail, setUserEmail] = useState('');
   const [message, setMessage] = useState('');
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    const subject = encodeURIComponent(`Contato do portfólio — ${name}`);
-    const body = encodeURIComponent(`Nome: ${name}\nE-mail: ${userEmail}\n\n${message}`);
+    const subject = encodeURIComponent(`${t('form_subject_prefix')}${name}`);
+    const body = encodeURIComponent(`${t('form_name_label')}: ${name}\n${t('form_email_label')}: ${userEmail}\n\n${message}`);
     window.open(`mailto:${email}?subject=${subject}&body=${body}`);
   }
 
@@ -40,38 +42,52 @@ function ContactForm({ email }: { email: string }) {
     'w-full bg-white/10 border border-white/20 rounded-md px-4 py-3 type-body text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-white/40';
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4 text-left">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-4 text-left" noValidate>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <input
-          type="text"
+        <div>
+          <label htmlFor="contact-name" className="sr-only">{t('form_name_label')}</label>
+          <input
+            id="contact-name"
+            type="text"
+            required
+            autoComplete="name"
+            placeholder={t('form_name_label')}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className={inputClass}
+          />
+        </div>
+        <div>
+          <label htmlFor="contact-email" className="sr-only">{t('form_email_label')}</label>
+          <input
+            id="contact-email"
+            type="email"
+            required
+            autoComplete="email"
+            placeholder={t('form_email_label')}
+            value={userEmail}
+            onChange={(e) => setUserEmail(e.target.value)}
+            className={inputClass}
+          />
+        </div>
+      </div>
+      <div>
+        <label htmlFor="contact-message" className="sr-only">{t('form_message_label')}</label>
+        <textarea
+          id="contact-message"
           required
-          placeholder="Nome"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          className={inputClass}
-        />
-        <input
-          type="email"
-          required
-          placeholder="E-mail"
-          value={userEmail}
-          onChange={(e) => setUserEmail(e.target.value)}
-          className={inputClass}
+          rows={4}
+          placeholder={t('form_message_label')}
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          className={`${inputClass} resize-none`}
         />
       </div>
-      <textarea
-        required
-        rows={4}
-        placeholder="Mensagem"
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-        className={`${inputClass} resize-none`}
-      />
       <Button
         type="submit"
         className="self-start bg-white text-primary hover:opacity-90 hover:bg-white dark:bg-white dark:text-primary dark:hover:bg-white dark:hover:opacity-90"
       >
-        Enviar mensagem
+        {t('form_submit')}
       </Button>
     </form>
   );
@@ -81,18 +97,8 @@ export function Contact() {
   const t = useTranslations('contact');
 
   const links = [
-    {
-      key: 'whatsapp',
-      href: WA_HREF,
-      icon: <IconWhatsApp />,
-      label: 'WhatsApp',
-    },
-    {
-      key: 'linkedin',
-      href: siteConfig.contact.linkedin,
-      icon: <IconLinkedIn />,
-      label: t('linkedin'),
-    },
+    { key: 'whatsapp', href: WA_HREF,                      icon: <IconWhatsApp />, label: 'WhatsApp' },
+    { key: 'linkedin', href: siteConfig.contact.linkedin,  icon: <IconLinkedIn />, label: t('linkedin') },
   ];
 
   return (
@@ -102,57 +108,54 @@ export function Contact() {
       className="py-section bg-block-navy"
     >
       <div className="max-w-6xl mx-auto px-6">
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start"
-          >
-            {/* Left — title + links */}
-            <div>
-              <motion.h2
-                id="contact-heading"
-                variants={fadeInUp}
-                className="type-display-lg text-white mb-4"
-              >
-                {t('title')}
-              </motion.h2>
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start"
+        >
+          {/* Left — title + links */}
+          <div>
+            <motion.h2
+              id="contact-heading"
+              variants={fadeInUp}
+              className="type-display-lg text-white mb-4"
+            >
+              {t('title')}
+            </motion.h2>
 
-              <motion.p
-                variants={fadeInUp}
-                className="type-body text-white/70 mb-8"
-              >
-                {t('subtitle')}
-              </motion.p>
+            <motion.p
+              variants={fadeInUp}
+              className="type-body text-white/70 mb-8"
+            >
+              {t('subtitle')}
+            </motion.p>
 
-              <motion.div
-                variants={stagger}
-                className="flex flex-wrap gap-4"
-              >
-                {links.map(({ key, href, icon, label }) => (
-                  <motion.a
-                    key={key}
-                    href={href}
-                    target={key !== 'email' ? '_blank' : undefined}
-                    rel="noopener noreferrer"
-                    aria-label={label}
-                    title={label}
-                    variants={fadeInUp}
-                    className="group flex flex-col items-center gap-2 p-5 rounded-lg bg-transparent border border-white/30 min-w-[96px] transition-all duration-150 hover:-translate-y-[3px] hover:bg-white/10 text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
-                  >
-                    {icon}
-                    <span className="type-caption">{label}</span>
-                  </motion.a>
-                ))}
-              </motion.div>
-            </div>
-
-            {/* Right — form */}
-            <motion.div variants={fadeInUp}>
-              <ContactForm email={siteConfig.contact.email} />
+            <motion.div variants={stagger} className="flex flex-wrap gap-4">
+              {links.map(({ key, href, icon, label }) => (
+                <motion.a
+                  key={key}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  title={label}
+                  variants={fadeInUp}
+                  className="group flex flex-col items-center gap-2 p-5 rounded-lg bg-transparent border border-white/30 min-w-[96px] transition-all duration-150 hover:-translate-y-[3px] hover:bg-white/10 text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                >
+                  {icon}
+                  <span className="type-caption">{label}</span>
+                </motion.a>
+              ))}
             </motion.div>
+          </div>
+
+          {/* Right — form */}
+          <motion.div variants={fadeInUp}>
+            <ContactForm email={siteConfig.contact.email} />
           </motion.div>
+        </motion.div>
       </div>
     </section>
   );

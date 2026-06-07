@@ -1,39 +1,55 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { fadeInUp, stagger, staggerFast } from '@/lib/animations';
 
 type SkillCategory = {
   key: 'design' | 'research' | 'strategy' | 'ai' | 'soft';
-  items: string[];
+  items: { pt: string[]; en: string[] };
 };
 
 const categories: SkillCategory[] = [
   {
     key: 'design',
-    items: ['Figma', 'UI Design', 'UX Design', 'Design System', 'Arquitetura da Informação', 'Design de Fluxos', 'Acessibilidade'],
+    items: {
+      pt: ['Figma', 'UI Design', 'UX Design', 'Design System', 'Arquitetura da Informação', 'Design de Fluxos', 'Acessibilidade'],
+      en: ['Figma', 'UI Design', 'UX Design', 'Design System', 'Information Architecture', 'User Flow Design', 'Accessibility'],
+    },
   },
   {
     key: 'research',
-    items: ['Entrevistas com Usuários', 'Testes de Usabilidade', 'Card Sorting', 'Análise Heurística', 'Benchmarking', 'Tree Testing'],
+    items: {
+      pt: ['Entrevistas com Usuários', 'Testes de Usabilidade', 'Card Sorting', 'Análise Heurística', 'Benchmarking', 'Tree Testing'],
+      en: ['User Interviews', 'Usability Testing', 'Card Sorting', 'Heuristic Analysis', 'Benchmarking', 'Tree Testing'],
+    },
   },
   {
     key: 'strategy',
-    items: ['CX Strategy', 'Consumer Insights', 'Estratégia de Produto', 'Facilitação', 'Design Thinking', 'Agile'],
+    items: {
+      pt: ['CX Strategy', 'Consumer Insights', 'Estratégia de Produto', 'Facilitação', 'Design Thinking', 'Agile'],
+      en: ['CX Strategy', 'Consumer Insights', 'Product Strategy', 'Facilitation', 'Design Thinking', 'Agile'],
+    },
   },
   {
     key: 'ai',
-    items: ['Plataformas com IA', 'Figma Make', 'Framer', 'Dev Mode', 'IA Adaptativa'],
+    items: {
+      pt: ['Plataformas com IA', 'Figma Make', 'Framer', 'Dev Mode', 'IA Adaptativa'],
+      en: ['AI Platforms', 'Figma Make', 'Framer', 'Dev Mode', 'Adaptive AI'],
+    },
   },
   {
     key: 'soft',
-    items: ['Comunicação', 'Storytelling', 'Liderança'],
+    items: {
+      pt: ['Comunicação', 'Storytelling', 'Liderança'],
+      en: ['Communication', 'Storytelling', 'Leadership'],
+    },
   },
 ];
 
 export function Skills() {
   const t = useTranslations('skills');
+  const locale = useLocale() as 'pt' | 'en';
 
   return (
     <section
@@ -69,7 +85,7 @@ export function Skills() {
                 variants={staggerFast}
                 className="flex flex-wrap gap-2"
               >
-                {items.map((skill) => (
+                {items[locale].map((skill) => (
                   <motion.span
                     key={skill}
                     variants={fadeInUp}

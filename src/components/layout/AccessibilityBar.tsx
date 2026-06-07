@@ -1,20 +1,15 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-
-type FontScale = 'sm' | 'md' | 'lg';
-
-const FONT_PX: Record<FontScale, number> = { sm: 14, md: 16, lg: 18 };
+import { useFontSize } from '@/lib/hooks/useFontSize';
 
 export function AccessibilityBar() {
   const [highContrast, setHighContrast] = useState(false);
-  const [fontSize, setFontSize] = useState<FontScale>('md');
+  const { fontSize, applyFont } = useFontSize();
 
   useEffect(() => {
-    const contrast = localStorage.getItem('a11y-contrast') === '1';
-    const font = (localStorage.getItem('a11y-font') as FontScale) ?? 'md';
-    if (contrast) applyContrast(true, false);
-    if (font !== 'md') applyFont(font, false);
+    const on = localStorage.getItem('a11y-contrast') === '1';
+    if (on) applyContrast(true, false);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -22,12 +17,6 @@ export function AccessibilityBar() {
     document.documentElement.classList.toggle('high-contrast', on);
     if (save) localStorage.setItem('a11y-contrast', on ? '1' : '0');
     setHighContrast(on);
-  }
-
-  function applyFont(scale: FontScale, save = true) {
-    document.documentElement.style.fontSize = `${FONT_PX[scale]}px`;
-    if (save) localStorage.setItem('a11y-font', scale);
-    setFontSize(scale);
   }
 
   const skipLinks = [

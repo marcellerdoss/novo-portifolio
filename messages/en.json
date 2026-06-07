@@ -14,7 +14,9 @@
     "close": "Close",
     "see_all": "See all",
     "min_read": "min read",
-    "present": "Present"
+    "present": "Present",
+    "font_decrease": "Decrease text size",
+    "font_increase": "Increase text size"
   },
   "hero": {
     "name": "Marcelle Rocha",
@@ -65,12 +67,17 @@
   },
   "contact": {
     "title": "Let's connect?",
-    "subtitle": "Open to full-time positions and freelance projects.",
+    "subtitle": "Open to full-time employment and freelance projects.",
     "email": "Email",
     "linkedin": "LinkedIn",
     "behance": "Behance",
     "github": "GitHub",
-    "dribbble": "Dribbble"
+    "dribbble": "Dribbble",
+    "form_name_label": "Name",
+    "form_email_label": "Email",
+    "form_message_label": "Message",
+    "form_submit": "Send message",
+    "form_subject_prefix": "Portfolio contact — "
   },
   "footer": {
     "credit": "Designed & built by",

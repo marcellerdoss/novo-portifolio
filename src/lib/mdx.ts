@@ -57,14 +57,22 @@ function extractHeadings(content: string): Heading[] {
   return headings;
 }
 
+function resolveFile(locale: Locale, file: string): string {
+  const localeFile = path.join(blogDir(locale), file);
+  if (fs.existsSync(localeFile)) return localeFile;
+  const fallback = path.join(blogDir('pt'), file);
+  return fs.existsSync(fallback) ? fallback : localeFile;
+}
+
 export async function getAllPosts(locale: Locale): Promise<BlogPost[]> {
-  const dir = blogDir(locale);
-  if (!fs.existsSync(dir)) return [];
+  const ptDir = blogDir('pt');
+  if (!fs.existsSync(ptDir)) return [];
 
-  const files = fs.readdirSync(dir).filter((f) => f.endsWith('.mdx'));
+  const ptFiles = fs.readdirSync(ptDir).filter((f) => f.endsWith('.mdx'));
 
-  const posts: BlogPost[] = files.map((file) => {
-    const raw = fs.readFileSync(path.join(dir, file), 'utf-8');
+  const posts: BlogPost[] = ptFiles.map((file) => {
+    const filePath = resolveFile(locale, file);
+    const raw = fs.readFileSync(filePath, 'utf-8');
     const { data, content } = matter(raw);
     const stats = readingTime(content);
 
@@ -89,8 +97,7 @@ export async function getPostBySlug(
   slug: string,
   locale: Locale,
 ): Promise<PostDetail | null> {
-  const dir = blogDir(locale);
-  const file = path.join(dir, `${slug}.mdx`);
+  const file = resolveFile(locale, `${slug}.mdx`);
   if (!fs.existsSync(file)) return null;
 
   const raw = fs.readFileSync(file, 'utf-8');

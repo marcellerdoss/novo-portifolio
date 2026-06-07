@@ -14,7 +14,9 @@
     "close": "Fechar",
     "see_all": "Ver todos",
     "min_read": "min de leitura",
-    "present": "Presente"
+    "present": "Presente",
+    "font_decrease": "Diminuir texto",
+    "font_increase": "Aumentar texto"
   },
   "hero": {
     "name": "Marcelle Rocha",
@@ -70,7 +72,12 @@
     "linkedin": "LinkedIn",
     "behance": "Behance",
     "github": "GitHub",
-    "dribbble": "Dribbble"
+    "dribbble": "Dribbble",
+    "form_name_label": "Nome",
+    "form_email_label": "E-mail",
+    "form_message_label": "Mensagem",
+    "form_submit": "Enviar mensagem",
+    "form_subject_prefix": "Contato do portfólio — "
   },
   "footer": {
     "credit": "Designed & built by",
