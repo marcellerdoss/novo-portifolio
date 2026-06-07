@@ -13,6 +13,45 @@ export interface CaseCardCompactProps {
   imageAlt: string;
   accentBg: string;
   accentText: string;
+  mockup?: 'mobile' | 'desktop';
+}
+
+function PhoneMockup({ src, alt }: { src: string; alt: string }) {
+  return (
+    <div className="absolute inset-0 flex items-end justify-center pb-5">
+      <div
+        className="relative rounded-[22px] border-[4px] border-neutral-900 shadow-xl overflow-hidden"
+        style={{ width: '38%', aspectRatio: '9 / 19.5' }}
+      >
+        <div className="absolute top-0 inset-x-0 z-10 flex justify-center">
+          <div className="w-[36%] h-[8px] bg-neutral-900 rounded-b-full" />
+        </div>
+        <Image src={src} alt={alt} fill sizes="20vw" className="object-cover object-top" />
+      </div>
+    </div>
+  );
+}
+
+function LaptopMockup({ src, alt }: { src: string; alt: string }) {
+  return (
+    <div className="absolute inset-0 flex items-center justify-center px-5 pb-2">
+      <div className="w-full">
+        <div
+          className="rounded-t-[6px] overflow-hidden border-[4px] border-b-0 border-neutral-900 bg-neutral-900 relative shadow-lg"
+          style={{ aspectRatio: '16 / 10' }}
+        >
+          <div className="absolute top-0 inset-x-0 z-10 flex justify-center pt-[4px]">
+            <div className="w-1 h-1 rounded-full bg-neutral-600" />
+          </div>
+          <Image src={src} alt={alt} fill sizes="33vw" className="object-cover object-top" />
+        </div>
+        <div className="h-[4px] bg-neutral-800" />
+        <div className="flex justify-center">
+          <div className="h-[3px] bg-neutral-700 rounded-b-md" style={{ width: '65%' }} />
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export function CaseCardCompact({
@@ -22,6 +61,8 @@ export function CaseCardCompact({
   href,
   imageSrc,
   imageAlt,
+  accentBg,
+  mockup,
 }: CaseCardCompactProps) {
   return (
     <Link
@@ -32,15 +73,23 @@ export function CaseCardCompact({
 
       {/* Image area — slides up 80px on hover */}
       <div
-        className="absolute inset-0 bg-canvas transition-transform duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-[80px]"
+        className="absolute inset-0 transition-transform duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-[80px]"
+        style={{ backgroundColor: mockup ? accentBg : undefined }}
       >
-        <Image
-          src={imageSrc}
-          alt={imageAlt}
-          fill
-          sizes="(max-width: 640px) 50vw, 25vw"
-          className="object-cover object-left-top"
-        />
+        {mockup === 'mobile' && <PhoneMockup src={imageSrc} alt={imageAlt} />}
+        {mockup === 'desktop' && <LaptopMockup src={imageSrc} alt={imageAlt} />}
+        {!mockup && (
+          <>
+            <div className="absolute inset-0 bg-canvas" />
+            <Image
+              src={imageSrc}
+              alt={imageAlt}
+              fill
+              sizes="(max-width: 640px) 50vw, 25vw"
+              className="object-cover object-left-top"
+            />
+          </>
+        )}
 
         {/* Company badge */}
         {company && (
@@ -48,7 +97,7 @@ export function CaseCardCompact({
         )}
       </div>
 
-      {/* Repose panel — título completo, sem categoria */}
+      {/* Repose panel */}
       <div
         className="absolute bottom-0 inset-x-0 h-[80px] bg-bg border-t border-[0.5px] border-border px-4 flex flex-col justify-center transition-opacity duration-200 group-hover:opacity-0"
         aria-hidden="true"

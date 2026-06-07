@@ -104,6 +104,7 @@ export function CasesSection(_props: Props) {
               imageAlt="Página inicial da central de ajuda com atalhos por perfil"
               accentBg="var(--color-project-jg-central-ajuda-bg)"
               accentText="var(--color-project-jg-central-ajuda-text)"
+              mockup="desktop"
             />
           </motion.div>
         </div>
@@ -145,6 +146,7 @@ export function CasesSection(_props: Props) {
               imageAlt="Dashboard de diagnóstico CRM no Figma Make"
               accentBg="var(--color-project-sellbie-crm-bg)"
               accentText="var(--color-project-sellbie-crm-text)"
+              mockup="desktop"
             />
             <CaseCardCompact
               company="Sellbie"
@@ -157,6 +159,7 @@ export function CasesSection(_props: Props) {
               imageAlt="Dashboard de ROAS do programa de cashback"
               accentBg="var(--color-project-sellbie-cashback-bg)"
               accentText="var(--color-project-sellbie-cashback-text)"
+              mockup="desktop"
             />
           </motion.div>
         </div>
