@@ -2,8 +2,10 @@
 
 import { useState, useEffect } from 'react';
 import { ChevronUp } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 export function BackToTop() {
+  const t = useTranslations('common');
   const [show, setShow] = useState(false);
 
   useEffect(() => {
@@ -15,13 +17,13 @@ export function BackToTop() {
   return (
     <button
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-      aria-label="Voltar ao topo"
+      aria-label={t('back_to_top')}
       className={`fixed bottom-8 right-8 z-50 inline-flex items-center gap-2 px-4 py-2.5 rounded-pill bg-fg text-bg dark:bg-accent-magenta dark:text-white type-btn shadow-lg transition-all duration-300 ${
         show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
       }`}
     >
       <ChevronUp size={14} aria-hidden="true" />
-      Voltar ao topo
+      {t('back_to_top')}
     </button>
   );
 }

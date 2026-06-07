@@ -25,6 +25,7 @@ type Props = {
 
 export function Navigation({ className, itemClassName, onClick }: Props) {
   const t = useTranslations('nav');
+  const tCommon = useTranslations('common');
   const pathname = usePathname();
   const isHome = pathname === '/' || pathname === '/en';
 
@@ -35,7 +36,7 @@ export function Navigation({ className, itemClassName, onClick }: Props) {
   );
 
   return (
-    <nav id="main-nav" aria-label="Navegação principal">
+    <nav id="main-nav" aria-label={tCommon('nav_label')} tabIndex={-1}>
       <ul className={cn('flex items-center gap-6', className)}>
         {!isHome && (
           <li>

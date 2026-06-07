@@ -16,7 +16,17 @@
     "min_read": "min read",
     "present": "Present",
     "font_decrease": "Decrease text size",
-    "font_increase": "Increase text size"
+    "font_increase": "Increase text size",
+    "back_to_top": "Back to top",
+    "nav_label": "Primary navigation"
+  },
+  "case": {
+    "view_label": "View:",
+    "simplified": "Overview",
+    "detailed": "Detailed",
+    "prev": "Previous",
+    "next": "Next",
+    "nav_label": "Case navigation"
   },
   "hero": {
     "name": "Marcelle Rocha",

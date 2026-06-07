@@ -44,7 +44,8 @@ export function TableOfContents({ headings, label = 'Neste artigo' }: Props) {
             <a
               href={`#${id}`}
               className={cn(
-                'type-body-sm block transition-colors duration-150 leading-snug',
+                'type-body-sm block transition-colors duration-150 leading-snug rounded',
+                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg',
                 level === 3 && 'pl-3',
                 activeId === id
                   ? 'text-fg font-[480]'

@@ -65,7 +65,7 @@
   --bg-secondary: #f7f7f5;
   --fg:           #1f1d3d;
   --fg-muted:     #404040;
-  --fg-subtle:    #777777;
+  --fg-subtle:    #666666;
   --border-token: #e6e6e6;
 
   /* ─── Per-project color block tokens (case cards) ─── */
@@ -395,6 +395,12 @@ body {
 @keyframes marquee {
   from { transform: translateX(0) }
   to   { transform: translateX(-50%) }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [class*="marquee"] {
+    animation: none !important;
+  }
 }
 
 /* ─── Screen-reader-only utility ─────────────────────────────── */
