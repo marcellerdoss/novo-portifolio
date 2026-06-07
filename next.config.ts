@@ -30,10 +30,9 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   images: {
-    // Serve AVIF first (smaller), fallback to WebP — handled automatically by Next.js
     formats: ['image/avif', 'image/webp'],
-    // Aggressive cache for portfolio images (rarely change)
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
+    quality: 90,
   },
 
   async headers() {

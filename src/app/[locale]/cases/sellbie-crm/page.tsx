@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import fs from 'fs';
 import path from 'path';
-import Image from 'next/image';
+import { CaseImageFrame } from '@/components/case/CaseImageFrame';
 import { Link } from '@/i18n/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { routing } from '@/i18n/routing';
@@ -48,12 +48,7 @@ function Divider() {
   return <hr className="border-border" />;
 }
 function CaseImg({ src, alt, caption }: { src: string; alt: string; caption?: string }) {
-  return (
-    <figure className="space-y-2">
-      <Image src={src} alt={alt} width={1200} height={800} sizes="(max-width: 1024px) 100vw, 736px" className="w-full h-auto" />
-      {caption && <figcaption className="type-body-sm text-fg-subtle mt-1">{caption}</figcaption>}
-    </figure>
-  );
+  return <CaseImageFrame src={src} alt={alt} caption={caption} />;
 }
 
 const sidebar = [
