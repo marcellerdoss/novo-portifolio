@@ -1,5 +1,7 @@
 ## Problema
 
+### Central genérica para três perfis radicalmente diferentes
+
 A central de ajuda existia, mas servia a todos da mesma forma: um único conteúdo genérico que não resolvia as dúvidas específicas de cada perfil. A plataforma atendia simultaneamente Exploradores (alunos), Educadores (professores e coordenadores) e Responsáveis (pais e familiares), públicos com contextos de uso, vocabulário e dúvidas radicalmente diferentes. Uma dúvida de acesso de um responsável não tem nada a ver com uma dúvida pedagógica de um educador.
 
 A ausência de estrutura segmentada gerava acionamento recorrente do time de atendimento para dúvidas que poderiam ser resolvidas por autoatendimento, e dificultava que cada perfil encontrasse as informações relevantes para ele de forma rápida e independente.
@@ -11,6 +13,8 @@ Meu papel foi conduzir o benchmarking, estruturar a arquitetura de informação,
 ---
 
 ## Benchmarking
+
+### O que as plataformas de referência fazem diferente
 
 O ponto de partida foi entender como centrais de ajuda com múltiplos perfis de usuário resolviam o problema de segmentação de conteúdo. O benchmarking incluiu referências como LinkedIn e outras plataformas com bases de conhecimento estruturadas para públicos distintos.
 
@@ -32,6 +36,8 @@ Os principais padrões identificados e o que cada um informou na solução:
 
 ## Mapa de oportunidades
 
+### Três oportunidades que definiram a arquitetura
+
 O problema central era estrutural: o conteúdo existia, mas a arquitetura não distinguia quem estava lendo. Um educador buscando como criar uma prova e um responsável buscando como acompanhar o filho chegavam no mesmo lugar, com o mesmo resultado, e precisavam filtrar manualmente o que era para eles.
 
 A estrutura foi desenhada considerando que a Jovens Gênios opera duas plataformas distintas, uma para Educadores e uma para Exploradores, com necessidades de suporte específicas para cada contexto de uso. Isso reforçou a decisão de não criar uma central unificada genérica, mas sim um espaço com entradas independentes por persona. O benchmarking com plataformas de grandes empresas validou que esse modelo de segmentação era o padrão em produtos com bases de usuários heterogêneas.
@@ -48,6 +54,8 @@ Três oportunidades foram priorizadas a partir desse diagnóstico:
 
 ## Proposta de Arquitetura
 
+### Perfil como ponto de entrada, contexto sempre preservado
+
 A solução foi organizada em torno de um princípio central: o perfil do usuário define o contexto de toda a navegação, da busca aos artigos. Isso se traduziu em três decisões estruturais.
 
 **Entrada por persona, não por conteúdo**
@@ -62,6 +70,8 @@ Dois estados de erro com direcionamentos distintos: quando o perfil selecionado 
 ---
 
 ## Consolidação
+
+### Fluxos completos e handoff para desenvolvimento
 
 A proposta foi consolidada em Figma com fluxos completos para os três perfis, cobrindo os estados principais de cada página e os casos de borda da busca. O handoff para desenvolvimento incluiu a definição de requisitos comportamentais, não só o que cada elemento faz, mas quando e por quê.
 
@@ -96,6 +106,8 @@ Resultados com filtro lateral por perfil e contagem por categoria; empty state c
 ---
 
 ## Resultado
+
+### Arquitetura validada e reaproveitada no Zendesk
 
 **Arquitetura validada e reaproveitada** a solução foi validada internamente e a estrutura de segmentação por perfil serviu de referência direta para a implementação da central no Zendesk, plataforma adotada para não comprometer o time de desenvolvimento. A lógica de organização por persona, os fluxos de busca e o tratamento de estados vazios foram preservados na transição.
 

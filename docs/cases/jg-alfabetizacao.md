@@ -1,5 +1,7 @@
 ## Contexto
 
+### Construir do zero para quem ainda não sabe ler
+
 A Jovens Gênios é uma EdTech que combina inteligência artificial e gamificação para personalizar o aprendizado de cada aluno, adaptando conteúdo e progressão ao ritmo individual, com mais de 130 mil alunos ativos e ganho médio de 17,8% de proficiência em poucos meses de uso. Seu produto atendia do 5º ao 8º ano. Não havia nada para alfabetização infantil (1º e 2º ano): nenhuma jornada, nenhum modelo de interação, nenhum racional pedagógico para essa faixa etária e, consequentemente, nenhuma base para que a IA pudesse operar nesse contexto.
 
 Expandir para alfabetização era entrar em um mercado novo com uma criança de perfil radicalmente diferente: ela ainda não sabe ler. Construir esse produto do zero era o desafio.
@@ -9,6 +11,8 @@ Conduzi o projeto sozinha, do discovery à entrega dos modelos de interação, r
 ---
 
 ## Discovery
+
+### Imersão no domínio, benchmarking e entrevistas com educadoras
 
 **Imersão no domínio**
 
@@ -45,6 +49,8 @@ A decisão de produto: **som como elemento estrutural** em todas as atividades: 
 ---
 
 ## Define
+
+### Arquitetura pedagógica e sistema de codificação
 
 Com o levantamento consolidado, o problema central estava claro: não havia estrutura que conectasse fase de desenvolvimento da criança, habilidade da BNCC e modelo de interação. Sem esse racional, a IA não teria base para operar. Ela precisava saber em qual fase a criança estava e como progredir de forma coerente para personalizar a jornada de cada uma.
 
@@ -92,6 +98,8 @@ Usar transições em vez de fases fixas foi uma decisão direta do feedback da e
 
 ## Develop
 
+### Modelos de questão como sistemas de possibilidades
+
 Com a arquitetura definida e validada, o próximo passo foi casar essa estrutura com a base técnica existente na plataforma. A decisão de escopo foi deliberada: menos formatos, com maior potencial de aplicação. Modelos com alta versatilidade pedagógica que pudessem cobrir múltiplas fases com variações de interação, em vez de criar um modelo específico para cada habilidade. Isso reduzia complexidade técnica e maximizava o alcance pedagógico do MVP.
 
 **A lógica de entrega por modelo**
@@ -130,6 +138,8 @@ Essa estrutura transformou cada modelo em uma ferramenta pedagógica completa e 
 ---
 
 ## Resultados
+
+### Fundação pedagógica que habilita a IA
 
 **Produto criado do zero, com fundação para IA operar em alfabetização** — a arquitetura pedagógica estruturou o racional que permite à IA identificar a fase de transição de cada criança, personalizar a entrega de conteúdo e progredir nos modelos de questão conforme o desempenho. Sem essa estrutura, o sistema adaptativo não teria base para operar nesse contexto.
 

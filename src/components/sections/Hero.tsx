@@ -26,7 +26,7 @@ export function Hero() {
         {/* Role label — eyebrow */}
         <motion.p
           variants={fadeInUp}
-          className="type-caption text-fg-muted mb-14"
+          className="type-caption text-fg-subtle mb-14"
         >
           {t('role')}
         </motion.p>

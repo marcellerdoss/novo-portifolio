@@ -14,7 +14,7 @@ const variants: Record<Variant, string> = {
   primary:
     'bg-primary text-on-primary rounded-pill hover:opacity-85 active:scale-[0.97]',
   secondary:
-    'border border-accent-magenta text-accent-magenta rounded-pill bg-transparent hover:bg-accent-magenta/10 active:scale-[0.97]',
+    'border border-fg text-fg rounded-pill bg-transparent hover:bg-fg/5 active:scale-[0.97]',
   ghost:
     'text-fg bg-transparent rounded-full hover:underline underline-offset-4',
   icon:

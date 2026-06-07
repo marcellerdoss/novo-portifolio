@@ -24,7 +24,7 @@ export function CaseEditorialWrapper({ sidebar, children }: CaseEditorialWrapper
           <aside className="lg:sticky lg:top-28 rounded-[16px] border border-border overflow-hidden divide-y divide-border">
             {sidebar.map((block) => (
               <div key={block.label} className="px-5 py-5">
-                <p className="type-caption text-block-navy uppercase tracking-wide mb-2">
+                <p className="type-caption text-block-navy mb-2">
                   {block.label}
                 </p>
                 <p className="type-body-sm text-fg-muted leading-relaxed">{block.content}</p>

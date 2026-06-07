@@ -1,5 +1,7 @@
 ## Problema
 
+### Análise manual, sem padrão e sem direcionamento estratégico
+
 O CS da Sellbie acompanha a performance de CRM das marcas usando dados da plataforma, mas sem estrutura analítica clara. Cada reunião exigia montagem manual de análise, sem padrão e sem direcionamento estratégico. O produto também não tinha visibilidade consolidada do que funcionava nas operações de CRM.
 
 A demanda chegou como um desafio aberto: estruturar um Relatório de Performance de CRM sem escopo definido, o que exigiu mergulhar no produto para construir o racional do zero — do levantamento dos indicadores à proposta de UX, transformando dados dispersos em inteligência acionável para CS e produto.
@@ -7,6 +9,8 @@ A demanda chegou como um desafio aberto: estruturar um Relatório de Performance
 ---
 
 ## Levantamento
+
+### Indicadores, healthscore e materiais do CS
 
 O ponto de partida foi mapear tudo que existia — indicadores disponíveis na plataforma, o que o CS já reportava, como reportava e o que faltava para tornar esse reporte estratégico.
 
@@ -31,6 +35,8 @@ A partir desse levantamento, também estruturei um **Healthscore de CRM** — po
 ---
 
 ## Mapa de oportunidades
+
+### Dez dimensões de problema, uma oportunidade central
 
 Com o levantamento em mãos, estruturei um mapa conectando problema observado, oportunidade, solução proposta e resultado esperado em 10 dimensões:
 
@@ -64,6 +70,8 @@ A oportunidade central: transformar o CRM de analítico para estratégico, com d
 
 ## Proposta UX
 
+### Treze seções em quatro blocos funcionais
+
 Com o mapa de oportunidades como base, estruturei uma proposta com 13 seções — cada uma com conteúdo definido, dor que resolve, oportunidades identificadas, resultado esperado e proposta de UX. A decisão de documentar cada seção com esse nível de detalhe foi intencional: garantir que cada tela tivesse propósito claro antes de qualquer pixel ser desenhado.
 
 As 13 seções foram organizadas em 4 blocos funcionais:
@@ -83,6 +91,8 @@ Alertas prioritários, oportunidades ordenadas por impacto financeiro, direciona
 ---
 
 ## Consolidação
+
+### Da proposta ao dashboard operacional no Figma Make
 
 Em consolidação com o PM, a proposta foi implementada no Figma Make com 4 módulos principais, cada um com um propósito distinto dentro da jornada do CS.
 
@@ -113,6 +123,8 @@ Inputs da marca, premissas editáveis e régua inteligente por canal, transforma
 ---
 
 ## Resultado
+
+### De analítico para estratégico
 
 Proposta validada com PM e implementada no Figma Make.
 

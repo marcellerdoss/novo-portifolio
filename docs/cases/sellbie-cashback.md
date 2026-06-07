@@ -1,5 +1,7 @@
 ## Problema
 
+### Cashback passivo, CS sem dados, financeiro no manual
+
 O cashback era um dos produtos mais utilizados pelas marcas na plataforma, mas operava de forma passiva. As marcas geravam saldo sem clareza sobre retorno. O CS não tinha dados prontos para reuniões. O financeiro calculava excedentes manualmente todo mês. E o produto não tinha direção estratégica clara.
 
 Meu ponto de entrada foi o discovery: entender o problema real de cada time antes de estruturar qualquer proposta.
@@ -7,6 +9,8 @@ Meu ponto de entrada foi o discovery: entender o problema real de cada time ante
 ---
 
 ## Discovery
+
+### Levantamento de processos e entrevistas por roteiro
 
 O discovery combinou duas frentes.
 
@@ -36,6 +40,8 @@ Esse conjunto foi combinado com dois roteiros semi-estruturados com públicos di
 
 ## Mapa de oportunidades
 
+### Sete dimensões de oportunidade identificadas
+
 A síntese do discovery revelou 7 dimensões de oportunidade, organizadas por evidências e impacto para cada área.
 
 **Visibilidade fragmentada** o CS consulta múltiplas fontes e precisa construir a análise manualmente antes de cada call. Não há narrativa coesa disponível na plataforma.
@@ -58,6 +64,8 @@ A síntese do discovery revelou 7 dimensões de oportunidade, organizadas por ev
 
 ## Ecossistema de cashback
 
+### Três peças de um mesmo problema de inteligência
+
 A demanda chegou como um desafio aberto: fazer um plano de otimização para o cashback, um relatório de ROAS e um relatório de faturamento. Sem escopo definido, o que exigiu mergulhar no produto para estruturar o racional do zero.
 
 Com base no discovery, ficou claro que não eram três entregas isoladas — eram três peças de um mesmo problema. Estruturei uma proposta para cada uma conectando os assuntos em um ecossistema de inteligência: o Plano de Otimização define a estratégia, o Dashboard de ROAS mede o impacto, e o Relatório de Faturamento fecha o ciclo com a monetização.
@@ -65,6 +73,8 @@ Com base no discovery, ficou claro que não eram três entregas isoladas — era
 ---
 
 ## Plano de Otimização
+
+### Três estratégias, três comportamentos, uma lógica integrada
 
 **Contexto**
 O cashback existia, mas sem uma estratégia clara de ativação. As marcas não sabiam quando agir, para quem comunicar ou qual tipo de incentivo usar. O resultado era saldo parado, baixa taxa de resgate e oportunidades de recompra perdidas.
@@ -86,6 +96,8 @@ CS consegue recomendar ações específicas com base em comportamento, não em i
 ---
 
 ## Dashboard de ROAS
+
+### ROAS em três camadas: operacional, estratégia e comportamento
 
 **Contexto**
 O CS não tinha como responder com segurança se o cashback estava gerando retorno. Os dados existiam, mas dispersos, exigiam compilação manual, cruzamento em planilha e interpretação sem contexto. A consequência era insegurança na call com o cliente e dificuldade para recomendar ajustes.
@@ -114,6 +126,8 @@ CS entra na reunião com dados prontos, organizados por pergunta. De argumentaç
 
 ## Relatório de Precificação
 
+### Fechamento mensal automatizado e sem risco de erro
+
 **Contexto**
 O financeiro calculava excedentes de cashback manualmente todo mês, marca por marca, com regras contratuais diferentes para cada uma. Sem um sistema centralizado, o processo consumia cerca de 2 horas por marca, com risco real de erro e retrabalho recorrente no fechamento.
 
@@ -138,6 +152,8 @@ Excedente calculado automaticamente, contratos no sistema, histórico congelado.
 ---
 
 ## Resultado
+
+### CS estratégico, financeiro automatizado, produto de inteligência
 
 Proposta validada com o time de produto e em implementação.
 

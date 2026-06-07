@@ -1,5 +1,7 @@
 ## Contexto
 
+### Canvas de automação multicanal com mais de 20 gatilhos
+
 A Sellbie é uma plataforma omnichannel de CRM e marketing voltada para marcas de varejo que operam lojas físicas e e-commerce. Diferente das plataformas de automação que nascem no digital, a Sellbie integra comportamentos de PDV, histórico de compras em loja, relacionamento com vendedor e dados de navegação no e-commerce em um único lugar.
 
 O produto mais próximo de automação que a plataforma tinha eram as Campanhas Recorrentes, que permitiam criar réguas básicas a partir de gatilhos como aniversário, pós-compra e reativação, mas dentro de uma lógica linear e sem reação ao comportamento do cliente. A demanda por algo mais sofisticado era recorrente: presente em dados de atendimento do time de CS, em resultados de pesquisa e nas entrevistas com usuários que conduzi na minha entrada na empresa.
@@ -173,6 +175,8 @@ Quando o usuário configura saída imediata após o evento e tenta adicionar env
 ---
 
 ## Resultados
+
+### Automação como diferencial real da plataforma
 
 Jornadas substituiu as Campanhas Recorrentes com uma camada de inteligência que o produto não tinha. Pela primeira vez, as marcas puderam construir fluxos que reagiam ao comportamento do cliente, não só ao calendário, e a Sellbie passou a oferecer automação de marketing como um diferencial real da plataforma, não uma promessa em aberto.
 

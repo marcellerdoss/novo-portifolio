@@ -20,7 +20,7 @@ function ArticleCard({ post, locale, t }: { post: BlogPost; locale: string; t: R
   const inner = (
     <div className="group flex flex-col h-full rounded-[16px] bg-surface-soft border border-black/10 p-6 transition-all duration-200 hover:-translate-y-1 hover:border-black/20 hover:shadow-[0_4px_20px_rgba(0,0,0,0.07)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg">
       {/* Category */}
-      <span className="type-caption text-fg-muted mb-4 inline-block">
+      <span className="type-caption text-fg-subtle bg-surface-soft rounded-full px-3 py-1.5 mb-4 inline-block">
         {post.category}
       </span>
 
@@ -35,7 +35,7 @@ function ArticleCard({ post, locale, t }: { post: BlogPost; locale: string; t: R
       </p>
 
       {/* Footer */}
-      <div className="flex items-center justify-between gap-2 type-caption text-fg-muted mt-auto">
+      <div className="flex items-center justify-between gap-2 type-caption text-fg-subtle mt-auto">
         <div className="flex items-center gap-2 whitespace-nowrap">
           <time dateTime={post.date}>{formatDate(post.date, locale)}</time>
           <span aria-hidden="true">·</span>
@@ -93,7 +93,7 @@ export function BlogPreview({ posts }: Props) {
               href="https://medium.com/@marcelle.rdoss"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:inline-flex items-center gap-2 px-5 py-2 type-body-sm border border-accent-magenta text-accent-magenta rounded-pill bg-transparent hover:bg-accent-magenta/10 active:scale-[0.97] transition-all duration-150 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-fg"
+              className="hidden sm:inline-flex items-center gap-2 px-5 py-2 type-body-sm border border-fg text-fg rounded-pill bg-transparent hover:bg-fg/5 active:scale-[0.97] transition-all duration-150 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-fg"
             >
               {t('see_all')} <ArrowUpRight size={12} aria-hidden="true" />
             </a>
@@ -124,7 +124,7 @@ export function BlogPreview({ posts }: Props) {
               href="https://medium.com/@marcelle.rdoss"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2 type-body-sm border border-accent-magenta text-accent-magenta rounded-pill bg-transparent hover:bg-accent-magenta/10 active:scale-[0.97] transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-fg"
+              className="inline-flex items-center gap-2 px-5 py-2 type-body-sm border border-fg text-fg rounded-pill bg-transparent hover:bg-fg/5 active:scale-[0.97] transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-fg"
             >
               {t('see_all')} <ArrowUpRight size={12} aria-hidden="true" />
             </a>

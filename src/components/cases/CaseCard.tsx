@@ -99,7 +99,7 @@ export function CaseCard({
 
         {/* Company badge */}
         {company && (
-          <span className="absolute top-3 right-4 type-caption text-fg-muted">{company}</span>
+          <span className="absolute top-3 right-4 type-caption text-fg-subtle">{company}</span>
         )}
       </div>
 
@@ -129,7 +129,7 @@ export function CaseCard({
           ))}
         </div>
         <div className="mt-auto">
-          <span className="inline-flex items-center gap-2 px-5 py-2 type-body-sm border border-accent-magenta text-accent-magenta rounded-pill bg-transparent">
+          <span className="inline-flex items-center gap-2 px-5 py-2 type-body-sm border border-fg text-fg rounded-pill bg-transparent">
             Ver case <ArrowUpRight size={12} aria-hidden="true" className="shrink-0" />
           </span>
         </div>

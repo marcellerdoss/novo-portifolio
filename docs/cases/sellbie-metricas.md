@@ -1,5 +1,7 @@
 ## Contexto
 
+### Produto crescendo sem estrutura de métricas
+
 O produto crescia em funcionalidades, algumas coisas já estavam sendo rastreadas no Amplitude, mas sem estrutura. A demanda veio do time: precisamos que os produtos tenham métricas.
 
 O ponto de partida era esse: sem referência compartilhada, sem distinção clara entre evento, métrica e meta. Entrei para facilitar a construção junto com produto e dados.
@@ -7,6 +9,8 @@ O ponto de partida era esse: sem referência compartilhada, sem distinção clar
 ---
 
 ## Por que o HEART
+
+### Framework que conecta evento técnico à pergunta de produto
 
 Antes de propor qualquer estrutura, precisava de uma base metodológica que fizesse sentido para a maturidade do time. O framework HEART, desenvolvido pelo Google, organiza métricas em cinco dimensões:
 
@@ -24,6 +28,8 @@ Adaptei o framework adicionando duas colunas: **Objetivo** (o que queremos enten
 
 ## Como construímos
 
+### Do framework por módulo ao plano de ação
+
 Primeiro, montei a estrutura-mãe com o framework completo e exemplos reais para cada dimensão. Isso deu ao time uma linguagem comum antes de aplicar em cada módulo.
 
 Depois, levamos para as sessões: trabalhamos módulo por módulo no FigJam, com produto e dados juntos. Para cada módulo, o time mapeava quais métricas faziam sentido naquele contexto, qual o objetivo de cada uma e como seriam medidas.
@@ -35,6 +41,8 @@ Esse filtro foi importante para não criar um backlog impossível. Saímos de ca
 ---
 
 ## O que foi construído
+
+### Estrutura-mãe, módulos e diagnóstico de instrumentação
 
 **Framework HEART: estrutura-mãe**
 Documento de referência com as cinco dimensões detalhadas. Para cada dimensão, entre duas e três métricas com a cadeia completa: meta → sinal → métrica → objetivo → como medir → como configurar. Funcionou como o "dicionário" do time, o lugar onde qualquer pessoa poderia buscar o que uma métrica significa e como configurar.
@@ -55,6 +63,8 @@ Artefato de priorização com meta da fase seguinte, critérios de sucesso, tare
 ---
 
 ## Resultado
+
+### Vocabulário comum e backlog formal de instrumentação
 
 **O time passou a ter vocabulário comum:** reuniões de priorização pararam de misturar sinal, métrica e meta como se fossem a mesma coisa.
 

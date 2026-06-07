@@ -1,5 +1,7 @@
 ## Problema
 
+### Navegação que cresceu sem critério
+
 O backlog de projetos da plataforma era priorizado por valor de negócio e capacidade do time, o que faz todo sentido em um produto em crescimento. Só que esse ritmo de entrega não vinha acompanhado de um processo para pensar navegação: cada novo módulo encontrava um lugar no header conforme chegava, e os agrupamentos foram se formando por proximidade de entrega, não por lógica de uso.
 
 Arquitetura da Informação é uma disciplina específica, e sem esse olhar a estrutura vai crescendo de forma orgânica até o ponto em que começa a criar fricção real para quem usa. Na prática, isso se traduzia em um time sem critério claro para decidir onde encaixar cada nova funcionalidade, e usuários que precisavam conhecer a história do produto para encontrar o que precisavam.
@@ -9,6 +11,8 @@ Com o tempo, os agrupamentos foram ficando cada vez menos intuitivos. O time per
 ---
 
 ## Discovery
+
+### Inventário que revelou o diagnóstico
 
 O ponto de partida foi mapear o que existia: todas as telas e funcionalidades da plataforma levantadas em um inventário de conteúdo no FigJam. Antes de propor qualquer estrutura nova, era preciso ter clareza do que precisava ser organizado.
 
@@ -21,6 +25,8 @@ Esse diagnóstico orientou os passos seguintes: antes de reorganizar, fazia sent
 ---
 
 ## Base metodológica
+
+### Heurísticas de Abby Covert como fundação compartilhada
 
 Antes de partir para a execução, fazia sentido criar uma base comum. Arquitetura da Informação tem princípios e vocabulário próprios. Sem esse repertório, as decisões de agrupamento ficam mais intuitivas do que intencionais. Quis que todos soubessem o que estavam fazendo e por quê antes de organizar qualquer cartão.
 
@@ -36,6 +42,8 @@ Com esse repertório em mãos, os participantes chegaram ao card sorting entende
 
 ## Card Sorting
 
+### Consensos e divergências como material de decisão
+
 Com o inventário mapeado e os participantes instrumentalizados, conduzimos sessões de card sorting com 6 pessoas selecionadas por terem conhecimento profundo da plataforma, representando produto, dados e design. Cada participante recebia os cartões com as funcionalidades e organizava em grupos que fizessem sentido, nomeando cada grupo livremente.
 
 O formato escolhido foi o card sorting aberto, sem categorias pré-definidas, para revelar os modelos mentais reais sem contaminação da estrutura existente.
@@ -47,6 +55,8 @@ A análise das sessões revelou onde havia consenso natural, com funcionalidades
 ---
 
 ## Proposta de estrutura
+
+### Reorganização a partir do modelo mental real
 
 Com os dados do card sorting analisados, montei a proposta de reorganização do header e da arquitetura de navegação da plataforma. As decisões foram tomadas a partir de três critérios: onde havia consenso claro nos agrupamentos, qual era a frequência de uso de cada funcionalidade, e como resolver os casos de divergência, posicionados pela jornada mais recorrente, não pela lógica de entrega.
 
@@ -62,6 +72,8 @@ Cada funcionalidade mapeada com sua posição proposta, nível de hierarquia e g
 ---
 
 ## Resultado
+
+### Navegação implementada e critério compartilhado no time
 
 **Navegação reorganizada e implementada**
 A proposta saiu do FigJam e foi para a plataforma. O header passou a refletir como o produto realmente funciona, organizado por modelo mental e não por ordem de entrega.

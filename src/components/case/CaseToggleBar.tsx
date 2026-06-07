@@ -7,13 +7,15 @@ export function CaseToggleBar() {
   const { view, switchView } = useCaseView();
   const barRef = useRef<HTMLDivElement>(null);
 
+  const HEADER_H = 64;
+
   const handleSwitch = (next: 'overview' | 'detailed') => {
     switchView(next);
     if (barRef.current) {
-      // Scroll bar to top only if it hasn't reached the sticky position yet
       const barTop = barRef.current.getBoundingClientRect().top;
-      if (barTop > 1) {
-        barRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (barTop > HEADER_H + 1) {
+        const targetY = window.scrollY + barTop - HEADER_H;
+        window.scrollTo({ top: targetY, behavior: 'smooth' });
       }
     }
   };
@@ -21,7 +23,7 @@ export function CaseToggleBar() {
   return (
     <div
       ref={barRef}
-      className="sticky top-0 z-20 bg-bg flex items-center gap-3 py-4 border-b border-border mb-10"
+      className="sticky top-16 z-50 bg-bg flex items-center gap-3 py-4 border-b border-border mb-10"
     >
       <span className="type-body-sm text-fg-subtle hidden sm:inline whitespace-nowrap">
         Visualização do case:
