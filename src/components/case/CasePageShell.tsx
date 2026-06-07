@@ -28,7 +28,7 @@ export function CasePageShell({
     setPendingScroll(false);
     const el = document.getElementById('case-toggle');
     if (el) {
-      const top = el.getBoundingClientRect().top + window.scrollY - 64;
+      const top = el.getBoundingClientRect().top + window.scrollY - 100;
       window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
     }
   }, [pendingScroll, view]);
