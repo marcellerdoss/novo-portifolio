@@ -24,7 +24,7 @@ export function ScrollProgress() {
       aria-valuenow={Math.round(progress)}
       aria-valuemin={0}
       aria-valuemax={100}
-      className="fixed top-16 left-0 right-0 z-30 h-0.5 bg-transparent"
+      className="fixed top-[6.25rem] left-0 right-0 z-30 h-0.5 bg-transparent"
     >
       <div
         className="h-full bg-primary transition-none"
