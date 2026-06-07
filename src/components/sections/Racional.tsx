@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, ChevronDown } from 'lucide-react';
 import { fadeInUp, stagger } from '@/lib/animations';
 
 const phases = [
@@ -61,11 +61,19 @@ const phases = [
 
 function RowDivider({ label }: { label: string }) {
   return (
-    <div className="flex items-center gap-3">
-      <span className="type-caption text-accent-magenta whitespace-nowrap">{label}</span>
-      <div className="flex-1 border-t border-dashed border-accent-magenta" />
-      <ChevronRight size={12} className="text-accent-magenta flex-shrink-0" />
-    </div>
+    <>
+      {/* Mobile: label + seta para baixo (cards empilhados) */}
+      <div className="flex items-center gap-2 sm:hidden">
+        <span className="type-caption text-accent-magenta">{label}</span>
+        <ChevronDown size={12} className="text-accent-magenta" aria-hidden="true" />
+      </div>
+      {/* Desktop: linha tracejada horizontal com seta para a direita */}
+      <div className="hidden sm:flex items-center gap-3">
+        <span className="type-caption text-accent-magenta whitespace-nowrap">{label}</span>
+        <div className="flex-1 border-t border-dashed border-accent-magenta" />
+        <ChevronRight size={12} className="text-accent-magenta flex-shrink-0" aria-hidden="true" />
+      </div>
+    </>
   );
 }
 
@@ -112,14 +120,14 @@ export function Racional() {
                   {num}
                 </div>
                 <div>
-                  <p className="type-caption text-fg-subtle mb-0.5">{type}</p>
-                  <p className="type-body-sm font-medium text-fg leading-snug">{title}</p>
+                  <p className="type-caption text-accent-magenta mb-0.5">{type}</p>
+                  <p className="type-body-sm font-[540] text-fg leading-snug">{title}</p>
                 </div>
               </div>
 
               {/* Journey card */}
               <div className="rounded-[16px] border border-black/10 dark:border-white/10 p-6 bg-bg flex-1">
-                <p className="type-body-strong text-fg mb-3">{journeyCard.title}</p>
+                <p className="type-headline text-fg mb-3">{journeyCard.title}</p>
                 <p className="type-body-sm text-fg-muted leading-relaxed">{journeyCard.text}</p>
               </div>
 
@@ -141,7 +149,7 @@ export function Racional() {
           {phases.map(({ num, processCard }) => (
             <motion.div key={num} variants={fadeInUp} className="h-full">
               <div className="rounded-[16px] border border-black/10 dark:border-white/10 p-6 bg-surface-soft h-full">
-                <p className="type-body-strong text-fg mb-3">{processCard.title}</p>
+                <p className="type-headline text-fg mb-3">{processCard.title}</p>
                 <p className="type-body-sm text-fg-muted leading-relaxed">{processCard.text}</p>
               </div>
             </motion.div>
