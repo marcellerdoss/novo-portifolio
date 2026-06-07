@@ -69,64 +69,109 @@ export function CaseCardCompact({
   return (
     <Link
       href={href}
-      className="group relative block h-[260px] rounded-[16px] overflow-hidden border-[0.5px] border-border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-fg"
+      className="group block rounded-[16px] overflow-hidden border-[0.5px] border-border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-fg"
     >
       <span className="sr-only">{title}</span>
 
-      {/* Image area — slides up 80px on hover */}
-      <div
-        className="case-card-image-area absolute inset-0 transition-transform duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-[80px]"
-        style={{ backgroundColor: mockup ? accentBg : undefined }}
-      >
-        {mockup === 'mobile' && <PhoneMockup src={imageSrc} alt={imageAlt} />}
-        {mockup === 'desktop' && <LaptopMockup src={imageSrc} alt={imageAlt} />}
-        {!mockup && (
-          <>
-            <div className="absolute inset-0 bg-canvas" />
-            <Image
-              src={imageSrc}
-              alt={imageAlt}
-              fill
-              sizes="(max-width: 640px) 50vw, 25vw"
-              className="object-cover object-left-top"
-            />
-          </>
-        )}
-
-        {/* Company badge — hidden when mockup is shown */}
-        {company && !mockup && (
-          <span className="absolute top-3 right-3 type-caption text-fg-subtle">{company}</span>
-        )}
-      </div>
-
-      {/* Repose panel */}
-      <div
-        className="absolute bottom-0 inset-x-0 h-[80px] bg-bg dark:bg-surface-soft border-t border-[0.5px] border-border px-4 flex flex-col justify-center transition-opacity duration-200 group-hover:opacity-0"
-        aria-hidden="true"
-      >
-        <p className="type-body-strong text-fg leading-snug">{title}</p>
-      </div>
-
-      {/* Hover panel */}
-      <div
-        className="absolute bottom-0 inset-x-0 bg-bg dark:bg-surface-soft border-t border-[0.5px] border-border px-4 py-4 translate-y-full group-hover:translate-y-0 transition-transform duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col"
-        aria-hidden="true"
-      >
-        <p className="type-body-strong text-fg leading-snug mb-3">{title}</p>
-        <div className="flex flex-wrap gap-1 mb-4">
-          {tags.map((tag) => (
-            <span
-              key={tag}
-              className="type-caption text-fg-subtle border border-border rounded-full px-3 py-1.5 leading-none"
-            >
-              {tag}
-            </span>
-          ))}
+      {/* ── Mobile: layout empilhado, sem hover ── */}
+      <div className="md:hidden">
+        <div
+          className="relative w-full aspect-[4/3]"
+          style={{ backgroundColor: mockup ? accentBg : undefined }}
+        >
+          {mockup === 'mobile' && <PhoneMockup src={imageSrc} alt={imageAlt} />}
+          {mockup === 'desktop' && <LaptopMockup src={imageSrc} alt={imageAlt} />}
+          {!mockup && (
+            <>
+              <div className="absolute inset-0 bg-canvas" />
+              <Image
+                src={imageSrc}
+                alt={imageAlt}
+                fill
+                sizes="100vw"
+                className="object-cover object-left-top"
+              />
+              {company && (
+                <span className="absolute top-3 right-3 type-caption text-fg-subtle">{company}</span>
+              )}
+            </>
+          )}
         </div>
-        <div className="mt-auto flex justify-end">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 type-body-sm border border-fg text-fg rounded-pill bg-transparent">
-            {ctaLabel} <ArrowUpRight size={12} aria-hidden="true" className="shrink-0" />
-          </span>
+        <div className="bg-bg dark:bg-surface-soft border-t border-[0.5px] border-border px-4 py-4">
+          <p className="type-body-strong text-fg leading-snug mb-3">{title}</p>
+          <div className="flex flex-wrap gap-1 mb-4">
+            {tags.map((tag) => (
+              <span
+                key={tag}
+                className="type-caption text-fg-subtle border border-border rounded-full px-3 py-1.5 leading-none"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+          <div className="flex justify-end">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 type-body-sm border border-fg text-fg rounded-pill bg-transparent">
+              {ctaLabel} <ArrowUpRight size={12} aria-hidden="true" className="shrink-0" />
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* ── Desktop: altura fixa + hover overlay ── */}
+      <div className="hidden md:block relative h-[260px]">
+        {/* Image area — slides up 80px on hover */}
+        <div
+          className="case-card-image-area absolute inset-0 transition-transform duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-[80px]"
+          style={{ backgroundColor: mockup ? accentBg : undefined }}
+        >
+          {mockup === 'mobile' && <PhoneMockup src={imageSrc} alt={imageAlt} />}
+          {mockup === 'desktop' && <LaptopMockup src={imageSrc} alt={imageAlt} />}
+          {!mockup && (
+            <>
+              <div className="absolute inset-0 bg-canvas" />
+              <Image
+                src={imageSrc}
+                alt={imageAlt}
+                fill
+                sizes="(max-width: 640px) 50vw, 25vw"
+                className="object-cover object-left-top"
+              />
+            </>
+          )}
+          {company && !mockup && (
+            <span className="absolute top-3 right-3 type-caption text-fg-subtle">{company}</span>
+          )}
+        </div>
+
+        {/* Repose panel */}
+        <div
+          className="absolute bottom-0 inset-x-0 h-[80px] bg-bg dark:bg-surface-soft border-t border-[0.5px] border-border px-4 flex flex-col justify-center transition-opacity duration-200 group-hover:opacity-0"
+          aria-hidden="true"
+        >
+          <p className="type-body-strong text-fg leading-snug">{title}</p>
+        </div>
+
+        {/* Hover panel */}
+        <div
+          className="absolute bottom-0 inset-x-0 bg-bg dark:bg-surface-soft border-t border-[0.5px] border-border px-4 py-4 translate-y-full group-hover:translate-y-0 transition-transform duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col"
+          aria-hidden="true"
+        >
+          <p className="type-body-strong text-fg leading-snug mb-3">{title}</p>
+          <div className="flex flex-wrap gap-1 mb-4">
+            {tags.map((tag) => (
+              <span
+                key={tag}
+                className="type-caption text-fg-subtle border border-border rounded-full px-3 py-1.5 leading-none"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+          <div className="mt-auto flex justify-end">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 type-body-sm border border-fg text-fg rounded-pill bg-transparent">
+              {ctaLabel} <ArrowUpRight size={12} aria-hidden="true" className="shrink-0" />
+            </span>
+          </div>
         </div>
       </div>
     </Link>
