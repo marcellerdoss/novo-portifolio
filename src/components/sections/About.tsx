@@ -58,12 +58,12 @@ export function About() {
             </motion.p>
 
             {/* Stats cards — below bio text, inside right column */}
-            <motion.div variants={stagger} className="grid grid-cols-3 gap-4">
+            <motion.div variants={stagger} className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {stats.map(({ value, label }) => (
                 <motion.div
                   key={label}
                   variants={fadeInUp}
-                  className="text-center p-2 sm:p-4 rounded-lg bg-white/70 dark:bg-white/5 border border-black/10 dark:border-white/10"
+                  className="text-left sm:text-center p-4 rounded-lg bg-white/70 dark:bg-white/5 border border-black/10 dark:border-white/10"
                 >
                   <p className="type-headline text-fg">{value}</p>
                   <p className="type-caption text-fg-subtle mt-1 whitespace-pre-line break-words hyphens-auto">{label}</p>
