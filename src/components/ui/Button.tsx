@@ -23,8 +23,8 @@ const variants: Record<Variant, string> = {
 
 const sizes: Record<Size, string> = {
   sm: 'px-5 py-2 type-body-sm font-[480]',
-  md: 'px-5 py-[10px] type-button',
-  lg: 'px-7 py-[14px] type-button',
+  md: 'px-5 py-[10px] type-body-sm font-[480]',
+  lg: 'px-7 py-[14px] type-body-sm font-[480]',
 };
 
 export function buttonVariants({

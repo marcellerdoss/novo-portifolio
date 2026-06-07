@@ -1,9 +1,10 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
-import { ChevronUp, ArrowLeft, ArrowRight } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 import { CaseViewContext } from './CaseViewContext';
+import { BackToTop } from '@/components/ui/BackToTop';
 import type { CaseNavItem } from '@/lib/casesConfig';
 
 interface CasePageShellProps {
@@ -20,18 +21,7 @@ export function CasePageShell({
   nextCase,
 }: CasePageShellProps) {
   const [view, setView] = useState<'overview' | 'detailed'>('overview');
-  const [showTop, setShowTop] = useState(false);
   const [pendingScroll, setPendingScroll] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setShowTop(window.scrollY > 400);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  const scrollToTop = useCallback(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, []);
 
   useEffect(() => {
     if (!pendingScroll) return;
@@ -88,19 +78,7 @@ export function CasePageShell({
         </nav>
       )}
 
-      {/* ── Back to top ── */}
-      <button
-        onClick={scrollToTop}
-        aria-label="Voltar ao topo"
-        className={`fixed bottom-8 right-8 z-50 inline-flex items-center gap-2 px-4 py-2.5 rounded-pill bg-fg text-bg dark:bg-accent-magenta dark:text-white type-body-sm font-[480] shadow-lg transition-all duration-300 ${
-          showTop
-            ? 'opacity-100 translate-y-0'
-            : 'opacity-0 translate-y-4 pointer-events-none'
-        }`}
-      >
-        <ChevronUp size={14} aria-hidden="true" />
-        Voltar ao topo
-      </button>
+      <BackToTop />
     </CaseViewContext.Provider>
   );
 }

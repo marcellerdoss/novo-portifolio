@@ -9,6 +9,7 @@ import { Experience } from '@/components/sections/Experience';
 import { BlogPreview } from '@/components/sections/Blog';
 import { Contact } from '@/components/sections/Contact';
 import { JsonLd } from '@/components/seo/JsonLd';
+import { BackToTop } from '@/components/ui/BackToTop';
 import { getCases } from '@/lib/cases';
 import { getExperience } from '@/lib/experience';
 import { getAllPosts } from '@/lib/mdx';
@@ -82,6 +83,7 @@ export default async function Home({ params }: Props) {
       <Racional />
       <Experience items={experience} />
       <Contact />
+      <BackToTop />
     </>
   );
 }
