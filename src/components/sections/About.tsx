@@ -63,10 +63,10 @@ export function About() {
                 <motion.div
                   key={label}
                   variants={fadeInUp}
-                  className="text-left sm:text-center p-4 rounded-lg bg-white/70 dark:bg-white/5 border border-black/10 dark:border-white/10"
+                  className="flex items-center gap-3 sm:flex-col sm:items-center sm:gap-0 sm:text-center p-4 rounded-lg bg-white/70 dark:bg-white/5 border border-black/10 dark:border-white/10"
                 >
-                  <p className="type-headline text-fg">{value}</p>
-                  <p className="type-caption text-fg-subtle mt-1 whitespace-pre-line break-words hyphens-auto">{label}</p>
+                  <p className="type-headline text-fg shrink-0">{value}</p>
+                  <p className="type-caption text-fg-subtle sm:mt-1">{label}</p>
                 </motion.div>
               ))}
             </motion.div>
