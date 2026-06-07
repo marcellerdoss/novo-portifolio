@@ -1,17 +1,3 @@
-# Dados que viram decisão.
-
-**Sellbie · UX Strategy · fev 2026 – presente**
-
-Empresa: Sellbie
-Função: UX Strategy & Product Experience
-Tipo: Research · Business Intelligence · Proposta UX
-
-*Dados nas telas são ilustrativos para fins de portfólio.*
-
-**Tags:** Levantamento · Mapa de oportunidades · Proposta UX · Figma Make
-
----
-
 ## Problema
 
 O CS da Sellbie acompanha a performance de CRM das marcas usando dados da plataforma, mas sem estrutura analítica clara. Cada reunião exigia montagem manual de análise, sem padrão e sem direcionamento estratégico. O produto também não tinha visibilidade consolidada do que funcionava nas operações de CRM.

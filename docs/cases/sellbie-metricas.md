@@ -1,17 +1,3 @@
-# Métricas de produto — do zero ao rastreável
-
-**[Empresa] · Produto & Analytics · 2024**
-
-Empresa: [Nome]
-Função: Product Designer · Facilitadora
-Tipo: Product Strategy · Analytics · Facilitation
-
-*Dados e nomenclaturas de módulos são ilustrativos para fins de portfólio.*
-
-**Tags:** Métricas de Produto · Framework HEART · Facilitação · Analytics · Product Foundations
-
----
-
 ## Contexto
 
 O produto crescia em funcionalidades, algumas coisas já estavam sendo rastreadas no Amplitude, mas sem estrutura. A demanda veio do time: precisamos que os produtos tenham métricas.

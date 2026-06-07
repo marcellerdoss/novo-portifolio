@@ -1,15 +1,3 @@
-# Redesign de plataforma SaaS construída por demanda: arquitetura, consistência e fluxo de campanhas
-
-**Sellbie · 2024**
-
-Empresa: Sellbie
-Função: Product Designer · UX Research
-Tipo: Discovery · UX Research · Design System · Interaction Design · PRD
-
-**Tags:** UX Research · Entrevistas · Design System · Interaction Design · PRD · SaaS · B2B
-
----
-
 ## Contexto
 
 A Sellbie é uma plataforma SaaS de CRM e marketing multicanal voltada para marcas de varejo. O produto foi sendo construído de forma reativa ao longo dos anos, sem uma camada de design estruturando as decisões. Quando entrei, não havia definição de UX, nenhum Design System, navegação inconsistente entre módulos e jornadas fragmentadas. A empresa queria redesenhar a plataforma, sem PRD, sem base documental, sem por onde começar. O desafio não era só redesenhar telas. Era criar as condições para que o redesign fosse possível.

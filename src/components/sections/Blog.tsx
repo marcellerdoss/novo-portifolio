@@ -93,7 +93,7 @@ export function BlogPreview({ posts }: Props) {
               href="https://medium.com/@marcelle.rdoss"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:inline-flex items-center gap-1.5 type-caption text-accent-magenta shrink-0 hover:underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg rounded"
+              className="hidden sm:inline-flex items-center gap-2 px-5 py-2 type-body-sm border border-accent-magenta text-accent-magenta rounded-pill bg-transparent hover:bg-accent-magenta/10 active:scale-[0.97] transition-all duration-150 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-fg"
             >
               {t('see_all')} <ArrowUpRight size={12} aria-hidden="true" />
             </a>
@@ -124,7 +124,7 @@ export function BlogPreview({ posts }: Props) {
               href="https://medium.com/@marcelle.rdoss"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 type-caption text-accent-magenta hover:underline underline-offset-2"
+              className="inline-flex items-center gap-2 px-5 py-2 type-body-sm border border-accent-magenta text-accent-magenta rounded-pill bg-transparent hover:bg-accent-magenta/10 active:scale-[0.97] transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-fg"
             >
               {t('see_all')} <ArrowUpRight size={12} aria-hidden="true" />
             </a>

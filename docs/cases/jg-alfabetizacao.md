@@ -1,15 +1,3 @@
-# De zero a produto: arquitetura pedagógica para IA adaptativa em alfabetização infantil
-
-**Jovens Gênios · ago 2022 – jul 2024**
-
-Empresa: Jovens Gênios
-Função: Product Designer · UX Research
-Tipo: Discovery · UX Research · Information Architecture · Interaction Design · Design System
-
-**Tags:** UX Research · Entrevistas · Benchmarking · Arquitetura Pedagógica · Interaction Design · IA Adaptativa · BNCC
-
----
-
 ## Contexto
 
 A Jovens Gênios é uma EdTech que combina inteligência artificial e gamificação para personalizar o aprendizado de cada aluno, adaptando conteúdo e progressão ao ritmo individual, com mais de 130 mil alunos ativos e ganho médio de 17,8% de proficiência em poucos meses de uso. Seu produto atendia do 5º ao 8º ano. Não havia nada para alfabetização infantil (1º e 2º ano): nenhuma jornada, nenhum modelo de interação, nenhum racional pedagógico para essa faixa etária e, consequentemente, nenhuma base para que a IA pudesse operar nesse contexto.

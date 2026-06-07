@@ -1,15 +1,3 @@
-# A resposta certa para cada perfil. Central de ajuda personalizada.
-
-**Jovens Gênios · Arquitetura de Informação · ago 2022 – jul 2024**
-
-Empresa: Jovens Gênios
-Função: Product Designer
-Tipo: Arquitetura de Informação · Pesquisa · UX Design
-
-**Tags:** Benchmarking · Arquitetura de Informação · Personalização por perfil · Handoff
-
----
-
 ## Problema
 
 A central de ajuda existia, mas servia a todos da mesma forma: um único conteúdo genérico que não resolvia as dúvidas específicas de cada perfil. A plataforma atendia simultaneamente Exploradores (alunos), Educadores (professores e coordenadores) e Responsáveis (pais e familiares), públicos com contextos de uso, vocabulário e dúvidas radicalmente diferentes. Uma dúvida de acesso de um responsável não tem nada a ver com uma dúvida pedagógica de um educador.

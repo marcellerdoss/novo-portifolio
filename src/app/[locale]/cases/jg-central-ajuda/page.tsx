@@ -50,7 +50,7 @@ function Divider() {
 function CaseImg({ src, alt, caption }: { src: string; alt: string; caption?: string }) {
   return (
     <figure className="space-y-2">
-      <Image src={src} alt={alt} width={1200} height={800} className="w-full h-auto rounded-xl border border-border" />
+      <Image src={src} alt={alt} width={1200} height={800} className="w-full h-auto" />
       {caption && <figcaption className="type-caption text-fg-subtle mt-1">{caption}</figcaption>}
     </figure>
   );

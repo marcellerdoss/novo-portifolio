@@ -1,15 +1,3 @@
-# Jornadas — automação de marketing orientada por comportamento
-
-**Sellbie · 2024–2025**
-
-Empresa: Sellbie
-Função: Product Designer · UX Strategy
-Tipo: Discovery · Benchmarking · Interaction Design · PRD
-
-**Tags:** Workflow Visual · Automação · Multicanal · SaaS · B2B · Interaction Design · Gatilhos
-
----
-
 ## Contexto
 
 A Sellbie é uma plataforma omnichannel de CRM e marketing voltada para marcas de varejo que operam lojas físicas e e-commerce. Diferente das plataformas de automação que nascem no digital, a Sellbie integra comportamentos de PDV, histórico de compras em loja, relacionamento com vendedor e dados de navegação no e-commerce em um único lugar.

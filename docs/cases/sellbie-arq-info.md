@@ -1,17 +1,3 @@
-# Reorganizando a navegação de uma plataforma a partir de modelos mentais reais
-
-**[Empresa] · Produto & UX · 2024**
-
-Empresa: [Nome]
-Função: Product Designer · Facilitadora
-Tipo: Arquitetura da Informação · UX Research · Facilitação
-
-*Nomenclaturas de módulos e funcionalidades são ilustrativos para fins de portfólio.*
-
-**Tags:** Arquitetura da Informação · Card Sorting · Heurísticas · Navegação · Facilitação
-
----
-
 ## Problema
 
 O backlog de projetos da plataforma era priorizado por valor de negócio e capacidade do time, o que faz todo sentido em um produto em crescimento. Só que esse ritmo de entrega não vinha acompanhado de um processo para pensar navegação: cada novo módulo encontrava um lugar no header conforme chegava, e os agrupamentos foram se formando por proximidade de entrega, não por lógica de uso.

@@ -13,6 +13,7 @@ export interface CaseCardProps {
   imageAlt: string;
   accentBg: string;
   accentText: string;
+  mockup?: 'mobile' | 'desktop';
 }
 
 export function CaseCard({
@@ -23,6 +24,8 @@ export function CaseCard({
   href,
   imageSrc,
   imageAlt,
+  accentBg,
+  mockup,
 }: CaseCardProps) {
   return (
     <Link
@@ -33,14 +36,21 @@ export function CaseCard({
 
       {/* Image area — slides up 96px on hover */}
       <div
-        className="absolute inset-0 bg-canvas transition-transform duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-[96px]"
+        className="absolute inset-0 transition-transform duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-[96px]"
+        style={{ backgroundColor: mockup ? accentBg : undefined }}
       >
+        {!mockup && <div className="absolute inset-0 bg-canvas" />}
         <Image
           src={imageSrc}
           alt={imageAlt}
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
-          className="object-cover object-left-top"
+          className={mockup === 'mobile'
+            ? 'object-contain object-bottom pb-4 px-16'
+            : mockup === 'desktop'
+            ? 'object-contain object-center p-6'
+            : 'object-cover object-left-top'
+          }
         />
 
         {/* Company badge */}
@@ -74,9 +84,10 @@ export function CaseCard({
             </span>
           ))}
         </div>
-        <div className="mt-auto inline-flex items-center gap-1.5 type-caption text-accent-magenta">
-          <span>Ver case</span>
-          <ArrowUpRight size={12} aria-hidden="true" className="shrink-0" />
+        <div className="mt-auto">
+          <span className="inline-flex items-center gap-2 px-5 py-2 type-body-sm border border-accent-magenta text-accent-magenta rounded-pill bg-transparent group-hover:bg-accent-magenta/10 transition-all duration-150">
+            Ver case <ArrowUpRight size={12} aria-hidden="true" className="shrink-0" />
+          </span>
         </div>
       </div>
     </Link>

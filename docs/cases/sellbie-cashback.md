@@ -1,17 +1,3 @@
-# Estruturando o cashback como produto de inteligência
-
-**Sellbie · UX Strategy · fev 2026 – presente**
-
-Empresa: Sellbie
-Função: UX Strategy & Product Experience
-Tipo: Research · Plano Estratégico · Produtos de Dados
-
-*Dados nas telas são ilustrativos para fins de portfólio.*
-
-**Tags:** Levantamento de processos · Entrevistas com CS · Plano estratégico · Dashboard de ROAS · Relatório de Precificação · Figma Make
-
----
-
 ## Problema
 
 O cashback era um dos produtos mais utilizados pelas marcas na plataforma, mas operava de forma passiva. As marcas geravam saldo sem clareza sobre retorno. O CS não tinha dados prontos para reuniões. O financeiro calculava excedentes manualmente todo mês. E o produto não tinha direção estratégica clara.

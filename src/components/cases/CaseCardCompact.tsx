@@ -72,9 +72,10 @@ export function CaseCardCompact({
             </span>
           ))}
         </div>
-        <div className="mt-auto inline-flex items-center gap-1.5 type-caption text-accent-magenta">
-          <span>Ver case</span>
-          <ArrowUpRight size={12} aria-hidden="true" className="shrink-0" />
+        <div className="mt-auto">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 type-body-sm border border-accent-magenta text-accent-magenta rounded-pill bg-transparent group-hover:bg-accent-magenta/10 transition-all duration-150">
+            Ver case <ArrowUpRight size={12} aria-hidden="true" className="shrink-0" />
+          </span>
         </div>
       </div>
     </Link>

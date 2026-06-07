@@ -89,6 +89,7 @@ export function CasesSection(_props: Props) {
               imageAlt="Modelos de questão do sistema de alfabetização"
               accentBg="var(--color-project-jg-alfabetizacao-bg)"
               accentText="var(--color-project-jg-alfabetizacao-text)"
+              mockup="mobile"
             />
             <CaseCard
               company="Jovens Gênios"
