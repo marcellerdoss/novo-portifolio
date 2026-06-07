@@ -9,8 +9,8 @@ export function CaseToggleBar() {
 
   const handleSwitch = (next: 'overview' | 'detailed') => {
     switchView(next);
-    if (next === 'detailed' && barRef.current) {
-      // Only scroll if the bar hasn't reached the top yet (not sticky yet)
+    if (barRef.current) {
+      // Scroll bar to top only if it hasn't reached the sticky position yet
       const barTop = barRef.current.getBoundingClientRect().top;
       if (barTop > 1) {
         barRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
