@@ -62,10 +62,17 @@ const phases = [
 function RowDivider({ label }: { label: string }) {
   return (
     <>
-      {/* Mobile: label + seta para baixo (cards empilhados) */}
-      <div className="flex items-center gap-2 sm:hidden">
-        <span className="type-caption text-accent-magenta">{label}</span>
-        <ChevronDown size={12} className="text-accent-magenta" aria-hidden="true" />
+      {/* Mobile: label + linha vertical tracejada + seta para baixo */}
+      <div className="sm:hidden flex flex-col gap-0">
+        <span className="type-caption text-accent-magenta mb-2">{label}</span>
+        <div className="relative ml-[3px] h-8">
+          <div className="absolute inset-x-0 top-0 bottom-0 border-l border-dashed border-accent-magenta" />
+          <ChevronDown
+            size={12}
+            className="absolute bottom-0 left-0 -translate-x-1/2 text-accent-magenta"
+            aria-hidden="true"
+          />
+        </div>
       </div>
       {/* Desktop: linha tracejada horizontal com seta para a direita */}
       <div className="hidden sm:flex items-center gap-3">
