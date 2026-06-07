@@ -37,17 +37,17 @@ function LaptopMockup({ src, alt }: { src: string; alt: string }) {
     <div className="absolute inset-0 flex items-center justify-center px-5 pb-2">
       <div className="w-full">
         <div
-          className="rounded-t-[6px] overflow-hidden border-[4px] border-b-0 border-neutral-900 bg-neutral-900 relative shadow-lg"
+          className="rounded-t-[6px] overflow-hidden border-[4px] border-b-0 border-neutral-300 bg-neutral-200 relative shadow-lg"
           style={{ aspectRatio: '16 / 10' }}
         >
           <div className="absolute top-0 inset-x-0 z-10 flex justify-center pt-[4px]">
-            <div className="w-1 h-1 rounded-full bg-neutral-600" />
+            <div className="w-1 h-1 rounded-full bg-neutral-400" />
           </div>
           <Image src={src} alt={alt} fill sizes="33vw" className="object-cover object-top" />
         </div>
-        <div className="h-[4px] bg-neutral-800" />
+        <div className="h-[4px] bg-neutral-300" />
         <div className="flex justify-center">
-          <div className="h-[3px] bg-neutral-700 rounded-b-md" style={{ width: '65%' }} />
+          <div className="h-[3px] bg-neutral-200 rounded-b-md" style={{ width: '65%' }} />
         </div>
       </div>
     </div>

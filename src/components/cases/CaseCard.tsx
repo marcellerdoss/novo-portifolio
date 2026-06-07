@@ -39,20 +39,20 @@ function LaptopMockup({ src, alt }: { src: string; alt: string }) {
       <div className="w-full">
         {/* Screen */}
         <div
-          className="rounded-t-[8px] overflow-hidden border-[5px] border-b-0 border-neutral-900 bg-neutral-900 relative shadow-xl"
+          className="rounded-t-[8px] overflow-hidden border-[5px] border-b-0 border-neutral-300 bg-neutral-200 relative shadow-xl"
           style={{ aspectRatio: '16 / 10' }}
         >
           {/* Camera dot */}
           <div className="absolute top-0 inset-x-0 z-10 flex justify-center pt-[5px]">
-            <div className="w-1.5 h-1.5 rounded-full bg-neutral-600" />
+            <div className="w-1.5 h-1.5 rounded-full bg-neutral-400" />
           </div>
           <Image src={src} alt={alt} fill sizes="50vw" className="object-cover object-top" />
         </div>
         {/* Hinge */}
-        <div className="h-[5px] bg-neutral-800" />
+        <div className="h-[5px] bg-neutral-300" />
         {/* Base foot */}
         <div className="flex justify-center">
-          <div className="h-[4px] bg-neutral-700 rounded-b-md" style={{ width: '65%' }} />
+          <div className="h-[4px] bg-neutral-200 rounded-b-md" style={{ width: '65%' }} />
         </div>
       </div>
     </div>
