@@ -97,8 +97,8 @@ export function CaseCard({
           </>
         )}
 
-        {/* Company badge */}
-        {company && (
+        {/* Company badge — hidden when mockup is shown */}
+        {company && !mockup && (
           <span className="absolute top-3 right-4 type-caption text-fg-subtle">{company}</span>
         )}
       </div>
@@ -108,7 +108,7 @@ export function CaseCard({
         className="absolute bottom-0 inset-x-0 h-[96px] bg-bg border-t border-[0.5px] border-border px-5 flex flex-col justify-center transition-opacity duration-200 group-hover:opacity-0"
         aria-hidden="true"
       >
-        <p className="type-body-strong text-fg leading-snug">{title}</p>
+        <p className="type-headline text-fg leading-snug">{title}</p>
       </div>
 
       {/* Hover panel */}
@@ -116,7 +116,7 @@ export function CaseCard({
         className="absolute bottom-0 inset-x-0 bg-bg border-t border-[0.5px] border-border px-5 py-5 translate-y-full group-hover:translate-y-0 transition-transform duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col"
         aria-hidden="true"
       >
-        <p className="type-body-strong text-fg leading-snug mb-3">{title}</p>
+        <p className="type-headline text-fg leading-snug mb-2">{title}</p>
         <p className="type-body-sm text-fg-muted line-clamp-2 mb-4">{description}</p>
         <div className="flex flex-wrap gap-1.5 mb-5">
           {tags.map((tag) => (
@@ -128,7 +128,7 @@ export function CaseCard({
             </span>
           ))}
         </div>
-        <div className="mt-auto">
+        <div className="mt-auto flex justify-end">
           <span className="inline-flex items-center gap-2 px-5 py-2 type-body-sm border border-fg text-fg rounded-pill bg-transparent">
             Ver case <ArrowUpRight size={12} aria-hidden="true" className="shrink-0" />
           </span>

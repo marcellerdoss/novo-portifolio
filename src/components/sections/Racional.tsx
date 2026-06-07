@@ -113,13 +113,13 @@ export function Racional() {
                 </div>
                 <div>
                   <p className="type-caption text-fg-subtle mb-0.5">{type}</p>
-                  <p className="type-body-sm text-fg font-[480] leading-snug">{title}</p>
+                  <p className="type-body-sm font-medium text-fg leading-snug">{title}</p>
                 </div>
               </div>
 
               {/* Journey card */}
               <div className="rounded-[16px] border border-black/10 p-6 bg-bg flex-1">
-                <p className="type-body-strong text-fg mb-3" style={{ fontWeight: 700 }}>{journeyCard.title}</p>
+                <p className="type-body-strong text-fg mb-3">{journeyCard.title}</p>
                 <p className="type-body-sm text-fg-muted leading-relaxed">{journeyCard.text}</p>
               </div>
 
@@ -141,7 +141,7 @@ export function Racional() {
           {phases.map(({ num, processCard }) => (
             <motion.div key={num} variants={fadeInUp} className="h-full">
               <div className="rounded-[16px] border border-black/10 p-6 bg-surface-soft h-full">
-                <p className="type-body-strong text-fg mb-3" style={{ fontWeight: 700 }}>{processCard.title}</p>
+                <p className="type-body-strong text-fg mb-3">{processCard.title}</p>
                 <p className="type-body-sm text-fg-muted leading-relaxed">{processCard.text}</p>
               </div>
             </motion.div>

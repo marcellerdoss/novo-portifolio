@@ -35,7 +35,7 @@ export function Hero() {
         <div className="mb-12">
           <motion.p
             variants={fadeInUp}
-            className="text-[2rem] font-[340] leading-[1.10] tracking-[-0.5px] text-block-navy mb-3"
+            className="type-subhead text-fg mb-3"
           >
             {t('name')}
           </motion.p>
@@ -45,7 +45,7 @@ export function Hero() {
             className="text-[clamp(2rem,5vw,4rem)] font-bold leading-[1.05] tracking-[-1.5px] text-fg"
           >
             {t('subtitle').split('\n').map((line, i) => (
-              <span key={i} className={`block${i === 1 ? ' text-block-navy' : ''}`}>{line}</span>
+              <span key={i} className={`block${i === 0 ? ' text-[#433D69] dark:text-[#D4D4D8]' : ''}`}>{line}</span>
             ))}
           </motion.h1>
         </div>

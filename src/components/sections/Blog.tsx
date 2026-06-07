@@ -25,7 +25,7 @@ function ArticleCard({ post, locale, t }: { post: BlogPost; locale: string; t: R
       </span>
 
       {/* Title */}
-      <h3 className="type-body-strong text-fg mb-3 leading-snug flex-1">
+      <h3 className="type-headline text-fg mb-3 leading-snug flex-1">
         {post.title}
       </h3>
 
@@ -41,11 +41,9 @@ function ArticleCard({ post, locale, t }: { post: BlogPost; locale: string; t: R
           <span aria-hidden="true">·</span>
           <span>{post.readingTime} min</span>
         </div>
-        <ArrowUpRight
-          size={14}
-          aria-hidden="true"
-          className="shrink-0 text-accent-magenta"
-        />
+        <span className="w-9 h-9 rounded-full bg-bg border border-border flex items-center justify-center text-fg shrink-0 transition-all duration-150 group-hover:bg-fg/5" aria-hidden="true">
+          <ArrowUpRight size={14} />
+        </span>
       </div>
     </div>
   );

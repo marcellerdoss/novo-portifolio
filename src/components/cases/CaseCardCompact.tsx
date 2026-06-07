@@ -91,8 +91,8 @@ export function CaseCardCompact({
           </>
         )}
 
-        {/* Company badge */}
-        {company && (
+        {/* Company badge — hidden when mockup is shown */}
+        {company && !mockup && (
           <span className="absolute top-3 right-3 type-caption text-fg-subtle">{company}</span>
         )}
       </div>
@@ -121,7 +121,7 @@ export function CaseCardCompact({
             </span>
           ))}
         </div>
-        <div className="mt-auto">
+        <div className="mt-auto flex justify-end">
           <span className="inline-flex items-center gap-2 px-4 py-1.5 type-body-sm border border-fg text-fg rounded-pill bg-transparent">
             Ver case <ArrowUpRight size={12} aria-hidden="true" className="shrink-0" />
           </span>

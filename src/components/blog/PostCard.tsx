@@ -29,7 +29,7 @@ function CardContent({ post, locale, minRead }: Props) {
           </span>
         )}
       </div>
-      <h2 className="type-body-strong text-fg mb-3 group-hover:underline transition-all duration-150 line-clamp-2">
+      <h2 className="type-headline text-fg mb-3 group-hover:underline transition-all duration-150 line-clamp-2">
         {post.title}
       </h2>
       <p className="type-body-sm text-fg-muted line-clamp-3 mb-4">{post.excerpt}</p>

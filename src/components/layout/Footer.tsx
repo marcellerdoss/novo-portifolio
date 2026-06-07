@@ -18,25 +18,25 @@ export async function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-bg-secondary border-t border-border py-16">
+    <footer className="bg-[#121124] border-t border-white/10 py-16">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
 
           {/* Brand */}
           <div>
-            <p className="type-headline text-fg mb-1">Marcelle</p>
-            <p className="type-body-sm text-fg-muted">UX &amp; Product Designer</p>
+            <p className="type-headline text-white mb-1">Marcelle</p>
+            <p className="type-body-sm text-white/60">UX &amp; Product Designer</p>
           </div>
 
           {/* Quick links */}
           <nav aria-label={t('quick_links')}>
-            <p className="type-caption text-fg mb-4">{t('quick_links')}</p>
+            <p className="type-caption text-white/40 mb-4">{t('quick_links')}</p>
             <ul className="space-y-2">
               {navLinks.map(({ key, href }) => (
                 <li key={key}>
                   <Link
                     href={href}
-                    className="type-body-sm text-fg-muted hover:text-fg transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg rounded"
+                    className="type-body-sm text-white/60 hover:text-white transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded"
                   >
                     {tNav(key)}
                   </Link>
@@ -47,16 +47,16 @@ export async function Footer() {
 
           {/* Credit */}
           <div>
-            <p className="type-body-sm text-fg-muted">
+            <p className="type-body-sm text-white/60">
               {t('credit')}{' '}
-              <span className="text-fg font-[540]">Marcelle</span>
+              <span className="text-white font-[540]">Marcelle</span>
             </p>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-border pt-6">
-          <p className="type-caption text-fg-subtle">
+        <div className="border-t border-white/10 pt-6">
+          <p className="type-caption text-white/40">
             © {year} Marcelle. Todos os direitos reservados.
           </p>
         </div>
