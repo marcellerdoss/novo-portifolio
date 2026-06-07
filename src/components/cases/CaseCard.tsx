@@ -16,6 +16,49 @@ export interface CaseCardProps {
   mockup?: 'mobile' | 'desktop';
 }
 
+function PhoneMockup({ src, alt }: { src: string; alt: string }) {
+  return (
+    <div className="absolute inset-0 flex items-end justify-center pb-6">
+      <div
+        className="relative rounded-[26px] border-[5px] border-neutral-900 shadow-2xl overflow-hidden"
+        style={{ width: '42%', aspectRatio: '9 / 19.5' }}
+      >
+        {/* Notch */}
+        <div className="absolute top-0 inset-x-0 z-10 flex justify-center">
+          <div className="w-[36%] h-[10px] bg-neutral-900 rounded-b-full" />
+        </div>
+        <Image src={src} alt={alt} fill sizes="25vw" className="object-cover object-top" />
+      </div>
+    </div>
+  );
+}
+
+function LaptopMockup({ src, alt }: { src: string; alt: string }) {
+  return (
+    <div className="absolute inset-0 flex items-center justify-center px-7 pb-2">
+      <div className="w-full">
+        {/* Screen */}
+        <div
+          className="rounded-t-[8px] overflow-hidden border-[5px] border-b-0 border-neutral-900 bg-neutral-900 relative shadow-xl"
+          style={{ aspectRatio: '16 / 10' }}
+        >
+          {/* Camera dot */}
+          <div className="absolute top-0 inset-x-0 z-10 flex justify-center pt-[5px]">
+            <div className="w-1.5 h-1.5 rounded-full bg-neutral-600" />
+          </div>
+          <Image src={src} alt={alt} fill sizes="50vw" className="object-cover object-top" />
+        </div>
+        {/* Hinge */}
+        <div className="h-[5px] bg-neutral-800" />
+        {/* Base foot */}
+        <div className="flex justify-center">
+          <div className="h-[4px] bg-neutral-700 rounded-b-md" style={{ width: '65%' }} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function CaseCard({
   company,
   title,
@@ -39,19 +82,20 @@ export function CaseCard({
         className="absolute inset-0 transition-transform duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-[96px]"
         style={{ backgroundColor: mockup ? accentBg : undefined }}
       >
-        {!mockup && <div className="absolute inset-0 bg-canvas" />}
-        <Image
-          src={imageSrc}
-          alt={imageAlt}
-          fill
-          sizes="(max-width: 768px) 100vw, 50vw"
-          className={mockup === 'mobile'
-            ? 'object-contain object-bottom pb-4 px-16'
-            : mockup === 'desktop'
-            ? 'object-contain object-center p-6'
-            : 'object-cover object-left-top'
-          }
-        />
+        {mockup === 'mobile' && <PhoneMockup src={imageSrc} alt={imageAlt} />}
+        {mockup === 'desktop' && <LaptopMockup src={imageSrc} alt={imageAlt} />}
+        {!mockup && (
+          <>
+            <div className="absolute inset-0 bg-canvas" />
+            <Image
+              src={imageSrc}
+              alt={imageAlt}
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover object-left-top"
+            />
+          </>
+        )}
 
         {/* Company badge */}
         {company && (
@@ -59,7 +103,7 @@ export function CaseCard({
         )}
       </div>
 
-      {/* Repose panel — título completo, sem categoria */}
+      {/* Repose panel */}
       <div
         className="absolute bottom-0 inset-x-0 h-[96px] bg-bg border-t border-[0.5px] border-border px-5 flex flex-col justify-center transition-opacity duration-200 group-hover:opacity-0"
         aria-hidden="true"
@@ -67,7 +111,7 @@ export function CaseCard({
         <p className="type-body-strong text-fg leading-snug">{title}</p>
       </div>
 
-      {/* Hover panel — título completo, sem categoria, botão junto */}
+      {/* Hover panel */}
       <div
         className="absolute bottom-0 inset-x-0 bg-bg border-t border-[0.5px] border-border px-5 py-5 translate-y-full group-hover:translate-y-0 transition-transform duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col"
         aria-hidden="true"
@@ -85,7 +129,7 @@ export function CaseCard({
           ))}
         </div>
         <div className="mt-auto">
-          <span className="inline-flex items-center gap-2 px-5 py-2 type-body-sm border border-accent-magenta text-accent-magenta rounded-pill bg-transparent group-hover:bg-accent-magenta/10 transition-all duration-150">
+          <span className="inline-flex items-center gap-2 px-5 py-2 type-body-sm border border-accent-magenta text-accent-magenta rounded-pill bg-transparent">
             Ver case <ArrowUpRight size={12} aria-hidden="true" className="shrink-0" />
           </span>
         </div>

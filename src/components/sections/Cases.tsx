@@ -65,6 +65,7 @@ export function CasesSection(_props: Props) {
               imageAlt="Tela principal do redesign da plataforma Sellbie"
               accentBg="var(--color-project-sellbie-redesign-bg)"
               accentText="var(--color-project-sellbie-redesign-text)"
+              mockup="desktop"
             />
             <CaseCard
               company="Sellbie"
@@ -77,6 +78,7 @@ export function CasesSection(_props: Props) {
               imageAlt="Canvas de criação de jornada na plataforma Sellbie"
               accentBg="var(--color-project-sellbie-jornadas-bg)"
               accentText="var(--color-project-sellbie-jornadas-text)"
+              mockup="desktop"
             />
             <CaseCard
               company="Jovens Gênios"

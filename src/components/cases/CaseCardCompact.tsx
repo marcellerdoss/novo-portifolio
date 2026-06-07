@@ -73,7 +73,7 @@ export function CaseCardCompact({
           ))}
         </div>
         <div className="mt-auto">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 type-body-sm border border-accent-magenta text-accent-magenta rounded-pill bg-transparent group-hover:bg-accent-magenta/10 transition-all duration-150">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 type-body-sm border border-accent-magenta text-accent-magenta rounded-pill bg-transparent">
             Ver case <ArrowUpRight size={12} aria-hidden="true" className="shrink-0" />
           </span>
         </div>
