@@ -228,7 +228,7 @@ export function CasesSection(_props: Props) {
   const locale = useLocale() as 'pt' | 'en';
 
   return (
-    <section id="cases" aria-labelledby="cases-heading" className="py-section px-6 bg-bg">
+    <section id="cases" aria-labelledby="cases-heading" className="py-section px-6 bg-surface-soft">
       <div className="max-w-6xl mx-auto space-y-20">
 
         {/* ── Título da seção ─────────────────────────────────── */}

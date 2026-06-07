@@ -97,7 +97,7 @@ export function CaseCardCompact({
             </>
           )}
         </div>
-        <div className="bg-bg dark:bg-surface-soft border-t border-[0.5px] border-border px-4 py-4">
+        <div className="bg-canvas dark:bg-bg border-t border-[0.5px] border-border px-4 py-4">
           <p className="type-body-strong text-fg leading-snug mb-3">{title}</p>
           <div className="flex flex-wrap gap-1 mb-4">
             {tags.map((tag) => (
@@ -145,7 +145,7 @@ export function CaseCardCompact({
 
         {/* Repose panel */}
         <div
-          className="absolute bottom-0 inset-x-0 h-[80px] bg-bg dark:bg-surface-soft border-t border-[0.5px] border-border px-4 flex flex-col justify-center transition-opacity duration-200 group-hover:opacity-0"
+          className="absolute bottom-0 inset-x-0 h-[80px] bg-canvas dark:bg-bg border-t border-[0.5px] border-border px-4 flex flex-col justify-center transition-opacity duration-200 group-hover:opacity-0"
           aria-hidden="true"
         >
           <p className="type-body-strong text-fg leading-snug">{title}</p>
@@ -153,7 +153,7 @@ export function CaseCardCompact({
 
         {/* Hover panel */}
         <div
-          className="absolute bottom-0 inset-x-0 bg-bg dark:bg-surface-soft border-t border-[0.5px] border-border px-4 py-4 translate-y-full group-hover:translate-y-0 transition-transform duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col"
+          className="absolute bottom-0 inset-x-0 bg-canvas dark:bg-bg border-t border-[0.5px] border-border px-4 py-4 translate-y-full group-hover:translate-y-0 transition-transform duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col"
           aria-hidden="true"
         >
           <p className="type-body-strong text-fg leading-snug mb-3">{title}</p>
