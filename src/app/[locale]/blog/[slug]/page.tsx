@@ -13,6 +13,7 @@ import { Badge } from '@/components/ui/Badge';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { routing } from '@/i18n/routing';
 import { siteConfig } from '@/lib/config';
+import { BackToTop } from '@/components/ui/BackToTop';
 
 type Params = Promise<{ locale: string; slug: string }>;
 
@@ -93,6 +94,7 @@ export default async function BlogPostPage({ params }: { params: Params }) {
     <>
       <JsonLd data={articleSchema} />
       <ScrollProgress />
+      <BackToTop />
 
       <div className="min-h-screen bg-bg py-section px-6">
         <div className="max-w-6xl mx-auto">

@@ -104,6 +104,24 @@
   --color-block-lilac:    #1c1535;
   --color-block-coral:    #2b1410;
   --color-accent-magenta: #C8236A;
+
+  /* Per-project color tokens — dark mode (mapped to block-* dark equivalents) */
+  --color-project-sellbie-redesign-bg:   #1c1535;
+  --color-project-sellbie-redesign-text: #e4e4e7;
+  --color-project-sellbie-jornadas-bg:   #151f0a;
+  --color-project-sellbie-jornadas-text: #e4e4e7;
+  --color-project-sellbie-arq-info-bg:   #122018;
+  --color-project-sellbie-arq-info-text: #e4e4e7;
+  --color-project-sellbie-metricas-bg:   #1e1c31;
+  --color-project-sellbie-metricas-text: #e4e4e7;
+  --color-project-sellbie-crm-bg:        #261724;
+  --color-project-sellbie-crm-text:      #e4e4e7;
+  --color-project-sellbie-cashback-bg:   #2b1410;
+  --color-project-sellbie-cashback-text: #e4e4e7;
+  --color-project-jg-alfabetizacao-bg:   #151f0a;
+  --color-project-jg-alfabetizacao-text: #e4e4e7;
+  --color-project-jg-central-ajuda-bg:   #122018;
+  --color-project-jg-central-ajuda-text: #e4e4e7;
 }
 
 
@@ -189,6 +207,14 @@ body {
   .type-body-sm {
     font-size: 1rem;         /* 16px */
     font-weight: 330;
+    line-height: 1.45;
+    letter-spacing: -0.14px;
+  }
+
+  /* Button typography — same size as type-body-sm but weight 480 baked in */
+  .type-btn {
+    font-size: 1rem;         /* 16px */
+    font-weight: 480;
     line-height: 1.45;
     letter-spacing: -0.14px;
   }

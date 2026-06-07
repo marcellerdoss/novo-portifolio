@@ -25,13 +25,15 @@ function ArticleCard({ post, locale, t }: { post: BlogPost; locale: string; t: R
         {post.category}
       </span>
 
-      {/* Title */}
-      <h3 className="type-headline text-fg mb-3 leading-snug flex-1">
-        {post.title}
-      </h3>
+      {/* Title — fixed 3-line height so excerpts align across cards */}
+      <div className="mb-3 min-h-[6.6rem]">
+        <h3 className="type-headline text-fg leading-snug line-clamp-3">
+          {post.title}
+        </h3>
+      </div>
 
       {/* Excerpt */}
-      <p className="type-body-sm text-fg-muted line-clamp-3 mb-6">
+      <p className="type-body-sm text-fg-muted line-clamp-3 mb-6 flex-1">
         {post.excerpt}
       </p>
 
