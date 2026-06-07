@@ -45,7 +45,7 @@ export function Navigation({ className, itemClassName, onClick }: Props) {
               aria-label="Página inicial"
               className={cn(linkClass, 'flex items-center')}
             >
-              <House size={15} aria-hidden="true" />
+              <House size={18} aria-hidden="true" />
             </Link>
           </li>
         )}
