@@ -12,9 +12,9 @@ const base =
 
 const variants: Record<Variant, string> = {
   primary:
-    'bg-primary text-on-primary rounded-pill hover:opacity-85 active:scale-[0.97]',
+    'bg-primary text-on-primary rounded-pill hover:opacity-85 active:scale-[0.97] dark:bg-accent-magenta dark:hover:bg-[#E72676] dark:hover:opacity-100',
   secondary:
-    'border border-fg text-fg rounded-pill bg-transparent hover:bg-fg/5 active:scale-[0.97]',
+    'border border-fg text-fg rounded-pill bg-transparent hover:bg-fg/5 active:scale-[0.97] dark:border-white/25',
   ghost:
     'text-fg bg-transparent rounded-full hover:underline underline-offset-4',
   icon:

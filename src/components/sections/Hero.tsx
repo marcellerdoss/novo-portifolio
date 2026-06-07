@@ -23,13 +23,15 @@ export function Hero() {
         initial="hidden"
         animate="visible"
       >
-        {/* Role label — eyebrow */}
-        <motion.p
+        {/* Role label — badge eyebrow */}
+        <motion.span
           variants={fadeInUp}
-          className="type-caption text-fg-subtle mb-14"
+          className="type-caption inline-block px-3 py-1.5 rounded-full mb-14
+            bg-[rgba(255,61,139,0.08)] border border-[rgba(255,61,139,0.15)] text-[#FF3D8B]
+            dark:bg-[rgba(255,120,172,0.10)] dark:border-[rgba(255,120,172,0.20)] dark:text-[#FF78AC]"
         >
           {t('role')}
-        </motion.p>
+        </motion.span>
 
         {/* Name + Tagline — agrupados */}
         <div className="mb-12">
@@ -42,10 +44,18 @@ export function Hero() {
 
           <motion.h1
             variants={fadeInUp}
-            className="text-[clamp(2rem,5vw,4rem)] font-bold leading-[1.05] tracking-[-1.5px] text-fg"
+            className="text-[clamp(2rem,5vw,4rem)] leading-[1.05] tracking-[-1.5px]"
           >
             {t('subtitle').split('\n').map((line, i) => (
-              <span key={i} className={`block${i === 0 ? ' text-[#433D69] dark:text-[#D4D4D8]' : ''}`}>{line}</span>
+              <span
+                key={i}
+                className={`block ${i === 0
+                  ? 'font-bold text-[#433D69] dark:text-[#CFCFE0]'
+                  : 'font-extrabold text-[#FF3D8B] dark:text-[#FF78AC]'
+                }`}
+              >
+                {line}
+              </span>
             ))}
           </motion.h1>
         </div>
