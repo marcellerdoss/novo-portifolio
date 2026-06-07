@@ -54,7 +54,7 @@ export function Experience({ items }: Props) {
                   <h3 className="type-body-strong text-fg">{item.role[locale]}</h3>
                   <p className="type-body-sm text-fg-muted">{item.company}</p>
                 </div>
-                <time className="type-caption text-block-navy shrink-0">
+                <time className="type-caption text-block-navy dark:text-accent-magenta shrink-0">
                   {item.period.includes('Presente') && locale === 'en'
                     ? item.period.replace('Presente', t('present'))
                     : item.period}

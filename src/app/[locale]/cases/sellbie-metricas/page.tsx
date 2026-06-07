@@ -36,7 +36,7 @@ const ACCENT_BG   = 'var(--color-project-sellbie-metricas-bg)';
 const ACCENT_TEXT = 'var(--color-project-sellbie-metricas-text)';
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
-  return <p className="type-caption text-block-navy mb-4">{children}</p>;
+  return <p className="type-caption text-block-navy dark:text-accent-magenta mb-4">{children}</p>;
 }
 function SectionHeading({ children }: { children: React.ReactNode }) {
   return <h2 className="type-headline text-fg mb-6">{children}</h2>;
