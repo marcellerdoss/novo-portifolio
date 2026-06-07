@@ -88,7 +88,7 @@ export default async function SellbieArqInfoPage() {
           </Link>
 
           <div className="flex flex-wrap items-center gap-3 mb-8">
-            <span className="type-caption rounded-full px-3 py-1.5 leading-none" style={{ backgroundColor: ACCENT_BG, color: ACCENT_TEXT }}>
+            <span className="type-caption rounded-full px-3 py-1.5 leading-none bg-surface-soft text-fg">
               Arquitetura de Informação
             </span>
             <span className="type-caption text-fg-subtle">2024</span>

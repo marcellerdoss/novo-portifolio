@@ -25,7 +25,7 @@ export function CaseToggleBar() {
           onClick={() => switchView('detailed')}
           className={`px-5 py-2 type-body-sm transition-all duration-150 leading-none ${
             view === 'detailed'
-              ? 'bg-accent-magenta text-white'
+              ? 'bg-fg text-bg'
               : 'text-fg-muted hover:text-fg hover:bg-black/5 dark:hover:bg-white/5'
           }`}
         >
