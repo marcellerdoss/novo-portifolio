@@ -111,7 +111,7 @@ export function CaseCard({
               </span>
             ))}
           </div>
-          <div className="flex justify-end">
+          <div>
             <span className="inline-flex items-center gap-2 px-5 py-2 type-body-sm border border-fg text-fg rounded-pill bg-transparent">
               {ctaLabel} <ArrowUpRight size={12} aria-hidden="true" className="shrink-0" />
             </span>
@@ -170,7 +170,7 @@ export function CaseCard({
               </span>
             ))}
           </div>
-          <div className="mt-auto flex justify-end">
+          <div className="mt-auto">
             <span className="inline-flex items-center gap-2 px-5 py-2 type-body-sm border border-fg text-fg rounded-pill bg-transparent">
               {ctaLabel} <ArrowUpRight size={12} aria-hidden="true" className="shrink-0" />
             </span>
