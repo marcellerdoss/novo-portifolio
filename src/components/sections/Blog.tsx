@@ -79,27 +79,26 @@ export function BlogPreview({ posts }: Props) {
       <div className="max-w-6xl mx-auto px-6">
 
           {/* Header */}
-          <div className="flex items-end justify-between gap-6 mb-10">
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <h2 id="blog-heading" className="type-display-lg text-fg">{t('title')}</h2>
-              <p className="type-body text-fg-muted mt-2">{t('subtitle')}</p>
-            </motion.div>
-
-            <LinkButton
-              href="https://medium.com/@marcelle.rdoss"
-              variant="secondary"
-              size="sm"
-              external
-              className="hidden sm:inline-flex shrink-0"
-            >
-              {t('see_all')} <ArrowUpRight size={12} aria-hidden="true" />
-            </LinkButton>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mb-10"
+          >
+            <h2 id="blog-heading" className="type-display-lg text-fg">{t('title')}</h2>
+            <p className="type-body text-fg-muted mt-2 whitespace-nowrap">{t('subtitle')}</p>
+            <div className="mt-6">
+              <LinkButton
+                href="https://medium.com/@marcelle.rdoss"
+                variant="secondary"
+                size="sm"
+                external
+              >
+                {t('see_all')} <ArrowUpRight size={12} aria-hidden="true" />
+              </LinkButton>
+            </div>
+          </motion.div>
 
           {/* Cards grid */}
           {posts.length === 0 ? (
@@ -120,17 +119,6 @@ export function BlogPreview({ posts }: Props) {
             </motion.div>
           )}
 
-          {/* Mobile see all */}
-          <div className="sm:hidden mt-8">
-            <LinkButton
-              href="https://medium.com/@marcelle.rdoss"
-              variant="secondary"
-              size="sm"
-              external
-            >
-              {t('see_all')} <ArrowUpRight size={12} aria-hidden="true" />
-            </LinkButton>
-          </div>
 
       </div>
     </section>
