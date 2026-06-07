@@ -322,6 +322,11 @@ body {
   vertical-align: top;
 }
 
+/* ─── Case card dark mode — imagem mais escura que os painéis ── */
+.dark .case-card-image-area {
+  background-color: var(--bg) !important;
+}
+
 /* ─── Marquee animation ───────────────────────────────────────── */
 @keyframes marquee {
   from { transform: translateX(0) }
