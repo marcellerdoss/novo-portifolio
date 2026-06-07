@@ -139,8 +139,8 @@ export function Racional() {
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
         >
           {phases.map(({ num, processCard }) => (
-            <motion.div key={num} variants={fadeInUp}>
-              <div className="rounded-[16px] border border-black/10 p-6 bg-surface-soft">
+            <motion.div key={num} variants={fadeInUp} className="h-full">
+              <div className="rounded-[16px] border border-black/10 p-6 bg-surface-soft h-full">
                 <p className="type-body-strong text-fg mb-3" style={{ fontWeight: 700 }}>{processCard.title}</p>
                 <p className="type-body-sm text-fg-muted leading-relaxed">{processCard.text}</p>
               </div>
