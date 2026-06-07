@@ -20,7 +20,7 @@ function ArticleCard({ post, locale, t }: { post: BlogPost; locale: string; t: R
   const inner = (
     <div className="group flex flex-col h-full rounded-[16px] bg-surface-soft border border-black/10 dark:border-white/10 p-6 transition-all duration-200 hover:-translate-y-1 hover:border-black/20 dark:hover:border-white/15 hover:shadow-[0_4px_20px_rgba(0,0,0,0.07)] dark:hover:shadow-[0_4px_24px_rgba(0,0,0,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg">
       {/* Category */}
-      <span className="type-caption self-start text-accent-magenta border border-accent-magenta/30 rounded-full px-3 py-1.5 leading-none mb-4">
+      <span className="type-caption text-accent-magenta mb-4 block">
         {post.category}
       </span>
 
