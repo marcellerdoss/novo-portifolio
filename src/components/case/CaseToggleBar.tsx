@@ -7,6 +7,9 @@ export function CaseToggleBar() {
 
   return (
     <div className="flex items-center gap-3 py-4 border-b border-border mb-10">
+      <span className="type-caption text-fg-subtle hidden sm:inline whitespace-nowrap">
+        Visualização do case:
+      </span>
       <div className="inline-flex rounded-pill border border-black/15 overflow-hidden">
         <button
           onClick={() => switchView('overview')}
