@@ -19,22 +19,19 @@ export function About() {
     <section
       id="sobre"
       aria-labelledby="about-heading"
-      className="py-section bg-block-pink"
+      className="py-section bg-block-cream dark:bg-block-pink"
     >
-      <div className="max-w-6xl mx-auto px-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+      <div className="max-w-6xl mx-auto px-6 space-y-12">
 
-        {/* Left — photo + stats */}
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          className="flex flex-col gap-8"
-        >
+        {/* Top — photo + bio */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+
           {/* Photo */}
           <motion.div
             variants={fadeIn}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
             className="relative w-full aspect-square rounded-lg overflow-hidden border border-black/10 dark:border-white/10"
           >
             <Image
@@ -47,39 +44,42 @@ export function About() {
             />
           </motion.div>
 
-          {/* Stats */}
+          {/* Bio */}
           <motion.div
             variants={stagger}
-            className="grid grid-cols-3 gap-4"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
           >
-            {stats.map(({ value, label }) => (
-              <motion.div
-                key={label}
-                variants={fadeInUp}
-                className="text-center p-4 rounded-lg bg-white/70 dark:bg-white/5 border border-black/10 dark:border-white/10"
-              >
-                <p className="type-headline text-fg">{value}</p>
-                <p className="type-caption text-fg-subtle mt-1 whitespace-pre-line">{label}</p>
-              </motion.div>
-            ))}
+            <motion.h2 id="about-heading" variants={fadeInUp} className="type-display-lg text-fg mb-8">
+              {t('title')}
+            </motion.h2>
+            <motion.p variants={fadeInUp} className="type-body text-fg-muted">
+              {t('bio')}
+            </motion.p>
           </motion.div>
-        </motion.div>
+        </div>
 
-        {/* Right — bio */}
+        {/* Stats cards — below the text content */}
         <motion.div
           variants={stagger}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
+          className="grid grid-cols-3 gap-4"
         >
-          <motion.h2 id="about-heading" variants={fadeInUp} className="type-display-lg text-fg mb-8">
-            {t('title')}
-          </motion.h2>
-          <motion.p variants={fadeInUp} className="type-body text-fg-muted">
-            {t('bio')}
-          </motion.p>
+          {stats.map(({ value, label }) => (
+            <motion.div
+              key={label}
+              variants={fadeInUp}
+              className="text-center p-4 rounded-lg bg-white/70 dark:bg-white/5 border border-black/10 dark:border-white/10"
+            >
+              <p className="type-headline text-fg">{value}</p>
+              <p className="type-caption text-fg-subtle mt-1 whitespace-pre-line">{label}</p>
+            </motion.div>
+          ))}
         </motion.div>
-      </div>
+
       </div>
     </section>
   );
