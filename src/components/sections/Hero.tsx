@@ -26,7 +26,7 @@ export function Hero() {
         {/* Role label — badge eyebrow */}
         <motion.span
           variants={fadeInUp}
-          className="type-caption self-start px-3 py-1.5 rounded-full mb-14 text-accent-magenta bg-accent-magenta/8 border border-accent-magenta/15"
+          className="type-caption self-start px-3 py-1.5 rounded-full leading-none mb-14 text-accent-magenta border border-accent-magenta/30"
         >
           {t('role')}
         </motion.span>

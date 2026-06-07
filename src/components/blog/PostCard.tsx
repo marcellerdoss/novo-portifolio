@@ -22,7 +22,7 @@ function CardContent({ post, locale, minRead }: Props) {
   return (
     <>
       <div className="flex items-center justify-between mb-3">
-        <span className="type-caption shrink-0 text-accent-magenta bg-accent-magenta/8 border border-accent-magenta/15 rounded-full px-3 py-1.5">{post.category}</span>
+        <span className="type-caption shrink-0 text-accent-magenta border border-accent-magenta/30 rounded-full px-3 py-1.5 leading-none">{post.category}</span>
         {post.externalUrl && (
           <span className="type-caption text-fg-subtle flex items-center gap-1">
             Medium <ExternalLink size={10} aria-hidden="true" />
