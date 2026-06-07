@@ -2,8 +2,9 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { useTranslations } from 'next-intl';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, House } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { usePathname } from 'next/navigation';
 import { Link } from '@/i18n/navigation';
 import { Navigation } from './Navigation';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
@@ -12,6 +13,8 @@ import { cn } from '@/lib/utils';
 
 export function Header() {
   const t = useTranslations('common');
+  const pathname = usePathname();
+  const isHome = pathname === '/' || pathname === '/en';
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -73,16 +76,31 @@ export function Header() {
         )}
       >
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
-          {/* Logo */}
-          <Link
-            href="/"
-            className={cn(
-              'type-headline text-fg hover:opacity-70 transition-opacity duration-150',
-              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg rounded',
+          {/* Logo + home icon on inner pages */}
+          <div className="flex items-center gap-3">
+            <Link
+              href="/"
+              className={cn(
+                'type-headline text-fg hover:opacity-70 transition-opacity duration-150',
+                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg rounded',
+              )}
+            >
+              Marcelle
+            </Link>
+            {!isHome && (
+              <Link
+                href="/"
+                aria-label="Página inicial"
+                className={cn(
+                  'w-8 h-8 flex items-center justify-center rounded-full text-fg-subtle',
+                  'hover:text-fg hover:bg-fg/8 transition-all duration-150',
+                  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg',
+                )}
+              >
+                <House size={15} aria-hidden="true" />
+              </Link>
             )}
-          >
-            Marcelle
-          </Link>
+          </div>
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-4">
