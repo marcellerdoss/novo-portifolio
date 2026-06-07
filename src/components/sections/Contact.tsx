@@ -18,6 +18,7 @@ function IconLinkedIn() {
     </svg>
   );
 }
+import { Button } from '@/components/ui/Button';
 import { fadeInUp, stagger } from '@/lib/animations';
 import { siteConfig } from '@/lib/config';
 
@@ -66,12 +67,12 @@ function ContactForm({ email }: { email: string }) {
         onChange={(e) => setMessage(e.target.value)}
         className={`${inputClass} resize-none`}
       />
-      <button
+      <Button
         type="submit"
-        className="self-start inline-flex items-center gap-2 px-5 py-[10px] type-button bg-white text-[#1f1d3d] rounded-pill hover:opacity-90 active:scale-[0.97] transition-opacity duration-150"
+        className="self-start bg-white text-primary hover:opacity-90 hover:bg-white dark:bg-white dark:text-primary dark:hover:bg-white dark:hover:opacity-90"
       >
         Enviar mensagem
-      </button>
+      </Button>
     </form>
   );
 }
