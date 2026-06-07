@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useTranslations, useLocale } from 'next-intl';
 import { ArrowUpRight } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
+import { LinkButton } from '@/components/ui/Button';
 import { fadeInUp, stagger } from '@/lib/animations';
 import type { BlogPost } from '@/lib/types';
 
@@ -87,14 +88,15 @@ export function BlogPreview({ posts }: Props) {
               <p className="type-body text-fg-muted mt-2">{t('subtitle')}</p>
             </motion.div>
 
-            <a
+            <LinkButton
               href="https://medium.com/@marcelle.rdoss"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden sm:inline-flex items-center gap-2 px-5 py-2 type-body-sm border border-fg text-fg rounded-pill bg-transparent hover:bg-fg/5 active:scale-[0.97] transition-all duration-150 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-fg"
+              variant="secondary"
+              size="sm"
+              external
+              className="hidden sm:inline-flex shrink-0"
             >
               {t('see_all')} <ArrowUpRight size={12} aria-hidden="true" />
-            </a>
+            </LinkButton>
           </div>
 
           {/* Cards grid */}
@@ -118,14 +120,14 @@ export function BlogPreview({ posts }: Props) {
 
           {/* Mobile see all */}
           <div className="sm:hidden mt-8">
-            <a
+            <LinkButton
               href="https://medium.com/@marcelle.rdoss"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2 type-body-sm border border-fg text-fg rounded-pill bg-transparent hover:bg-fg/5 active:scale-[0.97] transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-fg"
+              variant="secondary"
+              size="sm"
+              external
             >
               {t('see_all')} <ArrowUpRight size={12} aria-hidden="true" />
-            </a>
+            </LinkButton>
           </div>
 
       </div>

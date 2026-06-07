@@ -14,7 +14,7 @@ const variants: Record<Variant, string> = {
   primary:
     'bg-primary text-on-primary rounded-pill hover:opacity-85 active:scale-[0.97] dark:bg-accent-magenta dark:hover:bg-[#E72676] dark:hover:opacity-100',
   secondary:
-    'border border-fg text-fg rounded-pill bg-transparent hover:bg-fg/5 active:scale-[0.97] dark:border-white/25',
+    'border border-fg text-fg rounded-pill bg-transparent hover:bg-fg/10 dark:hover:bg-white/10 active:scale-[0.97]',
   ghost:
     'text-fg bg-transparent rounded-full hover:underline underline-offset-4',
   icon:
@@ -22,7 +22,7 @@ const variants: Record<Variant, string> = {
 };
 
 const sizes: Record<Size, string> = {
-  sm: 'px-5 py-2 type-body-sm',
+  sm: 'px-5 py-2 type-body-sm font-[480]',
   md: 'px-5 py-[10px] type-button',
   lg: 'px-7 py-[14px] type-button',
 };

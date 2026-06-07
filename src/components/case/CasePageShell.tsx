@@ -65,7 +65,7 @@ export function CasePageShell({
           <div className="max-w-5xl mx-auto px-6 py-12 grid grid-cols-2 gap-6">
             {prevCase ? (
               <Link href={prevCase.href} className="group flex flex-col gap-3">
-                <span className="inline-flex items-center gap-2 px-5 py-2 type-body-sm border border-fg text-fg dark:border-accent-magenta dark:text-accent-magenta rounded-pill bg-transparent group-hover:bg-fg/5 dark:group-hover:bg-accent-magenta/10 active:scale-[0.97] transition-all duration-150 self-start focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-fg">
+                <span className="inline-flex items-center gap-2 px-5 py-2 type-body-sm font-[480] border border-fg text-fg rounded-pill bg-transparent group-hover:bg-fg/10 dark:group-hover:bg-white/10 active:scale-[0.97] transition-all duration-150 self-start focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-fg">
                   <ArrowLeft size={14} aria-hidden="true" /> Anterior
                 </span>
                 <span className="type-body-sm text-fg-muted leading-snug pl-1">{prevCase.title}</span>
@@ -76,7 +76,7 @@ export function CasePageShell({
 
             {nextCase ? (
               <Link href={nextCase.href} className="group flex flex-col gap-3 items-end">
-                <span className="inline-flex items-center gap-2 px-5 py-2 type-body-sm border border-fg text-fg dark:border-accent-magenta dark:text-accent-magenta rounded-pill bg-transparent group-hover:bg-fg/5 dark:group-hover:bg-accent-magenta/10 active:scale-[0.97] transition-all duration-150 self-end focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-fg">
+                <span className="inline-flex items-center gap-2 px-5 py-2 type-body-sm font-[480] border border-fg text-fg rounded-pill bg-transparent group-hover:bg-fg/10 dark:group-hover:bg-white/10 active:scale-[0.97] transition-all duration-150 self-end focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-fg">
                   Próximo <ArrowRight size={14} aria-hidden="true" />
                 </span>
                 <span className="type-body-sm text-fg-muted leading-snug pr-1 text-right">{nextCase.title}</span>
