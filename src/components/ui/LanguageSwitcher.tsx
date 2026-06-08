@@ -27,7 +27,7 @@ export function LanguageSwitcher({ ariaLabel = 'Mudar idioma' }: Props) {
               'type-body-sm uppercase px-2 py-2 rounded transition-colors duration-150',
               'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg',
               locale === lang
-                ? 'text-fg font-[540]'
+                ? 'text-fg font-[540] underline underline-offset-2 decoration-accent-magenta decoration-2'
                 : 'text-fg-muted hover:text-fg',
             )}
           >

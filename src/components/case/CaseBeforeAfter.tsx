@@ -58,7 +58,7 @@ export function CaseBeforeAfter({
           </div>
         </div>
         {captionBefore && (
-          <figcaption className="mt-2 type-body-sm text-fg-subtle">
+          <figcaption className="mt-2 type-caption text-fg-subtle">
             {captionBefore}
           </figcaption>
         )}
@@ -88,7 +88,7 @@ export function CaseBeforeAfter({
           </div>
         </div>
         {captionAfter && (
-          <figcaption className="mt-2 type-body-sm text-fg-subtle">
+          <figcaption className="mt-2 type-caption text-fg-subtle">
             {captionAfter}
           </figcaption>
         )}

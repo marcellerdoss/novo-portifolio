@@ -38,7 +38,7 @@ export function CaseImageFrame({ src, alt, caption, pair }: Props) {
           aria-label={`Ampliar: ${alt}`}
           className="group block w-full bg-white rounded-2xl p-2 shadow-sm ring-1 ring-black/5 cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg"
         >
-          <div className="relative rounded-xl overflow-hidden">
+          <div className="relative rounded-[8px] overflow-hidden">
             <Image
               src={src}
               alt={alt}
@@ -57,7 +57,7 @@ export function CaseImageFrame({ src, alt, caption, pair }: Props) {
           </div>
         </button>
         {caption && (
-          <figcaption className="type-body-sm text-fg-subtle px-1">{caption}</figcaption>
+          <figcaption className="type-caption text-fg-subtle px-1">{caption}</figcaption>
         )}
       </figure>
 
@@ -92,13 +92,13 @@ export function CaseImageFrame({ src, alt, caption, pair }: Props) {
                 height={800}
                 sizes="92vw"
                 quality={95}
-                className="block rounded-xl h-auto"
+                className="block rounded-[4px] h-auto"
                 style={{ maxWidth: '88vw', maxHeight: '82vh', width: 'auto' }}
               />
             </div>
 
             {caption && (
-              <p className="mt-3 type-body-sm text-white/50 text-center max-w-lg">{caption}</p>
+              <p className="mt-3 type-caption text-white/50 text-center max-w-lg">{caption}</p>
             )}
           </div>
         </div>

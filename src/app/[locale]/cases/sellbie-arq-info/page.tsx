@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { CaseImageFrame } from '@/components/case/CaseImageFrame';
 import { Link } from '@/i18n/navigation';
-import { MDXRemote } from 'next-mdx-remote/rsc';
+import { CaseMdxContent } from '@/components/case/CaseMdxContent';
 import { routing } from '@/i18n/routing';
 import { ScrollProgress } from '@/components/ui/ScrollProgress';
 import { CasePageShell } from '@/components/case/CasePageShell';
@@ -70,7 +70,7 @@ export default async function SellbieArqInfoPage() {
 
   const detailedContent = (
     <CaseEditorialWrapper sidebar={sidebar}>
-      {mdSource ? <MDXRemote source={mdSource} /> : <p>Conteúdo detalhado em breve.</p>}
+      {mdSource ? <CaseMdxContent source={mdSource} /> : <p>Conteúdo detalhado em breve.</p>}
     </CaseEditorialWrapper>
   );
 

@@ -15,10 +15,10 @@ export function Hero() {
     <section
       id="home"
       aria-label="Apresentação"
-      className="relative min-h-screen flex flex-col px-6 bg-bg pt-16 md:pt-32 pb-16"
+      className="relative min-h-screen flex flex-col bg-bg pt-16 md:pt-32 pb-16"
     >
       <motion.div
-        className="max-w-6xl mx-auto w-full flex-1 flex flex-col justify-center"
+        className="max-w-6xl mx-auto px-6 w-full flex-1 flex flex-col justify-center"
         variants={stagger}
         initial="hidden"
         animate="visible"

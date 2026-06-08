@@ -37,7 +37,7 @@ export function CaseBento({
           </div>
         </div>
         {mainCaption && (
-          <figcaption className="mt-2 type-body-sm text-fg-subtle">
+          <figcaption className="mt-2 type-caption text-fg-subtle">
             {mainCaption}
           </figcaption>
         )}
@@ -62,7 +62,7 @@ export function CaseBento({
               </div>
             </div>
             {img.caption && (
-              <figcaption className="mt-1.5 type-body-sm text-fg-subtle">
+              <figcaption className="mt-1.5 type-caption text-fg-subtle">
                 {img.caption}
               </figcaption>
             )}

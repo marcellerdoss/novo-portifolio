@@ -104,64 +104,127 @@ export function Racional() {
           Racional
         </motion.h2>
 
-        {/* ── Design Journey row label ── */}
-        <RowDivider label="Design Journey" />
+        {/* ── Desktop: grids + RowDividers — oculto no mobile ── */}
+        <div className="hidden sm:block space-y-6">
 
-        {/* ── Journey cards ── */}
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
-        >
-          {phases.map(({ num, type, title, journeyCard }) => (
-            <motion.div key={num} variants={fadeInUp} className="flex flex-col gap-4">
+          <RowDivider label="Design Journey" />
 
-              {/* Phase header */}
-              <div className="flex items-start gap-3">
-                <div
-                  className="w-7 h-7 bg-block-navy text-white flex items-center justify-center rounded-sm flex-shrink-0 type-caption"
-                  aria-hidden="true"
-                >
-                  {num}
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            className="grid grid-cols-2 lg:grid-cols-4 gap-5"
+          >
+            {phases.map(({ num, type, title, journeyCard }) => (
+              <motion.div key={num} variants={fadeInUp} className="flex flex-col gap-4">
+
+                <div className="flex items-start gap-3">
+                  <div
+                    className="w-7 h-7 bg-block-navy text-white flex items-center justify-center rounded-sm flex-shrink-0 type-caption"
+                    aria-hidden="true"
+                  >
+                    {num}
+                  </div>
+                  <div>
+                    <p className="type-caption text-accent-magenta mb-0.5">{type}</p>
+                    <p className="type-body-sm font-[540] text-fg leading-snug">{title}</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="type-caption text-accent-magenta mb-0.5">{type}</p>
-                  <p className="type-body-sm font-[540] text-fg leading-snug">{title}</p>
+
+                <div className="rounded-[16px] border border-black/10 dark:border-white/10 p-6 bg-bg flex-1">
+                  <p className="type-body-strong text-fg mb-2">{journeyCard.title}</p>
+                  <p className="type-body-sm text-fg-muted leading-relaxed">{journeyCard.text}</p>
                 </div>
-              </div>
 
-              {/* Journey card */}
-              <div className="rounded-[16px] border border-black/10 dark:border-white/10 p-6 bg-bg flex-1">
-                <p className="type-headline text-fg mb-3">{journeyCard.title}</p>
-                <p className="type-body-sm text-fg-muted leading-relaxed">{journeyCard.text}</p>
-              </div>
+              </motion.div>
+            ))}
+          </motion.div>
 
-            </motion.div>
-          ))}
-        </motion.div>
+          <RowDivider label="Como trabalho" />
 
-        {/* ── Como trabalho row label — full width, once ── */}
-        <RowDivider label="Como trabalho" />
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            className="grid grid-cols-2 lg:grid-cols-4 gap-5"
+          >
+            {phases.map(({ num, processCard }) => (
+              <motion.div key={num} variants={fadeInUp} className="h-full">
+                <div className="rounded-[16px] border border-black/10 dark:border-white/10 p-6 bg-surface-soft h-full">
+                  <p className="type-body-strong text-fg mb-2">{processCard.title}</p>
+                  <p className="type-body-sm text-fg-muted leading-relaxed">{processCard.text}</p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
 
-        {/* ── Process cards ── */}
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
-        >
-          {phases.map(({ num, processCard }) => (
-            <motion.div key={num} variants={fadeInUp} className="h-full">
-              <div className="rounded-[16px] border border-black/10 dark:border-white/10 p-6 bg-surface-soft h-full">
-                <p className="type-headline text-fg mb-3">{processCard.title}</p>
-                <p className="type-body-sm text-fg-muted leading-relaxed">{processCard.text}</p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+        </div>
+
+        {/* ── Mobile: timeline com numeração ──────────────────── */}
+        <div className="sm:hidden">
+
+          {/* Label topo */}
+          <div className="flex items-center gap-2 mb-6">
+            <span className="type-caption text-accent-magenta">Design Journey</span>
+          </div>
+
+          {/* Linha vertical + itens */}
+          <div className="relative">
+            <div
+              className="absolute top-0 bottom-0 left-[13px] w-[2px] bg-black/15 dark:bg-white/15"
+              aria-hidden="true"
+            />
+
+            <div className="space-y-12">
+              {phases.map(({ num, type, title, journeyCard, processCard }) => (
+                <div key={num} className="relative flex gap-5">
+
+                  {/* Número — marcador na linha */}
+                  <div
+                    className="shrink-0 w-7 h-7 bg-block-navy text-white flex items-center justify-center rounded-sm type-caption z-10"
+                    aria-hidden="true"
+                  >
+                    {num}
+                  </div>
+
+                  {/* Conteúdo da fase */}
+                  <div className="flex-1 min-w-0">
+                    <p className="type-caption text-accent-magenta mb-0.5">{type}</p>
+                    <p className="type-body-sm font-[540] text-fg leading-snug mb-5">{title}</p>
+
+                    {/* Journey card */}
+                    <div className="rounded-[16px] border border-black/10 dark:border-white/10 p-5 bg-bg mb-4">
+                      <p className="type-body-strong text-fg mb-2">{journeyCard.title}</p>
+                      <p className="type-body-sm text-fg-muted leading-relaxed">{journeyCard.text}</p>
+                    </div>
+
+                    {/* Mini divider "Como trabalho" */}
+                    <div className="mb-4">
+                      <span className="type-caption text-accent-magenta block mb-2">Como trabalho</span>
+                      <div className="relative ml-[3px] h-6">
+                        <div className="absolute inset-x-0 top-0 bottom-0 border-l border-dashed border-accent-magenta" />
+                        <ChevronDown
+                          size={12}
+                          className="absolute bottom-0 left-0 -translate-x-1/2 text-accent-magenta"
+                          aria-hidden="true"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Process card */}
+                    <div className="rounded-[16px] border border-black/10 dark:border-white/10 p-5 bg-surface-soft">
+                      <p className="type-body-strong text-fg mb-2">{processCard.title}</p>
+                      <p className="type-body-sm text-fg-muted leading-relaxed">{processCard.text}</p>
+                    </div>
+                  </div>
+
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
 
       </div>
     </section>

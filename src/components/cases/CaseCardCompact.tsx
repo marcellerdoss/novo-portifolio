@@ -17,44 +17,6 @@ export interface CaseCardCompactProps {
   ctaLabel?: string;
 }
 
-function PhoneMockup({ src, alt }: { src: string; alt: string }) {
-  return (
-    <div className="absolute inset-0 flex items-end justify-center pb-5">
-      <div
-        className="relative rounded-[22px] border-[4px] border-neutral-900 dark:border-white shadow-xl overflow-hidden"
-        style={{ width: '38%', aspectRatio: '9 / 19.5' }}
-      >
-        <div className="absolute top-0 inset-x-0 z-10 flex justify-center">
-          <div className="w-[36%] h-[8px] bg-neutral-900 dark:bg-white rounded-b-full" />
-        </div>
-        <Image src={src} alt={alt} fill sizes="20vw" className="object-cover object-top" />
-      </div>
-    </div>
-  );
-}
-
-function LaptopMockup({ src, alt }: { src: string; alt: string }) {
-  return (
-    <div className="absolute inset-0 flex items-center justify-center px-5 pb-2">
-      <div className="w-full">
-        <div
-          className="rounded-t-[6px] overflow-hidden border-[4px] border-b-0 border-neutral-900 dark:border-white bg-neutral-100 dark:bg-white/10 relative shadow-lg"
-          style={{ aspectRatio: '16 / 10' }}
-        >
-          <div className="absolute top-0 inset-x-0 z-10 flex justify-center pt-[4px]">
-            <div className="w-1 h-1 rounded-full bg-neutral-500 dark:bg-white/60" />
-          </div>
-          <Image src={src} alt={alt} fill sizes="33vw" className="object-cover object-top" />
-        </div>
-        <div className="h-[4px] bg-neutral-900 dark:bg-white" />
-        <div className="flex justify-center">
-          <div className="h-[3px] bg-neutral-700 dark:bg-white/70 rounded-b-md" style={{ width: '65%' }} />
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export function CaseCardCompact({
   company,
   title,
@@ -73,24 +35,49 @@ export function CaseCardCompact({
     >
       <span className="sr-only">{title}</span>
 
-      {/* ── Mobile: layout empilhado, sem hover ── */}
+      {/* ── Mobile: layout empilhado ── */}
       <div className="md:hidden">
         <div
-          className="relative w-full aspect-[4/3]"
+          className="relative w-full aspect-[4/3] overflow-hidden"
           style={{ backgroundColor: mockup ? accentBg : undefined }}
         >
-          {mockup === 'mobile' && <PhoneMockup src={imageSrc} alt={imageAlt} />}
-          {mockup === 'desktop' && <LaptopMockup src={imageSrc} alt={imageAlt} />}
+          {mockup === 'mobile' && (
+            /* Mobile preview: phone com margem no topo, corte embaixo */
+            <div className="absolute inset-0 flex items-start justify-center pt-4">
+              <div
+                className="relative rounded-[22px] border-[4px] border-neutral-900 dark:border-white shadow-xl overflow-hidden"
+                style={{ width: '38%', aspectRatio: '9 / 19.5' }}
+              >
+                <div className="absolute top-0 inset-x-0 z-10 flex justify-center">
+                  <div className="w-[36%] h-[8px] bg-neutral-900 dark:bg-white rounded-b-full" />
+                </div>
+                <Image src={imageSrc} alt={imageAlt} fill sizes="100vw" className="object-cover object-top" />
+              </div>
+            </div>
+          )}
+          {mockup === 'desktop' && (
+            <div className="absolute inset-0 flex items-center justify-center px-5 pb-2">
+              <div className="w-full">
+                <div
+                  className="rounded-t-[6px] overflow-hidden border-[4px] border-b-0 border-neutral-900 dark:border-white bg-neutral-100 dark:bg-white/10 relative shadow-lg"
+                  style={{ aspectRatio: '16 / 10' }}
+                >
+                  <div className="absolute top-0 inset-x-0 z-10 flex justify-center pt-[4px]">
+                    <div className="w-1 h-1 rounded-full bg-neutral-500 dark:bg-white/60" />
+                  </div>
+                  <Image src={imageSrc} alt={imageAlt} fill sizes="100vw" className="object-cover object-top" />
+                </div>
+                <div className="h-[4px] bg-neutral-900 dark:bg-white" />
+                <div className="flex justify-center">
+                  <div className="h-[3px] bg-neutral-700 dark:bg-white/70 rounded-b-md" style={{ width: '65%' }} />
+                </div>
+              </div>
+            </div>
+          )}
           {!mockup && (
             <>
               <div className="absolute inset-0 bg-canvas" />
-              <Image
-                src={imageSrc}
-                alt={imageAlt}
-                fill
-                sizes="100vw"
-                className="object-cover object-left-top"
-              />
+              <Image src={imageSrc} alt={imageAlt} fill sizes="100vw" className="object-cover object-left-top" />
               {company && (
                 <span className="absolute top-3 right-3 type-caption text-fg-subtle">{company}</span>
               )}
@@ -117,41 +104,64 @@ export function CaseCardCompact({
         </div>
       </div>
 
-      {/* ── Desktop: altura fixa + hover overlay ── */}
-      <div className="hidden md:block relative h-[260px]">
-        {/* Image area — slides up 80px on hover */}
+      {/* ── Desktop: proporção 4:3, mockup fixo, só texto sobe ── */}
+      <div className="hidden md:block relative" style={{ aspectRatio: '4 / 3' }}>
+
+        {/* Zona de preview — NÃO se move no hover */}
         <div
-          className="case-card-image-area absolute inset-0 transition-transform duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-[80px]"
+          className="absolute top-0 left-0 right-0 bottom-[72px]"
           style={{ backgroundColor: mockup ? accentBg : undefined }}
         >
-          {mockup === 'mobile' && <PhoneMockup src={imageSrc} alt={imageAlt} />}
-          {mockup === 'desktop' && <LaptopMockup src={imageSrc} alt={imageAlt} />}
-          {!mockup && (
-            <>
-              <div className="absolute inset-0 bg-canvas" />
-              <Image
-                src={imageSrc}
-                alt={imageAlt}
-                fill
-                sizes="(max-width: 640px) 50vw, 25vw"
-                className="object-cover object-left-top"
-              />
-            </>
-          )}
-          {company && !mockup && (
-            <span className="absolute top-3 right-3 type-caption text-fg-subtle">{company}</span>
-          )}
+          {/* Área interna com padding igual nos 4 lados */}
+          <div className="absolute inset-4 flex items-center justify-center">
+            {mockup === 'mobile' && (
+              <div
+                className="relative h-full rounded-[22px] border-[4px] border-neutral-900 dark:border-white shadow-xl overflow-hidden"
+                style={{ aspectRatio: '9 / 19.5' }}
+              >
+                <div className="absolute top-0 inset-x-0 z-10 flex justify-center">
+                  <div className="w-[36%] h-[8px] bg-neutral-900 dark:bg-white rounded-b-full" />
+                </div>
+                <Image src={imageSrc} alt={imageAlt} fill sizes="33vw" className="object-cover object-top" />
+              </div>
+            )}
+            {mockup === 'desktop' && (
+              <div className="w-[78%]">
+                <div
+                  className="rounded-t-[6px] overflow-hidden border-[4px] border-b-0 border-neutral-900 dark:border-white bg-neutral-100 dark:bg-white/10 relative shadow-lg"
+                  style={{ aspectRatio: '16 / 10' }}
+                >
+                  <div className="absolute top-0 inset-x-0 z-10 flex justify-center pt-[4px]">
+                    <div className="w-1 h-1 rounded-full bg-neutral-500 dark:bg-white/60" />
+                  </div>
+                  <Image src={imageSrc} alt={imageAlt} fill sizes="33vw" className="object-cover object-top" />
+                </div>
+                <div className="h-[4px] bg-neutral-900 dark:bg-white" />
+                <div className="flex justify-center">
+                  <div className="h-[3px] bg-neutral-700 dark:bg-white/70 rounded-b-md" style={{ width: '65%' }} />
+                </div>
+              </div>
+            )}
+            {!mockup && (
+              <div className="absolute inset-0">
+                <Image src={imageSrc} alt={imageAlt} fill sizes="33vw" className="object-cover object-left-top" />
+                {company && (
+                  <span className="absolute top-3 right-3 type-caption text-fg-subtle">{company}</span>
+                )}
+              </div>
+            )}
+          </div>
         </div>
 
-        {/* Repose panel */}
+        {/* Painel repouso — título visível em estado normal */}
         <div
-          className="absolute bottom-0 inset-x-0 h-[80px] bg-canvas dark:bg-surface-soft border-t border-black/10 dark:border-white/10 px-4 flex flex-col justify-center transition-opacity duration-200 group-hover:opacity-0"
+          className="absolute bottom-0 inset-x-0 h-[72px] bg-canvas dark:bg-surface-soft border-t border-black/10 dark:border-white/10 px-4 flex items-center transition-opacity duration-200 group-hover:opacity-0"
           aria-hidden="true"
         >
           <p className="type-body-strong text-fg leading-snug">{title}</p>
         </div>
 
-        {/* Hover panel */}
+        {/* Painel hover — sobe do fundo */}
         <div
           className="absolute bottom-0 inset-x-0 bg-canvas dark:bg-surface-soft border-t border-black/10 dark:border-white/10 px-4 py-4 translate-y-full group-hover:translate-y-0 transition-transform duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col"
           aria-hidden="true"
@@ -173,6 +183,7 @@ export function CaseCardCompact({
             </span>
           </div>
         </div>
+
       </div>
     </Link>
   );

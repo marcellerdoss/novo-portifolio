@@ -22,16 +22,17 @@ export function ThemeToggle({ ariaLabel = 'Alternar tema' }: Props) {
     <button
       type="button"
       onClick={() => setTheme(isDark ? 'light' : 'dark')}
-      aria-label={ariaLabel}
+      aria-label={`${ariaLabel} — ${isDark ? 'escuro' : 'claro'}`}
+      aria-pressed={isDark}
       className={cn(
         'w-11 h-11 rounded-full flex items-center justify-center overflow-hidden',
-        'text-fg-muted hover:text-fg transition-colors duration-150',
+        'text-fg hover:text-fg-muted transition-colors duration-150',
         'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg focus-visible:ring-offset-2',
       )}
     >
       <AnimatePresence mode="wait" initial={false}>
         <motion.span
-          key={isDark ? 'sun' : 'moon'}
+          key={isDark ? 'moon' : 'sun'}
           initial={{ opacity: 0, rotate: -45, scale: 0.7 }}
           animate={{ opacity: 1, rotate: 0, scale: 1 }}
           exit={{ opacity: 0, rotate: 45, scale: 0.7 }}
@@ -39,8 +40,8 @@ export function ThemeToggle({ ariaLabel = 'Alternar tema' }: Props) {
           className="flex items-center justify-center"
         >
           {isDark
-            ? <Sun size={18} aria-hidden="true" />
-            : <Moon size={18} aria-hidden="true" />}
+            ? <Moon size={18} aria-hidden="true" />
+            : <Sun size={18} aria-hidden="true" />}
         </motion.span>
       </AnimatePresence>
     </button>
