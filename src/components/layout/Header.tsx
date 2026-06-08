@@ -115,7 +115,7 @@ export function Header() {
               <div className="max-w-6xl mx-auto px-6 py-6">
                 <Navigation
                   className="flex-col items-start gap-5"
-                  itemClassName="text-lg"
+                  itemClassName="text-xl"
                   onClick={closeMenu}
                 />
               </div>
