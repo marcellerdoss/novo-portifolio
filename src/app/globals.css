@@ -213,7 +213,7 @@ body {
   }
 
   .type-body-xs {
-    font-size: 0.875rem;     /* 14px */
+    font-size: 0.75rem;      /* 12px */
     font-weight: 330;
     line-height: 1.45;
     letter-spacing: -0.10px;
@@ -376,7 +376,7 @@ code[data-theme*=' '] span {
 
 .case-editorial-prose figcaption {
   margin-top: 0.5rem;
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   font-weight: 330;
   line-height: 1.45;
   letter-spacing: -0.10px;

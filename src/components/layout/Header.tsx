@@ -53,12 +53,7 @@ export function Header() {
   return (
     <>
       <header
-        className={cn(
-          'fixed top-9 left-0 right-0 z-40 transition-all duration-200',
-          scrolled
-            ? 'bg-bg/80 backdrop-blur-md border-b border-border'
-            : 'bg-transparent',
-        )}
+        className="fixed top-9 left-0 right-0 z-40 bg-bg border-b border-border"
       >
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
           {/* Logo */}
@@ -115,7 +110,7 @@ export function Header() {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.18 }}
-              className="md:hidden overflow-hidden bg-bg/95 backdrop-blur-md border-t border-border"
+              className="md:hidden overflow-hidden bg-bg border-t border-border"
             >
               <div className="max-w-6xl mx-auto px-6 py-6">
                 <Navigation
