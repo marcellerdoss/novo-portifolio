@@ -115,7 +115,7 @@ export function BlogPreview({ posts }: Props) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.2 }}
-            className="mt-8 flex justify-center"
+            className="mt-8"
           >
             <LinkButton
               href="https://medium.com/@marcelle.rdoss"
