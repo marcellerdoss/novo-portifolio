@@ -57,7 +57,7 @@ export function CaseImageFrame({ src, alt, caption, pair }: Props) {
           </div>
         </button>
         {caption && (
-          <figcaption className="type-caption text-fg-subtle px-1">{caption}</figcaption>
+          <figcaption className="type-body-xs text-fg-subtle px-1">{caption}</figcaption>
         )}
       </figure>
 
@@ -98,7 +98,7 @@ export function CaseImageFrame({ src, alt, caption, pair }: Props) {
             </div>
 
             {caption && (
-              <p className="mt-3 type-caption text-white/50 text-center max-w-lg">{caption}</p>
+              <p className="mt-3 type-body-xs text-white/50 text-center max-w-lg">{caption}</p>
             )}
           </div>
         </div>

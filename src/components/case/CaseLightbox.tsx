@@ -83,7 +83,7 @@ export function CaseLightbox({
         </button>
 
         {caption && (
-          <figcaption className="mt-3 type-caption text-fg-subtle">
+          <figcaption className="mt-3 type-body-xs text-fg-subtle">
             {caption}
           </figcaption>
         )}
@@ -150,7 +150,7 @@ export function CaseLightbox({
 
               {/* Lightbox caption */}
               {caption && (
-                <p className="mt-3 type-caption text-white/50 text-center max-w-lg">
+                <p className="mt-3 type-body-xs text-white/50 text-center max-w-lg">
                   {caption}
                 </p>
               )}

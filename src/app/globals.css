@@ -212,6 +212,13 @@ body {
     letter-spacing: -0.14px;
   }
 
+  .type-body-xs {
+    font-size: 0.875rem;     /* 14px */
+    font-weight: 330;
+    line-height: 1.45;
+    letter-spacing: -0.10px;
+  }
+
   /* Button typography — same size as type-body-sm but weight 480 baked in */
   .type-btn {
     font-size: 1rem;         /* 16px */
@@ -369,8 +376,10 @@ code[data-theme*=' '] span {
 
 .case-editorial-prose figcaption {
   margin-top: 0.5rem;
-  font-size: 0.75rem;
-  line-height: 1.5;
+  font-size: 0.875rem;
+  font-weight: 330;
+  line-height: 1.45;
+  letter-spacing: -0.10px;
   color: var(--fg-subtle);
 }
 

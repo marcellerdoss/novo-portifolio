@@ -24,7 +24,7 @@ function MdxImg({ src, alt, title }: MdxImgProps) {
         />
       </div>
       {caption && (
-        <figcaption className="mt-2 type-caption text-fg-subtle px-1">
+        <figcaption className="mt-2 type-body-xs text-fg-subtle px-1">
           {caption}
         </figcaption>
       )}
