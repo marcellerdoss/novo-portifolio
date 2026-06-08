@@ -88,16 +88,6 @@ export function BlogPreview({ posts }: Props) {
           >
             <h2 id="blog-heading" className="type-display-lg text-fg">{t('title')}</h2>
             <p className="type-body text-fg-muted mt-2 whitespace-nowrap">{t('subtitle')}</p>
-            <div className="mt-6">
-              <LinkButton
-                href="https://medium.com/@marcelle.rdoss"
-                variant="secondary"
-                size="sm"
-                external
-              >
-                {t('see_all')} <ArrowUpRight size={12} aria-hidden="true" />
-              </LinkButton>
-            </div>
           </motion.div>
 
           {/* Cards grid */}
@@ -118,6 +108,24 @@ export function BlogPreview({ posts }: Props) {
               ))}
             </motion.div>
           )}
+
+          {/* CTA below cards */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+            className="mt-8 flex justify-center"
+          >
+            <LinkButton
+              href="https://medium.com/@marcelle.rdoss"
+              variant="secondary"
+              size="sm"
+              external
+            >
+              {t('see_all')} <ArrowUpRight size={12} aria-hidden="true" />
+            </LinkButton>
+          </motion.div>
 
 
       </div>
