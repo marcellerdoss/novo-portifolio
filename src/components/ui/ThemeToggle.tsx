@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
 import { Sun, Moon } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
 type Props = { ariaLabel?: string };
@@ -14,36 +13,41 @@ export function ThemeToggle({ ariaLabel = 'Alternar tema' }: Props) {
 
   useEffect(() => setMounted(true), []);
 
-  if (!mounted) return <div className="w-11 h-11" aria-hidden="true" />;
+  if (!mounted) return <div className="w-[60px] h-9" aria-hidden="true" />;
 
   const isDark = theme === 'dark';
 
   return (
-    <button
-      type="button"
-      onClick={() => setTheme(isDark ? 'light' : 'dark')}
-      aria-label={`${ariaLabel} — ${isDark ? 'escuro' : 'claro'}`}
-      aria-pressed={isDark}
-      className={cn(
-        'w-11 h-11 rounded-full flex items-center justify-center overflow-hidden',
-        'text-accent-magenta hover:text-accent-magenta/70 transition-colors duration-150',
-        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg focus-visible:ring-offset-2',
-      )}
-    >
-      <AnimatePresence mode="wait" initial={false}>
-        <motion.span
-          key={isDark ? 'moon' : 'sun'}
-          initial={{ opacity: 0, rotate: -45, scale: 0.7 }}
-          animate={{ opacity: 1, rotate: 0, scale: 1 }}
-          exit={{ opacity: 0, rotate: 45, scale: 0.7 }}
-          transition={{ duration: 0.18 }}
-          className="flex items-center justify-center"
-        >
-          {isDark
-            ? <Moon size={18} aria-hidden="true" />
-            : <Sun size={18} aria-hidden="true" />}
-        </motion.span>
-      </AnimatePresence>
-    </button>
+    <div role="group" aria-label={ariaLabel} className="flex items-center gap-0.5">
+      <button
+        type="button"
+        onClick={() => setTheme('light')}
+        aria-label="Modo claro"
+        aria-pressed={!isDark}
+        className={cn(
+          'p-2 rounded transition-colors duration-150',
+          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg',
+          !isDark ? 'text-accent-magenta' : 'text-fg-muted hover:text-fg',
+        )}
+      >
+        <Sun size={16} aria-hidden="true" />
+      </button>
+
+      <span className="type-caption text-fg-subtle" aria-hidden="true">·</span>
+
+      <button
+        type="button"
+        onClick={() => setTheme('dark')}
+        aria-label="Modo escuro"
+        aria-pressed={isDark}
+        className={cn(
+          'p-2 rounded transition-colors duration-150',
+          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg',
+          isDark ? 'text-accent-magenta' : 'text-fg-muted hover:text-fg',
+        )}
+      >
+        <Moon size={16} aria-hidden="true" />
+      </button>
+    </div>
   );
 }
