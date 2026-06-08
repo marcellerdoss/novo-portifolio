@@ -26,7 +26,7 @@ export function ThemeToggle({ ariaLabel = 'Alternar tema' }: Props) {
       aria-pressed={isDark}
       className={cn(
         'w-11 h-11 rounded-full flex items-center justify-center overflow-hidden',
-        'text-fg hover:text-fg-muted transition-colors duration-150',
+        'text-accent-magenta hover:text-accent-magenta/70 transition-colors duration-150',
         'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg focus-visible:ring-offset-2',
       )}
     >
