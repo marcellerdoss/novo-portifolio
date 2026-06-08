@@ -157,52 +157,52 @@ body {
 /* ─── Typography utility classes ─────────────────────────── */
 @layer utilities {
   .type-display-xl {
-    font-size: 5.5rem;       /* 88px */
+    font-size: 5rem;         /* 80px */
     font-weight: 340;
     line-height: 1.00;
-    letter-spacing: -1.76px;
+    letter-spacing: -1.60px;
   }
 
   .type-display-lg {
-    font-size: 2.25rem;      /* 36px */
+    font-size: 2rem;         /* 32px */
     font-weight: 700;
     line-height: 1.15;
-    letter-spacing: -0.36px;
+    letter-spacing: -0.32px;
   }
 
   .type-headline {
-    font-size: 1.75rem;      /* 28px */
+    font-size: 1.5rem;       /* 24px */
     font-weight: 540;
     line-height: 1.30;
-    letter-spacing: -0.28px;
-  }
-
-  .type-subhead {
-    font-size: 1.75rem;      /* 28px */
-    font-weight: 340;
-    line-height: 1.30;
-    letter-spacing: -0.28px;
-  }
-
-  .type-body-lg {
-    font-size: 1.5rem;       /* 24px */
-    font-weight: 330;
-    line-height: 1.40;
     letter-spacing: -0.24px;
   }
 
-  .type-body {
+  .type-subhead {
+    font-size: 1.5rem;       /* 24px */
+    font-weight: 340;
+    line-height: 1.30;
+    letter-spacing: -0.24px;
+  }
+
+  .type-body-lg {
     font-size: 1.25rem;      /* 20px */
-    font-weight: 320;
-    line-height: 1.45;
+    font-weight: 330;
+    line-height: 1.40;
     letter-spacing: -0.20px;
   }
 
+  .type-body {
+    font-size: 1.125rem;     /* 18px */
+    font-weight: 320;
+    line-height: 1.45;
+    letter-spacing: -0.18px;
+  }
+
   .type-body-strong {
-    font-size: 1.25rem;      /* 20px */
+    font-size: 1.125rem;     /* 18px */
     font-weight: 480;
     line-height: 1.45;
-    letter-spacing: -0.20px;
+    letter-spacing: -0.18px;
   }
 
   .type-body-sm {
@@ -271,6 +271,14 @@ body {
   }
 }
 
+/* ─── Hero — preserve large type-subhead for the name (desktop only) ── */
+@media (min-width: 641px) {
+  #home .type-subhead {
+    font-size: 1.75rem;      /* 28px — keep hero name large */
+    letter-spacing: -0.28px;
+  }
+}
+
 /* ─── Dual-theme code blocks (rehypePrettyCode + class-based dark mode) ── */
 code[data-theme*=' '],
 code[data-theme*=' '] span {
@@ -320,20 +328,20 @@ code[data-theme*=' '] span {
 }
 
 .case-editorial-prose h3 {
-  font-size: 1.75rem;        /* 28px */
+  font-size: 1.5rem;         /* 24px */
   font-weight: 540;
   line-height: 1.30;
-  letter-spacing: -0.28px;
+  letter-spacing: -0.24px;
   color: var(--fg);
   margin-top: 0.5rem;
   margin-bottom: 1.5rem;
 }
 
 .case-editorial-prose p {
-  font-size: 1.25rem;        /* 20px */
+  font-size: 1.125rem;       /* 18px */
   font-weight: 320;
   line-height: 1.45;
-  letter-spacing: -0.20px;
+  letter-spacing: -0.18px;
   color: var(--fg-muted);
   margin-bottom: 1rem;
 }
