@@ -15,7 +15,6 @@ const phases = [
   {
     num: '1',
     type: 'Descobrir',
-    isDivergir: true,
     question: 'Quais são e de onde vêm os problemas?',
     practiceCard: {
       title: 'Leitura de contexto',
@@ -29,7 +28,6 @@ const phases = [
   {
     num: '2',
     type: 'Definir',
-    isDivergir: false,
     question: 'Qual problema devemos focar para resolver?',
     practiceCard: {
       title: 'Construção de foco',
@@ -43,7 +41,6 @@ const phases = [
   {
     num: '3',
     type: 'Desenvolver',
-    isDivergir: true,
     question: 'Quais são as soluções possíveis para esse problema?',
     practiceCard: {
       title: 'Exploração de soluções',
@@ -57,7 +54,6 @@ const phases = [
   {
     num: '4',
     type: 'Entregar',
-    isDivergir: false,
     question: 'Nossa solução de fato resolve o problema?',
     practiceCard: {
       title: 'Validação em uso',
@@ -84,10 +80,15 @@ function DiamondBadge({ num }: { num: string }) {
   );
 }
 
-function ColArrow({ num }: { num: string }) {
+/* Arrow row — symmetric vertical spacing via py-3 */
+function ArrowRow() {
   return (
-    <div key={num} className="flex justify-center my-1 text-accent-magenta">
-      <TriangleDown />
+    <div className="grid grid-cols-4 gap-5 py-3">
+      {phases.map(({ num }) => (
+        <div key={num} className="flex justify-center text-accent-magenta">
+          <TriangleDown />
+        </div>
+      ))}
     </div>
   );
 }
@@ -116,8 +117,8 @@ export function Racional() {
           </p>
         </motion.div>
 
-        {/* ── Desktop / Tablet ── */}
-        <div className="hidden sm:block">
+        {/* ── Desktop + Tablet (≥768px): 4 colunas alinhadas ── */}
+        <div className="hidden md:block">
 
           {/* Row 1: Phase headers */}
           <motion.div
@@ -125,7 +126,7 @@ export function Racional() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-5 items-start"
+            className="grid grid-cols-4 gap-5 items-start"
           >
             {phases.map(({ num, type, question }) => (
               <motion.div key={num} variants={fadeInUp} className="flex flex-col items-center text-center gap-3">
@@ -136,10 +137,7 @@ export function Racional() {
             ))}
           </motion.div>
 
-          {/* Arrows */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 mt-3">
-            {phases.map(({ num }) => <ColArrow key={num} num={num} />)}
-          </div>
+          <ArrowRow />
 
           {/* Row 2: Na prática */}
           <motion.div
@@ -147,7 +145,7 @@ export function Racional() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-5"
+            className="grid grid-cols-4 gap-5"
           >
             {phases.map(({ num, practiceCard }) => (
               <motion.div key={num} variants={fadeInUp} className="h-full">
@@ -160,10 +158,7 @@ export function Racional() {
             ))}
           </motion.div>
 
-          {/* Arrows */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 mt-3">
-            {phases.map(({ num }) => <ColArrow key={num} num={num} />)}
-          </div>
+          <ArrowRow />
 
           {/* Row 3: Na minha trajetória */}
           <motion.div
@@ -171,11 +166,11 @@ export function Racional() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-5"
+            className="grid grid-cols-4 gap-5"
           >
             {phases.map(({ num, trajectoryCard }) => (
               <motion.div key={num} variants={fadeInUp} className="h-full">
-                <div className="rounded-[16px] border border-black/10 dark:border-white/10 p-6 bg-pink-100 h-full">
+                <div className="rounded-[16px] border border-black/10 dark:border-white/10 p-6 bg-pink-50 h-full">
                   <p className="type-caption text-accent-magenta mb-3">Na minha trajetória</p>
                   <p className="type-body-strong text-fg mb-2">{trajectoryCard.title}</p>
                   <p className="type-body-sm text-fg-muted leading-relaxed">{trajectoryCard.text}</p>
@@ -186,8 +181,8 @@ export function Racional() {
 
         </div>
 
-        {/* ── Mobile: timeline ── */}
-        <div className="sm:hidden space-y-10">
+        {/* ── Mobile (<768px): timeline ── */}
+        <div className="md:hidden space-y-10">
           {phases.map(({ num, type, question, practiceCard, trajectoryCard }) => (
             <div key={num} className="flex gap-4">
               <div className="flex flex-col items-center gap-2 pt-1">
@@ -205,11 +200,11 @@ export function Racional() {
                   <p className="type-body-sm text-fg-muted leading-relaxed">{practiceCard.text}</p>
                 </div>
 
-                <div className="pl-2 mb-3 text-accent-magenta">
+                <div className="flex justify-center mb-3 text-accent-magenta">
                   <TriangleDown />
                 </div>
 
-                <div className="rounded-[16px] border border-black/10 dark:border-white/10 p-5 bg-pink-100">
+                <div className="rounded-[16px] border border-black/10 dark:border-white/10 p-5 bg-pink-50">
                   <p className="type-caption text-accent-magenta mb-1">Na minha trajetória</p>
                   <p className="type-body-strong text-fg mb-2">{trajectoryCard.title}</p>
                   <p className="type-body-sm text-fg-muted leading-relaxed">{trajectoryCard.text}</p>
