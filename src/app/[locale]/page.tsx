@@ -83,14 +83,14 @@ export default async function Home({ params }: Props) {
       <section
         id="experiencia"
         aria-labelledby="experience-heading"
-        className="py-section bg-block-cream"
+        className="bg-block-cream py-section md:py-0"
       >
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 md:gap-x-20">
-            <div className="md:col-span-2">
+        <div className="max-w-6xl mx-auto px-6 md:px-0">
+          <div className="grid grid-cols-1 md:grid-cols-3">
+            <div className="md:col-span-2 md:py-section md:pl-6 md:pr-16">
               <Experience items={experience} inline />
             </div>
-            <div className="md:col-span-1 mt-16 md:mt-0 md:bg-surface-soft md:px-8 md:rounded-[16px]">
+            <div className="mt-16 md:mt-0 md:col-span-1 md:py-section md:bg-surface-soft md:px-8">
               <Skills inline />
             </div>
           </div>
