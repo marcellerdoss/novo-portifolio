@@ -108,7 +108,7 @@ export function BlogPreview({ posts }: Props) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-10"
+          className="mb-8"
         >
           <h2 id="blog-heading" className="type-display-lg text-fg">{t('title')}</h2>
           <p className="type-body text-fg-muted mt-2 whitespace-nowrap">{t('subtitle')}</p>

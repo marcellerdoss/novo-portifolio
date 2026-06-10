@@ -229,7 +229,7 @@ export function CasesSection(_props: Props) {
 
   return (
     <section id="cases" aria-labelledby="cases-heading" className="py-section bg-block-cream">
-      <div className="max-w-6xl mx-auto px-6 space-y-20">
+      <div className="max-w-6xl mx-auto px-6 space-y-12">
 
         {/* ── Título da seção ─────────────────────────────────── */}
         <motion.h2

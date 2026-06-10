@@ -22,9 +22,9 @@ const variants: Record<Variant, string> = {
 };
 
 const sizes: Record<Size, string> = {
-  sm: 'px-5 py-2 type-btn',
-  md: 'px-5 py-[10px] type-btn',
-  lg: 'px-7 py-[14px] type-btn',
+  sm: 'px-4 py-2 type-btn',
+  md: 'px-6 py-3 type-btn',
+  lg: 'px-8 py-3 type-btn',
 };
 
 export function buttonVariants({

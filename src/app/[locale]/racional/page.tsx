@@ -53,7 +53,7 @@ function Tag({ children }: { children: React.ReactNode }) {
 }
 
 function Divider() {
-  return <hr className="border-border my-16" />;
+  return <hr className="border-border my-12" />;
 }
 
 /* ── Swatch ───────────────────────────────────────────────── */
@@ -453,9 +453,9 @@ export default function RacionalPage() {
                 Quatro variantes (primary, secondary, ghost, icon) × três tamanhos (sm, md, lg). Tipografia unificada em 16px/480 via <code className="type-caption bg-surface-soft border border-border px-1 rounded">.type-btn</code>. Primary usa navy no light e magenta no dark. Secondary usa bordas do fg atual. Todos têm <code className="type-caption bg-surface-soft border border-border px-1 rounded">focus-visible</code> com ring para navegação por teclado.
               </BodySm>
               <div className="mt-4 flex flex-wrap gap-3 items-center">
-                <button className="px-5 py-[10px] type-btn bg-primary text-on-primary rounded-pill hover:opacity-85 active:scale-[0.97] transition-all">Primary</button>
-                <button className="px-5 py-[10px] type-btn border border-fg text-fg rounded-pill bg-transparent hover:bg-fg/10 transition-all">Secondary</button>
-                <button className="px-5 py-[10px] type-btn text-fg bg-transparent rounded-full hover:underline underline-offset-4 transition-all">Ghost</button>
+                <button className="px-6 py-3 type-btn bg-primary text-on-primary rounded-pill hover:opacity-85 active:scale-[0.97] transition-all">Primary</button>
+                <button className="px-6 py-3 type-btn border border-fg text-fg rounded-pill bg-transparent hover:bg-fg/10 transition-all">Secondary</button>
+                <button className="px-6 py-3 type-btn text-fg bg-transparent rounded-full hover:underline underline-offset-4 transition-all">Ghost</button>
               </div>
             </div>
           </section>

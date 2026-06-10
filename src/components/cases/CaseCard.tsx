@@ -85,10 +85,10 @@ export function CaseCard({
             </>
           )}
         </div>
-        <div className="bg-canvas dark:bg-surface-soft border-t border-black/10 dark:border-white/10 px-5 py-5">
+        <div className="bg-canvas dark:bg-surface-soft border-t border-black/10 dark:border-white/10 px-6 py-6">
           <p className="type-headline text-fg leading-snug mb-2">{title}</p>
           <p className="type-body-sm text-fg-muted mb-4">{description}</p>
-          <div className="flex flex-wrap gap-1.5 mb-5">
+          <div className="flex flex-wrap gap-1.5 mb-4">
             {tags.map((tag) => (
               <span
                 key={tag}
@@ -99,7 +99,7 @@ export function CaseCard({
             ))}
           </div>
           <div>
-            <span className="inline-flex items-center gap-2 px-5 py-2 type-body-sm border border-fg text-fg rounded-pill bg-transparent">
+            <span className="inline-flex items-center gap-2 px-4 py-2 type-body-sm border border-fg text-fg rounded-pill bg-transparent">
               {ctaLabel} <ArrowUpRight size={12} aria-hidden="true" className="shrink-0" />
             </span>
           </div>
@@ -163,7 +163,7 @@ export function CaseCard({
 
           {/* Painel repouso — 1 linha de descrição = panel height igual em todos os cards */}
           <div
-            className="shrink-0 bg-canvas dark:bg-surface-soft border-t border-black/10 dark:border-white/10 px-5 py-4 flex flex-col transition-opacity duration-200 group-hover:opacity-0"
+            className="shrink-0 bg-canvas dark:bg-surface-soft border-t border-black/10 dark:border-white/10 px-4 py-4 flex flex-col transition-opacity duration-200 group-hover:opacity-0"
             aria-hidden="true"
           >
             <p className="type-body-strong text-fg leading-snug mb-1">{title}</p>
@@ -174,7 +174,7 @@ export function CaseCard({
 
         {/* Painel hover — sobe do fundo (absolute, cobre o painel de repouso) */}
         <div
-          className="absolute bottom-0 inset-x-0 bg-canvas dark:bg-surface-soft border-t border-black/10 dark:border-white/10 px-5 py-5 translate-y-full group-hover:translate-y-0 transition-transform duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col"
+          className="absolute bottom-0 inset-x-0 bg-canvas dark:bg-surface-soft border-t border-black/10 dark:border-white/10 px-6 py-6 translate-y-full group-hover:translate-y-0 transition-transform duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col"
           aria-hidden="true"
         >
           <p className="type-body-strong text-fg leading-snug mb-2">{title}</p>
@@ -190,7 +190,7 @@ export function CaseCard({
             ))}
           </div>
           <div className="mt-auto">
-            <span className="inline-flex items-center gap-2 px-5 py-2 type-body-sm border border-fg text-fg rounded-pill bg-transparent">
+            <span className="inline-flex items-center gap-2 px-4 py-2 type-body-sm border border-fg text-fg rounded-pill bg-transparent">
               {ctaLabel} <ArrowUpRight size={12} aria-hidden="true" className="shrink-0" />
             </span>
           </div>

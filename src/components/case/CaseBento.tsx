@@ -19,7 +19,7 @@ export function CaseBento({
   unoptimized,
 }: CaseBentoProps) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 md:h-[340px] gap-[10px]">
+    <div className="grid grid-cols-1 md:grid-cols-3 md:h-[340px] gap-3">
       {/* Main image — spans 2 columns, full height on desktop */}
       <figure className="md:col-span-2 md:h-full">
         <div
@@ -44,7 +44,7 @@ export function CaseBento({
       </figure>
 
       {/* Small images — flex column sharing remaining height */}
-      <div className="flex flex-col gap-[10px] md:h-full">
+      <div className="flex flex-col gap-3 md:h-full">
         {images.map((img, i) => (
           <figure key={i} className="flex-1 min-h-[120px]">
             <div

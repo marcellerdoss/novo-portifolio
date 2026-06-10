@@ -15,7 +15,7 @@ export function Hero() {
     <section
       id="home"
       aria-label="Apresentação"
-      className="relative min-h-screen flex flex-col bg-bg pt-16 md:pt-32 pb-16"
+      className="relative min-h-screen flex flex-col bg-bg pt-12 md:pt-24 pb-12"
     >
       <motion.div
         className="max-w-6xl mx-auto px-6 w-full flex-1 flex flex-col justify-center"
@@ -26,7 +26,7 @@ export function Hero() {
         {/* Role label — badge eyebrow */}
         <motion.span
           variants={fadeInUp}
-          className="type-caption text-accent-magenta mb-8 md:mb-14"
+          className="type-caption text-accent-magenta mb-8 md:mb-12"
         >
           {t('role')}
         </motion.span>

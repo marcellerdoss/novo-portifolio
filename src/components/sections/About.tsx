@@ -22,7 +22,7 @@ export function About() {
       className="py-section bg-block-pink dark:bg-block-cream"
     >
       <div className="max-w-6xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
 
           {/* Left — photo */}
           <motion.div
@@ -53,7 +53,7 @@ export function About() {
             <motion.h2 id="about-heading" variants={fadeInUp} className="type-display-lg text-fg mb-8">
               {t('title')}
             </motion.h2>
-            <motion.p variants={fadeInUp} className="type-body text-fg-muted mb-10">
+            <motion.p variants={fadeInUp} className="type-body text-fg-muted mb-8">
               {t('bio')}
             </motion.p>
 
