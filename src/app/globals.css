@@ -316,12 +316,27 @@ body {
     letter-spacing: 0.60px;
     text-transform: uppercase;
   }
+
+  /* Explicit pt/pb-section utilities (auto-generated from @theme may not work in v4) */
+  .pt-section {
+    padding-top: 6rem;       /* 96px */
+  }
+  .pb-section {
+    padding-bottom: 6rem;
+  }
 }
 
 /* ─── Responsive overrides — notebook / tablet (641–1536px) ─── */
 @media (min-width: 641px) and (max-width: 1536px) {
   .py-section {
     padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .pt-section {
+    padding-top: 3rem;
+  }
+  .pb-section {
     padding-bottom: 3rem;
   }
 
@@ -353,6 +368,13 @@ body {
   /* Section vertical spacing reduced on mobile */
   .py-section {
     padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .pt-section {
+    padding-top: 3rem;
+  }
+  .pb-section {
     padding-bottom: 3rem;
   }
 
