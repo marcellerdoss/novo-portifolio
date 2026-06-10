@@ -31,6 +31,7 @@ function ContactForm({ email: _email }: { email: string }) {
   const [userEmail, setUserEmail] = useState('');
   const [message, setMessage] = useState('');
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [errorDetail, setErrorDetail] = useState('');
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -41,7 +42,11 @@ function ContactForm({ email: _email }: { email: string }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email: userEmail, message }),
       });
-      if (!res.ok) throw new Error();
+      const data = await res.json();
+      if (!res.ok) {
+        setErrorDetail(data?.error ?? '');
+        throw new Error(data?.error);
+      }
       setStatus('success');
       setName('');
       setUserEmail('');
@@ -108,7 +113,10 @@ function ContactForm({ email: _email }: { email: string }) {
           <p className="type-body-sm text-white/80">{t('form_success')}</p>
         )}
         {status === 'error' && (
-          <p className="type-body-sm text-red-300">{t('form_error')}</p>
+          <p className="type-body-sm text-red-300">
+            {t('form_error')}
+            {errorDetail ? ` — ${errorDetail}` : ''}
+          </p>
         )}
       </div>
     </form>
