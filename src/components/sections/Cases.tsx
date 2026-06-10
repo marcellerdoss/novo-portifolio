@@ -134,7 +134,7 @@ const strategyCards: {
   {
     company: 'Sellbie',
     category: { pt: 'Framework de métricas', en: 'Metrics framework' },
-    label: { pt: 'estruturação embasada no HEART', en: 'HEART-based structuring' },
+    label: { pt: 'Estruturação embasada no HEART', en: 'HEART-based structuring' },
     title: { pt: 'Construção de métricas', en: 'Metrics framework' },
     tags: ['HEART', 'OKR', 'Produto'],
     href: '/cases/sellbie-metricas',
@@ -147,7 +147,7 @@ const strategyCards: {
   {
     company: 'Sellbie',
     category: { pt: 'Relatório estratégico', en: 'Strategic report' },
-    label: { pt: 'estruturação de indicadores', en: 'indicator structuring' },
+    label: { pt: 'Estruturação de indicadores', en: 'indicator structuring' },
     title: { pt: 'Relatório de performance CRM', en: 'CRM performance report' },
     tags: ['Mapa de oportunidades', 'Figma Make', 'CS'],
     href: '/cases/sellbie-crm',
@@ -188,7 +188,7 @@ const foundationsCards: {
   {
     company: 'Sellbie',
     category: { pt: 'Arquitetura de navegação', en: 'Navigation architecture' },
-    label: { pt: 'Foundations', en: 'Foundations' },
+    label: { pt: 'Construção com embasamento', en: 'Foundations' },
     title: { pt: 'Arquitetura de informação', en: 'Information Architecture' },
     tags: ['Card Sorting', 'IA', 'Navegação'],
     href: '/cases/sellbie-arq-info',
