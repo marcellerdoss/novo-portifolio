@@ -90,7 +90,7 @@ export default async function Home({ params }: Props) {
             <div className="md:col-span-2 md:py-section md:pl-6 md:pr-16">
               <Experience items={experience} inline />
             </div>
-            <div className="mt-16 md:mt-0 md:col-span-1 md:py-section md:bg-canvas md:px-8">
+            <div className="mt-16 md:mt-0 md:col-span-1 md:py-section md:bg-cream-50 md:px-8">
               <Skills inline />
             </div>
           </div>

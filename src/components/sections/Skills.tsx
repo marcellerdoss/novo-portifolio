@@ -61,7 +61,7 @@ export function Skills({ inline }: Props) {
         whileInView="visible"
         viewport={{ once: true }}
         id="skills-heading"
-        className="type-display-lg text-fg mb-xxl"
+        className="type-headline text-fg mb-xxl"
       >
         {t('title')}
       </motion.h2>
