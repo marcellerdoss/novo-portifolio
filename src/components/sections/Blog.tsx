@@ -12,7 +12,7 @@ import type { BlogPost } from '@/lib/types';
 type Props = { posts: BlogPost[] };
 
 const VISIBLE = 3;
-const GAP = 16; // gap-4
+const GAP = 16;
 
 function formatDate(dateStr: string, locale: string) {
   return new Date(dateStr).toLocaleDateString(locale === 'pt' ? 'pt-BR' : 'en-US', {
@@ -92,6 +92,7 @@ export function BlogPreview({ posts }: Props) {
 
   const prevLabel = locale === 'pt' ? 'Artigo anterior' : 'Previous article';
   const nextLabel = locale === 'pt' ? 'Próximo artigo' : 'Next article';
+  const arrowCls = 'w-9 h-9 rounded-full border border-border bg-bg flex items-center justify-center text-fg hover:bg-fg/5 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg focus-visible:ring-offset-2';
 
   return (
     <section
@@ -120,41 +121,37 @@ export function BlogPreview({ posts }: Props) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="hidden sm:flex items-center gap-3"
+            className="hidden sm:block relative"
           >
-            {/* Seta esquerda — espaço reservado para evitar layout shift */}
-            <div className="flex-shrink-0 w-10 flex justify-center">
-              {hasSlider && canPrev && (
-                <button
-                  onClick={() => setIndex((i) => i - 1)}
-                  aria-label={prevLabel}
-                  className="w-9 h-9 rounded-full border border-border bg-bg flex items-center justify-center text-fg hover:bg-fg/5 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg focus-visible:ring-offset-2"
-                >
-                  <ChevronLeft size={16} aria-hidden="true" />
-                </button>
-              )}
-            </div>
+            {/* Seta esquerda — absoluta, não reserva espaço no layout */}
+            {hasSlider && canPrev && (
+              <button
+                onClick={() => setIndex((i) => i - 1)}
+                aria-label={prevLabel}
+                className={`absolute -left-5 top-1/2 -translate-y-1/2 z-10 ${arrowCls}`}
+              >
+                <ChevronLeft size={16} aria-hidden="true" />
+              </button>
+            )}
 
-            {/* Área do slider — overflow-hidden bloqueia scroll manual */}
-            <div ref={containerRef} className="flex-1 overflow-hidden">
+            {/* overflow-hidden bloqueia scroll manual e scrollbar */}
+            <div ref={containerRef} className="overflow-hidden">
+              {/*
+                CSS grid: 100% resolve em relação ao container visível (não ao track),
+                garantindo que cada coluna = 1/3 da largura visível desde o primeiro render.
+              */}
               <div
-                className="flex gap-4"
                 style={{
+                  display: 'grid',
+                  gridTemplateColumns: `repeat(${posts.length}, calc((100% - ${(VISIBLE - 1) * GAP}px) / ${VISIBLE}))`,
+                  columnGap: `${GAP}px`,
                   transform: `translateX(${translateX}px)`,
                   transition: 'transform 420ms cubic-bezier(0.16,1,0.3,1)',
                   willChange: 'transform',
                 }}
               >
                 {posts.map((post) => (
-                  <div
-                    key={post.slug}
-                    className="flex-shrink-0"
-                    style={{
-                      width: cardWidth > 0
-                        ? `${cardWidth}px`
-                        : `calc((100% - ${(VISIBLE - 1) * GAP}px) / ${VISIBLE})`,
-                    }}
-                  >
+                  <div key={post.slug} className="min-w-0">
                     <ArticleCard post={post} locale={locale} />
                   </div>
                 ))}
@@ -162,21 +159,19 @@ export function BlogPreview({ posts }: Props) {
             </div>
 
             {/* Seta direita */}
-            <div className="flex-shrink-0 w-10 flex justify-center">
-              {hasSlider && canNext && (
-                <button
-                  onClick={() => setIndex((i) => i + 1)}
-                  aria-label={nextLabel}
-                  className="w-9 h-9 rounded-full border border-border bg-bg flex items-center justify-center text-fg hover:bg-fg/5 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg focus-visible:ring-offset-2"
-                >
-                  <ChevronRight size={16} aria-hidden="true" />
-                </button>
-              )}
-            </div>
+            {hasSlider && canNext && (
+              <button
+                onClick={() => setIndex((i) => i + 1)}
+                aria-label={nextLabel}
+                className={`absolute -right-5 top-1/2 -translate-y-1/2 z-10 ${arrowCls}`}
+              >
+                <ChevronRight size={16} aria-hidden="true" />
+              </button>
+            )}
           </motion.div>
         )}
 
-        {/* ── Mobile: 3 artigos mais recentes, empilhados ── */}
+        {/* ── Mobile: 3 mais recentes, empilhados ── */}
         {posts.length === 0 ? (
           <p className="sm:hidden type-body text-fg-muted">{t('no_results')}</p>
         ) : (
