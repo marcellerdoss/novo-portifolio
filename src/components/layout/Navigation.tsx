@@ -40,7 +40,7 @@ export function Navigation({ className, itemClassName, onClick }: Props) {
               onClick={onClick}
               aria-label="Página inicial"
               className={cn(
-                'type-body-sm text-fg hover:text-[#FF3D8B] dark:hover:text-[#FF78AC] transition-colors duration-150',
+                'type-body-sm text-fg hover:text-accent-magenta dark:hover:text-magenta-300 transition-colors duration-150',
                 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg rounded flex items-center',
                 itemClassName,
               )}
@@ -62,7 +62,7 @@ export function Navigation({ className, itemClassName, onClick }: Props) {
                   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg rounded',
                   isActive
                     ? 'text-accent-magenta font-[540]'
-                    : 'text-fg hover:text-[#FF3D8B] dark:hover:text-[#FF78AC]',
+                    : 'text-fg hover:text-accent-magenta dark:hover:text-magenta-300',
                   itemClassName,
                 )}
               >

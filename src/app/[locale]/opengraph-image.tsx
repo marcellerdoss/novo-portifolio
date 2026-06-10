@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
-export const alt = 'Marcelle — UX & Product Designer';
+export const alt = 'Marcelle Rocha | Produto estratégico';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -29,7 +29,7 @@ export default function Image() {
             left: 0,
             right: 0,
             height: 6,
-            background: '#0066cc',
+            background: '#C8236A',
           }}
         />
 
@@ -37,24 +37,24 @@ export default function Image() {
           style={{
             fontSize: 72,
             fontWeight: 600,
-            color: '#1d1d1f',
+            color: '#131226',
             letterSpacing: '-1px',
             margin: 0,
           }}
         >
-          Marcelle
+          Marcelle Rocha
         </p>
 
         <p
           style={{
             fontSize: 32,
             fontWeight: 400,
-            color: '#7a7a7a',
+            color: '#808080',
             margin: 0,
             letterSpacing: '0.5px',
           }}
         >
-          UX &amp; Product Designer
+          Produto estratégico
         </p>
       </div>
     ),

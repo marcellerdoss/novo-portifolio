@@ -48,7 +48,7 @@ export function Hero() {
               <span
                 key={i}
                 className={`block ${i === 0
-                  ? 'font-bold text-[#433D69] dark:text-[#CFCFE0]'
+                  ? 'font-bold text-navy-600 dark:text-navy-200'
                   : 'font-extrabold text-accent-magenta'
                 }`}
               >

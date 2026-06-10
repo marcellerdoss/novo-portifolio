@@ -14,12 +14,12 @@ export interface CaseBeforeAfterProps {
 
 const BADGE_BEFORE = {
   backgroundColor: 'var(--color-block-pink)',
-  color: '#6b2020',
+  color: 'var(--color-pink-600)',
 } as const;
 
 const BADGE_AFTER = {
   backgroundColor: 'var(--color-block-cream)',
-  color: '#5c3d14',
+  color: 'var(--color-cream-600)',
 } as const;
 
 export function CaseBeforeAfter({
