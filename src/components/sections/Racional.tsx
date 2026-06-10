@@ -112,7 +112,7 @@ export function Racional() {
           <h2 id="racional-heading" className="type-display-lg text-fg mb-3">
             Racional de experiência
           </h2>
-          <p className="type-body text-fg-muted whitespace-nowrap">
+          <p className="type-body text-fg-muted">
             O design se reflete na forma como penso e atuo profissionalmente na construção de experiências.
           </p>
         </motion.div>

@@ -111,7 +111,7 @@ export function BlogPreview({ posts }: Props) {
           className="mb-8"
         >
           <h2 id="blog-heading" className="type-display-lg text-fg">{t('title')}</h2>
-          <p className="type-body text-fg-muted mt-2 whitespace-nowrap">{t('subtitle')}</p>
+          <p className="type-body text-fg-muted mt-2">{t('subtitle')}</p>
         </motion.div>
 
         {/* ── Desktop / Tablet: slider horizontal ── */}
