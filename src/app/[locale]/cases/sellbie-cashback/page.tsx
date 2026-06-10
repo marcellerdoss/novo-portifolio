@@ -96,7 +96,7 @@ export default async function SellbieCashbackPage() {
           </Link>
 
           <div className="flex flex-wrap items-center gap-3 mb-8">
-            <span className="type-caption rounded-full px-3 py-1.5 leading-none bg-surface-soft text-fg">
+            <span className="type-caption rounded-full px-3 py-2 leading-none bg-surface-soft text-fg">
               Cashback · Inteligência de dados
             </span>
             <span className="type-caption text-fg-subtle">2024</span>
@@ -116,7 +116,7 @@ export default async function SellbieCashbackPage() {
 
           <div className="flex flex-wrap gap-2 mt-6">
             {['Entrevistas com CS', 'Plano estratégico', 'Dashboard de ROAS', 'Relatório de Precificação', 'Figma Make'].map(tag => (
-              <span key={tag} className="type-caption rounded-full border border-border px-3 py-1.5 leading-none text-fg-subtle">
+              <span key={tag} className="type-caption rounded-full border border-border px-3 py-2 leading-none text-fg-subtle">
                 {tag}
               </span>
             ))}

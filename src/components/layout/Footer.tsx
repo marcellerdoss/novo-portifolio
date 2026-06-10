@@ -53,7 +53,7 @@ export async function Footer() {
             </p>
             <Link
               href="/racional"
-              className="inline-flex items-center gap-1.5 type-caption text-white/40 hover:text-white/70 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded"
+              className="inline-flex items-center gap-2 type-caption text-white/40 hover:text-white/70 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded"
             >
               {t('rationale')}
             </Link>

@@ -92,7 +92,7 @@ export function CaseScrollCanvas({
       </div>
 
       {/* Scroll hint */}
-      <div className="flex items-center gap-1.5 mt-2">
+      <div className="flex items-center gap-2 mt-2">
         <svg
           width="12"
           height="12"

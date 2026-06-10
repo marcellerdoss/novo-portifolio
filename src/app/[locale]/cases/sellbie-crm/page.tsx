@@ -88,7 +88,7 @@ export default async function SellbieCrmPage() {
           </Link>
 
           <div className="flex flex-wrap items-center gap-3 mb-8">
-            <span className="type-caption rounded-full px-3 py-1.5 leading-none bg-surface-soft text-fg">
+            <span className="type-caption rounded-full px-3 py-2 leading-none bg-surface-soft text-fg">
               CRM · Customer Success
             </span>
             <span className="type-caption text-fg-subtle">2024</span>
@@ -108,7 +108,7 @@ export default async function SellbieCrmPage() {
 
           <div className="flex flex-wrap gap-2 mt-6">
             {['Levantamento', 'Mapa de oportunidades', 'Proposta UX', 'Figma Make'].map(tag => (
-              <span key={tag} className="type-caption rounded-full border border-border px-3 py-1.5 leading-none text-fg-subtle">
+              <span key={tag} className="type-caption rounded-full border border-border px-3 py-2 leading-none text-fg-subtle">
                 {tag}
               </span>
             ))}

@@ -18,7 +18,7 @@ export function Badge({
   'aria-pressed': ariaPressed,
 }: BadgeProps) {
   const classes = cn(
-    'inline-flex items-center type-body-sm rounded-pill px-3 py-1.5 transition-colors duration-150',
+    'inline-flex items-center type-body-sm rounded-pill px-3 py-2 transition-colors duration-150',
     variant === 'default' && 'bg-bg border border-border text-fg',
     variant === 'category' && 'bg-bg-secondary text-fg-muted',
     variant === 'active' && 'bg-primary text-on-primary',

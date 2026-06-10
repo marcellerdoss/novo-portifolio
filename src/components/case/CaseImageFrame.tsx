@@ -49,7 +49,7 @@ export function CaseImageFrame({ src, alt, caption, pair }: Props) {
               className="w-full h-auto block"
             />
             <div className="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-150">
-              <span className="flex items-center gap-1.5 bg-black/50 backdrop-blur-sm text-white rounded-full px-2.5 py-1 type-caption">
+              <span className="flex items-center gap-2 bg-black/50 backdrop-blur-sm text-white rounded-full px-3 py-1 type-caption">
                 <ZoomIn size={11} aria-hidden="true" />
                 ampliar
               </span>

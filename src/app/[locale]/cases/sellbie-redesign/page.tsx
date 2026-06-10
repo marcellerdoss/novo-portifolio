@@ -96,7 +96,7 @@ export default async function SellbieRedesignPage() {
           </Link>
 
           <div className="flex flex-wrap items-center gap-3 mb-8">
-            <span className="type-caption rounded-full px-3 py-1.5 leading-none bg-surface-soft text-fg">
+            <span className="type-caption rounded-full px-3 py-2 leading-none bg-surface-soft text-fg">
               Product Design
             </span>
             <span className="type-caption text-fg-subtle">2024</span>
@@ -115,7 +115,7 @@ export default async function SellbieRedesignPage() {
 
           <div className="flex flex-wrap gap-2 mt-6">
             {['Product Design', 'UX Research', 'Multicanal', 'IA & Automação', 'Arquitetura de Info'].map(tag => (
-              <span key={tag} className="type-caption rounded-full border border-border px-3 py-1.5 leading-none text-fg-subtle">
+              <span key={tag} className="type-caption rounded-full border border-border px-3 py-2 leading-none text-fg-subtle">
                 {tag}
               </span>
             ))}

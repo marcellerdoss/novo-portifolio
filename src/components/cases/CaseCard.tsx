@@ -88,11 +88,11 @@ export function CaseCard({
         <div className="bg-canvas dark:bg-surface-soft border-t border-black/10 dark:border-white/10 px-6 py-6">
           <p className="type-headline text-fg leading-snug mb-2">{title}</p>
           <p className="type-body-sm text-fg-muted mb-4">{description}</p>
-          <div className="flex flex-wrap gap-1.5 mb-4">
+          <div className="flex flex-wrap gap-2 mb-4">
             {tags.map((tag) => (
               <span
                 key={tag}
-                className="type-caption text-fg-subtle border border-border rounded-full px-3 py-1.5 leading-none"
+                className="type-caption text-fg-subtle border border-border rounded-full px-3 py-2 leading-none"
               >
                 {tag}
               </span>
@@ -179,11 +179,11 @@ export function CaseCard({
         >
           <p className="type-body-strong text-fg leading-snug mb-2">{title}</p>
           <p className="type-body-sm text-fg-muted line-clamp-2 mb-4">{description}</p>
-          <div className="flex flex-wrap gap-1.5 mb-4">
+          <div className="flex flex-wrap gap-2 mb-4">
             {tags.map((tag) => (
               <span
                 key={tag}
-                className="type-caption text-fg-subtle border border-border rounded-full px-3 py-1.5 leading-none"
+                className="type-caption text-fg-subtle border border-border rounded-full px-3 py-2 leading-none"
               >
                 {tag}
               </span>
