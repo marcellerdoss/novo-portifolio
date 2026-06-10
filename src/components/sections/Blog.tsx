@@ -135,7 +135,7 @@ export function BlogPreview({ posts }: Props) {
             )}
 
             {/* overflow-hidden bloqueia scroll manual e scrollbar */}
-            <div ref={containerRef} className="overflow-hidden">
+            <div ref={containerRef} className="overflow-hidden pb-px">
               {/*
                 CSS grid: 100% resolve em relação ao container visível (não ao track),
                 garantindo que cada coluna = 1/3 da largura visível desde o primeiro render.
