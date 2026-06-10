@@ -71,6 +71,37 @@ function ColorSwatch({ bg, label, value }: { bg: string; label: string; value: s
   );
 }
 
+/* ── Color Scale Row ─────────────────────────────────────── */
+function ColorScaleRow({
+  name,
+  steps,
+  brandStep,
+}: {
+  name: string;
+  steps: { stop: string; hex: string }[];
+  brandStep?: string;
+}) {
+  return (
+    <div className="space-y-2">
+      <p className="type-caption text-fg-subtle">{name}</p>
+      <div className="flex gap-1">
+        {steps.map(({ stop, hex }) => (
+          <div key={stop} className="flex flex-col gap-1 min-w-0 flex-1">
+            <div
+              className="h-9 rounded border border-black/10 dark:border-white/10"
+              style={{ backgroundColor: hex }}
+              title={`${stop}: ${hex}`}
+            />
+            <p className={`text-[9px] leading-none text-center font-mono ${stop === brandStep ? 'text-accent-magenta' : 'text-fg-subtle'}`}>
+              {stop}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 /* ── Heuristic card ───────────────────────────────────────── */
 function HeuristicCard({
   num,
@@ -254,32 +285,179 @@ export default function RacionalPage() {
               </div>
             </div>
 
-            {/* Colors */}
+            {/* Colors — semantic tokens */}
             <div className="mt-10">
-              <H3>Paleta — light mode</H3>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-4">
-                <ColorSwatch bg="#fafafa"  label="bg"           value="#fafafa" />
-                <ColorSwatch bg="#f7f7f5"  label="surface-soft" value="#f7f7f5" />
-                <ColorSwatch bg="#f4ecd6"  label="block-cream"  value="#f4ecd6" />
-                <ColorSwatch bg="#1f1d3d"  label="fg / primary" value="#1f1d3d" />
-                <ColorSwatch bg="#404040"  label="fg-muted"     value="#404040" />
-                <ColorSwatch bg="#777777"  label="fg-subtle"    value="#777777" />
+              <H3>Tokens semânticos</H3>
+              <BodySm>
+                As cores têm papéis, não nomes literais. O dark mode é uma troca de tokens — não de estilos individuais.
+              </BodySm>
+              <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <ColorSwatch bg="#fafafa"  label="bg"             value="#fafafa" />
+                <ColorSwatch bg="#f7f7f5"  label="surface-soft"   value="#f7f7f5" />
+                <ColorSwatch bg="#f4ecd6"  label="block-cream"    value="#f4ecd6" />
+                <ColorSwatch bg="#1f1d3d"  label="fg / primary"   value="#1f1d3d" />
+                <ColorSwatch bg="#404040"  label="fg-muted"       value="#404040" />
+                <ColorSwatch bg="#666666"  label="fg-subtle"      value="#666666" />
                 <ColorSwatch bg="#C8236A"  label="accent-magenta" value="#C8236A" />
-                <ColorSwatch bg="#1f1d3d"  label="block-navy"   value="#1f1d3d" />
+                <ColorSwatch bg="#1f1d3d"  label="block-navy"     value="#1f1d3d" />
+              </div>
+              <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <ColorSwatch bg="#121124"  label="bg (dark)"             value="#121124" />
+                <ColorSwatch bg="#1a1836"  label="surface-soft (dark)"   value="#1a1836" />
+                <ColorSwatch bg="#1e1c31"  label="block-cream (dark)"    value="#1e1c31" />
+                <ColorSwatch bg="#ffffff"  label="fg (dark)"             value="#ffffff" />
+                <ColorSwatch bg="#e4e4e7"  label="fg-muted (dark)"       value="#e4e4e7" />
+                <ColorSwatch bg="#a1a1aa"  label="fg-subtle (dark)"      value="#a1a1aa" />
+                <ColorSwatch bg="#C8236A"  label="accent-magenta (dark)" value="#C8236A" />
+                <ColorSwatch bg="#261724"  label="block-pink (dark)"     value="#261724" />
               </div>
             </div>
 
-            <div className="mt-8">
-              <H3>Paleta — dark mode</H3>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-4">
-                <ColorSwatch bg="#121124"  label="bg"           value="#121124" />
-                <ColorSwatch bg="#1a1836"  label="surface-soft" value="#1a1836" />
-                <ColorSwatch bg="#1e1c31"  label="block-cream"  value="#1e1c31" />
-                <ColorSwatch bg="#ffffff"  label="fg"           value="#ffffff" />
-                <ColorSwatch bg="#e4e4e7"  label="fg-muted"     value="#e4e4e7" />
-                <ColorSwatch bg="#a1a1aa"  label="fg-subtle"    value="#a1a1aa" />
-                <ColorSwatch bg="#C8236A"  label="accent-magenta" value="#C8236A" />
-                <ColorSwatch bg="#261724"  label="block-pink"   value="#261724" />
+            {/* Colors — full scales */}
+            <div className="mt-10">
+              <H3>Escalas de cores (50 → 900)</H3>
+              <BodySm>
+                Cada cor possui escala completa. Convenção: 50–200 = fundos e hover; 300–400 = bordas e ícones; 500–600 = texto WCAG AA sobre branco; 700–900 = corpo e headings. O passo marcado em magenta é a cor base do sistema.
+              </BodySm>
+              <div className="mt-6 space-y-6 p-6 rounded-[16px] bg-surface-soft border border-border overflow-x-auto">
+                <ColorScaleRow
+                  name="Magenta — cor de marca primária (base 600)"
+                  brandStep="600"
+                  steps={[
+                    { stop: '50',  hex: '#FEF0F6' },
+                    { stop: '100', hex: '#FCD9E8' },
+                    { stop: '200', hex: '#F5B2CF' },
+                    { stop: '300', hex: '#EC83B0' },
+                    { stop: '400', hex: '#E35492' },
+                    { stop: '500', hex: '#DB337C' },
+                    { stop: '600', hex: '#C8236A' },
+                    { stop: '700', hex: '#931F51' },
+                    { stop: '800', hex: '#631738' },
+                    { stop: '900', hex: '#380F21' },
+                  ]}
+                />
+                <ColorScaleRow
+                  name="Navy — texto e superfície primária (base 900)"
+                  brandStep="900"
+                  steps={[
+                    { stop: '50',  hex: '#F2F2FA' },
+                    { stop: '100', hex: '#E2E1F4' },
+                    { stop: '200', hex: '#C0BEEA' },
+                    { stop: '300', hex: '#9593D8' },
+                    { stop: '400', hex: '#6B67C0' },
+                    { stop: '500', hex: '#4B469F' },
+                    { stop: '600', hex: '#38347E' },
+                    { stop: '700', hex: '#2B2861' },
+                    { stop: '800', hex: '#211F4A' },
+                    { stop: '900', hex: '#1f1d3d' },
+                  ]}
+                />
+                <ColorScaleRow
+                  name="Neutral — escala quente-neutra (base 50)"
+                  brandStep="50"
+                  steps={[
+                    { stop: '50',  hex: '#FAFAFA' },
+                    { stop: '100', hex: '#F7F7F5' },
+                    { stop: '200', hex: '#EDEDEB' },
+                    { stop: '300', hex: '#D4D4D2' },
+                    { stop: '400', hex: '#ABABAA' },
+                    { stop: '500', hex: '#808080' },
+                    { stop: '600', hex: '#666666' },
+                    { stop: '700', hex: '#404040' },
+                    { stop: '800', hex: '#282828' },
+                    { stop: '900', hex: '#1A1A1A' },
+                  ]}
+                />
+                <ColorScaleRow
+                  name="Lime — color block (base 200)"
+                  brandStep="200"
+                  steps={[
+                    { stop: '50',  hex: '#F4FCE3' },
+                    { stop: '100', hex: '#EBFACF' },
+                    { stop: '200', hex: '#DCEEB1' },
+                    { stop: '300', hex: '#C2E37F' },
+                    { stop: '400', hex: '#9FCC47' },
+                    { stop: '500', hex: '#7DB028' },
+                    { stop: '600', hex: '#5A8020' },
+                    { stop: '700', hex: '#3D5A16' },
+                    { stop: '800', hex: '#2A3D0E' },
+                  ]}
+                />
+                <ColorScaleRow
+                  name="Lilac — color block (base 200)"
+                  brandStep="200"
+                  steps={[
+                    { stop: '50',  hex: '#F3F0FF' },
+                    { stop: '100', hex: '#E6DFFF' },
+                    { stop: '200', hex: '#C5B0F4' },
+                    { stop: '300', hex: '#9E7EE8' },
+                    { stop: '400', hex: '#7650D6' },
+                    { stop: '500', hex: '#5730B4' },
+                    { stop: '600', hex: '#4220A6' },
+                    { stop: '700', hex: '#2F1878' },
+                    { stop: '800', hex: '#1C0F4C' },
+                  ]}
+                />
+                <ColorScaleRow
+                  name="Cream — color block (base 100)"
+                  brandStep="100"
+                  steps={[
+                    { stop: '50',  hex: '#FDFAF4' },
+                    { stop: '100', hex: '#F4ECD6' },
+                    { stop: '200', hex: '#E5D3A4' },
+                    { stop: '300', hex: '#D1B660' },
+                    { stop: '400', hex: '#B99030' },
+                    { stop: '500', hex: '#9A7018' },
+                    { stop: '600', hex: '#7A5610' },
+                    { stop: '700', hex: '#563C08' },
+                    { stop: '800', hex: '#3D2B05' },
+                  ]}
+                />
+                <ColorScaleRow
+                  name="Pink — color block (base 100)"
+                  brandStep="100"
+                  steps={[
+                    { stop: '50',  hex: '#FDF5F5' },
+                    { stop: '100', hex: '#EFD4D4' },
+                    { stop: '200', hex: '#DEAAAA' },
+                    { stop: '300', hex: '#CA7878' },
+                    { stop: '400', hex: '#B24848' },
+                    { stop: '500', hex: '#962828' },
+                    { stop: '600', hex: '#7A1A1A' },
+                    { stop: '700', hex: '#581010' },
+                    { stop: '800', hex: '#380808' },
+                  ]}
+                />
+                <ColorScaleRow
+                  name="Mint — color block (base 200)"
+                  brandStep="200"
+                  steps={[
+                    { stop: '50',  hex: '#EEFAF1' },
+                    { stop: '100', hex: '#DBF0E0' },
+                    { stop: '200', hex: '#C8E6CD' },
+                    { stop: '300', hex: '#9DD4A8' },
+                    { stop: '400', hex: '#68B878' },
+                    { stop: '500', hex: '#3E9652' },
+                    { stop: '600', hex: '#2A7039' },
+                    { stop: '700', hex: '#1C5028' },
+                    { stop: '800', hex: '#103018' },
+                  ]}
+                />
+                <ColorScaleRow
+                  name="Coral — color block (base 100)"
+                  brandStep="100"
+                  steps={[
+                    { stop: '50',  hex: '#FEF4EF' },
+                    { stop: '100', hex: '#F3C9B6' },
+                    { stop: '200', hex: '#ECAA8A' },
+                    { stop: '300', hex: '#E27E55' },
+                    { stop: '400', hex: '#CC5628' },
+                    { stop: '500', hex: '#A84018' },
+                    { stop: '600', hex: '#842E0E' },
+                    { stop: '700', hex: '#5E2008' },
+                    { stop: '800', hex: '#3C1404' },
+                  ]}
+                />
               </div>
             </div>
 
