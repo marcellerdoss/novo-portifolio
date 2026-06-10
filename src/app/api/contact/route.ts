@@ -1,13 +1,12 @@
 import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const TO_EMAIL = 'marcelle.rdoss@gmail.com';
 const FROM_EMAIL = 'onboarding@resend.dev';
 
 export async function POST(req: Request) {
   try {
+    const resend = new Resend(process.env.RESEND_API_KEY);
     const { name, email, message } = await req.json();
 
     if (!name || !email || !message) {
