@@ -117,7 +117,7 @@ export function CaseCard({
             className="flex-1 min-h-0 relative"
             style={{ backgroundColor: mockup ? accentBg : undefined }}
           >
-            <div className="absolute inset-5 flex items-center justify-center overflow-hidden">
+            <div className="absolute inset-5 flex items-center justify-center">
               {mockup === 'mobile' && (
                 <div
                   className="relative h-full rounded-[26px] border-[5px] border-neutral-900 dark:border-white shadow-2xl overflow-hidden"
@@ -130,18 +130,22 @@ export function CaseCard({
                 </div>
               )}
               {mockup === 'desktop' && (
-                <div className="w-[85%]">
-                  <div
-                    className="rounded-t-[8px] overflow-hidden border-[5px] border-b-0 border-neutral-900 dark:border-white bg-neutral-100 dark:bg-white/10 relative shadow-xl"
-                    style={{ aspectRatio: '16 / 10' }}
-                  >
+                /* aspect-ratio + max-width + max-height: CSS auto-reduz a largura quando a altura limita */
+                <div
+                  className="relative"
+                  style={{ aspectRatio: '16 / 10', width: '100%', maxWidth: '85%', maxHeight: 'calc(90% - 9px)' }}
+                >
+                  {/* Tela */}
+                  <div className="absolute inset-0 rounded-t-[8px] overflow-hidden border-[5px] border-b-0 border-neutral-900 dark:border-white bg-neutral-100 dark:bg-white/10 shadow-xl">
                     <div className="absolute top-0 inset-x-0 z-10 flex justify-center pt-[5px]">
                       <div className="w-1.5 h-1.5 rounded-full bg-neutral-500 dark:bg-white/60" />
                     </div>
                     <Image src={imageSrc} alt={imageAlt} fill sizes="50vw" className="object-cover object-top" />
                   </div>
-                  <div className="h-[5px] bg-neutral-900 dark:bg-white" />
-                  <div className="flex justify-center">
+                  {/* Barra inferior */}
+                  <div className="absolute bottom-[-5px] left-0 right-0 h-[5px] bg-neutral-900 dark:bg-white" />
+                  {/* Suporte */}
+                  <div className="absolute bottom-[-9px] left-0 right-0 flex justify-center">
                     <div className="h-[4px] bg-neutral-700 dark:bg-white/70 rounded-b-md" style={{ width: '65%' }} />
                   </div>
                 </div>
