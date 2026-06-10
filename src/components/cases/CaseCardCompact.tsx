@@ -19,6 +19,7 @@ export interface CaseCardCompactProps {
 
 export function CaseCardCompact({
   company,
+  label,
   title,
   tags,
   href,
@@ -85,7 +86,8 @@ export function CaseCardCompact({
           )}
         </div>
         <div className="bg-canvas dark:bg-surface-soft border-t border-black/10 dark:border-white/10 px-4 py-4">
-          <p className="type-body-strong text-fg leading-snug mb-3">{title}</p>
+          <p className="type-body-strong text-fg leading-snug mb-1">{title}</p>
+          {label && <p className="type-body-sm text-fg-muted mb-3">{label}</p>}
           <div className="flex flex-wrap gap-1 mb-4">
             {tags.map((tag) => (
               <span
@@ -109,7 +111,7 @@ export function CaseCardCompact({
 
         {/* Zona de preview — NÃO se move no hover */}
         <div
-          className="absolute top-0 left-0 right-0 bottom-[72px]"
+          className="absolute top-0 left-0 right-0 bottom-[96px]"
           style={{ backgroundColor: mockup ? accentBg : undefined }}
         >
           {/* Área interna com padding igual nos 4 lados */}
@@ -153,12 +155,13 @@ export function CaseCardCompact({
           </div>
         </div>
 
-        {/* Painel repouso — título visível em estado normal */}
+        {/* Painel repouso — título + label visíveis em estado normal */}
         <div
-          className="absolute bottom-0 inset-x-0 h-[72px] bg-canvas dark:bg-surface-soft border-t border-black/10 dark:border-white/10 px-4 flex items-center transition-opacity duration-200 group-hover:opacity-0"
+          className="absolute bottom-0 inset-x-0 bg-canvas dark:bg-surface-soft border-t border-black/10 dark:border-white/10 px-4 py-4 flex flex-col transition-opacity duration-200 group-hover:opacity-0"
           aria-hidden="true"
         >
-          <p className="type-body-strong text-fg leading-snug">{title}</p>
+          <p className="type-body-strong text-fg leading-snug mb-1">{title}</p>
+          {label && <p className="type-body-sm text-fg-muted line-clamp-1">{label}</p>}
         </div>
 
         {/* Painel hover — sobe do fundo */}

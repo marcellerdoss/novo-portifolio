@@ -111,7 +111,7 @@ export function CaseCard({
 
         {/* Zona de preview — NÃO se move no hover */}
         <div
-          className="absolute top-0 left-0 right-0 bottom-[80px]"
+          className="absolute top-0 left-0 right-0 bottom-[120px]"
           style={{ backgroundColor: mockup ? accentBg : undefined }}
         >
           {/* Área interna com padding igual nos 4 lados */}
@@ -155,12 +155,13 @@ export function CaseCard({
           </div>
         </div>
 
-        {/* Painel repouso — título visível em estado normal */}
+        {/* Painel repouso — título + descrição visíveis em estado normal */}
         <div
-          className="absolute bottom-0 inset-x-0 h-[80px] bg-canvas dark:bg-surface-soft border-t border-black/10 dark:border-white/10 px-5 flex items-center transition-opacity duration-200 group-hover:opacity-0"
+          className="absolute bottom-0 inset-x-0 bg-canvas dark:bg-surface-soft border-t border-black/10 dark:border-white/10 px-5 py-5 flex flex-col transition-opacity duration-200 group-hover:opacity-0"
           aria-hidden="true"
         >
-          <p className="type-body-strong text-fg leading-snug">{title}</p>
+          <p className="type-body-strong text-fg leading-snug mb-2">{title}</p>
+          <p className="type-body-sm text-fg-muted line-clamp-2">{description}</p>
         </div>
 
         {/* Painel hover — sobe do fundo */}
