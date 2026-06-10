@@ -26,8 +26,8 @@ function ArticleCard({ post, locale, t }: { post: BlogPost; locale: string; t: R
       </span>
 
       {/* Title — fixed 3-line height so excerpts align across cards */}
-      <div className="mb-3 min-h-[6.6rem]">
-        <h3 className="type-headline text-fg leading-snug line-clamp-3">
+      <div className="mb-3 min-h-[80px]">
+        <h3 className="type-body-strong text-fg leading-snug line-clamp-3">
           {post.title}
         </h3>
       </div>
