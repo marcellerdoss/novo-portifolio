@@ -15,7 +15,7 @@ export function Hero() {
     <section
       id="home"
       aria-label="Apresentação"
-      className="relative min-h-screen flex flex-col bg-bg pt-12 md:pt-24 pb-12"
+      className="relative min-h-screen flex flex-col bg-bg pt-12 md:pt-16 2xl:pt-24 pb-12"
     >
       <motion.div
         className="max-w-6xl mx-auto px-6 w-full flex-1 flex flex-col justify-center"
@@ -26,13 +26,13 @@ export function Hero() {
         {/* Role label — badge eyebrow */}
         <motion.span
           variants={fadeInUp}
-          className="type-caption text-accent-magenta mb-8 md:mb-12"
+          className="type-caption text-accent-magenta mb-8 2xl:mb-12"
         >
           {t('role')}
         </motion.span>
 
         {/* Name + Tagline — agrupados */}
-        <div className="mb-8 md:mb-12">
+        <div className="mb-8 md:mb-8 xl:mb-12">
           <motion.p
             variants={fadeInUp}
             className="type-subhead text-fg mb-3"
@@ -42,7 +42,7 @@ export function Hero() {
 
           <motion.h1
             variants={fadeInUp}
-            className="text-[clamp(2rem,5vw,4rem)] leading-[1.05] tracking-[-1.5px]"
+            className="text-[clamp(2rem,4vw,3.5rem)] leading-[1.05] tracking-[-1.5px]"
           >
             {t('subtitle').split('\n').map((line, i) => (
               <span
