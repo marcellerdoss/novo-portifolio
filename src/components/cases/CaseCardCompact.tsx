@@ -117,7 +117,7 @@ export function CaseCardCompact({
             className="flex-1 min-h-0 relative"
             style={{ backgroundColor: mockup ? accentBg : undefined }}
           >
-            <div className="absolute inset-4 flex items-center justify-center">
+            <div className="absolute inset-4 flex items-center justify-center overflow-hidden">
               {mockup === 'mobile' && (
                 <div
                   className="relative h-full rounded-[22px] border-[4px] border-neutral-900 dark:border-white shadow-xl overflow-hidden"
