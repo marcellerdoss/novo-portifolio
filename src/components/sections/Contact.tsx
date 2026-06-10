@@ -25,17 +25,30 @@ function IconLinkedIn() {
 
 const WA_HREF = 'https://wa.me/5521979165494';
 
-function ContactForm({ email }: { email: string }) {
+function ContactForm({ email: _email }: { email: string }) {
   const t = useTranslations('contact');
   const [name, setName] = useState('');
   const [userEmail, setUserEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    const subject = encodeURIComponent(`${t('form_subject_prefix')}${name}`);
-    const body = encodeURIComponent(`${t('form_name_label')}: ${name}\n${t('form_email_label')}: ${userEmail}\n\n${message}`);
-    window.open(`mailto:${email}?subject=${subject}&body=${body}`);
+    setStatus('sending');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email: userEmail, message }),
+      });
+      if (!res.ok) throw new Error();
+      setStatus('success');
+      setName('');
+      setUserEmail('');
+      setMessage('');
+    } catch {
+      setStatus('error');
+    }
   }
 
   const inputClass =
@@ -83,12 +96,21 @@ function ContactForm({ email }: { email: string }) {
           className={`${inputClass} resize-none`}
         />
       </div>
-      <Button
-        type="submit"
-        className="self-start bg-white text-primary hover:opacity-90 hover:bg-white dark:bg-white dark:text-primary dark:hover:bg-white dark:hover:opacity-90"
-      >
-        {t('form_submit')}
-      </Button>
+      <div className="flex flex-col gap-3">
+        <Button
+          type="submit"
+          disabled={status === 'sending' || status === 'success'}
+          className="self-start bg-white text-primary hover:opacity-90 hover:bg-white dark:bg-white dark:text-primary dark:hover:bg-white dark:hover:opacity-90 disabled:opacity-50"
+        >
+          {status === 'sending' ? t('form_sending') : status === 'success' ? t('form_sent') : t('form_submit')}
+        </Button>
+        {status === 'success' && (
+          <p className="type-body-sm text-white/80">{t('form_success')}</p>
+        )}
+        {status === 'error' && (
+          <p className="type-body-sm text-red-300">{t('form_error')}</p>
+        )}
+      </div>
     </form>
   );
 }

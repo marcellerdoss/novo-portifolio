@@ -80,7 +80,7 @@
     "results_plural": "articles found"
   },
   "contact": {
-    "title": "Let's connect?",
+    "title": "Let's build a strategic product together?",
     "subtitle": "Open to full-time employment and freelance projects.",
     "email": "Email",
     "linkedin": "LinkedIn",
@@ -91,6 +91,10 @@
     "form_email_label": "Email",
     "form_message_label": "Message",
     "form_submit": "Send message",
+    "form_sending": "Sending...",
+    "form_sent": "Message sent!",
+    "form_success": "I received your message and will get back to you soon.",
+    "form_error": "Something went wrong. Try again or email me directly.",
     "form_subject_prefix": "Portfolio contact — "
   },
   "footer": {

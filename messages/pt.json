@@ -80,7 +80,7 @@
     "results_plural": "artigos encontrados"
   },
   "contact": {
-    "title": "Vamos nos conectar?",
+    "title": "Vamos construir um produto estratégico juntos?",
     "subtitle": "Disponível para oportunidades CLT e projetos freelance.",
     "email": "E-mail",
     "linkedin": "LinkedIn",
@@ -91,6 +91,10 @@
     "form_email_label": "E-mail",
     "form_message_label": "Mensagem",
     "form_submit": "Enviar mensagem",
+    "form_sending": "Enviando...",
+    "form_sent": "Mensagem enviada!",
+    "form_success": "Recebi sua mensagem e em breve entro em contato.",
+    "form_error": "Algo deu errado. Tente novamente ou me envie um e-mail diretamente.",
     "form_subject_prefix": "Contato do portfólio — "
   },
   "footer": {

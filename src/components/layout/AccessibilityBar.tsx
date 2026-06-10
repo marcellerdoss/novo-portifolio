@@ -33,7 +33,7 @@ export function AccessibilityBar() {
     <div
       role="navigation"
       aria-label="Barra de acessibilidade"
-      className="fixed top-0 left-0 right-0 z-50 h-9 bg-[#1f1d3d] flex items-center select-none"
+      className="fixed top-0 left-0 right-0 z-50 h-9 bg-[#131226] flex items-center select-none"
     >
       <div className="max-w-6xl mx-auto px-6 w-full flex items-center justify-between gap-4">
 

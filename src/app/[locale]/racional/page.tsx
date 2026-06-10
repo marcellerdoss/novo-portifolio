@@ -85,18 +85,23 @@ function ColorScaleRow({
     <div className="space-y-2">
       <p className="type-caption text-fg-subtle">{name}</p>
       <div className="flex gap-1">
-        {steps.map(({ stop, hex }) => (
-          <div key={stop} className="flex flex-col gap-1 min-w-0 flex-1">
-            <div
-              className="h-9 rounded border border-black/10 dark:border-white/10"
-              style={{ backgroundColor: hex }}
-              title={`${stop}: ${hex}`}
-            />
-            <p className={`text-[9px] leading-none text-center font-mono ${stop === brandStep ? 'text-accent-magenta' : 'text-fg-subtle'}`}>
-              {stop}
-            </p>
-          </div>
-        ))}
+        {steps.map(({ stop, hex }) => {
+          const isBase = stop === brandStep;
+          return (
+            <div key={stop} className="flex flex-col gap-1 min-w-0 flex-1">
+              <div
+                className="h-9 rounded border border-black/10 dark:border-white/10"
+                style={{ backgroundColor: hex }}
+              />
+              <p className={`text-[9px] leading-none text-center font-mono ${isBase ? 'text-accent-magenta font-bold' : 'text-fg-subtle'}`}>
+                {stop}
+              </p>
+              <p className="text-[8px] leading-none text-center font-mono text-fg-subtle/70 tracking-tight">
+                {hex.slice(1)}
+              </p>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
@@ -293,13 +298,13 @@ export default function RacionalPage() {
               </BodySm>
               <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4">
                 <ColorSwatch bg="#fafafa"  label="bg"             value="#fafafa" />
-                <ColorSwatch bg="#f7f7f5"  label="surface-soft"   value="#f7f7f5" />
+                <ColorSwatch bg="#ececea"  label="surface-soft"   value="#ececea" />
                 <ColorSwatch bg="#f4ecd6"  label="block-cream"    value="#f4ecd6" />
-                <ColorSwatch bg="#1f1d3d"  label="fg / primary"   value="#1f1d3d" />
+                <ColorSwatch bg="#131226"  label="fg / primary"   value="#131226" />
                 <ColorSwatch bg="#404040"  label="fg-muted"       value="#404040" />
                 <ColorSwatch bg="#666666"  label="fg-subtle"      value="#666666" />
                 <ColorSwatch bg="#C8236A"  label="accent-magenta" value="#C8236A" />
-                <ColorSwatch bg="#1f1d3d"  label="block-navy"     value="#1f1d3d" />
+                <ColorSwatch bg="#131226"  label="block-navy"     value="#131226" />
               </div>
               <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-4">
                 <ColorSwatch bg="#121124"  label="bg (dark)"             value="#121124" />
@@ -349,7 +354,7 @@ export default function RacionalPage() {
                     { stop: '600', hex: '#38347E' },
                     { stop: '700', hex: '#2B2861' },
                     { stop: '800', hex: '#211F4A' },
-                    { stop: '900', hex: '#1f1d3d' },
+                    { stop: '900', hex: '#131226' },
                   ]}
                 />
                 <ColorScaleRow
@@ -357,8 +362,8 @@ export default function RacionalPage() {
                   brandStep="50"
                   steps={[
                     { stop: '50',  hex: '#FAFAFA' },
-                    { stop: '100', hex: '#F7F7F5' },
-                    { stop: '200', hex: '#EDEDEB' },
+                    { stop: '100', hex: '#ECECEA' },
+                    { stop: '200', hex: '#DDDDDA' },
                     { stop: '300', hex: '#D4D4D2' },
                     { stop: '400', hex: '#ABABAA' },
                     { stop: '500', hex: '#808080' },
@@ -375,12 +380,12 @@ export default function RacionalPage() {
                     { stop: '50',  hex: '#FDFAF4' },
                     { stop: '100', hex: '#F4ECD6' },
                     { stop: '200', hex: '#E5D3A4' },
-                    { stop: '300', hex: '#D1B660' },
-                    { stop: '400', hex: '#B99030' },
-                    { stop: '500', hex: '#9A7018' },
-                    { stop: '600', hex: '#7A5610' },
-                    { stop: '700', hex: '#563C08' },
-                    { stop: '800', hex: '#3D2B05' },
+                    { stop: '300', hex: '#CFB268' },
+                    { stop: '400', hex: '#AF8E41' },
+                    { stop: '500', hex: '#816937' },
+                    { stop: '600', hex: '#5C4D2D' },
+                    { stop: '700', hex: '#3B3221' },
+                    { stop: '800', hex: '#28241A' },
                   ]}
                 />
                 <ColorScaleRow
@@ -391,11 +396,11 @@ export default function RacionalPage() {
                     { stop: '100', hex: '#EFD4D4' },
                     { stop: '200', hex: '#DEAAAA' },
                     { stop: '300', hex: '#CA7878' },
-                    { stop: '400', hex: '#B24848' },
-                    { stop: '500', hex: '#962828' },
-                    { stop: '600', hex: '#7A1A1A' },
-                    { stop: '700', hex: '#581010' },
-                    { stop: '800', hex: '#380808' },
+                    { stop: '400', hex: '#AF4B4B' },
+                    { stop: '500', hex: '#803C3C' },
+                    { stop: '600', hex: '#5E3131' },
+                    { stop: '700', hex: '#412525' },
+                    { stop: '800', hex: '#281A1A' },
                   ]}
                 />
                 <ColorScaleRow
@@ -406,11 +411,11 @@ export default function RacionalPage() {
                     { stop: '100', hex: '#F3C9B6' },
                     { stop: '200', hex: '#ECAA8A' },
                     { stop: '300', hex: '#E27E55' },
-                    { stop: '400', hex: '#CC5628' },
-                    { stop: '500', hex: '#A84018' },
-                    { stop: '600', hex: '#842E0E' },
-                    { stop: '700', hex: '#5E2008' },
-                    { stop: '800', hex: '#3C1404' },
+                    { stop: '400', hex: '#CA5B2B' },
+                    { stop: '500', hex: '#954728' },
+                    { stop: '600', hex: '#6B3724' },
+                    { stop: '700', hex: '#45271C' },
+                    { stop: '800', hex: '#2C1C16' },
                   ]}
                 />
               </div>
@@ -613,8 +618,8 @@ export default function RacionalPage() {
                 <div className="mt-4 space-y-3">
                   {[
                     { token: '--bg',           light: '#fafafa',  dark: '#121124' },
-                    { token: '--fg',           light: '#1f1d3d',  dark: '#ffffff' },
-                    { token: '--color-surface-soft', light: '#f7f7f5',  dark: '#1a1836' },
+                    { token: '--fg',           light: '#131226',  dark: '#ffffff' },
+                    { token: '--color-surface-soft', light: '#ececea',  dark: '#1a1836' },
                     { token: '--color-block-cream', light: '#f4ecd6',  dark: '#1e1c31' },
                     { token: '--color-accent-magenta', light: '#C8236A',  dark: '#C8236A' },
                   ].map(({ token, light, dark }) => (
