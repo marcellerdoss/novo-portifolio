@@ -89,100 +89,109 @@ export function Skills({ inline }: Props) {
   const t = useTranslations('skills');
   const locale = useLocale() as 'pt' | 'en';
 
-  const content = (
-    <>
-      <motion.h2
-        variants={fadeInUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        id="skills-heading"
-        className="type-headline text-fg mb-xxl"
-      >
-        {t('title')}
-      </motion.h2>
-
-      <motion.div
-        variants={stagger}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.1 }}
-        className={inline ? 'grid grid-cols-1 gap-8' : 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'}
-      >
-        {categories.map(({ key, items }) => (
-          <motion.div key={key} variants={fadeInUp}>
-            <h3 className="type-caption text-accent-magenta mb-4">
-              {t(key)}
-            </h3>
-            <motion.div
-              variants={staggerFast}
-              className="flex flex-wrap gap-2"
-            >
-              {items[locale].map((skill) => (
-                <motion.span
-                  key={skill}
-                  variants={fadeInUp}
-                  className="type-caption text-fg-subtle border border-border rounded-full px-3 py-2 leading-none"
-                >
-                  {skill}
-                </motion.span>
-              ))}
-            </motion.div>
+  const skillsGrid = (
+    <motion.div
+      variants={stagger}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1 }}
+      className={inline ? 'grid grid-cols-1 gap-8' : 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'}
+    >
+      {categories.map(({ key, items }) => (
+        <motion.div key={key} variants={fadeInUp}>
+          <h3 className="type-caption text-accent-magenta mb-4">{t(key)}</h3>
+          <motion.div variants={staggerFast} className="flex flex-wrap gap-2">
+            {items[locale].map((skill) => (
+              <motion.span
+                key={skill}
+                variants={fadeInUp}
+                className="type-caption text-fg-subtle border border-border rounded-full px-3 py-2 leading-none"
+              >
+                {skill}
+              </motion.span>
+            ))}
           </motion.div>
-        ))}
-      </motion.div>
-
-      {/* Divider */}
-      <hr className="border-border my-8" />
-
-      {/* Formação & Certificações */}
-      <motion.h2
-        variants={fadeInUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        id="formacao-heading"
-        className="type-headline text-fg mb-xxl"
-      >
-        {locale === 'pt' ? 'Formação & Certificações' : 'Education & Certifications'}
-      </motion.h2>
-
-      <motion.div
-        variants={stagger}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.1 }}
-        className="grid grid-cols-1 gap-8"
-      >
-        {educationCategories.map(({ label, items }) => (
-          <motion.div key={label.pt} variants={fadeInUp}>
-            <h3 className="type-caption text-accent-magenta mb-4">
-              {label[locale]}
-            </h3>
-            <div className="space-y-3">
-              {items.map((item) => (
-                <div key={item.name} className="flex flex-col gap-0.5">
-                  <span className="type-body-sm text-fg leading-snug">{item.name}</span>
-                  <span className="type-caption text-fg-subtle normal-case tracking-normal">{item.institution}</span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        ))}
-      </motion.div>
-    </>
+        </motion.div>
+      ))}
+    </motion.div>
   );
 
-  if (inline) return <div id="skills">{content}</div>;
+  const educationGrid = (
+    <motion.div
+      variants={stagger}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1 }}
+      className="grid grid-cols-1 gap-8"
+    >
+      {educationCategories.map(({ label, items }) => (
+        <motion.div key={label.pt} variants={fadeInUp}>
+          <h3 className="type-caption text-accent-magenta mb-4">{label[locale]}</h3>
+          <div className="space-y-3">
+            {items.map((item) => (
+              <div key={item.name} className="flex flex-col gap-0.5">
+                <span className="type-body-sm text-fg leading-snug">{item.name}</span>
+                <span className="type-caption text-fg-subtle normal-case tracking-normal">{item.institution}</span>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+      ))}
+    </motion.div>
+  );
+
+  if (inline) return (
+    <div id="skills">
+      <motion.h2 variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+        id="skills-heading" className="type-headline text-fg mb-xxl">
+        {t('title')}
+      </motion.h2>
+      {skillsGrid}
+      <hr className="border-border my-8" />
+      <motion.h2 variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+        id="formacao-heading" className="type-headline text-fg mb-xxl">
+        {locale === 'pt' ? 'Formação & Certificações' : 'Education & Certifications'}
+      </motion.h2>
+      {educationGrid}
+    </div>
+  );
 
   return (
-    <section
-      id="skills"
-      aria-labelledby="skills-heading"
-      className="py-section bg-surface-soft"
-    >
-      <div className="max-w-6xl mx-auto px-6">
-        {content}
+    <section id="skills" aria-labelledby="skills-heading" className="py-section bg-surface-soft">
+      <div className="max-w-6xl mx-auto px-6 space-y-12">
+
+        {/* Skills: título à esquerda, categorias à direita */}
+        <div className="grid grid-cols-1 md:grid-cols-[160px_1fr] md:gap-16 items-start">
+          <motion.h2
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            id="skills-heading"
+            className="type-headline text-fg mb-8 md:mb-0 md:pt-1"
+          >
+            {t('title')}
+          </motion.h2>
+          {skillsGrid}
+        </div>
+
+        <hr className="border-border" />
+
+        {/* Formação: título à esquerda, itens à direita */}
+        <div className="grid grid-cols-1 md:grid-cols-[160px_1fr] md:gap-16 items-start">
+          <motion.h2
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            id="formacao-heading"
+            className="type-headline text-fg mb-8 md:mb-0 md:pt-1"
+          >
+            {locale === 'pt' ? 'Formação & Certificações' : 'Education & Certifications'}
+          </motion.h2>
+          {educationGrid}
+        </div>
+
       </div>
     </section>
   );

@@ -13,7 +13,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Campos obrigatórios ausentes.' }, { status: 400 });
     }
 
-    await resend.emails.send({
+    const { error: sendError } = await resend.emails.send({
       from: FROM_EMAIL,
       to: TO_EMAIL,
       replyTo: email,
@@ -27,8 +27,14 @@ export async function POST(req: Request) {
       `,
     });
 
+    if (sendError) {
+      console.error('[contact] Resend error:', sendError.name, sendError.message);
+      return NextResponse.json({ error: 'Erro ao enviar mensagem.' }, { status: 500 });
+    }
+
     return NextResponse.json({ ok: true });
-  } catch {
+  } catch (err) {
+    console.error('[contact] Caught error:', err);
     return NextResponse.json({ error: 'Erro ao enviar mensagem.' }, { status: 500 });
   }
 }
