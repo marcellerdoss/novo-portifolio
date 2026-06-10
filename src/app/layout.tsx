@@ -18,23 +18,33 @@ const base =
     : 'http://localhost:3000');
 
 export const metadata: Metadata = {
-  metadataBase: new URL(base),
+  metadataBase: new URL('https://marcellerocha.com.br'),
   title: {
-    default: 'Marcelle — UX & Product Designer',
-    template: '%s | Marcelle',
+    default: 'Marcelle Rocha | Produto estratégico',
+    template: '%s | Marcelle Rocha',
   },
   description:
-    'Portfolio de UX & Product Designer especializada em criar produtos digitais com impacto real.',
+    'Design centrado em comportamento e decisão. Produtos digitais construídos com estratégia, intenção e foco em impacto.',
   openGraph: {
     type: 'website',
-    siteName: 'Marcelle',
+    siteName: 'Marcelle Rocha',
+    url: 'https://marcellerocha.com.br',
     locale: 'pt_BR',
     alternateLocale: 'en_US',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Marcelle — UX & Product Designer' }],
+    title: 'Marcelle Rocha | Produto estratégico',
+    description: 'Design centrado em comportamento e decisão. Produtos digitais construídos com estratégia, intenção e foco em impacto.',
+    images: [{
+      url: '/images/social/og-image-magenta.png',
+      width: 1200,
+      height: 630,
+      alt: 'Marcelle Rocha | Produto estratégico',
+    }],
   },
   twitter: {
     card: 'summary_large_image',
-    images: ['/og-image.png'],
+    title: 'Marcelle Rocha | Produto estratégico',
+    description: 'Design centrado em comportamento e decisão. Produtos digitais construídos com estratégia, intenção e foco em impacto.',
+    images: ['/images/social/og-image-magenta.png'],
   },
   robots: { index: true, follow: true },
 };

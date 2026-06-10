@@ -17,23 +17,43 @@ import { siteConfig } from '@/lib/config';
 
 type Props = { params: Promise<{ locale: string }> };
 
+const titles: Record<string, string> = {
+  pt: 'Marcelle Rocha | Produto estratégico',
+  en: 'Marcelle Rocha | Strategic Product',
+};
+
 const descriptions: Record<string, string> = {
-  pt: 'Portfolio de UX & Product Designer especializada em criar produtos digitais com impacto. Cases, blog e experiência profissional.',
-  en: 'UX & Product Designer portfolio focused on creating digital products with real impact. Cases, blog, and professional experience.',
+  pt: 'Design centrado em comportamento e decisão. Produtos digitais construídos com estratégia, intenção e foco em impacto.',
+  en: 'Behavior- and decision-centered design. Digital products built with strategy, intention, and a focus on impact.',
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
+  const title = titles[locale] ?? titles.pt;
   const description = descriptions[locale] ?? descriptions.pt;
+  const ogLocale = locale === 'en' ? 'en_US' : 'pt_BR';
 
   return {
-    title: 'Marcelle — UX & Product Designer',
+    title,
     description,
     openGraph: {
-      title: 'Marcelle — UX & Product Designer',
+      title,
       description,
-      locale: locale === 'en' ? 'en_US' : 'pt_BR',
+      locale: ogLocale,
       type: 'website',
+      url: locale === 'en' ? 'https://marcellerocha.com.br/en' : 'https://marcellerocha.com.br',
+      images: [{
+        url: '/images/social/og-image-magenta.png',
+        width: 1200,
+        height: 630,
+        alt: title,
+      }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: ['/images/social/og-image-magenta.png'],
     },
     alternates: {
       canonical: locale === 'en' ? '/en' : '/',
