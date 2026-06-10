@@ -53,7 +53,7 @@ export function Header() {
   return (
     <>
       <header
-        className="fixed top-9 left-0 right-0 z-40 bg-bg border-b border-border"
+        className="fixed top-0 left-0 right-0 z-40 bg-bg border-b border-border"
       >
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
           {/* Logo */}
