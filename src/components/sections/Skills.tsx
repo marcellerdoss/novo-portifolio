@@ -47,6 +47,42 @@ const categories: SkillCategory[] = [
   },
 ];
 
+type EducationItem = { name: string; institution: string };
+type EducationCategory = { label: { pt: string; en: string }; items: EducationItem[] };
+
+const educationCategories: EducationCategory[] = [
+  {
+    label: { pt: 'Pós-graduação', en: 'Graduate Education' },
+    items: [
+      { name: 'UX e Design de Produtos Digitais', institution: 'PUC Minas' },
+      { name: 'Gestão da Experiência do Consumidor', institution: 'ESPM' },
+      { name: 'Consumer Insights e UX', institution: 'COPPEAD UFRJ' },
+      { name: 'Comunicação Social', institution: 'Estácio' },
+    ],
+  },
+  {
+    label: { pt: 'UX & Product Design', en: 'UX & Product Design' },
+    items: [
+      { name: 'UX Research', institution: 'Mergo Escola de Design' },
+      { name: 'UX Metrics', institution: 'Mergo Escola de Design' },
+      { name: 'UX Writing', institution: 'Mergo Escola de Design' },
+      { name: 'Product Designer', institution: 'Mergo Escola de Design' },
+      { name: 'Design de Serviço', institution: 'Mergo Escola de Design' },
+      { name: 'IA para Gestão de Produtos', institution: 'PRAGMA' },
+    ],
+  },
+  {
+    label: { pt: 'Estratégia & Método', en: 'Strategy & Methods' },
+    items: [
+      { name: 'Product Manager', institution: 'Product Arena' },
+      { name: 'Acessibilidade Digital no CX', institution: 'ESPM' },
+      { name: 'Design Thinking', institution: 'B2W Digital' },
+      { name: 'Metodologias Ágeis', institution: 'FGV Online' },
+      { name: 'Customer Success', institution: 'Sabre' },
+    ],
+  },
+];
+
 type Props = { inline?: boolean };
 
 export function Skills({ inline }: Props) {
@@ -92,6 +128,45 @@ export function Skills({ inline }: Props) {
                 </motion.span>
               ))}
             </motion.div>
+          </motion.div>
+        ))}
+      </motion.div>
+
+      {/* Divider */}
+      <hr className="border-border my-8" />
+
+      {/* Formação & Certificações */}
+      <motion.h2
+        variants={fadeInUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        id="formacao-heading"
+        className="type-headline text-fg mb-xxl"
+      >
+        {locale === 'pt' ? 'Formação & Certificações' : 'Education & Certifications'}
+      </motion.h2>
+
+      <motion.div
+        variants={stagger}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        className="grid grid-cols-1 gap-8"
+      >
+        {educationCategories.map(({ label, items }) => (
+          <motion.div key={label.pt} variants={fadeInUp}>
+            <h3 className="type-caption text-accent-magenta mb-4">
+              {label[locale]}
+            </h3>
+            <div className="space-y-3">
+              {items.map((item) => (
+                <div key={item.name} className="flex flex-col gap-0.5">
+                  <span className="type-body-sm text-fg leading-snug">{item.name}</span>
+                  <span className="type-caption text-fg-subtle normal-case tracking-normal">{item.institution}</span>
+                </div>
+              ))}
+            </div>
           </motion.div>
         ))}
       </motion.div>
