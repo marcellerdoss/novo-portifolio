@@ -109,62 +109,66 @@ export function CaseCard({
       {/* ── Desktop: proporção 4:3, mockup fixo, só texto sobe ── */}
       <div className="hidden md:block relative" style={{ aspectRatio: '4 / 3' }}>
 
-        {/* Zona de preview — NÃO se move no hover */}
-        <div
-          className="absolute top-0 left-0 right-0 bottom-[120px]"
-          style={{ backgroundColor: mockup ? accentBg : undefined }}
-        >
-          {/* Área interna com padding igual nos 4 lados */}
-          <div className="absolute inset-5 flex items-center justify-center">
-            {mockup === 'mobile' && (
-              <div
-                className="relative h-full rounded-[26px] border-[5px] border-neutral-900 dark:border-white shadow-2xl overflow-hidden"
-                style={{ aspectRatio: '9 / 19.5' }}
-              >
-                <div className="absolute top-0 inset-x-0 z-10 flex justify-center">
-                  <div className="w-[36%] h-[10px] bg-neutral-900 dark:bg-white rounded-b-full" />
-                </div>
-                <Image src={imageSrc} alt={imageAlt} fill sizes="50vw" className="object-cover object-top" />
-              </div>
-            )}
-            {mockup === 'desktop' && (
-              <div className="w-[85%]">
+        {/* Flex layout: preview cresce, painel de texto fica na base */}
+        <div className="absolute inset-0 flex flex-col">
+
+          {/* Zona de preview — cresce para preencher o espaço disponível */}
+          <div
+            className="flex-1 min-h-0 relative"
+            style={{ backgroundColor: mockup ? accentBg : undefined }}
+          >
+            <div className="absolute inset-5 flex items-center justify-center">
+              {mockup === 'mobile' && (
                 <div
-                  className="rounded-t-[8px] overflow-hidden border-[5px] border-b-0 border-neutral-900 dark:border-white bg-neutral-100 dark:bg-white/10 relative shadow-xl"
-                  style={{ aspectRatio: '16 / 10' }}
+                  className="relative h-full rounded-[26px] border-[5px] border-neutral-900 dark:border-white shadow-2xl overflow-hidden"
+                  style={{ aspectRatio: '9 / 19.5' }}
                 >
-                  <div className="absolute top-0 inset-x-0 z-10 flex justify-center pt-[5px]">
-                    <div className="w-1.5 h-1.5 rounded-full bg-neutral-500 dark:bg-white/60" />
+                  <div className="absolute top-0 inset-x-0 z-10 flex justify-center">
+                    <div className="w-[36%] h-[10px] bg-neutral-900 dark:bg-white rounded-b-full" />
                   </div>
                   <Image src={imageSrc} alt={imageAlt} fill sizes="50vw" className="object-cover object-top" />
                 </div>
-                <div className="h-[5px] bg-neutral-900 dark:bg-white" />
-                <div className="flex justify-center">
-                  <div className="h-[4px] bg-neutral-700 dark:bg-white/70 rounded-b-md" style={{ width: '65%' }} />
+              )}
+              {mockup === 'desktop' && (
+                <div className="w-[85%]">
+                  <div
+                    className="rounded-t-[8px] overflow-hidden border-[5px] border-b-0 border-neutral-900 dark:border-white bg-neutral-100 dark:bg-white/10 relative shadow-xl"
+                    style={{ aspectRatio: '16 / 10' }}
+                  >
+                    <div className="absolute top-0 inset-x-0 z-10 flex justify-center pt-[5px]">
+                      <div className="w-1.5 h-1.5 rounded-full bg-neutral-500 dark:bg-white/60" />
+                    </div>
+                    <Image src={imageSrc} alt={imageAlt} fill sizes="50vw" className="object-cover object-top" />
+                  </div>
+                  <div className="h-[5px] bg-neutral-900 dark:bg-white" />
+                  <div className="flex justify-center">
+                    <div className="h-[4px] bg-neutral-700 dark:bg-white/70 rounded-b-md" style={{ width: '65%' }} />
+                  </div>
                 </div>
-              </div>
-            )}
-            {!mockup && (
-              <div className="absolute inset-0">
-                <Image src={imageSrc} alt={imageAlt} fill sizes="50vw" className="object-cover object-left-top" />
-                {company && (
-                  <span className="absolute top-3 right-4 type-caption text-fg-subtle">{company}</span>
-                )}
-              </div>
-            )}
+              )}
+              {!mockup && (
+                <div className="absolute inset-0">
+                  <Image src={imageSrc} alt={imageAlt} fill sizes="50vw" className="object-cover object-left-top" />
+                  {company && (
+                    <span className="absolute top-3 right-4 type-caption text-fg-subtle">{company}</span>
+                  )}
+                </div>
+              )}
+            </div>
           </div>
+
+          {/* Painel repouso — título + descrição, fica na base */}
+          <div
+            className="shrink-0 bg-canvas dark:bg-surface-soft border-t border-black/10 dark:border-white/10 px-5 py-5 flex flex-col transition-opacity duration-200 group-hover:opacity-0"
+            aria-hidden="true"
+          >
+            <p className="type-body-strong text-fg leading-snug mb-2">{title}</p>
+            <p className="type-body-sm text-fg-muted line-clamp-2">{description}</p>
+          </div>
+
         </div>
 
-        {/* Painel repouso — título + descrição visíveis em estado normal */}
-        <div
-          className="absolute bottom-0 inset-x-0 bg-canvas dark:bg-surface-soft border-t border-black/10 dark:border-white/10 px-5 py-5 flex flex-col transition-opacity duration-200 group-hover:opacity-0"
-          aria-hidden="true"
-        >
-          <p className="type-body-strong text-fg leading-snug mb-2">{title}</p>
-          <p className="type-body-sm text-fg-muted line-clamp-2">{description}</p>
-        </div>
-
-        {/* Painel hover — sobe do fundo */}
+        {/* Painel hover — sobe do fundo (absolute, cobre o painel de repouso) */}
         <div
           className="absolute bottom-0 inset-x-0 bg-canvas dark:bg-surface-soft border-t border-black/10 dark:border-white/10 px-5 py-5 translate-y-full group-hover:translate-y-0 transition-transform duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col"
           aria-hidden="true"
