@@ -79,9 +79,23 @@ export default async function Home({ params }: Props) {
       <About />
       <CasesSection cases={cases} />
       <BlogPreview posts={posts} />
-      <Skills />
       <Racional />
-      <Experience items={experience} />
+      <section
+        id="experiencia"
+        aria-labelledby="experience-heading"
+        className="py-section bg-block-cream"
+      >
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 md:gap-x-16">
+            <div className="md:col-span-2">
+              <Experience items={experience} inline />
+            </div>
+            <div className="md:col-span-1 mt-16 md:mt-0">
+              <Skills inline />
+            </div>
+          </div>
+        </div>
+      </section>
       <Contact />
       <BackToTop />
     </>

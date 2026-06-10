@@ -47,9 +47,58 @@ const categories: SkillCategory[] = [
   },
 ];
 
-export function Skills() {
+type Props = { inline?: boolean };
+
+export function Skills({ inline }: Props) {
   const t = useTranslations('skills');
   const locale = useLocale() as 'pt' | 'en';
+
+  const content = (
+    <>
+      <motion.h2
+        variants={fadeInUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        id="skills-heading"
+        className="type-display-lg text-fg mb-xxl"
+      >
+        {t('title')}
+      </motion.h2>
+
+      <motion.div
+        variants={stagger}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        className={inline ? 'grid grid-cols-1 gap-8' : 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'}
+      >
+        {categories.map(({ key, items }) => (
+          <motion.div key={key} variants={fadeInUp}>
+            <h3 className="type-caption text-accent-magenta mb-4">
+              {t(key)}
+            </h3>
+            <motion.div
+              variants={staggerFast}
+              className="flex flex-wrap gap-2"
+            >
+              {items[locale].map((skill) => (
+                <motion.span
+                  key={skill}
+                  variants={fadeInUp}
+                  className="type-caption text-fg-subtle border border-border rounded-full px-3 py-1.5 leading-none"
+                >
+                  {skill}
+                </motion.span>
+              ))}
+            </motion.div>
+          </motion.div>
+        ))}
+      </motion.div>
+    </>
+  );
+
+  if (inline) return <div id="skills">{content}</div>;
 
   return (
     <section
@@ -58,46 +107,7 @@ export function Skills() {
       className="py-section bg-surface-soft"
     >
       <div className="max-w-6xl mx-auto px-6">
-        <motion.h2
-          variants={fadeInUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          id="skills-heading"
-          className="type-display-lg text-fg mb-xxl"
-        >
-          {t('title')}
-        </motion.h2>
-
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
-          {categories.map(({ key, items }) => (
-            <motion.div key={key} variants={fadeInUp}>
-              <h3 className="type-caption text-accent-magenta mb-4">
-                {t(key)}
-              </h3>
-              <motion.div
-                variants={staggerFast}
-                className="flex flex-wrap gap-2"
-              >
-                {items[locale].map((skill) => (
-                  <motion.span
-                    key={skill}
-                    variants={fadeInUp}
-                    className="type-caption text-fg-subtle border border-border rounded-full px-3 py-1.5 leading-none"
-                  >
-                    {skill}
-                  </motion.span>
-                ))}
-              </motion.div>
-            </motion.div>
-          ))}
-        </motion.div>
+        {content}
       </div>
     </section>
   );
