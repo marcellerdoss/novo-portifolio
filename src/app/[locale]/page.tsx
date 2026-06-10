@@ -78,7 +78,7 @@ export default async function Home({ params }: Props) {
       <MarqueeStrip />
       <About />
       <CasesSection cases={cases} />
-      <BlogPreview posts={posts.slice(0, 3)} />
+      <BlogPreview posts={posts} />
       <Skills />
       <Racional />
       <Experience items={experience} />
