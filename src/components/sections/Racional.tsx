@@ -1,86 +1,89 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ChevronRight, ChevronDown } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { fadeInUp, stagger } from '@/lib/animations';
 
 const phases = [
   {
-    num: '01',
-    type: 'Divergir',
-    title: 'Explorar o campo',
-    journeyCard: {
-      title: 'Estudar de ponta a ponta',
-      text: 'Mergulho em UX, CX, produto e design sem julgamento. Construir visão ampla antes de especializar.',
+    num: '1',
+    type: 'Descobrir',
+    isDivergir: true,
+    question: 'Quais são e de onde vêm os problemas?',
+    practiceCard: {
+      title: 'Leitura de contexto',
+      text: 'Exploro contextos por meio de pesquisas qualitativas e quantitativas, entrevistas e observação, além de desk research, benchmarking e análise de dados.',
     },
-    processCard: {
-      title: 'Entender antes de assumir',
-      text: 'O problema real raramente é o que achamos. Entrevistas, observação e dados revelam o que a superfície esconde.',
-    },
-  },
-  {
-    num: '02',
-    type: 'Convergir',
-    title: 'Definir o foco',
-    journeyCard: {
-      title: 'Escolher onde aprofundar',
-      text: 'Direcionar carreira para campos que conectam comportamento do usuário, estratégia e produto.',
-    },
-    processCard: {
-      title: 'O problema certo vale mais',
-      text: 'Sintetizo dados em um problema claro antes de qualquer solução. A IA acelera — a leitura crítica ainda é humana.',
+    trajectoryCard: {
+      title: 'Ampliação de repertório',
+      text: 'Atuação em diferentes contextos profissionais amplia a leitura de problemas, permitindo compreender como eles se manifestam na prática e não apenas na superfície das demandas.',
     },
   },
   {
-    num: '03',
-    type: 'Divergir',
-    title: 'Ideação e propósito',
-    journeyCard: {
-      title: 'Definir propósito e intenção',
-      text: 'O que quero fazer. Onde quero chegar. Explorar possibilidades com repertório e clareza.',
+    num: '2',
+    type: 'Definir',
+    isDivergir: false,
+    question: 'Qual problema devemos focar para resolver?',
+    practiceCard: {
+      title: 'Construção de foco',
+      text: 'Sintetizo informações para identificar padrões, tensões e oportunidades, transformando sinais dispersos em um problema claro e priorizado.',
     },
-    processCard: {
-      title: 'Explorar amplo, decidir com critério',
-      text: 'Múltiplas direções antes de convergir. Wireframes, protótipos, testes rápidos. Repertório define qualidade.',
+    trajectoryCard: {
+      title: 'Evolução de visão estratégica',
+      text: 'Minha trajetória amplia a capacidade de distinguir demandas pontuais de oportunidades reais de melhoria de experiência.',
     },
   },
   {
-    num: '04',
-    type: 'Convergir',
-    title: 'Entregar e evoluir',
-    journeyCard: {
-      title: 'Entregar, aprender, reiniciar',
-      text: 'Executar com embasamento. Testar, aprender. Melhorar processos e recomeçar o ciclo.',
+    num: '3',
+    type: 'Desenvolver',
+    isDivergir: true,
+    question: 'Quais são as soluções possíveis para esse problema?',
+    practiceCard: {
+      title: 'Exploração de soluções',
+      text: 'Exploro possibilidades de solução por meio de ideação, prototipação e validação inicial de caminhos, considerando intenção de experiência, viabilidade técnica e contexto de produto.',
     },
-    processCard: {
-      title: 'Lançar é o começo, não o fim',
-      text: 'Testo, valido, lanço — e continuo acompanhando. Métricas mostram onde a experiência ainda quebra.',
+    trajectoryCard: {
+      title: 'Construção de repertório aplicado',
+      text: 'Experiências em diferentes áreas permitem transitar entre ideias, necessidades de negócio e restrições técnicas, ampliando a capacidade de construir soluções consistentes.',
+    },
+  },
+  {
+    num: '4',
+    type: 'Entregar',
+    isDivergir: false,
+    question: 'Nossa solução de fato resolve o problema?',
+    practiceCard: {
+      title: 'Validação em uso',
+      text: 'Participo de testes, validações e acompanhamento da implementação, garantindo alinhamento entre o que foi desenhado e o que é entregue.',
+    },
+    trajectoryCard: {
+      title: 'Aprendizado contínuo com entrega',
+      text: 'O acompanhamento da entrega reforça a visão de que o design não termina na solução, mas continua no comportamento real do produto e nos aprendizados gerados em uso.',
     },
   },
 ];
 
-function RowDivider({ label }: { label: string }) {
+function DiamondBadge({ num, isDivergir }: { num: string; isDivergir: boolean }) {
   return (
-    <>
-      {/* Mobile: label + linha vertical tracejada + seta para baixo */}
-      <div className="sm:hidden flex flex-col gap-0">
-        <span className="type-caption text-accent-magenta mb-2">{label}</span>
-        <div className="relative ml-[3px] h-8">
-          <div className="absolute inset-x-0 top-0 bottom-0 border-l border-dashed border-accent-magenta" />
-          <ChevronDown
-            size={12}
-            className="absolute bottom-0 left-0 -translate-x-1/2 text-accent-magenta"
-            aria-hidden="true"
-          />
-        </div>
-      </div>
-      {/* Desktop: linha tracejada horizontal com seta para a direita */}
-      <div className="hidden sm:flex items-center gap-3">
-        <span className="type-caption text-accent-magenta whitespace-nowrap">{label}</span>
-        <div className="flex-1 border-t border-dashed border-accent-magenta" />
-        <ChevronRight size={12} className="text-accent-magenta flex-shrink-0" aria-hidden="true" />
-      </div>
-    </>
+    <div className="relative w-10 h-10 flex-shrink-0">
+      <div
+        className={`absolute inset-0 rotate-45 bg-block-navy rounded-sm ${
+          isDivergir ? 'border-2 border-accent-magenta' : ''
+        }`}
+        aria-hidden="true"
+      />
+      <span className="absolute inset-0 flex items-center justify-center text-white type-body-strong z-10 select-none">
+        {num}
+      </span>
+    </div>
+  );
+}
+
+function ColArrow({ num }: { num: string }) {
+  return (
+    <div key={num} className="flex justify-start pl-4 my-1">
+      <ChevronDown size={14} className="text-accent-magenta" aria-hidden="true" />
+    </div>
   );
 }
 
@@ -91,58 +94,49 @@ export function Racional() {
       aria-labelledby="racional-heading"
       className="py-section bg-bg"
     >
-      <div className="max-w-6xl mx-auto px-6 space-y-6">
+      <div className="max-w-6xl mx-auto px-6 space-y-8">
 
-        <motion.h2
+        {/* Heading */}
+        <motion.div
           variants={fadeInUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          id="racional-heading"
-          className="type-display-lg text-fg"
         >
-          Racional
-        </motion.h2>
+          <h2 id="racional-heading" className="type-display-lg text-fg mb-3">
+            Racional de experiência
+          </h2>
+          <p className="type-body text-fg-muted max-w-2xl">
+            O design se reflete na forma como penso e atuo profissionalmente na construção de experiências.
+          </p>
+        </motion.div>
 
-        {/* ── Desktop: grids + RowDividers — oculto no mobile ── */}
-        <div className="hidden sm:block space-y-6">
+        {/* ── Desktop / Tablet ── */}
+        <div className="hidden sm:block">
 
-          <RowDivider label="Design Journey" />
-
+          {/* Row 1: Phase headers */}
           <motion.div
             variants={stagger}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-5"
+            className="grid grid-cols-2 lg:grid-cols-4 gap-5 items-start"
           >
-            {phases.map(({ num, type, title, journeyCard }) => (
-              <motion.div key={num} variants={fadeInUp} className="flex flex-col gap-4">
-
-                <div className="flex items-start gap-3">
-                  <div
-                    className="w-7 h-7 bg-block-navy text-white flex items-center justify-center rounded-sm flex-shrink-0 type-caption"
-                    aria-hidden="true"
-                  >
-                    {num}
-                  </div>
-                  <div>
-                    <p className="type-caption text-accent-magenta mb-0.5">{type}</p>
-                    <p className="type-body-sm font-[540] text-fg leading-snug">{title}</p>
-                  </div>
-                </div>
-
-                <div className="rounded-[16px] border border-black/10 dark:border-white/10 p-6 bg-bg flex-1">
-                  <p className="type-body-strong text-fg mb-2">{journeyCard.title}</p>
-                  <p className="type-body-sm text-fg-muted leading-relaxed">{journeyCard.text}</p>
-                </div>
-
+            {phases.map(({ num, type, isDivergir, question }) => (
+              <motion.div key={num} variants={fadeInUp} className="flex flex-col gap-3">
+                <DiamondBadge num={num} isDivergir={isDivergir} />
+                <p className="type-caption text-accent-magenta">{type}</p>
+                <p className="type-body-strong text-fg leading-snug">{question}</p>
               </motion.div>
             ))}
           </motion.div>
 
-          <RowDivider label="Como trabalho" />
+          {/* Arrows */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 mt-3">
+            {phases.map(({ num }) => <ColArrow key={num} num={num} />)}
+          </div>
 
+          {/* Row 2: Na prática */}
           <motion.div
             variants={stagger}
             initial="hidden"
@@ -150,11 +144,36 @@ export function Racional() {
             viewport={{ once: true, amount: 0.1 }}
             className="grid grid-cols-2 lg:grid-cols-4 gap-5"
           >
-            {phases.map(({ num, processCard }) => (
+            {phases.map(({ num, practiceCard }) => (
               <motion.div key={num} variants={fadeInUp} className="h-full">
-                <div className="rounded-[16px] border border-black/10 dark:border-white/10 p-6 bg-surface-soft h-full">
-                  <p className="type-body-strong text-fg mb-2">{processCard.title}</p>
-                  <p className="type-body-sm text-fg-muted leading-relaxed">{processCard.text}</p>
+                <div className="rounded-[16px] border border-black/10 dark:border-white/10 p-6 bg-bg h-full">
+                  <p className="type-caption text-accent-magenta mb-3">Na prática</p>
+                  <p className="type-body-strong text-fg mb-2">{practiceCard.title}</p>
+                  <p className="type-body-sm text-fg-muted leading-relaxed">{practiceCard.text}</p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Arrows */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 mt-3">
+            {phases.map(({ num }) => <ColArrow key={num} num={num} />)}
+          </div>
+
+          {/* Row 3: Na minha trajetória */}
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            className="grid grid-cols-2 lg:grid-cols-4 gap-5"
+          >
+            {phases.map(({ num, trajectoryCard }) => (
+              <motion.div key={num} variants={fadeInUp} className="h-full">
+                <div className="rounded-[16px] border border-black/10 dark:border-white/10 p-6 bg-block-pink h-full">
+                  <p className="type-caption text-accent-magenta mb-3">Na minha trajetória</p>
+                  <p className="type-body-strong text-fg mb-2">{trajectoryCard.title}</p>
+                  <p className="type-body-sm text-fg-muted leading-relaxed">{trajectoryCard.text}</p>
                 </div>
               </motion.div>
             ))}
@@ -162,68 +181,37 @@ export function Racional() {
 
         </div>
 
-        {/* ── Mobile: timeline com numeração ──────────────────── */}
-        <div className="sm:hidden">
+        {/* ── Mobile: timeline ── */}
+        <div className="sm:hidden space-y-10">
+          {phases.map(({ num, type, isDivergir, question, practiceCard, trajectoryCard }) => (
+            <div key={num} className="flex gap-4">
+              <div className="flex flex-col items-center gap-2 pt-1">
+                <DiamondBadge num={num} isDivergir={isDivergir} />
+                <div className="flex-1 w-[2px] bg-black/10 dark:bg-white/10" />
+              </div>
 
-          {/* Label topo */}
-          <div className="flex items-center gap-2 mb-6">
-            <span className="type-caption text-accent-magenta">Design Journey</span>
-          </div>
+              <div className="flex-1 min-w-0 pb-4">
+                <p className="type-caption text-accent-magenta mb-1">{type}</p>
+                <p className="type-body-strong text-fg leading-snug mb-4">{question}</p>
 
-          {/* Linha vertical + itens */}
-          <div className="relative">
-            <div
-              className="absolute top-0 bottom-0 left-[13px] w-[2px] bg-black/15 dark:bg-white/15"
-              aria-hidden="true"
-            />
-
-            <div className="space-y-12">
-              {phases.map(({ num, type, title, journeyCard, processCard }) => (
-                <div key={num} className="relative flex gap-5">
-
-                  {/* Número — marcador na linha */}
-                  <div
-                    className="shrink-0 w-7 h-7 bg-block-navy text-white flex items-center justify-center rounded-sm type-caption z-10"
-                    aria-hidden="true"
-                  >
-                    {num}
-                  </div>
-
-                  {/* Conteúdo da fase */}
-                  <div className="flex-1 min-w-0">
-                    <p className="type-caption text-accent-magenta mb-0.5">{type}</p>
-                    <p className="type-body-sm font-[540] text-fg leading-snug mb-5">{title}</p>
-
-                    {/* Journey card */}
-                    <div className="rounded-[16px] border border-black/10 dark:border-white/10 p-5 bg-bg mb-4">
-                      <p className="type-body-strong text-fg mb-2">{journeyCard.title}</p>
-                      <p className="type-body-sm text-fg-muted leading-relaxed">{journeyCard.text}</p>
-                    </div>
-
-                    {/* Mini divider "Como trabalho" */}
-                    <div className="mb-4">
-                      <span className="type-caption text-accent-magenta block mb-2">Como trabalho</span>
-                      <div className="relative ml-[3px] h-6">
-                        <div className="absolute inset-x-0 top-0 bottom-0 border-l border-dashed border-accent-magenta" />
-                        <ChevronDown
-                          size={12}
-                          className="absolute bottom-0 left-0 -translate-x-1/2 text-accent-magenta"
-                          aria-hidden="true"
-                        />
-                      </div>
-                    </div>
-
-                    {/* Process card */}
-                    <div className="rounded-[16px] border border-black/10 dark:border-white/10 p-5 bg-surface-soft">
-                      <p className="type-body-strong text-fg mb-2">{processCard.title}</p>
-                      <p className="type-body-sm text-fg-muted leading-relaxed">{processCard.text}</p>
-                    </div>
-                  </div>
-
+                <div className="rounded-[16px] border border-black/10 dark:border-white/10 p-5 bg-bg mb-3">
+                  <p className="type-caption text-accent-magenta mb-1">Na prática</p>
+                  <p className="type-body-strong text-fg mb-2">{practiceCard.title}</p>
+                  <p className="type-body-sm text-fg-muted leading-relaxed">{practiceCard.text}</p>
                 </div>
-              ))}
+
+                <div className="pl-2 mb-3">
+                  <ChevronDown size={14} className="text-accent-magenta" aria-hidden="true" />
+                </div>
+
+                <div className="rounded-[16px] border border-black/10 dark:border-white/10 p-5 bg-block-pink">
+                  <p className="type-caption text-accent-magenta mb-1">Na minha trajetória</p>
+                  <p className="type-body-strong text-fg mb-2">{trajectoryCard.title}</p>
+                  <p className="type-body-sm text-fg-muted leading-relaxed">{trajectoryCard.text}</p>
+                </div>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
 
       </div>
