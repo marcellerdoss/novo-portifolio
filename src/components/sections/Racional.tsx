@@ -63,13 +63,11 @@ const phases = [
   },
 ];
 
-function DiamondBadge({ num, isDivergir }: { num: string; isDivergir: boolean }) {
+function DiamondBadge({ num }: { num: string }) {
   return (
     <div className="relative w-10 h-10 flex-shrink-0">
       <div
-        className={`absolute inset-0 rotate-45 bg-block-navy rounded-sm ${
-          isDivergir ? 'border-2 border-accent-magenta' : ''
-        }`}
+        className="absolute inset-0 rotate-45 bg-block-navy rounded-sm"
         aria-hidden="true"
       />
       <span className="absolute inset-0 flex items-center justify-center text-white type-body-strong z-10 select-none">
@@ -81,7 +79,7 @@ function DiamondBadge({ num, isDivergir }: { num: string; isDivergir: boolean })
 
 function ColArrow({ num }: { num: string }) {
   return (
-    <div key={num} className="flex justify-start pl-4 my-1">
+    <div key={num} className="flex justify-center my-1">
       <ChevronDown size={14} className="text-accent-magenta" aria-hidden="true" />
     </div>
   );
@@ -122,9 +120,9 @@ export function Racional() {
             viewport={{ once: true, amount: 0.1 }}
             className="grid grid-cols-2 lg:grid-cols-4 gap-5 items-start"
           >
-            {phases.map(({ num, type, isDivergir, question }) => (
-              <motion.div key={num} variants={fadeInUp} className="flex flex-col gap-3">
-                <DiamondBadge num={num} isDivergir={isDivergir} />
+            {phases.map(({ num, type, question }) => (
+              <motion.div key={num} variants={fadeInUp} className="flex flex-col items-center text-center gap-3">
+                <DiamondBadge num={num} />
                 <p className="type-caption text-accent-magenta">{type}</p>
                 <p className="type-body-strong text-fg leading-snug">{question}</p>
               </motion.div>
@@ -170,7 +168,7 @@ export function Racional() {
           >
             {phases.map(({ num, trajectoryCard }) => (
               <motion.div key={num} variants={fadeInUp} className="h-full">
-                <div className="rounded-[16px] border border-black/10 dark:border-white/10 p-6 bg-block-pink h-full">
+                <div className="rounded-[16px] border border-black/10 dark:border-white/10 p-6 bg-pink-100 h-full">
                   <p className="type-caption text-accent-magenta mb-3">Na minha trajetória</p>
                   <p className="type-body-strong text-fg mb-2">{trajectoryCard.title}</p>
                   <p className="type-body-sm text-fg-muted leading-relaxed">{trajectoryCard.text}</p>
@@ -183,10 +181,10 @@ export function Racional() {
 
         {/* ── Mobile: timeline ── */}
         <div className="sm:hidden space-y-10">
-          {phases.map(({ num, type, isDivergir, question, practiceCard, trajectoryCard }) => (
+          {phases.map(({ num, type, question, practiceCard, trajectoryCard }) => (
             <div key={num} className="flex gap-4">
               <div className="flex flex-col items-center gap-2 pt-1">
-                <DiamondBadge num={num} isDivergir={isDivergir} />
+                <DiamondBadge num={num} />
                 <div className="flex-1 w-[2px] bg-black/10 dark:bg-white/10" />
               </div>
 
@@ -204,7 +202,7 @@ export function Racional() {
                   <ChevronDown size={14} className="text-accent-magenta" aria-hidden="true" />
                 </div>
 
-                <div className="rounded-[16px] border border-black/10 dark:border-white/10 p-5 bg-block-pink">
+                <div className="rounded-[16px] border border-black/10 dark:border-white/10 p-5 bg-pink-100">
                   <p className="type-caption text-accent-magenta mb-1">Na minha trajetória</p>
                   <p className="type-body-strong text-fg mb-2">{trajectoryCard.title}</p>
                   <p className="type-body-sm text-fg-muted leading-relaxed">{trajectoryCard.text}</p>
