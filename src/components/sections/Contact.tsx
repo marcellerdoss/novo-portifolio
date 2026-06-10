@@ -42,16 +42,19 @@ function ContactForm({ email: _email }: { email: string }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email: userEmail, message }),
       });
-      const data = await res.json();
+      let data: { error?: string; ok?: boolean } = {};
+      try { data = await res.json(); } catch { data = {}; }
       if (!res.ok) {
-        setErrorDetail(data?.error ?? '');
-        throw new Error(data?.error);
+        setErrorDetail(data?.error ? data.error : `HTTP ${res.status}`);
+        setStatus('error');
+        return;
       }
       setStatus('success');
       setName('');
       setUserEmail('');
       setMessage('');
-    } catch {
+    } catch (err) {
+      setErrorDetail(err instanceof Error ? err.message : 'fetch failed');
       setStatus('error');
     }
   }
