@@ -129,7 +129,7 @@ export function Racional() {
             className="grid grid-cols-4 gap-5 items-start"
           >
             {phases.map(({ num, type, question }) => (
-              <motion.div key={num} variants={fadeInUp} className="flex flex-col items-center text-center gap-3">
+              <motion.div key={num} variants={fadeInUp} className="flex flex-col items-center text-center gap-6">
                 <DiamondBadge num={num} />
                 <p className="type-caption text-accent-magenta">{type}</p>
                 <p className="type-body-strong text-fg leading-snug">{question}</p>
