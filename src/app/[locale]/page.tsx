@@ -86,11 +86,11 @@ export default async function Home({ params }: Props) {
         className="py-section bg-block-cream"
       >
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 md:gap-x-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 md:gap-x-20">
             <div className="md:col-span-2">
               <Experience items={experience} inline />
             </div>
-            <div className="md:col-span-1 mt-16 md:mt-0">
+            <div className="md:col-span-1 mt-16 md:mt-0 md:bg-surface-soft md:px-8 md:rounded-[16px]">
               <Skills inline />
             </div>
           </div>
