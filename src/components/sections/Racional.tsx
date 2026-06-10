@@ -70,7 +70,7 @@ function DiamondBadge({ num }: { num: string }) {
   return (
     <div className="relative w-10 h-10 flex-shrink-0">
       <div
-        className="absolute inset-0 rotate-45 bg-block-navy rounded-sm"
+        className="absolute inset-0 rotate-45 bg-block-navy dark:bg-accent-magenta rounded-sm"
         aria-hidden="true"
       />
       <span className="absolute inset-0 flex items-center justify-center text-white type-body-strong z-10 select-none">
@@ -170,7 +170,7 @@ export function Racional() {
           >
             {phases.map(({ num, trajectoryCard }) => (
               <motion.div key={num} variants={fadeInUp} className="h-full">
-                <div className="rounded-[16px] border border-black/10 dark:border-white/10 p-6 bg-pink-50 h-full">
+                <div className="rounded-[16px] border border-black/10 dark:border-white/10 p-6 bg-pink-50 dark:bg-navy-800 h-full">
                   <p className="type-caption text-accent-magenta mb-3">Na minha trajetória</p>
                   <p className="type-body-strong text-fg mb-2">{trajectoryCard.title}</p>
                   <p className="type-body-sm text-fg-muted leading-relaxed">{trajectoryCard.text}</p>
@@ -204,7 +204,7 @@ export function Racional() {
                   <TriangleDown />
                 </div>
 
-                <div className="rounded-[16px] border border-black/10 dark:border-white/10 p-5 bg-pink-50">
+                <div className="rounded-[16px] border border-black/10 dark:border-white/10 p-5 bg-pink-50 dark:bg-navy-800">
                   <p className="type-caption text-accent-magenta mb-1">Na minha trajetória</p>
                   <p className="type-body-strong text-fg mb-2">{trajectoryCard.title}</p>
                   <p className="type-body-sm text-fg-muted leading-relaxed">{trajectoryCard.text}</p>
