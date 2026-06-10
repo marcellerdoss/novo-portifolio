@@ -1,8 +1,15 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
 import { fadeInUp, stagger } from '@/lib/animations';
+
+function TriangleDown() {
+  return (
+    <svg width="14" height="10" viewBox="0 0 14 10" fill="currentColor" aria-hidden="true">
+      <path d="M2 0.5 L12 0.5 Q13.5 0.5 13 2 L7.8 8.5 Q7 9.5 6.2 8.5 L1 2 Q0.5 0.5 2 0.5Z" />
+    </svg>
+  );
+}
 
 const phases = [
   {
@@ -79,8 +86,8 @@ function DiamondBadge({ num }: { num: string }) {
 
 function ColArrow({ num }: { num: string }) {
   return (
-    <div key={num} className="flex justify-center my-1">
-      <ChevronDown size={14} className="text-accent-magenta" aria-hidden="true" />
+    <div key={num} className="flex justify-center my-1 text-accent-magenta">
+      <TriangleDown />
     </div>
   );
 }
@@ -104,7 +111,7 @@ export function Racional() {
           <h2 id="racional-heading" className="type-display-lg text-fg mb-3">
             Racional de experiência
           </h2>
-          <p className="type-body text-fg-muted max-w-2xl">
+          <p className="type-body text-fg-muted whitespace-nowrap">
             O design se reflete na forma como penso e atuo profissionalmente na construção de experiências.
           </p>
         </motion.div>
@@ -198,8 +205,8 @@ export function Racional() {
                   <p className="type-body-sm text-fg-muted leading-relaxed">{practiceCard.text}</p>
                 </div>
 
-                <div className="pl-2 mb-3">
-                  <ChevronDown size={14} className="text-accent-magenta" aria-hidden="true" />
+                <div className="pl-2 mb-3 text-accent-magenta">
+                  <TriangleDown />
                 </div>
 
                 <div className="rounded-[16px] border border-black/10 dark:border-white/10 p-5 bg-pink-100">
