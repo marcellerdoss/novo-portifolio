@@ -65,7 +65,7 @@ export function CaseImagesDemo() {
           imageSrc={PLACEHOLDER}
           imageAlt="Tela principal do projeto"
           caption="Tela de campanhas · Redesign · Figma"
-          accentBg="var(--color-block-lilac)"
+          accentBg="var(--color-block-cream)"
           accentText="#000000"
           unoptimized
         />
@@ -80,7 +80,7 @@ export function CaseImagesDemo() {
           altAfter="Tela depois do redesign"
           captionBefore="Fluxo original — 7 etapas sem saída"
           captionAfter="Fluxo redesenhado — 3 etapas lineares"
-          accentBg="var(--color-block-lime)"
+          accentBg="var(--color-block-cream)"
           accentText="#000000"
           unoptimized
         />
@@ -107,7 +107,7 @@ export function CaseImagesDemo() {
           title="Sistema de filtros modular"
           body="Criamos um sistema de filtros baseado em componentes atômicos, permitindo que qualquer tela do produto use a mesma lógica de seleção sem duplicar código ou comportamento."
           reverse
-          accentBg="var(--color-block-mint)"
+          accentBg="var(--color-block-cream)"
           accentText="#000000"
           unoptimized
         />
@@ -136,7 +136,7 @@ export function CaseImagesDemo() {
           imageAlt="Sitemap completo do produto"
           title="Arquitetura de informação · v2"
           containerHeight={320}
-          accentBg="var(--color-block-lilac)"
+          accentBg="var(--color-block-cream)"
           accentText="#000000"
         />
       </Section>

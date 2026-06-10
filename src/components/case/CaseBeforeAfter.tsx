@@ -18,8 +18,8 @@ const BADGE_BEFORE = {
 } as const;
 
 const BADGE_AFTER = {
-  backgroundColor: 'var(--color-block-mint)',
-  color: '#1a5c29',
+  backgroundColor: 'var(--color-block-cream)',
+  color: '#5c3d14',
 } as const;
 
 export function CaseBeforeAfter({

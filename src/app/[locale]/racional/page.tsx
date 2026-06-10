@@ -369,36 +369,6 @@ export default function RacionalPage() {
                   ]}
                 />
                 <ColorScaleRow
-                  name="Lime — color block (base 200)"
-                  brandStep="200"
-                  steps={[
-                    { stop: '50',  hex: '#F4FCE3' },
-                    { stop: '100', hex: '#EBFACF' },
-                    { stop: '200', hex: '#DCEEB1' },
-                    { stop: '300', hex: '#C2E37F' },
-                    { stop: '400', hex: '#9FCC47' },
-                    { stop: '500', hex: '#7DB028' },
-                    { stop: '600', hex: '#5A8020' },
-                    { stop: '700', hex: '#3D5A16' },
-                    { stop: '800', hex: '#2A3D0E' },
-                  ]}
-                />
-                <ColorScaleRow
-                  name="Lilac — color block (base 200)"
-                  brandStep="200"
-                  steps={[
-                    { stop: '50',  hex: '#F3F0FF' },
-                    { stop: '100', hex: '#E6DFFF' },
-                    { stop: '200', hex: '#C5B0F4' },
-                    { stop: '300', hex: '#9E7EE8' },
-                    { stop: '400', hex: '#7650D6' },
-                    { stop: '500', hex: '#5730B4' },
-                    { stop: '600', hex: '#4220A6' },
-                    { stop: '700', hex: '#2F1878' },
-                    { stop: '800', hex: '#1C0F4C' },
-                  ]}
-                />
-                <ColorScaleRow
                   name="Cream — color block (base 100)"
                   brandStep="100"
                   steps={[
@@ -426,21 +396,6 @@ export default function RacionalPage() {
                     { stop: '600', hex: '#7A1A1A' },
                     { stop: '700', hex: '#581010' },
                     { stop: '800', hex: '#380808' },
-                  ]}
-                />
-                <ColorScaleRow
-                  name="Mint — color block (base 200)"
-                  brandStep="200"
-                  steps={[
-                    { stop: '50',  hex: '#EEFAF1' },
-                    { stop: '100', hex: '#DBF0E0' },
-                    { stop: '200', hex: '#C8E6CD' },
-                    { stop: '300', hex: '#9DD4A8' },
-                    { stop: '400', hex: '#68B878' },
-                    { stop: '500', hex: '#3E9652' },
-                    { stop: '600', hex: '#2A7039' },
-                    { stop: '700', hex: '#1C5028' },
-                    { stop: '800', hex: '#103018' },
                   ]}
                 />
                 <ColorScaleRow

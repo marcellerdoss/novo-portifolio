@@ -22,11 +22,8 @@
   --color-hairline-soft:  #f1f1f1;
 
   /* Color blocks */
-  --color-block-lime:     #dceeb1;
-  --color-block-lilac:    #c5b0f4;
   --color-block-cream:    #f4ecd6;
   --color-block-pink:     #efd4d4;
-  --color-block-mint:     #c8e6cd;
   --color-block-coral:    #f3c9b6;
   --color-block-navy:     #1f1d3d;
 
@@ -103,27 +100,6 @@
   --color-neutral-800: #282828;
   --color-neutral-900: #1A1A1A;
 
-  /* Lime (base block = 200) */
-  --color-lime-50:  #F4FCE3;
-  --color-lime-100: #EBFACF;
-  --color-lime-200: #DCEEB1;
-  --color-lime-300: #C2E37F;
-  --color-lime-400: #9FCC47;
-  --color-lime-500: #7DB028;
-  --color-lime-600: #5A8020;
-  --color-lime-700: #3D5A16;
-  --color-lime-800: #2A3D0E;
-
-  /* Lilac (base block = 200) */
-  --color-lilac-50:  #F3F0FF;
-  --color-lilac-100: #E6DFFF;
-  --color-lilac-200: #C5B0F4;
-  --color-lilac-300: #9E7EE8;
-  --color-lilac-400: #7650D6;
-  --color-lilac-500: #5730B4;
-  --color-lilac-600: #4220A6;
-  --color-lilac-700: #2F1878;
-  --color-lilac-800: #1C0F4C;
 
   /* Cream (base block = 100) */
   --color-cream-50:  #FDFAF4;
@@ -147,17 +123,6 @@
   --color-pink-700: #581010;
   --color-pink-800: #380808;
 
-  /* Mint (base block = 200) */
-  --color-mint-50:  #EEFAF1;
-  --color-mint-100: #DBF0E0;
-  --color-mint-200: #C8E6CD;
-  --color-mint-300: #9DD4A8;
-  --color-mint-400: #68B878;
-  --color-mint-500: #3E9652;
-  --color-mint-600: #2A7039;
-  --color-mint-700: #1C5028;
-  --color-mint-800: #103018;
-
   /* Coral (base block = 100) */
   --color-coral-50:  #FEF4EF;
   --color-coral-100: #F3C9B6;
@@ -180,11 +145,11 @@
   --border-token: #e6e6e6;
 
   /* ─── Per-project color block tokens (case cards) ─── */
-  --color-project-sellbie-redesign-bg:   #c5b0f4;
+  --color-project-sellbie-redesign-bg:   #f4ecd6;
   --color-project-sellbie-redesign-text: #1f1d3d;
-  --color-project-sellbie-jornadas-bg:   #dceeb1;
+  --color-project-sellbie-jornadas-bg:   #f4ecd6;
   --color-project-sellbie-jornadas-text: #1f1d3d;
-  --color-project-sellbie-arq-info-bg:   #c8e6cd;
+  --color-project-sellbie-arq-info-bg:   #f4ecd6;
   --color-project-sellbie-arq-info-text: #1f1d3d;
   --color-project-sellbie-metricas-bg:   #f4ecd6;
   --color-project-sellbie-metricas-text: #1f1d3d;
@@ -192,9 +157,9 @@
   --color-project-sellbie-crm-text:      #1f1d3d;
   --color-project-sellbie-cashback-bg:   #f3c9b6;
   --color-project-sellbie-cashback-text: #1f1d3d;
-  --color-project-jg-alfabetizacao-bg:   #dceeb1;
+  --color-project-jg-alfabetizacao-bg:   #f4ecd6;
   --color-project-jg-alfabetizacao-text: #1f1d3d;
-  --color-project-jg-central-ajuda-bg:   #c8e6cd;
+  --color-project-jg-central-ajuda-bg:   #f4ecd6;
   --color-project-jg-central-ajuda-text: #1f1d3d;
 }
 
@@ -210,18 +175,15 @@
   --color-surface-soft:   #1a1836;
   --color-block-pink:     #261724;
   --color-block-cream:    #1e1c31;
-  --color-block-mint:     #122018;
-  --color-block-lime:     #151f0a;
-  --color-block-lilac:    #1c1535;
   --color-block-coral:    #2b1410;
   --color-accent-magenta: #C8236A;
 
   /* Per-project color tokens — dark mode (mapped to block-* dark equivalents) */
-  --color-project-sellbie-redesign-bg:   #1c1535;
+  --color-project-sellbie-redesign-bg:   #1e1c31;
   --color-project-sellbie-redesign-text: #e4e4e7;
-  --color-project-sellbie-jornadas-bg:   #151f0a;
+  --color-project-sellbie-jornadas-bg:   #1e1c31;
   --color-project-sellbie-jornadas-text: #e4e4e7;
-  --color-project-sellbie-arq-info-bg:   #122018;
+  --color-project-sellbie-arq-info-bg:   #1e1c31;
   --color-project-sellbie-arq-info-text: #e4e4e7;
   --color-project-sellbie-metricas-bg:   #1e1c31;
   --color-project-sellbie-metricas-text: #e4e4e7;
@@ -229,9 +191,9 @@
   --color-project-sellbie-crm-text:      #e4e4e7;
   --color-project-sellbie-cashback-bg:   #2b1410;
   --color-project-sellbie-cashback-text: #e4e4e7;
-  --color-project-jg-alfabetizacao-bg:   #151f0a;
+  --color-project-jg-alfabetizacao-bg:   #1e1c31;
   --color-project-jg-alfabetizacao-text: #e4e4e7;
-  --color-project-jg-central-ajuda-bg:   #122018;
+  --color-project-jg-central-ajuda-bg:   #1e1c31;
   --color-project-jg-central-ajuda-text: #e4e4e7;
 }
 
