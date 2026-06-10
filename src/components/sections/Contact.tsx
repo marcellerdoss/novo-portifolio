@@ -31,7 +31,6 @@ function ContactForm({ email: _email }: { email: string }) {
   const [userEmail, setUserEmail] = useState('');
   const [message, setMessage] = useState('');
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
-  const [errorDetail, setErrorDetail] = useState('');
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -42,10 +41,7 @@ function ContactForm({ email: _email }: { email: string }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email: userEmail, message }),
       });
-      let data: { error?: string; ok?: boolean } = {};
-      try { data = await res.json(); } catch { data = {}; }
       if (!res.ok) {
-        setErrorDetail(data?.error ? data.error : `HTTP ${res.status}`);
         setStatus('error');
         return;
       }
@@ -53,8 +49,7 @@ function ContactForm({ email: _email }: { email: string }) {
       setName('');
       setUserEmail('');
       setMessage('');
-    } catch (err) {
-      setErrorDetail(err instanceof Error ? err.message : 'fetch failed');
+    } catch {
       setStatus('error');
     }
   }
@@ -116,10 +111,7 @@ function ContactForm({ email: _email }: { email: string }) {
           <p className="type-body-sm text-white/80">{t('form_success')}</p>
         )}
         {status === 'error' && (
-          <p className="type-body-sm text-red-300">
-            {t('form_error')}
-            {errorDetail ? ` — ${errorDetail}` : ''}
-          </p>
+          <p className="type-body-sm text-red-300">{t('form_error')}</p>
         )}
       </div>
     </form>

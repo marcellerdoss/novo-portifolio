@@ -7,8 +7,7 @@ const FROM_EMAIL = 'onboarding@resend.dev';
 export async function POST(req: Request) {
   try {
     if (!process.env.RESEND_API_KEY) {
-      console.error('[contact] RESEND_API_KEY não definida');
-      return NextResponse.json({ error: 'DEBUG: RESEND_API_KEY ausente no servidor.' }, { status: 500 });
+      return NextResponse.json({ error: 'Configuração do servidor incompleta.' }, { status: 500 });
     }
 
     const resend = new Resend(process.env.RESEND_API_KEY);
@@ -34,13 +33,12 @@ export async function POST(req: Request) {
 
     if (sendError) {
       console.error('[contact] Resend error:', sendError.name, sendError.message);
-      return NextResponse.json({ error: `DEBUG: ${sendError.name} — ${sendError.message}` }, { status: 500 });
+      return NextResponse.json({ error: 'Falha ao enviar e-mail.' }, { status: 500 });
     }
 
     return NextResponse.json({ ok: true });
   } catch (err) {
-    const msg = err instanceof Error ? err.message : String(err);
-    console.error('[contact] Caught error:', msg);
-    return NextResponse.json({ error: `DEBUG: ${msg}` }, { status: 500 });
+    console.error('[contact] Caught error:', err instanceof Error ? err.message : String(err));
+    return NextResponse.json({ error: 'Erro interno do servidor.' }, { status: 500 });
   }
 }
