@@ -12,11 +12,14 @@ A Sellbie é uma plataforma SaaS de CRM e marketing multicanal voltada para marc
 
 O primeiro movimento foi entender o que existia. Percorri a plataforma antiga tela a tela, analisando UI, fluxos de navegação, estrutura de informação, padrões de interação e pontos de ruptura na jornada. A plataforma não tinha consistência visual entre módulos: dois padrões de navegação coexistiam sem critério, ora superior, ora lateral, e a identidade visual variava entre áreas. As jornadas eram fragmentadas e não havia um racional de UX estruturando as decisões tomadas ao longo do tempo.
 
-![Três padrões de navegação coexistindo sem critério — o problema de inconsistência antes do redesign.](/images/cases/sellbie/redesign/sellbie-redesign-navegacao-antes-1.png)
-
-![Três padrões de navegação coexistindo sem critério — o problema de inconsistência antes do redesign.](/images/cases/sellbie/redesign/sellbie-redesign-navegacao-antes-2.png)
-
-![Três padrões de navegação coexistindo sem critério — o problema de inconsistência antes do redesign.](/images/cases/sellbie/redesign/sellbie-redesign-navegacao-antes-3.png)
+<Carousel
+  images={[
+    { "src": "/images/cases/sellbie/redesign/sellbie-redesign-navegacao-antes-1.png", "alt": "Padrão de navegação superior" },
+    { "src": "/images/cases/sellbie/redesign/sellbie-redesign-navegacao-antes-2.png", "alt": "Padrão de navegação lateral" },
+    { "src": "/images/cases/sellbie/redesign/sellbie-redesign-navegacao-antes-3.png", "alt": "Terceiro padrão de navegação coexistindo" }
+  ]}
+  caption="Três padrões de navegação coexistindo sem critério — o problema de inconsistência antes do redesign"
+/>
 
 Também levantei o material que a empresa já possuía: dados sobre as marcas atendidas, histórico de funcionalidades desenvolvidas e registros de suporte. Esse material foi a base inicial para formular as hipóteses que guiariam a pesquisa com usuários.
 
