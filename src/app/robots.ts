@@ -8,7 +8,7 @@ export default function robots(): MetadataRoute.Robots {
       : 'http://localhost:3000');
 
   return {
-    rules: { userAgent: '*', allow: '/' },
+    rules: { userAgent: '*', disallow: '/' },
     sitemap: `${base}/sitemap.xml`,
   };
 }

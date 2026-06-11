@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     description: 'Design centrado em comportamento e decisão. Produtos digitais construídos com estratégia, intenção e foco em impacto.',
     images: ['/images/social/og-image-magenta-bege.png'],
   },
-  robots: { index: true, follow: true },
+  robots: { index: false, follow: false },
 };
 
 export default function RootLayout({
