@@ -21,7 +21,7 @@ export function CaseEditorialWrapper({ sidebar, children }: CaseEditorialWrapper
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_240px] gap-12">
             <article className="case-editorial-prose">{children}</article>
 
-            <aside className="hidden lg:block">
+            <aside>
               <div className="sticky top-40">
                 <div className="rounded-[16px] border border-border overflow-hidden divide-y divide-border">
                   {sidebar.map((block) => (
