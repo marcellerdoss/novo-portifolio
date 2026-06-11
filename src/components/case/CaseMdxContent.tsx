@@ -12,20 +12,22 @@ function MdxImg({ src, alt, title }: MdxImgProps) {
   if (!src) return null;
   const caption = title || alt;
   return (
-    <figure className="my-6">
-      <div className="rounded-[12px] overflow-hidden">
-        <Image
-          src={src}
-          alt={alt ?? ''}
-          width={1200}
-          height={800}
-          sizes="(max-width: 1024px) 100vw, 736px"
-          quality={92}
-          className="w-full h-auto block"
-        />
+    <figure className="my-6 space-y-2">
+      <div className="bg-white rounded-2xl p-2 shadow-sm ring-1 ring-black/5">
+        <div className="rounded-[8px] overflow-hidden">
+          <Image
+            src={src}
+            alt={alt ?? ''}
+            width={1200}
+            height={800}
+            sizes="(max-width: 1024px) 100vw, 736px"
+            quality={92}
+            className="w-full h-auto block"
+          />
+        </div>
       </div>
       {caption && (
-        <figcaption className="mt-2 type-body-xs text-fg-subtle px-1">
+        <figcaption className="type-body-xs text-fg-subtle px-1">
           {caption}
         </figcaption>
       )}

@@ -188,8 +188,6 @@ export default async function SellbieRedesignPage() {
               altAfter="Nova listagem em cards com visualização alternável"
               captionBefore="Tabela fixa — sem visualização alternativa"
               captionAfter="Cards com visualização alternável"
-              accentBg={ACCENT_BG}
-              accentText={ACCENT_TEXT}
             />
           </section>
 
