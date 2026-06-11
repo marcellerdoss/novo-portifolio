@@ -438,12 +438,12 @@ code[data-theme*=' '] span {
   display: flex;
   align-items: baseline;
   gap: 4px;
-  font-size: 0.75rem;        /* 12px */
-  font-weight: 500;
-  letter-spacing: 0.08em;
+  font-size: 0.75rem;        /* 12px — type-caption */
+  font-weight: 400;
+  letter-spacing: 0.60px;
   text-transform: uppercase;
   color: var(--color-accent-magenta);
-  margin-top: 4rem;
+  margin-top: 6rem;          /* matches space-y-24 of simplified view */
   margin-bottom: 0.5rem;
   line-height: 1;
 }
