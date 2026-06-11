@@ -19,7 +19,7 @@ export function CaseCarousel({ images, caption }: CaseCarouselProps) {
   const total = images.length;
 
   return (
-    <figure className="space-y-2 max-w-[552px] mx-auto">
+    <figure className={`space-y-2 mx-auto ${total > 1 ? 'max-w-[632px]' : 'max-w-[552px]'}`}>
       {/* px-10 reserves 40px on each side for the 32px arrows */}
       <div className={`relative${total > 1 ? ' px-10' : ''}`}>
         <div className="bg-white rounded-2xl p-2 shadow-sm ring-1 ring-black/5">
