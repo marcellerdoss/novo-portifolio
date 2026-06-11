@@ -4,8 +4,8 @@ import remarkGfm from 'remark-gfm';
 import remarkRehype from 'remark-rehype';
 import { toJsxRuntime } from 'hast-util-to-jsx-runtime';
 import { jsx, jsxs, Fragment } from 'react/jsx-runtime';
-import Image from 'next/image';
-import { CaseMdxCarousel } from './CaseMdxCarousel';
+import { CaseCarousel } from './CaseCarousel';
+import { CaseImageFrame } from './CaseImageFrame';
 
 interface CarouselData {
   images: { src: string; alt: string }[];
@@ -58,21 +58,9 @@ function splitSource(source: string): Segment[] {
 function MdxImg({ src, alt }: { src?: string; alt?: string; [key: string]: unknown }) {
   if (!src) return null;
   return (
-    <figure className="my-6 space-y-2 max-w-[552px] mx-auto">
-      <div className="bg-white rounded-2xl p-2 shadow-sm ring-1 ring-black/5">
-        <div className="rounded-[8px] overflow-hidden">
-          <Image
-            src={src}
-            alt={alt ?? ''}
-            width={1200}
-            height={800}
-            sizes="(max-width: 1024px) 100vw, 552px"
-            quality={92}
-            className="w-full h-auto block"
-          />
-        </div>
-      </div>
-    </figure>
+    <div className="my-6">
+      <CaseImageFrame src={src} alt={alt ?? ''} />
+    </div>
   );
 }
 
@@ -95,7 +83,7 @@ export async function CaseMdxContent({ source }: Props) {
     const seg = segments[i];
 
     if (seg.type === 'carousel') {
-      nodes.push(<CaseMdxCarousel key={`carousel-${seg.key}`} {...seg.data} />);
+      nodes.push(<div key={`carousel-${seg.key}`} className="my-6"><CaseCarousel {...seg.data} /></div>);
     } else {
       const mdast = processor.parse(seg.content);
       const hast = await processor.run(mdast);
