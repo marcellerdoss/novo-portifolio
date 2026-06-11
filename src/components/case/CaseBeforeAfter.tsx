@@ -25,12 +25,10 @@ export function CaseBeforeAfter({
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-[736px] mx-auto">
       {/* Before */}
-      <figure className="space-y-2">
+      <figure className="space-y-1">
+        <span className="ml-4 block type-caption text-fg-subtle">Antes</span>
         <div className="bg-white rounded-2xl p-2 shadow-sm ring-1 ring-black/5">
-          <div className="relative rounded-[8px] overflow-hidden">
-            <span className="absolute top-2 left-2 z-10 type-caption rounded-full px-2.5 py-1 bg-black/55 text-white backdrop-blur-sm">
-              Antes
-            </span>
+          <div className="rounded-[8px] overflow-hidden">
             <Image
               src={imageBefore}
               alt={altBefore}
@@ -49,12 +47,10 @@ export function CaseBeforeAfter({
       </figure>
 
       {/* After */}
-      <figure className="space-y-2">
+      <figure className="space-y-1">
+        <span className="ml-4 block type-caption text-fg-subtle">Depois</span>
         <div className="bg-white rounded-2xl p-2 shadow-sm ring-1 ring-black/5">
-          <div className="relative rounded-[8px] overflow-hidden">
-            <span className="absolute top-2 left-2 z-10 type-caption rounded-full px-2.5 py-1 bg-black/55 text-white backdrop-blur-sm">
-              Depois
-            </span>
+          <div className="rounded-[8px] overflow-hidden">
             <Image
               src={imageAfter}
               alt={altAfter}
