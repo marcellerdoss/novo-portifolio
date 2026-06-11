@@ -21,7 +21,7 @@ export function CaseToggleBar() {
           <button
             onClick={() => switchView('overview')}
             aria-pressed={view === 'overview'}
-            className={`px-4 py-2 type-btn leading-none transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-fg ${
+            className={`px-3 py-1 type-btn leading-none transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-fg ${
               view === 'overview'
                 ? 'bg-fg text-bg'
                 : 'text-fg-muted hover:text-fg hover:bg-black/5 dark:hover:bg-white/5'
@@ -32,7 +32,7 @@ export function CaseToggleBar() {
           <button
             onClick={() => switchView('detailed')}
             aria-pressed={view === 'detailed'}
-            className={`px-4 py-2 type-btn leading-none transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-fg ${
+            className={`px-3 py-1 type-btn leading-none transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-fg ${
               view === 'detailed'
                 ? 'bg-fg text-bg'
                 : 'text-fg-muted hover:text-fg hover:bg-black/5 dark:hover:bg-white/5'

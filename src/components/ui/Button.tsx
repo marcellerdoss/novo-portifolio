@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { cn } from '@/lib/utils';
 
 type Variant = 'primary' | 'secondary' | 'ghost' | 'icon';
-type Size = 'sm' | 'md' | 'lg';
+type Size = 'xs' | 'sm' | 'md' | 'lg';
 
 const base =
   'inline-flex items-center justify-center gap-2 cursor-pointer transition-all duration-150 ' +
@@ -22,6 +22,7 @@ const variants: Record<Variant, string> = {
 };
 
 const sizes: Record<Size, string> = {
+  xs: 'px-3 py-1 type-btn leading-none',
   sm: 'px-4 py-2 type-btn leading-none',
   md: 'px-5 py-3 type-btn leading-none',
   lg: 'px-6 py-4 type-btn leading-none',

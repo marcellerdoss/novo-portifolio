@@ -89,7 +89,7 @@ export default async function JgAlfabetizacaoPage() {
         <div className="max-w-5xl mx-auto">
           <Link
             href="/#cases"
-            className={buttonVariants({ variant: 'secondary', size: 'sm' }) + ' mb-10'}
+            className={buttonVariants({ variant: 'secondary', size: 'xs' }) + ' mb-10'}
           >
             ← Todos os cases
           </Link>

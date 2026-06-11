@@ -27,11 +27,11 @@ export function CaseImageFrame({ src, alt, caption, pair }: Props) {
 
   const sizes = pair
     ? '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 360px'
-    : '(max-width: 1024px) 100vw, 736px';
+    : '(max-width: 1024px) 100vw, 552px';
 
   return (
     <>
-      <figure className={`space-y-2${pair ? '' : ' max-w-[736px] mx-auto'}`}>
+      <figure className={`space-y-2${pair ? '' : ' max-w-[552px] mx-auto'}`}>
         <button
           type="button"
           onClick={() => setOpen(true)}
