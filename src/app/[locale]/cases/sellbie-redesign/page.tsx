@@ -10,6 +10,8 @@ import { CasePageShell } from '@/components/case/CasePageShell';
 import { CaseEditorialWrapper } from '@/components/case/CaseEditorialWrapper';
 import { getCaseNav } from '@/lib/casesConfig';
 import { CaseOverviewLayout } from '@/components/case/CaseOverviewLayout';
+import { CaseCarousel } from '@/components/case/CaseCarousel';
+import { CaseBeforeAfter } from '@/components/case/CaseBeforeAfter';
 import { buttonVariants } from '@/components/ui/Button';
 
 type Props = { params: Promise<{ locale: string }> };
@@ -128,14 +130,13 @@ export default async function SellbieRedesignPage() {
                 coexistindo no mesmo produto, sem critério ou hierarquia clara.
               </Body>
             </div>
-            <CaseImg
-              src="/images/cases/sellbie/redesign/sellbie-redesign-navegacao-antes-1.png"
-              alt="Três padrões de navegação coexistindo sem critério"
-              caption="Três padrões de navegação coexistindo — o problema de inconsistência"
-            />
-            <CaseImgPair
-              a={{ src: '/images/cases/sellbie/redesign/sellbie-redesign-navegacao-antes-2.png', alt: 'Padrão superior de navegação', caption: 'Padrão superior' }}
-              b={{ src: '/images/cases/sellbie/redesign/sellbie-redesign-navegacao-antes-3.png', alt: 'Padrão lateral de navegação', caption: 'Padrão lateral' }}
+            <CaseCarousel
+              images={[
+                { src: '/images/cases/sellbie/redesign/sellbie-redesign-navegacao-antes-1.png', alt: 'Padrão de navegação superior' },
+                { src: '/images/cases/sellbie/redesign/sellbie-redesign-navegacao-antes-2.png', alt: 'Padrão de navegação lateral' },
+                { src: '/images/cases/sellbie/redesign/sellbie-redesign-navegacao-antes-3.png', alt: 'Terceiro padrão de navegação coexistindo' },
+              ]}
+              caption="Três padrões de navegação coexistindo sem critério ou hierarquia"
             />
           </section>
 
@@ -153,9 +154,15 @@ export default async function SellbieRedesignPage() {
                 de envios.
               </Body>
             </div>
-            <CaseImgPair
-              a={{ src: '/images/cases/sellbie/redesign/sellbie-redesign-board-entrevistas.png', alt: 'Board de clusterização das entrevistas', caption: 'Clusterização das entrevistas — padrões que definiram o foco' }}
-              b={{ src: '/images/cases/sellbie/redesign/sellbie-redesign-board-aprendizados.png', alt: 'Board de aprendizados da pesquisa', caption: 'Aprendizados da pesquisa — síntese que orientou o redesign' }}
+            <CaseImg
+              src="/images/cases/sellbie/redesign/sellbie-redesign-board-entrevistas.png"
+              alt="Board de clusterização das entrevistas"
+              caption="Clusterização das entrevistas — padrões que definiram o foco"
+            />
+            <CaseImg
+              src="/images/cases/sellbie/redesign/sellbie-redesign-board-aprendizados.png"
+              alt="Board de aprendizados da pesquisa"
+              caption="Aprendizados da pesquisa — síntese que orientou o redesign"
             />
           </section>
 
@@ -174,9 +181,15 @@ export default async function SellbieRedesignPage() {
                 dois dias de teste.
               </Body>
             </div>
-            <CaseImgPair
-              a={{ src: '/images/cases/sellbie/redesign/sellbie-redesign-campanhas-antes.png', alt: 'Listagem de campanhas antes — tabela fixa', caption: 'Listagem de campanhas antes — tabela fixa' }}
-              b={{ src: '/images/cases/sellbie/redesign/sellbie-redesign-campanhas-cards-depois.png', alt: 'Nova listagem em cards com visualização alternável', caption: 'Nova listagem em cards — visualização alternável' }}
+            <CaseBeforeAfter
+              imageBefore="/images/cases/sellbie/redesign/sellbie-redesign-campanhas-antes.png"
+              imageAfter="/images/cases/sellbie/redesign/sellbie-redesign-campanhas-cards-depois.png"
+              altBefore="Listagem de campanhas antes — tabela fixa sem visualização alternativa"
+              altAfter="Nova listagem em cards com visualização alternável"
+              captionBefore="Tabela fixa — sem visualização alternativa"
+              captionAfter="Cards com visualização alternável"
+              accentBg={ACCENT_BG}
+              accentText={ACCENT_TEXT}
             />
           </section>
 
@@ -214,14 +227,13 @@ export default async function SellbieRedesignPage() {
                 ali não sabia mais exatamente o que estava disparando.
               </Body>
             </div>
-            <CaseImg
-              src="/images/cases/sellbie/redesign/sellbie-redesign-criacao-envio-antes-1.png"
-              alt="Fluxo antigo — página separada sem contexto da campanha"
-              caption="Fluxo antigo — página separada sem contexto da campanha"
-            />
-            <CaseImgPair
-              a={{ src: '/images/cases/sellbie/redesign/sellbie-redesign-criacao-envio-antes-2.png', alt: 'Etapa 2 do fluxo antigo', caption: 'Etapa 2 do fluxo antigo' }}
-              b={{ src: '/images/cases/sellbie/redesign/sellbie-redesign-criacao-envio-antes-3.png', alt: 'Etapa 3 — base densa sem resumo', caption: 'Etapa 3 — base densa sem resumo' }}
+            <CaseCarousel
+              images={[
+                { src: '/images/cases/sellbie/redesign/sellbie-redesign-criacao-envio-antes-1.png', alt: 'Fluxo antigo — página separada sem contexto da campanha' },
+                { src: '/images/cases/sellbie/redesign/sellbie-redesign-criacao-envio-antes-2.png', alt: 'Etapa 2 do fluxo antigo' },
+                { src: '/images/cases/sellbie/redesign/sellbie-redesign-criacao-envio-antes-3.png', alt: 'Etapa 3 — base densa sem resumo consolidado' },
+              ]}
+              caption="Fluxo antigo — quatro páginas separadas, zero contexto da campanha"
             />
           </section>
 
@@ -258,9 +270,12 @@ export default async function SellbieRedesignPage() {
                 transfere a responsabilidade para quem tem autorização.
               </Body>
             </div>
-            <CaseImgPair
-              a={{ src: '/images/cases/sellbie/redesign/sellbie-redesign-envio-drawer-email-etapa-resumo.png', alt: 'Resumo consolidado com revisão completa e edição inline', caption: 'Resumo consolidado — revisão completa com edição inline' }}
-              b={{ src: '/images/cases/sellbie/redesign/sellbie-redesign-envio-drawer-email-etapa-aprovacao.png', alt: 'Etapa de aprovação antes do disparo', caption: 'Aprovação — formaliza a revisão antes do disparo' }}
+            <CaseCarousel
+              images={[
+                { src: '/images/cases/sellbie/redesign/sellbie-redesign-envio-drawer-email-etapa-resumo.png', alt: 'Resumo consolidado — revisão completa com edição inline' },
+                { src: '/images/cases/sellbie/redesign/sellbie-redesign-envio-drawer-email-etapa-aprovacao.png', alt: 'Aprovação — formaliza a revisão antes do disparo' },
+              ]}
+              caption="Resumo e aprovação — as duas etapas que fecham o ciclo de criação"
             />
           </section>
 

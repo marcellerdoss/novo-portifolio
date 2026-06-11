@@ -70,11 +70,14 @@ A visualização em cards é a visão padrão da listagem. Cada card exibe tipo,
 
 A separação entre abas **Pontuais** e **Jornadas** (antes chamadas recorrentes, mas sem automação de fluxo) organiza dois modelos de campanha com lógicas distintas sem misturar os contextos.
 
-![Listagem de campanhas antes e depois — de tabela fixa para visualização em cards como padrão.](/images/cases/sellbie/redesign/sellbie-redesign-campanhas-antes.png)
-
-![Nova listagem em cards — visão padrão com status, tipo e envios por canal em destaque.](/images/cases/sellbie/redesign/sellbie-redesign-campanhas-cards-depois.png)
-
-![Nova listagem em lista — ordenação por coluna para quem trabalha com alto volume.](/images/cases/sellbie/redesign/sellbie-redesign-campanhas-listagem-depois.png)
+<Carousel
+  images={[
+    { src: "/images/cases/sellbie/redesign/sellbie-redesign-campanhas-antes.png", alt: "Listagem de campanhas antes — tabela fixa" },
+    { src: "/images/cases/sellbie/redesign/sellbie-redesign-campanhas-cards-depois.png", alt: "Nova listagem em cards — visão padrão com status, tipo e envios por canal" },
+    { src: "/images/cases/sellbie/redesign/sellbie-redesign-campanhas-listagem-depois.png", alt: "Nova listagem em lista — ordenação por coluna para alto volume" },
+  ]}
+  caption="Listagem de campanhas: tabela fixa → cards como padrão + lista alternável"
+/>
 
 **Empty state orientador**
 
@@ -84,15 +87,18 @@ Quando não há campanhas ou envios, a tela exibe um empty state com ilustraçã
 
 Na plataforma antiga, o ponto de entrada para criar um envio era a tela de relatório de uma campanha já criada, que podia estar completamente vazia sem nenhum envio associado. Clicar em "Criar ação" redirecionava para uma página separada com stepper de 4 etapas lineares: formulário plano sem agrupamento, seleção de base densa sem contextualização e sem resumo consolidado antes de confirmar. Qualquer correção exigia refazer etapas.
 
-![A decisão central do redesign: criar o envio dentro do contexto da campanha, não em uma página separada.](/images/cases/sellbie/redesign/sellbie-redesign-criacao-envio-antes-1.png)
-
-![Fluxo antigo — etapas em página separada sem contexto da campanha visível.](/images/cases/sellbie/redesign/sellbie-redesign-criacao-envio-antes-2.png)
-
-![Fluxo antigo — seleção de base densa sem resumo consolidado antes de confirmar.](/images/cases/sellbie/redesign/sellbie-redesign-criacao-envio-antes-3.png)
+<Carousel
+  images={[
+    { src: "/images/cases/sellbie/redesign/sellbie-redesign-criacao-envio-antes-1.png", alt: "Fluxo antigo — página separada sem contexto da campanha" },
+    { src: "/images/cases/sellbie/redesign/sellbie-redesign-criacao-envio-antes-2.png", alt: "Fluxo antigo — etapas em página separada sem contexto da campanha visível" },
+    { src: "/images/cases/sellbie/redesign/sellbie-redesign-criacao-envio-antes-3.png", alt: "Fluxo antigo — seleção de base densa sem resumo consolidado" },
+  ]}
+  caption="Fluxo antigo — quatro páginas separadas, zero contexto de campanha"
+/>
 
 O redesign resolveu essa ruptura unificando campanha e envio em uma jornada contínua. A tela de envios da campanha exibe o nome e ID da campanha como referência constante, e o fluxo de criação abre em um drawer lateral sobre essa tela. O contexto da campanha permanece visível o tempo todo.
 
-![Novo drawer contextual — campanha visível o tempo todo enquanto o envio é configurado.](/images/cases/sellbie/redesign/sellbie-redesign-criacao-envio-depois.png)
+![Novo drawer contextual — campanha visível o tempo todo enquanto o envio é configurado.](/images/cases/sellbie/redesign/sellbie-redesign-criacao-envio.png)
 
 Ao clicar em "+ Criar envio", um dropdown apresenta os canais disponíveis: WhatsApp, E-mail e SMS. Canais não contratados pela marca aparecem desabilitados. Cada canal tem um fluxo com especificidades próprias, mas todos seguem a mesma estrutura de accordion progressivo com etapas expansíveis, permitindo navegar entre seções já concluídas sem refazer o fluxo.
 
@@ -100,13 +106,13 @@ O fluxo documentado é o de e-mail, organizado em três etapas:
 
 **Etapa 1 — Dados primários:** Nome do envio (com tooltip explicando que não aparece para o cliente) e Data/hora de início, com inputs separados para data e hora.
 
-**Etapa 2 — Conteúdo do envio:** Opções de conteúdo (Template salvo da biblioteca ou Criar conteúdo), Remetente, Rede de IP, UTM_campaign e Assunto com suporte a variáveis dinâmicas e emoji. Cada campo tem ícone ⓘ com explicação inline. A opção de visualizar o template antes de avançar está disponível diretamente na etapa.
-
-**Etapa 3 — Base de clientes:** Opções de base (Todos os clientes, Bases salvas, Aniversariantes, Segmento, Base da promoção) com seleção de lojas participantes e toggle para excluir clientes que participam de outras campanhas. A base calculada exibe a quantidade antes de avançar.
-
 ![Etapa 1 — nome do envio e data/hora de início.](/images/cases/sellbie/redesign/sellbie-redesign-envio-drawer-email-etapa-1.png)
 
+**Etapa 2 — Conteúdo do envio:** Opções de conteúdo (Template salvo da biblioteca ou Criar conteúdo), Remetente, Rede de IP, UTM_campaign e Assunto com suporte a variáveis dinâmicas e emoji. Cada campo tem ícone ⓘ com explicação inline. A opção de visualizar o template antes de avançar está disponível diretamente na etapa.
+
 ![Etapa 2 — template, remetente, UTM e assunto com variáveis dinâmicas.](/images/cases/sellbie/redesign/sellbie-redesign-envio-drawer-email-etapa-2.png)
+
+**Etapa 3 — Base de clientes:** Opções de base (Todos os clientes, Bases salvas, Aniversariantes, Segmento, Base da promoção) com seleção de lojas participantes e toggle para excluir clientes que participam de outras campanhas. A base calculada exibe a quantidade antes de avançar.
 
 ![Etapa 3 — seleção de base com quantidade calculada antes de avançar.](/images/cases/sellbie/redesign/sellbie-redesign-envio-drawer-email-etapa-3.png)
 

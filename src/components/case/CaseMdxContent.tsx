@@ -1,5 +1,6 @@
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import Image from 'next/image';
+import { CaseCarousel } from './CaseCarousel';
 
 interface MdxImgProps {
   src?: string;
@@ -32,7 +33,7 @@ function MdxImg({ src, alt, title }: MdxImgProps) {
   );
 }
 
-const components = { img: MdxImg };
+const components = { img: MdxImg, Carousel: CaseCarousel };
 
 interface Props {
   source: string;
