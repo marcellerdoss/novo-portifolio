@@ -85,14 +85,6 @@ export default async function SellbieCrmPage() {
             ← Todos os cases
           </Link>
 
-          <div className="flex flex-wrap items-center gap-3 mb-8">
-            <span className="type-caption rounded-full px-3 py-2 leading-none bg-surface-soft text-fg">
-              CRM · Customer Success
-            </span>
-            <span className="type-caption text-fg-subtle">2024</span>
-            <span className="type-caption text-fg-subtle">Sellbie</span>
-          </div>
-
           <h1 className="type-display-lg text-fg mb-6">
             Relatório<br />de diagnóstico CRM
           </h1>

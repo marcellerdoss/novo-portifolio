@@ -93,14 +93,6 @@ export default async function JgCentralAjudaPage() {
             ← Todos os cases
           </Link>
 
-          <div className="flex flex-wrap items-center gap-3 mb-8">
-            <span className="type-caption rounded-full px-3 py-2 leading-none bg-surface-soft text-fg">
-              UX · Produto Educacional
-            </span>
-            <span className="type-caption text-fg-subtle">2024</span>
-            <span className="type-caption text-fg-subtle">Jovens Gênios</span>
-          </div>
-
           <h1 className="type-display-lg text-fg mb-6">
             Central<br />de ajuda
           </h1>

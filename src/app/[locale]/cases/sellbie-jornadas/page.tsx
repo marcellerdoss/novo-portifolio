@@ -93,14 +93,6 @@ export default async function SellbieJornadasPage() {
             ← Todos os cases
           </Link>
 
-          <div className="flex flex-wrap items-center gap-3 mb-8">
-            <span className="type-caption rounded-full px-3 py-2 leading-none bg-surface-soft text-fg">
-              Product Design
-            </span>
-            <span className="type-caption text-fg-subtle">2024</span>
-            <span className="type-caption text-fg-subtle">Sellbie</span>
-          </div>
-
           <h1 className="type-display-lg text-fg mb-6">Jornadas do cliente</h1>
 
           <p className="type-body-lg text-fg-muted max-w-2xl">
