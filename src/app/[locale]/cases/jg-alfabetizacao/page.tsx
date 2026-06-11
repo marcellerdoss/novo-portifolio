@@ -107,7 +107,7 @@ export default async function JgAlfabetizacaoPage() {
 
           <div className="flex flex-wrap gap-2 mt-6">
             {['UX Research', 'Arquitetura Pedagógica', 'Testes em Campo', 'Design System'].map(tag => (
-              <span key={tag} className="type-caption rounded-full border border-border px-3 py-2 leading-none text-fg-subtle">
+              <span key={tag} className="type-caption rounded-full border border-border px-2 py-0.5 leading-none text-fg-subtle">
                 {tag}
               </span>
             ))}
