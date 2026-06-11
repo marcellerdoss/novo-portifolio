@@ -1,21 +1,27 @@
 import type { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 import { Hero } from '@/components/sections/Hero';
 import { MarqueeStrip } from '@/components/sections/MarqueeStrip';
 import { About } from '@/components/sections/About';
-import { CasesSection } from '@/components/sections/Cases';
-import { Skills } from '@/components/sections/Skills';
-import { Racional } from '@/components/sections/Racional';
-import { Experience } from '@/components/sections/Experience';
-import { BlogPreview } from '@/components/sections/Blog';
-import { Contact } from '@/components/sections/Contact';
-import { JsonLd } from '@/components/seo/JsonLd';
-import { BackToTop } from '@/components/ui/BackToTop';
 import { getCases } from '@/lib/cases';
 import { getExperience } from '@/lib/experience';
 import { getAllPosts } from '@/lib/mdx';
 import { siteConfig } from '@/lib/config';
+import { JsonLd } from '@/components/seo/JsonLd';
+
+const CasesSection = dynamic(() => import('@/components/sections/Cases').then(m => ({ default: m.CasesSection })));
+const BlogPreview  = dynamic(() => import('@/components/sections/Blog').then(m => ({ default: m.BlogPreview })));
+const Racional     = dynamic(() => import('@/components/sections/Racional').then(m => ({ default: m.Racional })));
+const Experience   = dynamic(() => import('@/components/sections/Experience').then(m => ({ default: m.Experience })));
+const Skills       = dynamic(() => import('@/components/sections/Skills').then(m => ({ default: m.Skills })));
+const Contact      = dynamic(() => import('@/components/sections/Contact').then(m => ({ default: m.Contact })));
+const BackToTop    = dynamic(() => import('@/components/ui/BackToTop').then(m => ({ default: m.BackToTop })));
 
 type Props = { params: Promise<{ locale: string }> };
+
+export function generateStaticParams() {
+  return [{ locale: 'pt' }, { locale: 'en' }];
+}
 
 const titles: Record<string, string> = {
   pt: 'Marcelle Rocha | Produto estratégico',
