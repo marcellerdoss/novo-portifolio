@@ -102,7 +102,7 @@ export default async function SellbieRedesignPage() {
 
           <p className="type-body-lg text-fg-muted max-w-2xl">
             Como unificamos três padrões de navegação incompatíveis e
-            redesenhamos o fluxo de criação de envios — reduzindo o abandono
+            redesenhamos o fluxo de criação de envios, reduzindo o abandono
             no módulo principal da plataforma.
           </p>
 
