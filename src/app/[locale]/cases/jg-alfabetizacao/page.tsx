@@ -61,8 +61,6 @@ function CaseImgPair({ a, b }: { a: { src: string; alt: string; caption?: string
 
 const sidebar = [
   { label: 'Empresa', content: 'Jovens Gênios' },
-  { label: 'Período', content: 'ago 2022 – jul 2024' },
-  { label: 'Papel', content: 'Product Designer · UX Research' },
   { label: 'Contexto', content: 'EdTech · B2B · B2Gov · IA Adaptativa' },
   { label: 'Métodos', content: 'Pesquisa documental (BNCC) · Entrevistas com professoras · Benchmarking' },
   { label: 'Entregas', content: 'Matriz de Proficiência · Sistema de codificação Fase × Modelo · Modelos de questão' },

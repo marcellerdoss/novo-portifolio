@@ -61,8 +61,6 @@ function CaseImgPair({ a, b }: { a: { src: string; alt: string; caption?: string
 
 const sidebar = [
   { label: 'Empresa', content: 'Sellbie' },
-  { label: 'Período', content: '2024–2025' },
-  { label: 'Papel', content: 'Product Designer · UX Strategy' },
   { label: 'Plataforma', content: 'B2B · Marketing multicanal com IA' },
   { label: 'Métodos', content: 'Discovery · Benchmarking · PRD · Interaction Design' },
   { label: 'Entregas', content: 'Canvas de fluxo · 20+ gatilhos · 3 canais · Biblioteca de templates' },

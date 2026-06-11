@@ -61,8 +61,6 @@ function CaseImgPair({ a, b }: { a: { src: string; alt: string; caption?: string
 
 const sidebar = [
   { label: 'Empresa', content: 'Sellbie' },
-  { label: 'Período', content: '2024' },
-  { label: 'Papel', content: 'Product Designer' },
   { label: 'Usuários', content: 'Comercial · Financeiro · CS' },
   { label: 'Métodos', content: 'Discovery · Entrevistas · Relatórios' },
   { label: 'Entregas', content: 'ROAS operacional · Precificação · Handoff' },

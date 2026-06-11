@@ -61,8 +61,6 @@ function CaseImgPair({ a, b }: { a: { src: string; alt: string; caption?: string
 
 const sidebar = [
   { label: 'Empresa', content: 'Jovens Gênios' },
-  { label: 'Período', content: 'ago 2022 – jul 2024' },
-  { label: 'Papel', content: 'Product Designer' },
   { label: 'Plataforma', content: 'EdTech · B2C · B2B' },
   { label: 'Métodos', content: 'Arquitetura de Informação · Benchmarking · Personalização por perfil' },
   { label: 'Entregas', content: 'Navegação por perfil · Busca filtrada · Empty states · Handoff' },

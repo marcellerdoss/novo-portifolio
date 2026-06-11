@@ -53,8 +53,6 @@ function CaseImg({ src, alt, caption }: { src: string; alt: string; caption?: st
 
 const sidebar = [
   { label: 'Empresa', content: 'Sellbie' },
-  { label: 'Período', content: '2024' },
-  { label: 'Papel', content: 'Product Designer' },
   { label: 'Plataforma', content: 'B2B · SaaS' },
   { label: 'Métodos', content: 'Inventário · Card sorting · Heurísticas de Abby Covert · Sitemap' },
   { label: 'Entregas', content: 'Inventário de conteúdo · Card sorting · Sitemap aprovado' },

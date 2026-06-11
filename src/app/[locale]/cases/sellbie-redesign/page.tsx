@@ -61,8 +61,6 @@ function CaseImgPair({ a, b }: { a: { src: string; alt: string; caption?: string
 
 const sidebar = [
   { label: 'Empresa', content: 'Sellbie' },
-  { label: 'Período', content: 'jan 2024 – fev 2026' },
-  { label: 'Papel', content: 'Product Designer' },
   { label: 'Plataforma', content: 'B2B · Marketing multicanal com IA' },
   { label: 'Métodos', content: 'Discovery · Entrevistas com usuários · Benchmarking competitivo' },
   { label: 'Entregas', content: 'Redesign do fluxo de campanhas · Evolução dos fluxos multicanal · WhatsApp Oficial' },

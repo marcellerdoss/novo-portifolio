@@ -53,8 +53,6 @@ function CaseImg({ src, alt, caption }: { src: string; alt: string; caption?: st
 
 const sidebar = [
   { label: 'Empresa', content: 'Sellbie' },
-  { label: 'Período', content: '2024' },
-  { label: 'Papel', content: 'Product Designer' },
   { label: 'Usuário', content: 'Customer Success' },
   { label: 'Métodos', content: 'Discovery · Design · Handoff' },
   { label: 'Entregas', content: 'Healthscore · Funil integrado · Gerador de base' },
