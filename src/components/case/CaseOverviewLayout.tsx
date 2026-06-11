@@ -17,18 +17,21 @@ export function CaseOverviewLayout({ sidebar, children }: CaseOverviewLayoutProp
 
       <div className="px-6 pt-10">
         <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_240px] gap-12 lg:gap-16 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_240px] gap-12 lg:gap-16">
             <article className="space-y-24">{children}</article>
-            <div className="lg:sticky lg:top-40 lg:self-start">
-              <aside className="rounded-[16px] border border-border overflow-hidden divide-y divide-border">
-                {sidebar.map((block) => (
-                  <div key={block.label} className="px-5 py-4">
-                    <p className="type-caption text-accent-magenta mb-2">{block.label}</p>
-                    <p className="type-body-xs text-fg-muted leading-relaxed">{block.content}</p>
-                  </div>
-                ))}
-              </aside>
-            </div>
+
+            <aside className="hidden lg:block">
+              <div className="sticky top-40">
+                <div className="rounded-[16px] border border-border overflow-hidden divide-y divide-border">
+                  {sidebar.map((block) => (
+                    <div key={block.label} className="px-5 py-4">
+                      <p className="type-caption text-accent-magenta mb-2">{block.label}</p>
+                      <p className="type-body-xs text-fg-muted leading-relaxed">{block.content}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </aside>
           </div>
         </div>
       </div>
