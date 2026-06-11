@@ -8,8 +8,8 @@ export function CaseToggleBar() {
   const { view, switchView } = useCaseView();
 
   return (
-    <div id="case-toggle" className="sticky top-[6.25rem] z-50 w-full bg-bg border-b border-border">
-      <div className="max-w-5xl mx-auto px-6 flex items-center gap-3 py-2">
+    <div id="case-toggle" className="sticky top-[6.25rem] z-50 w-full bg-bg">
+      <div className="max-w-5xl mx-auto px-6 flex items-center gap-3 py-3">
         <span className="type-body-sm text-fg-subtle hidden sm:inline whitespace-nowrap">
           {t('view_label')}
         </span>
