@@ -10,6 +10,7 @@ import { CasePageShell } from '@/components/case/CasePageShell';
 import { CaseEditorialWrapper } from '@/components/case/CaseEditorialWrapper';
 import { getCaseNav } from '@/lib/casesConfig';
 import { CaseOverviewLayout } from '@/components/case/CaseOverviewLayout';
+import { buttonVariants } from '@/components/ui/Button';
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -88,7 +89,7 @@ export default async function SellbieJornadasPage() {
         <div className="max-w-5xl mx-auto">
           <Link
             href="/#cases"
-            className="inline-flex items-center gap-2 px-5 py-2 type-btn border border-fg text-fg rounded-pill bg-transparent hover:bg-fg/10 dark:hover:bg-white/10 active:scale-[0.97] transition-all duration-150 mb-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-fg"
+            className={buttonVariants({ variant: 'secondary', size: 'sm' }) + ' mb-10'}
           >
             ← Todos os cases
           </Link>
