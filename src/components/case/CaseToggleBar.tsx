@@ -8,8 +8,8 @@ export function CaseToggleBar() {
   const { view, switchView } = useCaseView();
 
   return (
-    <div id="case-toggle" className="sticky top-[6.25rem] z-30 w-full bg-bg">
-      <div className="max-w-5xl mx-auto px-6 flex items-center gap-3 py-3">
+    <div id="case-toggle" className="sticky top-[6.25rem] z-30 w-full bg-bg px-6">
+      <div className="max-w-5xl mx-auto flex items-center gap-3 py-2">
         <span className="type-body-sm text-fg-subtle hidden sm:inline whitespace-nowrap">
           {t('view_label')}
         </span>
@@ -21,7 +21,7 @@ export function CaseToggleBar() {
           <button
             onClick={() => switchView('overview')}
             aria-pressed={view === 'overview'}
-            className={`px-4 py-1 text-[14px] transition-all duration-150 leading-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-fg ${
+            className={`px-5 py-3 type-btn leading-none transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-fg ${
               view === 'overview'
                 ? 'bg-fg text-bg'
                 : 'text-fg-muted hover:text-fg hover:bg-black/5 dark:hover:bg-white/5'
@@ -32,7 +32,7 @@ export function CaseToggleBar() {
           <button
             onClick={() => switchView('detailed')}
             aria-pressed={view === 'detailed'}
-            className={`px-4 py-1 text-[14px] transition-all duration-150 leading-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-fg ${
+            className={`px-5 py-3 type-btn leading-none transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-fg ${
               view === 'detailed'
                 ? 'bg-fg text-bg'
                 : 'text-fg-muted hover:text-fg hover:bg-black/5 dark:hover:bg-white/5'
