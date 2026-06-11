@@ -12,7 +12,7 @@ interface CaseMdxCarouselProps {
 
 export function CaseMdxCarousel({ images, caption }: CaseMdxCarouselProps) {
   return (
-    <figure className="my-6 space-y-2">
+    <figure className="my-6 space-y-2 max-w-[736px] mx-auto">
       <div className="bg-white rounded-2xl p-2 shadow-sm ring-1 ring-black/5">
         <div className="relative rounded-[8px] overflow-hidden">
           <div

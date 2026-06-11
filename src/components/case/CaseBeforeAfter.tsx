@@ -23,7 +23,7 @@ export function CaseBeforeAfter({
   unoptimized,
 }: CaseBeforeAfterProps) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-[736px] mx-auto">
       {/* Before */}
       <figure className="space-y-2">
         <div className="bg-white rounded-2xl p-2 shadow-sm ring-1 ring-black/5">

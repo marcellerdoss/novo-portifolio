@@ -31,7 +31,7 @@ export function CaseImageFrame({ src, alt, caption, pair }: Props) {
 
   return (
     <>
-      <figure className="space-y-2">
+      <figure className={`space-y-2${pair ? '' : ' max-w-[736px] mx-auto'}`}>
         <button
           type="button"
           onClick={() => setOpen(true)}
