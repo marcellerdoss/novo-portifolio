@@ -326,6 +326,27 @@ body {
   }
 }
 
+/* ─── Editorial prose responsive — mirrors type-* overrides ─── */
+@media (min-width: 641px) and (max-width: 1536px) {
+  .case-editorial-prose h3 {
+    font-size: 1.25rem;
+    line-height: 1.35;
+    letter-spacing: -0.1px;
+  }
+  .case-editorial-prose p {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+}
+
+@media (max-width: 640px) {
+  .case-editorial-prose h3 {
+    font-size: 1.25rem;
+    line-height: 1.40;
+    letter-spacing: -0.20px;
+  }
+}
+
 /* ─── Responsive overrides — notebook / tablet (641–1536px) ─── */
 @media (min-width: 641px) and (max-width: 1536px) {
   .py-section {
