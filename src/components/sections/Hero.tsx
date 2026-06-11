@@ -64,6 +64,7 @@ export function Hero() {
           className="flex flex-wrap items-center gap-4"
         >
           <Button
+            size="lg"
             onClick={() =>
               document.getElementById('cases')?.scrollIntoView({ behavior: 'smooth' })
             }
@@ -73,6 +74,7 @@ export function Hero() {
           <LinkButton
             href={siteConfig.cv[locale]}
             variant="secondary"
+            size="lg"
             download="CV-Marcelle.pdf"
           >
             {t('cta_secondary')} <Download size={16} aria-hidden="true" />

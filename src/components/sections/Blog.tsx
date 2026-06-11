@@ -201,7 +201,7 @@ export function BlogPreview({ posts }: Props) {
           <LinkButton
             href="https://medium.com/@marcelle.rdoss"
             variant="secondary"
-            size="sm"
+            size="md"
             external
           >
             {t('see_all')} <ArrowUpRight size={12} aria-hidden="true" />

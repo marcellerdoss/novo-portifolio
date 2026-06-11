@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
+import { buttonVariants } from '@/components/ui/Button';
 
 export interface CaseCardProps {
   company?: string;
@@ -99,7 +100,7 @@ export function CaseCard({
             ))}
           </div>
           <div>
-            <span className="inline-flex items-center gap-2 px-4 py-2 type-body-sm border border-fg text-fg rounded-pill bg-transparent">
+            <span className={buttonVariants({ variant: 'secondary', size: 'sm' })}>
               {ctaLabel} <ArrowUpRight size={12} aria-hidden="true" className="shrink-0" />
             </span>
           </div>
@@ -190,7 +191,7 @@ export function CaseCard({
             ))}
           </div>
           <div className="mt-auto">
-            <span className="inline-flex items-center gap-2 px-4 py-2 type-body-sm border border-fg text-fg rounded-pill bg-transparent">
+            <span className={buttonVariants({ variant: 'secondary', size: 'sm' })}>
               {ctaLabel} <ArrowUpRight size={12} aria-hidden="true" className="shrink-0" />
             </span>
           </div>

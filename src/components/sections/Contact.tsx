@@ -102,6 +102,7 @@ function ContactForm({ email: _email }: { email: string }) {
       <div className="flex flex-col gap-3">
         <Button
           type="submit"
+          size="lg"
           disabled={status === 'sending' || status === 'success'}
           className="self-start bg-white text-primary hover:opacity-90 hover:bg-white dark:bg-white dark:text-primary dark:hover:bg-white dark:hover:opacity-90 disabled:opacity-50"
         >
