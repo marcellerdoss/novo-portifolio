@@ -152,6 +152,15 @@ CES, CSAT e tempo de criação são projeções baseadas nas mudanças estrutura
 ---
 
 **Usuários atendidos:** Analistas e gestores de marketing de marcas de varejo · Times de CRM · Coordenadores de campanhas
+
 **Processo:** Imersão na plataforma existente → Pesquisa com clientes → Entrevistas com usuários → Proposta de UI → Design System → PRD → Redesign do módulo de campanhas e envios pontuais
-**Entregáveis:** Mapeamento de fluxos existentes · Design System (Figma) · PRD · Arquitetura de navegação · Listagem de campanhas (cards e lista) · Empty states · Drawer de envio com accordion (e-mail, WhatsApp, SMS) · Resumo e aprovação de envio
-**Ferramentas:** Figma · Pesquisa qualitativa (entrevistas semiestruturadas) · Pesquisa quantitativa (formulário via CS) · Heurísticas de Nielsen · Matriz CSD
+
+**Entregáveis:**
+- Mapeamento de fluxos existentes
+- Design System (Figma) e PRD
+- Arquitetura de navegação unificada
+- Listagem de campanhas (cards e lista) e empty states
+- Drawer de envio com accordion (e-mail, WhatsApp, SMS)
+- Resumo consolidado e aprovação de envio
+
+**Ferramentas:** Figma · Entrevistas semiestruturadas · Pesquisa quantitativa (formulário via CS) · Heurísticas de Nielsen · Matriz CSD
