@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import fs from 'fs';
 import path from 'path';
 import { CaseImageFrame } from '@/components/case/CaseImageFrame';
+import { CaseCarousel } from '@/components/case/CaseCarousel';
 import { Link } from '@/i18n/navigation';
 import { CaseMdxContent } from '@/components/case/CaseMdxContent';
 import { routing } from '@/i18n/routing';
@@ -178,14 +179,14 @@ export default async function JgAlfabetizacaoPage() {
                 do time.
               </Body>
             </div>
-            <CaseImg
-              src="/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-slide-pre-silabico.png"
-              alt="Fase Pré-silábica com atividades e lacunas"
-              caption="Fase Pré-silábica — atividades e lacunas antes de qualquer tela"
-            />
-            <CaseImgPair
-              a={{ src: '/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-slide-silabico.png', alt: 'Fase Silábica', caption: 'Fase Silábica' }}
-              b={{ src: '/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-slide-alfabetico.png', alt: 'Fase Alfabética', caption: 'Fase Alfabética' }}
+            <CaseCarousel
+              images={[
+                { src: '/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-slide-pre-silabico.png', alt: 'Fase Pré-silábica — atividades e lacunas' },
+                { src: '/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-slide-silabico.png', alt: 'Fase Silábica — atividades e lacunas' },
+                { src: '/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-slide-ortografico.png', alt: 'Fase Ortográfica — atividades e lacunas' },
+                { src: '/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-slide-alfabetico.png', alt: 'Fase Alfabética — atividades e lacunas' },
+              ]}
+              caption="Pré-silábica, Silábica, Ortográfica e Alfabética — atividades mapeadas e lacunas identificadas por fase"
             />
           </section>
 
