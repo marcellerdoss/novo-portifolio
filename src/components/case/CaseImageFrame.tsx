@@ -10,9 +10,11 @@ interface Props {
   caption?: string;
   pair?: boolean;
   fixedHeight?: number;
+  imgWidth?: number;
+  imgHeight?: number;
 }
 
-export function CaseImageFrame({ src, alt, caption, pair, fixedHeight }: Props) {
+export function CaseImageFrame({ src, alt, caption, pair, fixedHeight, imgWidth = 1200, imgHeight = 800 }: Props) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -46,8 +48,8 @@ export function CaseImageFrame({ src, alt, caption, pair, fixedHeight }: Props) 
             <Image
               src={src}
               alt={alt}
-              width={1200}
-              height={800}
+              width={imgWidth}
+              height={imgHeight}
               sizes={sizes}
               quality={92}
               className={fixedHeight ? 'block w-auto' : 'w-full h-auto block'}
