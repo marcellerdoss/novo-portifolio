@@ -134,11 +134,14 @@ Essa estrutura transformou cada modelo em uma ferramenta pedagógica completa e 
 
 ![Modelo Ditado — escuta e escrita como base para diferentes fases da progressão.](../../images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-ditado.png)
 
-![Modelo Motricidade — traço e coordenação como parte da aprendizagem da escrita.](../../images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-motricidade.png)
-
-![Modelo Ábaco — numeração decimal com suporte visual para diferentes níveis de abstração.](../../images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-abaco.png)
-
-![Modelo Produção Textual — escrita estruturada como etapa final da progressão de alfabetização, com handoff documentado por modelo: base, progressão, fases atendidas e habilidades da BNCC.](../../images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-producao-textual.png)
+<Carousel
+  images={[
+    { "src": "/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-producao-textual.png", "alt": "Produção Textual — escrita estruturada como etapa final" },
+    { "src": "/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-motricidade.png", "alt": "Motricidade — traçado e coordenação como base da escrita" },
+    { "src": "/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-abaco.png", "alt": "Ábaco — numeração decimal com suporte visual" }
+  ]}
+  caption="Produção Textual, Motricidade e Ábaco — do traçado à escrita estruturada"
+/>
 
 ---
 

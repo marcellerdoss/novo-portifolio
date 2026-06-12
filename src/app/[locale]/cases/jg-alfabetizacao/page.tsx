@@ -305,14 +305,13 @@ export default async function JgAlfabetizacaoPage() {
                 manipulável.
               </Body>
             </div>
-            <CaseImg
-              src="/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-producao-textual.png"
-              alt="Modelo de produção textual como etapa final"
-              caption="Produção Textual — escrita estruturada como etapa final"
-            />
-            <CaseImgPair
-              a={{ src: '/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-motricidade.png', alt: 'Modelo de motricidade', caption: 'Motricidade' }}
-              b={{ src: '/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-abaco.png', alt: 'Modelo de ábaco', caption: 'Ábaco' }}
+            <CaseCarousel
+              images={[
+                { src: '/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-producao-textual.png', alt: 'Produção Textual — escrita estruturada como etapa final' },
+                { src: '/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-motricidade.png', alt: 'Motricidade — traçado e coordenação como base da escrita' },
+                { src: '/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-abaco.png', alt: 'Ábaco — numeração decimal com suporte visual' },
+              ]}
+              caption="Produção Textual, Motricidade e Ábaco — do traçado à escrita estruturada"
             />
           </section>
 
