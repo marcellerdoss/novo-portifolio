@@ -7,14 +7,14 @@ import { cn } from '@/lib/utils';
 
 type NavKey = 'about' | 'cases' | 'racional' | 'skills' | 'experience' | 'blog' | 'contact';
 
-const links: { key: NavKey; href: string }[] = [
-  { key: 'about',      href: '/#sobre' },
-  { key: 'cases',      href: '/#cases' },
-  { key: 'racional',   href: '/#racional' },
-  { key: 'skills',     href: '/#skills' },
-  { key: 'experience', href: '/#experiencia' },
-  { key: 'blog',       href: '/#blog' },
-  { key: 'contact',    href: '/#contato' },
+const links: { key: NavKey; href: { pathname: string; hash: string } }[] = [
+  { key: 'about',      href: { pathname: '/', hash: '#sobre' } },
+  { key: 'cases',      href: { pathname: '/', hash: '#cases' } },
+  { key: 'racional',   href: { pathname: '/', hash: '#racional' } },
+  { key: 'skills',     href: { pathname: '/', hash: '#skills' } },
+  { key: 'experience', href: { pathname: '/', hash: '#experiencia' } },
+  { key: 'blog',       href: { pathname: '/', hash: '#blog' } },
+  { key: 'contact',    href: { pathname: '/', hash: '#contato' } },
 ];
 
 type Props = {
