@@ -146,11 +146,14 @@ O *Dashboard Executivo* fecha o módulo com uma visão consolidada do período: 
 **Impacto esperado**
 Excedente calculado automaticamente, contratos no sistema, histórico congelado. Risco de erro eliminado e aproximadamente 2 horas de retrabalho mensal recuperadas por marca.
 
-![Dashboard executivo — visão consolidada do período sem precisar abrir o relatório completo.](/images/cases/sellbie/cashback/sellbie-cashback-relatorio-precificacao-make-1-dashboard.png)
-
-![Cadastro de contratos — regras de cada marca no sistema, separadas dos dados de consumo.](/images/cases/sellbie/cashback/sellbie-cashback-relatorio-precificacao-make-2-cadastro-contratos.png)
-
-![Relatório de faturamento — excedente calculado automaticamente, histórico congelado, risco de erro eliminado.](/images/cases/sellbie/cashback/sellbie-cashback-relatorio-precificacao-make-3-faturamento.png)
+<Carousel
+  images={[
+    { "src": "/images/cases/sellbie/cashback/sellbie-cashback-relatorio-precificacao-make-1-dashboard.png", "alt": "Dashboard executivo — visão consolidada do período sem precisar abrir o relatório completo" },
+    { "src": "/images/cases/sellbie/cashback/sellbie-cashback-relatorio-precificacao-make-2-cadastro-contratos.png", "alt": "Cadastro de contratos — regras de cada marca no sistema, separadas dos dados de consumo" },
+    { "src": "/images/cases/sellbie/cashback/sellbie-cashback-relatorio-precificacao-make-3-faturamento.png", "alt": "Relatório de faturamento — excedente calculado automaticamente, histórico congelado, risco de erro eliminado" }
+  ]}
+  caption="Dashboard, Cadastro de Contratos e Faturamento — da margem ao contrato no mesmo relatório"
+/>
 
 ---
 
