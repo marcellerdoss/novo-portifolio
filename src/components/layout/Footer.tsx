@@ -19,7 +19,7 @@ export async function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer id="footer" className="bg-[#F9F7F8] dark:bg-navy-900 border-t border-border dark:border-white/10 py-12">
+    <footer id="footer" className="bg-[#F9F7F8] dark:bg-bg border-t border-border dark:border-white/10 py-12">
       <div className="max-w-6xl mx-auto px-6 w-full">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-8 md:mb-12">
 
