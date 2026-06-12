@@ -1,8 +1,9 @@
 'use client';
 
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
-import { ChevronLeft, ChevronRight, X, ZoomIn } from 'lucide-react';
+import { useState } from 'react';
+import { ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
+import { Lightbox } from './Lightbox';
 
 interface CarouselImage {
   src: string;
@@ -18,23 +19,6 @@ export function CaseCarousel({ images, caption }: CaseCarouselProps) {
   const [current, setCurrent] = useState(0);
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
   const total = images.length;
-
-  useEffect(() => {
-    if (lightboxIdx === null) return;
-    document.body.style.overflow = 'hidden';
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setLightboxIdx(null);
-      if (e.key === 'ArrowLeft') setLightboxIdx(i => (i !== null && i > 0 ? i - 1 : i));
-      if (e.key === 'ArrowRight') setLightboxIdx(i => (i !== null && i < total - 1 ? i + 1 : i));
-    };
-    document.addEventListener('keydown', onKey);
-    return () => {
-      document.body.style.overflow = '';
-      document.removeEventListener('keydown', onKey);
-    };
-  }, [lightboxIdx, total]);
-
-  const lbImg = lightboxIdx !== null ? images[lightboxIdx] : null;
 
   return (
     <>
@@ -109,92 +93,20 @@ export function CaseCarousel({ images, caption }: CaseCarouselProps) {
         )}
       </figure>
 
-      {lightboxIdx !== null && lbImg && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-label={lbImg.alt}
-          className="fixed inset-0 z-[9999] overflow-y-auto"
-          onClick={() => setLightboxIdx(null)}
-        >
-          <div className="absolute inset-0 bg-black/88 pointer-events-none" aria-hidden="true" />
-
-          <div className="flex min-h-full items-center justify-center px-4 py-12">
-            <div
-              className="relative z-10 flex flex-col items-center w-full"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="flex justify-end w-full mb-2" style={{ maxWidth: '88vw' }}>
-                <button
-                  type="button"
-                  onClick={() => setLightboxIdx(null)}
-                  aria-label="Fechar"
-                  className="text-white/70 hover:text-white transition-colors p-1 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
-                >
-                  <X size={20} aria-hidden="true" />
-                </button>
-              </div>
-
-              <div className="relative flex items-center gap-3">
-                {total > 1 && (
-                  <button
-                    onClick={() => setLightboxIdx(i => (i !== null && i > 0 ? i - 1 : i))}
-                    disabled={lightboxIdx === 0}
-                    aria-label="Imagem anterior"
-                    className="w-8 h-8 rounded-full bg-white/20 text-white flex items-center justify-center disabled:opacity-0 hover:bg-white/30 transition-all shrink-0"
-                  >
-                    <ChevronLeft size={16} />
-                  </button>
-                )}
-
-                <div className="bg-white rounded-2xl p-3 shadow-2xl" style={{ maxWidth: '80vw' }}>
-                  <Image
-                    src={lbImg.src}
-                    alt={lbImg.alt}
-                    width={1200}
-                    height={800}
-                    sizes="80vw"
-                    quality={95}
-                    className="block rounded-[4px] w-auto h-auto"
-                    style={{ maxWidth: '76vw', maxHeight: '72vh' }}
-                  />
-                </div>
-
-                {total > 1 && (
-                  <button
-                    onClick={() => setLightboxIdx(i => (i !== null && i < total - 1 ? i + 1 : i))}
-                    disabled={lightboxIdx === total - 1}
-                    aria-label="Próxima imagem"
-                    className="w-8 h-8 rounded-full bg-white/20 text-white flex items-center justify-center disabled:opacity-0 hover:bg-white/30 transition-all shrink-0"
-                  >
-                    <ChevronRight size={16} />
-                  </button>
-                )}
-              </div>
-
-              {total > 1 && (
-                <div className="flex justify-center gap-1.5 mt-4">
-                  {images.map((_, i) => (
-                    <button
-                      key={i}
-                      onClick={() => setLightboxIdx(i)}
-                      aria-label={`Imagem ${i + 1} de ${total}`}
-                      className={`h-1.5 rounded-full transition-all duration-200 ${
-                        i === lightboxIdx ? 'w-4 bg-white/60' : 'w-1.5 bg-white/25 hover:bg-white/40'
-                      }`}
-                    />
-                  ))}
-                </div>
-              )}
-
-              {caption && (
-                <p className="mt-4 type-body-xs text-white/50 text-center px-4" style={{ maxWidth: '88vw' }}>
-                  {caption}
-                </p>
-              )}
-            </div>
-          </div>
-        </div>
+      {lightboxIdx !== null && (
+        <Lightbox
+          src={images[lightboxIdx].src}
+          alt={images[lightboxIdx].alt}
+          caption={caption}
+          onClose={() => setLightboxIdx(null)}
+          onPrev={() => setLightboxIdx(i => (i !== null && i > 0 ? i - 1 : i))}
+          onNext={() => setLightboxIdx(i => (i !== null && i < total - 1 ? i + 1 : i))}
+          hasPrev={lightboxIdx > 0}
+          hasNext={lightboxIdx < total - 1}
+          total={total}
+          currentIdx={lightboxIdx}
+          onGoTo={setLightboxIdx}
+        />
       )}
     </>
   );
