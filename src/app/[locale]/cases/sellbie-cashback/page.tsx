@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import fs from 'fs';
 import path from 'path';
 import { CaseImageFrame } from '@/components/case/CaseImageFrame';
+import { CaseCarousel } from '@/components/case/CaseCarousel';
 import { Link } from '@/i18n/navigation';
 import { CaseMdxContent } from '@/components/case/CaseMdxContent';
 import { routing } from '@/i18n/routing';
@@ -176,14 +177,13 @@ export default async function SellbieCashbackPage() {
                 comportamento de cliente.
               </Body>
             </div>
-            <CaseImg
-              src="/images/cases/sellbie/cashback/sellbie-cashback-relatorio-roas-make-1-dashboard.png"
-              alt="ROAS operacional com faturamento, resgate e cashback expirado"
-              caption="ROAS operacional — faturamento, resgate e cashback expirado"
-            />
-            <CaseImgPair
-              a={{ src: '/images/cases/sellbie/cashback/sellbie-cashback-relatorio-roas-make-2-dashboard.png', alt: 'ROAS por estratégia', caption: 'ROAS por estratégia' }}
-              b={{ src: '/images/cases/sellbie/cashback/sellbie-cashback-relatorio-roas-make-3-dashboard.png', alt: 'ROAS por comportamento', caption: 'ROAS por comportamento' }}
+            <CaseCarousel
+              images={[
+                { src: '/images/cases/sellbie/cashback/sellbie-cashback-relatorio-roas-make-1-dashboard.png', alt: 'ROAS operacional — faturamento, resgate e cashback expirado em uma tela' },
+                { src: '/images/cases/sellbie/cashback/sellbie-cashback-relatorio-roas-make-2-dashboard.png', alt: 'ROAS por estratégia — qual ação performa melhor' },
+                { src: '/images/cases/sellbie/cashback/sellbie-cashback-relatorio-roas-make-3-dashboard.png', alt: 'ROAS por comportamento — o cashback realmente muda o que o cliente faz?' },
+              ]}
+              caption="ROAS Operacional, por Estratégia e por Comportamento — o retorno que o cashback realmente gera"
             />
           </section>
 
@@ -202,14 +202,13 @@ export default async function SellbieCashbackPage() {
                 ciclo mostrando o realizado contra o contratado.
               </Body>
             </div>
-            <CaseImg
-              src="/images/cases/sellbie/cashback/sellbie-cashback-relatorio-precificacao-make-1-dashboard.png"
-              alt="Dashboard executivo de precificação"
-              caption="Dashboard executivo de precificação"
-            />
-            <CaseImgPair
-              a={{ src: '/images/cases/sellbie/cashback/sellbie-cashback-relatorio-precificacao-make-2-cadastro-contratos.png', alt: 'Cadastro de contratos', caption: 'Cadastro de contratos' }}
-              b={{ src: '/images/cases/sellbie/cashback/sellbie-cashback-relatorio-precificacao-make-3-faturamento.png', alt: 'Relatório de faturamento', caption: 'Relatório de faturamento' }}
+            <CaseCarousel
+              images={[
+                { src: '/images/cases/sellbie/cashback/sellbie-cashback-relatorio-precificacao-make-1-dashboard.png', alt: 'Dashboard executivo — visão consolidada do período' },
+                { src: '/images/cases/sellbie/cashback/sellbie-cashback-relatorio-precificacao-make-2-cadastro-contratos.png', alt: 'Cadastro de contratos — regras de cada marca no sistema' },
+                { src: '/images/cases/sellbie/cashback/sellbie-cashback-relatorio-precificacao-make-3-faturamento.png', alt: 'Relatório de faturamento — excedente calculado automaticamente' },
+              ]}
+              caption="Dashboard, Cadastro de Contratos e Faturamento — da margem ao contrato no mesmo relatório"
             />
           </section>
 
