@@ -168,7 +168,7 @@ export function Skills({ inline }: Props) {
             whileInView="visible"
             viewport={{ once: true }}
             id="skills-heading"
-            className="type-headline text-fg mb-8 md:mb-0 md:pt-1"
+            className="type-display-lg text-fg mb-8 md:mb-0 md:pt-1"
           >
             {t('title')}
           </motion.h2>
@@ -185,7 +185,7 @@ export function Skills({ inline }: Props) {
             whileInView="visible"
             viewport={{ once: true }}
             id="formacao-heading"
-            className="type-headline text-fg mb-8 md:mb-0 md:pt-1"
+            className="type-display-lg text-fg mb-8 md:mb-0 md:pt-1"
           >
             {locale === 'pt' ? 'Formação & Certificações' : 'Education & Certifications'}
           </motion.h2>
