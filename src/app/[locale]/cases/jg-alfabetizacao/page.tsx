@@ -278,14 +278,13 @@ export default async function JgAlfabetizacaoPage() {
                 implementações diferentes.
               </Body>
             </div>
-            <CaseImg
-              src="/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-ordenacao-horizontal.png"
-              alt="Modelo de ordenação horizontal em três fases"
-              caption="Ordenação Horizontal — um modelo, três fases, múltiplas variações"
-            />
-            <CaseImgPair
-              a={{ src: '/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-multipla-escolha.png', alt: 'Modelo de múltipla escolha', caption: 'Múltipla Escolha' }}
-              b={{ src: '/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-correlacao-ordenacao-vertical.png', alt: 'Modelo de correlação e ordenação vertical', caption: 'Correlação / Ordenação Vertical' }}
+            <CaseCarousel
+              images={[
+                { src: '/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-ordenacao-horizontal.png', alt: 'Ordenação Horizontal — um modelo, três fases, múltiplas variações' },
+                { src: '/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-multipla-escolha.png', alt: 'Múltipla Escolha — variações por fase' },
+                { src: '/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-correlacao-ordenacao-vertical.png', alt: 'Correlação e Ordenação Vertical' },
+              ]}
+              caption="Ordenação Horizontal, Múltipla Escolha e Correlação — um modelo, três fases, múltiplas variações"
             />
           </section>
 
@@ -334,10 +333,6 @@ export default async function JgAlfabetizacaoPage() {
                 distribui ao longo da progressão.
               </Body>
             </div>
-            <CaseImgPair
-              a={{ src: '/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-ditado.png', alt: 'Modelo de ditado para diferentes fases', caption: 'Ditado — escuta e escrita para diferentes fases' }}
-              b={{ src: '/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-org-fases.png', alt: 'Organização de atividades por fase', caption: 'Atividades por fase' }}
-            />
           </section>
 
           <Divider />

@@ -74,13 +74,15 @@ Quatro fases estruturam a jornada da criança no produto, seguindo a progressão
 
 ![Fases de alfabetização mapeadas por ano escolar — recorte pedagógico que definiu o escopo do produto.](../../images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-slide-progressao.png)
 
-![Fase Pré-silábica — atividades mapeadas e lacunas identificadas antes de qualquer tela ser desenhada.](../../images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-slide-pre-silabico.png)
-
-![Fase Silábica — primeiras associações entre escrita e fala, com dinâmicas específicas para essa transição.](../../images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-slide-silabico.png)
-
-![Fase Alfabética — a criança começa a entender que sílabas têm mais de uma letra.](../../images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-slide-alfabetico.png)
-
-![Fase Ortográfica — leitura mais fluente, fase não contemplada na plataforma e questionada estrategicamente.](../../images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-slide-ortografico.png)
+<Carousel
+  images={[
+    { "src": "/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-slide-pre-silabico.png", "alt": "Fase Pré-silábica — atividades mapeadas e lacunas identificadas" },
+    { "src": "/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-slide-silabico.png", "alt": "Fase Silábica — primeiras associações entre escrita e fala" },
+    { "src": "/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-slide-alfabetico.png", "alt": "Fase Alfabética — a criança começa a entender que sílabas têm mais de uma letra" },
+    { "src": "/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-slide-ortografico.png", "alt": "Fase Ortográfica — leitura mais fluente" }
+  ]}
+  caption="Pré-silábica, Silábica, Alfabética e Ortográfica — atividades mapeadas e lacunas identificadas por fase"
+/>
 
 **Sistema de codificação — Fase × Modelo**
 
@@ -121,11 +123,14 @@ Essa estrutura transformou cada modelo em uma ferramenta pedagógica completa e 
 
 **Modelos de questão**
 
-![Modelo Ordenação Horizontal — um modelo, três fases de transição, múltiplas variações de interação.](../../images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-ordenacao-horizontal.png)
-
-![Modelo Múltipla Escolha — imagem e áudio como requisitos de design, não acessórios.](../../images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-multipla-escolha.png)
-
-![Modelo Correlação / Ordenação Vertical — variação que expande o alcance pedagógico sem multiplicar complexidade técnica.](../../images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-correlacao-ordenacao-vertical.png)
+<Carousel
+  images={[
+    { "src": "/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-ordenacao-horizontal.png", "alt": "Modelo Ordenação Horizontal — um modelo, três fases de transição, múltiplas variações de interação" },
+    { "src": "/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-multipla-escolha.png", "alt": "Modelo Múltipla Escolha — imagem e áudio como requisitos de design, não acessórios" },
+    { "src": "/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-correlacao-ordenacao-vertical.png", "alt": "Modelo Correlação / Ordenação Vertical — variação que expande o alcance pedagógico sem multiplicar complexidade técnica" }
+  ]}
+  caption="Ordenação Horizontal, Múltipla Escolha e Correlação — um modelo, três fases, múltiplas variações"
+/>
 
 ![Modelo Ditado — escuta e escrita como base para diferentes fases da progressão.](../../images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-ditado.png)
 
