@@ -122,6 +122,9 @@ Resultados com filtro lateral por perfil e contagem por categoria; empty state c
 ---
 
 **Públicos atendidos:** Educadores · Exploradores · Responsáveis
+
 **Processo:** Benchmarking → Arquitetura de Informação → Definição de fluxos e requisitos → Handoff
+
 **Páginas:** Inicial · Categorias por perfil · Artigo · Resultados de busca · Empty states
+
 **Ferramentas:** Figma
