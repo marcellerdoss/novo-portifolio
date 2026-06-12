@@ -234,15 +234,26 @@ export default async function SellbieJornadasPage() {
                 mas compartilhando a mesma estrutura de configuração.
               </Body>
             </div>
-            <CaseImg
-              src="/images/cases/sellbie/jornadas/sellbie-jornadas-canal-email.png"
-              alt="Canal E-mail com template, remetente e rastreamento"
-              caption="E-mail — template, remetente e rastreamento em um painel"
-            />
-            <CaseImgPair
-              a={{ src: '/images/cases/sellbie/jornadas/sellbie-jornadas-canal-whatsapp.png', alt: 'Canal WhatsApp 1:1 pelo vendedor', caption: 'WhatsApp 1:1 pelo vendedor' }}
-              b={{ src: '/images/cases/sellbie/jornadas/sellbie-jornadas-canal-sms.png', alt: 'Canal SMS com restrições explícitas', caption: 'SMS — restrições explícitas' }}
-            />
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <CaseImageFrame
+                src="/images/cases/sellbie/jornadas/sellbie-jornadas-canal-email.png"
+                alt="Canal E-mail com template, remetente e rastreamento"
+                caption="E-mail — template, remetente e rastreamento"
+                pair
+              />
+              <CaseImageFrame
+                src="/images/cases/sellbie/jornadas/sellbie-jornadas-canal-whatsapp.png"
+                alt="Canal WhatsApp 1:1 pelo vendedor"
+                caption="WhatsApp 1:1 pelo vendedor"
+                pair
+              />
+              <CaseImageFrame
+                src="/images/cases/sellbie/jornadas/sellbie-jornadas-canal-sms.png"
+                alt="Canal SMS com restrições explícitas"
+                caption="SMS — restrições explícitas"
+                pair
+              />
+            </div>
           </section>
 
           <Divider />
