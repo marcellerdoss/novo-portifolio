@@ -32,29 +32,47 @@ export function CaseImageFrame({ src, alt, caption, pair, fixedHeight, imgWidth 
     ? '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 360px'
     : '(max-width: 1024px) 100vw, 552px';
 
+  // For portrait/fixed-height images: calculate display width from actual aspect ratio (rule of 4)
+  const displayW = fixedHeight != null
+    ? Math.round(fixedHeight * (imgWidth / imgHeight) / 4) * 4
+    : 0;
+
   return (
     <>
       <figure
-        className={fixedHeight ? 'gap-2' : `space-y-2${pair ? '' : ' max-w-[552px] mx-auto'}`}
-        style={fixedHeight ? { display: 'grid', gridTemplateColumns: 'min-content' } : undefined}
+        className={fixedHeight != null ? 'gap-2' : `space-y-2${pair ? '' : ' max-w-[552px] mx-auto'}`}
+        style={fixedHeight != null ? { display: 'grid', gridTemplateColumns: 'min-content' } : undefined}
       >
         <button
           type="button"
           onClick={() => setOpen(true)}
           aria-label={`Ampliar: ${alt}`}
-          className={`group block bg-white rounded-2xl p-2 shadow-sm ring-1 ring-black/5 cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg${fixedHeight ? '' : ' w-full'}`}
+          className={`group block bg-white rounded-2xl p-2 shadow-sm ring-1 ring-black/5 cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg${fixedHeight != null ? '' : ' w-full'}`}
         >
-          <div className="relative rounded-[8px] overflow-hidden">
-            <Image
-              src={src}
-              alt={alt}
-              width={imgWidth}
-              height={imgHeight}
-              sizes={sizes}
-              quality={92}
-              className={fixedHeight ? 'block w-auto' : 'w-full h-auto block'}
-              style={fixedHeight ? { height: fixedHeight, width: 'auto' } : undefined}
-            />
+          <div
+            className="relative rounded-[8px] overflow-hidden"
+            style={fixedHeight != null ? { width: displayW, height: fixedHeight } : undefined}
+          >
+            {fixedHeight != null ? (
+              <Image
+                src={src}
+                alt={alt}
+                fill
+                sizes={`${displayW}px`}
+                quality={92}
+                style={{ objectFit: 'contain', objectPosition: 'top' }}
+              />
+            ) : (
+              <Image
+                src={src}
+                alt={alt}
+                width={imgWidth}
+                height={imgHeight}
+                sizes={sizes}
+                quality={92}
+                className="w-full h-auto block"
+              />
+            )}
             <div className="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-150">
               <span className="flex items-center gap-2 bg-black/50 backdrop-blur-sm text-white rounded-full px-3 py-1 type-caption">
                 <ZoomIn size={11} aria-hidden="true" />
