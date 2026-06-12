@@ -239,19 +239,19 @@ export default async function SellbieJornadasPage() {
                 src="/images/cases/sellbie/jornadas/sellbie-jornadas-canal-email.png"
                 alt="Canal E-mail com template, remetente e rastreamento"
                 caption="E-mail — template, remetente e rastreamento"
-                pair fixedHeight={368}
+                pair
               />
               <CaseImageFrame
                 src="/images/cases/sellbie/jornadas/sellbie-jornadas-canal-whatsapp.png"
                 alt="Canal WhatsApp 1:1 pelo vendedor"
                 caption="WhatsApp 1:1 pelo vendedor"
-                pair fixedHeight={368}
+                pair
               />
               <CaseImageFrame
                 src="/images/cases/sellbie/jornadas/sellbie-jornadas-canal-sms.png"
                 alt="Canal SMS com restrições explícitas"
                 caption="SMS — restrições explícitas"
-                pair fixedHeight={368}
+                pair
               />
             </div>
           </section>
@@ -275,13 +275,13 @@ export default async function SellbieJornadasPage() {
                 src="/images/cases/sellbie/jornadas/sellbie-jornadas-step-intervalo-1.png"
                 alt="Step de intervalo com tempo de espera e horário"
                 caption="Intervalo — tempo de espera e horário"
-                pair fixedHeight={368}
+                pair
               />
               <CaseImageFrame
                 src="/images/cases/sellbie/jornadas/sellbie-jornadas-step-intervalo-2.png"
                 alt="Incompatibilidade de canal sinalizada no intervalo"
                 caption="Incompatibilidade de canal sinalizada"
-                pair fixedHeight={368}
+                pair
               />
             </div>
           </section>
