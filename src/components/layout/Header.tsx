@@ -74,7 +74,7 @@ export function Header() {
             />
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/images/social/logo-header-marcelle-rocha-magenta.svg"
+              src="/images/social/logo-header-marcelle-rocha-bege.svg"
               alt="Marcelle Rocha"
               className="hidden dark:block"
               style={{ width: 'auto', height: '20px' }}
