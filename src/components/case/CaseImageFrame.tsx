@@ -9,9 +9,10 @@ interface Props {
   alt: string;
   caption?: string;
   pair?: boolean;
+  fixedHeight?: number;
 }
 
-export function CaseImageFrame({ src, alt, caption, pair }: Props) {
+export function CaseImageFrame({ src, alt, caption, pair, fixedHeight }: Props) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -38,7 +39,10 @@ export function CaseImageFrame({ src, alt, caption, pair }: Props) {
           aria-label={`Ampliar: ${alt}`}
           className="group block w-full bg-white rounded-2xl p-2 shadow-sm ring-1 ring-black/5 cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg"
         >
-          <div className="relative rounded-[8px] overflow-hidden">
+          <div
+            className="relative rounded-[8px] overflow-hidden"
+            style={fixedHeight ? { height: fixedHeight } : undefined}
+          >
             <Image
               src={src}
               alt={alt}
@@ -46,7 +50,10 @@ export function CaseImageFrame({ src, alt, caption, pair }: Props) {
               height={800}
               sizes={sizes}
               quality={92}
-              className="w-full h-auto block"
+              className={fixedHeight
+                ? 'absolute inset-0 w-full h-full object-cover object-top'
+                : 'w-full h-auto block'
+              }
             />
             <div className="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-150">
               <span className="flex items-center gap-2 bg-black/50 backdrop-blur-sm text-white rounded-full px-3 py-1 type-caption">
