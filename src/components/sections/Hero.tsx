@@ -33,14 +33,14 @@ export function Hero() {
 
         {/* Name + Tagline — agrupados */}
         <div className="mb-8 md:mb-8 xl:mb-12">
-          <motion.p
+          <motion.h1
             variants={fadeInUp}
-            className="type-subhead text-fg mb-3"
+            className="text-[clamp(2rem,2.5vw,2.25rem)] font-[340] leading-[1.2] tracking-[-0.5px] text-fg mb-3"
           >
             {t('name')}
-          </motion.p>
+          </motion.h1>
 
-          <motion.h1
+          <motion.p
             variants={fadeInUp}
             className="text-[clamp(2rem,4vw,3.5rem)] leading-[1.05] tracking-[-1.5px]"
           >
@@ -55,7 +55,7 @@ export function Hero() {
                 {line}
               </span>
             ))}
-          </motion.h1>
+          </motion.p>
         </div>
 
         {/* CTAs */}

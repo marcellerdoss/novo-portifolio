@@ -397,14 +397,6 @@ body {
   }
 }
 
-/* ─── Hero — preserve large type-subhead for the name (desktop only) ── */
-@media (min-width: 641px) {
-  #home .type-subhead {
-    font-size: 1.75rem;      /* 28px — keep hero name large */
-    letter-spacing: -0.28px;
-  }
-}
-
 /* ─── Dual-theme code blocks (rehypePrettyCode + class-based dark mode) ── */
 code[data-theme*=' '],
 code[data-theme*=' '] span {

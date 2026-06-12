@@ -58,11 +58,11 @@ export function Navigation({ className, itemClassName, onClick }: Props) {
                 onClick={onClick}
                 aria-current={isActive ? 'page' : undefined}
                 className={cn(
-                  'type-body-xs transition-colors duration-150',
-                  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg rounded',
+                  'type-body-xs px-3 py-1 rounded-pill transition-all duration-150',
+                  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg',
                   isActive
-                    ? 'text-accent-magenta font-[540]'
-                    : 'text-fg hover:text-accent-magenta dark:hover:text-magenta-300',
+                    ? 'text-accent-magenta font-[540] bg-accent-magenta/10'
+                    : 'text-fg hover:text-accent-magenta dark:hover:text-magenta-300 hover:bg-fg/10 dark:hover:bg-white/10',
                   itemClassName,
                 )}
               >
