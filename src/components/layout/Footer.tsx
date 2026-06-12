@@ -19,25 +19,25 @@ export async function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer id="footer" className="bg-navy-900 border-t border-white/10 py-12">
+    <footer id="footer" className="bg-[#F9F7F8] dark:bg-navy-900 border-t border-border dark:border-white/10 py-12">
       <div className="max-w-6xl mx-auto px-6 w-full">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-8 md:mb-12">
 
           {/* Brand */}
           <div>
-            <p className="type-headline text-white mb-1">Marcelle</p>
-            <p className="type-body-sm text-white/60">UX &amp; Product Designer</p>
+            <p className="type-headline text-fg dark:text-white mb-1">Marcelle</p>
+            <p className="type-body-sm text-fg-muted dark:text-white/60">UX &amp; Product Designer</p>
           </div>
 
           {/* Quick links */}
           <nav aria-label={t('quick_links')}>
-            <p className="type-caption text-white/40 mb-4">{t('quick_links')}</p>
+            <p className="type-caption text-fg-subtle dark:text-white/40 mb-4">{t('quick_links')}</p>
             <ul className="space-y-2">
               {navLinks.map(({ key, href }) => (
                 <li key={key}>
                   <Link
                     href={href}
-                    className="type-body-sm text-white/60 hover:text-white transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded"
+                    className="type-body-sm text-fg-muted dark:text-white/60 hover:text-fg dark:hover:text-white transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg dark:focus-visible:ring-white rounded"
                   >
                     {tNav(key)}
                   </Link>
@@ -48,13 +48,13 @@ export async function Footer() {
 
           {/* Credit + meta link */}
           <div className="space-y-3">
-            <p className="type-body-sm text-white/60">
+            <p className="type-body-sm text-fg-muted dark:text-white/60">
               {t('credit')}{' '}
-              <span className="text-white font-[540]">Marcelle</span>
+              <span className="text-fg dark:text-white font-[540]">Marcelle</span>
             </p>
             <Link
               href="/racional"
-              className="inline-flex items-center gap-2 type-caption text-white/40 hover:text-white/70 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded"
+              className="inline-flex items-center gap-2 type-caption text-fg-subtle dark:text-white/40 hover:text-fg-muted dark:hover:text-white/70 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg dark:focus-visible:ring-white rounded"
             >
               {t('rationale')}
             </Link>
@@ -62,8 +62,8 @@ export async function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-white/10 pt-6">
-          <p className="type-caption text-white/40">
+        <div className="border-t border-border dark:border-white/10 pt-6">
+          <p className="type-caption text-fg-subtle dark:text-white/40">
             © {year} Marcelle. {t('copyright')}
           </p>
         </div>

@@ -157,42 +157,42 @@ export function Skills({ inline }: Props) {
   );
 
   return (
-    <section id="skills" aria-labelledby="skills-heading" className="py-section bg-surface-soft scroll-mt-28">
-      <div className="max-w-6xl mx-auto px-6 space-y-12">
-
-        {/* Skills: título à esquerda, categorias à direita */}
-        <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] md:gap-20 items-start">
-          <motion.h2
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            id="skills-heading"
-            className="type-display-lg text-fg mb-8 md:mb-0 md:pt-1"
-          >
-            {t('title')}
-          </motion.h2>
-          {skillsGrid}
+    <>
+      <section id="skills" aria-labelledby="skills-heading" className="py-section bg-[#FDF6F3] dark:bg-surface-soft scroll-mt-28">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] md:gap-20 items-start">
+            <motion.h2
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              id="skills-heading"
+              className="type-display-lg text-fg mb-8 md:mb-0 md:pt-1"
+            >
+              {t('title')}
+            </motion.h2>
+            {skillsGrid}
+          </div>
         </div>
+      </section>
 
-        <hr className="border-border" />
-
-        {/* Formação: título à esquerda, itens à direita */}
-        <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] md:gap-20 items-start">
-          <motion.h2
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            id="formacao-heading"
-            className="type-display-lg text-fg mb-8 md:mb-0 md:pt-1"
-          >
-            {locale === 'pt' ? 'Formação & Certificações' : 'Education & Certifications'}
-          </motion.h2>
-          {educationGrid}
+      <div className="py-section bg-[#FDFAF4] dark:bg-block-cream border-t border-border">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] md:gap-20 items-start">
+            <motion.h2
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              id="formacao-heading"
+              className="type-display-lg text-fg mb-8 md:mb-0 md:pt-1"
+            >
+              {locale === 'pt' ? 'Formação & Certificações' : 'Education & Certifications'}
+            </motion.h2>
+            {educationGrid}
+          </div>
         </div>
-
       </div>
-    </section>
+    </>
   );
 }
