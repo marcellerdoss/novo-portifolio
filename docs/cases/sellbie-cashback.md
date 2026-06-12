@@ -116,11 +116,14 @@ Outra decisão foi tornar o cálculo do ROAS transparente na tela, com a fórmul
 **Impacto esperado**
 CS entra na reunião com dados prontos, organizados por pergunta. De argumentação baseada em intuição para ROAS real, por estratégia e por comportamento. Velocidade e segurança na call.
 
-![ROAS operacional — faturamento, resgate e cashback expirado em uma tela, prontos para a reunião.](/images/cases/sellbie/cashback/sellbie-cashback-relatorio-roas-make-1-dashboard.png)
-
-![ROAS por estratégia — qual ação performa melhor, com dados para sustentar a recomendação.](/images/cases/sellbie/cashback/sellbie-cashback-relatorio-roas-make-2-dashboard.png)
-
-![ROAS por comportamento — o cashback realmente muda o que o cliente faz?](/images/cases/sellbie/cashback/sellbie-cashback-relatorio-roas-make-3-dashboard.png)
+<Carousel
+  images={[
+    { "src": "/images/cases/sellbie/cashback/sellbie-cashback-relatorio-roas-make-1-dashboard.png", "alt": "ROAS operacional — faturamento, resgate e cashback expirado em uma tela, prontos para a reunião" },
+    { "src": "/images/cases/sellbie/cashback/sellbie-cashback-relatorio-roas-make-2-dashboard.png", "alt": "ROAS por estratégia — qual ação performa melhor, com dados para sustentar a recomendação" },
+    { "src": "/images/cases/sellbie/cashback/sellbie-cashback-relatorio-roas-make-3-dashboard.png", "alt": "ROAS por comportamento — o cashback realmente muda o que o cliente faz?" }
+  ]}
+  caption="ROAS Operacional, por Estratégia e por Comportamento — o retorno que o cashback realmente gera"
+/>
 
 ---
 
