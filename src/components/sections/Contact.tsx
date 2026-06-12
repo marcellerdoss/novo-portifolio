@@ -132,7 +132,7 @@ export function Contact() {
     <section
       id="contato"
       aria-labelledby="contact-heading"
-      className="py-section bg-block-navy"
+      className="py-section bg-block-navy scroll-mt-28"
     >
       <div className="max-w-6xl mx-auto px-6">
         <motion.div

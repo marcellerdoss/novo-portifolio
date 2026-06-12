@@ -55,7 +55,7 @@ export function CaseCarousel({ images, caption }: CaseCarouselProps) {
                 onClick={() => setCurrent(i => i - 1)}
                 disabled={current === 0}
                 aria-label="Imagem anterior"
-                className="absolute left-0 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-fg text-bg dark:bg-accent-magenta dark:text-white flex items-center justify-center disabled:opacity-0 hover:opacity-90 transition-all shadow-sm"
+                className="absolute left-0 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-fg/10 dark:bg-white/10 text-fg dark:text-white flex items-center justify-center disabled:opacity-0 hover:bg-fg/20 dark:hover:bg-white/20 transition-all"
               >
                 <ChevronLeft size={16} />
               </button>
@@ -63,7 +63,7 @@ export function CaseCarousel({ images, caption }: CaseCarouselProps) {
                 onClick={() => setCurrent(i => i + 1)}
                 disabled={current === total - 1}
                 aria-label="Próxima imagem"
-                className="absolute right-0 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-fg text-bg dark:bg-accent-magenta dark:text-white flex items-center justify-center disabled:opacity-0 hover:opacity-90 transition-all shadow-sm"
+                className="absolute right-0 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-fg/10 dark:bg-white/10 text-fg dark:text-white flex items-center justify-center disabled:opacity-0 hover:bg-fg/20 dark:hover:bg-white/20 transition-all"
               >
                 <ChevronRight size={16} />
               </button>

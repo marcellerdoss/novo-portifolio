@@ -157,7 +157,7 @@ export function Skills({ inline }: Props) {
   );
 
   return (
-    <section id="skills" aria-labelledby="skills-heading" className="py-section bg-surface-soft">
+    <section id="skills" aria-labelledby="skills-heading" className="py-section bg-surface-soft scroll-mt-28">
       <div className="max-w-6xl mx-auto px-6 space-y-12">
 
         {/* Skills: título à esquerda, categorias à direita */}

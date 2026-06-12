@@ -19,7 +19,7 @@ export function About() {
     <section
       id="sobre"
       aria-labelledby="about-heading"
-      className="py-section bg-block-pink dark:bg-block-cream"
+      className="py-section bg-block-pink dark:bg-block-cream scroll-mt-28"
     >
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:items-stretch">
