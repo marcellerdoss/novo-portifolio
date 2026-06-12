@@ -164,7 +164,7 @@ export function CaseCard({
 
           {/* Painel repouso — 1 linha de descrição = panel height igual em todos os cards */}
           <div
-            className="shrink-0 bg-canvas dark:bg-surface-soft border-t border-black/10 dark:border-white/10 px-4 py-4 flex flex-col transition-opacity duration-200 group-hover:opacity-0"
+            className="shrink-0 bg-canvas dark:bg-surface-soft border-t border-black/10 dark:border-white/10 px-4 pt-4 pb-6 flex flex-col transition-opacity duration-200 group-hover:opacity-0"
             aria-hidden="true"
           >
             <p className="type-body-strong text-fg leading-snug mb-1">{title}</p>
