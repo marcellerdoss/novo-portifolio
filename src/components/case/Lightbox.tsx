@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { ChevronLeft, ChevronRight, Minus, Plus, RotateCcw, X } from 'lucide-react';
 
 interface LightboxProps {
@@ -80,7 +81,7 @@ export function Lightbox({ src, alt, caption, onClose, onPrev, onNext, hasPrev, 
 
   const btnClass = 'flex items-center justify-center w-7 h-7 rounded-full text-white/70 hover:text-white hover:bg-white/10 transition-colors disabled:opacity-30 disabled:cursor-not-allowed';
 
-  return (
+  return createPortal(
     <div
       role="dialog"
       aria-modal="true"
@@ -194,6 +195,7 @@ export function Lightbox({ src, alt, caption, onClose, onPrev, onNext, hasPrev, 
           </p>
         )}
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
