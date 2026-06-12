@@ -182,25 +182,24 @@ export function Lightbox({ src, alt, caption, onClose, onPrev, onNext, hasPrev, 
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Hint */}
-      <div style={{ pointerEvents: 'none', flexShrink: 0 }}>
-        {zoom === 1 ? (
-          <span className="flex items-center gap-1.5 rounded-full px-3 py-1 text-white/40 text-xs whitespace-nowrap">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/>
-            </svg>
-            scroll para ampliar · duplo clique para 2.5×
-          </span>
-        ) : (
-          <span className="flex items-center gap-1.5 rounded-full px-3 py-1 text-white/40 text-xs whitespace-nowrap">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M9 3a1 1 0 0 0-2 0v7.5a.5.5 0 0 1-1 0V8a1 1 0 0 0-2 0v9a7 7 0 0 0 14 0v-5a1 1 0 0 0-2 0v-1.5a1 1 0 0 0-2 0V9a1 1 0 0 0-2 0V3z"/>
-            </svg>
-            arraste para navegar · {Math.round(zoom * 100)}% · duplo clique para resetar
-          </span>
-        )}
+        {/* Hint overlay */}
+        <div style={{ position: 'absolute', bottom: '16px', left: '50%', transform: 'translateX(-50%)', zIndex: 20, pointerEvents: 'none' }}>
+          {zoom === 1 ? (
+            <span className="animate-pulse flex items-center gap-1.5 rounded-full px-3 py-1.5 text-white/90 text-xs whitespace-nowrap bg-black/50 backdrop-blur-sm">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/>
+              </svg>
+              scroll para ampliar · duplo clique para 2.5×
+            </span>
+          ) : (
+            <span className="animate-pulse flex items-center gap-1.5 rounded-full px-3 py-1.5 text-white/90 text-xs whitespace-nowrap bg-black/50 backdrop-blur-sm">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M9 3a1 1 0 0 0-2 0v7.5a.5.5 0 0 1-1 0V8a1 1 0 0 0-2 0v9a7 7 0 0 0 14 0v-5a1 1 0 0 0-2 0v-1.5a1 1 0 0 0-2 0V9a1 1 0 0 0-2 0V3z"/>
+              </svg>
+              arraste para navegar · {Math.round(zoom * 100)}% · duplo clique para resetar
+            </span>
+          )}
+        </div>
       </div>
 
       {/* Dots + Caption */}
