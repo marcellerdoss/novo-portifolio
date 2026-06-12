@@ -38,7 +38,7 @@ export function AccessibilityBar() {
       <div className="max-w-6xl mx-auto px-6 w-full flex items-center justify-between gap-4">
 
         {/* Skip links — WCAG 2.4.1, e-MAG 1.1 */}
-        <ul className="flex items-center m-0 p-0 list-none" role="list">
+        <ul className="flex items-center m-0 p-0 list-none -ml-3" role="list">
           {skipLinks.map(({ label, num, href }, i) => (
             <li key={num} className={`flex items-center ${i > 0 ? 'hidden sm:flex' : ''}`}>
               <a

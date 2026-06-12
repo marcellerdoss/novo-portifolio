@@ -67,11 +67,11 @@ export function CasePageShell({
             )}
 
             {nextCase ? (
-              <Link href={nextCase.href} className="group flex flex-col gap-3">
+              <Link href={nextCase.href} className="group flex flex-col gap-3 justify-self-end w-fit">
                 <span className="inline-flex items-center gap-1 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 type-btn leading-none border border-fg text-fg rounded-pill bg-transparent group-hover:bg-fg/10 dark:group-hover:bg-white/10 active:scale-[0.97] transition-all duration-150 self-end focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-fg">
                   {t('next')} <ArrowRight size={13} aria-hidden="true" />
                 </span>
-                <span className="type-body-sm text-fg-muted leading-snug pl-1">{nextCase.title}</span>
+                <span className="type-body-sm text-fg-muted leading-snug">{nextCase.title}</span>
               </Link>
             ) : (
               <div />
