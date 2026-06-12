@@ -161,7 +161,7 @@ export function Skills({ inline }: Props) {
       <div className="max-w-6xl mx-auto px-6 space-y-12">
 
         {/* Skills: título à esquerda, categorias à direita */}
-        <div className="grid grid-cols-1 md:grid-cols-[160px_1fr] md:gap-16 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] md:gap-20 items-start">
           <motion.h2
             variants={fadeInUp}
             initial="hidden"
@@ -178,7 +178,7 @@ export function Skills({ inline }: Props) {
         <hr className="border-border" />
 
         {/* Formação: título à esquerda, itens à direita */}
-        <div className="grid grid-cols-1 md:grid-cols-[160px_1fr] md:gap-16 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] md:gap-20 items-start">
           <motion.h2
             variants={fadeInUp}
             initial="hidden"
