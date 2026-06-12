@@ -61,10 +61,10 @@ export function Hero() {
         {/* CTAs */}
         <motion.div
           variants={fadeInUp}
-          className="flex flex-wrap items-center gap-4"
+          className="flex flex-wrap items-center gap-3"
         >
           <Button
-            size="lg"
+            size="md"
             onClick={() =>
               document.getElementById('cases')?.scrollIntoView({ behavior: 'smooth' })
             }
@@ -74,7 +74,7 @@ export function Hero() {
           <LinkButton
             href={siteConfig.cv[locale]}
             variant="secondary"
-            size="lg"
+            size="md"
             download="CV-Marcelle.pdf"
           >
             {t('cta_secondary')} <Download size={16} aria-hidden="true" />
