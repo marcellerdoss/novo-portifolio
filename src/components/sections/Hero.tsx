@@ -31,15 +31,8 @@ export function Hero() {
           {t('role')}
         </motion.span>
 
-        {/* Name + Tagline — agrupados */}
+        {/* Tagline */}
         <div className="mb-8 md:mb-8 xl:mb-12">
-          <motion.h1
-            variants={fadeInUp}
-            className="text-[clamp(1.75rem,2.5vw,2.25rem)] font-[340] leading-[1.2] tracking-[-0.5px] text-fg mb-3 lowercase"
-          >
-            {t('name')}
-          </motion.h1>
-
           <motion.p
             variants={fadeInUp}
             className="text-[clamp(2rem,4vw,3.5rem)] leading-[1.05] tracking-[-1.5px]"

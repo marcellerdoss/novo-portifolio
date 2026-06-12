@@ -27,8 +27,8 @@ export async function Footer() {
 
           {/* Brand */}
           <div>
-            <p className="type-headline text-white mb-1">Marcelle</p>
-            <p className="type-body-sm text-white/60">UX &amp; Product Designer</p>
+            <p className="type-headline text-white mb-1">Marcelle Rocha</p>
+            <p className="type-body-sm text-white/60">Product Designer | UX | CX</p>
           </div>
 
           {/* Quick links — plain <a> para evitar navegação completa e flash de light mode */}
@@ -49,14 +49,17 @@ export async function Footer() {
           </nav>
 
           {/* Crédito + CTA Racional */}
-          <div className="space-y-5">
-            <p className="type-caption text-white/35">
+          <div
+            className="grid gap-5 justify-self-start"
+            style={{ gridTemplateColumns: 'min-content' }}
+          >
+            <p className="type-caption text-white/35 whitespace-nowrap">
               {t('credit')} <span className="text-white/55">Marcelle</span>
             </p>
 
             <Link
               href="/racional"
-              className="group w-fit flex items-start justify-between gap-4 border border-white/15 hover:border-white/35 rounded-xl px-4 py-4 transition-all duration-200 hover:bg-white/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              className="group flex items-start justify-between gap-2 border border-white/15 hover:border-white/35 rounded-xl px-3 py-3 transition-all duration-200 hover:bg-white/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
               <div>
                 <p className="type-body-sm text-white/80 group-hover:text-white transition-colors duration-200 font-[440]">
@@ -67,7 +70,7 @@ export async function Footer() {
                 </p>
               </div>
               <ArrowUpRight
-                size={16}
+                size={14}
                 className="text-white/30 group-hover:text-white/70 transition-colors duration-200 shrink-0 mt-0.5"
                 aria-hidden="true"
               />
