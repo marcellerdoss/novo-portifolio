@@ -49,6 +49,7 @@ export function CaseZoom({
               fill
               className="object-contain"
               sizes="(max-width: 768px) 100vw, 50vw"
+              quality={90}
               unoptimized={unoptimized}
             />
           </div>
@@ -89,6 +90,7 @@ export function CaseZoom({
               className="object-contain"
               style={{ objectPosition: zoomPosition }}
               sizes="(max-width: 768px) 100vw, 50vw"
+              quality={90}
               unoptimized={unoptimized}
             />
           </div>

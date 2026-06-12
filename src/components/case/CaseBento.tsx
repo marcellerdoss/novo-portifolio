@@ -32,6 +32,7 @@ export function CaseBento({
               fill
               className="object-contain"
               sizes="(max-width: 768px) 100vw, 66vw"
+              quality={90}
               unoptimized={unoptimized}
             />
           </div>
@@ -57,6 +58,7 @@ export function CaseBento({
                   fill
                   className="object-contain"
                   sizes="(max-width: 768px) 100vw, 33vw"
+                  quality={90}
                   unoptimized={unoptimized}
                 />
               </div>

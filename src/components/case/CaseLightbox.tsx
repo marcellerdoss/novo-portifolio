@@ -70,6 +70,7 @@ export function CaseLightbox({
               fill
               className="object-contain"
               sizes="100vw"
+              quality={90}
               unoptimized={unoptimized}
             />
           </div>
@@ -143,6 +144,7 @@ export function CaseLightbox({
                     fill
                     className="object-contain"
                     sizes="90vw"
+                    quality={90}
                     unoptimized={unoptimized}
                   />
                 </div>
