@@ -30,7 +30,7 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   images: {
-    formats: ['image/avif', 'image/webp'],
+    formats: ['image/webp'],
     minimumCacheTTL: 60 * 60 * 24 * 30,
   },
 
