@@ -270,10 +270,20 @@ export default async function SellbieJornadasPage() {
                 a jornada com um erro silencioso embutido.
               </Body>
             </div>
-            <CaseImgPair
-              a={{ src: '/images/cases/sellbie/jornadas/sellbie-jornadas-step-intervalo-1.png', alt: 'Step de intervalo com tempo de espera e horário', caption: 'Intervalo — tempo de espera e horário' }}
-              b={{ src: '/images/cases/sellbie/jornadas/sellbie-jornadas-step-intervalo-2.png', alt: 'Incompatibilidade de canal sinalizada no intervalo', caption: 'Incompatibilidade de canal sinalizada' }}
-            />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <CaseImageFrame
+                src="/images/cases/sellbie/jornadas/sellbie-jornadas-step-intervalo-1.png"
+                alt="Step de intervalo com tempo de espera e horário"
+                caption="Intervalo — tempo de espera e horário"
+                pair
+              />
+              <CaseImageFrame
+                src="/images/cases/sellbie/jornadas/sellbie-jornadas-step-intervalo-2.png"
+                alt="Incompatibilidade de canal sinalizada no intervalo"
+                caption="Incompatibilidade de canal sinalizada"
+                pair
+              />
+            </div>
           </section>
 
           <Divider />
