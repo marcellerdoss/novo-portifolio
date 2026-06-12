@@ -138,6 +138,9 @@ Proposta validada com PM e implementada no Figma Make.
 ---
 
 **Públicos atendidos:** CS · Produto
+
 **Processo:** Levantamento → Mapa de oportunidades → Proposta UX (13 seções) → Consolidação com PM
+
 **Módulos:** Diagnóstico · Funil Integrado · Gerador de Base Alta Propensão · Calculadora de Plano
+
 **Ferramentas:** Figma · Figma Make
