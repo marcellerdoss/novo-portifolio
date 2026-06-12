@@ -183,8 +183,8 @@ export default async function JgAlfabetizacaoPage() {
               images={[
                 { src: '/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-slide-pre-silabico.png', alt: 'Fase Pré-silábica — atividades e lacunas' },
                 { src: '/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-slide-silabico.png', alt: 'Fase Silábica — atividades e lacunas' },
-                { src: '/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-slide-ortografico.png', alt: 'Fase Ortográfica — atividades e lacunas' },
                 { src: '/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-slide-alfabetico.png', alt: 'Fase Alfabética — atividades e lacunas' },
+                { src: '/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-slide-ortografico.png', alt: 'Fase Ortográfica — atividades e lacunas' },
               ]}
               caption="Pré-silábica, Silábica, Ortográfica e Alfabética — atividades mapeadas e lacunas identificadas por fase"
             />
