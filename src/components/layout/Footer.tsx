@@ -56,7 +56,7 @@ export async function Footer() {
 
             <Link
               href="/racional"
-              className="group flex items-start justify-between gap-4 border border-white/15 hover:border-white/35 rounded-xl px-4 py-4 transition-all duration-200 hover:bg-white/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              className="group w-fit flex items-start justify-between gap-4 border border-white/15 hover:border-white/35 rounded-xl px-4 py-4 transition-all duration-200 hover:bg-white/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
               <div>
                 <p className="type-body-sm text-white/80 group-hover:text-white transition-colors duration-200 font-[440]">
