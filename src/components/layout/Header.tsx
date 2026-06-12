@@ -3,7 +3,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import { Menu, X } from 'lucide-react';
-import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from '@/i18n/navigation';
 import { Navigation } from './Navigation';
@@ -66,13 +65,12 @@ export function Header() {
             )}
             aria-label="Marcelle Rocha"
           >
-            <Image
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
               src="/images/social/logo-header-marcelle-rocha-navy.svg"
               alt="Marcelle Rocha"
-              width={160}
               height={24}
-              priority
-              unoptimized
+              style={{ width: 'auto', height: '24px' }}
             />
           </Link>
 
