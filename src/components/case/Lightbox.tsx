@@ -24,9 +24,21 @@ export function Lightbox({ src, alt, caption, onClose, onPrev, onNext, hasPrev, 
   const [pan, setPan] = useState({ x: 0, y: 0 });
   const [grabbing, setGrabbing] = useState(false);
   const [root, setRoot] = useState<HTMLElement | null>(null);
+  const [isTouch, setIsTouch] = useState(false);
+
   const isDragging = useRef(false);
   const dragStart = useRef({ x: 0, y: 0, px: 0, py: 0 });
   const canvasRef = useRef<HTMLDivElement>(null);
+
+  // Refs to avoid stale closures in touch handlers
+  const panRef = useRef({ x: 0, y: 0 });
+  const zoomRef = useRef(1);
+  const touchStartRef = useRef<{ x: number; y: number; px: number; py: number } | null>(null);
+  const pinchStartRef = useRef<{ dist: number; zoom: number } | null>(null);
+  const lastTapRef = useRef<number>(0);
+
+  useEffect(() => { panRef.current = pan; }, [pan]);
+  useEffect(() => { zoomRef.current = zoom; }, [zoom]);
 
   useEffect(() => {
     const el = document.createElement('div');
@@ -37,6 +49,7 @@ export function Lightbox({ src, alt, caption, onClose, onPrev, onNext, hasPrev, 
     });
     document.documentElement.appendChild(el);
     setRoot(el);
+    setIsTouch(window.matchMedia('(hover: none) and (pointer: coarse)').matches);
     document.body.style.overflow = 'hidden';
     return () => {
       document.documentElement.removeChild(el);
@@ -56,7 +69,7 @@ export function Lightbox({ src, alt, caption, onClose, onPrev, onNext, hasPrev, 
     return () => document.removeEventListener('keydown', onKey);
   }, [onClose, onPrev, onNext, hasPrev, hasNext]);
 
-  // Non-passive wheel on canvas
+  // Mouse wheel zoom (desktop)
   useEffect(() => {
     const el = canvasRef.current;
     if (!el) return;
@@ -70,6 +83,68 @@ export function Lightbox({ src, alt, caption, onClose, onPrev, onNext, hasPrev, 
     };
     el.addEventListener('wheel', onWheel, { passive: false });
     return () => el.removeEventListener('wheel', onWheel);
+  }, [root]);
+
+  // Touch: pinch-to-zoom, pan, double-tap
+  useEffect(() => {
+    const el = canvasRef.current;
+    if (!el) return;
+
+    function getTouchDist(t1: Touch, t2: Touch) {
+      const dx = t1.clientX - t2.clientX;
+      const dy = t1.clientY - t2.clientY;
+      return Math.sqrt(dx * dx + dy * dy);
+    }
+
+    const onTouchStart = (e: TouchEvent) => {
+      if (e.touches.length === 1) {
+        const t = e.touches[0];
+        const now = Date.now();
+        if (now - lastTapRef.current < 300) {
+          // Double tap — toggle zoom
+          touchStartRef.current = null;
+          const cur = zoomRef.current;
+          if (cur !== 1) { setZoom(1); setPan({ x: 0, y: 0 }); }
+          else setZoom(2.5);
+          lastTapRef.current = 0;
+          return;
+        }
+        lastTapRef.current = now;
+        touchStartRef.current = { x: t.clientX, y: t.clientY, px: panRef.current.x, py: panRef.current.y };
+        pinchStartRef.current = null;
+      } else if (e.touches.length === 2) {
+        touchStartRef.current = null;
+        pinchStartRef.current = { dist: getTouchDist(e.touches[0], e.touches[1]), zoom: zoomRef.current };
+      }
+    };
+
+    const onTouchMove = (e: TouchEvent) => {
+      e.preventDefault();
+      if (e.touches.length === 1 && touchStartRef.current) {
+        const t = e.touches[0];
+        setPan({
+          x: touchStartRef.current.px + (t.clientX - touchStartRef.current.x),
+          y: touchStartRef.current.py + (t.clientY - touchStartRef.current.y),
+        });
+      } else if (e.touches.length === 2 && pinchStartRef.current) {
+        const newDist = getTouchDist(e.touches[0], e.touches[1]);
+        const newZoom = Math.min(Math.max(pinchStartRef.current.zoom * (newDist / pinchStartRef.current.dist), 0.5), 6);
+        setZoom(newZoom);
+        if (newZoom <= 1) setPan({ x: 0, y: 0 });
+      }
+    };
+
+    const onTouchEnd = () => { touchStartRef.current = null; };
+
+    el.addEventListener('touchstart', onTouchStart, { passive: true });
+    el.addEventListener('touchmove', onTouchMove, { passive: false });
+    el.addEventListener('touchend', onTouchEnd, { passive: true });
+
+    return () => {
+      el.removeEventListener('touchstart', onTouchStart);
+      el.removeEventListener('touchmove', onTouchMove);
+      el.removeEventListener('touchend', onTouchEnd);
+    };
   }, [root]);
 
   const onMouseDown = useCallback((e: React.MouseEvent) => {
@@ -124,14 +199,16 @@ export function Lightbox({ src, alt, caption, onClose, onPrev, onNext, hasPrev, 
             <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/>
             </svg>
-            scroll para ampliar · duplo clique para 2.5×
+            {isTouch
+              ? 'pinch para ampliar · toque duplo para 2.5×'
+              : 'scroll para ampliar · duplo clique para 2.5×'}
           </span>
         ) : (
           <span className="flex items-center gap-1.5 rounded-full px-3 py-1 text-white/40 text-xs whitespace-nowrap bg-white/5">
             <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor">
               <path d="M9 3a1 1 0 0 0-2 0v7.5a.5.5 0 0 1-1 0V8a1 1 0 0 0-2 0v9a7 7 0 0 0 14 0v-5a1 1 0 0 0-2 0v-1.5a1 1 0 0 0-2 0V9a1 1 0 0 0-2 0V3z"/>
             </svg>
-            arraste para navegar · {Math.round(zoom * 100)}% · duplo clique para resetar
+            arraste para navegar · {Math.round(zoom * 100)}% · {isTouch ? 'toque duplo' : 'duplo clique'} para resetar
           </span>
         )}
       </div>
@@ -174,6 +251,7 @@ export function Lightbox({ src, alt, caption, onClose, onPrev, onNext, hasPrev, 
             display: 'flex',
             alignItems: 'flex-start',
             justifyContent: 'center',
+            touchAction: 'none',
           }}
           onMouseDown={onMouseDown}
           onMouseMove={onMouseMove}
