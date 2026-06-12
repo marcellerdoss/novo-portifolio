@@ -32,12 +32,15 @@ export function CaseImageFrame({ src, alt, caption, pair, fixedHeight }: Props) 
 
   return (
     <>
-      <figure className={`space-y-2${pair ? '' : ' max-w-[552px] mx-auto'}`}>
+      <figure
+        className={fixedHeight ? 'gap-2' : `space-y-2${pair ? '' : ' max-w-[552px] mx-auto'}`}
+        style={fixedHeight ? { display: 'grid', gridTemplateColumns: 'min-content' } : undefined}
+      >
         <button
           type="button"
           onClick={() => setOpen(true)}
           aria-label={`Ampliar: ${alt}`}
-          className={`group bg-white rounded-2xl p-2 shadow-sm ring-1 ring-black/5 cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg${fixedHeight ? ' block mx-auto w-fit' : ' block w-full'}`}
+          className={`group block bg-white rounded-2xl p-2 shadow-sm ring-1 ring-black/5 cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg${fixedHeight ? '' : ' w-full'}`}
         >
           <div className="relative rounded-[8px] overflow-hidden">
             <Image
