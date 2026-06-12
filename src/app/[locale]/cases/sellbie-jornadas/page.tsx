@@ -234,7 +234,7 @@ export default async function SellbieJornadasPage() {
                 mas compartilhando a mesma estrutura de configuração.
               </Body>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="flex flex-wrap justify-center gap-4">
               <CaseImageFrame
                 src="/images/cases/sellbie/jornadas/sellbie-jornadas-canal-email.png"
                 alt="Canal E-mail com template, remetente e rastreamento"
@@ -270,7 +270,7 @@ export default async function SellbieJornadasPage() {
                 a jornada com um erro silencioso embutido.
               </Body>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="flex flex-wrap justify-center gap-4">
               <CaseImageFrame
                 src="/images/cases/sellbie/jornadas/sellbie-jornadas-step-intervalo-1.png"
                 alt="Step de intervalo com tempo de espera e horário"
