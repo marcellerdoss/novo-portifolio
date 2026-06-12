@@ -58,7 +58,7 @@ export function Navigation({ className, itemClassName, onClick }: Props) {
                 onClick={onClick}
                 aria-current={isActive ? 'page' : undefined}
                 className={cn(
-                  'type-body-sm transition-colors duration-150',
+                  'type-body-xs transition-colors duration-150',
                   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg rounded',
                   isActive
                     ? 'text-accent-magenta font-[540]'

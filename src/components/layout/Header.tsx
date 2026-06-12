@@ -55,7 +55,7 @@ export function Header() {
       <header
         className="fixed top-9 left-0 right-0 z-40 bg-bg border-b border-border"
       >
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
+        <div className="max-w-6xl mx-auto px-6 h-12 flex items-center justify-between gap-4">
           {/* Logo */}
           <Link
             href="/"
@@ -70,14 +70,14 @@ export function Header() {
               src="/images/social/logo-header-marcelle-rocha-navy.svg"
               alt="Marcelle Rocha"
               className="dark:hidden"
-              style={{ width: 'auto', height: '24px' }}
+              style={{ width: 'auto', height: '20px' }}
             />
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/social/logo-header-marcelle-rocha-magenta.svg"
               alt="Marcelle Rocha"
               className="hidden dark:block"
-              style={{ width: 'auto', height: '24px' }}
+              style={{ width: 'auto', height: '20px' }}
             />
           </Link>
 
@@ -102,7 +102,7 @@ export function Header() {
               aria-expanded={menuOpen}
               aria-controls="mobile-menu"
               className={cn(
-                'w-11 h-11 flex items-center justify-center rounded-full',
+                'w-9 h-9 flex items-center justify-center rounded-full',
                 'text-fg-muted hover:text-fg transition-colors duration-150',
                 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg',
               )}
