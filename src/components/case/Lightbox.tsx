@@ -22,6 +22,7 @@ interface LightboxProps {
 export function Lightbox({ src, alt, caption, onClose, onPrev, onNext, hasPrev, hasNext, total, currentIdx, onGoTo }: LightboxProps) {
   const [zoom, setZoom] = useState(1);
   const [pan, setPan] = useState({ x: 0, y: 0 });
+  const [grabbing, setGrabbing] = useState(false);
   const isDragging = useRef(false);
   const dragStart = useRef({ x: 0, y: 0, px: 0, py: 0 });
   const containerRef = useRef<HTMLDivElement>(null);
@@ -68,6 +69,7 @@ export function Lightbox({ src, alt, caption, onClose, onPrev, onNext, hasPrev, 
     if (zoom <= 1) return;
     e.preventDefault();
     isDragging.current = true;
+    setGrabbing(true);
     dragStart.current = { x: e.clientX, y: e.clientY, px: pan.x, py: pan.y };
   }, [zoom, pan]);
 
@@ -79,7 +81,7 @@ export function Lightbox({ src, alt, caption, onClose, onPrev, onNext, hasPrev, 
     });
   }, []);
 
-  const onMouseUp = useCallback(() => { isDragging.current = false; }, []);
+  const onMouseUp = useCallback(() => { isDragging.current = false; setGrabbing(false); }, []);
 
   const onDoubleClick = useCallback(() => {
     if (zoom > 1) { setZoom(1); setPan({ x: 0, y: 0 }); }
@@ -109,7 +111,7 @@ export function Lightbox({ src, alt, caption, onClose, onPrev, onNext, hasPrev, 
       <div
         ref={containerRef}
         className="relative flex-1 overflow-hidden flex items-center justify-center"
-        style={{ cursor: zoom > 1 ? 'grab' : 'zoom-in' }}
+        style={{ cursor: zoom > 1 ? (grabbing ? 'grabbing' : 'grab') : 'zoom-in' }}
         onMouseDown={onMouseDown}
         onMouseMove={onMouseMove}
         onMouseUp={onMouseUp}
@@ -160,16 +162,19 @@ export function Lightbox({ src, alt, caption, onClose, onPrev, onNext, hasPrev, 
         </div>
 
         {/* Hint */}
-        {zoom <= 1 && (
-          <span className="absolute bottom-3 left-1/2 -translate-x-1/2 text-white/30 text-xs pointer-events-none whitespace-nowrap">
-            scroll para ampliar · duplo clique para 3×
-          </span>
-        )}
-        {zoom > 1 && (
-          <span className="absolute bottom-3 left-1/2 -translate-x-1/2 text-white/30 text-xs pointer-events-none whitespace-nowrap">
-            {Math.round(zoom * 100)}% · duplo clique para resetar
-          </span>
-        )}
+        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 pointer-events-none">
+          {zoom <= 1 ? (
+            <span className="flex items-center gap-1.5 bg-black/40 backdrop-blur-sm rounded-full px-3 py-1 text-white/60 text-xs whitespace-nowrap">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="shrink-0"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+              scroll para ampliar
+            </span>
+          ) : (
+            <span className="flex items-center gap-1.5 bg-black/40 backdrop-blur-sm rounded-full px-3 py-1 text-white/60 text-xs whitespace-nowrap">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" className="shrink-0 opacity-80"><path d="M9 3a1 1 0 0 0-2 0v7.5a.5.5 0 0 1-1 0V8a1 1 0 0 0-2 0v9a7 7 0 0 0 14 0v-5a1 1 0 0 0-2 0v-1.5a1 1 0 0 0-2 0V9a1 1 0 0 0-2 0V3z"/></svg>
+              arraste para navegar · {Math.round(zoom * 100)}% · duplo clique para resetar
+            </span>
+          )}
+        </div>
       </div>
 
       {/* Bottom */}
@@ -189,7 +194,7 @@ export function Lightbox({ src, alt, caption, onClose, onPrev, onNext, hasPrev, 
           </div>
         )}
         {caption && (
-          <p className="type-body-xs text-white/35 text-center px-8 max-w-xl">
+          <p className="type-body-xs text-white/55 text-center px-8 max-w-lg">
             {caption}
           </p>
         )}
