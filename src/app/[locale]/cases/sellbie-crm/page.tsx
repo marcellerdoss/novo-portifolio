@@ -92,7 +92,7 @@ export default async function SellbieCrmPage() {
 
           <p className="type-body-lg text-fg-muted max-w-2xl">
             Design de uma ferramenta de diagnóstico para o time de Customer
-            Success da Sellbie — Healthscore automático, funil integrado e
+            Success da Sellbie, com Healthscore automático, funil integrado e
             gerador de base reunidos em um único relatório que o CS usa
             antes de cada reunião de acompanhamento.
           </p>

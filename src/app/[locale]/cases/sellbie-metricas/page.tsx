@@ -92,7 +92,7 @@ export default async function SellbieMetricasPage() {
 
           <p className="type-body-lg text-fg-muted max-w-2xl">
             Estruturação de métricas de produto para cinco módulos da
-            Sellbie usando o framework HEART — conectando cada dimensão
+            Sellbie usando o framework HEART, conectando cada dimensão
             de qualidade a metas de negócio, sinais mensuráveis e
             objetivos de produto rastreáveis.
           </p>

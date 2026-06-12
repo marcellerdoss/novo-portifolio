@@ -100,7 +100,7 @@ export default async function JgCentralAjudaPage() {
 
           <p className="type-body-lg text-fg-muted max-w-2xl">
             Design da central de ajuda do Jovens Gênios para três perfis
-            distintos — Educadores, Exploradores e Responsáveis — com
+            distintos: Educadores, Exploradores e Responsáveis, com
             navegação contextualizada, busca filtrada por perfil e empty
             states que mantêm o usuário orientado mesmo quando não há
             resultado.

@@ -100,7 +100,7 @@ export default async function SellbieCashbackPage() {
 
           <p className="type-body-lg text-fg-muted max-w-2xl">
             Como transformamos o módulo de cashback da Sellbie de um
-            benefício simples em uma ferramenta de decisão — com ROAS
+            benefício simples em uma ferramenta de decisão, com ROAS
             operacional, análise de precificação e relatórios que o time
             comercial e financeiro passaram a usar de verdade.
           </p>
