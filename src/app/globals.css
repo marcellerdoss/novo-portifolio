@@ -565,7 +565,7 @@ code[data-theme*=' '] span {
   --bg-secondary: #111111;
   --fg:           #ffffff;
   --fg-muted:     #ffffff;
-  --fg-subtle:    #ffff00;
+  --fg-subtle:    #FFFE80;
   --border-token: #ffffff;
   --color-accent-magenta: #ff3399;
   --color-surface-soft:   #111111;
@@ -573,6 +573,11 @@ code[data-theme*=' '] span {
   --color-block-pink:     #111111;
   --color-block-navy:     #000000;
   --color-canvas:         #000000;
+}
+
+/* Logo vira branco puro em alto contraste — SVG tem cor baked-in */
+.high-contrast img[src*="logo"] {
+  filter: brightness(0) invert(1);
 }
 
 /* ─── Marquee animation ───────────────────────────────────────── */
