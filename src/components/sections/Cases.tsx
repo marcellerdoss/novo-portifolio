@@ -22,7 +22,6 @@ function GroupHeader({ title, description }: { title: string; description: strin
     >
       <h3 className="type-headline text-fg">{title}</h3>
       <p className="type-body text-fg-muted mt-2">{description}</p>
-      <div className="mt-6 h-px bg-border" aria-hidden="true" />
     </motion.div>
   );
 }

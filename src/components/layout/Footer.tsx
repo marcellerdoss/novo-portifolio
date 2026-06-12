@@ -1,17 +1,18 @@
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
+import { ArrowUpRight } from 'lucide-react';
 
 type NavKey = 'about' | 'cases' | 'racional' | 'skills' | 'education' | 'experience' | 'blog' | 'contact';
 
-const navLinks: { key: NavKey; href: { pathname: string; hash: string } }[] = [
-  { key: 'about',      href: { pathname: '/', hash: '#sobre' } },
-  { key: 'cases',      href: { pathname: '/', hash: '#cases' } },
-  { key: 'blog',       href: { pathname: '/', hash: '#blog' } },
-  { key: 'racional',   href: { pathname: '/', hash: '#racional' } },
-  { key: 'skills',     href: { pathname: '/', hash: '#skills' } },
-  { key: 'education',  href: { pathname: '/', hash: '#formacao' } },
-  { key: 'experience', href: { pathname: '/', hash: '#experiencia' } },
-  { key: 'contact',    href: { pathname: '/', hash: '#contato' } },
+const navLinks: { key: NavKey; hash: string }[] = [
+  { key: 'about',      hash: '#sobre' },
+  { key: 'cases',      hash: '#cases' },
+  { key: 'blog',       hash: '#blog' },
+  { key: 'racional',   hash: '#racional' },
+  { key: 'skills',     hash: '#skills' },
+  { key: 'education',  hash: '#formacao' },
+  { key: 'experience', hash: '#experiencia' },
+  { key: 'contact',    hash: '#contato' },
 ];
 
 export async function Footer() {
@@ -22,7 +23,7 @@ export async function Footer() {
   return (
     <footer id="footer" className="bg-[#09081c] border-t border-white/10 py-12">
       <div className="max-w-6xl mx-auto px-6 w-full">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-8 md:mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 mb-10 md:mb-12">
 
           {/* Brand */}
           <div>
@@ -30,41 +31,53 @@ export async function Footer() {
             <p className="type-body-sm text-white/60">UX &amp; Product Designer</p>
           </div>
 
-          {/* Quick links */}
+          {/* Quick links — plain <a> para evitar navegação completa e flash de light mode */}
           <nav aria-label={t('quick_links')}>
             <p className="type-caption text-white/40 mb-4">{t('quick_links')}</p>
-            <ul className="space-y-2">
-              {navLinks.map(({ key, href }) => (
+            <ul className="space-y-2.5">
+              {navLinks.map(({ key, hash }) => (
                 <li key={key}>
-                  <Link
-                    href={href}
-                    className="type-body-sm text-white/60 hover:text-white transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded"
+                  <a
+                    href={hash}
+                    className="type-body-xs text-white/50 hover:text-white transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded"
                   >
                     {tNav(key)}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
           </nav>
 
-          {/* Credit + meta link */}
-          <div className="space-y-3">
-            <p className="type-body-sm text-white/60">
-              {t('credit')}{' '}
-              <span className="text-white font-[540]">Marcelle</span>
+          {/* Crédito + CTA Racional */}
+          <div className="space-y-5">
+            <p className="type-caption text-white/35">
+              {t('credit')} <span className="text-white/55">Marcelle</span>
             </p>
+
             <Link
               href="/racional"
-              className="inline-flex items-center gap-2 type-caption text-white/40 hover:text-white/70 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded"
+              className="group flex items-start justify-between gap-4 border border-white/15 hover:border-white/35 rounded-xl px-4 py-4 transition-all duration-200 hover:bg-white/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
-              {t('rationale')}
+              <div>
+                <p className="type-body-sm text-white/80 group-hover:text-white transition-colors duration-200 font-[440]">
+                  {t('rationale')}
+                </p>
+                <p className="type-body-xs text-white/40 mt-1.5 group-hover:text-white/60 transition-colors duration-200 normal-case tracking-normal leading-snug">
+                  {t('rationale_sub')}
+                </p>
+              </div>
+              <ArrowUpRight
+                size={16}
+                className="text-white/30 group-hover:text-white/70 transition-colors duration-200 shrink-0 mt-0.5"
+                aria-hidden="true"
+              />
             </Link>
           </div>
         </div>
 
         {/* Bottom bar */}
         <div className="border-t border-white/10 pt-6">
-          <p className="type-caption text-white/40">
+          <p className="type-caption text-white/35">
             © {year} Marcelle. {t('copyright')}
           </p>
         </div>

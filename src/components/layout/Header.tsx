@@ -75,14 +75,14 @@ export function Header() {
               src="/images/social/logo-header-marcelle-rocha-navy.svg"
               alt="Marcelle Rocha"
               className="dark:hidden"
-              style={{ width: 'auto', height: '20px' }}
+              style={{ width: 'auto', height: '28px' }}
             />
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/social/logo-header-marcelle-rocha-bege.svg"
               alt="Marcelle Rocha"
               className="hidden dark:block"
-              style={{ width: 'auto', height: '20px' }}
+              style={{ width: 'auto', height: '28px' }}
             />
           </Link>
 

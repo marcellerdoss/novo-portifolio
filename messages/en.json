@@ -102,7 +102,8 @@
     "credit": "Designed & built by",
     "quick_links": "Navigation",
     "github_repo": "View repository",
-    "rationale": "Project rationale →",
+    "rationale": "Project rationale",
+    "rationale_sub": "Design system, decisions and tools behind this portfolio",
     "copyright": "All rights reserved."
   }
 }
