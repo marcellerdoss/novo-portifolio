@@ -139,34 +139,22 @@ export function Racional() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
-            className="grid grid-cols-4 gap-5 items-start"
-          >
-            {phases.map(({ num, type, question }) => (
-              <motion.div key={num} variants={fadeInUp} className="flex flex-col items-center text-center gap-6">
-                <DiamondBadge num={num} />
-                <p className="type-caption text-accent-magenta">{t(type)}</p>
-                <p className="type-body-strong text-fg leading-snug">{t(question)}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          <ArrowRow />
-
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
             className="grid grid-cols-4 gap-5"
           >
-            {phases.map(({ num, practiceCard }) => (
+            {phases.map(({ num, type, practiceCard }) => (
               <motion.div key={num} variants={fadeInUp} className="h-full">
-                <div className="rounded-[16px] border border-black/10 dark:border-white/10 p-6 bg-bg h-full">
-                  <p className="type-caption text-accent-magenta mb-3">
-                    {locale === 'en' ? 'In practice' : 'Na prática'}
-                  </p>
-                  <p className="type-body-strong text-fg mb-2">{t(practiceCard.title)}</p>
-                  <p className="type-body-sm text-fg-muted leading-relaxed">{t(practiceCard.text)}</p>
+                <div className="rounded-[16px] border border-black/10 dark:border-white/10 p-6 bg-bg h-full flex flex-col gap-4">
+                  <div className="flex flex-col items-center text-center gap-3">
+                    <DiamondBadge num={num} />
+                    <p className="type-caption text-accent-magenta">{t(type)}</p>
+                  </div>
+                  <div>
+                    <p className="type-caption text-accent-magenta mb-1">
+                      {locale === 'en' ? 'In practice' : 'Na prática'}
+                    </p>
+                    <p className="type-body-strong text-fg mb-2">{t(practiceCard.title)}</p>
+                    <p className="type-body-sm text-fg-muted leading-relaxed">{t(practiceCard.text)}</p>
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -198,7 +186,7 @@ export function Racional() {
 
         {/* ── Mobile (<768px): timeline ── */}
         <div className="md:hidden space-y-10">
-          {phases.map(({ num, type, question, practiceCard, trajectoryCard }) => (
+          {phases.map(({ num, type, practiceCard, trajectoryCard }) => (
             <div key={num} className="flex gap-4">
               <div className="flex flex-col items-center gap-2 pt-1">
                 <DiamondBadge num={num} />
@@ -206,8 +194,7 @@ export function Racional() {
               </div>
 
               <div className="flex-1 min-w-0 pb-4">
-                <p className="type-caption text-accent-magenta mb-1">{t(type)}</p>
-                <p className="type-body-strong text-fg leading-snug mb-4">{t(question)}</p>
+                <p className="type-caption text-accent-magenta mb-3">{t(type)}</p>
 
                 <div className="rounded-[16px] border border-black/10 dark:border-white/10 p-5 bg-bg mb-3">
                   <p className="type-caption text-accent-magenta mb-1">
