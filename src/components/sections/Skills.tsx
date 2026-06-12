@@ -176,7 +176,7 @@ export function Skills({ inline }: Props) {
         </div>
       </section>
 
-      <div id="formacao" className="py-section bg-[#FDF6F3] dark:bg-surface-soft scroll-mt-28">
+      <div id="formacao" className="py-section bg-[#F9F7F8] dark:bg-surface-soft scroll-mt-28">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] md:gap-20 items-start">
             <motion.h2
