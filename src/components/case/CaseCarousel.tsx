@@ -22,8 +22,8 @@ export function CaseCarousel({ images, caption }: CaseCarouselProps) {
 
   return (
     <>
-      <figure className={`space-y-2 mx-auto ${total > 1 ? 'max-w-[632px]' : 'max-w-[552px]'}`}>
-        <div className={`relative${total > 1 ? ' px-10' : ''}`}>
+      <figure className="space-y-2 mx-auto max-w-[552px]">
+        <div className="relative">
           <button
             type="button"
             onClick={() => setLightboxIdx(current)}
@@ -87,7 +87,7 @@ export function CaseCarousel({ images, caption }: CaseCarouselProps) {
         )}
 
         {caption && (
-          <figcaption className={`type-body-xs text-fg-subtle px-1${total > 1 ? ' mx-10' : ''}`}>
+          <figcaption className="type-body-xs text-fg-subtle px-1">
             {caption}
           </figcaption>
         )}
