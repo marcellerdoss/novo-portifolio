@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { Button } from '@/components/ui/Button';
 import { fadeInUp, stagger } from '@/lib/animations';
 import { siteConfig } from '@/lib/config';
@@ -121,6 +121,7 @@ function ContactForm({ email: _email }: { email: string }) {
 
 export function Contact() {
   const t = useTranslations('contact');
+  const locale = useLocale();
 
   const links = [
     { key: 'whatsapp', href: WA_HREF,                      icon: <IconWhatsApp />, label: 'WhatsApp' },
@@ -148,7 +149,11 @@ export function Contact() {
               variants={fadeInUp}
               className="type-display-lg text-white mb-4"
             >
-              {t('title')}
+              {locale === 'en' ? (
+                <>Let&apos;s build a<br /><span className="text-accent-magenta">strategic product</span> together?</>
+              ) : (
+                <>Vamos construir um<br /><span className="text-accent-magenta">produto estratégico</span> juntos?</>
+              )}
             </motion.h2>
 
             <motion.p
