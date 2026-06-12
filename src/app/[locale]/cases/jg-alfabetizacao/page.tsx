@@ -99,7 +99,7 @@ export default async function JgAlfabetizacaoPage() {
           </h1>
 
           <p className="type-body-lg text-fg-muted max-w-2xl">
-            Design do sistema de fases de alfabetização do Jovens Gênios —
+            Design do sistema de fases de alfabetização do Jovens Gênios,
             mapeamento pedagógico das quatro fases de transição, matriz de
             proficiência baseada na BNCC e modelos de questão adaptados a
             cada nível de desenvolvimento da escrita.
