@@ -12,15 +12,29 @@ interface CarouselData {
   caption?: string;
 }
 
+interface ImageGroupItem {
+  src: string;
+  alt: string;
+  caption?: string;
+  imgWidth?: number;
+  imgHeight?: number;
+}
+
+interface ImageGroupData {
+  images: ImageGroupItem[];
+  fixedHeight?: number;
+}
+
 type Segment =
   | { type: 'md'; content: string }
-  | { type: 'carousel'; data: CarouselData; key: number };
+  | { type: 'carousel'; data: CarouselData; key: number }
+  | { type: 'imagegroup'; data: ImageGroupData; key: number };
 
 function splitSource(source: string): Segment[] {
   const segments: Segment[] = [];
-  const re = /<Carousel[\s\S]*?\/>/g;
+  const re = /<(?:Carousel|ImageGroup)[\s\S]*?\/>/g;
   let last = 0;
-  let carouselIndex = 0;
+  let blockIndex = 0;
   let m: RegExpExecArray | null;
 
   while ((m = re.exec(source)) !== null) {
@@ -30,18 +44,28 @@ function splitSource(source: string): Segment[] {
 
     const block = m[0];
     const imagesMatch = block.match(/images=\{(\[[\s\S]*?\])\}/);
-    const captionMatch = block.match(/caption="([^"]*)"/);
 
     if (imagesMatch) {
       try {
-        const images = JSON.parse(imagesMatch[1]) as { src: string; alt: string }[];
-        segments.push({
-          type: 'carousel',
-          data: { images, caption: captionMatch?.[1] },
-          key: carouselIndex++,
-        });
+        if (block.startsWith('<Carousel')) {
+          const captionMatch = block.match(/caption="([^"]*)"/);
+          const images = JSON.parse(imagesMatch[1]) as { src: string; alt: string }[];
+          segments.push({
+            type: 'carousel',
+            data: { images, caption: captionMatch?.[1] },
+            key: blockIndex++,
+          });
+        } else {
+          const fixedHeightMatch = block.match(/fixedHeight=\{(\d+)\}/);
+          const images = JSON.parse(imagesMatch[1]) as ImageGroupItem[];
+          segments.push({
+            type: 'imagegroup',
+            data: { images, fixedHeight: fixedHeightMatch ? parseInt(fixedHeightMatch[1]) : undefined },
+            key: blockIndex++,
+          });
+        }
       } catch {
-        // skip malformed carousel
+        // skip malformed block
       }
     }
 
@@ -59,7 +83,7 @@ function MdxImg({ src, alt }: { src?: string; alt?: string; [key: string]: unkno
   if (!src) return null;
   return (
     <div className="my-6">
-      <CaseImageFrame src={src} alt={alt ?? ''} />
+      <CaseImageFrame src={src} alt={alt ?? ''} caption={alt} />
     </div>
   );
 }
@@ -82,7 +106,26 @@ export async function CaseMdxContent({ source }: Props) {
   for (let i = 0; i < segments.length; i++) {
     const seg = segments[i];
 
-    if (seg.type === 'carousel') {
+    if (seg.type === 'imagegroup') {
+      nodes.push(
+        <div key={`imagegroup-${seg.key}`} className="my-6">
+          <div className="flex flex-wrap justify-center gap-6">
+            {seg.data.images.map((img, i) => (
+              <CaseImageFrame
+                key={i}
+                src={img.src}
+                alt={img.alt}
+                caption={img.caption}
+                pair
+                fixedHeight={seg.data.fixedHeight}
+                imgWidth={img.imgWidth}
+                imgHeight={img.imgHeight}
+              />
+            ))}
+          </div>
+        </div>
+      );
+    } else if (seg.type === 'carousel') {
       nodes.push(<div key={`carousel-${seg.key}`} className="my-6"><CaseCarousel {...seg.data} /></div>);
     } else {
       const mdast = processor.parse(seg.content);

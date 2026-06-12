@@ -124,9 +124,13 @@ O step unificado oferece tempo de espera com seleção de quantidade e período 
 
 Considere a inclusão ou exclusão dos fins de semana ao programar o intervalo. Essa configuração fica no menu de configurações da jornada. O canal de WhatsApp 1:1 não identifica horas específicas, pois a base é distribuída sempre no primeiro horário da manhã; esse horário pode variar conforme as configurações de integração da marca.
 
-![Step de intervalo — configuração de tempo de espera e horário de envio.](/images/cases/sellbie/jornadas/sellbie-jornadas-step-intervalo-1.png)
-
-![Step de intervalo — sinalização de incompatibilidade com o canal conectado.](/images/cases/sellbie/jornadas/sellbie-jornadas-step-intervalo-2.png)
+<ImageGroup
+  fixedHeight={320}
+  images={[
+    { "src": "/images/cases/sellbie/jornadas/sellbie-jornadas-step-intervalo-1.png", "alt": "Step de intervalo — configuração de tempo de espera e horário de envio.", "caption": "Intervalo — tempo de espera e horário", "imgWidth": 344, "imgHeight": 576 },
+    { "src": "/images/cases/sellbie/jornadas/sellbie-jornadas-step-intervalo-2.png", "alt": "Step de intervalo — sinalização de incompatibilidade com o canal conectado.", "caption": "Incompatibilidade de canal sinalizada", "imgWidth": 344, "imgHeight": 578 }
+  ]}
+/>
 
 ### Canais
 
@@ -142,11 +146,14 @@ Ao configurar um step de canal, o usuário seleciona o template a ser utilizado.
 
 Canais não contratados aparecem desabilitados com indicação de upgrade, consistente com o comportamento dos gatilhos.
 
-![Configuração de e-mail — template, remetente e rastreamento em um único painel.](/images/cases/sellbie/jornadas/sellbie-jornadas-canal-email.png)
-
-![Canal WhatsApp 1:1 — envio pelo vendedor de loja física, distribuído no app pela manhã.](/images/cases/sellbie/jornadas/sellbie-jornadas-canal-whatsapp.png)
-
-![Canal SMS — restrições e comportamento do canal explícitos na configuração, sem surpresa no disparo.](/images/cases/sellbie/jornadas/sellbie-jornadas-canal-sms.png)
+<ImageGroup
+  fixedHeight={320}
+  images={[
+    { "src": "/images/cases/sellbie/jornadas/sellbie-jornadas-canal-email.png", "alt": "Configuração de e-mail — template, remetente e rastreamento em um único painel.", "caption": "E-mail — template, remetente e rastreamento", "imgWidth": 336, "imgHeight": 550 },
+    { "src": "/images/cases/sellbie/jornadas/sellbie-jornadas-canal-whatsapp.png", "alt": "Canal WhatsApp 1:1 — envio pelo vendedor de loja física, distribuído no app pela manhã.", "caption": "WhatsApp 1:1 pelo vendedor", "imgWidth": 344, "imgHeight": 558 },
+    { "src": "/images/cases/sellbie/jornadas/sellbie-jornadas-canal-sms.png", "alt": "Canal SMS — restrições e comportamento do canal explícitos na configuração, sem surpresa no disparo.", "caption": "SMS — restrições explícitas", "imgWidth": 344, "imgHeight": 558 }
+  ]}
+/>
 
 ### Dividir caminho, unir, migrar e sair
 
@@ -191,6 +198,15 @@ O processo também estabeleceu infraestrutura para os ciclos seguintes: PRDs com
 ---
 
 **Usuários atendidos:** Analistas e gestores de CRM e marketing de marcas de varejo · Times de e-commerce · Coordenadores de campanhas
+
 **Processo:** Imersão na plataforma existente → Benchmarking competitivo → Mapeamento de regras de negócio e PRD → Arquitetura do workflow → Design dos gatilhos, configurações, intervalos, canais e controle de fluxo
-**Entregáveis:** Canvas não-linear com gramática de conexão · Prevenção de erros por step · Mais de 20 gatilhos com configurações específicas · Configurações globais da jornada · Dividir / unir / migrar / sair · Entrada antecipada (D-)
+
+**Entregáveis:**
+- Canvas não-linear com gramática de conexão
+- Prevenção de erros por step
+- Mais de 20 gatilhos com configurações específicas
+- Configurações globais da jornada
+- Dividir / unir / migrar / sair
+- Entrada antecipada (D-)
+
 **Ferramentas:** Figma · Benchmarking competitivo · PRD colaborativo · Design System
