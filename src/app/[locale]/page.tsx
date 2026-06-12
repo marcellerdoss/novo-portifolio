@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const ogLocale = locale === 'en' ? 'en_US' : 'pt_BR';
 
   return {
-    title,
+    title: { absolute: title },
     description,
     openGraph: {
       title,
@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: 'website',
       url: locale === 'en' ? 'https://marcellerocha.com.br/en' : 'https://marcellerocha.com.br',
       images: [{
-        url: '/images/social/og-image-magenta-bege.png',
+        url: '/images/social/og-image-navy-bege.png',
         width: 1200,
         height: 630,
         alt: title,
@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: 'summary_large_image',
       title,
       description,
-      images: ['/images/social/og-image-magenta-bege.png'],
+      images: ['/images/social/og-image-navy-bege.png'],
     },
     alternates: {
       canonical: locale === 'en' ? '/en' : '/',
