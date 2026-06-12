@@ -25,15 +25,15 @@ export function ThemeToggle({ ariaLabel = 'Alternar tema' }: Props) {
         aria-label="Modo claro"
         aria-pressed={!isDark}
         className={cn(
-          'p-2 rounded transition-colors duration-150',
+          'px-2 py-2 rounded transition-colors duration-150',
           'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg',
           !isDark ? 'text-accent-magenta' : 'text-fg-muted hover:text-fg',
         )}
       >
-        <Sun size={16} aria-hidden="true" />
+        <Sun size={20} aria-hidden="true" />
       </button>
 
-      <span className="type-caption text-fg-subtle" aria-hidden="true">·</span>
+      <span className="type-caption text-fg-subtle mx-1" aria-hidden="true">·</span>
 
       <button
         type="button"
@@ -41,12 +41,12 @@ export function ThemeToggle({ ariaLabel = 'Alternar tema' }: Props) {
         aria-label="Modo escuro"
         aria-pressed={isDark}
         className={cn(
-          'p-2 rounded transition-colors duration-150',
+          'px-2 py-2 rounded transition-colors duration-150',
           'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg',
           isDark ? 'text-accent-magenta' : 'text-fg-muted hover:text-fg',
         )}
       >
-        <Moon size={16} aria-hidden="true" />
+        <Moon size={20} aria-hidden="true" />
       </button>
     </div>
   );
