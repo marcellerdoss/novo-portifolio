@@ -31,12 +31,6 @@ export const casesOrder: CaseNavItem[] = [
     href: '/cases/jg-central-ajuda',
   },
   {
-    slug: 'sellbie-arq-info',
-    title: 'Arquitetura da informação',
-    company: 'Sellbie',
-    href: '/cases/sellbie-arq-info',
-  },
-  {
     slug: 'sellbie-metricas',
     title: 'Métricas e Analytics',
     company: 'Sellbie',
@@ -53,6 +47,12 @@ export const casesOrder: CaseNavItem[] = [
     title: 'Cashback e Fidelidade',
     company: 'Sellbie',
     href: '/cases/sellbie-cashback',
+  },
+  {
+    slug: 'sellbie-arq-info',
+    title: 'Arquitetura da informação',
+    company: 'Sellbie',
+    href: '/cases/sellbie-arq-info',
   },
 ];
 
