@@ -60,7 +60,7 @@ export function Header() {
           <Link
             href="/"
             className={cn(
-              'hover:opacity-70 transition-opacity duration-150',
+              'flex items-center min-h-[44px] hover:opacity-70 transition-opacity duration-150',
               'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg rounded',
             )}
             aria-label="Marcelle Rocha"
@@ -90,28 +90,24 @@ export function Header() {
             </div>
           </div>
 
-          {/* Mobile controls */}
-          <div className="flex md:hidden items-center gap-1">
-            <LanguageSwitcher ariaLabel={t('toggle_language')} />
-            <ThemeToggle ariaLabel={t('toggle_theme')} />
-            <button
-              ref={hamburgerRef}
-              type="button"
-              onClick={() => setMenuOpen((v) => !v)}
-              aria-label={menuOpen ? t('close') : 'Menu'}
-              aria-expanded={menuOpen}
-              aria-controls="mobile-menu"
-              className={cn(
-                'w-9 h-9 flex items-center justify-center rounded-full',
-                'text-fg-muted hover:text-fg transition-colors duration-150',
-                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg',
-              )}
-            >
-              {menuOpen
-                ? <X size={20} aria-hidden="true" />
-                : <Menu size={20} aria-hidden="true" />}
-            </button>
-          </div>
+          {/* Mobile controls — só hamburger na barra */}
+          <button
+            ref={hamburgerRef}
+            type="button"
+            onClick={() => setMenuOpen((v) => !v)}
+            aria-label={menuOpen ? t('close') : 'Menu'}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
+            className={cn(
+              'md:hidden w-11 h-11 flex items-center justify-center rounded-full',
+              'text-fg-muted hover:text-fg transition-colors duration-150',
+              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg',
+            )}
+          >
+            {menuOpen
+              ? <X size={20} aria-hidden="true" />
+              : <Menu size={20} aria-hidden="true" />}
+          </button>
         </div>
 
         {/* Mobile drawer */}
@@ -126,12 +122,16 @@ export function Header() {
               transition={{ duration: 0.18 }}
               className="md:hidden overflow-hidden bg-bg border-t border-border"
             >
-              <div className="max-w-6xl mx-auto px-6 py-6">
+              <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col gap-8">
                 <Navigation
-                  className="flex-col items-start gap-6"
-                  itemClassName="text-xl"
+                  className="flex-col items-start gap-1"
+                  itemClassName="text-xl py-3"
                   onClick={closeMenu}
                 />
+                <div className="border-t border-border pt-6 flex items-center justify-between">
+                  <LanguageSwitcher ariaLabel={t('toggle_language')} />
+                  <ThemeToggle ariaLabel={t('toggle_theme')} />
+                </div>
               </div>
             </motion.div>
           )}
