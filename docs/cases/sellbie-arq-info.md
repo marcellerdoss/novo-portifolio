@@ -87,6 +87,9 @@ O inventário de conteúdo e os critérios de agrupamento passaram a funcionar c
 ---
 
 **Públicos atendidos:** Time de Produto · Time de Dados · Time de Design
+
 **Processo:** Inventário de conteúdo → Discovery → Base metodológica → Card sorting → Análise → Proposta de estrutura → Implementação
+
 **Entregáveis:** Inventário de conteúdo · Mapa de heurísticas · Card sorting (×2) · Proposta de navegação aprovada e implementada
+
 **Ferramentas:** FigJam
