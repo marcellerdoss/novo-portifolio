@@ -30,8 +30,6 @@ Esse levantamento incluiu análise dos materiais que o CS já usava em reuniões
 
 A partir desse levantamento, também estruturei um **Healthscore de CRM** — pontuação de 0 a 40 por loja com 4 dimensões: Associação, Cadastro completo, Utilização do App e Conversão. Faixas: Saudável (29–40), Atenção (17–28) e Crítico (0–16). O objetivo era dar ao CS um número único que comunicasse maturidade operacional sem precisar abrir cada indicador individualmente.
 
-![Materiais que o CS usava antes — ponto de partida para entender o esforço e as lacunas do processo.](/images/cases/sellbie/crm/sellbie-crm-relatorio-levantamento-materiais.png)
-
 ---
 
 ## Mapa de oportunidades
