@@ -162,6 +162,16 @@ Essa estrutura transformou cada modelo em uma ferramenta pedagógica completa e 
 ---
 
 **Públicos atendidos:** Crianças (4–8 anos, 1º e 2º ano EF) · Professoras · Coordenadoras pedagógicas · Escolas particulares · Prefeituras (B2Gov)
+
 **Processo:** Imersão no domínio (BNCC) → Benchmarking → Recrutamento e entrevistas → Clusterização → Arquitetura pedagógica → Validação com especialista → Decisão de escopo → Modelos de interação → MVP
-**Entregáveis:** Roteiro de entrevistas · Clusterização de temas · Matriz de Proficiência · Sistema de codificação Fase × Modelo · Organização de atividades por fase · Modelos de questão (variações + fases + BNCC) · Contribuições ao Design System
+
+**Entregáveis:**
+- Roteiro de entrevistas
+- Clusterização de temas
+- Matriz de Proficiência
+- Sistema de codificação Fase × Modelo
+- Organização de atividades por fase
+- Modelos de questão (variações + fases + BNCC)
+- Contribuições ao Design System
+
 **Ferramentas:** Figma · Pesquisa qualitativa em campo · Análise documental (BNCC) · Benchmarking competitivo
