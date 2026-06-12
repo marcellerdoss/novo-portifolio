@@ -80,7 +80,7 @@ export function Lightbox({ src, alt, caption, onClose, onPrev, onNext, hasPrev, 
       aria-modal="true"
       aria-label={alt}
       className="fixed inset-0 flex flex-col select-none"
-      style={{ zIndex: 99999, background: 'rgba(0,0,0,0.93)' }}
+      style={{ zIndex: 99999, background: 'rgba(0,0,0,0.97)' }}
     >
       {/* Top: close */}
       <div className="shrink-0 flex justify-end px-4 pt-3 pb-1">
@@ -96,7 +96,7 @@ export function Lightbox({ src, alt, caption, onClose, onPrev, onNext, hasPrev, 
       {/* Image area */}
       <div
         ref={containerRef}
-        className="relative flex-1 overflow-hidden flex items-center justify-center"
+        className="relative flex-1 overflow-hidden flex items-start justify-start p-6"
         style={{ cursor: zoom > 1 ? (grabbing ? 'grabbing' : 'grab') : 'zoom-in' }}
         onMouseDown={onMouseDown}
         onMouseMove={onMouseMove}
@@ -105,19 +105,19 @@ export function Lightbox({ src, alt, caption, onClose, onPrev, onNext, hasPrev, 
       >
         {hasPrev && onPrev && (
           <button onClick={(e) => { e.stopPropagation(); onPrev(); }} aria-label="Imagem anterior"
-            className="absolute left-3 z-10 w-9 h-9 rounded-full bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition-colors">
+            className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition-colors">
             <ChevronLeft size={20} />
           </button>
         )}
         {hasNext && onNext && (
           <button onClick={(e) => { e.stopPropagation(); onNext(); }} aria-label="Próxima imagem"
-            className="absolute right-3 z-10 w-9 h-9 rounded-full bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition-colors">
+            className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition-colors">
             <ChevronRight size={20} />
           </button>
         )}
 
         <div
-          style={{ transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`, transformOrigin: 'center center', transition: isDragging.current ? 'none' : 'transform 0.12s ease-out' }}
+          style={{ transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`, transformOrigin: 'top left', transition: isDragging.current ? 'none' : 'transform 0.12s ease-out' }}
           onDoubleClick={onDoubleClick}
         >
           <div className="bg-white rounded-2xl p-3 shadow-2xl">
