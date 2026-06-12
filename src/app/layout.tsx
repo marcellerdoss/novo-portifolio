@@ -46,6 +46,10 @@ export const metadata: Metadata = {
     description: 'Design centrado em comportamento e decisão. Produtos digitais construídos com estratégia, intenção e foco em impacto.',
     images: ['/images/social/og-image-navy-bege.png'],
   },
+  icons: {
+    icon: [{ url: '/icon.svg', type: 'image/svg+xml' }],
+    shortcut: '/icon.svg',
+  },
   robots: { index: false, follow: false },
 };
 
