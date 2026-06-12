@@ -114,11 +114,14 @@ A decisão de incluir esse módulo veio de uma dor específica do levantamento: 
 **Calculadora de Plano de Comunicação**
 Inputs da marca, premissas editáveis e régua inteligente por canal, transformando o relatório em ferramenta de planejamento, não só de análise.
 
-![Dashboard de diagnóstico — CS chega na reunião com Healthscore, variação e recomendações já prontas na tela.](/images/cases/sellbie/crm/sellbie-crm-relatorio-make-1-dashboard.png)
-
-![Funil integrado — o gargalo aparece automaticamente, sem o CS precisar calcular onde está a perda.](/images/cases/sellbie/crm/sellbie-crm-relatorio-make-2-analise-funil-integrado.png)
-
-![Gerador de base dentro do relatório — diagnóstico e ação no mesmo lugar, sem precisar ir a outro sistema.](/images/cases/sellbie/crm/sellbie-crm-relatorio-make-3-gerador.png)
+<Carousel
+  images={[
+    { "src": "/images/cases/sellbie/crm/sellbie-crm-relatorio-make-1-dashboard.png", "alt": "Dashboard de diagnóstico — CS chega na reunião com Healthscore, variação e recomendações já prontas na tela" },
+    { "src": "/images/cases/sellbie/crm/sellbie-crm-relatorio-make-2-analise-funil-integrado.png", "alt": "Funil integrado — o gargalo aparece automaticamente, sem o CS precisar calcular onde está a perda" },
+    { "src": "/images/cases/sellbie/crm/sellbie-crm-relatorio-make-3-gerador.png", "alt": "Gerador de base dentro do relatório — diagnóstico e ação no mesmo lugar, sem precisar ir a outro sistema" }
+  ]}
+  caption="Dashboard, Funil Integrado e Gerador de Base — do diagnóstico à ação no mesmo relatório"
+/>
 
 ---
 
