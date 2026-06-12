@@ -182,7 +182,7 @@ export function Racional() {
           >
             {phases.map(({ num, trajectoryCard }) => (
               <motion.div key={num} variants={fadeInUp} className="h-full">
-                <div className="rounded-[16px] border border-black/10 dark:border-white/10 p-6 bg-pink-50 dark:bg-navy-800 h-full">
+                <div className="rounded-[16px] border border-black/10 dark:border-white/10 px-6 pt-6 pb-10 bg-pink-50 dark:bg-navy-800 h-full">
                   <p className="type-caption text-accent-magenta mb-3">
                     {locale === 'en' ? 'In my journey' : 'Na minha trajetória'}
                   </p>
@@ -219,7 +219,7 @@ export function Racional() {
                   <TriangleDown />
                 </div>
 
-                <div className="rounded-[16px] border border-black/10 dark:border-white/10 p-5 bg-pink-50 dark:bg-navy-800">
+                <div className="rounded-[16px] border border-black/10 dark:border-white/10 px-5 pt-5 pb-8 bg-pink-50 dark:bg-navy-800">
                   <p className="type-caption text-accent-magenta mb-1">
                     {locale === 'en' ? 'In my journey' : 'Na minha trajetória'}
                   </p>
