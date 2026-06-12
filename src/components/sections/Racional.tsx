@@ -113,7 +113,7 @@ export function Racional() {
       aria-labelledby="racional-heading"
       className="py-section bg-[#F9F7F8] dark:bg-bg scroll-mt-28"
     >
-      <div className="max-w-6xl mx-auto px-6 space-y-8">
+      <div className="max-w-6xl mx-auto px-6 space-y-16">
 
         <motion.div
           variants={fadeInUp}
