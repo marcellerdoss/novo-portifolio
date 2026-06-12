@@ -130,7 +130,7 @@ export function Header() {
               <div className="flex-1 px-8 pt-8">
                 <Navigation
                   className="flex-col items-start gap-1"
-                  itemClassName="text-2xl py-3"
+                  itemClassName="text-2xl py-1.5"
                   onClick={closeMenu}
                 />
               </div>
