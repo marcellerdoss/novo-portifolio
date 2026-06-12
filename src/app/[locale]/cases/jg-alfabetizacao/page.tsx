@@ -332,6 +332,13 @@ export default async function JgAlfabetizacaoPage() {
                 distribui ao longo da progressão.
               </Body>
             </div>
+            <CaseCarousel
+              images={[
+                { src: '/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-ditado.png', alt: 'Modelo Ditado — escuta e escrita como base para diferentes fases da progressão' },
+                { src: '/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-org-fases.png', alt: 'Atividades por fase — distribuição dos modelos de questão ao longo da progressão pedagógica' },
+              ]}
+              caption="Ditado e Atividades por fase — escuta, escrita e distribuição ao longo da progressão"
+            />
           </section>
 
           <Divider />
