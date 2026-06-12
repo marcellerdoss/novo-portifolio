@@ -70,8 +70,9 @@ export function Header() {
               src="/images/social/logo-header-marcelle-rocha-navy.svg"
               alt="Marcelle Rocha"
               width={160}
-              height={32}
+              height={24}
               priority
+              unoptimized
             />
           </Link>
 
