@@ -119,8 +119,6 @@ Para cada fase atendida pelo modelo, foram mapeadas as habilidades específicas 
 
 Essa estrutura transformou cada modelo em uma ferramenta pedagógica completa e forneceu ao sistema de IA o mapeamento necessário para personalizar a progressão de cada criança com ancoragem explícita na BNCC.
 
-![Atividades por fase — distribuição dos modelos de questão ao longo da progressão pedagógica.](../../images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-org-fases.png)
-
 **Modelos de questão**
 
 <Carousel
@@ -132,15 +130,21 @@ Essa estrutura transformou cada modelo em uma ferramenta pedagógica completa e 
   caption="Ordenação Horizontal, Múltipla Escolha e Correlação — um modelo, três fases, múltiplas variações"
 />
 
-![Modelo Ditado — escuta e escrita como base para diferentes fases da progressão.](../../images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-ditado.png)
-
 <Carousel
   images={[
+    { "src": "/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-ditado.png", "alt": "Modelo Ditado — escuta e escrita como base para diferentes fases da progressão" },
     { "src": "/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-producao-textual.png", "alt": "Produção Textual — escrita estruturada como etapa final" },
     { "src": "/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-motricidade.png", "alt": "Motricidade — traçado e coordenação como base da escrita" },
     { "src": "/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-abaco.png", "alt": "Ábaco — numeração decimal com suporte visual" }
   ]}
-  caption="Produção Textual, Motricidade e Ábaco — do traçado à escrita estruturada"
+  caption="Ditado, Produção Textual, Motricidade e Ábaco — do traçado à escrita estruturada"
+/>
+
+<Carousel
+  images={[
+    { "src": "/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-org-fases.png", "alt": "Atividades por fase — distribuição dos modelos de questão ao longo da progressão pedagógica" }
+  ]}
+  caption="Atividades por fase — distribuição dos modelos ao longo da progressão pedagógica"
 />
 
 ---
