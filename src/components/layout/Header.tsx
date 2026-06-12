@@ -53,9 +53,9 @@ export function Header() {
   return (
     <>
       <header
-        className="fixed top-9 left-0 right-0 z-40 bg-bg border-b border-border"
+        className="fixed top-11 left-0 right-0 z-40 bg-bg border-b border-border"
       >
-        <div className="max-w-6xl mx-auto px-6 h-12 flex items-center justify-between gap-4">
+        <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between gap-4">
           {/* Logo */}
           <Link
             href="/"
@@ -70,14 +70,14 @@ export function Header() {
               src="/images/social/logo-header-marcelle-rocha-navy.svg"
               alt="Marcelle Rocha"
               className="dark:hidden"
-              style={{ width: 'auto', height: '20px' }}
+              style={{ width: 'auto', height: '24px' }}
             />
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/social/logo-header-marcelle-rocha-bege.svg"
               alt="Marcelle Rocha"
               className="hidden dark:block"
-              style={{ width: 'auto', height: '20px' }}
+              style={{ width: 'auto', height: '24px' }}
             />
           </Link>
 

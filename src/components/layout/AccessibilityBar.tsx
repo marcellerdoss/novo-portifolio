@@ -33,7 +33,7 @@ export function AccessibilityBar() {
     <div
       role="navigation"
       aria-label="Barra de acessibilidade"
-      className="fixed top-0 left-0 right-0 z-50 h-9 bg-[#131226] flex items-center select-none"
+      className="fixed top-0 left-0 right-0 z-50 h-11 bg-[#131226] flex items-center select-none"
     >
       <div className="max-w-6xl mx-auto px-6 w-full flex items-center justify-between gap-4">
 
@@ -70,7 +70,7 @@ export function AccessibilityBar() {
               aria-label="Alto contraste"
               aria-pressed={highContrast}
               title="Ativar alto contraste"
-              className={`w-5 h-5 rounded-full bg-black border-2 ${highContrast ? 'border-white' : 'border-white/50 hover:border-white/80'} ${btnBase}`}
+              className={`w-6 h-6 rounded-full bg-black border-2 ${highContrast ? 'border-white' : 'border-white/50 hover:border-white/80'} ${btnBase}`}
             />
             <button
               type="button"
@@ -78,7 +78,7 @@ export function AccessibilityBar() {
               aria-label="Contraste normal"
               aria-pressed={!highContrast}
               title="Contraste normal"
-              className={`w-5 h-5 rounded-full bg-white border-2 ${!highContrast ? 'border-white' : 'border-white/50 hover:border-white/80'} ${btnBase}`}
+              className={`w-6 h-6 rounded-full bg-white border-2 ${!highContrast ? 'border-white' : 'border-white/50 hover:border-white/80'} ${btnBase}`}
             />
           </div>
 
