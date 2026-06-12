@@ -23,21 +23,39 @@ export function Lightbox({ src, alt, caption, onClose, onPrev, onNext, hasPrev, 
   const [zoom, setZoom] = useState(1);
   const [pan, setPan] = useState({ x: 0, y: 0 });
   const [grabbing, setGrabbing] = useState(false);
+  const [root, setRoot] = useState<HTMLElement | null>(null);
   const isDragging = useRef(false);
   const dragStart = useRef({ x: 0, y: 0, px: 0, py: 0 });
   const containerRef = useRef<HTMLDivElement>(null);
 
+  // Create isolated portal root on <html> so no stacking context can trap it
+  useEffect(() => {
+    const el = document.createElement('div');
+    el.setAttribute('data-lightbox-root', '');
+    Object.assign(el.style, {
+      position: 'fixed', top: '0', left: '0', right: '0', bottom: '0',
+      width: '100dvw', height: '100dvh', zIndex: '999999',
+      pointerEvents: 'auto',
+    });
+    document.documentElement.appendChild(el);
+    setRoot(el);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.documentElement.removeChild(el);
+      document.body.style.overflow = '';
+    };
+  }, []);
+
   useEffect(() => { setZoom(1); setPan({ x: 0, y: 0 }); }, [src]);
 
   useEffect(() => {
-    document.body.style.overflow = 'hidden';
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
       if (e.key === 'ArrowLeft' && hasPrev && onPrev) onPrev();
       if (e.key === 'ArrowRight' && hasNext && onNext) onNext();
     };
     document.addEventListener('keydown', onKey);
-    return () => { document.body.style.overflow = ''; document.removeEventListener('keydown', onKey); };
+    return () => document.removeEventListener('keydown', onKey);
   }, [onClose, onPrev, onNext, hasPrev, hasNext]);
 
   useEffect(() => {
@@ -53,7 +71,7 @@ export function Lightbox({ src, alt, caption, onClose, onPrev, onNext, hasPrev, 
     };
     el.addEventListener('wheel', onWheel, { passive: false });
     return () => el.removeEventListener('wheel', onWheel);
-  }, []);
+  }, [root]); // re-attach after root mounts
 
   const onMouseDown = useCallback((e: React.MouseEvent) => {
     if (zoom <= 1) return;
@@ -69,21 +87,21 @@ export function Lightbox({ src, alt, caption, onClose, onPrev, onNext, hasPrev, 
   }, []);
 
   const onMouseUp = useCallback(() => { isDragging.current = false; setGrabbing(false); }, []);
-
   const onDoubleClick = useCallback(() => {
     if (zoom > 1) { setZoom(1); setPan({ x: 0, y: 0 }); } else setZoom(3);
   }, [zoom]);
+
+  if (!root) return null;
 
   return createPortal(
     <div
       role="dialog"
       aria-modal="true"
       aria-label={alt}
-      className="fixed inset-0 flex flex-col select-none"
-      style={{ zIndex: 99999, background: 'rgba(0,0,0,0.97)' }}
+      style={{ width: '100%', height: '100%', background: 'rgba(0,0,0,0.97)', display: 'flex', flexDirection: 'column' }}
     >
-      {/* Top: close */}
-      <div className="shrink-0 flex justify-end px-4 pt-3 pb-1">
+      {/* Close */}
+      <div style={{ flexShrink: 0, display: 'flex', justifyContent: 'flex-end', padding: '12px 16px 4px' }}>
         <button
           onClick={onClose}
           aria-label="Fechar"
@@ -96,8 +114,7 @@ export function Lightbox({ src, alt, caption, onClose, onPrev, onNext, hasPrev, 
       {/* Image area */}
       <div
         ref={containerRef}
-        className="relative flex-1 overflow-hidden flex items-start justify-start p-6"
-        style={{ cursor: zoom > 1 ? (grabbing ? 'grabbing' : 'grab') : 'zoom-in' }}
+        style={{ position: 'relative', flex: 1, overflow: 'hidden', display: 'flex', alignItems: 'flex-start', justifyContent: 'flex-start', padding: '24px', cursor: zoom > 1 ? (grabbing ? 'grabbing' : 'grab') : 'zoom-in' }}
         onMouseDown={onMouseDown}
         onMouseMove={onMouseMove}
         onMouseUp={onMouseUp}
@@ -134,19 +151,18 @@ export function Lightbox({ src, alt, caption, onClose, onPrev, onNext, hasPrev, 
       </div>
 
       {/* Bottom: hint + dots + caption */}
-      <div className="shrink-0 flex flex-col items-center gap-2 pt-3 pb-5">
-        {/* Hint chip */}
-        <div className="pointer-events-none">
+      <div style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', paddingTop: '12px', paddingBottom: '20px' }}>
+        <div style={{ pointerEvents: 'none' }}>
           {zoom <= 1 ? (
             <span className="flex items-center gap-1.5 bg-white/8 rounded-full px-3 py-1 text-white/50 text-xs whitespace-nowrap">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="shrink-0">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/>
               </svg>
               scroll para ampliar · duplo clique para 3×
             </span>
           ) : (
             <span className="flex items-center gap-1.5 bg-white/8 rounded-full px-3 py-1 text-white/50 text-xs whitespace-nowrap">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" className="shrink-0">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M9 3a1 1 0 0 0-2 0v7.5a.5.5 0 0 1-1 0V8a1 1 0 0 0-2 0v9a7 7 0 0 0 14 0v-5a1 1 0 0 0-2 0v-1.5a1 1 0 0 0-2 0V9a1 1 0 0 0-2 0V3z"/>
               </svg>
               arraste · {Math.round(zoom * 100)}% · duplo clique para resetar
@@ -154,7 +170,6 @@ export function Lightbox({ src, alt, caption, onClose, onPrev, onNext, hasPrev, 
           )}
         </div>
 
-        {/* Dots */}
         {total && total > 1 && onGoTo && currentIdx !== undefined && (
           <div className="flex justify-center gap-1.5">
             {Array.from({ length: total }).map((_, i) => (
@@ -164,14 +179,13 @@ export function Lightbox({ src, alt, caption, onClose, onPrev, onNext, hasPrev, 
           </div>
         )}
 
-        {/* Caption */}
         {caption && (
-          <p className="type-body-xs text-white/50 text-center px-12 max-w-lg">
+          <p className="type-body-xs text-white/50 text-center" style={{ maxWidth: '560px', padding: '0 48px' }}>
             {caption}
           </p>
         )}
       </div>
     </div>,
-    document.body
+    root
   );
 }
