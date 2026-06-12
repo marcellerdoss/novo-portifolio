@@ -51,7 +51,7 @@ export function CaseImageFrame({ src, alt, caption, pair, fixedHeight }: Props) 
               sizes={sizes}
               quality={92}
               className={fixedHeight
-                ? 'absolute inset-0 w-full h-full object-cover object-top'
+                ? 'absolute inset-0 w-full h-full object-contain object-top'
                 : 'w-full h-auto block'
               }
             />
