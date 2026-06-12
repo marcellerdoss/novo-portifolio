@@ -27,13 +27,8 @@ export function Lightbox({ src, alt, caption, onClose, onPrev, onNext, hasPrev, 
   const dragStart = useRef({ x: 0, y: 0, px: 0, py: 0 });
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Reset on image change
-  useEffect(() => {
-    setZoom(1);
-    setPan({ x: 0, y: 0 });
-  }, [src]);
+  useEffect(() => { setZoom(1); setPan({ x: 0, y: 0 }); }, [src]);
 
-  // Body scroll lock + keyboard
   useEffect(() => {
     document.body.style.overflow = 'hidden';
     const onKey = (e: KeyboardEvent) => {
@@ -42,21 +37,16 @@ export function Lightbox({ src, alt, caption, onClose, onPrev, onNext, hasPrev, 
       if (e.key === 'ArrowRight' && hasNext && onNext) onNext();
     };
     document.addEventListener('keydown', onKey);
-    return () => {
-      document.body.style.overflow = '';
-      document.removeEventListener('keydown', onKey);
-    };
+    return () => { document.body.style.overflow = ''; document.removeEventListener('keydown', onKey); };
   }, [onClose, onPrev, onNext, hasPrev, hasNext]);
 
-  // Wheel zoom — must be non-passive to call preventDefault
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
     const onWheel = (e: WheelEvent) => {
       e.preventDefault();
-      const delta = e.deltaY < 0 ? 0.3 : -0.3;
       setZoom(z => {
-        const next = Math.min(Math.max(z + delta, 1), 6);
+        const next = Math.min(Math.max(z + (e.deltaY < 0 ? 0.3 : -0.3), 1), 6);
         if (next <= 1) setPan({ x: 0, y: 0 });
         return next;
       });
@@ -75,17 +65,13 @@ export function Lightbox({ src, alt, caption, onClose, onPrev, onNext, hasPrev, 
 
   const onMouseMove = useCallback((e: React.MouseEvent) => {
     if (!isDragging.current) return;
-    setPan({
-      x: dragStart.current.px + (e.clientX - dragStart.current.x),
-      y: dragStart.current.py + (e.clientY - dragStart.current.y),
-    });
+    setPan({ x: dragStart.current.px + (e.clientX - dragStart.current.x), y: dragStart.current.py + (e.clientY - dragStart.current.y) });
   }, []);
 
   const onMouseUp = useCallback(() => { isDragging.current = false; setGrabbing(false); }, []);
 
   const onDoubleClick = useCallback(() => {
-    if (zoom > 1) { setZoom(1); setPan({ x: 0, y: 0 }); }
-    else setZoom(3);
+    if (zoom > 1) { setZoom(1); setPan({ x: 0, y: 0 }); } else setZoom(3);
   }, [zoom]);
 
   return createPortal(
@@ -93,10 +79,10 @@ export function Lightbox({ src, alt, caption, onClose, onPrev, onNext, hasPrev, 
       role="dialog"
       aria-modal="true"
       aria-label={alt}
-      className="fixed inset-0 z-[99999] flex flex-col select-none"
-      style={{ background: 'rgba(0,0,0,0.93)' }}
+      className="fixed inset-0 flex flex-col select-none"
+      style={{ zIndex: 99999, background: 'rgba(0,0,0,0.93)' }}
     >
-      {/* Close */}
+      {/* Top: close */}
       <div className="shrink-0 flex justify-end px-4 pt-3 pb-1">
         <button
           onClick={onClose}
@@ -117,84 +103,70 @@ export function Lightbox({ src, alt, caption, onClose, onPrev, onNext, hasPrev, 
         onMouseUp={onMouseUp}
         onMouseLeave={onMouseUp}
       >
-        {/* Nav prev */}
         {hasPrev && onPrev && (
-          <button
-            onClick={(e) => { e.stopPropagation(); onPrev(); }}
-            aria-label="Imagem anterior"
-            className="absolute left-3 z-10 w-9 h-9 rounded-full bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition-colors"
-          >
+          <button onClick={(e) => { e.stopPropagation(); onPrev(); }} aria-label="Imagem anterior"
+            className="absolute left-3 z-10 w-9 h-9 rounded-full bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition-colors">
             <ChevronLeft size={20} />
           </button>
         )}
         {hasNext && onNext && (
-          <button
-            onClick={(e) => { e.stopPropagation(); onNext(); }}
-            aria-label="Próxima imagem"
-            className="absolute right-3 z-10 w-9 h-9 rounded-full bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition-colors"
-          >
+          <button onClick={(e) => { e.stopPropagation(); onNext(); }} aria-label="Próxima imagem"
+            className="absolute right-3 z-10 w-9 h-9 rounded-full bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition-colors">
             <ChevronRight size={20} />
           </button>
         )}
 
-        {/* Zoomable image */}
         <div
-          style={{
-            transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`,
-            transformOrigin: 'center center',
-            transition: isDragging.current ? 'none' : 'transform 0.12s ease-out',
-          }}
+          style={{ transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`, transformOrigin: 'center center', transition: isDragging.current ? 'none' : 'transform 0.12s ease-out' }}
           onDoubleClick={onDoubleClick}
         >
           <div className="bg-white rounded-2xl p-3 shadow-2xl">
             <Image
-              src={src}
-              alt={alt}
-              width={1600}
-              height={1200}
-              sizes="92vw"
-              quality={95}
+              src={src} alt={alt}
+              width={1600} height={1200}
+              sizes="88vw" quality={95}
               className="block rounded-[4px]"
-              style={{ maxWidth: '88vw', maxHeight: '76vh', width: 'auto', height: 'auto' }}
+              style={{ maxWidth: '84vw', maxHeight: '64vh', width: 'auto', height: 'auto' }}
               draggable={false}
             />
           </div>
         </div>
+      </div>
 
-        {/* Hint */}
-        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 pointer-events-none">
+      {/* Bottom: hint + dots + caption */}
+      <div className="shrink-0 flex flex-col items-center gap-2 pt-3 pb-5">
+        {/* Hint chip */}
+        <div className="pointer-events-none">
           {zoom <= 1 ? (
-            <span className="flex items-center gap-1.5 bg-black/40 backdrop-blur-sm rounded-full px-3 py-1 text-white/60 text-xs whitespace-nowrap">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="shrink-0"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
-              scroll para ampliar
+            <span className="flex items-center gap-1.5 bg-white/8 rounded-full px-3 py-1 text-white/50 text-xs whitespace-nowrap">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="shrink-0">
+                <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/>
+              </svg>
+              scroll para ampliar · duplo clique para 3×
             </span>
           ) : (
-            <span className="flex items-center gap-1.5 bg-black/40 backdrop-blur-sm rounded-full px-3 py-1 text-white/60 text-xs whitespace-nowrap">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" className="shrink-0 opacity-80"><path d="M9 3a1 1 0 0 0-2 0v7.5a.5.5 0 0 1-1 0V8a1 1 0 0 0-2 0v9a7 7 0 0 0 14 0v-5a1 1 0 0 0-2 0v-1.5a1 1 0 0 0-2 0V9a1 1 0 0 0-2 0V3z"/></svg>
-              arraste para navegar · {Math.round(zoom * 100)}% · duplo clique para resetar
+            <span className="flex items-center gap-1.5 bg-white/8 rounded-full px-3 py-1 text-white/50 text-xs whitespace-nowrap">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" className="shrink-0">
+                <path d="M9 3a1 1 0 0 0-2 0v7.5a.5.5 0 0 1-1 0V8a1 1 0 0 0-2 0v9a7 7 0 0 0 14 0v-5a1 1 0 0 0-2 0v-1.5a1 1 0 0 0-2 0V9a1 1 0 0 0-2 0V3z"/>
+              </svg>
+              arraste · {Math.round(zoom * 100)}% · duplo clique para resetar
             </span>
           )}
         </div>
-      </div>
 
-      {/* Bottom */}
-      <div className="shrink-0 pb-4 pt-1 flex flex-col items-center gap-2">
+        {/* Dots */}
         {total && total > 1 && onGoTo && currentIdx !== undefined && (
           <div className="flex justify-center gap-1.5">
             {Array.from({ length: total }).map((_, i) => (
-              <button
-                key={i}
-                onClick={() => onGoTo(i)}
-                aria-label={`Imagem ${i + 1} de ${total}`}
-                className={`h-1.5 rounded-full transition-all duration-200 ${
-                  i === currentIdx ? 'w-4 bg-white/60' : 'w-1.5 bg-white/25 hover:bg-white/40'
-                }`}
-              />
+              <button key={i} onClick={() => onGoTo(i)} aria-label={`Imagem ${i + 1} de ${total}`}
+                className={`h-1.5 rounded-full transition-all duration-200 ${i === currentIdx ? 'w-4 bg-white/60' : 'w-1.5 bg-white/25 hover:bg-white/40'}`} />
             ))}
           </div>
         )}
+
+        {/* Caption */}
         {caption && (
-          <p className="type-body-xs text-white/55 text-center px-8 max-w-lg">
+          <p className="type-body-xs text-white/50 text-center px-12 max-w-lg">
             {caption}
           </p>
         )}
