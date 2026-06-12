@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import fs from 'fs';
 import path from 'path';
 import { CaseImageFrame } from '@/components/case/CaseImageFrame';
+import { CaseCarousel } from '@/components/case/CaseCarousel';
 import { Link } from '@/i18n/navigation';
 import { CaseMdxContent } from '@/components/case/CaseMdxContent';
 import { routing } from '@/i18n/routing';
@@ -157,14 +158,13 @@ export default async function JgCentralAjudaPage() {
                 três leituras diferentes.
               </Body>
             </div>
-            <CaseImg
-              src="/images/cases/jovens-genios/central-de-ajuda/jg-central-ajuda-categorias-educadores.png"
-              alt="Categoria Educadores com filtro pré-aplicado e identidade visual própria"
-              caption="Categoria Educadores — filtro pré-aplicado e identidade visual própria"
-            />
-            <CaseImgPair
-              a={{ src: '/images/cases/jovens-genios/central-de-ajuda/jg-central-ajuda-categorias-exploradores.png', alt: 'Categoria Exploradores', caption: 'Exploradores' }}
-              b={{ src: '/images/cases/jovens-genios/central-de-ajuda/jg-central-ajuda-categorias-responsaveis.png', alt: 'Categoria Responsáveis', caption: 'Responsáveis' }}
+            <CaseCarousel
+              images={[
+                { src: '/images/cases/jovens-genios/central-de-ajuda/jg-central-ajuda-categorias-educadores.png', alt: 'Categoria Educadores — filtro pré-aplicado e identidade visual própria' },
+                { src: '/images/cases/jovens-genios/central-de-ajuda/jg-central-ajuda-categorias-exploradores.png', alt: 'Categoria Exploradores — conteúdo filtrado para o perfil' },
+                { src: '/images/cases/jovens-genios/central-de-ajuda/jg-central-ajuda-categorias-responsaveis.png', alt: 'Categoria Responsáveis — conteúdo filtrado para o perfil' },
+              ]}
+              caption="Educadores, Exploradores e Responsáveis — mesmo sistema de categorias, três leituras diferentes"
             />
           </section>
 
@@ -229,9 +229,12 @@ export default async function JgCentralAjudaPage() {
                 para o suporte humano.
               </Body>
             </div>
-            <CaseImgPair
-              a={{ src: '/images/cases/jovens-genios/central-de-ajuda/jg-central-ajuda-busca-empty-states-sugestao.png', alt: 'Empty state com erro de digitação e sugestão de correção', caption: 'Erro de digitação — sistema sugere correção' }}
-              b={{ src: '/images/cases/jovens-genios/central-de-ajuda/jg-central-ajuda-busca-empty-states-sugestao-filtro.png', alt: 'Empty state sem resultado no perfil com sugestão de ampliar', caption: 'Sem resultado no perfil — sugestão de ampliar para base geral' }}
+            <CaseCarousel
+              images={[
+                { src: '/images/cases/jovens-genios/central-de-ajuda/jg-central-ajuda-busca-empty-states-sugestao.png', alt: 'Empty state com erro de digitação e sugestão de correção' },
+                { src: '/images/cases/jovens-genios/central-de-ajuda/jg-central-ajuda-busca-empty-states-sugestao-filtro.png', alt: 'Empty state sem resultado no perfil com sugestão de ampliar' },
+              ]}
+              caption="Erro de digitação e sem resultado no perfil — causa diferente, resposta diferente"
             />
           </section>
 
