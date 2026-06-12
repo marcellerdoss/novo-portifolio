@@ -36,6 +36,7 @@ export function Lightbox({ src, alt, caption, onClose, onPrev, onNext, hasPrev, 
   const touchStartRef = useRef<{ x: number; y: number; px: number; py: number } | null>(null);
   const pinchStartRef = useRef<{ dist: number; zoom: number } | null>(null);
   const lastTapRef = useRef<number>(0);
+  const didDoubleTapRef = useRef(false);
 
   useEffect(() => { panRef.current = pan; }, [pan]);
   useEffect(() => { zoomRef.current = zoom; }, [zoom]);
@@ -101,11 +102,13 @@ export function Lightbox({ src, alt, caption, onClose, onPrev, onNext, hasPrev, 
         const t = e.touches[0];
         const now = Date.now();
         if (now - lastTapRef.current < 300) {
-          // Double tap — toggle zoom
+          // Double tap — toggle zoom; flag prevents React onDoubleClick from also firing
+          didDoubleTapRef.current = true;
+          setTimeout(() => { didDoubleTapRef.current = false; }, 100);
           touchStartRef.current = null;
           const cur = zoomRef.current;
           if (cur !== 1) { setZoom(1); setPan({ x: 0, y: 0 }); }
-          else setZoom(2.5);
+          else { setZoom(2.5); setPan({ x: 0, y: 0 }); }
           lastTapRef.current = 0;
           return;
         }
@@ -161,7 +164,11 @@ export function Lightbox({ src, alt, caption, onClose, onPrev, onNext, hasPrev, 
 
   const onMouseUp = useCallback(() => { isDragging.current = false; setGrabbing(false); }, []);
   const onDoubleClick = useCallback(() => {
-    if (zoom !== 1) { setZoom(1); setPan({ x: 0, y: 0 }); } else setZoom(2.5);
+    if (didDoubleTapRef.current) return; // already handled by touch
+    isDragging.current = false;
+    setGrabbing(false);
+    if (zoom !== 1) { setZoom(1); setPan({ x: 0, y: 0 }); }
+    else { setZoom(2.5); setPan({ x: 0, y: 0 }); }
   }, [zoom]);
 
   if (!root) return null;
@@ -200,7 +207,7 @@ export function Lightbox({ src, alt, caption, onClose, onPrev, onNext, hasPrev, 
               <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/>
             </svg>
             {isTouch
-              ? 'pinch para ampliar · toque duplo para 2.5×'
+              ? 'arraste para ampliar · toque duplo para 2.5×'
               : 'scroll para ampliar · duplo clique para 2.5×'}
           </span>
         ) : (
