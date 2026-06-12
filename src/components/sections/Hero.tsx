@@ -35,7 +35,7 @@ export function Hero() {
         <div className="mb-8 md:mb-8 xl:mb-12">
           <motion.h1
             variants={fadeInUp}
-            className="text-[clamp(2rem,2.5vw,2.25rem)] font-[340] leading-[1.2] tracking-[-0.5px] text-fg mb-3"
+            className="text-[clamp(1.75rem,2.5vw,2.25rem)] font-[340] leading-[1.2] tracking-[-0.5px] text-fg mb-3"
           >
             {t('name')}
           </motion.h1>
