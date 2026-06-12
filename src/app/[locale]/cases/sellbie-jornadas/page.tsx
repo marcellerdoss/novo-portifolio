@@ -275,13 +275,13 @@ export default async function SellbieJornadasPage() {
                 src="/images/cases/sellbie/jornadas/sellbie-jornadas-step-intervalo-1.png"
                 alt="Step de intervalo com tempo de espera e horário"
                 caption="Intervalo — tempo de espera e horário"
-                pair fixedHeight={360}
+                pair fixedHeight={320}
               />
               <CaseImageFrame
                 src="/images/cases/sellbie/jornadas/sellbie-jornadas-step-intervalo-2.png"
                 alt="Incompatibilidade de canal sinalizada no intervalo"
                 caption="Incompatibilidade de canal sinalizada"
-                pair fixedHeight={360}
+                pair fixedHeight={320}
               />
             </div>
           </section>
