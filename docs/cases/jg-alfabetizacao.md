@@ -125,26 +125,14 @@ Essa estrutura transformou cada modelo em uma ferramenta pedagógica completa e 
   images={[
     { "src": "/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-ordenacao-horizontal.png", "alt": "Modelo Ordenação Horizontal — um modelo, três fases de transição, múltiplas variações de interação" },
     { "src": "/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-multipla-escolha.png", "alt": "Modelo Múltipla Escolha — imagem e áudio como requisitos de design, não acessórios" },
-    { "src": "/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-correlacao-ordenacao-vertical.png", "alt": "Modelo Correlação / Ordenação Vertical — variação que expande o alcance pedagógico sem multiplicar complexidade técnica" }
-  ]}
-  caption="Ordenação Horizontal, Múltipla Escolha e Correlação — um modelo, três fases, múltiplas variações"
-/>
-
-<Carousel
-  images={[
+    { "src": "/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-correlacao-ordenacao-vertical.png", "alt": "Modelo Correlação / Ordenação Vertical — variação que expande o alcance pedagógico sem multiplicar complexidade técnica" },
     { "src": "/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-ditado.png", "alt": "Modelo Ditado — escuta e escrita como base para diferentes fases da progressão" },
     { "src": "/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-producao-textual.png", "alt": "Produção Textual — escrita estruturada como etapa final" },
     { "src": "/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-motricidade.png", "alt": "Motricidade — traçado e coordenação como base da escrita" },
-    { "src": "/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-abaco.png", "alt": "Ábaco — numeração decimal com suporte visual" }
-  ]}
-  caption="Ditado, Produção Textual, Motricidade e Ábaco — do traçado à escrita estruturada"
-/>
-
-<Carousel
-  images={[
+    { "src": "/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-abaco.png", "alt": "Ábaco — numeração decimal com suporte visual" },
     { "src": "/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-org-fases.png", "alt": "Atividades por fase — distribuição dos modelos de questão ao longo da progressão pedagógica" }
   ]}
-  caption="Atividades por fase — distribuição dos modelos ao longo da progressão pedagógica"
+  caption="Ordenação, Múltipla Escolha, Correlação, Ditado, Produção Textual, Motricidade, Ábaco e Atividades por fase"
 />
 
 ---

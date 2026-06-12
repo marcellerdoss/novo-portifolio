@@ -283,8 +283,13 @@ export default async function JgAlfabetizacaoPage() {
                 { src: '/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-ordenacao-horizontal.png', alt: 'Ordenação Horizontal — um modelo, três fases, múltiplas variações' },
                 { src: '/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-multipla-escolha.png', alt: 'Múltipla Escolha — variações por fase' },
                 { src: '/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-correlacao-ordenacao-vertical.png', alt: 'Correlação e Ordenação Vertical' },
+                { src: '/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-ditado.png', alt: 'Modelo Ditado — escuta e escrita para diferentes fases da progressão' },
+                { src: '/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-producao-textual.png', alt: 'Produção Textual — escrita estruturada como etapa final' },
+                { src: '/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-motricidade.png', alt: 'Motricidade — traçado e coordenação como base da escrita' },
+                { src: '/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-abaco.png', alt: 'Ábaco — numeração decimal com suporte visual' },
+                { src: '/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-org-fases.png', alt: 'Atividades por fase — distribuição dos modelos ao longo da progressão' },
               ]}
-              caption="Ordenação Horizontal, Múltipla Escolha e Correlação — um modelo, três fases, múltiplas variações"
+              caption="Ordenação, Múltipla Escolha, Correlação, Ditado, Produção Textual, Motricidade, Ábaco e Atividades por fase"
             />
           </section>
 
@@ -305,14 +310,6 @@ export default async function JgAlfabetizacaoPage() {
                 manipulável.
               </Body>
             </div>
-            <CaseCarousel
-              images={[
-                { src: '/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-producao-textual.png', alt: 'Produção Textual — escrita estruturada como etapa final' },
-                { src: '/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-motricidade.png', alt: 'Motricidade — traçado e coordenação como base da escrita' },
-                { src: '/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-abaco.png', alt: 'Ábaco — numeração decimal com suporte visual' },
-              ]}
-              caption="Produção Textual, Motricidade e Ábaco — do traçado à escrita estruturada"
-            />
           </section>
 
           <Divider />
@@ -332,13 +329,6 @@ export default async function JgAlfabetizacaoPage() {
                 distribui ao longo da progressão.
               </Body>
             </div>
-            <CaseCarousel
-              images={[
-                { src: '/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-modelo-ditado.png', alt: 'Modelo Ditado — escuta e escrita como base para diferentes fases da progressão' },
-                { src: '/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-org-fases.png', alt: 'Atividades por fase — distribuição dos modelos de questão ao longo da progressão pedagógica' },
-              ]}
-              caption="Ditado e Atividades por fase — escuta, escrita e distribuição ao longo da progressão"
-            />
           </section>
 
           <Divider />
