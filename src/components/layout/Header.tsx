@@ -125,7 +125,7 @@ export function Header() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -6 }}
               transition={{ duration: 0.18, ease: 'easeOut' }}
-              className="md:hidden fixed inset-x-0 top-[6.25rem] bottom-0 z-30 bg-bg flex flex-col overflow-y-auto"
+              className="md:hidden fixed inset-x-0 top-[6.25rem] bottom-0 z-[55] bg-bg flex flex-col overflow-y-auto"
             >
               <div className="flex-1 px-8 pt-8">
                 <Navigation
