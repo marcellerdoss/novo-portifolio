@@ -50,6 +50,11 @@ export function Header() {
 
   const closeMenu = () => setMenuOpen(false);
 
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
+
   return (
     <>
       <header
@@ -110,28 +115,28 @@ export function Header() {
           </button>
         </div>
 
-        {/* Mobile drawer */}
+        {/* Mobile drawer — fullscreen */}
         <AnimatePresence>
           {menuOpen && (
             <motion.div
               ref={menuRef}
               id="mobile-menu"
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.18 }}
-              className="md:hidden overflow-hidden bg-bg border-t border-border"
+              initial={{ opacity: 0, y: -6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.18, ease: 'easeOut' }}
+              className="md:hidden fixed inset-x-0 top-[6.25rem] bottom-0 z-30 bg-bg flex flex-col overflow-y-auto"
             >
-              <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col gap-8">
+              <div className="flex-1 px-8 pt-8">
                 <Navigation
                   className="flex-col items-start gap-1"
-                  itemClassName="text-xl py-3"
+                  itemClassName="text-2xl py-3"
                   onClick={closeMenu}
                 />
-                <div className="border-t border-border pt-6 flex items-center justify-between">
-                  <LanguageSwitcher ariaLabel={t('toggle_language')} />
-                  <ThemeToggle ariaLabel={t('toggle_theme')} />
-                </div>
+              </div>
+              <div className="px-8 py-8 border-t border-border flex items-center justify-between">
+                <LanguageSwitcher ariaLabel={t('toggle_language')} />
+                <ThemeToggle ariaLabel={t('toggle_theme')} />
               </div>
             </motion.div>
           )}
