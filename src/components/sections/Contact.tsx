@@ -150,9 +150,9 @@ export function Contact() {
               className="type-display-lg text-white mb-4"
             >
               {locale === 'en' ? (
-                <>Let&apos;s build a<br /><span className="text-accent-magenta">strategic product</span> together?</>
+                <>Let&apos;s build a<br /><span className="text-accent-magenta">strategic product</span><br />together?</>
               ) : (
-                <>Vamos construir um<br /><span className="text-accent-magenta">produto estratégico</span> juntos?</>
+                <>Vamos construir um<br /><span className="text-accent-magenta">produto estratégico</span><br />juntos?</>
               )}
             </motion.h2>
 
