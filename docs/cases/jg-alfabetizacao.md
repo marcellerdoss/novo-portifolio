@@ -64,6 +64,8 @@ A especialista também fez a ponte com o time de conteúdo da plataforma, conect
 
 Quatro fases estruturam a jornada da criança no produto, seguindo a progressão da BNCC para o 1º e 2º ano do Ensino Fundamental:
 
+![Fases de alfabetização mapeadas por ano escolar — recorte pedagógico que definiu o escopo do produto.](../../images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-slide-progressao.png)
+
 **Pré-silábico** — a criança entende que a escrita está relacionada à fala, mas ainda não distingue completamente letra de desenho. Dinâmicas: letra inicial das palavras · palavras isoladas em contexto de histórias e cantigas · memorização, relacionar, completar, ligar · motricidade (desenho e formato da letra) · identificação fonético-silábica.
 
 **Silábico** — primeiras associações entre escrita e fala. Dinâmicas: formação de palavras com apoio visual e sílabas · fonética silábica (consoante + vogal) · ditado relacionado a cantigas e parlendas · identificação de palavra com apoio visual e múltipla escolha com palavras verdadeiras.
@@ -71,8 +73,6 @@ Quatro fases estruturam a jornada da criança no produto, seguindo a progressão
 **Alfabético** — a criança começa a compreender que as sílabas possuem mais de uma letra. Dinâmicas: letras móveis com omissão · ditados de letras · rimas · trava-língua · cópia de texto · escrita de carta, cartão, post.
 
 **Ortográfico** — leitura mais fluente; a criança encontra prazer crescente na leitura e na escrita. Dinâmicas: leitura e interpretação de textos narrativos · ditado · escrita de rimas · stop.
-
-![Fases de alfabetização mapeadas por ano escolar — recorte pedagógico que definiu o escopo do produto.](../../images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-slide-progressao.png)
 
 <Carousel
   images={[
