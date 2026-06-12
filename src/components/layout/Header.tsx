@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import { Menu, X } from 'lucide-react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from '@/i18n/navigation';
 import { Navigation } from './Navigation';
@@ -60,11 +61,18 @@ export function Header() {
           <Link
             href="/"
             className={cn(
-              'type-headline text-fg hover:opacity-70 transition-opacity duration-150',
+              'hover:opacity-70 transition-opacity duration-150',
               'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg rounded',
             )}
+            aria-label="Marcelle Rocha"
           >
-            Marcelle
+            <Image
+              src="/images/social/logo-header-marcelle-rocha-navy.svg"
+              alt="Marcelle Rocha"
+              width={160}
+              height={32}
+              priority
+            />
           </Link>
 
           {/* Desktop nav */}
