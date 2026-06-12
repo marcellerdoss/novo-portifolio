@@ -206,10 +206,13 @@ export default async function JgCentralAjudaPage() {
                 e trabalha a favor de cada consulta subsequente.
               </Body>
             </div>
-            <CaseImg
-              src="/images/cases/jovens-genios/central-de-ajuda/jg-central-ajuda-busca-resultados.png"
-              alt="Busca filtrada por perfil com resultados contextualizados"
-              caption="Busca filtrada por perfil — resultados contextualizados."
+            <CaseCarousel
+              images={[
+                { src: '/images/cases/jovens-genios/central-de-ajuda/jg-central-ajuda-busca-resultados.png', alt: 'Busca filtrada por perfil com resultados contextualizados' },
+                { src: '/images/cases/jovens-genios/central-de-ajuda/jg-central-ajuda-busca-empty-states-sugestao.png', alt: 'Empty state com erro de digitação e sugestão de correção' },
+                { src: '/images/cases/jovens-genios/central-de-ajuda/jg-central-ajuda-busca-empty-states-sugestao-filtro.png', alt: 'Empty state sem resultado no perfil com sugestão de ampliar' },
+              ]}
+              caption="Resultados filtrados por perfil, erro de digitação e sem resultado — todos os estados da busca"
             />
           </section>
 
@@ -229,13 +232,6 @@ export default async function JgCentralAjudaPage() {
                 para o suporte humano.
               </Body>
             </div>
-            <CaseCarousel
-              images={[
-                { src: '/images/cases/jovens-genios/central-de-ajuda/jg-central-ajuda-busca-empty-states-sugestao.png', alt: 'Empty state com erro de digitação e sugestão de correção' },
-                { src: '/images/cases/jovens-genios/central-de-ajuda/jg-central-ajuda-busca-empty-states-sugestao-filtro.png', alt: 'Empty state sem resultado no perfil com sugestão de ampliar' },
-              ]}
-              caption="Erro de digitação e sem resultado no perfil — causa diferente, resposta diferente"
-            />
           </section>
 
           <Divider />
