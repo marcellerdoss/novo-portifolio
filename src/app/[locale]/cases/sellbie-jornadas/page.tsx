@@ -97,7 +97,7 @@ export default async function SellbieJornadasPage() {
           <h1 className="type-display-lg text-fg mb-6">Jornadas do cliente</h1>
 
           <p className="type-body-lg text-fg-muted max-w-2xl">
-            Design do canvas de automação multicanal da Sellbie — um módulo
+            Design do canvas de automação multicanal da Sellbie, um módulo
             inteiramente novo que permite criar fluxos de jornada com mais
             de 20 gatilhos, múltiplos canais e lógica de ramificação baseada
             no comportamento do cliente.
