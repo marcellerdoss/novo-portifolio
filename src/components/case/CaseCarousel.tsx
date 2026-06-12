@@ -103,7 +103,7 @@ export function CaseCarousel({ images, caption }: CaseCarouselProps) {
         )}
 
         {caption && (
-          <figcaption className="type-body-xs text-fg-subtle px-1">
+          <figcaption className={`type-body-xs text-fg-subtle px-1${total > 1 ? ' mx-10' : ''}`}>
             {caption}
           </figcaption>
         )}
