@@ -122,7 +122,7 @@ export function Skills({ inline }: Props) {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.1 }}
-      className="grid grid-cols-1 gap-8"
+      className="grid grid-cols-1 sm:grid-cols-3 gap-8"
     >
       {educationCategories.map(({ label, items }) => (
         <motion.div key={label.pt} variants={fadeInUp}>
