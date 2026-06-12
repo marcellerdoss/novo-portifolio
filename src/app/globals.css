@@ -16,6 +16,7 @@
 
   /* Surfaces */
   --color-surface-soft:   #ececea;
+  --color-case-preview-bg: #ececea;
 
   /* Borders */
   --color-hairline:       #e6e6e6;
@@ -173,6 +174,7 @@
 
   /* Static color token overrides for dark mode */
   --color-surface-soft:   #1a1836;
+  --color-case-preview-bg: #131226;
   --color-block-pink:     #261724;
   --color-block-cream:    #1e1c31;
   --color-block-coral:    #2b1410;
