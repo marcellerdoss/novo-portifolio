@@ -83,11 +83,14 @@ Busca com filtro por perfil, atalhos visuais por persona, perguntas frequentes g
 **Páginas de Categoria — Educadores, Exploradores e Responsáveis**
 Cada perfil com header visual próprio, filtro de busca pré-aplicado, navegação por abas para os outros perfis, artigos organizados por categoria e expansão progressiva via "Ver mais".
 
-![Categoria Educadores — filtro pré-aplicado e identidade visual própria para cada perfil.](/images/cases/jovens-genios/central-de-ajuda/jg-central-ajuda-categorias-educadores.png)
-
-![Categoria Exploradores — mesma estrutura, contexto diferente.](/images/cases/jovens-genios/central-de-ajuda/jg-central-ajuda-categorias-exploradores.png)
-
-![Categoria Responsáveis — três perfis, três espaços distintos dentro da mesma central.](/images/cases/jovens-genios/central-de-ajuda/jg-central-ajuda-categorias-responsáveis.png)
+<Carousel
+  images={[
+    { "src": "/images/cases/jovens-genios/central-de-ajuda/jg-central-ajuda-categorias-educadores.png", "alt": "Categoria Educadores — filtro pré-aplicado e identidade visual própria para cada perfil" },
+    { "src": "/images/cases/jovens-genios/central-de-ajuda/jg-central-ajuda-categorias-exploradores.png", "alt": "Categoria Exploradores — mesma estrutura, contexto diferente" },
+    { "src": "/images/cases/jovens-genios/central-de-ajuda/jg-central-ajuda-categorias-responsaveis.png", "alt": "Categoria Responsáveis — três perfis, três espaços distintos dentro da mesma central" }
+  ]}
+  caption="Educadores, Exploradores e Responsáveis — mesmo sistema de categorias, três leituras diferentes"
+/>
 
 **Páginas de Artigo**
 Estrutura consistente entre perfis: breadcrumb, copiar link, navegação lateral com toda a hierarquia da central, conteúdo do artigo (texto, imagem e/ou vídeo), feedback de utilidade, artigos relacionados e botão "Me Ajuda JG" fixo no canto inferior direito para abertura do chat de suporte, garantindo que o usuário tenha sempre um caminho alternativo quando o conteúdo não resolve.
