@@ -278,8 +278,8 @@ export function Lightbox({ src, alt, caption, onClose, onPrev, onNext, hasPrev, 
             <div style={{ background: 'white', borderRadius: '12px', padding: '12px', boxShadow: '0 2px 12px rgba(0,0,0,0.12)' }}>
               <Image
                 src={src} alt={alt}
-                width={1600} height={1200}
-                sizes="88vw" quality={95}
+                width={3200} height={2400}
+                sizes="(max-width: 768px) 250vw, 220vw" quality={92}
                 style={{ display: 'block', borderRadius: '6px', maxWidth: '82vw', maxHeight: '58vh', width: 'auto', height: 'auto' }}
                 draggable={false}
               />
