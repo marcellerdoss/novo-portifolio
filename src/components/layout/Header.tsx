@@ -25,7 +25,7 @@ export function Header() {
   }, []);
 
   useEffect(() => {
-    const onResize = () => { if (window.innerWidth >= 768) setMenuOpen(false); };
+    const onResize = () => { if (window.innerWidth >= 1024) setMenuOpen(false); };
     window.addEventListener('resize', onResize);
     return () => window.removeEventListener('resize', onResize);
   }, []);
@@ -87,7 +87,7 @@ export function Header() {
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-4">
             <Navigation />
             <div className="flex items-center gap-1 border-l border-border pl-4">
               <LanguageSwitcher ariaLabel={t('toggle_language')} />
@@ -104,7 +104,7 @@ export function Header() {
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
             className={cn(
-              'md:hidden w-11 h-11 flex items-center justify-center rounded-full',
+              'lg:hidden w-11 h-11 flex items-center justify-center rounded-full',
               'text-fg-muted hover:text-fg transition-colors duration-150',
               'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg',
             )}
@@ -125,7 +125,7 @@ export function Header() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -6 }}
               transition={{ duration: 0.18, ease: 'easeOut' }}
-              className="md:hidden fixed inset-x-0 top-[6.25rem] bottom-0 z-[55] bg-bg flex flex-col overflow-y-auto"
+              className="lg:hidden fixed inset-x-0 top-[6.25rem] bottom-0 z-[55] bg-bg flex flex-col overflow-y-auto"
             >
               <div className="flex-1 px-8 pt-8">
                 <Navigation
