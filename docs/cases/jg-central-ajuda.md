@@ -100,11 +100,14 @@ Estrutura consistente entre perfis: breadcrumb, copiar link, navegação lateral
 **Busca — estados de resultado e erro**
 Resultados com filtro lateral por perfil e contagem por categoria; empty state com sugestão de filtro alternativo; empty state com sugestão de correção de digitação.
 
-![Busca filtrada por perfil — resultados contextualizados e contagem por categoria.](/images/cases/jovens-genios/central-de-ajuda/jg-central-ajuda-busca-resultados.png)
-
-![Erro de digitação com saída — o sistema sugere a correção antes de declarar que não encontrou nada.](/images/cases/jovens-genios/central-de-ajuda/jg-central-ajuda-busca-empty-states-sugestao.png)
-
-![Sem resultado no perfil? A sugestão é ampliar para a base geral — nunca beco sem saída.](/images/cases/jovens-genios/central-de-ajuda/jg-central-ajuda-busca-empty-states-sugestao-filtro.png)
+<Carousel
+  images={[
+    { "src": "/images/cases/jovens-genios/central-de-ajuda/jg-central-ajuda-busca-resultados.png", "alt": "Busca filtrada por perfil — resultados contextualizados e contagem por categoria" },
+    { "src": "/images/cases/jovens-genios/central-de-ajuda/jg-central-ajuda-busca-empty-states-sugestao.png", "alt": "Erro de digitação com saída — o sistema sugere a correção antes de declarar que não encontrou nada" },
+    { "src": "/images/cases/jovens-genios/central-de-ajuda/jg-central-ajuda-busca-empty-states-sugestao-filtro.png", "alt": "Sem resultado no perfil — sugestão de ampliar para a base geral, nunca beco sem saída" }
+  ]}
+  caption="Resultados filtrados por perfil, erro de digitação e sem resultado — todos os estados da busca"
+/>
 
 ---
 
