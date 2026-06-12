@@ -1,11 +1,12 @@
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 
-type NavKey = 'about' | 'cases' | 'skills' | 'experience' | 'blog' | 'contact';
+type NavKey = 'about' | 'cases' | 'racional' | 'skills' | 'experience' | 'blog' | 'contact';
 
 const navLinks: { key: NavKey; href: { pathname: string; hash: string } }[] = [
   { key: 'about',      href: { pathname: '/', hash: '#sobre' } },
   { key: 'cases',      href: { pathname: '/', hash: '#cases' } },
+  { key: 'racional',   href: { pathname: '/', hash: '#racional' } },
   { key: 'skills',     href: { pathname: '/', hash: '#skills' } },
   { key: 'experience', href: { pathname: '/', hash: '#experiencia' } },
   { key: 'blog',       href: { pathname: '/', hash: '#blog' } },
