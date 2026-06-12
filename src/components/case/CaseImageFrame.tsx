@@ -73,40 +73,47 @@ export function CaseImageFrame({ src, alt, caption, pair, fixedHeight }: Props) 
           role="dialog"
           aria-modal="true"
           aria-label={alt}
-          className="fixed inset-0 z-[9999] flex items-center justify-center p-4 md:p-8"
+          className="fixed inset-0 z-[9999] overflow-y-auto"
           onClick={() => setOpen(false)}
         >
-          <div className="absolute inset-0 bg-black/88" aria-hidden="true" />
+          <div className="absolute inset-0 bg-black/88 pointer-events-none" aria-hidden="true" />
 
-          <div
-            className="relative z-10 flex flex-col items-center"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              type="button"
-              onClick={() => setOpen(false)}
-              aria-label="Fechar"
-              className="absolute -top-10 right-0 text-white/70 hover:text-white transition-colors p-1 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+          <div className="flex min-h-full items-center justify-center px-4 py-12">
+            <div
+              className="relative z-10 flex flex-col items-center w-full"
+              onClick={(e) => e.stopPropagation()}
             >
-              <X size={20} aria-hidden="true" />
-            </button>
+              {/* Botão fechar alinhado à direita da imagem */}
+              <div className="flex justify-end w-full mb-2" style={{ maxWidth: '88vw' }}>
+                <button
+                  type="button"
+                  onClick={() => setOpen(false)}
+                  aria-label="Fechar"
+                  className="text-white/70 hover:text-white transition-colors p-1 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                >
+                  <X size={20} aria-hidden="true" />
+                </button>
+              </div>
 
-            <div className="bg-white rounded-2xl p-3 shadow-2xl" style={{ maxWidth: '92vw', maxHeight: '88vh' }}>
-              <Image
-                src={src}
-                alt={alt}
-                width={1200}
-                height={800}
-                sizes="92vw"
-                quality={95}
-                className="block rounded-[4px] h-auto"
-                style={{ maxWidth: '88vw', maxHeight: '82vh', width: 'auto' }}
-              />
+              <div className="bg-white rounded-2xl p-3 shadow-2xl" style={{ maxWidth: '88vw' }}>
+                <Image
+                  src={src}
+                  alt={alt}
+                  width={1200}
+                  height={800}
+                  sizes="88vw"
+                  quality={95}
+                  className="block rounded-[4px] w-auto h-auto"
+                  style={{ maxWidth: '84vw', maxHeight: '72vh' }}
+                />
+              </div>
+
+              {caption && (
+                <p className="mt-4 type-body-xs text-white/50 text-center px-4" style={{ maxWidth: '88vw' }}>
+                  {caption}
+                </p>
+              )}
             </div>
-
-            {caption && (
-              <p className="mt-3 type-body-xs text-white/50 text-center max-w-lg">{caption}</p>
-            )}
           </div>
         </div>
       )}
