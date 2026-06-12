@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { ChevronLeft, ChevronRight, Minus, Plus, RotateCcw, X } from 'lucide-react';
+import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 
 interface LightboxProps {
   src: string;
@@ -22,23 +22,23 @@ interface LightboxProps {
 export function Lightbox({ src, alt, caption, onClose, onPrev, onNext, hasPrev, hasNext, total, currentIdx, onGoTo }: LightboxProps) {
   const [zoom, setZoom] = useState(1);
   const [pan, setPan] = useState({ x: 0, y: 0 });
-  const [isDragging, setIsDragging] = useState(false);
-  const dragRef = useRef({ startX: 0, startY: 0, panX: 0, panY: 0 });
+  const isDragging = useRef(false);
+  const dragStart = useRef({ x: 0, y: 0, px: 0, py: 0 });
+  const containerRef = useRef<HTMLDivElement>(null);
 
+  // Reset on image change
   useEffect(() => {
     setZoom(1);
     setPan({ x: 0, y: 0 });
   }, [src]);
 
+  // Body scroll lock + keyboard
   useEffect(() => {
     document.body.style.overflow = 'hidden';
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
       if (e.key === 'ArrowLeft' && hasPrev && onPrev) onPrev();
       if (e.key === 'ArrowRight' && hasNext && onNext) onNext();
-      if ((e.key === '+' || e.key === '=')) setZoom(z => Math.min(z + 0.5, 5));
-      if (e.key === '-') setZoom(z => { const n = Math.max(z - 0.5, 1); if (n <= 1) setPan({ x: 0, y: 0 }); return n; });
-      if (e.key === '0') { setZoom(1); setPan({ x: 0, y: 0 }); }
     };
     document.addEventListener('keydown', onKey);
     return () => {
@@ -47,98 +47,91 @@ export function Lightbox({ src, alt, caption, onClose, onPrev, onNext, hasPrev, 
     };
   }, [onClose, onPrev, onNext, hasPrev, hasNext]);
 
-  const handleWheel = useCallback((e: React.WheelEvent) => {
-    e.stopPropagation();
-    const delta = e.deltaY < 0 ? 0.35 : -0.35;
-    setZoom(z => {
-      const next = Math.min(Math.max(z + delta, 1), 5);
-      if (next <= 1) setPan({ x: 0, y: 0 });
-      return next;
+  // Wheel zoom — must be non-passive to call preventDefault
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const onWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      const delta = e.deltaY < 0 ? 0.3 : -0.3;
+      setZoom(z => {
+        const next = Math.min(Math.max(z + delta, 1), 6);
+        if (next <= 1) setPan({ x: 0, y: 0 });
+        return next;
+      });
+    };
+    el.addEventListener('wheel', onWheel, { passive: false });
+    return () => el.removeEventListener('wheel', onWheel);
+  }, []);
+
+  const onMouseDown = useCallback((e: React.MouseEvent) => {
+    if (zoom <= 1) return;
+    e.preventDefault();
+    isDragging.current = true;
+    dragStart.current = { x: e.clientX, y: e.clientY, px: pan.x, py: pan.y };
+  }, [zoom, pan]);
+
+  const onMouseMove = useCallback((e: React.MouseEvent) => {
+    if (!isDragging.current) return;
+    setPan({
+      x: dragStart.current.px + (e.clientX - dragStart.current.x),
+      y: dragStart.current.py + (e.clientY - dragStart.current.y),
     });
   }, []);
 
-  const handleMouseDown = useCallback((e: React.MouseEvent) => {
-    if (zoom <= 1) return;
-    e.preventDefault();
-    setIsDragging(true);
-    dragRef.current = { startX: e.clientX, startY: e.clientY, panX: pan.x, panY: pan.y };
-  }, [zoom, pan]);
+  const onMouseUp = useCallback(() => { isDragging.current = false; }, []);
 
-  const handleMouseMove = useCallback((e: React.MouseEvent) => {
-    if (!isDragging) return;
-    setPan({
-      x: dragRef.current.panX + (e.clientX - dragRef.current.startX),
-      y: dragRef.current.panY + (e.clientY - dragRef.current.startY),
-    });
-  }, [isDragging]);
-
-  const handleMouseUp = useCallback(() => setIsDragging(false), []);
-
-  const handleDoubleClick = useCallback(() => {
+  const onDoubleClick = useCallback(() => {
     if (zoom > 1) { setZoom(1); setPan({ x: 0, y: 0 }); }
-    else setZoom(2.5);
+    else setZoom(3);
   }, [zoom]);
-
-  const btnClass = 'flex items-center justify-center w-7 h-7 rounded-full text-white/70 hover:text-white hover:bg-white/10 transition-colors disabled:opacity-30 disabled:cursor-not-allowed';
 
   return createPortal(
     <div
       role="dialog"
       aria-modal="true"
       aria-label={alt}
-      className="fixed inset-0 z-[9999] flex flex-col select-none"
+      className="fixed inset-0 z-[99999] flex flex-col select-none"
+      style={{ background: 'rgba(0,0,0,0.93)' }}
     >
-      <div className="absolute inset-0 bg-black/92" onClick={zoom <= 1 ? onClose : undefined} />
-
-      {/* Top bar */}
-      <div className="relative z-10 flex items-center justify-between px-4 pt-3 pb-2 shrink-0">
-        <div className="flex items-center gap-1">
-          <button onClick={() => setZoom(z => { const n = Math.max(z - 0.5, 1); if (n <= 1) setPan({ x: 0, y: 0 }); return n; })} disabled={zoom <= 1} aria-label="Diminuir zoom" className={btnClass}>
-            <Minus size={14} />
-          </button>
-          <span className="text-white/50 text-xs w-10 text-center tabular-nums">{Math.round(zoom * 100)}%</span>
-          <button onClick={() => setZoom(z => Math.min(z + 0.5, 5))} disabled={zoom >= 5} aria-label="Aumentar zoom" className={btnClass}>
-            <Plus size={14} />
-          </button>
-          {zoom > 1 && (
-            <button onClick={() => { setZoom(1); setPan({ x: 0, y: 0 }); }} aria-label="Resetar zoom" className={btnClass + ' ml-1'}>
-              <RotateCcw size={13} />
-            </button>
-          )}
-        </div>
-
-        <button onClick={onClose} aria-label="Fechar" className={btnClass}>
+      {/* Close */}
+      <div className="shrink-0 flex justify-end px-4 pt-3 pb-1">
+        <button
+          onClick={onClose}
+          aria-label="Fechar"
+          className="flex items-center justify-center w-8 h-8 rounded-full text-white/60 hover:text-white hover:bg-white/10 transition-colors"
+        >
           <X size={18} />
         </button>
       </div>
 
       {/* Image area */}
       <div
-        className="relative z-10 flex-1 overflow-hidden flex items-center justify-center"
-        onWheel={handleWheel}
-        onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
-        onMouseUp={handleMouseUp}
-        onMouseLeave={handleMouseUp}
-        style={{ cursor: zoom > 1 ? (isDragging ? 'grabbing' : 'grab') : 'zoom-in' }}
+        ref={containerRef}
+        className="relative flex-1 overflow-hidden flex items-center justify-center"
+        style={{ cursor: zoom > 1 ? 'grab' : 'zoom-in' }}
+        onMouseDown={onMouseDown}
+        onMouseMove={onMouseMove}
+        onMouseUp={onMouseUp}
+        onMouseLeave={onMouseUp}
       >
-        {/* Nav arrows */}
+        {/* Nav prev */}
         {hasPrev && onPrev && (
           <button
             onClick={(e) => { e.stopPropagation(); onPrev(); }}
             aria-label="Imagem anterior"
-            className="absolute left-3 z-20 w-9 h-9 rounded-full bg-white/15 text-white flex items-center justify-center hover:bg-white/25 transition-colors shrink-0"
+            className="absolute left-3 z-10 w-9 h-9 rounded-full bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition-colors"
           >
-            <ChevronLeft size={18} />
+            <ChevronLeft size={20} />
           </button>
         )}
         {hasNext && onNext && (
           <button
             onClick={(e) => { e.stopPropagation(); onNext(); }}
             aria-label="Próxima imagem"
-            className="absolute right-3 z-20 w-9 h-9 rounded-full bg-white/15 text-white flex items-center justify-center hover:bg-white/25 transition-colors shrink-0"
+            className="absolute right-3 z-10 w-9 h-9 rounded-full bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition-colors"
           >
-            <ChevronRight size={18} />
+            <ChevronRight size={20} />
           </button>
         )}
 
@@ -147,34 +140,40 @@ export function Lightbox({ src, alt, caption, onClose, onPrev, onNext, hasPrev, 
           style={{
             transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`,
             transformOrigin: 'center center',
-            transition: isDragging ? 'none' : 'transform 0.15s ease-out',
+            transition: isDragging.current ? 'none' : 'transform 0.12s ease-out',
           }}
-          onDoubleClick={handleDoubleClick}
+          onDoubleClick={onDoubleClick}
         >
           <div className="bg-white rounded-2xl p-3 shadow-2xl">
             <Image
               src={src}
               alt={alt}
-              width={1400}
-              height={1000}
-              sizes="90vw"
+              width={1600}
+              height={1200}
+              sizes="92vw"
               quality={95}
-              className="block rounded-[4px] w-auto h-auto"
-              style={{ maxWidth: '86vw', maxHeight: '74vh' }}
+              className="block rounded-[4px]"
+              style={{ maxWidth: '88vw', maxHeight: '76vh', width: 'auto', height: 'auto' }}
               draggable={false}
             />
           </div>
         </div>
 
+        {/* Hint */}
         {zoom <= 1 && (
-          <p className="absolute bottom-3 left-1/2 -translate-x-1/2 text-white/30 text-xs pointer-events-none">
-            scroll ou duplo clique para ampliar
-          </p>
+          <span className="absolute bottom-3 left-1/2 -translate-x-1/2 text-white/30 text-xs pointer-events-none whitespace-nowrap">
+            scroll para ampliar · duplo clique para 3×
+          </span>
+        )}
+        {zoom > 1 && (
+          <span className="absolute bottom-3 left-1/2 -translate-x-1/2 text-white/30 text-xs pointer-events-none whitespace-nowrap">
+            {Math.round(zoom * 100)}% · duplo clique para resetar
+          </span>
         )}
       </div>
 
-      {/* Bottom: dots + caption */}
-      <div className="relative z-10 shrink-0 pb-4 pt-2 flex flex-col items-center gap-2">
+      {/* Bottom */}
+      <div className="shrink-0 pb-4 pt-1 flex flex-col items-center gap-2">
         {total && total > 1 && onGoTo && currentIdx !== undefined && (
           <div className="flex justify-center gap-1.5">
             {Array.from({ length: total }).map((_, i) => (
@@ -190,7 +189,7 @@ export function Lightbox({ src, alt, caption, onClose, onPrev, onNext, hasPrev, 
           </div>
         )}
         {caption && (
-          <p className="type-body-xs text-white/40 text-center px-8 max-w-lg">
+          <p className="type-body-xs text-white/35 text-center px-8 max-w-xl">
             {caption}
           </p>
         )}
