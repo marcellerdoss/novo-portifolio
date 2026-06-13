@@ -23,7 +23,7 @@ export async function Footer() {
   return (
     <footer id="footer" className="bg-[#09081c] border-t border-white/10 py-12">
       <div className="max-w-6xl mx-auto px-6 w-full">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 mb-10 md:mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 mb-10 md:mb-12">
 
           {/* Brand */}
           <div>
@@ -31,50 +31,52 @@ export async function Footer() {
             <p className="type-body-sm text-white/60">Product Designer | UX | CX</p>
           </div>
 
-          {/* Quick links — plain <a> para evitar navegação completa e flash de light mode */}
-          <nav aria-label={t('quick_links')}>
-            <p className="type-caption text-white/40 mb-4">{t('quick_links')}</p>
-            <ul className="space-y-2.5">
-              {navLinks.map(({ key, hash }) => (
-                <li key={key}>
-                  <a
-                    href={hash}
-                    className="type-body-xs text-white/50 hover:text-white transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded"
-                  >
-                    {tNav(key)}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          {/* Nav + Crédito + CTA Racional — mesma coluna, mesmo X que "Sobre" */}
+          <div className="flex flex-col gap-8">
 
-          {/* Crédito + CTA Racional */}
-          <div
-            className="grid gap-5 justify-self-start"
-            style={{ gridTemplateColumns: 'min-content' }}
-          >
-            <p className="type-caption text-white/35 whitespace-nowrap">
-              {t('credit')} <span className="text-white/55">Marcelle</span>
-            </p>
+            {/* Quick links */}
+            <nav aria-label={t('quick_links')}>
+              <p className="type-caption text-white/40 mb-3">{t('quick_links')}</p>
+              <ul className="space-y-1.5">
+                {navLinks.map(({ key, hash }) => (
+                  <li key={key}>
+                    <a
+                      href={hash}
+                      className="type-body-xs text-white/50 hover:text-white transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded"
+                    >
+                      {tNav(key)}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
 
-            <Link
-              href="/racional"
-              className="group flex items-start justify-between gap-2 border border-white/15 hover:border-white/35 rounded-xl px-3 py-3 transition-all duration-200 hover:bg-white/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
-            >
-              <div>
-                <p className="type-body-sm text-white/80 group-hover:text-white transition-colors duration-200 font-[440]">
-                  {t('rationale')}
-                </p>
-                <p className="type-body-xs text-white/40 mt-1.5 group-hover:text-white/60 transition-colors duration-200 normal-case tracking-normal leading-snug">
-                  {t('rationale_sub')}
-                </p>
-              </div>
-              <ArrowUpRight
-                size={14}
-                className="text-white/30 group-hover:text-white/70 transition-colors duration-200 shrink-0 mt-0.5"
-                aria-hidden="true"
-              />
-            </Link>
+            {/* Crédito + CTA */}
+            <div className="flex flex-col gap-4 items-start">
+              <p className="type-caption text-white/35 whitespace-nowrap">
+                {t('credit')} <span className="text-white/55">Marcelle</span>
+              </p>
+
+              <Link
+                href="/racional"
+                className="group inline-flex items-start justify-between gap-3 border border-white/15 hover:border-white/35 rounded-xl px-4 py-3 transition-all duration-200 hover:bg-white/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              >
+                <div>
+                  <p className="type-body-sm text-white/80 group-hover:text-white transition-colors duration-200 font-[440]">
+                    {t('rationale')}
+                  </p>
+                  <p className="type-body-xs text-white/40 mt-1 group-hover:text-white/60 transition-colors duration-200 normal-case tracking-normal leading-snug">
+                    {t('rationale_sub')}
+                  </p>
+                </div>
+                <ArrowUpRight
+                  size={14}
+                  className="text-white/30 group-hover:text-white/70 transition-colors duration-200 shrink-0 mt-0.5"
+                  aria-hidden="true"
+                />
+              </Link>
+            </div>
+
           </div>
         </div>
 
