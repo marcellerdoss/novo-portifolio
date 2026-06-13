@@ -119,7 +119,7 @@
   --color-block-pink:     #261724;
   --color-block-cream:    #1e1c31;
   --color-block-coral:    #2b1410;
-  --color-accent-magenta: #EC83B0;
+  --color-accent-magenta: #B4225E;
 
   /* Per-project color tokens — dark mode (mapped to block-* dark equivalents) */
   --color-project-sellbie-redesign-bg:   #1e1c31;
@@ -508,7 +508,7 @@ code[data-theme*=' '] span {
   --fg-muted:     #ffffff;
   --fg-subtle:    #FFFE80;
   --border-token: #ffffff;
-  --color-accent-magenta: #ff3399;
+  --color-accent-magenta: #B4225E;
   --color-surface-soft:   #111111;
   --color-block-cream:    #111111;
   --color-block-pink:     #111111;

@@ -324,7 +324,7 @@ export default function RacionalPage() {
                 <ColorSwatch bg="#ffffff"  label="fg"             value="#ffffff" />
                 <ColorSwatch bg="#e4e4e7"  label="fg-muted"       value="#e4e4e7" />
                 <ColorSwatch bg="#a1a1aa"  label="fg-subtle"      value="#a1a1aa" />
-                <ColorSwatch bg="#EC83B0"  label="accent-magenta" value="#EC83B0" />
+                <ColorSwatch bg="#B4225E"  label="accent-magenta" value="#B4225E" />
                 <ColorSwatch bg="#261724"  label="block-pink"     value="#261724" />
               </div>
             </div>
@@ -490,10 +490,10 @@ export default function RacionalPage() {
                 <div className="p-5 rounded-xl bg-[#121124]">
                   <p className="type-caption text-white/40 mb-4">Variantes · dark mode</p>
                   <div className="flex flex-wrap gap-3 items-center">
-                    <button type="button" className="px-5 py-3 type-btn bg-[#EC83B0] text-white rounded-pill hover:opacity-85 active:scale-[0.97] transition-all">Primary (rosa)</button>
+                    <button type="button" className="px-5 py-3 type-btn bg-[#B4225E] text-white rounded-pill hover:opacity-85 active:scale-[0.97] transition-all">Primary (rosa)</button>
                     <button type="button" className="px-5 py-3 type-btn border border-white text-white rounded-pill bg-transparent hover:bg-white/10 active:scale-[0.97] transition-all">Secondary</button>
                     <button type="button" className="px-5 py-3 type-btn text-white bg-transparent rounded-full hover:underline underline-offset-4 transition-all">Ghost</button>
-                    <button type="button" aria-label="Subir ao topo" className="w-10 h-10 rounded-full bg-[#EC83B0] text-white flex items-center justify-center hover:opacity-85 transition-all">
+                    <button type="button" aria-label="Subir ao topo" className="w-10 h-10 rounded-full bg-[#B4225E] text-white flex items-center justify-center hover:opacity-85 transition-all">
                       <ChevronUp size={16} aria-hidden="true" />
                     </button>
                   </div>
@@ -669,7 +669,7 @@ export default function RacionalPage() {
                     { token: '--fg',           light: '#131226',  dark: '#ffffff' },
                     { token: '--color-surface-soft', light: '#ececea',  dark: '#1a1836' },
                     { token: '--color-block-cream', light: '#f4ecd6',  dark: '#1e1c31' },
-                    { token: '--color-accent-magenta', light: '#B4225E',  dark: '#EC83B0' },
+                    { token: '--color-accent-magenta', light: '#B4225E',  dark: '#B4225E' },
                   ].map(({ token, light, dark }) => (
                     <div key={token} className="flex flex-col gap-2 p-3 rounded-lg bg-surface-soft border border-border">
                       <code className="type-caption text-fg-subtle font-mono">{token}</code>
