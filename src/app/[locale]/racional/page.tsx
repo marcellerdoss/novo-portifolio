@@ -465,7 +465,7 @@ export default function RacionalPage() {
                 {/* Tamanhos */}
                 <div>
                   <p className="type-caption text-fg-subtle mb-3">Tamanhos — variante primary</p>
-                  <div className="flex flex-wrap gap-3 items-end">
+                  <div className="flex flex-col sm:flex-row gap-3 sm:items-end">
                     <Button size="xs">XS</Button>
                     <Button size="sm">Small</Button>
                     <Button size="md">Medium</Button>
