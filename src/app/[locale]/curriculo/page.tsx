@@ -78,7 +78,7 @@ export default async function CurriculoPage() {
             display: none !important;
           }
           #main-content { padding-top: 0 !important; }
-          @page { size: A4 portrait; margin: 12mm 14mm; }
+          @page { size: A4 portrait; margin: 0; }
           body {
             background: white !important;
             -webkit-print-color-adjust: exact;
@@ -86,7 +86,7 @@ export default async function CurriculoPage() {
           }
           .cv-root {
             max-width: none !important;
-            padding: 0 !important;
+            padding: 13mm 15mm !important;
             margin: 0 !important;
             box-shadow: none !important;
             border-radius: 0 !important;
