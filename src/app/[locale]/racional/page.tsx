@@ -14,20 +14,20 @@ export const metadata: Metadata = {
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <p className="type-caption text-accent-magenta mb-3">{children}</p>
+    <p className="type-caption text-accent-magenta mb-4">{children}</p>
   );
 }
 
 function H2({ children, id }: { children: React.ReactNode; id?: string }) {
   return (
-    <h2 id={id} className="type-display-lg text-fg mb-6">
+    <h2 id={id} className="type-headline text-fg mb-6">
       {children}
     </h2>
   );
 }
 
 function H3({ children }: { children: React.ReactNode }) {
-  return <h3 className="type-headline text-fg mb-3">{children}</h3>;
+  return <h3 className="type-body-strong text-fg mb-3">{children}</h3>;
 }
 
 function Body({ children }: { children: React.ReactNode }) {
@@ -174,8 +174,8 @@ export default function RacionalPage() {
         {/* ── Hero ──────────────────────────────────────────── */}
         <section className="py-section bg-bg border-b border-border">
           <div className="max-w-6xl mx-auto px-6">
-            <p className="type-caption text-accent-magenta mb-6">Racional do Projeto</p>
-            <h1 className="type-display-lg text-fg mb-4">
+            <p className="type-caption text-accent-magenta mb-4">Racional do Projeto</p>
+            <h1 className="type-display-lg text-fg mb-6">
               Este portfólio foi tratado como um produto de UX.
             </h1>
             <p className="type-body text-fg-muted">
