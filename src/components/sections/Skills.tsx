@@ -68,7 +68,6 @@ const educationCategories: EducationCategory[] = [
       { name: 'UX Writing', institution: 'Mergo Escola de Design' },
       { name: 'Product Designer', institution: 'Mergo Escola de Design' },
       { name: 'Design de Serviço', institution: 'Mergo Escola de Design' },
-      { name: 'IA para Gestão de Produtos', institution: 'PRAGMA' },
     ],
   },
   {
@@ -79,6 +78,7 @@ const educationCategories: EducationCategory[] = [
       { name: 'Design Thinking', institution: 'B2W Digital' },
       { name: 'Metodologias Ágeis', institution: 'FGV Online' },
       { name: 'Customer Success', institution: 'SEBRAE' },
+      { name: 'IA para Gestão de Produtos', institution: 'PRAGMA' },
     ],
   },
 ];
