@@ -716,90 +716,35 @@ export default function RacionalPage() {
 
           {/* ══ Col 1/3 — Stack técnica (sidebar) ══════════ */}
           <aside aria-labelledby="stack-heading" className="lg:col-span-1 order-last">
-            <SectionLabel>08 — Stack & Ferramentas</SectionLabel>
-            <H2 id="stack-heading">Stack técnica</H2>
-
-            <div className="mt-6 space-y-8">
-
-              <div>
-                <p className="type-caption text-fg-subtle mb-4">Frontend</p>
-                <div className="space-y-3">
-                  <ToolCard
-                    name="Next.js 16"
-                    role="App Router com RSC e geração estática. Páginas renderizam no servidor — sem JS desnecessário no cliente."
-                    tags={['SSG', 'RSC', 'Turbopack']}
-                  />
-                  <ToolCard
-                    name="Tailwind CSS v4"
-                    role="@theme inline, tokens CSS nativos e @custom-variant dark. Sem configuração JS."
-                    tags={['@theme', 'Design tokens', 'CSS vars']}
-                  />
-                  <ToolCard
-                    name="Framer Motion"
-                    role="Animações de entrada (fadeInUp, stagger) em componentes client. Usado com critério."
-                    tags={['Animation', 'Viewport']}
-                  />
-                  <ToolCard
-                    name="next-intl"
-                    role="Internacionalização PT/EN com routing por locale e traduções server-side."
-                    tags={['i18n', 'PT / EN']}
-                  />
-                  <ToolCard
-                    name="next-themes"
-                    role="Dark mode persistente via localStorage com respeito ao prefers-color-scheme."
-                    tags={['Dark mode', 'localStorage']}
-                  />
-                  <ToolCard
-                    name="MDX + rehype"
-                    role="Blog via MDX com syntax highlighting (rehype-pretty-code) e suporte a GFM."
-                    tags={['MDX', 'Blog']}
-                  />
-                </div>
+            <div className="sticky top-24">
+              <SectionLabel>08 — Stack & Ferramentas</SectionLabel>
+              <div className="mt-4 rounded-[16px] border border-border overflow-hidden divide-y divide-border">
+                {[
+                  { category: 'Frontend',        name: 'Next.js 16',       desc: 'App Router, RSC e geração estática' },
+                  { category: null,              name: 'Tailwind CSS v4',  desc: '@theme inline, tokens CSS nativos' },
+                  { category: null,              name: 'Framer Motion',    desc: 'Animações de entrada com critério' },
+                  { category: null,              name: 'next-intl',        desc: 'Internacionalização PT/EN' },
+                  { category: null,              name: 'next-themes',      desc: 'Dark mode persistente' },
+                  { category: null,              name: 'MDX + rehype',     desc: 'Blog com syntax highlighting' },
+                  { category: 'Infraestrutura',  name: 'Vercel',           desc: 'Deploy automático, edge network' },
+                  { category: null,              name: 'GitHub',           desc: 'Versionamento e pre-commit hook TS' },
+                  { category: null,              name: 'Resend',           desc: 'E-mail transacional no formulário' },
+                  { category: 'IA no processo',  name: 'Claude Code',      desc: 'Desenvolvimento assistido no terminal' },
+                  { category: null,              name: 'Claude Chat',      desc: 'Exploração de conceitos e copy' },
+                ].map(({ category, name, desc }) => (
+                  <div key={name}>
+                    {category && (
+                      <div className="px-5 py-2 bg-surface-soft">
+                        <p className="type-caption text-fg-subtle">{category}</p>
+                      </div>
+                    )}
+                    <div className="px-5 py-4">
+                      <p className="type-caption text-accent-magenta mb-1">{name}</p>
+                      <p className="type-body-xs text-fg-muted leading-relaxed">{desc}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
-
-              <div>
-                <p className="type-caption text-fg-subtle mb-4">Infraestrutura</p>
-                <div className="space-y-3">
-                  <ToolCard
-                    name="Vercel"
-                    role="Deploy automático via GitHub. Preview URLs por branch. Edge network global."
-                    tags={['Deploy', 'Edge']}
-                  />
-                  <ToolCard
-                    name="GitHub"
-                    role="Controle de versão. Pre-commit hook de TypeScript bloqueia commits com erros."
-                    tags={['Git', 'Pre-commit hook']}
-                  />
-                  <ToolCard
-                    name="Resend"
-                    role="API de e-mail transacional para o formulário de contato, sem servidor próprio."
-                    tags={['Email API', 'Route Handler']}
-                  />
-                </div>
-              </div>
-
-              <div>
-                <p className="type-caption text-fg-subtle mb-4">IA no processo</p>
-                <div className="space-y-3">
-                  <ToolCard
-                    name="Claude Code (CLI)"
-                    role="Desenvolvimento assistido por IA no terminal. A designer direciona, Claude executa."
-                    tags={['CLI', 'Code generation']}
-                  />
-                  <ToolCard
-                    name="Claude Chat"
-                    role="Exploração de conceitos UX, racional de design e revisão de copy antes da implementação."
-                    tags={['UX research', 'Ideação']}
-                  />
-                </div>
-                <Card className="mt-3 border-accent-magenta/20">
-                  <p className="type-caption text-accent-magenta mb-2">IA e autoria</p>
-                  <p className="type-body-sm text-fg-muted">
-                    O uso de IA é intencional e transparente. Cada decisão de design e UX é da designer. A qualidade do output reflete a qualidade do input.
-                  </p>
-                </Card>
-              </div>
-
             </div>
           </aside>
 
