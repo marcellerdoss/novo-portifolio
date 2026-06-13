@@ -256,10 +256,8 @@ export default function RacionalPage() {
                 { section: 'Contato', why: 'CTA final. Aparece depois que o usuário já foi convencido.' },
               ].map(({ section, why }) => (
                 <Card key={section}>
-                  <div className="flex gap-4 items-start">
-                    <p className="type-body-strong text-fg shrink-0 w-28">{section}</p>
-                    <p className="type-body-sm text-fg-muted">{why}</p>
-                  </div>
+                  <p className="type-caption text-accent-magenta mb-2">{section}</p>
+                  <p className="type-body-sm text-fg-muted">{why}</p>
                 </Card>
               ))}
             </div>
