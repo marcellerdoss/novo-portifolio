@@ -453,7 +453,7 @@ export default function RacionalPage() {
             <div className="mt-10">
               <H3>Sistema de botões</H3>
               <BodySm>
-                Quatro variantes (primary, secondary, ghost, icon) × três tamanhos (sm, md, lg). Tipografia unificada em 16px/480 via <code className="type-caption bg-surface-soft border border-border px-1 rounded">.type-btn</code>. Primary usa navy no light e magenta no dark. Secondary usa bordas do fg atual. Todos têm <code className="type-caption bg-surface-soft border border-border px-1 rounded">focus-visible</code> com ring para navegação por teclado.
+                Quatro variantes (primary, secondary, ghost, icon) × quatro tamanhos (xs, sm, md, lg). Tipografia unificada em 16px/480 via <code className="type-caption bg-surface-soft border border-border px-1 rounded">.type-btn</code>. Primary usa navy no light e magenta no dark. Secondary usa bordas do fg atual. Todos têm <code className="type-caption bg-surface-soft border border-border px-1 rounded">focus-visible</code> com ring para navegação por teclado.
               </BodySm>
               <div className="mt-4 flex flex-wrap gap-3 items-center">
                 <button className="px-6 py-3 type-btn bg-primary text-on-primary rounded-pill hover:opacity-85 active:scale-[0.97] transition-all">Primary</button>
@@ -501,13 +501,13 @@ export default function RacionalPage() {
                   num: '05',
                   title: 'Prevenção de erros',
                   description: 'Design que evita que o erro aconteça.',
-                  example: 'Links externos com target="_blank" e rel="noopener noreferrer". Pre-commit hook de TypeScript bloqueia commits com erros de tipo. Formulário de contato com validação HTML nativa.',
+                  example: 'Links externos com target="_blank" e rel="noopener noreferrer". Pre-commit hook de TypeScript bloqueia commits com erros de tipo. Formulário de contato com estados explícitos de envio, sucesso e erro.',
                 },
                 {
                   num: '06',
                   title: 'Reconhecimento em vez de memorização',
                   description: 'Objetos e opções visíveis reduzem carga cognitiva.',
-                  example: 'Ícone de casa (House) no header em páginas internas — reconhecível sem label. Tags de categoria nos cards de artigo e case. Hover states revelam contexto adicional.',
+                  example: 'Logotipo no header funciona como link home em toda página — reconhecível sem label adicional. Tags de categoria nos cards de artigo e case. Hover states revelam contexto adicional.',
                 },
                 {
                   num: '07',
@@ -597,7 +597,7 @@ export default function RacionalPage() {
                 <H3>Acessibilidade</H3>
                 <ul className="space-y-3">
                   {[
-                    { item: 'Skip to content', detail: 'Link oculto no header, visível ao focar por Tab — permite saltar o menu e ir direto ao conteúdo' },
+                    { item: 'Barra de acessibilidade', detail: 'Sempre visível no topo: links de atalho (conteúdo, menu, rodapé), controle de tamanho do texto (A- / A+) e alternância de alto contraste' },
                     { item: 'Focus visible', detail: 'Todos os elementos interativos têm focus-visible com ring de 2px — nunca escondido' },
                     { item: 'ARIA labels', detail: 'Botões de ícone (ThemeToggle, LanguageSwitcher, BackToTop) têm aria-label descritivo' },
                     { item: 'Semântica HTML', detail: '<main>, <nav>, <section>, <article>, <header>, <footer> usados corretamente com aria-labelledby' },
@@ -660,7 +660,7 @@ export default function RacionalPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   <ToolCard
                     name="Next.js 16 — App Router"
-                    role="Framework React com RSC (React Server Components), Turbopack e geração estática. Páginas de cases e blog renderizam no servidor — sem JS desnecessário no cliente."
+                    role="Framework React com RSC (React Server Components) e geração estática. Páginas de cases e blog renderizam no servidor — sem JS desnecessário no cliente."
                     tags={['SSG', 'RSC', 'Turbopack', 'next-intl']}
                   />
                   <ToolCard
