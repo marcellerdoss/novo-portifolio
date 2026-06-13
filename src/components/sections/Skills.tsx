@@ -130,8 +130,8 @@ export function Skills({ inline }: Props) {
           <div className="space-y-3">
             {items.map((item) => (
               <div key={item.name} className="flex flex-col gap-0.5">
-                <span className="type-body-sm text-fg leading-snug">{item.name}</span>
-                <span className="type-caption text-fg-subtle normal-case tracking-normal">{item.institution}</span>
+                <span className="type-body text-fg leading-snug">{item.name}</span>
+                <span className="type-body-sm text-fg-muted leading-snug">{item.institution}</span>
               </div>
             ))}
           </div>
