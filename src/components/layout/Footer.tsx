@@ -51,30 +51,33 @@ export async function Footer() {
               </ul>
             </nav>
 
-            {/* Crédito + CTA */}
-            <div className="flex flex-col gap-4 items-start">
+            {/* Crédito + CTA
+                w-fit: o container abraça o max-content dos filhos.
+                O texto de crédito (whitespace-nowrap) é o filho mais largo
+                e determina a largura — o card e a legenda seguem. */}
+            <div className="w-fit flex flex-col gap-3">
               <p className="type-caption text-white/35 whitespace-nowrap">
                 {t('credit')} <span className="text-white/55">Marcelle</span>
               </p>
 
               <Link
                 href="/racional"
-                className="group inline-flex items-start justify-between gap-3 border border-white/15 hover:border-white/35 rounded-xl px-4 py-3 transition-all duration-200 hover:bg-white/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                className="group flex items-center justify-between gap-3 border border-white/15 hover:border-white/35 rounded-xl px-3 py-3 transition-all duration-200 hover:bg-white/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
               >
-                <div>
-                  <p className="type-body-sm text-white/80 group-hover:text-white transition-colors duration-200 font-[440]">
-                    {t('rationale')}
-                  </p>
-                  <p className="type-body-xs text-white/40 mt-1 group-hover:text-white/60 transition-colors duration-200 normal-case tracking-normal leading-snug">
-                    {t('rationale_sub')}
-                  </p>
-                </div>
+                <p className="type-body-sm text-white/80 group-hover:text-white transition-colors duration-200 font-[440]">
+                  {t('rationale')}
+                </p>
                 <ArrowUpRight
                   size={14}
-                  className="text-white/30 group-hover:text-white/70 transition-colors duration-200 shrink-0 mt-0.5"
+                  className="text-white/30 group-hover:text-white/70 transition-colors duration-200 shrink-0"
                   aria-hidden="true"
                 />
               </Link>
+
+              {/* Subtítulo fora do card — max-w-[13rem] < crédito para não empurrar o container */}
+              <p className="type-body-xs text-white/40 leading-snug normal-case tracking-normal max-w-[13rem]">
+                {t('rationale_sub')}
+              </p>
             </div>
 
           </div>
