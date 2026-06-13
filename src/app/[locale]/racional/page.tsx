@@ -179,7 +179,7 @@ export default function RacionalPage() {
               Este portfólio foi tratado como um produto de UX.
             </h1>
             <p className="type-body text-fg-muted">
-              Cada decisão — de cor, tipografia e hierarquia a acessibilidade e dark mode — foi intencional e embasada. Esta página documenta o racional, o design system e as ferramentas por trás do projeto.
+              Cada decisão de cor, tipografia, hierarquia, acessibilidade e dark mode foi intencional e embasada. Esta página documenta o racional, o design system e as ferramentas por trás do projeto.
             </p>
           </div>
         </section>
@@ -192,11 +192,11 @@ export default function RacionalPage() {
 
           {/* ── 1. Problema e contexto ──────────────────────── */}
           <section aria-labelledby="problema-heading" className="mb-16">
-            <SectionLabel>01 — Contexto</SectionLabel>
+            <SectionLabel>01 · Contexto</SectionLabel>
             <H2 id="problema-heading">O problema a resolver</H2>
             <div className="space-y-4">
               <Body>
-                Um portfólio de designer é um produto. Tem usuário, tem objetivo, tem contexto de uso. A maioria dos portfólios falha porque é concebido como vitrine — belo, mas sem narrativa. Este foi construído partindo de uma pergunta diferente: o que o usuário precisa concluir ao final da visita?
+                Um portfólio de designer é um produto. Tem usuário, tem objetivo, tem contexto de uso. A maioria dos portfólios falha porque é concebido como vitrine: belo, mas sem narrativa. Este foi construído partindo de uma pergunta diferente: o que o usuário precisa concluir ao final da visita?
               </Body>
               <Body>
                 A resposta define tudo: a ordem das seções, a profundidade dos cases, o tom do conteúdo e até o sistema de navegação.
@@ -207,7 +207,7 @@ export default function RacionalPage() {
           {/* ── 2. Usuário ──────────────────────────────────── */}
           <Divider />
           <section aria-labelledby="usuario-heading" className="mb-16">
-            <SectionLabel>02 — Pesquisa</SectionLabel>
+            <SectionLabel>02 · Pesquisa</SectionLabel>
             <H2 id="usuario-heading">Quem usa e o que busca</H2>
             <Body>
               Três perfis centrais, com jobs-to-be-done distintos:
@@ -242,7 +242,7 @@ export default function RacionalPage() {
           {/* ── 3. Arquitetura de informação ─────────────────── */}
           <Divider />
           <section aria-labelledby="ai-heading" className="mb-16">
-            <SectionLabel>03 — Arquitetura de Informação</SectionLabel>
+            <SectionLabel>03 · Arquitetura de Informação</SectionLabel>
             <H2 id="ai-heading">A ordem das seções não é aleatória</H2>
             <Body>
               A sequência da homepage segue um funil de confiança: apresentação rápida → prova de trabalho → profundidade de trajetória → pensamento escrito → contato. Cada seção qualifica o usuário antes de pedir mais atenção dele.
@@ -270,10 +270,10 @@ export default function RacionalPage() {
           {/* ── 4. Design System ─────────────────────────────── */}
           <Divider />
           <section aria-labelledby="ds-heading" className="mb-16">
-            <SectionLabel>04 — Design System</SectionLabel>
+            <SectionLabel>04 · Design System</SectionLabel>
             <H2 id="ds-heading">Sistema de tokens semânticos</H2>
             <Body>
-              O design system usa tokens semânticos — as cores não têm nomes literais, mas papéis. <code className="type-caption bg-surface-soft border border-border px-2 py-1 rounded text-fg">--bg</code>, <code className="type-caption bg-surface-soft border border-border px-2 py-1 rounded text-fg">--fg</code>, <code className="type-caption bg-surface-soft border border-border px-2 py-1 rounded text-fg">--fg-muted</code>. Isso permite que o dark mode seja uma troca de tokens — não de estilos individuais.
+              O design system usa tokens semânticos: as cores não têm nomes literais, mas papéis. <code className="type-caption bg-surface-soft border border-border px-2 py-1 rounded text-fg">--bg</code>, <code className="type-caption bg-surface-soft border border-border px-2 py-1 rounded text-fg">--fg</code>, <code className="type-caption bg-surface-soft border border-border px-2 py-1 rounded text-fg">--fg-muted</code>. Isso permite que o dark mode seja uma troca de tokens, não de estilos individuais.
             </Body>
 
             {/* Typography */}
@@ -307,7 +307,7 @@ export default function RacionalPage() {
             <div className="mt-10">
               <H3>Tokens semânticos</H3>
               <BodySm>
-                As cores têm papéis, não nomes literais. O dark mode é uma troca de tokens — não de estilos individuais.
+                As cores têm papéis, não nomes literais. O dark mode é uma troca de tokens, não de estilos individuais.
               </BodySm>
               <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4">
                 <ColorSwatch bg="#fafafa"  label="bg"             value="#fafafa" />
@@ -339,7 +339,7 @@ export default function RacionalPage() {
               </BodySm>
               <div className="mt-6 space-y-6 p-6 rounded-[16px] bg-surface-soft border border-border overflow-x-auto">
                 <ColorScaleRow
-                  name="Magenta — escala de referência (token: #B4225E)"
+                  name="Magenta · escala de referência (token: #B4225E)"
                   steps={[
                     { stop: '50',  hex: '#FEF0F6' },
                     { stop: '100', hex: '#FCD9E8' },
@@ -354,7 +354,7 @@ export default function RacionalPage() {
                   ]}
                 />
                 <ColorScaleRow
-                  name="Navy — texto e superfície primária (base 900)"
+                  name="Navy · texto e superfície primária (base 900)"
                   brandStep="900"
                   steps={[
                     { stop: '50',  hex: '#F2F2FA' },
@@ -370,7 +370,7 @@ export default function RacionalPage() {
                   ]}
                 />
                 <ColorScaleRow
-                  name="Neutral — escala quente-neutra (base 50)"
+                  name="Neutral · escala quente-neutra (base 50)"
                   brandStep="50"
                   steps={[
                     { stop: '50',  hex: '#FAFAFA' },
@@ -386,7 +386,7 @@ export default function RacionalPage() {
                   ]}
                 />
                 <ColorScaleRow
-                  name="Cream — color block (base 100)"
+                  name="Cream · color block (base 100)"
                   brandStep="100"
                   steps={[
                     { stop: '50',  hex: '#FDFAF4' },
@@ -401,7 +401,7 @@ export default function RacionalPage() {
                   ]}
                 />
                 <ColorScaleRow
-                  name="Pink — color block (base 100)"
+                  name="Pink · color block (base 100)"
                   brandStep="100"
                   steps={[
                     { stop: '50',  hex: '#FDF5F5' },
@@ -416,7 +416,7 @@ export default function RacionalPage() {
                   ]}
                 />
                 <ColorScaleRow
-                  name="Coral — color block (base 100)"
+                  name="Coral · color block (base 100)"
                   brandStep="100"
                   steps={[
                     { stop: '50',  hex: '#FEF4EF' },
@@ -437,7 +437,7 @@ export default function RacionalPage() {
             <div className="mt-10">
               <H3>Espaçamento</H3>
               <BodySm>
-                Base 8px. Todos os espaços são múltiplos de 8 — de 4px (xxs) a 96px (section). O <code className="type-caption bg-surface-soft border border-border px-1 rounded">py-section</code> (96px) delimita seções da homepage; componentes usam a escala menor internamente.
+                Base 8px. Todos os espaços são múltiplos de 8, de 4px (xxs) a 96px (section). O <code className="type-caption bg-surface-soft border border-border px-1 rounded">py-section</code> (96px) delimita seções da homepage; componentes usam a escala menor internamente.
               </BodySm>
               <div className="mt-4 flex flex-wrap gap-3">
                 {[
@@ -468,7 +468,7 @@ export default function RacionalPage() {
 
                 {/* Tamanhos */}
                 <div>
-                  <p className="type-caption text-fg-subtle mb-3">Tamanhos — variante primary</p>
+                  <p className="type-caption text-fg-subtle mb-3">Tamanhos · variante primary</p>
                   <div className="flex flex-col sm:flex-row gap-3 sm:items-end">
                     <Button size="xs">XS</Button>
                     <Button size="sm">Small</Button>
@@ -479,7 +479,7 @@ export default function RacionalPage() {
 
                 {/* Variantes light */}
                 <div>
-                  <p className="type-caption text-fg-subtle mb-3">Variantes — light mode</p>
+                  <p className="type-caption text-fg-subtle mb-3">Variantes · light mode</p>
                   <div className="flex flex-wrap gap-3 items-center">
                     <Button size="md">Primary</Button>
                     <Button size="md" variant="secondary">Secondary</Button>
@@ -490,7 +490,7 @@ export default function RacionalPage() {
 
                 {/* Variantes dark */}
                 <div className="p-5 rounded-xl bg-[#121124]">
-                  <p className="type-caption text-white/40 mb-4">Variantes — dark mode</p>
+                  <p className="type-caption text-white/40 mb-4">Variantes · dark mode</p>
                   <div className="flex flex-wrap gap-3 items-center">
                     <button type="button" className="px-5 py-3 type-btn bg-[#EC83B0] text-white rounded-pill hover:opacity-85 active:scale-[0.97] transition-all">Primary (rosa)</button>
                     <button type="button" className="px-5 py-3 type-btn border border-white text-white rounded-pill bg-transparent hover:bg-white/10 active:scale-[0.97] transition-all">Secondary</button>
@@ -520,7 +520,7 @@ export default function RacionalPage() {
           {/* ── 5. Heurísticas de Nielsen ────────────────────── */}
           <Divider />
           <section aria-labelledby="heuristicas-heading" className="mb-16">
-            <SectionLabel>05 — Heurísticas de Nielsen</SectionLabel>
+            <SectionLabel>05 · Heurísticas de Nielsen</SectionLabel>
             <H2 id="heuristicas-heading">10 heurísticas aplicadas ao projeto</H2>
             <Body>
               Cada heurística foi considerada no design e na implementação. Abaixo, como cada uma se manifesta neste portfólio.
@@ -537,7 +537,7 @@ export default function RacionalPage() {
                   num: '02',
                   title: 'Compatibilidade com o mundo real',
                   description: 'Linguagem e conceitos familiares ao usuário, não ao sistema.',
-                  example: 'Seções nomeadas por significado ("Trajetória", "Artigos") — não por convenção técnica. Cases com títulos descritivos do problema, não do artefato.',
+                  example: 'Seções nomeadas por significado ("Trajetória", "Artigos"), não por convenção técnica. Cases com títulos descritivos do problema, não do artefato.',
                 },
                 {
                   num: '03',
@@ -561,7 +561,7 @@ export default function RacionalPage() {
                   num: '06',
                   title: 'Reconhecimento em vez de memorização',
                   description: 'Objetos e opções visíveis reduzem carga cognitiva.',
-                  example: 'Logotipo no header funciona como link home em toda página — reconhecível sem label adicional. Tags de categoria nos cards de artigo e case. Hover states revelam contexto adicional.',
+                  example: 'Logotipo no header funciona como link home em toda página, reconhecível sem label adicional. Tags de categoria nos cards de artigo e case. Hover states revelam contexto adicional.',
                 },
                 {
                   num: '07',
@@ -573,7 +573,7 @@ export default function RacionalPage() {
                   num: '08',
                   title: 'Estética e design minimalista',
                   description: 'Cada elemento presente tem propósito. Sem ruído visual.',
-                  example: 'Ausência de decorações desnecessárias. Tipografia variável calibrada — pesos diferentes sem negrito artificial. Seções com background diferenciado apenas quando há justificativa visual.',
+                  example: 'Ausência de decorações desnecessárias. Tipografia variável calibrada, pesos diferentes sem negrito artificial. Seções com background diferenciado apenas quando há justificativa visual.',
                 },
                 {
                   num: '09',
@@ -585,7 +585,7 @@ export default function RacionalPage() {
                   num: '10',
                   title: 'Ajuda e documentação',
                   description: 'Quando necessário, documentação clara e acessível.',
-                  example: 'Esta página — racional completo do projeto. Cada case documenta problema, processo e resultado. README no repositório. Metadados Open Graph para compartilhamento.',
+                  example: 'Esta página reúne o racional completo do projeto. Cada case documenta problema, processo e resultado. README no repositório. Metadados Open Graph para compartilhamento.',
                 },
               ].map((h) => (
                 <HeuristicCard key={h.num} {...h} />
@@ -596,10 +596,10 @@ export default function RacionalPage() {
           {/* ── 6. Design Thinking ───────────────────────────── */}
           <Divider />
           <section aria-labelledby="dt-heading" className="mb-16">
-            <SectionLabel>06 — Design Thinking</SectionLabel>
+            <SectionLabel>06 · Design Thinking</SectionLabel>
             <H2 id="dt-heading">Double Diamond aplicado ao portfólio</H2>
             <Body>
-              O Double Diamond (Discover → Define → Develop → Deliver) estruturou o processo — mesmo em um projeto solo.
+              O Double Diamond (Discover → Define → Develop → Deliver) estruturou o processo, mesmo em um projeto solo.
             </Body>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
               {[
@@ -621,7 +621,7 @@ export default function RacionalPage() {
                 {
                   phase: 'Deliver',
                   type: 'Convergir',
-                  content: 'Implementação iterativa com Claude Code. Deploy contínuo via Vercel. Refinos de UX com base em feedback real — botões, espaçamentos, backgrounds, alinhamento de cards.',
+                  content: 'Implementação iterativa com Claude Code. Deploy contínuo via Vercel. Refinos de UX com base em feedback real: botões, espaçamentos, backgrounds, alinhamento de cards.',
                 },
               ].map(({ phase, type, content }) => (
                 <Card key={phase}>
@@ -636,7 +636,7 @@ export default function RacionalPage() {
           {/* ── 7. Acessibilidade + Dark Mode ────────────────── */}
           <Divider />
           <section aria-labelledby="a11y-heading" className="mb-16">
-            <SectionLabel>07 — Acessibilidade & Dark Mode</SectionLabel>
+            <SectionLabel>07 · Acessibilidade & Dark Mode</SectionLabel>
             <H2 id="a11y-heading">Acessibilidade como requisito, não como checklist</H2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
@@ -663,7 +663,7 @@ export default function RacionalPage() {
               <div className="space-y-4">
                 <H3>Dark mode</H3>
                 <BodySm>
-                  Implementado via <strong>next-themes</strong> com estratégia de classe (<code>.dark</code> no html). Tokens semânticos no CSS garantem que um único toggle muda todas as superfícies — sem overrides manuais por componente.
+                  Implementado via <strong>next-themes</strong> com estratégia de classe (<code>.dark</code> no html). Tokens semânticos no CSS garantem que um único toggle muda todas as superfícies, sem overrides manuais por componente.
                 </BodySm>
                 <div className="mt-4 space-y-3">
                   {[
@@ -699,17 +699,17 @@ export default function RacionalPage() {
           {/* ── 9. Considerações finais ──────────────────────── */}
           <Divider />
           <section aria-labelledby="final-heading" className="mb-16">
-            <SectionLabel>09 — Aprendizados</SectionLabel>
+            <SectionLabel>09 · Aprendizados</SectionLabel>
             <H2 id="final-heading">Tratar o próprio portfólio como produto</H2>
             <div className="space-y-4">
               <Body>
-                A maior lição deste projeto: designers tendem a tratar o próprio portfólio como um exercício visual. Quando tratado como produto — com usuário definido, hipóteses, decisões embasadas e iterações —, o resultado é mais coerente e mais difícil de questionar.
+                A maior lição deste projeto: designers tendem a tratar o próprio portfólio como um exercício visual. Quando tratado como produto, com usuário definido, hipóteses, decisões embasadas e iterações, o resultado é mais coerente e mais difícil de questionar.
               </Body>
               <Body>
-                O design system foi a decisão mais importante. Sem ele, cada componente seria uma decisão local e inconsistente. Com ele, dark mode, acessibilidade e responsividade são consequência do sistema — não esforço extra.
+                O design system foi a decisão mais importante. Sem ele, cada componente seria uma decisão local e inconsistente. Com ele, dark mode, acessibilidade e responsividade são consequência do sistema, não esforço extra.
               </Body>
               <Body>
-                Este portfólio é um produto em evolução — como qualquer produto deveria ser.
+                Este portfólio é um produto em evolução, como qualquer produto deveria ser.
               </Body>
             </div>
           </section>
