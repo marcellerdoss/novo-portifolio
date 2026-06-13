@@ -67,7 +67,7 @@ function ColorSwatch({ bg, label, value }: { bg: string; label: string; value: s
         style={{ backgroundColor: bg }}
         aria-hidden="true"
       />
-      <p className="type-caption text-fg">{label}</p>
+      <p className="type-caption text-fg break-words leading-tight">{label}</p>
       <p className="type-caption text-fg-subtle font-mono">{value}</p>
     </div>
   );
@@ -316,14 +316,14 @@ export default function RacionalPage() {
                 <ColorSwatch bg="#211F4A"  label="block-navy"     value="#211F4A" />
               </div>
               <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-4">
-                <ColorSwatch bg="#121124"  label="bg (dark)"             value="#121124" />
-                <ColorSwatch bg="#1a1836"  label="surface-soft (dark)"   value="#1a1836" />
-                <ColorSwatch bg="#1e1c31"  label="block-cream (dark)"    value="#1e1c31" />
-                <ColorSwatch bg="#ffffff"  label="fg (dark)"             value="#ffffff" />
-                <ColorSwatch bg="#e4e4e7"  label="fg-muted (dark)"       value="#e4e4e7" />
-                <ColorSwatch bg="#a1a1aa"  label="fg-subtle (dark)"      value="#a1a1aa" />
-                <ColorSwatch bg="#EC83B0"  label="accent-magenta (dark)" value="#EC83B0" />
-                <ColorSwatch bg="#261724"  label="block-pink (dark)"     value="#261724" />
+                <ColorSwatch bg="#121124"  label="bg"             value="#121124" />
+                <ColorSwatch bg="#1a1836"  label="surface-soft"   value="#1a1836" />
+                <ColorSwatch bg="#1e1c31"  label="block-cream"    value="#1e1c31" />
+                <ColorSwatch bg="#ffffff"  label="fg"             value="#ffffff" />
+                <ColorSwatch bg="#e4e4e7"  label="fg-muted"       value="#e4e4e7" />
+                <ColorSwatch bg="#a1a1aa"  label="fg-subtle"      value="#a1a1aa" />
+                <ColorSwatch bg="#EC83B0"  label="accent-magenta" value="#EC83B0" />
+                <ColorSwatch bg="#261724"  label="block-pink"     value="#261724" />
               </div>
             </div>
 
