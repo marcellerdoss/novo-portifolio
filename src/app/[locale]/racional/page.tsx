@@ -288,8 +288,8 @@ export default function RacionalPage() {
                   { cls: 'type-body-sm',     name: 'Body SM',     specs: '16px / 330',            ex: 'Ver case' },
                   { cls: 'type-caption',     name: 'Caption',     specs: '12px / 400 / Uppercase', ex: 'UX Research' },
                 ].map(({ cls, name, specs, ex }) => (
-                  <div key={cls} className="flex items-center gap-6 px-6 py-4">
-                    <div className="w-36 shrink-0">
+                  <div key={cls} className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-6 px-6 py-4">
+                    <div className="sm:w-36 sm:shrink-0">
                       <p className="type-caption text-fg-subtle">{name}</p>
                       <p className="type-caption text-fg-subtle/50">{specs}</p>
                     </div>
