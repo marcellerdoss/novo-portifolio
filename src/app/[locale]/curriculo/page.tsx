@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import { getExperience } from '@/lib/experience';
 
 export const metadata: Metadata = {
@@ -126,17 +125,6 @@ export default async function CurriculoPage() {
                 <span style={{ color: C.border }}>·</span>
                 <span>Rio de Janeiro, RJ</span>
               </div>
-            </div>
-
-            {/* Photo */}
-            <div style={{ flexShrink: 0 }}>
-              <Image
-                src="/images/profile/img_sobre.png"
-                alt="Marcelle Rocha"
-                width={72}
-                height={72}
-                style={{ borderRadius: '8px', objectFit: 'cover', objectPosition: 'top center', border: `1px solid ${C.border}` }}
-              />
             </div>
 
           </div>
