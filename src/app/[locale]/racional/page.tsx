@@ -133,7 +133,7 @@ function HeuristicCard({
         <h3 className="type-body-strong text-fg leading-snug">{title}</h3>
       </div>
       <p className="type-body-sm text-fg-muted mb-3">{description}</p>
-      <p className="type-caption text-accent-magenta border-l-2 border-accent-magenta pl-3">{example}</p>
+      <p className="type-body-sm text-fg-subtle pt-3 border-t border-fg/10">{example}</p>
     </Card>
   );
 }
