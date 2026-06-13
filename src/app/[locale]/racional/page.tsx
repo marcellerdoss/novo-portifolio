@@ -278,19 +278,22 @@ export default function RacionalPage() {
               <BodySm>
                 Tipografia variável com font-weight fluido (320–700). Todos os tamanhos usam Inter com ajustes de letter-spacing e line-height calibrados para leitura em tela. Botões têm classe própria <code className="type-caption bg-surface-soft border border-border px-1 rounded">.type-btn</code> (16px/480) para evitar conflito de especificidade com utilitários Tailwind.
               </BodySm>
-              <div className="mt-6 space-y-3 p-6 rounded-[16px] bg-surface-soft border border-border">
+              <div className="mt-6 rounded-[16px] bg-surface-soft border border-border divide-y divide-fg/10 overflow-hidden">
                 {[
-                  { cls: 'type-display-xl',    label: 'Display XL — 80px / 340',        ex: 'Marcelle' },
-                  { cls: 'type-display-lg',    label: 'Display LG — 32px / 700',        ex: 'Cases' },
-                  { cls: 'type-headline',      label: 'Headline — 24px / 540',          ex: 'Redesign do core' },
-                  { cls: 'type-body',          label: 'Body — 18px / 320',              ex: 'Trabalho com produtos digitais desde 2012.' },
-                  { cls: 'type-body-strong',   label: 'Body Strong — 18px / 480',       ex: 'Ver case completo' },
-                  { cls: 'type-body-sm',       label: 'Body SM — 16px / 330',           ex: 'Ver case' },
-                  { cls: 'type-caption',       label: 'Caption — 12px / 400 / UPPERCASE', ex: 'UX RESEARCH' },
-                ].map(({ cls, label, ex }) => (
-                  <div key={cls} className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-6">
-                    <span className="type-caption text-fg-subtle w-56 shrink-0">{label}</span>
-                    <span className={`${cls} text-fg`}>{ex}</span>
+                  { cls: 'type-display-xl',  name: 'Display XL',  specs: '80px / 340',            ex: 'Marcelle' },
+                  { cls: 'type-display-lg',  name: 'Display LG',  specs: '32px / 700',            ex: 'Cases' },
+                  { cls: 'type-headline',    name: 'Headline',    specs: '24px / 540',            ex: 'Redesign do core' },
+                  { cls: 'type-body',        name: 'Body',        specs: '18px / 320',            ex: 'Trabalho com produtos digitais desde 2012.' },
+                  { cls: 'type-body-strong', name: 'Body Strong', specs: '18px / 480',            ex: 'Ver case completo' },
+                  { cls: 'type-body-sm',     name: 'Body SM',     specs: '16px / 330',            ex: 'Ver case' },
+                  { cls: 'type-caption',     name: 'Caption',     specs: '12px / 400 / Uppercase', ex: 'UX Research' },
+                ].map(({ cls, name, specs, ex }) => (
+                  <div key={cls} className="flex items-center gap-6 px-6 py-4">
+                    <div className="w-36 shrink-0">
+                      <p className="type-caption text-fg-subtle">{name}</p>
+                      <p className="type-caption text-fg-subtle/50">{specs}</p>
+                    </div>
+                    <span className={`${cls} text-fg min-w-0`}>{ex}</span>
                   </div>
                 ))}
               </div>
