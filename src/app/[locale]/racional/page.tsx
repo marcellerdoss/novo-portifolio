@@ -719,8 +719,10 @@ export default function RacionalPage() {
           {/* ══ Col 1/3 — Stack técnica (sidebar) ══════════ */}
           <aside aria-labelledby="stack-heading" className="lg:col-span-1 order-last">
             <div className="sticky top-24">
-              <SectionLabel>08 — Stack & Ferramentas</SectionLabel>
-              <div className="mt-4 rounded-[16px] border border-border overflow-hidden divide-y divide-border">
+              <div className="rounded-[16px] border border-border overflow-hidden divide-y divide-border">
+                <div className="px-5 py-4 bg-surface-soft">
+                  <p className="type-caption text-fg-subtle" id="stack-heading">Stack & Ferramentas</p>
+                </div>
                 {[
                   { category: 'Frontend',        name: 'Next.js 16',       desc: 'App Router, RSC e geração estática' },
                   { category: null,              name: 'Tailwind CSS v4',  desc: '@theme inline, tokens CSS nativos' },
