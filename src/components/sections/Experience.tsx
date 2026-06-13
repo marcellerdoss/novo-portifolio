@@ -79,7 +79,7 @@ export function Experience({ items, inline }: Props) {
     <section
       id="experiencia"
       aria-labelledby="experience-heading"
-      className="py-section bg-[#EFD4D4] dark:bg-block-cream scroll-mt-28"
+      className="py-section bg-[#EFD4D4] dark:bg-bg scroll-mt-28"
     >
       <div className="max-w-6xl mx-auto px-6">
         {content}
