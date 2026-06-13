@@ -34,7 +34,7 @@ export async function Footer() {
           {/* Col 2 — Nav */}
           <nav aria-label={t('quick_links')}>
             <p className="type-caption text-white/40 mb-3">{t('quick_links')}</p>
-            <ul className="space-y-2">
+            <ul className="space-y-1">
               {navLinks.map(({ key, hash }) => (
                 <li key={key}>
                   <a
