@@ -8,7 +8,7 @@ const inter = Inter({
   variable: '--font-inter',
   subsets: ['latin'],
   weight: 'variable',
-  display: 'swap',
+  display: 'block',
 });
 
 const base =

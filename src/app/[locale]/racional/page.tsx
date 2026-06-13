@@ -719,7 +719,7 @@ export default function RacionalPage() {
             <div className="sticky top-24">
               <div className="rounded-[16px] border border-border overflow-hidden divide-y divide-border">
                 <div className="px-5 py-4 bg-block-pink dark:bg-block-pink">
-                  <p className="type-caption text-fg-subtle" id="stack-heading">Stack & Ferramentas</p>
+                  <p className="type-caption text-accent-magenta" id="stack-heading">Stack & Ferramentas</p>
                 </div>
                 {[
                   { category: 'Frontend',        name: 'Next.js 16',       desc: 'App Router, RSC e geração estática' },
