@@ -147,12 +147,12 @@ export function Contact() {
             <motion.h2
               id="contact-heading"
               variants={fadeInUp}
-              className="type-display-lg text-white mb-4"
+              className="text-[clamp(2.25rem,3.5vw,3.5rem)] font-bold leading-[1.1] tracking-[-0.5px] text-white mb-4"
             >
               {locale === 'en' ? (
-                <>Let&apos;s build a<br /><span className="text-accent-magenta">strategic product</span><br />together?</>
+                <>Let&apos;s build a<br />strategic product<br />together?</>
               ) : (
-                <>Vamos construir um<br /><span className="text-accent-magenta">produto estratégico</span><br />juntos?</>
+                <>Vamos construir um<br />produto estratégico<br />juntos?</>
               )}
             </motion.h2>
 
