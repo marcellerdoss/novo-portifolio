@@ -175,10 +175,10 @@ export default function RacionalPage() {
         <section className="py-section bg-bg border-b border-border">
           <div className="max-w-6xl mx-auto px-6">
             <p className="type-caption text-accent-magenta mb-6">Racional do Projeto</p>
-            <h1 className="type-display-xl text-fg mb-8" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', lineHeight: 1.05, letterSpacing: '-1.5px', fontWeight: 340 }}>
-              Este portfólio foi tratado<br className="hidden md:block" /> como um produto de UX.
+            <h1 className="type-display-lg text-fg mb-4">
+              Este portfólio foi tratado como um produto de UX.
             </h1>
-            <p className="type-body-lg text-fg-muted max-w-2xl">
+            <p className="type-body text-fg-muted">
               Cada decisão — de cor, tipografia e hierarquia a acessibilidade e dark mode — foi intencional e embasada. Esta página documenta o racional, o design system e as ferramentas por trás do projeto.
             </p>
           </div>
