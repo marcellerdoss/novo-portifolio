@@ -245,8 +245,11 @@ export default function RacionalPage() {
               {[
                 { section: 'Hero', why: 'Identidade imediata — quem sou e o que faço em 3 segundos' },
                 { section: 'Cases', why: 'Prova de trabalho antes de qualquer texto sobre mim. O portfólio mostra antes de contar.' },
-                { section: 'Sobre', why: 'Contexto pessoal e trajetória — só faz sentido depois de ver o trabalho' },
-                { section: 'Skills & Trajetória', why: 'Validação técnica e temporal — linhas do tempo criam confiança' },
+                { section: 'Sobre', why: 'Contexto pessoal — só faz sentido depois de ver o trabalho' },
+                { section: 'Racional', why: 'Processo e pensamento por trás do portfólio — sinal de maturidade em produto e UX' },
+                { section: 'Skills', why: 'Validação técnica — ferramentas e competências organizadas por categoria' },
+                { section: 'Formação', why: 'Credenciais educacionais e certificações — valida o conhecimento acumulado' },
+                { section: 'Trajetória', why: 'Linha do tempo profissional — cria confiança histórica e mostra evolução de escopo' },
                 { section: 'Artigos', why: 'Sinal de profundidade — quem escreve sobre o campo domina o campo' },
                 { section: 'Contato', why: 'CTA final — depois que o usuário já foi convencido' },
               ].map(({ section, why }) => (
@@ -275,12 +278,13 @@ export default function RacionalPage() {
               </BodySm>
               <div className="mt-6 space-y-3 p-6 rounded-[16px] bg-surface-soft border border-border">
                 {[
-                  { cls: 'type-display-xl', label: 'Display XL — 86px / 340', ex: 'Marcelle' },
-                  { cls: 'type-display-lg', label: 'Display LG — 36px / 700', ex: 'Cases' },
-                  { cls: 'type-headline',   label: 'Headline — 26px / 540',   ex: 'Redesign do core' },
-                  { cls: 'type-body',       label: 'Body — 18px / 320',       ex: 'Trabalho com produtos digitais desde 2012.' },
-                  { cls: 'type-body-sm',    label: 'Body SM — 16px / 330',    ex: 'Ver case' },
-                  { cls: 'type-caption',    label: 'Caption — 12px / 400 / UPPERCASE', ex: 'UX RESEARCH' },
+                  { cls: 'type-display-xl',    label: 'Display XL — 80px / 340',        ex: 'Marcelle' },
+                  { cls: 'type-display-lg',    label: 'Display LG — 32px / 700',        ex: 'Cases' },
+                  { cls: 'type-headline',      label: 'Headline — 24px / 540',          ex: 'Redesign do core' },
+                  { cls: 'type-body',          label: 'Body — 18px / 320',              ex: 'Trabalho com produtos digitais desde 2012.' },
+                  { cls: 'type-body-strong',   label: 'Body Strong — 18px / 480',       ex: 'Ver case completo' },
+                  { cls: 'type-body-sm',       label: 'Body SM — 16px / 330',           ex: 'Ver case' },
+                  { cls: 'type-caption',       label: 'Caption — 12px / 400 / UPPERCASE', ex: 'UX RESEARCH' },
                 ].map(({ cls, label, ex }) => (
                   <div key={cls} className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-6">
                     <span className="type-caption text-fg-subtle w-56 shrink-0">{label}</span>
@@ -303,8 +307,8 @@ export default function RacionalPage() {
                 <ColorSwatch bg="#131226"  label="fg / primary"   value="#131226" />
                 <ColorSwatch bg="#404040"  label="fg-muted"       value="#404040" />
                 <ColorSwatch bg="#666666"  label="fg-subtle"      value="#666666" />
-                <ColorSwatch bg="#C8236A"  label="accent-magenta" value="#C8236A" />
-                <ColorSwatch bg="#131226"  label="block-navy"     value="#131226" />
+                <ColorSwatch bg="#B4225E"  label="accent-magenta" value="#B4225E" />
+                <ColorSwatch bg="#211F4A"  label="block-navy"     value="#211F4A" />
               </div>
               <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-4">
                 <ColorSwatch bg="#121124"  label="bg (dark)"             value="#121124" />
@@ -313,7 +317,7 @@ export default function RacionalPage() {
                 <ColorSwatch bg="#ffffff"  label="fg (dark)"             value="#ffffff" />
                 <ColorSwatch bg="#e4e4e7"  label="fg-muted (dark)"       value="#e4e4e7" />
                 <ColorSwatch bg="#a1a1aa"  label="fg-subtle (dark)"      value="#a1a1aa" />
-                <ColorSwatch bg="#C8236A"  label="accent-magenta (dark)" value="#C8236A" />
+                <ColorSwatch bg="#EC83B0"  label="accent-magenta (dark)" value="#EC83B0" />
                 <ColorSwatch bg="#261724"  label="block-pink (dark)"     value="#261724" />
               </div>
             </div>
@@ -326,8 +330,7 @@ export default function RacionalPage() {
               </BodySm>
               <div className="mt-6 space-y-6 p-6 rounded-[16px] bg-surface-soft border border-border overflow-x-auto">
                 <ColorScaleRow
-                  name="Magenta — cor de marca primária (base 600)"
-                  brandStep="600"
+                  name="Magenta — escala de referência (token: #B4225E)"
                   steps={[
                     { stop: '50',  hex: '#FEF0F6' },
                     { stop: '100', hex: '#FCD9E8' },
@@ -522,7 +525,7 @@ export default function RacionalPage() {
                   num: '09',
                   title: 'Ajudar usuários a reconhecer e recuperar erros',
                   description: 'Mensagens claras e saídas visíveis quando algo dá errado.',
-                  example: 'Página 404 com navegação de retorno. Posts de blog com externalUrl sinalizam saída do site. notFound() retorna erro adequado quando slug não existe.',
+                  example: 'Formulário de contato com estados distintos: enviando / enviado / erro. notFound() retorna erro adequado quando slug de artigo não existe. Posts com link externo sinalizam saída do site.',
                 },
                 {
                   num: '10',
@@ -621,7 +624,7 @@ export default function RacionalPage() {
                     { token: '--fg',           light: '#131226',  dark: '#ffffff' },
                     { token: '--color-surface-soft', light: '#ececea',  dark: '#1a1836' },
                     { token: '--color-block-cream', light: '#f4ecd6',  dark: '#1e1c31' },
-                    { token: '--color-accent-magenta', light: '#C8236A',  dark: '#C8236A' },
+                    { token: '--color-accent-magenta', light: '#B4225E',  dark: '#EC83B0' },
                   ].map(({ token, light, dark }) => (
                     <div key={token} className="flex items-center gap-3 p-3 rounded-lg bg-surface-soft border border-border">
                       <code className="type-caption text-fg-subtle font-mono w-44 shrink-0">{token}</code>
@@ -656,7 +659,7 @@ export default function RacionalPage() {
                 <p className="type-caption text-fg-subtle mb-4">Frontend</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   <ToolCard
-                    name="Next.js 15 — App Router"
+                    name="Next.js 16 — App Router"
                     role="Framework React com RSC (React Server Components), Turbopack e geração estática. Páginas de cases e blog renderizam no servidor — sem JS desnecessário no cliente."
                     tags={['SSG', 'RSC', 'Turbopack', 'next-intl']}
                   />
@@ -701,6 +704,11 @@ export default function RacionalPage() {
                     name="GitHub"
                     role="Controle de versão com branch main. Pre-commit hook de TypeScript (tsc --noEmit) bloqueia commits com erros de tipo antes de chegarem ao repositório."
                     tags={['Git', 'Pre-commit hook', 'CI']}
+                  />
+                  <ToolCard
+                    name="Resend"
+                    role="API de e-mail transacional usada no formulário de contato. Envia as mensagens recebidas diretamente para o e-mail da designer sem depender de servidor próprio."
+                    tags={['Email API', 'Transacional', 'Route Handler']}
                   />
                 </div>
               </div>
