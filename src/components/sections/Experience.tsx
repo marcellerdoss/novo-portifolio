@@ -35,7 +35,7 @@ export function Experience({ items, inline }: Props) {
           <motion.li
             key={`${item.company}-${i}`}
             variants={slideInLeft}
-            className="grid grid-cols-[1fr_24px_1fr] md:grid-cols-[2fr_24px_1fr] gap-x-6 md:gap-x-8"
+            className="grid grid-cols-[1fr_24px_1fr] md:grid-cols-[1fr_24px_2fr] gap-x-6 md:gap-x-8"
           >
             {/* Col 1 — Cargo + Empresa + Período (2/3 da largura) */}
             <div className="pb-10 pt-1">
