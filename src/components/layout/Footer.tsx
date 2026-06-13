@@ -33,7 +33,7 @@ export async function Footer() {
 
           {/* Col 2 — Nav */}
           <nav aria-label={t('quick_links')}>
-            <p className="type-caption text-white/40 mb-3">{t('quick_links')}</p>
+            <p className="type-caption text-white/50 mb-3">{t('quick_links')}</p>
             <ul className="space-y-1">
               {navLinks.map(({ key, hash }) => (
                 <li key={key}>
@@ -52,8 +52,8 @@ export async function Footer() {
               type-caption + mb-3 = mesma altura do label "NAVEGAÇÃO" → card
               começa na mesma linha que o primeiro item do nav */}
           <div>
-            <p className="type-caption text-white/35 whitespace-nowrap mb-3">
-              {t('credit')} <span className="text-white/55">Marcelle</span>
+            <p className="type-caption text-white/50 whitespace-nowrap mb-3">
+              {t('credit')} <span className="text-white/70">Marcelle</span>
             </p>
 
             <Link
@@ -75,7 +75,7 @@ export async function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-white/10 pt-6">
-          <p className="type-caption text-white/35">
+          <p className="type-caption text-white/50">
             © {year} Marcelle. {t('copyright')}
           </p>
         </div>

@@ -81,7 +81,7 @@ function DiamondBadge({ num }: { num: string }) {
   return (
     <div className="relative w-10 h-10 flex-shrink-0">
       <div
-        className="absolute inset-0 rotate-45 bg-block-navy dark:bg-accent-magenta rounded-sm"
+        className="absolute inset-0 rotate-45 bg-block-navy dark:bg-[#B4225E] rounded-sm"
         aria-hidden="true"
       />
       <span className="absolute inset-0 flex items-center justify-center text-white type-body-strong z-10 select-none">
