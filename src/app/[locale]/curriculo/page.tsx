@@ -25,7 +25,7 @@ const skillSections = [
   },
   {
     label: 'IA & Ferramentas',
-    items: ['Plataformas com IA', 'Figma Make', 'Framer', 'Dev Mode'],
+    items: ['Plataformas com IA', 'Figma Make', 'Claude Code', 'Claude Design'],
   },
   {
     label: 'Soft Skills',

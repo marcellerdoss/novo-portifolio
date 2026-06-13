@@ -732,7 +732,7 @@ export default function RacionalPage() {
                   { category: null,              name: 'GitHub',           desc: 'Versionamento e pre-commit hook TS' },
                   { category: null,              name: 'Resend',           desc: 'E-mail transacional no formulário' },
                   { category: 'IA no processo',  name: 'Claude Code',      desc: 'Desenvolvimento assistido no terminal' },
-                  { category: null,              name: 'Claude Chat',      desc: 'Exploração de conceitos e copy' },
+                  { category: null,              name: 'Claude Design',    desc: 'Exploração de conceitos visuais e UI' },
                 ].map(({ category, name, desc }) => (
                   <div key={name}>
                     {category && (
