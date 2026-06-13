@@ -150,9 +150,9 @@ export function Contact() {
               className="text-[clamp(2.25rem,3.5vw,3.5rem)] font-bold leading-[1.1] tracking-[-0.5px] text-white mb-4"
             >
               {locale === 'en' ? (
-                <>Let&apos;s build a<br />strategic product<br />together?</>
+                <>Let&apos;s build<br />together?</>
               ) : (
-                <>Vamos construir um<br />produto estratégico<br />juntos?</>
+                <>Vamos construir<br />juntos?</>
               )}
             </motion.h2>
 
