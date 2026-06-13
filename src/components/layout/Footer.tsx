@@ -23,43 +23,42 @@ export async function Footer() {
   return (
     <footer id="footer" className="bg-[#09081c] border-t border-white/10 py-12">
       <div className="max-w-6xl mx-auto px-6 w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 mb-10 md:mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 mb-10 md:mb-12">
 
-          {/* Brand */}
+          {/* Col 1 — Brand */}
           <div>
             <p className="type-headline text-white mb-1">Marcelle Rocha</p>
             <p className="type-body-sm text-white/60">Product Designer | UX | CX</p>
           </div>
 
-          {/* Nav + Crédito + CTA Racional — mesma coluna, mesmo X que "Sobre" */}
-          <div className="flex flex-col gap-8">
+          {/* Col 2 — Nav */}
+          <nav aria-label={t('quick_links')}>
+            <p className="type-caption text-white/40 mb-3">{t('quick_links')}</p>
+            <ul className="space-y-2">
+              {navLinks.map(({ key, hash }) => (
+                <li key={key}>
+                  <a
+                    href={hash}
+                    className="type-body-xs text-white/50 hover:text-white transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded"
+                  >
+                    {tNav(key)}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-            {/* Quick links */}
-            <nav aria-label={t('quick_links')}>
-              <p className="type-caption text-white/40 mb-3">{t('quick_links')}</p>
-              <ul className="space-y-1.5">
-                {navLinks.map(({ key, hash }) => (
-                  <li key={key}>
-                    <a
-                      href={hash}
-                      className="type-body-xs text-white/50 hover:text-white transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded"
-                    >
-                      {tNav(key)}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </nav>
+          {/* Col 3 — Crédito + Card (alinhado horizontalmente com "Sobre")
+              type-caption + mb-3 = mesma altura do label "NAVEGAÇÃO" → card
+              começa na mesma linha que o primeiro item do nav */}
+          <div>
+            <p className="type-caption text-white/35 whitespace-nowrap mb-3">
+              {t('credit')} <span className="text-white/55">Marcelle</span>
+            </p>
 
-            {/* Crédito + CTA
-                w-fit: o container abraça o max-content dos filhos.
-                O texto de crédito (whitespace-nowrap) é o filho mais largo
-                e determina a largura — o card e a legenda seguem. */}
-            <div className="w-fit flex flex-col gap-3">
-              <p className="type-caption text-white/35 whitespace-nowrap">
-                {t('credit')} <span className="text-white/55">Marcelle</span>
-              </p>
-
+            {/* w-fit: crédito (whitespace-nowrap) determina a largura;
+                card e subtítulo seguem */}
+            <div className="w-fit flex flex-col gap-2">
               <Link
                 href="/racional"
                 className="group flex items-center justify-between gap-3 border border-white/15 hover:border-white/35 rounded-xl px-3 py-3 transition-all duration-200 hover:bg-white/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
@@ -74,13 +73,12 @@ export async function Footer() {
                 />
               </Link>
 
-              {/* Subtítulo fora do card — max-w-[13rem] < crédito para não empurrar o container */}
               <p className="type-body-xs text-white/40 leading-snug normal-case tracking-normal max-w-[13rem]">
                 {t('rationale_sub')}
               </p>
             </div>
-
           </div>
+
         </div>
 
         {/* Bottom bar */}
