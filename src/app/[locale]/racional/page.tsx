@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { BackToTop } from '@/components/ui/BackToTop';
 import { ScrollProgress } from '@/components/ui/ScrollProgress';
+import { Button } from '@/components/ui/Button';
+import { ArrowRight, Download, ArrowUpRight, ChevronUp } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Racional do Projeto — Marcelle Rocha',
@@ -455,10 +457,55 @@ export default function RacionalPage() {
               <BodySm>
                 Quatro variantes (primary, secondary, ghost, icon) × quatro tamanhos (xs, sm, md, lg). Tipografia unificada em 16px/480 via <code className="type-caption bg-surface-soft border border-border px-1 rounded">.type-btn</code>. Primary usa navy no light e magenta no dark. Secondary usa bordas do fg atual. Todos têm <code className="type-caption bg-surface-soft border border-border px-1 rounded">focus-visible</code> com ring para navegação por teclado.
               </BodySm>
-              <div className="mt-4 flex flex-wrap gap-3 items-center">
-                <button className="px-6 py-3 type-btn bg-primary text-on-primary rounded-pill hover:opacity-85 active:scale-[0.97] transition-all">Primary</button>
-                <button className="px-6 py-3 type-btn border border-fg text-fg rounded-pill bg-transparent hover:bg-fg/10 transition-all">Secondary</button>
-                <button className="px-6 py-3 type-btn text-fg bg-transparent rounded-full hover:underline underline-offset-4 transition-all">Ghost</button>
+              <div className="mt-6 space-y-6">
+
+                {/* Tamanhos */}
+                <div>
+                  <p className="type-caption text-fg-subtle mb-3">Tamanhos — variante primary</p>
+                  <div className="flex flex-wrap gap-3 items-end">
+                    <Button size="xs">XS</Button>
+                    <Button size="sm">Small</Button>
+                    <Button size="md">Medium</Button>
+                    <Button size="lg">Large</Button>
+                  </div>
+                </div>
+
+                {/* Variantes light */}
+                <div>
+                  <p className="type-caption text-fg-subtle mb-3">Variantes — light mode</p>
+                  <div className="flex flex-wrap gap-3 items-center">
+                    <Button size="md">Primary</Button>
+                    <Button size="md" variant="secondary">Secondary</Button>
+                    <Button size="md" variant="ghost">Ghost</Button>
+                    <Button size="md" variant="icon" aria-label="Subir ao topo"><ChevronUp size={18} aria-hidden="true" /></Button>
+                  </div>
+                </div>
+
+                {/* Variantes dark */}
+                <div className="p-5 rounded-xl bg-[#121124]">
+                  <p className="type-caption text-white/40 mb-4">Variantes — dark mode</p>
+                  <div className="flex flex-wrap gap-3 items-center">
+                    <button type="button" className="px-5 py-3 type-btn bg-[#EC83B0] text-white rounded-pill hover:opacity-85 active:scale-[0.97] transition-all">Primary (rosa)</button>
+                    <button type="button" className="px-5 py-3 type-btn border border-white text-white rounded-pill bg-transparent hover:bg-white/10 active:scale-[0.97] transition-all">Secondary</button>
+                    <button type="button" className="px-5 py-3 type-btn text-white bg-transparent rounded-full hover:underline underline-offset-4 transition-all">Ghost</button>
+                    <button type="button" aria-label="Subir ao topo" className="w-10 h-10 rounded-full bg-[#EC83B0] text-white flex items-center justify-center hover:opacity-85 transition-all">
+                      <ChevronUp size={16} aria-hidden="true" />
+                    </button>
+                  </div>
+                </div>
+
+                {/* Com setas e ícones */}
+                <div>
+                  <p className="type-caption text-fg-subtle mb-3">Com setas e ícones</p>
+                  <div className="flex flex-wrap gap-3 items-center">
+                    <Button size="md">Ver cases <ArrowRight size={16} aria-hidden="true" /></Button>
+                    <Button size="md" variant="secondary">Download CV <Download size={16} aria-hidden="true" /></Button>
+                    <button type="button" className="group flex items-center gap-2 border border-fg/20 rounded-xl px-4 py-2.5 type-body-sm text-fg/80 hover:text-fg hover:border-fg/40 transition-all duration-200">
+                      Racional do projeto <ArrowUpRight size={14} className="text-fg/30 group-hover:text-fg/60 shrink-0" aria-hidden="true" />
+                    </button>
+                  </div>
+                </div>
+
               </div>
             </div>
           </section>
