@@ -48,7 +48,7 @@ function Card({ children, className = '' }: { children: React.ReactNode; classNa
 
 function Tag({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-block type-caption text-fg-subtle rounded-full px-2 py-0.5 leading-none">
+    <span className="inline-block type-caption text-fg-subtle rounded-full border border-border px-3 py-1 leading-none">
       {children}
     </span>
   );

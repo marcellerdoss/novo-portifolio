@@ -113,7 +113,7 @@ export default async function SellbieRedesignPage({ params }: Props) {
               ? ['Product Design', 'UX Research', 'Multichannel', 'AI & Automation', 'Information Architecture']
               : ['Product Design', 'UX Research', 'Multicanal', 'IA & Automação', 'Arquitetura de Info']
             ).map(tag => (
-              <span key={tag} className="type-caption rounded-full px-2 py-0.5 leading-none text-fg-subtle">
+              <span key={tag} className="type-caption rounded-full border border-border px-3 py-1 leading-none text-fg-subtle">
                 {tag}
               </span>
             ))}
