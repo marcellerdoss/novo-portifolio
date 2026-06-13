@@ -673,16 +673,18 @@ export default function RacionalPage() {
                     { token: '--color-block-cream', light: '#f4ecd6',  dark: '#1e1c31' },
                     { token: '--color-accent-magenta', light: '#B4225E',  dark: '#EC83B0' },
                   ].map(({ token, light, dark }) => (
-                    <div key={token} className="flex items-center gap-3 p-3 rounded-lg bg-surface-soft border border-border">
-                      <code className="type-caption text-fg-subtle font-mono w-44 shrink-0">{token}</code>
-                      <div className="flex items-center gap-2">
-                        <span className="w-5 h-5 rounded border border-black/20" style={{ backgroundColor: light }} />
-                        <span className="type-caption text-fg-subtle">{light}</span>
-                      </div>
-                      <span className="type-caption text-fg-subtle">→</span>
-                      <div className="flex items-center gap-2">
-                        <span className="w-5 h-5 rounded border border-white/20" style={{ backgroundColor: dark }} />
-                        <span className="type-caption text-fg-subtle">{dark}</span>
+                    <div key={token} className="flex flex-col gap-2 p-3 rounded-lg bg-surface-soft border border-border">
+                      <code className="type-caption text-fg-subtle font-mono">{token}</code>
+                      <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-1.5">
+                          <span className="w-4 h-4 rounded border border-black/20 shrink-0" style={{ backgroundColor: light }} />
+                          <span className="type-caption text-fg-subtle font-mono">{light}</span>
+                        </div>
+                        <span className="type-caption text-fg-subtle">→</span>
+                        <div className="flex items-center gap-1.5">
+                          <span className="w-4 h-4 rounded border border-white/20 shrink-0" style={{ backgroundColor: dark }} />
+                          <span className="type-caption text-fg-subtle font-mono">{dark}</span>
+                        </div>
                       </div>
                     </div>
                   ))}
