@@ -130,20 +130,22 @@ export default async function CurriculoPage({ params }: Props) {
           }
           .avoid-break { break-inside: avoid; }
         }
-        @media screen {
-          .cv-root {
-            max-width: 880px;
-            margin: 2rem auto 4rem;
-            padding: 3rem 3.5rem;
-            background: #fafafa;
-            box-shadow: 0 0 0 1px rgba(0,0,0,0.08), 0 8px 32px rgba(0,0,0,0.06);
-            border-radius: 8px;
-          }
-        }
       `}</style>
 
       <PrintButton />
-      <div className="cv-root" style={{ color: C.navy, fontFamily: 'var(--font-sans, system-ui)' }}>
+      <div
+        className="cv-root"
+        style={{
+          color: C.navy,
+          fontFamily: 'var(--font-sans, system-ui)',
+          maxWidth: '880px',
+          margin: '2rem auto 4rem',
+          padding: '3rem 3.5rem',
+          background: '#fafafa',
+          boxShadow: '0 0 0 1px rgba(0,0,0,0.08), 0 8px 32px rgba(0,0,0,0.06)',
+          borderRadius: '8px',
+        }}
+      >
 
         {/* ── Header ────────────────────────────────────────── */}
         <div style={{ borderBottom: `2px solid ${C.navy}`, paddingBottom: '1.25rem', marginBottom: '1.5rem' }}>
