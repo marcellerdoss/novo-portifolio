@@ -245,15 +245,15 @@ export default function RacionalPage() {
             </Body>
             <div className="mt-8 space-y-3">
               {[
-                { section: 'Hero', why: 'Identidade imediata — quem sou e o que faço em 3 segundos' },
+                { section: 'Hero', why: 'Identidade imediata. Quem sou e o que faço em 3 segundos.' },
                 { section: 'Cases', why: 'Prova de trabalho antes de qualquer texto sobre mim. O portfólio mostra antes de contar.' },
-                { section: 'Sobre', why: 'Contexto pessoal — só faz sentido depois de ver o trabalho' },
-                { section: 'Racional', why: 'Processo e pensamento por trás do portfólio — sinal de maturidade em produto e UX' },
-                { section: 'Skills', why: 'Validação técnica — ferramentas e competências organizadas por categoria' },
-                { section: 'Formação', why: 'Credenciais educacionais e certificações — valida o conhecimento acumulado' },
-                { section: 'Trajetória', why: 'Linha do tempo profissional — cria confiança histórica e mostra evolução de escopo' },
-                { section: 'Artigos', why: 'Sinal de profundidade — quem escreve sobre o campo domina o campo' },
-                { section: 'Contato', why: 'CTA final — depois que o usuário já foi convencido' },
+                { section: 'Sobre', why: 'Contexto pessoal. Só faz sentido depois de ver o trabalho.' },
+                { section: 'Racional', why: 'Processo e pensamento por trás do portfólio. Sinal de maturidade em produto e UX.' },
+                { section: 'Skills', why: 'Validação técnica. Ferramentas e competências organizadas por categoria.' },
+                { section: 'Formação', why: 'Credenciais educacionais e certificações. Valida o conhecimento acumulado.' },
+                { section: 'Trajetória', why: 'Linha do tempo profissional. Cria confiança histórica e mostra evolução de escopo.' },
+                { section: 'Artigos', why: 'Sinal de profundidade. Quem escreve sobre o campo domina o campo.' },
+                { section: 'Contato', why: 'CTA final. Aparece depois que o usuário já foi convencido.' },
               ].map(({ section, why }) => (
                 <Card key={section}>
                   <div className="flex gap-4 items-start">
