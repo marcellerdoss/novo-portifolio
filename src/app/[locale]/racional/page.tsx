@@ -718,7 +718,7 @@ export default function RacionalPage() {
           <aside aria-labelledby="stack-heading" className="lg:col-span-1 order-last">
             <div className="sticky top-24">
               <div className="rounded-[16px] border border-border overflow-hidden divide-y divide-border">
-                <div className="px-5 py-4 bg-surface-soft">
+                <div className="px-5 py-4 bg-block-pink dark:bg-block-pink">
                   <p className="type-caption text-fg-subtle" id="stack-heading">Stack & Ferramentas</p>
                 </div>
                 {[
