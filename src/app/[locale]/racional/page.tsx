@@ -184,7 +184,11 @@ export default function RacionalPage() {
           </div>
         </section>
 
-        <div className="max-w-6xl mx-auto px-6 py-section space-y-0">
+        <div className="max-w-6xl mx-auto px-6 py-section">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-12 items-start">
+
+          {/* ══ Col 2/3 — Conteúdo de design system ════════ */}
+          <div className="lg:col-span-2 space-y-0">
 
           {/* ── 1. Problema e contexto ──────────────────────── */}
           <section aria-labelledby="problema-heading" className="mb-16">
@@ -690,63 +694,6 @@ export default function RacionalPage() {
             </div>
           </section>
 
-          {/* ── 8. Stack e Ferramentas ───────────────────────── */}
-          <Divider />
-          <section aria-labelledby="stack-heading" className="mb-16">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-
-              {/* Sidebar — lista compacta (1/3) */}
-              <div className="lg:col-span-1 order-2 lg:order-1">
-                <div className="space-y-8">
-                  {[
-                    {
-                      category: 'Frontend',
-                      tools: ['Next.js 16', 'Tailwind CSS v4', 'Framer Motion', 'next-intl', 'next-themes', 'MDX + rehype'],
-                    },
-                    {
-                      category: 'Infraestrutura',
-                      tools: ['Vercel', 'GitHub', 'Resend'],
-                    },
-                    {
-                      category: 'IA no processo',
-                      tools: ['Claude Code (CLI)', 'Claude Chat'],
-                    },
-                  ].map(({ category, tools }) => (
-                    <div key={category}>
-                      <p className="type-caption text-fg-subtle mb-3">{category}</p>
-                      <ul className="space-y-2">
-                        {tools.map((tool) => (
-                          <li key={tool} className="type-body-sm text-fg">{tool}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Conteúdo principal (2/3) */}
-              <div className="lg:col-span-2 order-1 lg:order-2">
-                <SectionLabel>08 — Stack & Ferramentas</SectionLabel>
-                <H2 id="stack-heading">O que foi usado e por quê</H2>
-                <div className="mt-6 space-y-4">
-                  <Body>
-                    Next.js 16 com App Router e React Server Components como base — renderização no servidor onde possível, cliente onde necessário. Tailwind v4 com tokens CSS nativos eliminou a necessidade de arquivo de configuração JS.
-                  </Body>
-                  <Body>
-                    next-intl para internacionalização PT/EN, next-themes para dark mode persistente, Framer Motion para animações de entrada com critério. Blog via MDX com syntax highlighting. Formulário de contato via Resend sem servidor próprio.
-                  </Body>
-                </div>
-                <Card className="mt-8 border-accent-magenta/20">
-                  <p className="type-caption text-accent-magenta mb-2">IA e autoria</p>
-                  <p className="type-body-sm text-fg-muted">
-                    O uso de IA é intencional e transparente. Cada decisão de design, estrutura de informação e escolha de UX é da designer. Claude executa como ferramenta de aceleração. A qualidade do output reflete a qualidade do input.
-                  </p>
-                </Card>
-              </div>
-
-            </div>
-          </section>
-
           {/* ── 9. Considerações finais ──────────────────────── */}
           <Divider />
           <section aria-labelledby="final-heading" className="mb-16">
@@ -765,6 +712,98 @@ export default function RacionalPage() {
             </div>
           </section>
 
+          </div>{/* fim col 2/3 */}
+
+          {/* ══ Col 1/3 — Stack técnica (sidebar) ══════════ */}
+          <aside aria-labelledby="stack-heading" className="lg:col-span-1 order-last">
+            <SectionLabel>08 — Stack & Ferramentas</SectionLabel>
+            <H2 id="stack-heading">Stack técnica</H2>
+
+            <div className="mt-6 space-y-8">
+
+              <div>
+                <p className="type-caption text-fg-subtle mb-4">Frontend</p>
+                <div className="space-y-3">
+                  <ToolCard
+                    name="Next.js 16"
+                    role="App Router com RSC e geração estática. Páginas renderizam no servidor — sem JS desnecessário no cliente."
+                    tags={['SSG', 'RSC', 'Turbopack']}
+                  />
+                  <ToolCard
+                    name="Tailwind CSS v4"
+                    role="@theme inline, tokens CSS nativos e @custom-variant dark. Sem configuração JS."
+                    tags={['@theme', 'Design tokens', 'CSS vars']}
+                  />
+                  <ToolCard
+                    name="Framer Motion"
+                    role="Animações de entrada (fadeInUp, stagger) em componentes client. Usado com critério."
+                    tags={['Animation', 'Viewport']}
+                  />
+                  <ToolCard
+                    name="next-intl"
+                    role="Internacionalização PT/EN com routing por locale e traduções server-side."
+                    tags={['i18n', 'PT / EN']}
+                  />
+                  <ToolCard
+                    name="next-themes"
+                    role="Dark mode persistente via localStorage com respeito ao prefers-color-scheme."
+                    tags={['Dark mode', 'localStorage']}
+                  />
+                  <ToolCard
+                    name="MDX + rehype"
+                    role="Blog via MDX com syntax highlighting (rehype-pretty-code) e suporte a GFM."
+                    tags={['MDX', 'Blog']}
+                  />
+                </div>
+              </div>
+
+              <div>
+                <p className="type-caption text-fg-subtle mb-4">Infraestrutura</p>
+                <div className="space-y-3">
+                  <ToolCard
+                    name="Vercel"
+                    role="Deploy automático via GitHub. Preview URLs por branch. Edge network global."
+                    tags={['Deploy', 'Edge']}
+                  />
+                  <ToolCard
+                    name="GitHub"
+                    role="Controle de versão. Pre-commit hook de TypeScript bloqueia commits com erros."
+                    tags={['Git', 'Pre-commit hook']}
+                  />
+                  <ToolCard
+                    name="Resend"
+                    role="API de e-mail transacional para o formulário de contato, sem servidor próprio."
+                    tags={['Email API', 'Route Handler']}
+                  />
+                </div>
+              </div>
+
+              <div>
+                <p className="type-caption text-fg-subtle mb-4">IA no processo</p>
+                <div className="space-y-3">
+                  <ToolCard
+                    name="Claude Code (CLI)"
+                    role="Desenvolvimento assistido por IA no terminal. A designer direciona, Claude executa."
+                    tags={['CLI', 'Code generation']}
+                  />
+                  <ToolCard
+                    name="Claude Chat"
+                    role="Exploração de conceitos UX, racional de design e revisão de copy antes da implementação."
+                    tags={['UX research', 'Ideação']}
+                  />
+                </div>
+                <Card className="mt-3 border-accent-magenta/20">
+                  <p className="type-caption text-accent-magenta mb-2">IA e autoria</p>
+                  <p className="type-body-sm text-fg-muted">
+                    O uso de IA é intencional e transparente. Cada decisão de design e UX é da designer. A qualidade do output reflete a qualidade do input.
+                  </p>
+                </Card>
+              </div>
+
+            </div>
+          </aside>
+
+          </div>{/* fim grid */}
         </div>
       </main>
     </>
