@@ -39,7 +39,7 @@ export function Experience({ items, inline }: Props) {
           >
             {/* Col 1 — Cargo + Empresa + Período (2/3 da largura) */}
             <div className="pb-10 pt-1">
-              <h3 className="type-headline text-fg leading-snug">
+              <h3 className="type-body-strong text-fg leading-snug">
                 {item.role[locale]}
               </h3>
               <p className="type-body-sm text-fg-muted mt-0.5">{item.company}</p>
