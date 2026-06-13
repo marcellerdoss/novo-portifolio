@@ -11,9 +11,9 @@ const links: { key: NavKey; href: { pathname: string; hash: string } }[] = [
   { key: 'cases',      href: { pathname: '/', hash: '#cases' } },
   { key: 'blog',       href: { pathname: '/', hash: '#blog' } },
   { key: 'racional',   href: { pathname: '/', hash: '#racional' } },
+  { key: 'experience', href: { pathname: '/', hash: '#experiencia' } },
   { key: 'skills',     href: { pathname: '/', hash: '#skills' } },
   { key: 'education',  href: { pathname: '/', hash: '#formacao' } },
-  { key: 'experience', href: { pathname: '/', hash: '#experiencia' } },
   { key: 'contact',    href: { pathname: '/', hash: '#contato' } },
 ];
 

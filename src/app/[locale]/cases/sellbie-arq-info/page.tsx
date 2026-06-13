@@ -105,6 +105,17 @@ export default async function SellbieArqInfoPage({ params }: Props) {
               ? 'Restructuring of Sellbie\'s navigation based on a complete content inventory, card sorting with real users and application of Abby Covert\'s heuristics as a reorganization criterion.'
               : 'Reestruturação da navegação da Sellbie a partir de um inventário completo de conteúdo, card sorting com usuários reais e aplicação das heurísticas de Abby Covert como critério de reorganização.'}
           </p>
+
+          <div className="flex flex-wrap gap-2 mt-6">
+            {(en
+              ? ['Product Design', 'UX Research', 'Information Architecture', 'Card Sorting', 'Navigation']
+              : ['Product Design', 'UX Research', 'Arquitetura de Informação', 'Card Sorting', 'Navegação']
+            ).map(tag => (
+              <span key={tag} className="type-caption rounded-full border border-border px-3 py-1 leading-none text-fg-subtle">
+                {tag}
+              </span>
+            ))}
+          </div>
         </div>
       </header>
 

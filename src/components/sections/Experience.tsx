@@ -35,37 +35,59 @@ export function Experience({ items, inline }: Props) {
           <motion.li
             key={`${item.company}-${i}`}
             variants={slideInLeft}
-            className="grid grid-cols-[1fr_24px_1fr] md:grid-cols-[1fr_24px_2fr] gap-x-6 md:gap-x-8"
           >
-            {/* Col 1 — Cargo + Empresa + Período (2/3 da largura) */}
-            <div className="pb-10 pt-1">
-              <h3 className="type-body-strong text-fg leading-snug">
-                {item.role[locale]}
-              </h3>
-              <p className="type-body-sm text-fg-muted mt-0.5">{item.company}</p>
-              <time className="type-caption text-block-navy dark:text-fg-subtle mt-2 block">
-                {item.period.includes('Presente') && locale === 'en'
-                  ? item.period.replace('Presente', t('present'))
-                  : item.period}
-              </time>
-            </div>
-
-            {/* Col 2 — Dot + linha vertical */}
-            <div className="flex flex-col items-center">
-              <div className="pt-[9px] shrink-0">
+            {/* ── Mobile: empilhado com dot à esquerda ── */}
+            <div className="md:hidden flex gap-5 pb-10">
+              <div className="flex flex-col items-center pt-[9px] shrink-0">
                 <span
                   className="block w-3 h-3 rounded-full bg-accent-magenta border-2 border-block-cream dark:border-block-cream"
                   aria-hidden="true"
                 />
+                {i < items.length - 1 && (
+                  <div className="flex-1 w-[2px] bg-black/15 dark:bg-white/15 mt-2" />
+                )}
               </div>
-              {i < items.length - 1 && (
-                <div className="flex-1 w-[2px] bg-black/15 dark:bg-white/15 mt-2" />
-              )}
+              <div className="flex-1 min-w-0 pt-1">
+                <h3 className="type-body-strong text-fg leading-snug">
+                  {item.role[locale]}
+                </h3>
+                <p className="type-body-sm text-fg-muted mt-0.5">{item.company}</p>
+                <time className="type-caption text-block-navy dark:text-fg-subtle mt-2 block">
+                  {item.period.includes('Presente') && locale === 'en'
+                    ? item.period.replace('Presente', t('present'))
+                    : item.period}
+                </time>
+                <p className="type-body text-fg-muted mt-4">{item.description[locale]}</p>
+              </div>
             </div>
 
-            {/* Col 3 — Texto da experiência */}
-            <div className="pb-10 pt-1">
-              <p className="type-body text-fg-muted">{item.description[locale]}</p>
+            {/* ── Desktop: 3 colunas ── */}
+            <div className="hidden md:grid md:grid-cols-[1fr_24px_2fr] md:gap-x-8">
+              <div className="pb-10 pt-1">
+                <h3 className="type-body-strong text-fg leading-snug">
+                  {item.role[locale]}
+                </h3>
+                <p className="type-body-sm text-fg-muted mt-0.5">{item.company}</p>
+                <time className="type-caption text-block-navy dark:text-fg-subtle mt-2 block">
+                  {item.period.includes('Presente') && locale === 'en'
+                    ? item.period.replace('Presente', t('present'))
+                    : item.period}
+                </time>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="pt-[9px] shrink-0">
+                  <span
+                    className="block w-3 h-3 rounded-full bg-accent-magenta border-2 border-block-cream dark:border-block-cream"
+                    aria-hidden="true"
+                  />
+                </div>
+                {i < items.length - 1 && (
+                  <div className="flex-1 w-[2px] bg-black/15 dark:bg-white/15 mt-2" />
+                )}
+              </div>
+              <div className="pb-10 pt-1">
+                <p className="type-body text-fg-muted">{item.description[locale]}</p>
+              </div>
             </div>
           </motion.li>
         ))}

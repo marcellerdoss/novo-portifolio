@@ -506,7 +506,7 @@ export default function RacionalPage() {
                     <Button size="md">Ver cases <ArrowRight size={16} aria-hidden="true" /></Button>
                     <Button size="md" variant="secondary">Download CV <Download size={16} aria-hidden="true" /></Button>
                     <button type="button" className="group flex items-center gap-2 border border-fg/20 rounded-xl px-4 py-2.5 type-body-sm text-fg/80 hover:text-fg hover:border-fg/40 transition-all duration-200">
-                      Racional do projeto <ArrowUpRight size={14} className="text-fg/30 group-hover:text-fg/60 shrink-0" aria-hidden="true" />
+                      Design do projeto <ArrowUpRight size={14} className="text-fg/30 group-hover:text-fg/60 shrink-0" aria-hidden="true" />
                     </button>
                   </div>
                 </div>

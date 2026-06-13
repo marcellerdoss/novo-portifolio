@@ -105,6 +105,17 @@ export default async function SellbieMetricasPage({ params }: Props) {
               ? 'Structuring product metrics for five Sellbie modules using the HEART framework, connecting each quality dimension to business goals, measurable signals and trackable product objectives.'
               : 'Estruturação de métricas de produto para cinco módulos da Sellbie usando o framework HEART, conectando cada dimensão de qualidade a metas de negócio, sinais mensuráveis e objetivos de produto rastreáveis.'}
           </p>
+
+          <div className="flex flex-wrap gap-2 mt-6">
+            {(en
+              ? ['Product Design', 'UX Research', 'Product Metrics', 'HEART Framework', 'OKRs']
+              : ['Product Design', 'UX Research', 'Métricas de Produto', 'Framework HEART', 'OKRs']
+            ).map(tag => (
+              <span key={tag} className="type-caption rounded-full border border-border px-3 py-1 leading-none text-fg-subtle">
+                {tag}
+              </span>
+            ))}
+          </div>
         </div>
       </header>
 

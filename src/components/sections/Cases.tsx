@@ -283,13 +283,7 @@ export function CasesSection(_props: Props) {
             description={groups.strategy.description[locale]}
           />
 
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
-          >
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {strategyCards.map((card) => (
               <CaseCardCompact
                 key={card.href}
@@ -307,7 +301,7 @@ export function CasesSection(_props: Props) {
                 ctaLabel={locale === 'en' ? 'See case' : 'Ver case'}
               />
             ))}
-          </motion.div>
+          </div>
         </div>
 
         {/* ── Foundations ─────────────────────────────────────── */}
@@ -317,13 +311,7 @@ export function CasesSection(_props: Props) {
             description={groups.foundations.description[locale]}
           />
 
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
-          >
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {foundationsCards.map((card) => (
               <CaseCardCompact
                 key={card.href}
@@ -341,7 +329,7 @@ export function CasesSection(_props: Props) {
                 ctaLabel={locale === 'en' ? 'See case' : 'Ver case'}
               />
             ))}
-          </motion.div>
+          </div>
         </div>
 
       </div>
