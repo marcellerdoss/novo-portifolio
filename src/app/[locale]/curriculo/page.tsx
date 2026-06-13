@@ -135,7 +135,7 @@ export default async function CurriculoPage() {
                 alt="Marcelle Rocha"
                 width={72}
                 height={72}
-                style={{ borderRadius: '50%', objectFit: 'cover', objectPosition: 'top', border: `2px solid ${C.border}` }}
+                style={{ borderRadius: '8px', objectFit: 'cover', objectPosition: 'top center', border: `1px solid ${C.border}` }}
               />
             </div>
 
