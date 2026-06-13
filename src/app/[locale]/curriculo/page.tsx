@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { getExperience } from '@/lib/experience';
+import { PrintButton } from '@/components/ui/PrintButton';
 
 export const metadata: Metadata = {
   title: 'Currículo — Marcelle Rocha',
@@ -104,6 +105,7 @@ export default async function CurriculoPage() {
         }
       `}</style>
 
+      <PrintButton />
       <div className="cv-root" style={{ color: C.navy, fontFamily: 'var(--font-sans, system-ui)' }}>
 
         {/* ── Header ────────────────────────────────────────── */}
