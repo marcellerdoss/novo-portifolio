@@ -68,7 +68,7 @@ export function Hero() {
             href={siteConfig.cv[locale]}
             variant="secondary"
             size="md"
-            download="CV-Marcelle.pdf"
+            download={locale === 'en' ? 'Curriculum-Marcelle-Rocha.pdf' : 'Curriculo-Marcelle-Rocha.pdf'}
           >
             {t('cta_secondary')} <Download size={16} aria-hidden="true" />
           </LinkButton>
