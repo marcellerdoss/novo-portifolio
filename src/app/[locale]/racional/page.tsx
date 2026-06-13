@@ -642,22 +642,22 @@ export default function RacionalPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
               <div className="space-y-4">
                 <H3>Acessibilidade</H3>
-                <ul className="space-y-3">
+                <div className="space-y-3">
                   {[
                     { item: 'Barra de acessibilidade', detail: 'Sempre visível no topo: links de atalho (conteúdo, menu, rodapé), controle de tamanho do texto (A- / A+) e alternância de alto contraste' },
-                    { item: 'Focus visible', detail: 'Todos os elementos interativos têm focus-visible com ring de 2px — nunca escondido' },
+                    { item: 'Focus visible', detail: 'Todos os elementos interativos têm focus-visible com ring de 2px, nunca escondido' },
                     { item: 'ARIA labels', detail: 'Botões de ícone (ThemeToggle, LanguageSwitcher, BackToTop) têm aria-label descritivo' },
-                    { item: 'Semântica HTML', detail: '<main>, <nav>, <section>, <article>, <header>, <footer> usados corretamente com aria-labelledby' },
+                    { item: 'Semântica HTML', detail: 'main, nav, section, article, header e footer usados corretamente com aria-labelledby' },
                     { item: 'Alt text', detail: 'Todas as imagens têm alt descritivo. Ícones decorativos têm aria-hidden="true"' },
-                    { item: 'Contraste WCAG AA', detail: 'Mínimo 4.5:1 para texto normal. Tokens de fg-muted testados em cada background de seção' },
-                    { item: 'Navegação por teclado', detail: 'Fluxo de Tab lógico. Drawer mobile fecha com Escape. Modal fecha com Escape' },
+                    { item: 'Contraste WCAG AA', detail: 'Mínimo 4.5:1 para texto normal. Tokens fg-muted testados em cada background de seção' },
+                    { item: 'Navegação por teclado', detail: 'Fluxo de Tab lógico. Drawer mobile e modais fecham com Escape' },
                   ].map(({ item, detail }) => (
-                    <li key={item} className="flex flex-col gap-1">
-                      <span className="type-body-sm text-fg font-[480]">{item}</span>
-                      <span className="type-body-sm text-fg-muted">{detail}</span>
-                    </li>
+                    <Card key={item}>
+                      <p className="type-caption text-accent-magenta mb-2">{item}</p>
+                      <p className="type-body-sm text-fg-muted">{detail}</p>
+                    </Card>
                   ))}
-                </ul>
+                </div>
               </div>
 
               <div className="space-y-4">
