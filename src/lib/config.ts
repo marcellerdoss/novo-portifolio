@@ -9,8 +9,8 @@ export const siteConfig = {
     dribbble: '',
   },
   cv: {
-    pt: '/cv-pt.pdf',
-    en: '/cv-en.pdf',
+    pt: '/Curriculo-Marcelle-Rocha.pdf',
+    en: '/Curriculum-Marcelle-Rocha.pdf',
   },
   about: {
     photo: '/images/profile/img_sobre.png',
