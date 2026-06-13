@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { CaseViewContext } from './CaseViewContext';
 import { BackToTop } from '@/components/ui/BackToTop';
 import type { CaseNavItem } from '@/lib/casesConfig';
@@ -22,6 +22,7 @@ export function CasePageShell({
   nextCase,
 }: CasePageShellProps) {
   const t = useTranslations('case');
+  const locale = useLocale() as 'pt' | 'en';
   const [view, setView] = useState<'overview' | 'detailed'>('overview');
   const [pendingScroll, setPendingScroll] = useState(false);
 
@@ -60,7 +61,7 @@ export function CasePageShell({
                 <span className="inline-flex items-center gap-1 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 type-btn leading-none border border-fg text-fg rounded-pill bg-transparent group-hover:bg-fg/10 dark:group-hover:bg-white/10 active:scale-[0.97] transition-all duration-150 self-start focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-fg">
                   <ArrowLeft size={13} aria-hidden="true" /> {t('prev')}
                 </span>
-                <span className="type-body-sm text-fg-muted leading-snug pl-1">{prevCase.title}</span>
+                <span className="type-body-sm text-fg-muted leading-snug pl-1">{prevCase.title[locale]}</span>
               </Link>
             ) : (
               <div />
@@ -71,7 +72,7 @@ export function CasePageShell({
                 <span className="inline-flex items-center gap-1 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 type-btn leading-none border border-fg text-fg rounded-pill bg-transparent group-hover:bg-fg/10 dark:group-hover:bg-white/10 active:scale-[0.97] transition-all duration-150 self-end focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-fg">
                   {t('next')} <ArrowRight size={13} aria-hidden="true" />
                 </span>
-                <span className="type-body-sm text-fg-muted leading-snug">{nextCase.title}</span>
+                <span className="type-body-sm text-fg-muted leading-snug">{nextCase.title[locale]}</span>
               </Link>
             ) : (
               <div />

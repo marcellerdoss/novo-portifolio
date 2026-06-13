@@ -31,7 +31,7 @@ const productCards: {
   category: LocaleStr;
   title: LocaleStr;
   description: LocaleStr;
-  tags: string[];
+  tags: { pt: string[]; en: string[] };
   href: string;
   imageSrc: string;
   imageAlt: string;
@@ -50,7 +50,7 @@ const productCards: {
       pt: 'Navegação, campanhas e criação de envio redesenhados do zero',
       en: 'Navigation, campaigns and sending flow redesigned from scratch',
     },
-    tags: ['UX Research', 'Redesign', 'Omnichannel'],
+    tags: { pt: ['UX Research', 'Redesign', 'Omnichannel'], en: ['UX Research', 'Redesign', 'Omnichannel'] },
     href: '/cases/sellbie-redesign',
     imageSrc: '/images/cases/sellbie/redesign/sellbie-redesign-preview.png',
     imageAlt: 'Tela principal do redesign da plataforma Sellbie',
@@ -69,7 +69,7 @@ const productCards: {
       pt: 'Canvas de fluxo com lógica comportamental',
       en: 'Flow canvas with behavioral logic',
     },
-    tags: ['Produto Novo', 'IA & Automação', 'Workflow'],
+    tags: { pt: ['Produto Novo', 'IA & Automação', 'Workflow'], en: ['New Product', 'AI & Automation', 'Workflow'] },
     href: '/cases/sellbie-jornadas',
     imageSrc: '/images/cases/sellbie/jornadas/sellbie-jornadas-preview.png',
     imageAlt: 'Canvas de criação de jornada na plataforma Sellbie',
@@ -88,7 +88,7 @@ const productCards: {
       pt: 'Progressão de fases com estratégia',
       en: 'Phase progression with strategy',
     },
-    tags: ['UX Research', 'BNCC', 'Design System'],
+    tags: { pt: ['UX Research', 'BNCC', 'Design System'], en: ['UX Research', 'BNCC', 'Design System'] },
     href: '/cases/jg-alfabetizacao',
     imageSrc: '/images/cases/jovens-genios/alfabetizacao/jg-alfabetizacao-preview.png',
     imageAlt: 'Modelos de questão do sistema de alfabetização',
@@ -107,7 +107,7 @@ const productCards: {
       pt: 'Três perfis de uso com busca dedicada',
       en: 'Three usage profiles with dedicated search',
     },
-    tags: ['Arquitetura de Informação', 'Pesquisa', 'Personalização'],
+    tags: { pt: ['Arquitetura de Informação', 'Pesquisa', 'Personalização'], en: ['Information Architecture', 'Research', 'Personalization'] },
     href: '/cases/jg-central-ajuda',
     imageSrc: '/images/cases/jovens-genios/central-de-ajuda/jg-central-ajuda-preview.png',
     imageAlt: 'Página inicial da central de ajuda com atalhos por perfil',
@@ -122,7 +122,7 @@ const strategyCards: {
   category: LocaleStr;
   label: LocaleStr;
   title: LocaleStr;
-  tags: string[];
+  tags: { pt: string[]; en: string[] };
   href: string;
   imageSrc: string;
   imageAlt: string;
@@ -135,7 +135,7 @@ const strategyCards: {
     category: { pt: 'Framework de métricas', en: 'Metrics framework' },
     label: { pt: 'Estruturação embasada no HEART', en: 'HEART-based structuring' },
     title: { pt: 'Construção de métricas', en: 'Metrics framework' },
-    tags: ['HEART', 'OKR', 'Produto'],
+    tags: { pt: ['HEART', 'OKR', 'Produto'], en: ['HEART', 'OKR', 'Product'] },
     href: '/cases/sellbie-metricas',
     imageSrc: '/images/cases/sellbie/metricas/sellbie-metricas-preview.png',
     imageAlt: 'Framework HEART estruturado no FigJam',
@@ -148,7 +148,7 @@ const strategyCards: {
     category: { pt: 'Relatório estratégico', en: 'Strategic report' },
     label: { pt: 'Estruturação de indicadores', en: 'indicator structuring' },
     title: { pt: 'Relatório de performance CRM', en: 'CRM performance report' },
-    tags: ['Mapa de oportunidades', 'Figma Make', 'CS'],
+    tags: { pt: ['Mapa de oportunidades', 'Figma Make', 'CS'], en: ['Opportunity mapping', 'Figma Make', 'CS'] },
     href: '/cases/sellbie-crm',
     imageSrc: '/images/cases/sellbie/crm/sellbie-crm-preview.png',
     imageAlt: 'Dashboard de diagnóstico CRM no Figma Make',
@@ -161,7 +161,7 @@ const strategyCards: {
     category: { pt: 'Relatório estratégico', en: 'Strategic report' },
     label: { pt: 'Plano estratégico e relatórios', en: 'Strategic plan and reports' },
     title: { pt: 'Otimização Cashback', en: 'Cashback Optimization' },
-    tags: ['Entrevistas com CS', 'ROAS', 'Figma Make'],
+    tags: { pt: ['Entrevistas com CS', 'ROAS', 'Figma Make'], en: ['CS interviews', 'ROAS', 'Figma Make'] },
     href: '/cases/sellbie-cashback',
     imageSrc: '/images/cases/sellbie/cashback/sellbie-cashback-preview.png',
     imageAlt: 'Dashboard de ROAS do programa de cashback',
@@ -176,7 +176,7 @@ const foundationsCards: {
   category: LocaleStr;
   label: LocaleStr;
   title: LocaleStr;
-  tags: string[];
+  tags: { pt: string[]; en: string[] };
   href: string;
   imageSrc: string;
   imageAlt: string;
@@ -189,7 +189,7 @@ const foundationsCards: {
     category: { pt: 'Arquitetura de navegação', en: 'Navigation architecture' },
     label: { pt: 'Construção com embasamento', en: 'Foundations' },
     title: { pt: 'Arquitetura de informação', en: 'Information Architecture' },
-    tags: ['Card Sorting', 'IA', 'Navegação'],
+    tags: { pt: ['Card Sorting', 'IA', 'Navegação'], en: ['Card Sorting', 'AI', 'Navigation'] },
     href: '/cases/sellbie-arq-info',
     imageSrc: '/images/cases/sellbie/arquitetura/sellbie-arq-info-preview.png',
     imageAlt: 'Board de card sorting da arquitetura de informação',
@@ -263,7 +263,7 @@ export function CasesSection(_props: Props) {
                 category={card.category[locale]}
                 title={card.title[locale]}
                 description={card.description[locale]}
-                tags={card.tags}
+                tags={card.tags[locale]}
                 href={card.href}
                 imageSrc={card.imageSrc}
                 imageAlt={card.imageAlt}
@@ -291,7 +291,7 @@ export function CasesSection(_props: Props) {
                 category={card.category[locale]}
                 label={card.label[locale]}
                 title={card.title[locale]}
-                tags={card.tags}
+                tags={card.tags[locale]}
                 href={card.href}
                 imageSrc={card.imageSrc}
                 imageAlt={card.imageAlt}
@@ -319,7 +319,7 @@ export function CasesSection(_props: Props) {
                 category={card.category[locale]}
                 label={card.label[locale]}
                 title={card.title[locale]}
-                tags={card.tags}
+                tags={card.tags[locale]}
                 href={card.href}
                 imageSrc={card.imageSrc}
                 imageAlt={card.imageAlt}

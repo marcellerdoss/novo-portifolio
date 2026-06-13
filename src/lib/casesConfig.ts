@@ -1,6 +1,6 @@
 export type CaseNavItem = {
   slug: string;
-  title: string;
+  title: { pt: string; en: string };
   company: string;
   href: string;
 };
@@ -8,49 +8,49 @@ export type CaseNavItem = {
 export const casesOrder: CaseNavItem[] = [
   {
     slug: 'sellbie-redesign',
-    title: 'Redesign do core de campanhas',
+    title: { pt: 'Redesign do core de campanhas', en: 'Campaign core redesign' },
     company: 'Sellbie',
     href: '/cases/sellbie-redesign',
   },
   {
     slug: 'sellbie-jornadas',
-    title: 'Jornadas de automação multicanal',
+    title: { pt: 'Jornadas de automação multicanal', en: 'Multichannel automation journeys' },
     company: 'Sellbie',
     href: '/cases/sellbie-jornadas',
   },
   {
     slug: 'jg-alfabetizacao',
-    title: 'Sistema de alfabetização',
+    title: { pt: 'Sistema de alfabetização', en: 'Literacy system' },
     company: 'Jovens Gênios',
     href: '/cases/jg-alfabetizacao',
   },
   {
     slug: 'jg-central-ajuda',
-    title: 'Central de Ajuda por perfil',
+    title: { pt: 'Central de Ajuda por perfil', en: 'Profile-segmented Help Center' },
     company: 'Jovens Gênios',
     href: '/cases/jg-central-ajuda',
   },
   {
     slug: 'sellbie-metricas',
-    title: 'Métricas e Analytics',
+    title: { pt: 'Métricas e Analytics', en: 'Metrics & Analytics' },
     company: 'Sellbie',
     href: '/cases/sellbie-metricas',
   },
   {
     slug: 'sellbie-crm',
-    title: 'CRM e Contatos',
+    title: { pt: 'CRM e Contatos', en: 'CRM & Contacts' },
     company: 'Sellbie',
     href: '/cases/sellbie-crm',
   },
   {
     slug: 'sellbie-cashback',
-    title: 'Cashback e Fidelidade',
+    title: { pt: 'Cashback e Fidelidade', en: 'Cashback & Loyalty' },
     company: 'Sellbie',
     href: '/cases/sellbie-cashback',
   },
   {
     slug: 'sellbie-arq-info',
-    title: 'Arquitetura da informação',
+    title: { pt: 'Arquitetura da informação', en: 'Information Architecture' },
     company: 'Sellbie',
     href: '/cases/sellbie-arq-info',
   },
