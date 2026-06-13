@@ -173,7 +173,7 @@ export default function RacionalPage() {
 
         {/* ── Hero ──────────────────────────────────────────── */}
         <section className="py-section px-6 bg-bg border-b border-border">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <p className="type-caption text-accent-magenta mb-6">Racional do Projeto</p>
             <h1 className="type-display-xl text-fg mb-8" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', lineHeight: 1.05, letterSpacing: '-1.5px', fontWeight: 340 }}>
               Este portfólio foi tratado<br className="hidden md:block" /> como um produto de UX.
@@ -184,7 +184,7 @@ export default function RacionalPage() {
           </div>
         </section>
 
-        <div className="max-w-4xl mx-auto px-6 py-section space-y-0">
+        <div className="max-w-6xl mx-auto px-6 py-section space-y-0">
 
           {/* ── 1. Problema e contexto ──────────────────────── */}
           <section aria-labelledby="problema-heading" className="mb-16">
