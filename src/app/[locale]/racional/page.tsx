@@ -693,90 +693,57 @@ export default function RacionalPage() {
           {/* ── 8. Stack e Ferramentas ───────────────────────── */}
           <Divider />
           <section aria-labelledby="stack-heading" className="mb-16">
-            <SectionLabel>08 — Stack & Ferramentas</SectionLabel>
-            <H2 id="stack-heading">O que foi usado e por quê</H2>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
 
-            <div className="space-y-12">
-              {/* Frontend */}
-              <div>
-                <p className="type-caption text-fg-subtle mb-4">Frontend</p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  <ToolCard
-                    name="Next.js 16 — App Router"
-                    role="Framework React com RSC (React Server Components) e geração estática. Páginas de cases e blog renderizam no servidor — sem JS desnecessário no cliente."
-                    tags={['SSG', 'RSC', 'Turbopack', 'next-intl']}
-                  />
-                  <ToolCard
-                    name="Tailwind CSS v4"
-                    role="Utility-first com @theme inline, tokens CSS nativos e @custom-variant dark. Sem configuração JS — tudo em CSS. Permite coexistência com classes tipográficas customizadas."
-                    tags={['@theme', 'Design tokens', 'CSS vars']}
-                  />
-                  <ToolCard
-                    name="Framer Motion"
-                    role="Animações de entrada suaves (fadeInUp, stagger) em componentes client. Usado com critério — só onde o movimento agrega percepção de qualidade, nunca como decoração."
-                    tags={['Animation', 'Stagger', 'Viewport']}
-                  />
-                  <ToolCard
-                    name="next-intl"
-                    role="Internacionalização com suporte a PT e EN. Arquivos de mensagens JSON, routing por locale (as-needed prefix), traduções server-side via getTranslations."
-                    tags={['i18n', 'PT / EN', 'Server']}
-                  />
-                  <ToolCard
-                    name="next-themes"
-                    role="Dark mode com persistência em localStorage e respeito ao prefers-color-scheme do sistema. Estratégia de classe (.dark) alinhada ao @custom-variant dark do Tailwind."
-                    tags={['Dark mode', 'localStorage', 'System pref']}
-                  />
-                  <ToolCard
-                    name="MDX + rehype"
-                    role="Blog renderizado via MDX com syntax highlighting (rehype-pretty-code, tema github-light/dark), links com slug, tabelas e listas via remark-gfm."
-                    tags={['MDX', 'Blog', 'Syntax highlight']}
-                  />
+              {/* Sidebar — lista compacta (1/3) */}
+              <div className="lg:col-span-1 order-2 lg:order-1">
+                <div className="space-y-8">
+                  {[
+                    {
+                      category: 'Frontend',
+                      tools: ['Next.js 16', 'Tailwind CSS v4', 'Framer Motion', 'next-intl', 'next-themes', 'MDX + rehype'],
+                    },
+                    {
+                      category: 'Infraestrutura',
+                      tools: ['Vercel', 'GitHub', 'Resend'],
+                    },
+                    {
+                      category: 'IA no processo',
+                      tools: ['Claude Code (CLI)', 'Claude Chat'],
+                    },
+                  ].map(({ category, tools }) => (
+                    <div key={category}>
+                      <p className="type-caption text-fg-subtle mb-3">{category}</p>
+                      <ul className="space-y-2">
+                        {tools.map((tool) => (
+                          <li key={tool} className="type-body-sm text-fg">{tool}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
                 </div>
               </div>
 
-              {/* Infraestrutura */}
-              <div>
-                <p className="type-caption text-fg-subtle mb-4">Infraestrutura</p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  <ToolCard
-                    name="Vercel"
-                    role="Deploy automático conectado ao GitHub. Preview URLs para cada PR/branch. Edge network global. Variáveis de ambiente e domínio configurados no dashboard."
-                    tags={['Deploy', 'Edge', 'Preview URLs']}
-                  />
-                  <ToolCard
-                    name="GitHub"
-                    role="Controle de versão com branch main. Pre-commit hook de TypeScript (tsc --noEmit) bloqueia commits com erros de tipo antes de chegarem ao repositório."
-                    tags={['Git', 'Pre-commit hook', 'CI']}
-                  />
-                  <ToolCard
-                    name="Resend"
-                    role="API de e-mail transacional usada no formulário de contato. Envia as mensagens recebidas diretamente para o e-mail da designer sem depender de servidor próprio."
-                    tags={['Email API', 'Transacional', 'Route Handler']}
-                  />
+              {/* Conteúdo principal (2/3) */}
+              <div className="lg:col-span-2 order-1 lg:order-2">
+                <SectionLabel>08 — Stack & Ferramentas</SectionLabel>
+                <H2 id="stack-heading">O que foi usado e por quê</H2>
+                <div className="mt-6 space-y-4">
+                  <Body>
+                    Next.js 16 com App Router e React Server Components como base — renderização no servidor onde possível, cliente onde necessário. Tailwind v4 com tokens CSS nativos eliminou a necessidade de arquivo de configuração JS.
+                  </Body>
+                  <Body>
+                    next-intl para internacionalização PT/EN, next-themes para dark mode persistente, Framer Motion para animações de entrada com critério. Blog via MDX com syntax highlighting. Formulário de contato via Resend sem servidor próprio.
+                  </Body>
                 </div>
-              </div>
-
-              {/* IA */}
-              <div>
-                <p className="type-caption text-fg-subtle mb-4">Inteligência Artificial no processo</p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <ToolCard
-                    name="Claude Code (CLI)"
-                    role="Desenvolvimento assistido por IA diretamente no terminal. Leitura, edição e criação de arquivos; execução de comandos git; TypeScript check integrado. Todo o código foi revisado e direcionado pela designer — a IA executa, a designer decide."
-                    tags={['CLI', 'Code generation', 'Git integration']}
-                  />
-                  <ToolCard
-                    name="Claude Chat (claude.ai)"
-                    role="Exploração de conceitos de UX, racional de decisões de design, revisão de copy e estruturação de conteúdo para casos e artigos antes da implementação."
-                    tags={['UX research', 'Copy', 'Ideação']}
-                  />
-                </div>
-                <Card className="mt-4 bg-block-cream dark:bg-block-cream border-accent-magenta/20">
+                <Card className="mt-8 border-accent-magenta/20">
+                  <p className="type-caption text-accent-magenta mb-2">IA e autoria</p>
                   <p className="type-body-sm text-fg-muted">
-                    <strong className="text-fg">Nota sobre IA e autoria:</strong> O uso de IA neste projeto é intencional e transparente — não como substituto de competência, mas como ferramenta de aceleração. Cada decisão de design, estrutura de informação e escolha de UX é da designer. Claude executa — como um programador júnior que recebe direção clara. A qualidade do output reflete a qualidade do input.
+                    O uso de IA é intencional e transparente. Cada decisão de design, estrutura de informação e escolha de UX é da designer. Claude executa como ferramenta de aceleração. A qualidade do output reflete a qualidade do input.
                   </p>
                 </Card>
               </div>
+
             </div>
           </section>
 
