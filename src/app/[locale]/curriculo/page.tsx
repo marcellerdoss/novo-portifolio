@@ -3,7 +3,7 @@ import { getExperience } from '@/lib/experience';
 import { PrintButton } from '@/components/ui/PrintButton';
 
 export const metadata: Metadata = {
-  title: 'Currículo — Marcelle Rocha',
+  title: { absolute: 'Currículo — Marcelle Rocha' },
   robots: { index: false, follow: false },
 };
 
