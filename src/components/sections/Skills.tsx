@@ -78,7 +78,7 @@ const educationCategories: EducationCategory[] = [
       { name: 'Acessibilidade Digital no CX', institution: 'ESPM' },
       { name: 'Design Thinking', institution: 'B2W Digital' },
       { name: 'Metodologias Ágeis', institution: 'FGV Online' },
-      { name: 'Customer Success', institution: 'Sabre' },
+      { name: 'Customer Success', institution: 'SEBRAE' },
     ],
   },
 ];
