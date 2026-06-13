@@ -53,7 +53,7 @@ export function CaseCard({
                 <div className="absolute top-0 inset-x-0 z-10 flex justify-center">
                   <div className="w-[36%] h-[10px] bg-neutral-900 dark:bg-white rounded-b-full" />
                 </div>
-                <Image src={imageSrc} alt={imageAlt} fill sizes="100vw" className="object-cover object-top" />
+                <Image src={imageSrc} alt={imageAlt} fill sizes="100vw" loading="eager" className="object-cover object-top" />
               </div>
             </div>
           )}
@@ -67,7 +67,7 @@ export function CaseCard({
                   <div className="absolute top-0 inset-x-0 z-10 flex justify-center pt-[5px]">
                     <div className="w-1.5 h-1.5 rounded-full bg-neutral-500 dark:bg-white/60" />
                   </div>
-                  <Image src={imageSrc} alt={imageAlt} fill sizes="100vw" className="object-cover object-top" />
+                  <Image src={imageSrc} alt={imageAlt} fill sizes="100vw" loading="eager" className="object-cover object-top" />
                 </div>
                 <div className="h-[5px] bg-neutral-900 dark:bg-white" />
                 <div className="flex justify-center">
@@ -79,7 +79,7 @@ export function CaseCard({
           {!mockup && (
             <>
               <div className="absolute inset-0 bg-canvas" />
-              <Image src={imageSrc} alt={imageAlt} fill sizes="100vw" className="object-cover object-left-top" />
+              <Image src={imageSrc} alt={imageAlt} fill sizes="100vw" loading="eager" className="object-cover object-left-top" />
               {company && (
                 <span className="absolute top-3 right-4 type-caption text-fg-subtle">{company}</span>
               )}
@@ -127,7 +127,7 @@ export function CaseCard({
                   <div className="absolute top-0 inset-x-0 z-10 flex justify-center">
                     <div className="w-[36%] h-[10px] bg-neutral-900 dark:bg-white rounded-b-full" />
                   </div>
-                  <Image src={imageSrc} alt={imageAlt} fill sizes="50vw" className="object-cover object-top" />
+                  <Image src={imageSrc} alt={imageAlt} fill sizes="50vw" loading="eager" className="object-cover object-top" />
                 </div>
               )}
               {mockup === 'desktop' && (
@@ -141,7 +141,7 @@ export function CaseCard({
                     <div className="absolute top-0 inset-x-0 z-10 flex justify-center pt-[5px]">
                       <div className="w-1.5 h-1.5 rounded-full bg-neutral-500 dark:bg-white/60" />
                     </div>
-                    <Image src={imageSrc} alt={imageAlt} fill sizes="50vw" className="object-cover object-top" />
+                    <Image src={imageSrc} alt={imageAlt} fill sizes="50vw" loading="eager" className="object-cover object-top" />
                   </div>
                   {/* Barra inferior */}
                   <div className="absolute bottom-[-5px] left-0 right-0 h-[5px] bg-neutral-900 dark:bg-white" />
@@ -153,7 +153,7 @@ export function CaseCard({
               )}
               {!mockup && (
                 <div className="absolute inset-0">
-                  <Image src={imageSrc} alt={imageAlt} fill sizes="50vw" className="object-cover object-left-top" />
+                  <Image src={imageSrc} alt={imageAlt} fill sizes="50vw" loading="eager" className="object-cover object-left-top" />
                   {company && (
                     <span className="absolute top-3 right-4 type-caption text-fg-subtle">{company}</span>
                   )}

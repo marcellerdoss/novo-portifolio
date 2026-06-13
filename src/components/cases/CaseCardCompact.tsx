@@ -53,7 +53,7 @@ export function CaseCardCompact({
                 <div className="absolute top-0 inset-x-0 z-10 flex justify-center">
                   <div className="w-[36%] h-[8px] bg-neutral-900 dark:bg-white rounded-b-full" />
                 </div>
-                <Image src={imageSrc} alt={imageAlt} fill sizes="100vw" className="object-cover object-top" />
+                <Image src={imageSrc} alt={imageAlt} fill sizes="100vw" loading="eager" className="object-cover object-top" />
               </div>
             </div>
           )}
@@ -67,7 +67,7 @@ export function CaseCardCompact({
                   <div className="absolute top-0 inset-x-0 z-10 flex justify-center pt-[4px]">
                     <div className="w-1 h-1 rounded-full bg-neutral-500 dark:bg-white/60" />
                   </div>
-                  <Image src={imageSrc} alt={imageAlt} fill sizes="100vw" className="object-cover object-top" />
+                  <Image src={imageSrc} alt={imageAlt} fill sizes="100vw" loading="eager" className="object-cover object-top" />
                 </div>
                 <div className="h-[4px] bg-neutral-900 dark:bg-white" />
                 <div className="flex justify-center">
@@ -79,7 +79,7 @@ export function CaseCardCompact({
           {!mockup && (
             <>
               <div className="absolute inset-0 bg-canvas" />
-              <Image src={imageSrc} alt={imageAlt} fill sizes="100vw" className="object-cover object-left-top" />
+              <Image src={imageSrc} alt={imageAlt} fill sizes="100vw" loading="eager" className="object-cover object-left-top" />
               {company && (
                 <span className="absolute top-3 right-3 type-caption text-fg-subtle">{company}</span>
               )}
