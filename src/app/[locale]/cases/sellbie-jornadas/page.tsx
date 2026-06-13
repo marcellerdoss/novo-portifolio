@@ -119,7 +119,7 @@ export default async function SellbieJornadasPage({ params }: Props) {
               ? ['Product Design', 'New Product', 'AI & Automation', 'Workflow', 'Omnichannel']
               : ['Product Design', 'Produto Novo', 'IA & Automação', 'Workflow', 'Omnichannel']
             ).map(tag => (
-              <span key={tag} className="type-caption rounded-full border border-border px-2 py-0.5 leading-none text-fg-subtle">
+              <span key={tag} className="type-caption rounded-full px-2 py-0.5 leading-none text-fg-subtle">
                 {tag}
               </span>
             ))}

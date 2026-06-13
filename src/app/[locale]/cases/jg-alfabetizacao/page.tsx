@@ -112,7 +112,7 @@ export default async function JgAlfabetizacaoPage({ params }: Props) {
               ? ['UX Research', 'Pedagogical Architecture', 'Field Testing', 'Design System']
               : ['UX Research', 'Arquitetura Pedagógica', 'Testes em Campo', 'Design System']
             ).map(tag => (
-              <span key={tag} className="type-caption rounded-full border border-border px-2 py-0.5 leading-none text-fg-subtle">
+              <span key={tag} className="type-caption rounded-full px-2 py-0.5 leading-none text-fg-subtle">
                 {tag}
               </span>
             ))}

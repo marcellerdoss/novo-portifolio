@@ -105,7 +105,7 @@ export function Skills({ inline }: Props) {
               <motion.span
                 key={skill}
                 variants={fadeInUp}
-                className="type-caption text-fg-subtle border border-border rounded-full px-2 py-0.5 leading-none"
+                className="type-caption text-fg-subtle rounded-full px-2 py-0.5 leading-none"
               >
                 {skill}
               </motion.span>

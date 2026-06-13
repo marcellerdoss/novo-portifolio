@@ -114,7 +114,7 @@ export default async function SellbieCashbackPage({ params }: Props) {
               ? ['CS Interviews', 'Strategic plan', 'ROAS Dashboard', 'Pricing Report', 'Figma Make']
               : ['Entrevistas com CS', 'Plano estratégico', 'Dashboard de ROAS', 'Relatório de Precificação', 'Figma Make']
             ).map(tag => (
-              <span key={tag} className="type-caption rounded-full border border-border px-2 py-0.5 leading-none text-fg-subtle">
+              <span key={tag} className="type-caption rounded-full px-2 py-0.5 leading-none text-fg-subtle">
                 {tag}
               </span>
             ))}

@@ -112,7 +112,7 @@ export default async function JgCentralAjudaPage({ params }: Props) {
               ? ['Information Architecture', 'User Research', 'Personalization']
               : ['Arquitetura de Informação', 'Pesquisa com usuários', 'Personalização']
             ).map(tag => (
-              <span key={tag} className="type-caption rounded-full border border-border px-2 py-0.5 leading-none text-fg-subtle">
+              <span key={tag} className="type-caption rounded-full px-2 py-0.5 leading-none text-fg-subtle">
                 {tag}
               </span>
             ))}
