@@ -98,7 +98,7 @@ function ColorScaleRow({
               <p className={`text-[9px] leading-none text-center font-mono ${isBase ? 'text-accent-magenta font-bold' : 'text-fg-subtle'}`}>
                 {stop}
               </p>
-              <p className={`text-[8px] leading-none text-center font-mono tracking-tight ${isBase ? 'text-accent-magenta' : 'text-fg-subtle'}`}>
+              <p className={`hidden sm:block text-[8px] leading-none text-center font-mono tracking-tight ${isBase ? 'text-accent-magenta' : 'text-fg-subtle'}`}>
                 {hex.slice(1)}
               </p>
             </div>
