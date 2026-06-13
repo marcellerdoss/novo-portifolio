@@ -2,55 +2,89 @@ import type { Metadata } from 'next';
 import { getExperience } from '@/lib/experience';
 import { PrintButton } from '@/components/ui/PrintButton';
 
-export const metadata: Metadata = {
-  title: { absolute: 'Currículo — Marcelle Rocha' },
-  robots: { index: false, follow: false },
-};
+type Props = { params: Promise<{ locale: string }> };
 
-const summary =
-  'Product Designer com mais de 13 anos de atuação em produtos digitais. Especializada em UX Strategy, pesquisa com usuários e design de experiências B2B em SaaS, EdTech e e-commerce de larga escala. Histórico de redesenho de fluxos críticos, estruturação de design systems e validação de hipóteses orientadas a dados e comportamento do usuário.';
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  return {
+    title: { absolute: locale === 'en' ? 'Resume — Marcelle Rocha' : 'Currículo — Marcelle Rocha' },
+    robots: { index: false, follow: false },
+  };
+}
 
-const skillSections = [
-  {
-    label: 'Design & UX',
-    items: ['Figma', 'UI Design', 'UX Design', 'Design System', 'Arquitetura da Informação', 'Design de Fluxos', 'Acessibilidade'],
+/* ── bilingual content ──────────────────────────────────── */
+const content = {
+  pt: {
+    title: 'Product Designer · UX Strategy',
+    location: 'Rio de Janeiro, RJ',
+    summary: 'Product Designer com mais de 13 anos de atuação em produtos digitais. Especializada em UX Strategy, pesquisa com usuários e design de experiências B2B em SaaS, EdTech e e-commerce de larga escala. Histórico de redesenho de fluxos críticos, estruturação de design systems e validação de hipóteses orientadas a dados e comportamento do usuário.',
+    skillSections: [
+      { label: 'Design & UX',       items: ['Figma', 'UI Design', 'UX Design', 'Design System', 'Arquitetura da Informação', 'Design de Fluxos', 'Acessibilidade'] },
+      { label: 'Pesquisa',          items: ['Entrevistas com Usuários', 'Testes de Usabilidade', 'Card Sorting', 'Análise Heurística', 'Benchmarking', 'Tree Testing'] },
+      { label: 'Estratégia',        items: ['CX Strategy', 'Consumer Insights', 'Estratégia de Produto', 'Facilitação', 'Design Thinking', 'Agile'] },
+      { label: 'IA & Ferramentas',  items: ['Plataformas com IA', 'Figma Make', 'Claude Code', 'Claude Design'] },
+      { label: 'Soft Skills',       items: ['Comunicação', 'Storytelling', 'Liderança'] },
+    ],
+    education: [
+      { name: 'UX e Design de Produtos Digitais',    institution: 'PUC Minas' },
+      { name: 'Gestão da Experiência do Consumidor', institution: 'ESPM' },
+      { name: 'Consumer Insights e UX',              institution: 'COPPEAD UFRJ' },
+      { name: 'Comunicação Social',                  institution: 'Estácio' },
+    ],
+    certifications: [
+      { name: 'Product Designer',                    institution: 'Mergo Escola de Design' },
+      { name: 'UX Research · UX Metrics · UX Writing', institution: 'Mergo Escola de Design' },
+      { name: 'Design de Serviço',                   institution: 'Mergo Escola de Design' },
+      { name: 'Product Manager',                     institution: 'Product Arena' },
+      { name: 'Acessibilidade Digital no CX',        institution: 'ESPM' },
+      { name: 'Design Thinking',                     institution: 'B2W Digital' },
+      { name: 'Metodologias Ágeis',                  institution: 'FGV Online' },
+      { name: 'Customer Success',                    institution: 'SEBRAE' },
+      { name: 'IA para Gestão de Produtos',          institution: 'PRAGMA' },
+    ],
+    labels: {
+      education: 'Formação',
+      certifications: 'Certificações',
+      experience: 'Experiência Profissional',
+      footer: 'marcellerocha.com.br · Portfólio completo disponível online',
+    },
   },
-  {
-    label: 'Pesquisa',
-    items: ['Entrevistas com Usuários', 'Testes de Usabilidade', 'Card Sorting', 'Análise Heurística', 'Benchmarking', 'Tree Testing'],
+  en: {
+    title: 'Product Designer · UX Strategy',
+    location: 'Rio de Janeiro, Brazil',
+    summary: 'Product Designer with 13+ years of experience in digital products. Specialized in UX Strategy, user research, and design of B2B experiences in SaaS, EdTech, and large-scale e-commerce. Track record of redesigning critical flows, building design systems, and validating hypotheses through data and user behavior.',
+    skillSections: [
+      { label: 'Design & UX',    items: ['Figma', 'UI Design', 'UX Design', 'Design System', 'Information Architecture', 'User Flow Design', 'Accessibility'] },
+      { label: 'Research',       items: ['User Interviews', 'Usability Testing', 'Card Sorting', 'Heuristic Analysis', 'Benchmarking', 'Tree Testing'] },
+      { label: 'Strategy',       items: ['CX Strategy', 'Consumer Insights', 'Product Strategy', 'Facilitation', 'Design Thinking', 'Agile'] },
+      { label: 'AI & Tools',     items: ['AI Platforms', 'Figma Make', 'Claude Code', 'Claude Design'] },
+      { label: 'Soft Skills',    items: ['Communication', 'Storytelling', 'Leadership'] },
+    ],
+    education: [
+      { name: 'UX and Digital Product Design',       institution: 'PUC Minas' },
+      { name: 'Consumer Experience Management',      institution: 'ESPM' },
+      { name: 'Consumer Insights and UX',            institution: 'COPPEAD UFRJ' },
+      { name: 'Social Communication',                institution: 'Estácio' },
+    ],
+    certifications: [
+      { name: 'Product Designer',                    institution: 'Mergo Escola de Design' },
+      { name: 'UX Research · UX Metrics · UX Writing', institution: 'Mergo Escola de Design' },
+      { name: 'Service Design',                      institution: 'Mergo Escola de Design' },
+      { name: 'Product Manager',                     institution: 'Product Arena' },
+      { name: 'Digital Accessibility in CX',         institution: 'ESPM' },
+      { name: 'Design Thinking',                     institution: 'B2W Digital' },
+      { name: 'Agile Methodologies',                 institution: 'FGV Online' },
+      { name: 'Customer Success',                    institution: 'SEBRAE' },
+      { name: 'AI for Product Management',           institution: 'PRAGMA' },
+    ],
+    labels: {
+      education: 'Education',
+      certifications: 'Certifications',
+      experience: 'Professional Experience',
+      footer: 'marcellerocha.com.br · Full portfolio available online',
+    },
   },
-  {
-    label: 'Estratégia',
-    items: ['CX Strategy', 'Consumer Insights', 'Estratégia de Produto', 'Facilitação', 'Design Thinking', 'Agile'],
-  },
-  {
-    label: 'IA & Ferramentas',
-    items: ['Plataformas com IA', 'Figma Make', 'Claude Code', 'Claude Design'],
-  },
-  {
-    label: 'Soft Skills',
-    items: ['Comunicação', 'Storytelling', 'Liderança'],
-  },
-];
-
-const education = [
-  { name: 'UX e Design de Produtos Digitais', institution: 'PUC Minas' },
-  { name: 'Gestão da Experiência do Consumidor', institution: 'ESPM' },
-  { name: 'Consumer Insights e UX', institution: 'COPPEAD UFRJ' },
-  { name: 'Comunicação Social', institution: 'Estácio' },
-];
-
-const certifications = [
-  { name: 'Product Designer', institution: 'Mergo Escola de Design' },
-  { name: 'UX Research · UX Metrics · UX Writing', institution: 'Mergo Escola de Design' },
-  { name: 'Design de Serviço', institution: 'Mergo Escola de Design' },
-  { name: 'Product Manager', institution: 'Product Arena' },
-  { name: 'Acessibilidade Digital no CX', institution: 'ESPM' },
-  { name: 'Design Thinking', institution: 'B2W Digital' },
-  { name: 'Metodologias Ágeis', institution: 'FGV Online' },
-  { name: 'Customer Success', institution: 'SEBRAE' },
-  { name: 'IA para Gestão de Produtos', institution: 'PRAGMA' },
-];
+} as const;
 
 /* ── design tokens ──────────────────────────────────────── */
 const C = {
@@ -61,10 +95,13 @@ const C = {
   border:  '#e0e0de',
 };
 
-/* ── how many experience items to show ─────────────────── */
 const EXPERIENCE_LIMIT = 6;
 
-export default async function CurriculoPage() {
+export default async function CurriculoPage({ params }: Props) {
+  const { locale } = await params;
+  const l = (locale === 'en' ? 'en' : 'pt') as 'pt' | 'en';
+  const c = content[l];
+
   const allExperience = await getExperience();
   const experience = allExperience.slice(0, EXPERIENCE_LIMIT);
 
@@ -110,30 +147,21 @@ export default async function CurriculoPage() {
 
         {/* ── Header ────────────────────────────────────────── */}
         <div style={{ borderBottom: `2px solid ${C.navy}`, paddingBottom: '1.25rem', marginBottom: '1.5rem' }}>
-          <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '1.5rem' }}>
-
-            {/* Name + title + contact */}
-            <div style={{ flex: 1 }}>
-              <h1 style={{ fontSize: '27px', fontWeight: 700, lineHeight: 1, letterSpacing: '-0.5px', margin: 0, color: C.navy }}>
-                Marcelle Rocha
-              </h1>
-              <p style={{ fontSize: '11px', fontWeight: 400, letterSpacing: '0.8px', textTransform: 'uppercase', color: C.magenta, marginTop: '6px', marginBottom: '10px' }}>
-                Product Designer · UX Strategy
-              </p>
-              <div style={{ display: 'flex', gap: '1.25rem', flexWrap: 'wrap', fontSize: '10.5px', color: C.subtle }}>
-                <span>marcelle.rdoss@gmail.com</span>
-                <span style={{ color: C.border }}>·</span>
-                <span>linkedin.com/in/marcelle-rocha-dos-santos</span>
-                <span style={{ color: C.border }}>·</span>
-                <span>Rio de Janeiro, RJ</span>
-              </div>
-            </div>
-
+          <h1 style={{ fontSize: '27px', fontWeight: 700, lineHeight: 1, letterSpacing: '-0.5px', margin: 0, color: C.navy }}>
+            Marcelle Rocha
+          </h1>
+          <p style={{ fontSize: '11px', fontWeight: 400, letterSpacing: '0.8px', textTransform: 'uppercase', color: C.magenta, marginTop: '6px', marginBottom: '10px' }}>
+            {c.title}
+          </p>
+          <div style={{ display: 'flex', gap: '1.25rem', flexWrap: 'wrap', fontSize: '10.5px', color: C.subtle }}>
+            <span>marcelle.rdoss@gmail.com</span>
+            <span style={{ color: C.border }}>·</span>
+            <span>linkedin.com/in/marcelle-rocha-dos-santos</span>
+            <span style={{ color: C.border }}>·</span>
+            <span>{c.location}</span>
           </div>
-
-          {/* Summary */}
           <p style={{ margin: '14px 0 0', fontSize: '11px', color: C.muted, lineHeight: 1.65, maxWidth: '680px' }}>
-            {summary}
+            {c.summary}
           </p>
         </div>
 
@@ -143,7 +171,7 @@ export default async function CurriculoPage() {
           {/* ─── Left column ────────────────────────────────── */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
 
-            {skillSections.map(({ label, items }) => (
+            {c.skillSections.map(({ label, items }) => (
               <div key={label} className="avoid-break">
                 <Label>{label}</Label>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px', marginTop: '7px' }}>
@@ -168,9 +196,9 @@ export default async function CurriculoPage() {
             ))}
 
             <div className="avoid-break">
-              <Label>Formação</Label>
+              <Label>{c.labels.education}</Label>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '7px' }}>
-                {education.map(item => (
+                {c.education.map(item => (
                   <div key={item.name}>
                     <p style={{ margin: 0, fontSize: '10px', fontWeight: 520, color: C.navy, lineHeight: 1.4 }}>{item.name}</p>
                     <p style={{ margin: 0, fontSize: '10px', color: C.subtle, lineHeight: 1.3 }}>{item.institution}</p>
@@ -180,9 +208,9 @@ export default async function CurriculoPage() {
             </div>
 
             <div className="avoid-break">
-              <Label>Certificações</Label>
+              <Label>{c.labels.certifications}</Label>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '7px', marginTop: '7px' }}>
-                {certifications.map(item => (
+                {c.certifications.map(item => (
                   <div key={item.name}>
                     <p style={{ margin: 0, fontSize: '10px', fontWeight: 520, color: C.navy, lineHeight: 1.4 }}>{item.name}</p>
                     <p style={{ margin: 0, fontSize: '10px', color: C.subtle, lineHeight: 1.3 }}>{item.institution}</p>
@@ -195,7 +223,7 @@ export default async function CurriculoPage() {
 
           {/* ─── Right column: Experience ────────────────────── */}
           <div>
-            <Label>Experiência Profissional</Label>
+            <Label>{c.labels.experience}</Label>
             <div style={{ marginTop: '10px' }}>
               {experience.map((item, i) => (
                 <div
@@ -209,7 +237,7 @@ export default async function CurriculoPage() {
                 >
                   <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '8px', marginBottom: '2px' }}>
                     <p style={{ margin: 0, fontSize: '11.5px', fontWeight: 560, color: C.navy, lineHeight: 1.35, letterSpacing: '-0.1px' }}>
-                      {item.role.pt}
+                      {item.role[l]}
                     </p>
                     <p style={{ margin: 0, fontSize: '10px', color: C.magenta, whiteSpace: 'nowrap', flexShrink: 0, fontWeight: 400, paddingTop: '1px' }}>
                       {item.period}
@@ -219,7 +247,7 @@ export default async function CurriculoPage() {
                     {item.company}
                   </p>
                   <p style={{ margin: 0, fontSize: '10.5px', color: C.muted, lineHeight: 1.55 }}>
-                    {item.description.pt}
+                    {item.description[l]}
                   </p>
                 </div>
               ))}
@@ -231,7 +259,7 @@ export default async function CurriculoPage() {
         {/* ── Footer strip ──────────────────────────────────── */}
         <div style={{ marginTop: '1.75rem', paddingTop: '0.75rem', borderTop: `1px solid ${C.border}` }}>
           <p style={{ margin: 0, fontSize: '9px', color: '#bbbbbb', letterSpacing: '0.5px', textTransform: 'uppercase', textAlign: 'center' }}>
-            marcellerocha.com.br · Portfólio completo disponível online
+            {c.labels.footer}
           </p>
         </div>
 
