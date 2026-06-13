@@ -56,25 +56,19 @@ export async function Footer() {
               {t('credit')} <span className="text-white/55">Marcelle</span>
             </p>
 
-            <div className="flex flex-col gap-2">
-              <Link
-                href="/racional"
-                className="group w-fit flex items-center gap-2 border border-white/15 hover:border-white/35 rounded-xl px-4 py-2.5 transition-all duration-200 hover:bg-white/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
-              >
-                <p className="type-body-sm text-white/80 group-hover:text-white transition-colors duration-200 font-[440]">
-                  {t('rationale')}
-                </p>
-                <ArrowUpRight
-                  size={14}
-                  className="text-white/30 group-hover:text-white/70 transition-colors duration-200 shrink-0"
-                  aria-hidden="true"
-                />
-              </Link>
-
-              <p className="type-body-xs text-white/40 leading-snug normal-case tracking-normal max-w-[13rem]">
-                {t('rationale_sub')}
+            <Link
+              href="/racional"
+              className="group w-fit flex items-center gap-2 border border-white/15 hover:border-white/35 rounded-xl px-4 py-2.5 transition-all duration-200 hover:bg-white/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            >
+              <p className="type-body-sm text-white/80 group-hover:text-white transition-colors duration-200 font-[440]">
+                {t('rationale')}
               </p>
-            </div>
+              <ArrowUpRight
+                size={14}
+                className="text-white/30 group-hover:text-white/70 transition-colors duration-200 shrink-0"
+                aria-hidden="true"
+              />
+            </Link>
           </div>
 
         </div>
