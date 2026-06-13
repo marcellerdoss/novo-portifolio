@@ -255,10 +255,12 @@ export default function RacionalPage() {
                 { section: 'Artigos', why: 'Sinal de profundidade — quem escreve sobre o campo domina o campo' },
                 { section: 'Contato', why: 'CTA final — depois que o usuário já foi convencido' },
               ].map(({ section, why }) => (
-                <div key={section} className="flex gap-4 items-start p-4 rounded-lg border border-border">
-                  <span className="type-caption text-accent-magenta shrink-0 w-28">{section}</span>
-                  <span className="type-body-sm text-fg-muted">{why}</span>
-                </div>
+                <Card key={section}>
+                  <div className="flex gap-4 items-start">
+                    <p className="type-body-strong text-fg shrink-0 w-28">{section}</p>
+                    <p className="type-body-sm text-fg-muted">{why}</p>
+                  </div>
+                </Card>
               ))}
             </div>
           </section>
