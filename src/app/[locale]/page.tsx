@@ -100,8 +100,8 @@ export default async function Home({ params }: Props) {
       <CasesSection cases={cases} />
       <BlogPreview posts={posts} />
       <Racional />
-      <Skills />
       <Experience items={experience} />
+      <Skills />
       <Contact />
       <BackToTop />
     </>
