@@ -28,7 +28,7 @@ export async function Footer() {
           {/* Col 1 — Brand */}
           <div>
             <p className="type-headline text-white mb-1">Marcelle Rocha</p>
-            <p className="type-body-sm text-white/60">Product Designer | UX | CX</p>
+            <p className="type-body-sm text-accent-magenta">Product Designer | UX | CX</p>
           </div>
 
           {/* Col 2 — Nav */}
