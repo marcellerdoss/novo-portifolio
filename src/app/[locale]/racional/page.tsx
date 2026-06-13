@@ -618,15 +618,8 @@ export default function RacionalPage() {
                 },
               ].map(({ phase, type, content }) => (
                 <Card key={phase}>
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="w-7 h-7 rounded-sm bg-block-navy dark:bg-white/10 text-white flex items-center justify-center type-caption shrink-0" aria-hidden="true">
-                      {phase[0]}
-                    </span>
-                    <div>
-                      <p className="type-caption text-fg-subtle">{type}</p>
-                      <p className="type-body-strong text-fg">{phase}</p>
-                    </div>
-                  </div>
+                  <p className="type-caption text-fg-subtle mb-1">{type}</p>
+                  <p className="type-body-strong text-fg mb-4">{phase}</p>
                   <BodySm>{content}</BodySm>
                 </Card>
               ))}
