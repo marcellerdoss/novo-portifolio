@@ -10,7 +10,6 @@ import { BlogPreview } from '@/components/sections/Blog';
 import { Contact } from '@/components/sections/Contact';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { BackToTop } from '@/components/ui/BackToTop';
-import { getCases } from '@/lib/cases';
 import { getExperience } from '@/lib/experience';
 import { getAllPosts } from '@/lib/mdx';
 import { siteConfig } from '@/lib/config';
@@ -65,8 +64,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Home({ params }: Props) {
   const { locale } = await params;
 
-  const [cases, experience, posts] = await Promise.all([
-    getCases(),
+  const [experience, posts] = await Promise.all([
     getExperience(),
     getAllPosts(locale as 'pt' | 'en'),
   ]);
@@ -95,9 +93,9 @@ export default async function Home({ params }: Props) {
     <>
       <JsonLd data={personSchema} />
       <Hero />
-      <MarqueeStrip />
+      <MarqueeStrip locale={locale} />
       <About />
-      <CasesSection cases={cases} />
+      <CasesSection />
       <BlogPreview posts={posts} />
       <Racional />
       <Experience items={experience} />

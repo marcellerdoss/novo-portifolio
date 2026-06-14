@@ -1,11 +1,14 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useLocale } from 'next-intl';
 import { useFontSize } from '@/lib/hooks/useFontSize';
 
 export function AccessibilityBar() {
   const [highContrast, setHighContrast] = useState(false);
   const { fontSize, applyFont } = useFontSize();
+  const locale = useLocale();
+  const en = locale === 'en';
 
   useEffect(() => {
     const on = localStorage.getItem('a11y-contrast') === '1';
@@ -19,12 +22,19 @@ export function AccessibilityBar() {
     setHighContrast(on);
   }
 
-  const skipLinks = [
-    { label: 'Ir para o conteúdo', num: '1', href: '#main-content' },
-    { label: 'Ir para o menu',     num: '2', href: '#main-nav' },
-    { label: 'Ir para o rodapé',   num: '3', href: '#footer' },
-    { label: 'Acessibilidade',      num: '4', href: '/racional' },
-  ];
+  const skipLinks = en
+    ? [
+        { label: 'Skip to content',  short: 'Content',       num: '1', href: '#main-content' },
+        { label: 'Skip to menu',     short: 'Menu',          num: '2', href: '#main-nav' },
+        { label: 'Skip to footer',   short: 'Footer',        num: '3', href: '#footer' },
+        { label: 'Accessibility',    short: 'A11y',          num: '4', href: '/racional' },
+      ]
+    : [
+        { label: 'Ir para o conteúdo', short: 'Conteúdo',   num: '1', href: '#main-content' },
+        { label: 'Ir para o menu',     short: 'Menu',        num: '2', href: '#main-nav' },
+        { label: 'Ir para o rodapé',   short: 'Rodapé',      num: '3', href: '#footer' },
+        { label: 'Acessibilidade',     short: 'A11y',        num: '4', href: '/racional' },
+      ];
 
   const btnBase =
     'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded transition-colors duration-150';
@@ -32,21 +42,21 @@ export function AccessibilityBar() {
   return (
     <div
       role="navigation"
-      aria-label="Barra de acessibilidade"
+      aria-label={en ? 'Accessibility bar' : 'Barra de acessibilidade'}
       className="fixed top-0 left-0 right-0 z-50 h-11 bg-[#09081c] flex items-center select-none"
     >
       <div className="max-w-6xl mx-auto px-6 w-full flex items-center justify-between gap-4">
 
         {/* Skip links — WCAG 2.4.1, e-MAG 1.1 */}
         <ul className="flex items-center m-0 p-0 list-none -ml-3" role="list">
-          {skipLinks.map(({ label, num, href }, i) => (
+          {skipLinks.map(({ label, short, num, href }, i) => (
             <li key={num} className={`flex items-center ${i > 0 ? 'hidden sm:flex' : ''}`}>
               <a
                 href={href}
                 className={`text-white/80 hover:text-white text-[11px] font-medium tracking-[0.06em] uppercase px-3 py-1 hover:underline underline-offset-2 ${btnBase}`}
               >
                 <span className="hidden sm:inline">{label}{' '}</span>
-                <span className="sm:hidden">{i === 0 ? 'Conteúdo' : label}{' '}</span>
+                <span className="sm:hidden">{i === 0 ? short : label}{' '}</span>
                 <span className="opacity-40">[{num}]</span>
               </a>
               {i < skipLinks.length - 1 && (
@@ -60,24 +70,24 @@ export function AccessibilityBar() {
         <div className="flex items-center gap-5 shrink-0">
 
           {/* Contrast — WCAG 1.4.3, ABNT NBR 17060 */}
-          <div className="flex items-center gap-2" role="group" aria-label="Contraste">
+          <div className="flex items-center gap-2" role="group" aria-label={en ? 'Contrast' : 'Contraste'}>
             <span className="text-white/40 text-[10px] font-semibold tracking-[0.1em] uppercase hidden sm:block">
-              Contraste:
+              {en ? 'Contrast:' : 'Contraste:'}
             </span>
             <button
               type="button"
               onClick={() => applyContrast(true)}
-              aria-label="Alto contraste"
+              aria-label={en ? 'High contrast' : 'Alto contraste'}
               aria-pressed={highContrast}
-              title="Ativar alto contraste"
+              title={en ? 'Enable high contrast' : 'Ativar alto contraste'}
               className={`w-6 h-6 rounded-full bg-black border-2 ${highContrast ? 'border-white' : 'border-white/50 hover:border-white/80'} ${btnBase}`}
             />
             <button
               type="button"
               onClick={() => applyContrast(false)}
-              aria-label="Contraste normal"
+              aria-label={en ? 'Normal contrast' : 'Contraste normal'}
               aria-pressed={!highContrast}
-              title="Contraste normal"
+              title={en ? 'Normal contrast' : 'Contraste normal'}
               className={`w-6 h-6 rounded-full bg-white border-2 ${!highContrast ? 'border-white' : 'border-white/50 hover:border-white/80'} ${btnBase}`}
             />
           </div>

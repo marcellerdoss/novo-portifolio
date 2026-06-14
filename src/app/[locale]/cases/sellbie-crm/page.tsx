@@ -151,11 +151,6 @@ export default async function SellbieCrmPage({ params }: Props) {
                   : 'O mapa de oportunidades traduziu cada atrito identificado no discovery em uma lacuna do produto e conectou cada lacuna a uma solução candidata e ao resultado esperado para o CS. Esse mapeamento foi o que definiu o escopo do relatório — e o que ficou de fora da primeira versão.'}
               </Body>
             </div>
-            <CaseImg
-              src="/images/cases/sellbie/crm/sellbie-crm-relatorio-mapa-oportunidades.png"
-              alt={en ? 'Opportunity map with problems and solutions connected' : 'Mapa de oportunidades com problemas e soluções conectados'}
-              caption={en ? 'Opportunity map — each problem connected to solution and expected outcome.' : 'Mapa de oportunidades — cada problema conectado a solução e resultado esperado.'}
-            />
           </section>
 
           <Divider />

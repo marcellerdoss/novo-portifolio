@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import { ZoomIn } from 'lucide-react';
+import { useLocale } from 'next-intl';
 import { Lightbox } from './Lightbox';
 
 export interface CaseBeforeAfterProps {
@@ -28,6 +29,7 @@ export function CaseBeforeAfter({
   unoptimized,
 }: CaseBeforeAfterProps) {
   const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
+  const locale = useLocale();
 
   return (
     <>
@@ -35,12 +37,12 @@ export function CaseBeforeAfter({
 
         {/* Before */}
         <figure className="space-y-1">
-          <span className="ml-4 block type-caption text-fg-subtle">Antes</span>
+          <span className="ml-4 block type-caption text-fg-subtle">{locale === 'en' ? 'Before' : 'Antes'}</span>
           <button
             type="button"
             onClick={() => setLightbox({ src: imageBefore, alt: altBefore })}
-            aria-label={`Ampliar: ${altBefore}`}
-            className="group block w-full bg-white rounded-2xl p-2 shadow-sm ring-1 ring-black/5 cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg"
+            aria-label={`${locale === 'en' ? 'Zoom in: ' : 'Ampliar: '}${altBefore}`}
+            className="group block w-full bg-white dark:bg-surface-soft rounded-2xl p-2 shadow-sm ring-1 ring-black/5 dark:ring-white/10 cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg"
           >
             <div className="relative rounded-[8px] overflow-hidden">
               <Image
@@ -56,7 +58,7 @@ export function CaseBeforeAfter({
               <div className="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-150">
                 <span className="flex items-center gap-2 bg-black/50 backdrop-blur-sm text-white rounded-full px-3 py-1 type-caption">
                   <ZoomIn size={11} aria-hidden="true" />
-                  ampliar
+                  {locale === 'en' ? 'zoom in' : 'ampliar'}
                 </span>
               </div>
             </div>
@@ -68,12 +70,12 @@ export function CaseBeforeAfter({
 
         {/* After */}
         <figure className="space-y-1">
-          <span className="ml-4 block type-caption text-fg-subtle">Depois</span>
+          <span className="ml-4 block type-caption text-fg-subtle">{locale === 'en' ? 'After' : 'Depois'}</span>
           <button
             type="button"
             onClick={() => setLightbox({ src: imageAfter, alt: altAfter })}
-            aria-label={`Ampliar: ${altAfter}`}
-            className="group block w-full bg-white rounded-2xl p-2 shadow-sm ring-1 ring-black/5 cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg"
+            aria-label={`${locale === 'en' ? 'Zoom in: ' : 'Ampliar: '}${altAfter}`}
+            className="group block w-full bg-white dark:bg-surface-soft rounded-2xl p-2 shadow-sm ring-1 ring-black/5 dark:ring-white/10 cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg"
           >
             <div className="relative rounded-[8px] overflow-hidden">
               <Image
@@ -89,7 +91,7 @@ export function CaseBeforeAfter({
               <div className="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-150">
                 <span className="flex items-center gap-2 bg-black/50 backdrop-blur-sm text-white rounded-full px-3 py-1 type-caption">
                   <ZoomIn size={11} aria-hidden="true" />
-                  ampliar
+                  {locale === 'en' ? 'zoom in' : 'ampliar'}
                 </span>
               </div>
             </div>

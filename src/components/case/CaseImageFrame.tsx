@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { ZoomIn } from 'lucide-react';
+import { useLocale } from 'next-intl';
 import { Lightbox } from './Lightbox';
 
 interface Props {
@@ -17,6 +18,7 @@ interface Props {
 
 export function CaseImageFrame({ src, alt, caption, pair, fixedHeight, imgWidth = 1200, imgHeight = 800 }: Props) {
   const [open, setOpen] = useState(false);
+  const locale = useLocale();
 
   const sizes = pair
     ? '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 360px'
@@ -35,8 +37,8 @@ export function CaseImageFrame({ src, alt, caption, pair, fixedHeight, imgWidth 
         <button
           type="button"
           onClick={() => setOpen(true)}
-          aria-label={`Ampliar: ${alt}`}
-          className={`group block bg-white rounded-2xl p-2 shadow-sm ring-1 ring-black/5 cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg${fixedHeight != null ? '' : ' w-full'}`}
+          aria-label={`${locale === 'en' ? 'Zoom in: ' : 'Ampliar: '}${alt}`}
+          className={`group block bg-white dark:bg-surface-soft rounded-2xl p-2 shadow-sm ring-1 ring-black/5 dark:ring-white/10 cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg${fixedHeight != null ? '' : ' w-full'}`}
         >
           <div
             className="relative rounded-[8px] overflow-hidden"
@@ -65,7 +67,7 @@ export function CaseImageFrame({ src, alt, caption, pair, fixedHeight, imgWidth 
             <div className="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-150">
               <span className="flex items-center gap-2 bg-black/50 backdrop-blur-sm text-white rounded-full px-3 py-1 type-caption">
                 <ZoomIn size={11} aria-hidden="true" />
-                ampliar
+                {locale === 'en' ? 'zoom in' : 'ampliar'}
               </span>
             </div>
           </div>

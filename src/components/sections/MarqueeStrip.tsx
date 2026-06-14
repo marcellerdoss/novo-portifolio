@@ -1,14 +1,22 @@
-const ITEMS = [
+const ITEMS_PT = [
   'UX Strategy', 'UX Design', 'UX Research', 'Product Design',
   'CX', 'E-commerce', 'Omnichannel', 'IA', 'Vibe Coding',
   'Figma', 'Design System', 'Entrevistas', 'Testes de Usabilidade',
   'Card Sorting', 'Acessibilidade', 'Figma Make',
 ];
 
+const ITEMS_EN = [
+  'UX Strategy', 'UX Design', 'UX Research', 'Product Design',
+  'CX', 'E-commerce', 'Omnichannel', 'AI', 'Vibe Coding',
+  'Figma', 'Design System', 'Interviews', 'Usability Testing',
+  'Card Sorting', 'Accessibility', 'Figma Make',
+];
+
 const SEP = '·';
 
-export function MarqueeStrip() {
-  const track = [...ITEMS, ...ITEMS];
+export function MarqueeStrip({ locale }: { locale: string }) {
+  const items = locale === 'en' ? ITEMS_EN : ITEMS_PT;
+  const track = [...items, ...items];
 
   return (
     <div

@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import { ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
+import { useLocale } from 'next-intl';
 import { Lightbox } from './Lightbox';
 
 interface CarouselImage {
@@ -19,6 +20,7 @@ export function CaseCarousel({ images, caption }: CaseCarouselProps) {
   const [current, setCurrent] = useState(0);
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
   const total = images.length;
+  const locale = useLocale();
 
   return (
     <>
@@ -27,8 +29,8 @@ export function CaseCarousel({ images, caption }: CaseCarouselProps) {
           <button
             type="button"
             onClick={() => setLightboxIdx(current)}
-            aria-label={`Ampliar: ${images[current].alt}`}
-            className="group block w-full bg-white rounded-2xl p-2 shadow-sm ring-1 ring-black/5 cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg"
+            aria-label={`${locale === 'en' ? 'Zoom in: ' : 'Ampliar: '}${images[current].alt}`}
+            className="group block w-full bg-white dark:bg-surface-soft rounded-2xl p-2 shadow-sm ring-1 ring-black/5 dark:ring-white/10 cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg"
           >
             <div className="relative rounded-[8px] overflow-hidden">
               <Image
@@ -43,7 +45,7 @@ export function CaseCarousel({ images, caption }: CaseCarouselProps) {
               <div className="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-150">
                 <span className="flex items-center gap-2 bg-black/50 backdrop-blur-sm text-white rounded-full px-3 py-1 type-caption">
                   <ZoomIn size={11} aria-hidden="true" />
-                  ampliar
+                  {locale === 'en' ? 'zoom in' : 'ampliar'}
                 </span>
               </div>
             </div>
@@ -54,7 +56,7 @@ export function CaseCarousel({ images, caption }: CaseCarouselProps) {
               <button
                 onClick={() => setCurrent(i => i - 1)}
                 disabled={current === 0}
-                aria-label="Imagem anterior"
+                aria-label={locale === 'en' ? 'Previous image' : 'Imagem anterior'}
                 className="absolute left-0 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-fg/10 dark:bg-white/10 text-fg dark:text-white flex items-center justify-center disabled:opacity-0 hover:bg-fg/20 dark:hover:bg-white/20 transition-all"
               >
                 <ChevronLeft size={16} />
@@ -62,7 +64,7 @@ export function CaseCarousel({ images, caption }: CaseCarouselProps) {
               <button
                 onClick={() => setCurrent(i => i + 1)}
                 disabled={current === total - 1}
-                aria-label="Próxima imagem"
+                aria-label={locale === 'en' ? 'Next image' : 'Próxima imagem'}
                 className="absolute right-0 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-fg/10 dark:bg-white/10 text-fg dark:text-white flex items-center justify-center disabled:opacity-0 hover:bg-fg/20 dark:hover:bg-white/20 transition-all"
               >
                 <ChevronRight size={16} />
@@ -77,7 +79,7 @@ export function CaseCarousel({ images, caption }: CaseCarouselProps) {
               <button
                 key={i}
                 onClick={() => setCurrent(i)}
-                aria-label={`Imagem ${i + 1} de ${total}`}
+                aria-label={locale === 'en' ? `Image ${i + 1} of ${total}` : `Imagem ${i + 1} de ${total}`}
                 className={`h-1.5 rounded-full transition-all duration-200 ${
                   i === current ? 'w-4 bg-fg/40 dark:bg-white/40' : 'w-1.5 bg-fg/15 dark:bg-white/15 hover:bg-fg/30 dark:hover:bg-white/30'
                 }`}
