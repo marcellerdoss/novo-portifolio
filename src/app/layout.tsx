@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import Script from 'next/script';
 import { Analytics } from '@vercel/analytics/react';
 import { ThemeProvider } from '@/components/providers/ThemeProvider';
 import './globals.css';
@@ -66,22 +65,20 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://vitals.vercel-insights.com" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y7XWKZGYFB" />
+        <script dangerouslySetInnerHTML={{ __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-Y7XWKZGYFB');
+        ` }} />
       </head>
       <body className="min-h-full flex flex-col">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
         </ThemeProvider>
         <Analytics />
-        <Script
-          strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-Y7XWKZGYFB"
-        />
-        <Script id="ga-init" strategy="afterInteractive">{`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-Y7XWKZGYFB');
-        `}</Script>
       </body>
     </html>
   );
