@@ -48,24 +48,29 @@ function ContactForm({ email: _email }: { email: string }) {
     e.preventDefault();
     setStatus('sending');
     try {
-      const recaptchaToken = await new Promise<string>((resolve, reject) => {
-        const deadline = Date.now() + 10000;
-        const run = () => {
-          if (typeof window !== 'undefined' && window.grecaptcha) {
-            window.grecaptcha.ready(() => {
-              window.grecaptcha
-                .execute(SITE_KEY, { action: 'contact_form' })
-                .then(resolve)
-                .catch(reject);
-            });
-          } else if (Date.now() < deadline) {
-            setTimeout(run, 200);
-          } else {
-            reject(new Error('reCAPTCHA not loaded'));
-          }
-        };
-        run();
-      });
+      let recaptchaToken = '';
+      try {
+        recaptchaToken = await new Promise<string>((resolve, reject) => {
+          const deadline = Date.now() + 5000;
+          const run = () => {
+            if (typeof window !== 'undefined' && window.grecaptcha) {
+              window.grecaptcha.ready(() => {
+                window.grecaptcha
+                  .execute(SITE_KEY, { action: 'contact_form' })
+                  .then(resolve)
+                  .catch(reject);
+              });
+            } else if (Date.now() < deadline) {
+              setTimeout(run, 200);
+            } else {
+              reject(new Error('timeout'));
+            }
+          };
+          run();
+        });
+      } catch {
+        // reCAPTCHA indisponível, continua sem token
+      }
 
       const res = await fetch('/api/contact', {
         method: 'POST',
