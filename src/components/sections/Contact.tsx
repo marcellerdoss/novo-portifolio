@@ -36,7 +36,10 @@ function ContactForm({ email: _email }: { email: string }) {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!executeRecaptcha) return;
+    if (!executeRecaptcha) {
+      setStatus('error');
+      return;
+    }
     setStatus('sending');
     try {
       const recaptchaToken = await executeRecaptcha('contact_form');
