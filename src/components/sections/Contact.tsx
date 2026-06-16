@@ -17,7 +17,7 @@ declare global {
   }
 }
 
-const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? '';
+const SITE_KEY = '6Ld45iItAAAAAMk_RyXUyaM7F2RakyOjpjMeUOug';
 
 function IconWhatsApp() {
   return (
@@ -48,14 +48,19 @@ function ContactForm({ email: _email }: { email: string }) {
     e.preventDefault();
     setStatus('sending');
     try {
-      const recaptchaToken = await new Promise<string>((resolve, reject) => {
-        window.grecaptcha.ready(() => {
-          window.grecaptcha
-            .execute(SITE_KEY, { action: 'contact_form' })
-            .then(resolve)
-            .catch(reject);
-        });
-      });
+      const recaptchaToken = await Promise.race([
+        new Promise<string>((resolve, reject) => {
+          window.grecaptcha.ready(() => {
+            window.grecaptcha
+              .execute(SITE_KEY, { action: 'contact_form' })
+              .then(resolve)
+              .catch(reject);
+          });
+        }),
+        new Promise<never>((_, reject) =>
+          setTimeout(() => reject(new Error('reCAPTCHA timeout')), 8000)
+        ),
+      ]);
 
       const res = await fetch('/api/contact', {
         method: 'POST',
