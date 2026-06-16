@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslations, useLocale } from 'next-intl';
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { Button } from '@/components/ui/Button';
 import { fadeInUp, stagger } from '@/lib/animations';
 import { siteConfig } from '@/lib/config';
@@ -27,6 +28,7 @@ const WA_HREF = 'https://wa.me/5521979165494';
 
 function ContactForm({ email: _email }: { email: string }) {
   const t = useTranslations('contact');
+  const { executeRecaptcha } = useGoogleReCaptcha();
   const [name, setName] = useState('');
   const [userEmail, setUserEmail] = useState('');
   const [message, setMessage] = useState('');
@@ -34,12 +36,14 @@ function ContactForm({ email: _email }: { email: string }) {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    if (!executeRecaptcha) return;
     setStatus('sending');
     try {
+      const recaptchaToken = await executeRecaptcha('contact_form');
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email: userEmail, message }),
+        body: JSON.stringify({ name, email: userEmail, message, recaptchaToken }),
       });
       if (!res.ok) {
         setStatus('error');

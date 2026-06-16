@@ -6,6 +6,7 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { AccessibilityBar } from '@/components/layout/AccessibilityBar';
 import { LocaleLang } from '@/components/layout/LocaleLang';
+import { RecaptchaProvider } from '@/components/providers/RecaptchaProvider';
 
 type Props = {
   children: React.ReactNode;
@@ -27,13 +28,15 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
-      <LocaleLang />
-      <AccessibilityBar />
-      <Header />
-      <main id="main-content" className="flex-1 pt-[6.25rem]">
-        {children}
-      </main>
-      <Footer />
+      <RecaptchaProvider>
+        <LocaleLang />
+        <AccessibilityBar />
+        <Header />
+        <main id="main-content" className="flex-1 pt-[6.25rem]">
+          {children}
+        </main>
+        <Footer />
+      </RecaptchaProvider>
     </NextIntlClientProvider>
   );
 }

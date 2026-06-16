@@ -11,10 +11,24 @@ export async function POST(req: Request) {
     }
 
     const resend = new Resend(process.env.RESEND_API_KEY);
-    const { name, email, message } = await req.json();
+    const { name, email, message, recaptchaToken } = await req.json();
 
     if (!name || !email || !message) {
       return NextResponse.json({ error: 'Campos obrigatórios ausentes.' }, { status: 400 });
+    }
+
+    if (!recaptchaToken || !process.env.RECAPTCHA_SECRET_KEY) {
+      return NextResponse.json({ error: 'Verificação de segurança falhou.' }, { status: 400 });
+    }
+
+    const verifyRes = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${recaptchaToken}`,
+    });
+    const verifyData = await verifyRes.json();
+    if (!verifyData.success || verifyData.score < 0.5) {
+      return NextResponse.json({ error: 'Verificação de segurança falhou.' }, { status: 400 });
     }
 
     const { error: sendError } = await resend.emails.send({
