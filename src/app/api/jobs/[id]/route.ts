@@ -1,11 +1,15 @@
 import { NextResponse } from 'next/server';
-import { supabase } from '@/lib/supabase';
+import { getSupabaseClient } from '@/lib/supabase';
 import type { JobApplication } from '@/lib/jobs/types';
 
 type Ctx = { params: Promise<{ id: string }> };
 
 export async function GET(_req: Request, { params }: Ctx) {
   const { id } = await params;
+  const supabase = getSupabaseClient();
+  if (!supabase) {
+    return NextResponse.json({ error: 'Supabase não configurado.' }, { status: 503 });
+  }
 
   const { data, error } = await supabase
     .from('job_applications')
@@ -23,6 +27,10 @@ export async function GET(_req: Request, { params }: Ctx) {
 export async function PATCH(req: Request, { params }: Ctx) {
   const { id } = await params;
   const body = await req.json() as Partial<JobApplication>;
+  const supabase = getSupabaseClient();
+  if (!supabase) {
+    return NextResponse.json({ error: 'Supabase não configurado.' }, { status: 503 });
+  }
 
   const { data, error } = await supabase
     .from('job_applications')
@@ -40,6 +48,10 @@ export async function PATCH(req: Request, { params }: Ctx) {
 
 export async function DELETE(_req: Request, { params }: Ctx) {
   const { id } = await params;
+  const supabase = getSupabaseClient();
+  if (!supabase) {
+    return NextResponse.json({ error: 'Supabase não configurado.' }, { status: 503 });
+  }
 
   const { error } = await supabase
     .from('job_applications')

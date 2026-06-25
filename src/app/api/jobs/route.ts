@@ -1,8 +1,13 @@
 import { NextResponse } from 'next/server';
-import { supabase } from '@/lib/supabase';
+import { getSupabaseClient } from '@/lib/supabase';
 import type { JobApplication } from '@/lib/jobs/types';
 
 export async function GET() {
+  const supabase = getSupabaseClient();
+  if (!supabase) {
+    return NextResponse.json({ error: 'Supabase não configurado.' }, { status: 503 });
+  }
+
   const { data, error } = await supabase
     .from('job_applications')
     .select('*')
@@ -20,6 +25,10 @@ export async function GET() {
 export async function POST(req: Request) {
   try {
     const body = await req.json() as Partial<JobApplication>;
+    const supabase = getSupabaseClient();
+    if (!supabase) {
+      return NextResponse.json({ error: 'Supabase não configurado.' }, { status: 503 });
+    }
 
     const { data, error } = await supabase
       .from('job_applications')

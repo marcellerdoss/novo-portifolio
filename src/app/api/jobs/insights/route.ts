@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { GoogleGenAI } from '@google/genai';
-import { supabase } from '@/lib/supabase';
+import { getSupabaseClient } from '@/lib/supabase';
 import type { JobApplication } from '@/lib/jobs/types';
 
 export const maxDuration = 120;
@@ -8,6 +8,11 @@ export const maxDuration = 120;
 const ai = new GoogleGenAI({ apiKey: process.env.GOOGLE_GENERATIVE_AI_KEY! });
 
 export async function GET() {
+  const supabase = getSupabaseClient();
+  if (!supabase) {
+    return NextResponse.json({ total: 0, active: 0, deleted: 0, avg_score: null, recurring_gaps: [], top_keywords: [], analysis: null });
+  }
+
   const { data, error } = await supabase
     .from('job_applications')
     .select('*')

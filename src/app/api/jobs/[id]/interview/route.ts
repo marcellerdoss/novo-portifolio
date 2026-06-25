@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { GoogleGenAI } from '@google/genai';
-import { supabase } from '@/lib/supabase';
+import { getSupabaseClient } from '@/lib/supabase';
 import type { JobApplication, InterviewQA } from '@/lib/jobs/types';
 
 export const maxDuration = 120;
@@ -11,6 +11,10 @@ type Ctx = { params: Promise<{ id: string }> };
 
 export async function POST(_req: Request, { params }: Ctx) {
   const { id } = await params;
+  const supabase = getSupabaseClient();
+  if (!supabase) {
+    return NextResponse.json({ error: 'Supabase não configurado.' }, { status: 503 });
+  }
 
   const { data: job, error } = await supabase
     .from('job_applications')
