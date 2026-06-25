@@ -10,7 +10,11 @@
     "analyze": "cross-env ANALYZE=true next build"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.104.2",
+    "@google/genai": "^2.8.0",
+    "@google/generative-ai": "^0.24.1",
     "@next/third-parties": "^16.2.9",
+    "@supabase/supabase-js": "^2.108.2",
     "@tailwindcss/typography": "^0.5.19",
     "@vercel/analytics": "^2.0.1",
     "clsx": "^2.1.1",
