@@ -13,36 +13,36 @@ const categories: SkillCategory[] = [
   {
     key: 'design',
     items: {
-      pt: ['Figma', 'UI Design', 'UX Design', 'Design System', 'Arquitetura da Informação', 'Design de Fluxos', 'Acessibilidade'],
-      en: ['Figma', 'UI Design', 'UX Design', 'Design System', 'Information Architecture', 'User Flow Design', 'Accessibility'],
+      pt: ['Figma', 'UI Design', 'UX Design', 'Design System', 'Arquitetura da Informação', 'Design de Interação', 'Wireframes', 'Prototipagem', 'UX Writing', 'Acessibilidade Digital'],
+      en: ['Figma', 'UI Design', 'UX Design', 'Design System', 'Information Architecture', 'Interaction Design', 'Wireframes', 'Prototyping', 'UX Writing', 'Digital Accessibility'],
     },
   },
   {
     key: 'research',
     items: {
-      pt: ['Entrevistas com Usuários', 'Testes de Usabilidade', 'Card Sorting', 'Análise Heurística', 'Benchmarking', 'Tree Testing'],
-      en: ['User Interviews', 'Usability Testing', 'Card Sorting', 'Heuristic Analysis', 'Benchmarking', 'Tree Testing'],
+      pt: ['Entrevistas com Usuários', 'Testes de Usabilidade', 'Pesquisa Qualitativa', 'Desk Research', 'Card Sorting', 'Análise Heurística', 'Benchmarking', 'Mapeamento de Jornada', 'Tree Testing'],
+      en: ['User Interviews', 'Usability Testing', 'Qualitative Research', 'Desk Research', 'Card Sorting', 'Heuristic Analysis', 'Benchmarking', 'Journey Mapping', 'Tree Testing'],
     },
   },
   {
     key: 'strategy',
     items: {
-      pt: ['CX Strategy', 'Consumer Insights', 'Estratégia de Produto', 'Facilitação', 'Design Thinking', 'Agile'],
-      en: ['CX Strategy', 'Consumer Insights', 'Product Strategy', 'Facilitation', 'Design Thinking', 'Agile'],
+      pt: ['CX Strategy', 'Consumer Insights', 'Product Discovery', 'Estratégia de Produto', 'Service Design', 'Design Thinking', 'Omnichannel', 'Agile'],
+      en: ['CX Strategy', 'Consumer Insights', 'Product Discovery', 'Product Strategy', 'Service Design', 'Design Thinking', 'Omnichannel', 'Agile'],
     },
   },
   {
     key: 'ai',
     items: {
-      pt: ['Plataformas com IA', 'Figma Make', 'Claude Code', 'Claude Design', 'IA Adaptativa'],
-      en: ['AI Platforms', 'Figma Make', 'Claude Code', 'Claude Design', 'Adaptive AI'],
+      pt: ['IA Generativa', 'Prompt Engineering', 'Figma Make', 'Claude Design'],
+      en: ['Generative AI', 'Prompt Engineering', 'Figma Make', 'Claude Design'],
     },
   },
   {
     key: 'soft',
     items: {
-      pt: ['Comunicação', 'Storytelling', 'Liderança'],
-      en: ['Communication', 'Storytelling', 'Leadership'],
+      pt: ['Comunicação', 'Storytelling', 'Liderança', 'Colaboração Multidisciplinar', 'Facilitação', 'Geração de Insights'],
+      en: ['Communication', 'Storytelling', 'Leadership', 'Multidisciplinary Collaboration', 'Facilitation', 'Insights Generation'],
     },
   },
 ];
