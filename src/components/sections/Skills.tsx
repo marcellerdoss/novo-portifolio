@@ -34,8 +34,8 @@ const categories: SkillCategory[] = [
   {
     key: 'ai',
     items: {
-      pt: ['IA Generativa', 'Prompt Engineering', 'Figma Make', 'Claude Design'],
-      en: ['Generative AI', 'Prompt Engineering', 'Figma Make', 'Claude Design'],
+      pt: ['Figma Make', 'Claude Design', 'Claude Code', 'AI Builder', 'Lovable'],
+      en: ['Figma Make', 'Claude Design', 'Claude Code', 'AI Builder', 'Lovable'],
     },
   },
   {
