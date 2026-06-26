@@ -225,7 +225,7 @@ function CaseRow({ card, index, locale }: { card: CaseItem; index: number; local
         <p className="type-body text-fg-muted mb-6">
           {card.description[locale]}
         </p>
-        <Link href={card.href} className={buttonVariants({ variant: 'secondary', size: 'sm' })}>
+        <Link href={card.href} className={buttonVariants({ variant: 'secondary', size: 'sm' }) + ' w-fit'}>
           {locale === 'en' ? 'See case' : 'Ver case'}{' '}
           <ArrowUpRight size={12} aria-hidden="true" className="shrink-0" />
         </Link>
