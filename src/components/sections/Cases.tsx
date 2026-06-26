@@ -13,7 +13,7 @@ type Props = { cases?: Case[] };
 
 type LocaleStr = { pt: string; en: string };
 
-const allCases: {
+type CaseItem = {
   company: string;
   category: LocaleStr;
   title: LocaleStr;
@@ -25,7 +25,9 @@ const allCases: {
   accentBg: string;
   accentText: string;
   mockup: 'mobile' | 'desktop';
-}[] = [
+};
+
+const allCases: CaseItem[] = [
   {
     company: 'Sellbie',
     category: { pt: 'Product Design', en: 'Product Design' },
@@ -156,6 +158,162 @@ const allCases: {
   },
 ];
 
+function CaseRow({ card, index, locale }: { card: CaseItem; index: number; locale: 'pt' | 'en' }) {
+  const reversed = index % 2 !== 0;
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 md:items-center"
+    >
+      {/* Imagem */}
+      <div
+        className={`relative aspect-[4/3] rounded-xl overflow-hidden${reversed ? ' md:order-2' : ' md:order-1'}`}
+        style={{ backgroundColor: card.accentBg }}
+      >
+        {card.mockup === 'mobile' && (
+          <div className="absolute inset-0 flex items-start justify-center pt-6">
+            <div
+              className="relative rounded-[26px] border-[5px] border-neutral-900 dark:border-white shadow-2xl overflow-hidden"
+              style={{ width: '42%', aspectRatio: '9 / 19.5' }}
+            >
+              <div className="absolute top-0 inset-x-0 z-10 flex justify-center">
+                <div className="w-[36%] h-[10px] bg-neutral-900 dark:bg-white rounded-b-full" />
+              </div>
+              <Image src={card.imageSrc} alt={card.imageAlt} fill sizes="50vw" className="object-cover object-top" />
+            </div>
+          </div>
+        )}
+        {card.mockup === 'desktop' && (
+          <div className="absolute inset-5 flex items-center justify-center">
+            <div
+              className="relative"
+              style={{ aspectRatio: '16 / 10', width: '100%', maxWidth: '85%', maxHeight: 'calc(90% - 9px)' }}
+            >
+              <div className="absolute inset-0 rounded-t-[8px] overflow-hidden border-[5px] border-b-0 border-neutral-900 dark:border-white bg-neutral-100 dark:bg-white/10 shadow-xl">
+                <div className="absolute top-0 inset-x-0 z-10 flex justify-center pt-[5px]">
+                  <div className="w-1.5 h-1.5 rounded-full bg-neutral-500 dark:bg-white/60" />
+                </div>
+                <Image src={card.imageSrc} alt={card.imageAlt} fill sizes="50vw" className="object-cover object-top" />
+              </div>
+              <div className="absolute bottom-[-5px] left-0 right-0 h-[5px] bg-neutral-900 dark:bg-white" />
+              <div className="absolute bottom-[-9px] left-0 right-0 flex justify-center">
+                <div className="h-[4px] bg-neutral-700 dark:bg-white/70 rounded-b-md" style={{ width: '65%' }} />
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Texto */}
+      <div className={reversed ? 'md:order-1' : 'md:order-2'}>
+        <p className="type-caption text-accent-magenta mb-3">
+          {card.company} · {card.category[locale]}
+        </p>
+        <h3 className="type-headline text-fg mb-4 leading-snug">
+          {card.title[locale]}
+        </h3>
+        <div className="flex flex-wrap gap-2 mb-6">
+          {card.tags[locale].map((tag) => (
+            <span key={tag} className="type-caption text-fg-subtle rounded-full border border-border px-3 py-1 leading-none">
+              {tag}
+            </span>
+          ))}
+        </div>
+        <p className="type-body text-fg-muted mb-6">
+          {card.description[locale]}
+        </p>
+        <Link href={card.href} className={buttonVariants({ variant: 'secondary', size: 'sm' })}>
+          {locale === 'en' ? 'See case' : 'Ver case'}{' '}
+          <ArrowUpRight size={12} aria-hidden="true" className="shrink-0" />
+        </Link>
+      </div>
+    </motion.div>
+  );
+}
+
+function CompactCard({ card, locale }: { card: CaseItem; locale: 'pt' | 'en' }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4 }}
+    >
+      <Link href={card.href} className="group block">
+        <div
+          className="relative aspect-[4/3] rounded-xl overflow-hidden mb-4"
+          style={{ backgroundColor: card.accentBg }}
+        >
+          {card.mockup === 'mobile' && (
+            <div className="absolute inset-0 flex items-start justify-center pt-6">
+              <div
+                className="relative rounded-[26px] border-[5px] border-neutral-900 dark:border-white shadow-2xl overflow-hidden"
+                style={{ width: '38%', aspectRatio: '9 / 19.5' }}
+              >
+                <div className="absolute top-0 inset-x-0 z-10 flex justify-center">
+                  <div className="w-[36%] h-[10px] bg-neutral-900 dark:bg-white rounded-b-full" />
+                </div>
+                <Image src={card.imageSrc} alt={card.imageAlt} fill sizes="33vw" className="object-cover object-top" />
+              </div>
+            </div>
+          )}
+          {card.mockup === 'desktop' && (
+            <div className="absolute inset-5 flex items-center justify-center">
+              <div
+                className="relative"
+                style={{ aspectRatio: '16 / 10', width: '100%', maxWidth: '85%', maxHeight: 'calc(90% - 9px)' }}
+              >
+                <div className="absolute inset-0 rounded-t-[8px] overflow-hidden border-[5px] border-b-0 border-neutral-900 dark:border-white bg-neutral-100 dark:bg-white/10 shadow-xl">
+                  <div className="absolute top-0 inset-x-0 z-10 flex justify-center pt-[5px]">
+                    <div className="w-1.5 h-1.5 rounded-full bg-neutral-500 dark:bg-white/60" />
+                  </div>
+                  <Image src={card.imageSrc} alt={card.imageAlt} fill sizes="33vw" className="object-cover object-top" />
+                </div>
+                <div className="absolute bottom-[-5px] left-0 right-0 h-[5px] bg-neutral-900 dark:bg-white" />
+                <div className="absolute bottom-[-9px] left-0 right-0 flex justify-center">
+                  <div className="h-[4px] bg-neutral-700 dark:bg-white/70 rounded-b-md" style={{ width: '65%' }} />
+                </div>
+              </div>
+            </div>
+          )}
+          {!card.mockup && (
+            <Image
+              src={card.imageSrc}
+              alt={card.imageAlt}
+              fill
+              sizes="(max-width: 768px) 100vw, 33vw"
+              className="object-cover object-top"
+            />
+          )}
+        </div>
+        <p className="type-caption text-accent-magenta mb-1">
+          {card.company} · {card.category[locale]}
+        </p>
+        <h3 className="type-body-strong text-fg mb-3 leading-snug group-hover:underline underline-offset-2">
+          {card.title[locale]}
+        </h3>
+        <div className="flex flex-wrap gap-2 mb-4">
+          {card.tags[locale].map((tag) => (
+            <span key={tag} className="type-caption text-fg-subtle rounded-full border border-border px-3 py-1 leading-none">
+              {tag}
+            </span>
+          ))}
+        </div>
+        <span className={buttonVariants({ variant: 'secondary', size: 'sm' })}>
+          {locale === 'en' ? 'See case' : 'Ver case'}{' '}
+          <ArrowUpRight size={12} aria-hidden="true" className="shrink-0" />
+        </span>
+      </Link>
+    </motion.div>
+  );
+}
+
+const mainCases = allCases.slice(0, 4);
+const compactCases = allCases.slice(4);
+
 export function CasesSection(_props: Props) {
   const locale = useLocale() as 'pt' | 'en';
 
@@ -174,98 +332,27 @@ export function CasesSection(_props: Props) {
           Cases
         </motion.h2>
 
+        {/* ── 4 cases principais em linha ── */}
         <div className="space-y-16 md:space-y-24">
-          {allCases.map((card, i) => {
-            const reversed = i % 2 !== 0;
-            return (
-              <motion.div
-                key={card.href}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 md:items-center"
-              >
-                {/* Imagem */}
-                <div
-                  className={`relative aspect-[4/3] rounded-xl overflow-hidden${reversed ? ' md:order-2' : ' md:order-1'}`}
-                  style={{ backgroundColor: card.accentBg }}
-                >
-                  {card.mockup === 'mobile' && (
-                    <div className="absolute inset-0 flex items-start justify-center pt-6">
-                      <div
-                        className="relative rounded-[26px] border-[5px] border-neutral-900 dark:border-white shadow-2xl overflow-hidden"
-                        style={{ width: '42%', aspectRatio: '9 / 19.5' }}
-                      >
-                        <div className="absolute top-0 inset-x-0 z-10 flex justify-center">
-                          <div className="w-[36%] h-[10px] bg-neutral-900 dark:bg-white rounded-b-full" />
-                        </div>
-                        <Image src={card.imageSrc} alt={card.imageAlt} fill sizes="50vw" className="object-cover object-top" />
-                      </div>
-                    </div>
-                  )}
-                  {card.mockup === 'desktop' && (
-                    <div className="absolute inset-5 flex items-center justify-center">
-                      <div
-                        className="relative"
-                        style={{ aspectRatio: '16 / 10', width: '100%', maxWidth: '85%', maxHeight: 'calc(90% - 9px)' }}
-                      >
-                        <div className="absolute inset-0 rounded-t-[8px] overflow-hidden border-[5px] border-b-0 border-neutral-900 dark:border-white bg-neutral-100 dark:bg-white/10 shadow-xl">
-                          <div className="absolute top-0 inset-x-0 z-10 flex justify-center pt-[5px]">
-                            <div className="w-1.5 h-1.5 rounded-full bg-neutral-500 dark:bg-white/60" />
-                          </div>
-                          <Image src={card.imageSrc} alt={card.imageAlt} fill sizes="50vw" className="object-cover object-top" />
-                        </div>
-                        <div className="absolute bottom-[-5px] left-0 right-0 h-[5px] bg-neutral-900 dark:bg-white" />
-                        <div className="absolute bottom-[-9px] left-0 right-0 flex justify-center">
-                          <div className="h-[4px] bg-neutral-700 dark:bg-white/70 rounded-b-md" style={{ width: '65%' }} />
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                  {!card.mockup && (
-                    <Image
-                      src={card.imageSrc}
-                      alt={card.imageAlt}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover object-top"
-                    />
-                  )}
-                </div>
+          {mainCases.map((card, i) => (
+            <CaseRow key={card.href} card={card} index={i} locale={locale} />
+          ))}
+        </div>
 
-                {/* Texto */}
-                <div className={reversed ? 'md:order-1' : 'md:order-2'}>
-                  <p className="type-caption text-accent-magenta mb-3">
-                    {card.company} · {card.category[locale]}
-                  </p>
-                  <h3 className="type-headline text-fg mb-4 leading-snug">
-                    {card.title[locale]}
-                  </h3>
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {card.tags[locale].map((tag) => (
-                      <span
-                        key={tag}
-                        className="type-caption text-fg-subtle rounded-full border border-border px-3 py-1 leading-none"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <p className="type-body text-fg-muted mb-6">
-                    {card.description[locale]}
-                  </p>
-                  <Link
-                    href={card.href}
-                    className={buttonVariants({ variant: 'secondary', size: 'sm' })}
-                  >
-                    {locale === 'en' ? 'See case' : 'Ver case'}{' '}
-                    <ArrowUpRight size={12} aria-hidden="true" className="shrink-0" />
-                  </Link>
-                </div>
-              </motion.div>
-            );
-          })}
+        {/* ── 4 cases compactos em grid 2×2 ── */}
+        <div>
+          <hr className="border-border mb-12" />
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
+            className="grid grid-cols-1 sm:grid-cols-2 gap-10"
+          >
+            {compactCases.map((card) => (
+              <CompactCard key={card.href} card={card} locale={locale} />
+            ))}
+          </motion.div>
         </div>
 
       </div>
