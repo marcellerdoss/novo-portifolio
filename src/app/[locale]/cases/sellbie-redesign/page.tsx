@@ -71,7 +71,7 @@ function Body({ children }: { children: React.ReactNode }) {
 function PanelImg({ src, alt, caption }: { src: string; alt: string; caption?: string }) {
   return (
     <figure className="flex-1 min-h-0 flex flex-col overflow-hidden">
-      <div className="flex-1 min-h-0 flex items-start justify-center overflow-hidden">
+      <div className="flex-1 min-h-0 flex items-center justify-center overflow-hidden">
         <Image
           src={src}
           alt={alt}
@@ -117,9 +117,9 @@ export default async function SellbieRedesignPage({ params }: Props) {
   return (
     <HorizontalScroll backLabel={en ? 'Back' : 'Voltar'}>
 
-      {/* 00 — Intro */}
+      {/* 00 — Intro — text takes 2/3 of panel width */}
       <Panel>
-        <TextCol>
+        <div className="w-2/3 flex flex-col justify-center gap-5 pl-20 pr-16 pt-20 pb-10">
           <Eyebrow>Sellbie · 2024</Eyebrow>
           <h1 className="type-display-lg text-fg">
             {en ? <>Campaign core<br />redesign</> : <>Redesign do core<br />de campanhas</>}
@@ -136,7 +136,7 @@ export default async function SellbieRedesignPage({ params }: Props) {
               </span>
             ))}
           </div>
-        </TextCol>
+        </div>
       </Panel>
 
       {/* 01 — Diagnóstico */}
