@@ -85,7 +85,7 @@ export default async function JgAlfabetizacaoPage({ params }: Props) {
   );
 
   return (
-    <div className="min-h-screen bg-bg">
+    <div>
       <ScrollProgress />
 
       <header className="pt-section pb-8 px-6 border-b border-border">

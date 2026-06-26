@@ -94,7 +94,7 @@ export function HorizontalScroll({ children, backLabel = 'Voltar' }: Props) {
 
   return (
     <div
-      className="fixed inset-0 z-[60] overflow-hidden bg-bg"
+      className="fixed inset-0 z-[60] overflow-hidden bg-[#FDFAF4] dark:bg-block-cream"
       style={{ cursor }}
       onClick={handleClick}
     >
