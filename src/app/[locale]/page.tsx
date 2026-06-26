@@ -1,16 +1,11 @@
 import type { Metadata } from 'next';
 import { Hero } from '@/components/sections/Hero';
 import { MarqueeStrip } from '@/components/sections/MarqueeStrip';
-import { About } from '@/components/sections/About';
 import { CasesSection } from '@/components/sections/Cases';
-import { Skills } from '@/components/sections/Skills';
-import { Racional } from '@/components/sections/Racional';
-import { Experience } from '@/components/sections/Experience';
 import { BlogPreview } from '@/components/sections/Blog';
 import { Contact } from '@/components/sections/Contact';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { BackToTop } from '@/components/ui/BackToTop';
-import { getExperience } from '@/lib/experience';
 import { getAllPosts } from '@/lib/mdx';
 import { siteConfig } from '@/lib/config';
 
@@ -64,10 +59,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Home({ params }: Props) {
   const { locale } = await params;
 
-  const [experience, posts] = await Promise.all([
-    getExperience(),
-    getAllPosts(locale as 'pt' | 'en'),
-  ]);
+  const posts = await getAllPosts(locale as 'pt' | 'en');
 
   const base =
     process.env.NEXT_PUBLIC_BASE_URL ??
@@ -94,12 +86,8 @@ export default async function Home({ params }: Props) {
       <JsonLd data={personSchema} />
       <Hero />
       <MarqueeStrip locale={locale} />
-      <About />
       <CasesSection />
       <BlogPreview posts={posts} />
-      <Racional />
-      <Experience items={experience} />
-      <Skills />
       <Contact />
       <BackToTop />
     </>
