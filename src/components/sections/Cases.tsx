@@ -165,7 +165,7 @@ function CaseRow({ card, index, locale }: { card: CaseItem; index: number; local
     <motion.div
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.5 }}
       className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 md:items-center"
     >
@@ -249,7 +249,7 @@ export function CasesSection(_props: Props) {
           id="cases-heading"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.5 }}
           className="type-display-lg text-fg"
         >

@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useTranslations, useLocale } from 'next-intl';
-import { fadeInUp, stagger, staggerFast } from '@/lib/animations';
+import { fadeInUp, stagger } from '@/lib/animations';
 
 type SkillCategory = {
   key: 'design' | 'research' | 'strategy' | 'ai' | 'soft';
@@ -100,17 +100,16 @@ export function Skills({ inline }: Props) {
       {categories.map(({ key, items }) => (
         <motion.div key={key} variants={fadeInUp}>
           <h3 className="type-caption text-accent-magenta mb-4">{t(key)}</h3>
-          <motion.div variants={staggerFast} className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2">
             {items[locale].map((skill) => (
-              <motion.span
+              <span
                 key={skill}
-                variants={fadeInUp}
                 className="type-caption text-fg-subtle rounded-full border border-border px-3 py-1 leading-none"
               >
                 {skill}
-              </motion.span>
+              </span>
             ))}
-          </motion.div>
+          </div>
         </motion.div>
       ))}
     </motion.div>

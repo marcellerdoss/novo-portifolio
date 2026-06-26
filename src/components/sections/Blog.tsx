@@ -117,10 +117,10 @@ export function BlogPreview({ posts }: Props) {
         {/* ── Desktop / Tablet: slider horizontal ── */}
         {posts.length > 0 && (
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.5 }}
             className="hidden sm:block relative"
           >
             {/* Seta esquerda — absoluta, não reserva espaço no layout */}
@@ -192,10 +192,10 @@ export function BlogPreview({ posts }: Props) {
 
         {/* CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.4, delay: 0.2 }}
+          transition={{ duration: 0.5 }}
           className="mt-8"
         >
           <LinkButton

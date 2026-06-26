@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useTranslations, useLocale } from 'next-intl';
-import { slideInLeft, stagger } from '@/lib/animations';
+import { fadeInUp, stagger } from '@/lib/animations';
 import type { ExperienceItem } from '@/lib/types';
 
 type Props = { items: ExperienceItem[]; inline?: boolean };
@@ -34,7 +34,7 @@ export function Experience({ items, inline }: Props) {
         {items.map((item, i) => (
           <motion.li
             key={`${item.company}-${i}`}
-            variants={slideInLeft}
+            variants={fadeInUp}
           >
             {/* ── Mobile: empilhado com dot à esquerda ── */}
             <div className="md:hidden flex gap-5 pb-10">

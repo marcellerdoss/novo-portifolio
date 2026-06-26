@@ -132,34 +132,27 @@ export function Racional() {
         </motion.div>
 
         {/* ── Desktop + Tablet (≥768px): 4 colunas alinhadas ── */}
-        <div className="hidden md:block">
-
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-            className="grid grid-cols-4 gap-5 items-start"
-          >
+        <motion.div
+          className="hidden md:block"
+          variants={stagger}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+        >
+          <motion.div variants={fadeInUp} className="grid grid-cols-4 gap-5 items-start">
             {phases.map(({ num, type }) => (
-              <motion.div key={num} variants={fadeInUp} className="flex flex-col items-center text-center gap-6">
+              <div key={num} className="flex flex-col items-center text-center gap-6">
                 <DiamondBadge num={num} />
                 <p className="type-caption text-accent-magenta">{t(type)}</p>
-              </motion.div>
+              </div>
             ))}
           </motion.div>
 
           <ArrowRow />
 
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-            className="grid grid-cols-4 gap-5"
-          >
+          <motion.div variants={fadeInUp} className="grid grid-cols-4 gap-5">
             {phases.map(({ num, practiceCard }) => (
-              <motion.div key={num} variants={fadeInUp} className="h-full">
+              <div key={num} className="h-full">
                 <div className="rounded-[16px] border border-black/10 dark:border-white/10 p-6 bg-bg h-full">
                   <p className="type-caption text-accent-magenta mb-3">
                     {locale === 'en' ? 'In practice' : 'Na prática'}
@@ -167,21 +160,15 @@ export function Racional() {
                   <p className="type-body-strong text-fg mb-2">{t(practiceCard.title)}</p>
                   <p className="type-body-sm text-fg-muted leading-relaxed">{t(practiceCard.text)}</p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </motion.div>
 
           <ArrowRow />
 
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-            className="grid grid-cols-4 gap-5"
-          >
+          <motion.div variants={fadeInUp} className="grid grid-cols-4 gap-5">
             {phases.map(({ num, trajectoryCard }) => (
-              <motion.div key={num} variants={fadeInUp} className="h-full">
+              <div key={num} className="h-full">
                 <div className="rounded-[16px] border border-black/10 dark:border-white/10 px-6 pt-6 pb-10 bg-pink-50 dark:bg-navy-800 h-full">
                   <p className="type-caption text-accent-magenta mb-3">
                     {locale === 'en' ? 'In my journey' : 'Na minha trajetória'}
@@ -189,11 +176,11 @@ export function Racional() {
                   <p className="type-body-strong text-fg mb-2">{t(trajectoryCard.title)}</p>
                   <p className="type-body-sm text-fg-muted leading-relaxed">{t(trajectoryCard.text)}</p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </motion.div>
 
-        </div>
+        </motion.div>
 
         {/* ── Mobile (<768px): timeline ── */}
         <div className="md:hidden space-y-10">
