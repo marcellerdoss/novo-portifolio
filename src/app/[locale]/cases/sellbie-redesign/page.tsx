@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import { routing } from '@/i18n/routing';
 import { HorizontalScroll } from '@/components/case/HorizontalScroll';
+import { BeforeAfterSlider } from '@/components/case/BeforeAfterSlider';
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -90,7 +91,7 @@ function PanelImg({ src, alt, caption }: { src: string; alt: string; caption?: s
   );
 }
 
-// Stacks images vertically so each fills a proportional slice of the panel height
+// Images side by side — each fills a proportional slice of the panel width at full height
 function PanelImgStack({
   images,
   caption,
@@ -100,9 +101,9 @@ function PanelImgStack({
 }) {
   return (
     <figure className="flex-1 min-h-0 flex flex-col overflow-hidden">
-      <div className="flex-1 min-h-0 flex flex-col gap-3 overflow-hidden">
+      <div className="flex-1 min-h-0 flex flex-row gap-4 overflow-hidden">
         {images.map((img) => (
-          <div key={img.src} className="flex-1 min-h-0 flex items-center justify-center overflow-hidden">
+          <div key={img.src} className="flex-1 min-w-0 min-h-0 flex items-center justify-center overflow-hidden">
             <Image
               src={img.src}
               alt={img.alt}
@@ -124,45 +125,6 @@ function PanelImgStack({
   );
 }
 
-function PanelBeforeAfter({
-  imageBefore, imageAfter,
-  altBefore, altAfter,
-  captionBefore, captionAfter,
-  en,
-}: {
-  imageBefore: string; imageAfter: string;
-  altBefore: string; altAfter: string;
-  captionBefore?: string; captionAfter?: string;
-  en: boolean;
-}) {
-  const cols = [
-    { src: imageBefore, alt: altBefore, caption: captionBefore, label: en ? 'Before' : 'Antes' },
-    { src: imageAfter,  alt: altAfter,  caption: captionAfter,  label: en ? 'After'  : 'Depois' },
-  ];
-  return (
-    <figure className="flex-1 min-h-0 flex gap-4 overflow-hidden">
-      {cols.map(({ src, alt, caption, label }) => (
-        <div key={src} className="flex-1 min-h-0 min-w-0 flex flex-col gap-2 overflow-hidden">
-          <span className="type-caption text-fg-subtle shrink-0 text-center">{label}</span>
-          <div className="flex-1 min-h-0 flex items-center justify-center overflow-hidden">
-            <Image
-              src={src}
-              alt={alt}
-              width={1200}
-              height={800}
-              quality={92}
-              sizes="35vw"
-              className="max-h-full max-w-full w-auto h-auto block"
-            />
-          </div>
-          {caption && (
-            <p className="type-body-xs text-fg-subtle text-center shrink-0">{caption}</p>
-          )}
-        </div>
-      ))}
-    </figure>
-  );
-}
 
 // ── Page ─────────────────────────────────────────────────────────────────────
 
@@ -281,14 +243,18 @@ export default async function SellbieRedesignPage({ params }: Props) {
           </Body>
         </TextCol>
         <VisualCol>
-          <PanelBeforeAfter
-            imageBefore="/images/cases/sellbie/redesign/sellbie-redesign-campanhas-antes.png"
-            imageAfter="/images/cases/sellbie/redesign/sellbie-redesign-campanhas-cards-depois.png"
-            altBefore={en ? 'Campaign listing before — fixed table' : 'Listagem antes — tabela fixa'}
-            altAfter={en ? 'New card listing with alternate view' : 'Nova listagem em cards'}
-            captionBefore={en ? 'Fixed table — no alternate view' : 'Tabela fixa — sem visualização alternativa'}
-            captionAfter={en ? 'Cards with alternate view' : 'Cards com visualização alternável'}
-            en={en}
+          <BeforeAfterSlider
+            before={{
+              src: '/images/cases/sellbie/redesign/sellbie-redesign-campanhas-antes.png',
+              alt: en ? 'Campaign listing before — fixed table' : 'Listagem antes — tabela fixa',
+              label: en ? 'Before' : 'Antes',
+            }}
+            after={{
+              src: '/images/cases/sellbie/redesign/sellbie-redesign-campanhas-cards-depois.png',
+              alt: en ? 'New card listing with alternate view' : 'Nova listagem em cards',
+              label: en ? 'After' : 'Depois',
+            }}
+            caption={en ? 'Fixed table → cards with alternate view' : 'Tabela fixa → cards com visualização alternável'}
           />
         </VisualCol>
       </Panel>
