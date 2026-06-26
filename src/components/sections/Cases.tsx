@@ -1,9 +1,12 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useLocale } from 'next-intl';
-import { CaseCard } from '@/components/cases/CaseCard';
+import { ArrowUpRight } from 'lucide-react';
+import { Link } from '@/i18n/navigation';
 import { CaseCardCompact } from '@/components/cases/CaseCardCompact';
+import { buttonVariants } from '@/components/ui/Button';
 import type { Case } from '@/lib/types';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -47,8 +50,8 @@ const productCards: {
       en: 'Core platform redesign',
     },
     description: {
-      pt: 'Navegação, campanhas e criação de envio redesenhados do zero',
-      en: 'Navigation, campaigns and sending flow redesigned from scratch',
+      pt: 'Como unificamos três padrões de navegação incompatíveis e redesenhamos o fluxo de criação de envios, reduzindo o abandono no módulo principal da plataforma.',
+      en: 'How we unified three incompatible navigation patterns and redesigned the campaign sending flow, reducing abandonment in the platform\'s main module.',
     },
     tags: { pt: ['UX Research', 'Redesign', 'Omnichannel'], en: ['UX Research', 'Redesign', 'Omnichannel'] },
     href: '/cases/sellbie-redesign',
@@ -66,8 +69,8 @@ const productCards: {
       en: 'Multichannel automation journeys',
     },
     description: {
-      pt: 'Canvas de fluxo com lógica comportamental',
-      en: 'Flow canvas with behavioral logic',
+      pt: 'Design do módulo de automação multicanal do zero. Canvas com mais de 20 gatilhos, 3 canais e lógica de ramificação comportamental para jornadas de cliente.',
+      en: 'Design of the multichannel automation module from scratch. Canvas with over 20 triggers, 3 channels, and behavioral branching logic for customer journeys.',
     },
     tags: { pt: ['Produto Novo', 'IA & Automação', 'Workflow'], en: ['New Product', 'AI & Automation', 'Workflow'] },
     href: '/cases/sellbie-jornadas',
@@ -85,8 +88,8 @@ const productCards: {
       en: 'Literacy with pedagogical models',
     },
     description: {
-      pt: 'Progressão de fases com estratégia',
-      en: 'Phase progression with strategy',
+      pt: 'Experiência de alfabetização infantil projetada sem histórico na plataforma. Imersão na BNCC, pesquisa com educadoras e validação pedagógica que habilitou a IA preditiva em um segmento novo.',
+      en: 'Literacy experience designed without any platform history. BNCC immersion, research with educators, and pedagogical validation that enabled the predictive AI in a new segment.',
     },
     tags: { pt: ['UX Research', 'BNCC', 'Design System'], en: ['UX Research', 'BNCC', 'Design System'] },
     href: '/cases/jg-alfabetizacao',
@@ -104,8 +107,8 @@ const productCards: {
       en: 'Profile-segmented Help Center',
     },
     description: {
-      pt: 'Três perfis de uso com busca dedicada',
-      en: 'Three usage profiles with dedicated search',
+      pt: 'Reestruturação da central de ajuda com arquitetura segmentada por perfil — Educadores, Exploradores e Responsáveis — com busca dedicada e estrutura validada e implementada no Zendesk.',
+      en: 'Help center restructured with profile-segmented architecture — Educators, Explorers, and Guardians — with dedicated search validated and implemented in Zendesk.',
     },
     tags: { pt: ['Arquitetura de Informação', 'Pesquisa', 'Personalização'], en: ['Information Architecture', 'Research', 'Personalization'] },
     href: '/cases/jg-central-ajuda',
@@ -249,31 +252,65 @@ export function CasesSection(_props: Props) {
             description={groups.productDesign.description[locale]}
           />
 
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-4"
-          >
-            {productCards.map((card) => (
-              <CaseCard
-                key={card.href}
-                company={card.company}
-                category={card.category[locale]}
-                title={card.title[locale]}
-                description={card.description[locale]}
-                tags={card.tags[locale]}
-                href={card.href}
-                imageSrc={card.imageSrc}
-                imageAlt={card.imageAlt}
-                accentBg={card.accentBg}
-                accentText={card.accentText}
-                mockup={card.mockup}
-                ctaLabel={locale === 'en' ? 'See case' : 'Ver case'}
-              />
-            ))}
-          </motion.div>
+          <div className="space-y-16 md:space-y-24">
+            {productCards.map((card, i) => {
+              const reversed = i % 2 !== 0;
+              return (
+                <motion.div
+                  key={card.href}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                  className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 md:items-center"
+                >
+                  {/* Imagem */}
+                  <div
+                    className={`relative aspect-[4/3] rounded-xl overflow-hidden${reversed ? ' md:order-2' : ' md:order-1'}`}
+                    style={{ backgroundColor: card.accentBg }}
+                  >
+                    <Image
+                      src={card.imageSrc}
+                      alt={card.imageAlt}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover object-top"
+                    />
+                  </div>
+
+                  {/* Texto */}
+                  <div className={reversed ? 'md:order-1' : 'md:order-2'}>
+                    <p className="type-caption text-accent-magenta mb-3">
+                      {card.company} · {card.category[locale]}
+                    </p>
+                    <h3 className="type-headline text-fg mb-4 leading-snug">
+                      {card.title[locale]}
+                    </h3>
+                    <p className="type-body text-fg-muted mb-6">
+                      {card.description[locale]}
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {card.tags[locale].map((tag) => (
+                        <span
+                          key={tag}
+                          className="type-caption text-fg-subtle rounded-full border border-border px-3 py-1 leading-none"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <Link
+                      href={card.href}
+                      className={buttonVariants({ variant: 'secondary', size: 'sm' })}
+                    >
+                      {locale === 'en' ? 'See case' : 'Ver case'}{' '}
+                      <ArrowUpRight size={12} aria-hidden="true" className="shrink-0" />
+                    </Link>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
 
         {/* ── Strategy ────────────────────────────────────────── */}
