@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 import { useTranslations, useLocale } from 'next-intl';
@@ -24,21 +24,10 @@ export function CasePageShell({
   const t = useTranslations('case');
   const locale = useLocale() as 'pt' | 'en';
   const [view, setView] = useState<'overview' | 'detailed'>('overview');
-  const [pendingScroll, setPendingScroll] = useState(false);
-
-  useEffect(() => {
-    if (!pendingScroll) return;
-    setPendingScroll(false);
-    const el = document.getElementById('case-toggle');
-    if (el) {
-      const top = el.getBoundingClientRect().top + window.scrollY - 100;
-      window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
-    }
-  }, [pendingScroll, view]);
 
   const switchView = (next: 'overview' | 'detailed') => {
     setView(next);
-    setPendingScroll(true);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
