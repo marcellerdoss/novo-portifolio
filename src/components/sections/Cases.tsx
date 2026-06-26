@@ -1,9 +1,10 @@
 'use client';
 
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useLocale } from 'next-intl';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, ChevronDown } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 import { buttonVariants } from '@/components/ui/Button';
 import type { Case } from '@/lib/types';
@@ -234,88 +235,12 @@ function CaseRow({ card, index, locale }: { card: CaseItem; index: number; local
   );
 }
 
-function CompactCard({ card, locale }: { card: CaseItem; locale: 'pt' | 'en' }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.4 }}
-    >
-      <Link href={card.href} className="group block">
-        <div
-          className="relative aspect-[4/3] rounded-xl overflow-hidden mb-4"
-          style={{ backgroundColor: card.accentBg }}
-        >
-          {card.mockup === 'mobile' && (
-            <div className="absolute inset-0 flex items-start justify-center pt-6">
-              <div
-                className="relative rounded-[26px] border-[5px] border-neutral-900 dark:border-white shadow-2xl overflow-hidden"
-                style={{ width: '38%', aspectRatio: '9 / 19.5' }}
-              >
-                <div className="absolute top-0 inset-x-0 z-10 flex justify-center">
-                  <div className="w-[36%] h-[10px] bg-neutral-900 dark:bg-white rounded-b-full" />
-                </div>
-                <Image src={card.imageSrc} alt={card.imageAlt} fill sizes="33vw" className="object-cover object-top" />
-              </div>
-            </div>
-          )}
-          {card.mockup === 'desktop' && (
-            <div className="absolute inset-5 flex items-center justify-center">
-              <div
-                className="relative"
-                style={{ aspectRatio: '16 / 10', width: '100%', maxWidth: '85%', maxHeight: 'calc(90% - 9px)' }}
-              >
-                <div className="absolute inset-0 rounded-t-[8px] overflow-hidden border-[5px] border-b-0 border-neutral-900 dark:border-white bg-neutral-100 dark:bg-white/10 shadow-xl">
-                  <div className="absolute top-0 inset-x-0 z-10 flex justify-center pt-[5px]">
-                    <div className="w-1.5 h-1.5 rounded-full bg-neutral-500 dark:bg-white/60" />
-                  </div>
-                  <Image src={card.imageSrc} alt={card.imageAlt} fill sizes="33vw" className="object-cover object-top" />
-                </div>
-                <div className="absolute bottom-[-5px] left-0 right-0 h-[5px] bg-neutral-900 dark:bg-white" />
-                <div className="absolute bottom-[-9px] left-0 right-0 flex justify-center">
-                  <div className="h-[4px] bg-neutral-700 dark:bg-white/70 rounded-b-md" style={{ width: '65%' }} />
-                </div>
-              </div>
-            </div>
-          )}
-          {!card.mockup && (
-            <Image
-              src={card.imageSrc}
-              alt={card.imageAlt}
-              fill
-              sizes="(max-width: 768px) 100vw, 33vw"
-              className="object-cover object-top"
-            />
-          )}
-        </div>
-        <p className="type-caption text-accent-magenta mb-1">
-          {card.company} · {card.category[locale]}
-        </p>
-        <h3 className="type-body-strong text-fg mb-3 leading-snug group-hover:underline underline-offset-2">
-          {card.title[locale]}
-        </h3>
-        <div className="flex flex-wrap gap-2 mb-4">
-          {card.tags[locale].map((tag) => (
-            <span key={tag} className="type-caption text-fg-subtle rounded-full border border-border px-3 py-1 leading-none">
-              {tag}
-            </span>
-          ))}
-        </div>
-        <span className={buttonVariants({ variant: 'secondary', size: 'sm' })}>
-          {locale === 'en' ? 'See case' : 'Ver case'}{' '}
-          <ArrowUpRight size={12} aria-hidden="true" className="shrink-0" />
-        </span>
-      </Link>
-    </motion.div>
-  );
-}
-
 const mainCases = allCases.slice(0, 4);
-const compactCases = allCases.slice(4);
+const extraCases = allCases.slice(4);
 
 export function CasesSection(_props: Props) {
   const locale = useLocale() as 'pt' | 'en';
+  const [expanded, setExpanded] = useState(false);
 
   return (
     <section id="cases" aria-labelledby="cases-heading" className="py-section bg-[#FDFAF4] dark:bg-block-cream scroll-mt-28">
@@ -332,28 +257,50 @@ export function CasesSection(_props: Props) {
           Cases
         </motion.h2>
 
-        {/* ── 4 cases principais em linha ── */}
+        {/* ── 4 cases principais ── */}
         <div className="space-y-16 md:space-y-24">
           {mainCases.map((card, i) => (
             <CaseRow key={card.href} card={card} index={i} locale={locale} />
           ))}
         </div>
 
-        {/* ── 4 cases compactos em grid 2×2 ── */}
-        <div>
-          <hr className="border-border mb-12" />
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-10"
+        {/* ── Ver mais / Ver menos ── */}
+        <div className="flex justify-center pt-4">
+          <button
+            onClick={() => setExpanded((v) => !v)}
+            className={buttonVariants({ variant: 'secondary', size: 'sm' })}
+            aria-expanded={expanded}
           >
-            {compactCases.map((card) => (
-              <CompactCard key={card.href} card={card} locale={locale} />
-            ))}
-          </motion.div>
+            {expanded
+              ? (locale === 'en' ? 'See less' : 'Ver menos')
+              : (locale === 'en' ? `See ${extraCases.length} more cases` : `Ver mais ${extraCases.length} cases`)}
+            <ChevronDown
+              size={14}
+              aria-hidden="true"
+              className={`shrink-0 transition-transform duration-300 ${expanded ? 'rotate-180' : ''}`}
+            />
+          </button>
         </div>
+
+        {/* ── 4 cases extras, expandem suavemente ── */}
+        <AnimatePresence>
+          {expanded && (
+            <motion.div
+              key="extra-cases"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="overflow-hidden"
+            >
+              <div className="space-y-16 md:space-y-24 pt-8">
+                {extraCases.map((card, i) => (
+                  <CaseRow key={card.href} card={card} index={i} locale={locale} />
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
       </div>
     </section>
