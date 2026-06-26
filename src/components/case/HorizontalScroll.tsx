@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { useRouter } from '@/i18n/navigation';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { ArrowLeft, ArrowRight, X } from 'lucide-react';
 
 interface Props {
   children: React.ReactNode;
@@ -98,14 +98,13 @@ export function HorizontalScroll({ children, backLabel = 'Voltar' }: Props) {
       style={{ cursor }}
       onClick={handleClick}
     >
-      {/* Back button */}
+      {/* Close button */}
       <button
         onClick={(e) => { e.stopPropagation(); handleBack(); }}
-        className="absolute top-6 left-6 z-20 flex items-center gap-2 px-4 py-2 type-btn bg-bg/90 backdrop-blur-sm border border-border rounded-pill text-fg hover:bg-fg/5 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg"
+        className="absolute top-5 right-5 z-20 w-8 h-8 flex items-center justify-center bg-bg/90 backdrop-blur-sm border border-border rounded-full text-fg-muted hover:text-fg hover:bg-fg/5 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg"
         aria-label={backLabel}
       >
-        <ArrowLeft size={14} aria-hidden="true" />
-        {backLabel}
+        <X size={14} aria-hidden="true" />
       </button>
 
       {/* Left arrow indicator */}
