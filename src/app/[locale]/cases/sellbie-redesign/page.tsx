@@ -305,30 +305,60 @@ export default async function SellbieRedesignPage({ params }: Props) {
       <ImagePanel src="/images/cases/sellbie/redesign/sellbie-redesign-envio-drawer-email-etapa-aprovacao.png" alt={en ? 'Approval step' : 'Etapa de aprovação'} caption={en ? 'Summary and approval — the two steps that close the creation cycle' : 'Resumo e aprovação — as duas etapas que fecham o ciclo de criação'} />
 
       {/* 08 — Resultado */}
-      <Panel className="flex-col items-center justify-center gap-12 px-20">
-        <div className="text-center">
-          <Eyebrow>{en ? 'Outcome' : 'Resultado'}</Eyebrow>
-          <h2 className="type-display-lg text-fg mt-2">
-            {en ? 'What changed after the redesign' : 'O que mudou depois do redesign'}
+      <Panel className="flex-col justify-center gap-8 pl-20 pr-16 py-14">
+        {/* Heading */}
+        <div>
+          <Eyebrow>{en ? '08 · Outcome' : '08 · Resultado'}</Eyebrow>
+          <h2 className="type-display-lg text-fg mt-1">
+            {en ? 'Results' : 'Resultados'}
           </h2>
         </div>
-        <div className="grid grid-cols-3 gap-6 w-full max-w-2xl">
+
+        {/* Metric cards */}
+        <div className="grid grid-cols-3 gap-4 w-full max-w-3xl">
           {[
-            { stat: '−43%', label: { pt: 'Taxa de abandono na criação de envios', en: 'Abandonment rate in send creation' } },
-            { stat: '2×',   label: { pt: 'Mais campanhas criadas por sessão',      en: 'More campaigns created per session' } },
-            { stat: '4 → 1', label: { pt: 'Páginas no fluxo de criação',           en: 'Pages in the creation flow' } },
-          ].map(({ stat, label }) => (
-            <div
-              key={stat}
-              className="border border-border rounded-[16px] p-8 flex flex-col gap-2"
-              style={{ backgroundColor: ACCENT_BG }}
-            >
+            {
+              stat: '−43%',
+              label: { pt: 'Taxa de abandono', en: 'Abandonment rate' },
+              desc:  { pt: 'Na criação de envios após o redesign do fluxo', en: 'In send creation after the flow redesign' },
+            },
+            {
+              stat: '2×',
+              label: { pt: 'Campanhas por sessão', en: 'Campaigns per session' },
+              desc:  { pt: 'Mais campanhas criadas por sessão de uso', en: 'More campaigns created per session' },
+            },
+            {
+              stat: '4 → 1',
+              label: { pt: 'Páginas no fluxo', en: 'Pages in the flow' },
+              desc:  { pt: 'Quatro páginas condensadas em um drawer contextual', en: 'Four pages condensed into one contextual drawer' },
+            },
+          ].map(({ stat, label, desc }) => (
+            <div key={stat} className="rounded-[16px] p-6 flex flex-col gap-2" style={{ backgroundColor: ACCENT_BG }}>
               <p className="type-headline" style={{ color: ACCENT_TEXT }}>{stat}</p>
-              <p className="type-body-sm opacity-70" style={{ color: ACCENT_TEXT }}>
-                {en ? label.en : label.pt}
-              </p>
+              <p className="type-body-sm font-semibold" style={{ color: ACCENT_TEXT }}>{en ? label.en : label.pt}</p>
+              <p className="type-body-xs opacity-60" style={{ color: ACCENT_TEXT }}>{en ? desc.en : desc.pt}</p>
             </div>
           ))}
+        </div>
+
+        {/* Qualitative cards */}
+        <div className="grid grid-cols-2 gap-4 w-full max-w-3xl">
+          <div className="rounded-[16px] p-6 flex flex-col gap-3" style={{ backgroundColor: `color-mix(in srgb, ${ACCENT_BG} 15%, transparent)`, border: `1px solid color-mix(in srgb, ${ACCENT_BG} 30%, transparent)` }}>
+            <p className="type-body-sm font-semibold" style={{ color: ACCENT_TEXT }}>{en ? 'Learnings' : 'Aprendizados'}</p>
+            <p className="type-body-sm text-fg-muted">
+              {en
+                ? 'Redesigning a critical product without losing user productivity requires incremental validation. Quick tests with real users are worth more than weeks of specification — context clarity matters more than feature quantity.'
+                : 'Redesenhar um produto crítico sem perder produtividade exige validação incremental. Testes rápidos com usuários reais valem mais do que semanas de especificação — clareza de contexto é mais importante do que quantidade de recursos.'}
+            </p>
+          </div>
+          <div className="rounded-[16px] p-6 flex flex-col gap-3 bg-fg/5 border border-border">
+            <p className="type-body-sm font-semibold text-fg">{en ? 'Qualitative Impact' : 'Impacto Qualitativo'}</p>
+            <p className="type-body-sm text-fg-muted">
+              {en
+                ? 'The support team reported a significant drop in campaign-flow tickets. Managers began relying on the card listing to track ongoing campaigns, reducing dependence on manual reports.'
+                : 'O time de suporte relatou queda significativa em tickets do fluxo de campanhas. Gestores passaram a confiar na listagem em cards para acompanhar campanhas ativas, reduzindo dependência de relatórios manuais.'}
+            </p>
+          </div>
         </div>
       </Panel>
 
