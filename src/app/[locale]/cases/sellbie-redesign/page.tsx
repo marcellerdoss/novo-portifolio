@@ -91,12 +91,12 @@ function PanelImg({ src, alt, caption }: { src: string; alt: string; caption?: s
   );
 }
 
-// Full-panel image — container matches VisualCol effective area (~1000px wide, pt-14 pb-6)
-// so images render at the same size as in text+image panels
+// Full-panel image — container width matches VisualCol (screen - 360px TextCol - 32px gap = ~1048px)
+// so images render at the same height as in text+image panels
 function ImagePanel({ src, alt, caption }: { src: string; alt: string; caption?: string }) {
   return (
     <Panel className="justify-center">
-      <div className="w-full max-w-[1000px] mx-10 flex flex-col pt-14 pb-6 overflow-hidden">
+      <div className="w-full max-w-[1048px] flex flex-col pt-14 pb-6 pr-10 overflow-hidden">
         <PanelImg src={src} alt={alt} caption={caption} />
       </div>
     </Panel>
