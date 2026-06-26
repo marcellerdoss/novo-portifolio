@@ -133,7 +133,8 @@ export default async function SellbieRedesignPage({ params }: Props) {
 
       {/* 00 — Intro */}
       <Panel>
-        <TextCol>
+        {/* Text takes 2/3 of panel */}
+        <div className="flex-[2] flex flex-col justify-center gap-5 pl-20 pr-16 pt-20 pb-10">
           <Eyebrow>Sellbie · 2024</Eyebrow>
           <h1 className="type-display-lg text-fg">
             {en ? <>Campaign core<br />redesign</> : <>Redesign do core<br />de campanhas</>}
@@ -150,9 +151,10 @@ export default async function SellbieRedesignPage({ params }: Props) {
               </span>
             ))}
           </div>
-        </TextCol>
+        </div>
 
-        <VisualCol center>
+        {/* Card takes 1/3 of panel */}
+        <div className="flex-1 flex flex-col items-center justify-center pt-14 pb-6 pr-10 overflow-hidden">
           <div className="rounded-[16px] border border-border overflow-hidden divide-y divide-border w-[280px]">
             {sidebar.map(({ label, content }) => (
               <div key={label} className="px-5 py-4">
@@ -161,7 +163,7 @@ export default async function SellbieRedesignPage({ params }: Props) {
               </div>
             ))}
           </div>
-        </VisualCol>
+        </div>
       </Panel>
 
       {/* 01 — Diagnóstico */}
