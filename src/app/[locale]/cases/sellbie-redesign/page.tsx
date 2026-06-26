@@ -1,9 +1,7 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { routing } from '@/i18n/routing';
 import { HorizontalScroll } from '@/components/case/HorizontalScroll';
-import { CaseImageFrame } from '@/components/case/CaseImageFrame';
-import { CaseCarousel } from '@/components/case/CaseCarousel';
-import { CaseBeforeAfter } from '@/components/case/CaseBeforeAfter';
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -18,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ? 'Sellbie — Campaign Core Redesign · Marcelle Rocha'
       : 'Sellbie Redesign — Marcelle Rocha',
     description: locale === 'en'
-      ? 'Campaign core redesign: how we unified three navigation patterns and redesigned the sending flow, reducing abandonment in Sellbie\'s main module.'
+      ? "Campaign core redesign: how we unified three navigation patterns and redesigned the sending flow, reducing abandonment in Sellbie's main module."
       : 'Redesign do core de campanhas: como unificamos três padrões de navegação e redesenhamos o fluxo de criação de envios da Sellbie.',
   };
 }
@@ -28,7 +26,6 @@ const ACCENT_TEXT = 'var(--color-project-sellbie-redesign-text)';
 
 // ── Panel layout helpers ──────────────────────────────────────────────────────
 
-// No explicit items-* so default flex-stretch applies; className can override
 function Panel({ children, className = '' }: { children: React.ReactNode; className?: string }) {
   return (
     <div className={`w-screen h-screen flex-shrink-0 overflow-hidden flex gap-8 ${className}`}>
@@ -45,10 +42,10 @@ function TextCol({ children }: { children: React.ReactNode }) {
   );
 }
 
-// fill=true overrides max-w caps in CaseCarousel/CaseImageFrame/CaseBeforeAfter
-function VisualCol({ children, fill = false }: { children: React.ReactNode; fill?: boolean }) {
+// flex-col so children use flex-1 to fill height reliably (avoids h-full chain issues)
+function VisualCol({ children, center = false }: { children: React.ReactNode; center?: boolean }) {
   return (
-    <div className={`flex-1 flex items-center justify-center pr-12 pt-20 pb-10 overflow-hidden${fill ? ' [&>*]:max-w-none [&>*]:mx-0 [&>*]:w-full' : ''}`}>
+    <div className={`flex-1 flex flex-col pt-14 pb-6 pr-10 overflow-hidden${center ? ' items-center justify-center' : ''}`}>
       {children}
     </div>
   );
@@ -64,6 +61,107 @@ function Heading({ children }: { children: React.ReactNode }) {
 
 function Body({ children }: { children: React.ReactNode }) {
   return <p className="type-body text-fg-muted">{children}</p>;
+}
+
+// ── Image helpers — no zoom, no lightbox ─────────────────────────────────────
+// All use flex-1 min-h-0 so they fill VisualCol (flex-col) height.
+// max-h-full max-w-full w-auto h-auto constrains image to container, preserves ratio.
+
+function PanelImg({ src, alt, caption }: { src: string; alt: string; caption?: string }) {
+  return (
+    <figure className="flex-1 min-h-0 flex flex-col overflow-hidden">
+      <div className="flex-1 min-h-0 flex items-center justify-center overflow-hidden">
+        <Image
+          src={src}
+          alt={alt}
+          width={1200}
+          height={800}
+          quality={92}
+          sizes="(max-width: 1440px) 70vw, 1000px"
+          className="max-h-full max-w-full w-auto h-auto block"
+        />
+      </div>
+      {caption && (
+        <figcaption className="shrink-0 pt-3 type-body-xs text-fg-subtle text-center">
+          {caption}
+        </figcaption>
+      )}
+    </figure>
+  );
+}
+
+// Stacks images vertically so each fills a proportional slice of the panel height
+function PanelImgStack({
+  images,
+  caption,
+}: {
+  images: Array<{ src: string; alt: string }>;
+  caption?: string;
+}) {
+  return (
+    <figure className="flex-1 min-h-0 flex flex-col overflow-hidden">
+      <div className="flex-1 min-h-0 flex flex-col gap-3 overflow-hidden">
+        {images.map((img) => (
+          <div key={img.src} className="flex-1 min-h-0 flex items-center justify-center overflow-hidden">
+            <Image
+              src={img.src}
+              alt={img.alt}
+              width={1200}
+              height={800}
+              quality={92}
+              sizes={`(max-width: 1440px) ${Math.round(70 / images.length)}vw, ${Math.round(1000 / images.length)}px`}
+              className="max-h-full max-w-full w-auto h-auto block"
+            />
+          </div>
+        ))}
+      </div>
+      {caption && (
+        <figcaption className="shrink-0 pt-3 type-body-xs text-fg-subtle text-center">
+          {caption}
+        </figcaption>
+      )}
+    </figure>
+  );
+}
+
+function PanelBeforeAfter({
+  imageBefore, imageAfter,
+  altBefore, altAfter,
+  captionBefore, captionAfter,
+  en,
+}: {
+  imageBefore: string; imageAfter: string;
+  altBefore: string; altAfter: string;
+  captionBefore?: string; captionAfter?: string;
+  en: boolean;
+}) {
+  const cols = [
+    { src: imageBefore, alt: altBefore, caption: captionBefore, label: en ? 'Before' : 'Antes' },
+    { src: imageAfter,  alt: altAfter,  caption: captionAfter,  label: en ? 'After'  : 'Depois' },
+  ];
+  return (
+    <figure className="flex-1 min-h-0 flex gap-4 overflow-hidden">
+      {cols.map(({ src, alt, caption, label }) => (
+        <div key={src} className="flex-1 min-h-0 min-w-0 flex flex-col gap-2 overflow-hidden">
+          <span className="type-caption text-fg-subtle shrink-0 text-center">{label}</span>
+          <div className="flex-1 min-h-0 flex items-center justify-center overflow-hidden">
+            <Image
+              src={src}
+              alt={alt}
+              width={1200}
+              height={800}
+              quality={92}
+              sizes="35vw"
+              className="max-h-full max-w-full w-auto h-auto block"
+            />
+          </div>
+          {caption && (
+            <p className="type-body-xs text-fg-subtle text-center shrink-0">{caption}</p>
+          )}
+        </div>
+      ))}
+    </figure>
+  );
 }
 
 // ── Page ─────────────────────────────────────────────────────────────────────
@@ -102,7 +200,7 @@ export default async function SellbieRedesignPage({ params }: Props) {
           </h1>
           <p className="type-body text-fg-muted">
             {en
-              ? 'How we unified three incompatible navigation patterns and redesigned the campaign sending flow, reducing abandonment in the platform\'s main module.'
+              ? "How we unified three incompatible navigation patterns and redesigned the campaign sending flow, reducing abandonment in the platform's main module."
               : 'Como unificamos três padrões de navegação incompatíveis e redesenhamos o fluxo de criação de envios, reduzindo o abandono no módulo principal da plataforma.'}
           </p>
           <div className="flex flex-wrap gap-2 mt-2">
@@ -114,7 +212,7 @@ export default async function SellbieRedesignPage({ params }: Props) {
           </div>
         </TextCol>
 
-        <VisualCol>
+        <VisualCol center>
           <div className="rounded-[16px] border border-border overflow-hidden divide-y divide-border w-[280px]">
             {sidebar.map(({ label, content }) => (
               <div key={label} className="px-5 py-4">
@@ -137,8 +235,8 @@ export default async function SellbieRedesignPage({ params }: Props) {
               : 'A Sellbie cresceu rápido demais. Cada squad adicionou sua própria lógica de navegação — e nenhuma conversava com as outras. A auditoria revelou três padrões incompatíveis coexistindo no mesmo produto, sem critério ou hierarquia clara.'}
           </Body>
         </TextCol>
-        <VisualCol fill>
-          <CaseCarousel
+        <VisualCol>
+          <PanelImgStack
             images={[
               { src: '/images/cases/sellbie/redesign/sellbie-redesign-navegacao-antes-1.png', alt: en ? 'Top navigation pattern' : 'Padrão de navegação superior' },
               { src: '/images/cases/sellbie/redesign/sellbie-redesign-navegacao-antes-2.png', alt: en ? 'Side navigation pattern' : 'Padrão de navegação lateral' },
@@ -156,12 +254,12 @@ export default async function SellbieRedesignPage({ params }: Props) {
           <Heading>{en ? 'Before redesigning, we needed to listen' : 'Antes de redesenhar, precisávamos ouvir'}</Heading>
           <Body>
             {en
-              ? 'We conducted 12 interviews with active users across three profiles: marketing managers, campaign operators and administrators. The clusters revealed an unexpected pattern — the biggest abandonment point wasn\'t navigation, but campaign sending creation.'
+              ? "We conducted 12 interviews with active users across three profiles: marketing managers, campaign operators and administrators. The clusters revealed an unexpected pattern — the biggest abandonment point wasn't navigation, but campaign sending creation."
               : 'Realizamos 12 entrevistas com usuários ativos em três perfis: gestores de marketing, operadores de campanha e administradores. Os clusters revelaram um padrão inesperado — o maior ponto de abandono não era a navegação, mas a criação de envios.'}
           </Body>
         </TextCol>
-        <VisualCol fill>
-          <CaseCarousel
+        <VisualCol>
+          <PanelImgStack
             images={[
               { src: '/images/cases/sellbie/redesign/sellbie-redesign-board-entrevistas.png', alt: en ? 'Interview clustering board' : 'Board de clusterização das entrevistas' },
               { src: '/images/cases/sellbie/redesign/sellbie-redesign-board-aprendizados.png', alt: en ? 'Research learnings board' : 'Board de aprendizados da pesquisa' },
@@ -178,18 +276,19 @@ export default async function SellbieRedesignPage({ params }: Props) {
           <Heading>{en ? 'The campaign listing was the most visible symptom' : 'A listagem de campanhas era o sintoma mais visível'}</Heading>
           <Body>
             {en
-              ? 'The fixed table doesn\'t scale for those managing dozens of active campaigns. No alternative view, no quick context, no clear hierarchy — users wasted time searching before even creating. The switch to cards with an alternate view was validated with six users in two days of testing.'
+              ? "The fixed table doesn't scale for those managing dozens of active campaigns. No alternative view, no quick context, no clear hierarchy — users wasted time searching before even creating. The switch to cards with an alternate view was validated with six users in two days of testing."
               : 'A tabela fixa não escala para quem gerencia dezenas de campanhas ativas. Sem visualização alternativa, sem contexto rápido, sem hierarquia clara — o usuário perdia tempo procurando antes mesmo de criar. A mudança para cards com visualização alternável foi validada com seis usuários em dois dias de teste.'}
           </Body>
         </TextCol>
-        <VisualCol fill>
-          <CaseBeforeAfter
+        <VisualCol>
+          <PanelBeforeAfter
             imageBefore="/images/cases/sellbie/redesign/sellbie-redesign-campanhas-antes.png"
             imageAfter="/images/cases/sellbie/redesign/sellbie-redesign-campanhas-cards-depois.png"
             altBefore={en ? 'Campaign listing before — fixed table' : 'Listagem antes — tabela fixa'}
             altAfter={en ? 'New card listing with alternate view' : 'Nova listagem em cards'}
             captionBefore={en ? 'Fixed table — no alternate view' : 'Tabela fixa — sem visualização alternativa'}
             captionAfter={en ? 'Cards with alternate view' : 'Cards com visualização alternável'}
+            en={en}
           />
         </VisualCol>
       </Panel>
@@ -205,8 +304,8 @@ export default async function SellbieRedesignPage({ params }: Props) {
               : 'Toda a pesquisa apontava para o mesmo problema: o usuário perdia a referência da campanha ao criar um envio. Quatro páginas separadas, zero contexto. A solução foi trazer o envio para dentro da campanha — em um drawer contextual que mantém o produto visível ao fundo.'}
           </Body>
         </TextCol>
-        <VisualCol fill>
-          <CaseImageFrame
+        <VisualCol>
+          <PanelImg
             src="/images/cases/sellbie/redesign/sellbie-redesign-criacao-envio.png"
             alt={en ? 'New contextual drawer with campaign visible' : 'Novo drawer contextual com campanha visível'}
             caption={en ? 'The core redesign decision — creating the send in the campaign context.' : 'A decisão central do redesign — criar o envio no contexto da campanha.'}
@@ -225,8 +324,8 @@ export default async function SellbieRedesignPage({ params }: Props) {
               : 'O fluxo antigo dispersava o usuário por quatro páginas independentes. Na etapa de seleção de base — a mais crítica — não havia nenhuma referência visual da campanha. Quem chegava ali não sabia mais exatamente o que estava disparando.'}
           </Body>
         </TextCol>
-        <VisualCol fill>
-          <CaseCarousel
+        <VisualCol>
+          <PanelImgStack
             images={[
               { src: '/images/cases/sellbie/redesign/sellbie-redesign-criacao-envio-antes-1.png', alt: en ? 'Old flow — separate page' : 'Fluxo antigo — página separada' },
               { src: '/images/cases/sellbie/redesign/sellbie-redesign-criacao-envio-antes-2.png', alt: en ? 'Old flow step 2' : 'Etapa 2 do fluxo antigo' },
@@ -248,8 +347,8 @@ export default async function SellbieRedesignPage({ params }: Props) {
               : 'Cada etapa do drawer de e-mail foi desenhada para manter o usuário orientado. O canal, o conteúdo, a base e a configuração — tudo em sequência linear, sem perder o contexto da campanha que está visível ao fundo.'}
           </Body>
         </TextCol>
-        <VisualCol fill>
-          <CaseImageFrame
+        <VisualCol>
+          <PanelImg
             src="/images/cases/sellbie/redesign/sellbie-redesign-envio-drawer-email-etapa-1.png"
             alt={en ? 'Email drawer steps' : 'Etapas do drawer de e-mail'}
             caption={en ? 'Drawer steps — Email' : 'Etapas do drawer — E-mail'}
@@ -268,8 +367,8 @@ export default async function SellbieRedesignPage({ params }: Props) {
               : 'O resumo consolida tudo em uma tela antes do disparo — permitindo edição inline sem voltar às etapas anteriores. A aprovação, quando necessária, formaliza a revisão e transfere a responsabilidade para quem tem autorização.'}
           </Body>
         </TextCol>
-        <VisualCol fill>
-          <CaseCarousel
+        <VisualCol>
+          <PanelImgStack
             images={[
               { src: '/images/cases/sellbie/redesign/sellbie-redesign-envio-drawer-email-etapa-resumo.png', alt: en ? 'Consolidated summary' : 'Resumo consolidado' },
               { src: '/images/cases/sellbie/redesign/sellbie-redesign-envio-drawer-email-etapa-aprovacao.png', alt: en ? 'Approval step' : 'Etapa de aprovação' },
