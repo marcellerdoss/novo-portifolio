@@ -21,13 +21,13 @@ const phases = [
     question: { pt: 'Quais são e de onde vêm os problemas?', en: 'What are the problems and where do they come from?' },
     practiceCard: {
       title: { pt: 'Leitura de contexto',    en: 'Context reading' },
-      text:  { pt: 'Exploro contextos por meio de pesquisas qualitativas e quantitativas, entrevistas e observação, além de desk research, benchmarking e análise de dados.',
-               en: 'I explore contexts through qualitative and quantitative research, interviews and observation, as well as desk research, benchmarking and data analysis.' },
+      text:  { pt: 'Conduzo pesquisas qualitativas, entrevistas com usuários, desk research e benchmarking para entender o contexto real — não só o que foi pedido, mas o problema que precisa ser resolvido.',
+               en: 'I conduct qualitative research, user interviews, desk research and benchmarking to understand the real context — not just what was asked, but the problem that needs to be solved.' },
     },
     trajectoryCard: {
       title: { pt: 'Ampliação de repertório', en: 'Expanding repertoire' },
-      text:  { pt: 'Atuação em diferentes contextos profissionais amplia a leitura de problemas, permitindo compreender como eles se manifestam na prática e não apenas na superfície das demandas.',
-               en: 'Working in different professional contexts broadens problem reading, allowing me to understand how problems manifest in practice, not just on the surface of demands.' },
+      text:  { pt: 'Varejo, martech, EdTech e produtos com IA me ensinaram a ler problemas pelo que são, não pelo que parecem.',
+               en: 'Retail, martech, EdTech and AI products taught me to read problems for what they are, not what they seem.' },
     },
   },
   {
@@ -41,8 +41,8 @@ const phases = [
     },
     trajectoryCard: {
       title: { pt: 'Evolução de visão estratégica', en: 'Strategic vision evolution' },
-      text:  { pt: 'Minha trajetória amplia a capacidade de distinguir demandas pontuais de oportunidades reais de melhoria de experiência.',
-               en: 'My journey expands the ability to distinguish one-off demands from real opportunities for experience improvement.' },
+      text:  { pt: 'Anos trabalhando com negócios distintos me deram calibração para distinguir o que é demanda pontual do que é oportunidade real de produto.',
+               en: 'Years working across different businesses gave me the calibration to distinguish a one-off demand from a real product opportunity.' },
     },
   },
   {
@@ -56,8 +56,8 @@ const phases = [
     },
     trajectoryCard: {
       title: { pt: 'Construção de repertório aplicado', en: 'Building applied repertoire' },
-      text:  { pt: 'Experiências em diferentes áreas permitem transitar entre ideias, necessidades de negócio e restrições técnicas, ampliando a capacidade de construir soluções consistentes.',
-               en: 'Experiences in different areas allow me to move between ideas, business needs and technical constraints, expanding the ability to build consistent solutions.' },
+      text:  { pt: 'Estudos e experiências em contextos muito diferentes ampliaram minha capacidade de explorar soluções com mais consistência e menos tentativa e erro.',
+               en: 'Studies and experiences across very different contexts expanded my ability to explore solutions with more consistency and less trial and error.' },
     },
   },
   {
@@ -71,8 +71,8 @@ const phases = [
     },
     trajectoryCard: {
       title: { pt: 'Aprendizado contínuo com entrega', en: 'Continuous learning through delivery' },
-      text:  { pt: 'O acompanhamento da entrega reforça a visão de que o design não termina na solução, mas continua no comportamento real do produto e nos aprendizados gerados em uso.',
-               en: 'Following delivery reinforces the view that design doesn\'t end at the solution, but continues in the product\'s real behavior and the learnings generated in use.' },
+      text:  { pt: 'Acompanho a implementação porque o design não termina no Figma. Termina — ou começa de verdade — no comportamento real do usuário.',
+               en: 'I follow implementation because design doesn\'t end in Figma. It ends — or truly begins — in real user behavior.' },
     },
   },
 ];
@@ -126,8 +126,8 @@ export function Racional() {
           </h2>
           <p className="type-body text-fg-muted">
             {locale === 'en'
-              ? 'Design reflects how I think and act professionally in building experiences.'
-              : 'O design se reflete na forma como penso e atuo profissionalmente na construção de experiências.'}
+              ? 'My way of working follows a rhythm: understand before defining, define before proposing, propose before building. Each step exists because the previous one matters.'
+              : 'Minha forma de trabalhar segue um ritmo: entender antes de definir, definir antes de propor, propor antes de construir. Cada etapa existe porque a anterior importa.'}
           </p>
         </motion.div>
 
