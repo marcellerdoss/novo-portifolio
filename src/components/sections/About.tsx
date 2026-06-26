@@ -53,9 +53,11 @@ export function About() {
             <motion.h2 id="about-heading" variants={fadeInUp} className="type-display-lg text-fg mb-8">
               {t('title')}
             </motion.h2>
-            <motion.p variants={fadeInUp} className="type-body text-fg-muted mb-8">
-              {t('bio')}
-            </motion.p>
+            <motion.div variants={fadeInUp} className="space-y-4 mb-8">
+              {t('bio').split('\n\n').map((paragraph, i) => (
+                <p key={i} className="type-body text-fg-muted">{paragraph}</p>
+              ))}
+            </motion.div>
 
             {/* Stats cards — below bio text, inside right column */}
             <motion.div variants={stagger} className="grid grid-cols-1 sm:grid-cols-3 gap-4">
