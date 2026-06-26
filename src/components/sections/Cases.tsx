@@ -269,13 +269,47 @@ export function CasesSection(_props: Props) {
                     className={`relative aspect-[4/3] rounded-xl overflow-hidden${reversed ? ' md:order-2' : ' md:order-1'}`}
                     style={{ backgroundColor: card.accentBg }}
                   >
-                    <Image
-                      src={card.imageSrc}
-                      alt={card.imageAlt}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover object-top"
-                    />
+                    {card.mockup === 'mobile' && (
+                      <div className="absolute inset-0 flex items-start justify-center pt-6">
+                        <div
+                          className="relative rounded-[26px] border-[5px] border-neutral-900 dark:border-white shadow-2xl overflow-hidden"
+                          style={{ width: '42%', aspectRatio: '9 / 19.5' }}
+                        >
+                          <div className="absolute top-0 inset-x-0 z-10 flex justify-center">
+                            <div className="w-[36%] h-[10px] bg-neutral-900 dark:bg-white rounded-b-full" />
+                          </div>
+                          <Image src={card.imageSrc} alt={card.imageAlt} fill sizes="50vw" className="object-cover object-top" />
+                        </div>
+                      </div>
+                    )}
+                    {card.mockup === 'desktop' && (
+                      <div className="absolute inset-5 flex items-center justify-center">
+                        <div
+                          className="relative"
+                          style={{ aspectRatio: '16 / 10', width: '100%', maxWidth: '85%', maxHeight: 'calc(90% - 9px)' }}
+                        >
+                          <div className="absolute inset-0 rounded-t-[8px] overflow-hidden border-[5px] border-b-0 border-neutral-900 dark:border-white bg-neutral-100 dark:bg-white/10 shadow-xl">
+                            <div className="absolute top-0 inset-x-0 z-10 flex justify-center pt-[5px]">
+                              <div className="w-1.5 h-1.5 rounded-full bg-neutral-500 dark:bg-white/60" />
+                            </div>
+                            <Image src={card.imageSrc} alt={card.imageAlt} fill sizes="50vw" className="object-cover object-top" />
+                          </div>
+                          <div className="absolute bottom-[-5px] left-0 right-0 h-[5px] bg-neutral-900 dark:bg-white" />
+                          <div className="absolute bottom-[-9px] left-0 right-0 flex justify-center">
+                            <div className="h-[4px] bg-neutral-700 dark:bg-white/70 rounded-b-md" style={{ width: '65%' }} />
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                    {!card.mockup && (
+                      <Image
+                        src={card.imageSrc}
+                        alt={card.imageAlt}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="object-cover object-top"
+                      />
+                    )}
                   </div>
 
                   {/* Texto */}
