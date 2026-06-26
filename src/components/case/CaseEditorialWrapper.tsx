@@ -1,5 +1,6 @@
 import React from 'react';
 import { CaseToggleBar } from './CaseToggleBar';
+import { CaseSideNavList } from './CaseSideNavList';
 
 export interface SidebarBlock {
   label: string;
@@ -22,7 +23,7 @@ export function CaseEditorialWrapper({ sidebar, children }: CaseEditorialWrapper
             <article className="case-editorial-prose">{children}</article>
 
             <aside>
-              <div className="sticky top-40">
+              <div className="sticky top-40 max-h-[calc(100vh-12rem)] overflow-y-auto">
                 <div className="rounded-[16px] border border-border overflow-hidden divide-y divide-border">
                   {sidebar.map((block) => (
                     <div key={block.label} className="px-5 py-4">
@@ -31,6 +32,7 @@ export function CaseEditorialWrapper({ sidebar, children }: CaseEditorialWrapper
                     </div>
                   ))}
                 </div>
+                <CaseSideNavList />
               </div>
             </aside>
           </div>

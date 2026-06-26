@@ -1,4 +1,5 @@
 import { CaseToggleBar } from './CaseToggleBar';
+import { CaseSideNavList } from './CaseSideNavList';
 
 interface SidebarBlock {
   label: string;
@@ -21,7 +22,7 @@ export function CaseOverviewLayout({ sidebar, children }: CaseOverviewLayoutProp
             <article className="space-y-24">{children}</article>
 
             <aside>
-              <div className="sticky top-40">
+              <div className="sticky top-40 max-h-[calc(100vh-12rem)] overflow-y-auto">
                 <div className="rounded-[16px] border border-border overflow-hidden divide-y divide-border">
                   {sidebar.map((block) => (
                     <div key={block.label} className="px-5 py-4">
@@ -30,6 +31,7 @@ export function CaseOverviewLayout({ sidebar, children }: CaseOverviewLayoutProp
                     </div>
                   ))}
                 </div>
+                <CaseSideNavList />
               </div>
             </aside>
           </div>
