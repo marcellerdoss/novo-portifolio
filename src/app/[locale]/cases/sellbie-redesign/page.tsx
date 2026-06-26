@@ -218,9 +218,7 @@ export default async function SellbieRedesignPage({ params }: Props) {
             : 'O fluxo antigo dispersava o usuário por quatro páginas independentes. Na etapa de seleção de base — a mais crítica — não havia nenhuma referência visual da campanha. Quem chegava ali não sabia mais exatamente o que estava disparando.'}
         </Body>
       </TextPanel>
-      <ImagePanel src="/images/cases/sellbie/redesign/sellbie-redesign-criacao-envio-antes-1.png" alt={en ? 'Old flow — separate page' : 'Fluxo antigo — página separada'} />
-      <ImagePanel src="/images/cases/sellbie/redesign/sellbie-redesign-criacao-envio-antes-2.png" alt={en ? 'Old flow step 2' : 'Etapa 2 do fluxo antigo'} />
-      <ImagePanel src="/images/cases/sellbie/redesign/sellbie-redesign-criacao-envio-antes-3.png" alt={en ? 'Step 3 — dense base' : 'Etapa 3 — base densa'} caption={en ? 'Old flow — four separate pages, zero campaign context' : 'Fluxo antigo — quatro páginas separadas, zero contexto da campanha'} />
+      {/* imgs a substituir: sellbie-redesign-criacao-envio-antes-1.png / antes-2.png / antes-3.png */}
 
       {/* 06 — O redesign */}
       <TextPanel>
