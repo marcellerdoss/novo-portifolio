@@ -20,7 +20,7 @@ export function Hero() {
       <motion.div
         className="max-w-6xl mx-auto px-6 w-full flex-1 flex flex-col justify-center"
         variants={stagger}
-        initial="hidden"
+        initial={false}
         animate="visible"
       >
         {/* Role label — badge eyebrow */}
