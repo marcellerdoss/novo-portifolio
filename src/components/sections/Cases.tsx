@@ -170,8 +170,11 @@ function CaseRow({ card, index, locale }: { card: CaseItem; index: number; local
       className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 md:items-center"
     >
       {/* Imagem */}
-      <div
-        className={`relative aspect-[4/3] rounded-xl overflow-hidden${reversed ? ' md:order-2' : ' md:order-1'}`}
+      <Link
+        href={card.href}
+        aria-label={card.title[locale]}
+        tabIndex={-1}
+        className={`relative aspect-[4/3] rounded-xl overflow-hidden block group${reversed ? ' md:order-2' : ' md:order-1'}`}
         style={{ backgroundColor: card.accentBg }}
       >
         {card.mockup === 'mobile' && (
@@ -206,7 +209,8 @@ function CaseRow({ card, index, locale }: { card: CaseItem; index: number; local
             </div>
           </div>
         )}
-      </div>
+        <span className="absolute inset-0 bg-black/0 group-hover:bg-black/5 dark:group-hover:bg-black/10 transition-colors duration-300 z-20" aria-hidden="true" />
+      </Link>
 
       {/* Texto */}
       <div className={reversed ? 'md:order-1' : 'md:order-2'}>
