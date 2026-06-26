@@ -242,19 +242,8 @@ export function CasesSection(_props: Props) {
   const locale = useLocale() as 'pt' | 'en';
 
   return (
-    <section id="cases" aria-labelledby="cases-heading" className="py-section bg-[#FDFAF4] dark:bg-block-cream scroll-mt-28">
-      <div className="max-w-6xl mx-auto px-6 space-y-12">
-
-        <motion.h2
-          id="cases-heading"
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.5 }}
-          className="type-display-lg text-fg"
-        >
-          Cases
-        </motion.h2>
+    <section id="cases" className="py-section bg-[#FDFAF4] dark:bg-block-cream scroll-mt-28">
+      <div className="max-w-6xl mx-auto px-6">
 
         <div className="space-y-16 md:space-y-24">
           {allCases.map((card, i) => (
