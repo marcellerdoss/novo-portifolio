@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLocale } from 'next-intl';
 import { ArrowUpRight, ChevronDown } from 'lucide-react';
@@ -241,6 +241,7 @@ const extraCases = allCases.slice(4);
 export function CasesSection(_props: Props) {
   const locale = useLocale() as 'pt' | 'en';
   const [expanded, setExpanded] = useState(false);
+  const extraRef = useRef<HTMLDivElement>(null);
 
   return (
     <section id="cases" aria-labelledby="cases-heading" className="py-section bg-[#FDFAF4] dark:bg-block-cream scroll-mt-28">
@@ -267,7 +268,15 @@ export function CasesSection(_props: Props) {
         {/* ── Ver mais / Ver menos ── */}
         <div className="flex justify-center pt-4">
           <button
-            onClick={() => setExpanded((v) => !v)}
+            onClick={() => {
+              const opening = !expanded;
+              setExpanded(opening);
+              if (opening) {
+                setTimeout(() => {
+                  extraRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+              }
+            }}
             className={buttonVariants({ variant: 'secondary', size: 'sm' })}
             aria-expanded={expanded}
           >
@@ -293,7 +302,7 @@ export function CasesSection(_props: Props) {
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               className="overflow-hidden"
             >
-              <div className="space-y-16 md:space-y-24 pt-8">
+              <div ref={extraRef} className="space-y-16 md:space-y-24 pt-8">
                 {extraCases.map((card, i) => (
                   <CaseRow key={card.href} card={card} index={i} locale={locale} />
                 ))}
