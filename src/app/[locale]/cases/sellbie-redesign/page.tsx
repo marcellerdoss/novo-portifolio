@@ -110,31 +110,16 @@ export default async function SellbieRedesignPage({ params }: Props) {
   const { locale } = await params;
   const en = locale === 'en';
 
-  const sidebar = en
-    ? [
-        { label: 'Company',      content: 'Sellbie' },
-        { label: 'Platform',     content: 'B2B · AI-powered multichannel marketing' },
-        { label: 'Methods',      content: 'Discovery · User interviews · Competitive benchmarking' },
-        { label: 'Deliverables', content: 'Campaign flow redesign · Multichannel flow evolution' },
-      ]
-    : [
-        { label: 'Empresa',    content: 'Sellbie' },
-        { label: 'Plataforma', content: 'B2B · Marketing multicanal com IA' },
-        { label: 'Métodos',    content: 'Discovery · Entrevistas com usuários · Benchmarking competitivo' },
-        { label: 'Entregas',   content: 'Redesign do fluxo de campanhas · Evolução dos fluxos multicanal' },
-      ];
-
   const tags = en
-    ? ['Product Design', 'UX Research', 'Multichannel', 'AI & Automation', 'Information Architecture']
-    : ['Product Design', 'UX Research', 'Multicanal', 'IA & Automação', 'Arquitetura de Info'];
+    ? ['Product Design', 'UX Research', 'B2B SaaS', 'Multichannel', 'AI & Automation', 'Discovery', 'User Interviews', 'Benchmarking']
+    : ['Product Design', 'UX Research', 'B2B SaaS', 'Multicanal', 'IA & Automação', 'Discovery', 'Entrevistas com usuários', 'Benchmarking'];
 
   return (
     <HorizontalScroll backLabel={en ? 'Back' : 'Voltar'}>
 
       {/* 00 — Intro */}
       <Panel>
-        {/* Text takes 2/3 of panel */}
-        <div className="flex-[2] flex flex-col justify-center gap-5 pl-20 pr-16 pt-20 pb-10">
+        <TextCol>
           <Eyebrow>Sellbie · 2024</Eyebrow>
           <h1 className="type-display-lg text-fg">
             {en ? <>Campaign core<br />redesign</> : <>Redesign do core<br />de campanhas</>}
@@ -151,19 +136,7 @@ export default async function SellbieRedesignPage({ params }: Props) {
               </span>
             ))}
           </div>
-        </div>
-
-        {/* Card takes 1/3 of panel */}
-        <div className="flex-1 flex flex-col items-center justify-center pt-14 pb-6 pr-10 overflow-hidden">
-          <div className="rounded-[16px] border border-border overflow-hidden divide-y divide-border w-[280px]">
-            {sidebar.map(({ label, content }) => (
-              <div key={label} className="px-5 py-4">
-                <p className="type-caption text-accent-magenta mb-1">{label}</p>
-                <p className="type-body-xs text-fg-muted leading-relaxed">{content}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        </TextCol>
       </Panel>
 
       {/* 01 — Diagnóstico */}
