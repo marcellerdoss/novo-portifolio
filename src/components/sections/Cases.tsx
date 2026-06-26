@@ -182,7 +182,7 @@ function CaseRow({ card, index, locale }: { card: CaseItem; index: number; local
               <div className="absolute top-0 inset-x-0 z-10 flex justify-center">
                 <div className="w-[36%] h-[10px] bg-neutral-900 dark:bg-white rounded-b-full" />
               </div>
-              <Image src={card.imageSrc} alt={card.imageAlt} fill sizes="50vw" className="object-cover object-top" />
+              <Image src={card.imageSrc} alt={card.imageAlt} fill sizes="50vw" loading="eager" className="object-cover object-top" />
             </div>
           </div>
         )}
@@ -196,7 +196,7 @@ function CaseRow({ card, index, locale }: { card: CaseItem; index: number; local
                 <div className="absolute top-0 inset-x-0 z-10 flex justify-center pt-[5px]">
                   <div className="w-1.5 h-1.5 rounded-full bg-neutral-500 dark:bg-white/60" />
                 </div>
-                <Image src={card.imageSrc} alt={card.imageAlt} fill sizes="50vw" className="object-cover object-top" />
+                <Image src={card.imageSrc} alt={card.imageAlt} fill sizes="50vw" loading="eager" className="object-cover object-top" />
               </div>
               <div className="absolute bottom-[-5px] left-0 right-0 h-[5px] bg-neutral-900 dark:bg-white" />
               <div className="absolute bottom-[-9px] left-0 right-0 flex justify-center">
