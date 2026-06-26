@@ -44,9 +44,10 @@ function TextCol({ children }: { children: React.ReactNode }) {
 }
 
 // flex-col so children use flex-1 to fill height reliably (avoids h-full chain issues)
-function VisualCol({ children, center = false }: { children: React.ReactNode; center?: boolean }) {
+// overflow prop: removes clip so side-by-side images can extend to full height (Panel clips at w-screen)
+function VisualCol({ children, center = false, overflow = false }: { children: React.ReactNode; center?: boolean; overflow?: boolean }) {
   return (
-    <div className={`flex-1 flex flex-col pt-14 pb-6 pr-10 overflow-hidden${center ? ' items-center justify-center' : ''}`}>
+    <div className={`flex-1 flex flex-col pt-14 pb-6 pr-10${overflow ? '' : ' overflow-hidden'}${center ? ' items-center justify-center' : ''}`}>
       {children}
     </div>
   );
@@ -91,7 +92,8 @@ function PanelImg({ src, alt, caption }: { src: string; alt: string; caption?: s
   );
 }
 
-// Images side by side — each fills a proportional slice of the panel width at full height
+// Images side by side — each at the same height as a single PanelImg (h-full w-auto, shrink-0)
+// VisualCol must use overflow prop to allow horizontal extension up to Panel boundary
 function PanelImgStack({
   images,
   caption,
@@ -100,18 +102,18 @@ function PanelImgStack({
   caption?: string;
 }) {
   return (
-    <figure className="flex-1 min-h-0 flex flex-col overflow-hidden">
-      <div className="flex-1 min-h-0 flex flex-row gap-4 overflow-hidden">
+    <figure className="flex-1 min-h-0 flex flex-col">
+      <div className="flex-1 min-h-0 flex flex-row gap-4">
         {images.map((img) => (
-          <div key={img.src} className="flex-1 min-w-0 min-h-0 flex items-center justify-center overflow-hidden">
+          <div key={img.src} className="shrink-0 flex items-center">
             <Image
               src={img.src}
               alt={img.alt}
               width={1200}
               height={800}
               quality={92}
-              sizes={`(max-width: 1440px) ${Math.round(70 / images.length)}vw, ${Math.round(1000 / images.length)}px`}
-              className="max-h-full max-w-full w-auto h-auto block"
+              sizes="(max-width: 1440px) 70vw, 1000px"
+              className="h-full w-auto max-h-full block"
             />
           </div>
         ))}
@@ -197,7 +199,7 @@ export default async function SellbieRedesignPage({ params }: Props) {
               : 'A Sellbie cresceu rápido demais. Cada squad adicionou sua própria lógica de navegação — e nenhuma conversava com as outras. A auditoria revelou três padrões incompatíveis coexistindo no mesmo produto, sem critério ou hierarquia clara.'}
           </Body>
         </TextCol>
-        <VisualCol>
+        <VisualCol overflow>
           <PanelImgStack
             images={[
               { src: '/images/cases/sellbie/redesign/sellbie-redesign-navegacao-antes-1.png', alt: en ? 'Top navigation pattern' : 'Padrão de navegação superior' },
@@ -220,7 +222,7 @@ export default async function SellbieRedesignPage({ params }: Props) {
               : 'Realizamos 12 entrevistas com usuários ativos em três perfis: gestores de marketing, operadores de campanha e administradores. Os clusters revelaram um padrão inesperado — o maior ponto de abandono não era a navegação, mas a criação de envios.'}
           </Body>
         </TextCol>
-        <VisualCol>
+        <VisualCol overflow>
           <PanelImgStack
             images={[
               { src: '/images/cases/sellbie/redesign/sellbie-redesign-board-entrevistas.png', alt: en ? 'Interview clustering board' : 'Board de clusterização das entrevistas' },
@@ -290,7 +292,7 @@ export default async function SellbieRedesignPage({ params }: Props) {
               : 'O fluxo antigo dispersava o usuário por quatro páginas independentes. Na etapa de seleção de base — a mais crítica — não havia nenhuma referência visual da campanha. Quem chegava ali não sabia mais exatamente o que estava disparando.'}
           </Body>
         </TextCol>
-        <VisualCol>
+        <VisualCol overflow>
           <PanelImgStack
             images={[
               { src: '/images/cases/sellbie/redesign/sellbie-redesign-criacao-envio-antes-1.png', alt: en ? 'Old flow — separate page' : 'Fluxo antigo — página separada' },
@@ -333,7 +335,7 @@ export default async function SellbieRedesignPage({ params }: Props) {
               : 'O resumo consolida tudo em uma tela antes do disparo — permitindo edição inline sem voltar às etapas anteriores. A aprovação, quando necessária, formaliza a revisão e transfere a responsabilidade para quem tem autorização.'}
           </Body>
         </TextCol>
-        <VisualCol>
+        <VisualCol overflow>
           <PanelImgStack
             images={[
               { src: '/images/cases/sellbie/redesign/sellbie-redesign-envio-drawer-email-etapa-resumo.png', alt: en ? 'Consolidated summary' : 'Resumo consolidado' },
