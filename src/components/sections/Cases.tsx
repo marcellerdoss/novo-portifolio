@@ -1,10 +1,9 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useLocale } from 'next-intl';
-import { ArrowUpRight, ChevronDown } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 import { buttonVariants } from '@/components/ui/Button';
 import type { Case } from '@/lib/types';
@@ -235,12 +234,8 @@ function CaseRow({ card, index, locale }: { card: CaseItem; index: number; local
   );
 }
 
-const mainCases = allCases.slice(0, 4);
-const extraCases = allCases.slice(4);
-
 export function CasesSection(_props: Props) {
   const locale = useLocale() as 'pt' | 'en';
-  const [expanded, setExpanded] = useState(false);
 
   return (
     <section id="cases" aria-labelledby="cases-heading" className="py-section bg-[#FDFAF4] dark:bg-block-cream scroll-mt-28">
@@ -257,50 +252,11 @@ export function CasesSection(_props: Props) {
           Cases
         </motion.h2>
 
-        {/* ── 4 cases principais ── */}
         <div className="space-y-16 md:space-y-24">
-          {mainCases.map((card, i) => (
+          {allCases.map((card, i) => (
             <CaseRow key={card.href} card={card} index={i} locale={locale} />
           ))}
         </div>
-
-        {/* ── Ver mais / Ver menos ── */}
-        <div className="flex justify-center pt-4">
-          <button
-            onClick={() => setExpanded((v) => !v)}
-            className={buttonVariants({ variant: 'secondary', size: 'sm' })}
-            aria-expanded={expanded}
-          >
-            {expanded
-              ? (locale === 'en' ? 'See less' : 'Ver menos')
-              : (locale === 'en' ? `See ${extraCases.length} more cases` : `Ver mais ${extraCases.length} cases`)}
-            <ChevronDown
-              size={14}
-              aria-hidden="true"
-              className={`shrink-0 transition-transform duration-300 ${expanded ? 'rotate-180' : ''}`}
-            />
-          </button>
-        </div>
-
-        {/* ── 4 cases extras, expandem suavemente ── */}
-        <AnimatePresence>
-          {expanded && (
-            <motion.div
-              key="extra-cases"
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="overflow-hidden"
-            >
-              <div className="space-y-16 md:space-y-24 pt-8">
-                {extraCases.map((card, i) => (
-                  <CaseRow key={card.href} card={card} index={i} locale={locale} />
-                ))}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
 
       </div>
     </section>
