@@ -320,9 +320,6 @@ export function CasesSection(_props: Props) {
                     <h3 className="type-headline text-fg mb-4 leading-snug">
                       {card.title[locale]}
                     </h3>
-                    <p className="type-body text-fg-muted mb-6">
-                      {card.description[locale]}
-                    </p>
                     <div className="flex flex-wrap gap-2 mb-6">
                       {card.tags[locale].map((tag) => (
                         <span
@@ -333,6 +330,9 @@ export function CasesSection(_props: Props) {
                         </span>
                       ))}
                     </div>
+                    <p className="type-body text-fg-muted mb-6">
+                      {card.description[locale]}
+                    </p>
                     <Link
                       href={card.href}
                       className={buttonVariants({ variant: 'secondary', size: 'sm' })}
