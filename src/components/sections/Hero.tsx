@@ -2,15 +2,11 @@
 
 import { motion } from 'framer-motion';
 import { useTranslations, useLocale } from 'next-intl';
-import { ChevronDown, Download } from 'lucide-react';
-import { Button, LinkButton } from '@/components/ui/Button';
+import { ChevronDown } from 'lucide-react';
 import { fadeInUp, stagger } from '@/lib/animations';
-import { siteConfig } from '@/lib/config';
 
 export function Hero() {
   const t = useTranslations('hero');
-  const locale = useLocale() as 'pt' | 'en';
-
   const stats = [
     { value: t('stat_1_value'), label: t('stat_1_label') },
     { value: t('stat_2_value'), label: t('stat_2_label') },
@@ -75,24 +71,6 @@ export function Hero() {
             <p className="type-body-sm text-fg-subtle leading-relaxed max-w-prose">
               {t('description')}
             </p>
-            <div className="flex flex-wrap items-center gap-3">
-              <Button
-                size="md"
-                onClick={() =>
-                  document.getElementById('cases')?.scrollIntoView({ behavior: 'smooth' })
-                }
-              >
-                {t('cta_primary')}
-              </Button>
-              <LinkButton
-                href={siteConfig.cv[locale]}
-                variant="secondary"
-                size="md"
-                download
-              >
-                {t('cta_secondary')} <Download size={16} aria-hidden="true" />
-              </LinkButton>
-            </div>
           </div>
         </motion.div>
       </motion.div>
