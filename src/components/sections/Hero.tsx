@@ -20,7 +20,7 @@ export function Hero() {
       className="relative min-h-screen flex flex-col bg-bg pt-12 md:pt-16 2xl:pt-24"
     >
       <motion.div
-        className="max-w-6xl mx-auto px-6 w-full flex-1 flex flex-col justify-between py-10 md:py-12"
+        className="max-w-6xl mx-auto px-6 w-full flex-1 flex flex-col gap-10 md:gap-14 pb-12"
         variants={stagger}
         initial={false}
         animate="visible"
