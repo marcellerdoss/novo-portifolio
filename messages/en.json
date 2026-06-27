@@ -32,8 +32,16 @@
   },
   "hero": {
     "name": "Marcelle Rocha",
-    "role": "Product Designer",
-    "subtitle": "Real behavior.\nStrategic product.",
+    "greeting": "Hey, I'm Marcelle!",
+    "headline_1": "From real behavior",
+    "headline_2": "to strategic product.",
+    "description": "I work in highly complex contexts: multiple user profiles, non-linear journeys, and decisions that balance user, business, and technology. My output is structure, clarity, and impact.",
+    "stat_1_value": "13+",
+    "stat_1_label": "Years of experience",
+    "stat_2_value": "11+",
+    "stat_2_label": "Years in e-commerce",
+    "stat_3_value": "2",
+    "stat_3_label": "AI Platforms",
     "cta_primary": "See cases",
     "cta_secondary": "Download CV"
   },
