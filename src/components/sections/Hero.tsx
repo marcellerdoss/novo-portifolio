@@ -20,13 +20,13 @@ export function Hero() {
       className="relative min-h-screen flex flex-col bg-bg pt-12 md:pt-16 2xl:pt-24"
     >
       <motion.div
-        className="max-w-6xl mx-auto px-6 w-full flex-1 flex flex-col"
+        className="max-w-6xl mx-auto px-6 w-full flex-1 flex flex-col justify-between py-10 md:py-12"
         variants={stagger}
         initial={false}
         animate="visible"
       >
         {/* Upper zone — greeting + headline */}
-        <div className="flex flex-col gap-6 md:gap-8 py-12 md:py-0 md:flex-1 md:justify-center">
+        <div className="flex flex-col gap-6 md:gap-8">
           <motion.span
             variants={fadeInUp}
             className="inline-flex items-center self-start gap-2 px-3 py-1.5 rounded-full border border-fg/10 bg-fg/5 type-caption text-fg-subtle"
@@ -47,10 +47,10 @@ export function Hero() {
           </motion.h1>
         </div>
 
-        {/* Lower zone — grid: stats | description + CTAs */}
+        {/* Lower zone — grid: stats | description */}
         <motion.div
           variants={fadeInUp}
-          className="pb-20 grid grid-cols-1 gap-8 md:grid-cols-[auto_1fr] md:gap-16 md:items-end"
+          className="grid grid-cols-1 gap-8 md:grid-cols-[auto_1fr] md:gap-16 md:items-end"
         >
           {/* Stats */}
           <div className="flex gap-8">
