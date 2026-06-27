@@ -18,7 +18,7 @@ export async function Footer() {
           </div>
 
           {/* Col 2 — Crédito + Card */}
-          <div>
+          <div className="flex flex-col items-end">
             <p className="type-caption text-white/50 whitespace-nowrap mb-3">
               {t('credit')} <span className="text-white/70">Marcelle</span>
             </p>
