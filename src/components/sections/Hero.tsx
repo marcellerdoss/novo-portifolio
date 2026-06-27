@@ -24,13 +24,13 @@ export function Hero() {
       className="relative min-h-screen flex flex-col bg-bg pt-12 md:pt-16 2xl:pt-24"
     >
       <motion.div
-        className="max-w-6xl mx-auto px-6 w-full flex-1 flex flex-col justify-between gap-12 md:gap-0"
+        className="max-w-6xl mx-auto px-6 w-full flex-1 flex flex-col"
         variants={stagger}
         initial={false}
         animate="visible"
       >
         {/* Upper zone — greeting + headline */}
-        <div className="flex flex-col gap-6 md:gap-8 pt-8 md:pt-0 md:flex-1 md:justify-center">
+        <div className="flex flex-col gap-6 md:gap-8 py-12 md:py-0 md:flex-1 md:justify-center">
           <motion.span
             variants={fadeInUp}
             className="inline-flex items-center self-start gap-2 px-3 py-1.5 rounded-full border border-fg/10 bg-fg/5 type-caption text-fg-subtle"
@@ -51,13 +51,13 @@ export function Hero() {
           </motion.h1>
         </div>
 
-        {/* Lower zone — stats + description + CTAs */}
+        {/* Lower zone — grid: stats | description + CTAs */}
         <motion.div
           variants={fadeInUp}
-          className="pb-20 flex flex-col gap-8 md:flex-row md:items-end md:gap-16"
+          className="pb-20 grid grid-cols-1 gap-8 md:grid-cols-[auto_1fr] md:gap-16 md:items-end"
         >
           {/* Stats */}
-          <div className="flex gap-8 shrink-0">
+          <div className="flex gap-8">
             {stats.map(({ value, label }) => (
               <div key={label} className="flex flex-col gap-1">
                 <span className="text-[clamp(1.75rem,3vw,2.5rem)] font-extrabold leading-none text-fg">
@@ -71,8 +71,8 @@ export function Hero() {
           </div>
 
           {/* Description + CTAs */}
-          <div className="flex flex-col gap-5 md:max-w-sm">
-            <p className="type-body text-fg-subtle leading-relaxed">
+          <div className="flex flex-col gap-5">
+            <p className="type-body-sm text-fg-subtle leading-relaxed max-w-prose">
               {t('description')}
             </p>
             <div className="flex flex-wrap items-center gap-3">
