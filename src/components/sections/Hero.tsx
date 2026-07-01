@@ -29,9 +29,9 @@ export function Hero() {
         <div className="flex flex-col gap-6 md:gap-8">
           <motion.span
             variants={fadeInUp}
-            className="inline-flex items-center self-start gap-2 px-3 py-1.5 rounded-full border border-fg/10 bg-fg/5 type-caption text-fg-subtle"
+            className="type-caption text-accent-magenta"
           >
-            👋 {t('greeting')}
+            {t('greeting')}
           </motion.span>
 
           <motion.h1
