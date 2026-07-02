@@ -21,9 +21,9 @@ export function About() {
     <section
       id="sobre"
       aria-labelledby="about-heading"
-      className="py-section bg-block-pink dark:bg-block-cream scroll-mt-28"
+      className="min-h-screen flex flex-col justify-center bg-block-pink dark:bg-block-cream scroll-mt-28 pt-24 pb-12 md:pt-16 2xl:pt-24"
     >
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-6 w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:items-stretch">
 
           {/* Left — photo + stats below, matched to image width */}
