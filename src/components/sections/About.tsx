@@ -25,49 +25,27 @@ export function About() {
       className="min-h-screen flex flex-col justify-center bg-block-pink dark:bg-block-cream scroll-mt-28 pt-24 pb-12 md:pt-16 2xl:pt-24"
     >
       <div className="max-w-6xl mx-auto px-6 w-full">
-        <div className="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-12 md:items-start">
+        <div className="grid grid-cols-1 md:grid-cols-[280px_1fr_200px] gap-12 md:items-start">
 
-          {/* Left — photo (uncropped, natural ratio) + stats below, matched to image width */}
-          <div className="flex flex-col gap-4">
-            <motion.div
-              variants={fadeIn}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              className="relative w-full aspect-[3/4] rounded-lg overflow-hidden border border-black/10 dark:border-white/10"
-            >
-              <Image
-                src={siteConfig.about.photo}
-                alt={`Foto de ${siteConfig.name}`}
-                fill
-                sizes="(max-width: 768px) 80vw, 320px"
-                className="object-contain"
-                priority={false}
-              />
-            </motion.div>
+          {/* Left — photo (uncropped, natural ratio) */}
+          <motion.div
+            variants={fadeIn}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="relative w-full aspect-[3/4] rounded-lg overflow-hidden border border-black/10 dark:border-white/10"
+          >
+            <Image
+              src={siteConfig.about.photo}
+              alt={`Foto de ${siteConfig.name}`}
+              fill
+              sizes="(max-width: 768px) 80vw, 320px"
+              className="object-contain"
+              priority={false}
+            />
+          </motion.div>
 
-            {/* Stats cards — below the photo, full image width */}
-            <motion.div
-              variants={stagger}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              className="grid grid-cols-3 gap-4 shrink-0"
-            >
-              {stats.map(({ value, label }) => (
-                <motion.div
-                  key={label}
-                  variants={fadeInUp}
-                  className="flex flex-col items-center text-center p-4 rounded-lg bg-white/70 dark:bg-white/5 border border-black/10 dark:border-white/10"
-                >
-                  <p className="type-headline text-fg shrink-0">{value}</p>
-                  <p className="type-body-sm text-fg-subtle mt-1 whitespace-pre-line leading-normal">{label}</p>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-
-          {/* Right — bio + CV download */}
+          {/* Middle — bio + CV download */}
           <motion.div
             variants={stagger}
             initial="hidden"
@@ -94,6 +72,26 @@ export function About() {
                 <Download size={16} aria-hidden="true" />
               </LinkButton>
             </motion.div>
+          </motion.div>
+
+          {/* Right — stats, stacked vertically as their own column */}
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="flex flex-col gap-4"
+          >
+            {stats.map(({ value, label }) => (
+              <motion.div
+                key={label}
+                variants={fadeInUp}
+                className="flex flex-col items-center text-center p-4 rounded-lg bg-white/70 dark:bg-white/5 border border-black/10 dark:border-white/10"
+              >
+                <p className="type-headline text-fg shrink-0">{value}</p>
+                <p className="type-body-sm text-fg-subtle mt-1 whitespace-pre-line leading-normal">{label}</p>
+              </motion.div>
+            ))}
           </motion.div>
 
         </div>
