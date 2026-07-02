@@ -16,7 +16,7 @@ export const siteConfig = {
     photo: '/images/profile/img_sobre.png',
     stats: {
       years: '13+',
-      projects: '11+',
+      projects: '5+',
       markets: '2',
     },
   },
