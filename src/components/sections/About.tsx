@@ -26,14 +26,14 @@ export function About() {
       <div className="max-w-6xl mx-auto px-6 w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:items-stretch">
 
-          {/* Left — photo + stats below, matched to image width */}
-          <div className="flex flex-col gap-4">
+          {/* Left — photo + stats below, blocked to match right column height */}
+          <div className="flex flex-col gap-4 md:h-full">
             <motion.div
               variants={fadeIn}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
-              className="relative w-full aspect-[4/3] sm:aspect-square rounded-lg overflow-hidden border border-black/10 dark:border-white/10"
+              className="relative w-full aspect-[4/3] sm:aspect-square md:aspect-auto md:flex-1 rounded-lg overflow-hidden border border-black/10 dark:border-white/10"
             >
               <Image
                 src={siteConfig.about.photo}
@@ -51,7 +51,7 @@ export function About() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
-              className="grid grid-cols-3 gap-4"
+              className="grid grid-cols-3 gap-4 shrink-0"
             >
               {stats.map(({ value, label }) => (
                 <motion.div
