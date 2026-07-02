@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useTranslations, useLocale } from 'next-intl';
 import Image from 'next/image';
+import { Download } from 'lucide-react';
 import { fadeInUp, stagger, fadeIn } from '@/lib/animations';
 import { siteConfig } from '@/lib/config';
 import { LinkButton } from '@/components/ui/Button';
@@ -89,7 +90,8 @@ export function About() {
                 download
                 variant="secondary"
               >
-                {locale === 'en' ? 'Download resume' : 'Baixar currículo'}
+                {locale === 'en' ? 'Resume' : 'Currículo'}
+                <Download size={16} aria-hidden="true" />
               </LinkButton>
             </motion.div>
           </motion.div>
