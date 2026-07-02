@@ -22,7 +22,7 @@ export function About() {
     <section
       id="sobre"
       aria-labelledby="about-heading"
-      className="min-h-screen flex flex-col justify-center bg-block-pink dark:bg-block-cream scroll-mt-28 py-20 pt-24 md:pt-16 2xl:pt-20"
+      className="min-h-screen flex flex-col bg-block-pink dark:bg-block-cream scroll-mt-28 py-4 pt-14 md:pt-8 2xl:pt-12"
     >
       <div className="max-w-6xl mx-auto px-6 w-full">
         <div className="grid grid-cols-1 md:grid-cols-[2fr_2fr_1fr] gap-8 md:gap-10 md:items-stretch">
@@ -53,12 +53,12 @@ export function About() {
             viewport={{ once: true, amount: 0.2 }}
             className="flex flex-col"
           >
-            <motion.h2 id="about-heading" variants={fadeInUp} className="type-display-lg text-fg mb-6">
+            <motion.h2 id="about-heading" variants={fadeInUp} className="type-display-lg text-fg mb-2">
               {t('title')}
             </motion.h2>
-            <motion.div variants={fadeInUp} className="space-y-3 mb-6">
+            <motion.div variants={fadeInUp} className="space-y-1.5 mb-2">
               {t('bio').split('\n\n').map((paragraph, i) => (
-                <p key={i} className="type-body text-fg-muted">{paragraph}</p>
+                <p key={i} className="type-body-sm text-fg-muted">{paragraph}</p>
               ))}
             </motion.div>
 
@@ -67,6 +67,7 @@ export function About() {
                 href={siteConfig.cv[locale]}
                 download
                 variant="secondary"
+                size="sm"
               >
                 {locale === 'en' ? 'Resume' : 'Currículo'}
                 <Download size={16} aria-hidden="true" />
@@ -86,7 +87,7 @@ export function About() {
               <motion.div
                 key={label}
                 variants={fadeInUp}
-                className="flex flex-col items-center justify-center text-center px-2 py-4 rounded-lg bg-white/70 dark:bg-white/5 border border-black/10 dark:border-white/10 md:flex-1"
+                className="flex flex-col items-center justify-center text-center px-2 py-3 rounded-lg bg-white/70 dark:bg-white/5 border border-black/10 dark:border-white/10 md:flex-1"
               >
                 <p className="type-headline text-fg shrink-0">{value}</p>
                 <p className="type-body-sm text-fg-subtle mt-1 whitespace-pre-line leading-normal">{label}</p>
