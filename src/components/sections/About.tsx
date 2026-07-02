@@ -25,23 +25,23 @@ export function About() {
       className="min-h-screen flex flex-col justify-center bg-block-pink dark:bg-block-cream scroll-mt-28 pt-24 pb-12 md:pt-16 2xl:pt-24"
     >
       <div className="max-w-6xl mx-auto px-6 w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-12 md:items-start">
 
-          {/* Left — photo + stats below, blocked to match right column height */}
-          <div className="flex flex-col gap-4 md:h-full">
+          {/* Left — photo (uncropped, natural ratio) + stats below, matched to image width */}
+          <div className="flex flex-col gap-4">
             <motion.div
               variants={fadeIn}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
-              className="relative w-full aspect-[4/3] sm:aspect-square md:aspect-auto md:flex-1 rounded-lg overflow-hidden border border-black/10 dark:border-white/10"
+              className="relative w-full aspect-[3/4] rounded-lg overflow-hidden border border-black/10 dark:border-white/10"
             >
               <Image
                 src={siteConfig.about.photo}
                 alt={`Foto de ${siteConfig.name}`}
                 fill
                 sizes="(max-width: 768px) 80vw, 320px"
-                className="object-cover"
+                className="object-contain"
                 priority={false}
               />
             </motion.div>
