@@ -1,13 +1,15 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import Image from 'next/image';
 import { fadeInUp, stagger, fadeIn } from '@/lib/animations';
 import { siteConfig } from '@/lib/config';
+import { LinkButton } from '@/components/ui/Button';
 
 export function About() {
   const t = useTranslations('about');
+  const locale = useLocale() as 'pt' | 'en';
 
   const stats = [
     { value: siteConfig.about.stats.years,    label: t('years_label') },
@@ -24,25 +26,47 @@ export function About() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:items-stretch">
 
-          {/* Left — photo */}
-          <motion.div
-            variants={fadeIn}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            className="relative w-full aspect-[4/3] sm:aspect-square md:aspect-auto md:h-full rounded-lg overflow-hidden border border-black/10 dark:border-white/10"
-          >
-            <Image
-              src={siteConfig.about.photo}
-              alt={`Foto de ${siteConfig.name}`}
-              fill
-              sizes="(max-width: 768px) 80vw, 320px"
-              className="object-cover"
-              priority={false}
-            />
-          </motion.div>
+          {/* Left — photo + stats below, matched to image width */}
+          <div className="flex flex-col gap-4">
+            <motion.div
+              variants={fadeIn}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              className="relative w-full aspect-[4/3] sm:aspect-square rounded-lg overflow-hidden border border-black/10 dark:border-white/10"
+            >
+              <Image
+                src={siteConfig.about.photo}
+                alt={`Foto de ${siteConfig.name}`}
+                fill
+                sizes="(max-width: 768px) 80vw, 320px"
+                className="object-cover"
+                priority={false}
+              />
+            </motion.div>
 
-          {/* Right — bio + stats below text */}
+            {/* Stats cards — below the photo, full image width */}
+            <motion.div
+              variants={stagger}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              className="grid grid-cols-3 gap-4"
+            >
+              {stats.map(({ value, label }) => (
+                <motion.div
+                  key={label}
+                  variants={fadeInUp}
+                  className="flex flex-col items-center text-center p-4 rounded-lg bg-white/70 dark:bg-white/5 border border-black/10 dark:border-white/10"
+                >
+                  <p className="type-headline text-fg shrink-0">{value}</p>
+                  <p className="type-body-sm text-fg-subtle mt-1 whitespace-pre-line leading-normal">{label}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* Right — bio + CV download */}
           <motion.div
             variants={stagger}
             initial="hidden"
@@ -59,18 +83,14 @@ export function About() {
               ))}
             </motion.div>
 
-            {/* Stats cards — below bio text, inside right column */}
-            <motion.div variants={stagger} className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              {stats.map(({ value, label }) => (
-                <motion.div
-                  key={label}
-                  variants={fadeInUp}
-                  className="flex items-center gap-3 sm:flex-col sm:items-center sm:gap-0 sm:text-center p-4 rounded-lg bg-white/70 dark:bg-white/5 border border-black/10 dark:border-white/10"
-                >
-                  <p className="type-headline text-fg shrink-0">{value}</p>
-                  <p className="type-body-sm text-fg-subtle sm:mt-1 sm:whitespace-pre-line sm:leading-normal">{label}</p>
-                </motion.div>
-              ))}
+            <motion.div variants={fadeInUp}>
+              <LinkButton
+                href={siteConfig.cv[locale]}
+                download
+                variant="secondary"
+              >
+                {locale === 'en' ? 'Download resume' : 'Baixar currículo'}
+              </LinkButton>
             </motion.div>
           </motion.div>
 
