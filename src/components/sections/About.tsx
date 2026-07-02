@@ -86,7 +86,7 @@ export function About() {
               <motion.div
                 key={label}
                 variants={fadeInUp}
-                className="flex flex-col items-center text-center p-4 rounded-lg bg-white/70 dark:bg-white/5 border border-black/10 dark:border-white/10"
+                className="flex flex-col items-center justify-center text-center min-h-[112px] p-4 rounded-lg bg-white/70 dark:bg-white/5 border border-black/10 dark:border-white/10"
               >
                 <p className="type-headline text-fg shrink-0">{value}</p>
                 <p className="type-body-sm text-fg-subtle mt-1 whitespace-pre-line leading-normal">{label}</p>
