@@ -22,10 +22,10 @@ export function About() {
     <section
       id="sobre"
       aria-labelledby="about-heading"
-      className="min-h-screen flex flex-col justify-center bg-block-pink dark:bg-block-cream scroll-mt-28 pt-24 pb-12 md:pt-16 2xl:pt-24"
+      className="min-h-screen flex flex-col justify-center bg-block-pink dark:bg-block-cream scroll-mt-28 py-20 pt-24 md:pt-16 2xl:pt-20"
     >
       <div className="max-w-6xl mx-auto px-6 w-full">
-        <div className="grid grid-cols-1 md:grid-cols-[280px_1fr_200px] gap-12 md:items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-[2fr_2fr_1fr] gap-8 md:gap-10 md:items-stretch">
 
           {/* Left — photo (uncropped via object-contain), stretched to match bio column height */}
           <motion.div
@@ -53,10 +53,10 @@ export function About() {
             viewport={{ once: true, amount: 0.2 }}
             className="flex flex-col"
           >
-            <motion.h2 id="about-heading" variants={fadeInUp} className="type-display-lg text-fg mb-8">
+            <motion.h2 id="about-heading" variants={fadeInUp} className="type-display-lg text-fg mb-6">
               {t('title')}
             </motion.h2>
-            <motion.div variants={fadeInUp} className="space-y-4 mb-8">
+            <motion.div variants={fadeInUp} className="space-y-3 mb-6">
               {t('bio').split('\n\n').map((paragraph, i) => (
                 <p key={i} className="type-body text-fg-muted">{paragraph}</p>
               ))}
