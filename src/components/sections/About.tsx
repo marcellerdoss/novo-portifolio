@@ -25,15 +25,15 @@ export function About() {
       className="min-h-screen flex flex-col justify-center bg-block-pink dark:bg-block-cream scroll-mt-28 pt-24 pb-12 md:pt-16 2xl:pt-24"
     >
       <div className="max-w-6xl mx-auto px-6 w-full">
-        <div className="grid grid-cols-1 md:grid-cols-[280px_1fr_200px] gap-12 md:items-start">
+        <div className="grid grid-cols-1 md:grid-cols-[280px_1fr_200px] gap-12 md:items-stretch">
 
-          {/* Left — photo (uncropped, natural ratio) */}
+          {/* Left — photo (uncropped via object-contain), stretched to match bio column height */}
           <motion.div
             variants={fadeIn}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            className="relative w-full aspect-[3/4] rounded-lg overflow-hidden border border-black/10 dark:border-white/10"
+            className="relative w-full aspect-[3/4] md:aspect-auto md:h-full rounded-lg overflow-hidden border border-black/10 dark:border-white/10"
           >
             <Image
               src={siteConfig.about.photo}
@@ -74,19 +74,19 @@ export function About() {
             </motion.div>
           </motion.div>
 
-          {/* Right — stats, stacked vertically as their own column */}
+          {/* Right — stats, stacked vertically, stretched to match bio column height */}
           <motion.div
             variants={stagger}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            className="flex flex-col gap-4"
+            className="flex flex-col gap-4 md:h-full"
           >
             {stats.map(({ value, label }) => (
               <motion.div
                 key={label}
                 variants={fadeInUp}
-                className="flex flex-col items-center justify-center text-center min-h-[112px] p-4 rounded-lg bg-white/70 dark:bg-white/5 border border-black/10 dark:border-white/10"
+                className="flex flex-col items-center justify-center text-center p-4 rounded-lg bg-white/70 dark:bg-white/5 border border-black/10 dark:border-white/10 md:flex-1"
               >
                 <p className="type-headline text-fg shrink-0">{value}</p>
                 <p className="type-body-sm text-fg-subtle mt-1 whitespace-pre-line leading-normal">{label}</p>
