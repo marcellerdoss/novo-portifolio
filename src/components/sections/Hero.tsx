@@ -43,7 +43,7 @@ export function Hero() {
       </div>
 
       <motion.div
-        className="relative max-w-6xl mx-auto px-6 w-full flex-1 flex flex-col gap-10 md:gap-12 pb-12"
+        className="relative max-w-6xl mx-auto px-6 w-full flex-1 flex flex-col justify-between gap-6 py-8"
         variants={stagger}
         initial={false}
         animate="visible"
@@ -59,9 +59,9 @@ export function Hero() {
         {/* Headline left | Description right */}
         <motion.div
           variants={fadeInUp}
-          className="flex-1 grid grid-cols-1 gap-8 md:grid-cols-[3fr_2fr] md:gap-16 md:items-end"
+          className="grid grid-cols-1 gap-8 md:grid-cols-[3fr_2fr] md:gap-12 md:items-end"
         >
-          <h1 className="text-[clamp(2.5rem,5.5vw,5rem)] leading-[1.0] tracking-[-2px]">
+          <h1 className="text-[clamp(2.5rem,4.5vw,4.5rem)] leading-[1.05] tracking-[-2px]">
             <span className="block font-bold text-navy-600 dark:text-navy-200">
               {t('headline_1')}
             </span>
