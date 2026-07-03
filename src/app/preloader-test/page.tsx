@@ -121,14 +121,14 @@ export default function PreloaderTestPage() {
         <div id="dot" />
 
         <svg id="target-icon" viewBox="0 0 480 480">
-          <rect x="216" y="0" width="48" height="90" rx="24" fill="#FBEDE9" />
-          <rect x="216" y="390" width="48" height="90" rx="24" fill="#FBEDE9" />
-          <rect x="0" y="216" width="90" height="48" rx="24" fill="#FBEDE9" />
-          <rect x="390" y="216" width="90" height="48" rx="24" fill="#FBEDE9" />
-          <circle cx="240" cy="240" r="240" fill="#FBEDE9" />
-          <circle cx="240" cy="240" r="170" fill="#FEF4EF" />
-          <circle cx="240" cy="240" r="130" fill="#FCD9E8" />
-          <circle cx="240" cy="240" r="90" fill="#FEF4EF" />
+          <rect className="target-outer" x="216" y="0" width="48" height="90" rx="24" />
+          <rect className="target-outer" x="216" y="390" width="48" height="90" rx="24" />
+          <rect className="target-outer" x="0" y="216" width="90" height="48" rx="24" />
+          <rect className="target-outer" x="390" y="216" width="90" height="48" rx="24" />
+          <circle className="target-outer" cx="240" cy="240" r="240" />
+          <circle className="target-mid" cx="240" cy="240" r="170" />
+          <circle className="target-inner" cx="240" cy="240" r="130" />
+          <circle className="target-mid" cx="240" cy="240" r="90" />
         </svg>
       </div>
 
@@ -173,6 +173,19 @@ export default function PreloaderTestPage() {
           --preloader-ink: var(--color-primary, #131226);
           --preloader-bg: var(--bg, #FEF4EF);
           --preloader-magenta: var(--color-accent-magenta, #B4225E);
+          /* alvo: aneis claros que se confundem com o fundo da pagina ao expandir */
+          --preloader-target-outer: #FBEDE9;
+          --preloader-target-mid: #FEF4EF;
+          --preloader-target-inner: #FCD9E8;
+        }
+
+        /* dark mode — monograma na cor do logo bege, ponto magenta inalterado,
+           alvo migra do rosa/creme pros azuis da paleta (navy-600 / navy-800) */
+        .dark {
+          --preloader-ink: #FEF7ED;
+          --preloader-target-outer: var(--color-navy-600, #38347E);
+          --preloader-target-mid: var(--bg, #121124);
+          --preloader-target-inner: var(--color-navy-800, #211F4A);
         }
 
         body.loading {
@@ -226,6 +239,10 @@ export default function PreloaderTestPage() {
           transform: translate(-50%, -50%) scale(0.15);
           pointer-events: none;
         }
+
+        #target-icon .target-outer { fill: var(--preloader-target-outer); }
+        #target-icon .target-mid { fill: var(--preloader-target-mid); }
+        #target-icon .target-inner { fill: var(--preloader-target-inner); }
       `}</style>
     </>
   );
