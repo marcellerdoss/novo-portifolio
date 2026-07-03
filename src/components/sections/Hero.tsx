@@ -43,7 +43,7 @@ export function Hero() {
         className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
         aria-hidden="true"
       >
-        <MrVector className="h-screen w-auto opacity-20 text-white dark:text-navy-800" />
+        <MrVector className="h-screen w-auto opacity-20 text-[#efd4d4] dark:text-navy-800" />
       </div>
 
       <motion.div
