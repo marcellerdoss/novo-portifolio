@@ -12,6 +12,10 @@ export function About() {
   const t = useTranslations('about');
   const locale = useLocale() as 'pt' | 'en';
 
+  const tagline = t('tagline');
+  const highlight = locale === 'en' ? 'from discovery to delivery' : 'do discovery à entrega';
+  const [taglineBefore, taglineAfter] = tagline.split(highlight);
+
   return (
     <section
       id="sobre"
@@ -52,7 +56,9 @@ export function About() {
               variants={fadeInUp}
               className="type-display-lg text-navy-600 dark:text-navy-200 mb-6 max-w-2xl whitespace-pre-line"
             >
-              {t('tagline')}
+              {taglineBefore}
+              <span className="text-accent-magenta">{highlight}</span>
+              {taglineAfter}
             </motion.h2>
 
             <motion.div variants={fadeInUp}>
