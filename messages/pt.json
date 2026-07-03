@@ -46,14 +46,20 @@
     "cta_secondary": "Currículo"
   },
   "about": {
-    "title": "Oi, sou a Marcelle.",
-    "bio": "Sou Senior Product Designer e atuo em produtos com jornadas complexas, múltiplos perfis de usuário e desafios que exigem equilibrar comportamento, negócio e tecnologia — de operações de varejo em larga escala a plataformas SaaS, Martech e EdTech.\n\nAtuo do discovery à entrega. Estruturo o problema antes de propor a solução, conduzo pesquisa com usuários e transformo o que aprendo em decisões de produto com embasamento real. Não entrego só design. Entrego o raciocínio por trás dele.\n\nA inteligência artificial faz parte tanto dos produtos em que atuo quanto do meu processo de trabalho. É nessa combinação entre estratégia, experiência e tecnologia que construo produtos que as pessoas compreendem, confiam e adotam.",
-    "years_label": "Anos em\nprodutos digitais",
-    "projects_label": "Anos como\nProduct Designer",
-    "markets_label": "Plataformas\ncom IA",
+    "tagline": "Oi, sou a Marcelle — Senior Product Designer atuando do discovery à entrega em produtos que unem estratégia, comportamento e inteligência artificial.",
+    "cta_resume": "Currículo",
+    "cta_connect": "Vamos conversar",
     "years_value": "13+",
     "projects_value": "5+",
     "markets_value": "2"
+  },
+  "aboutStats": {
+    "years_label": "Anos de experiência",
+    "years_description": "Trajetória sólida entregando soluções de design orientadas a resultado.",
+    "projects_label": "Como Product Designer",
+    "projects_description": "Aplicando estratégia e pesquisa para transformar comportamento em decisão de produto.",
+    "markets_label": "Plataformas com IA",
+    "markets_description": "Produtos com inteligência artificial integrada à experiência e ao processo de trabalho."
   },
   "cases": {
     "title": "Cases",

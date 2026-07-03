@@ -46,14 +46,20 @@
     "cta_secondary": "Download CV"
   },
   "about": {
-    "title": "Hi, I’m Marcelle.",
-    "bio": "I’m a Senior Product Designer working on products with complex journeys, multiple user profiles, and challenges that require balancing behavior, business, and technology — from large-scale retail operations to SaaS, Martech, and EdTech platforms.\n\nI work from discovery to delivery. I frame the problem before proposing a solution, run research with real users, and turn what I learn into product decisions backed by real evidence. I don’t just deliver design. I deliver the reasoning behind it.\n\nArtificial intelligence is part of both the products I work on and my own process. It’s in this combination of strategy, experience, and technology that I build products people understand, trust, and adopt.",
-    "years_label": "Years in\ndigital products",
-    "projects_label": "Years as\nProduct Designer",
-    "markets_label": "AI\nPlatforms",
+    "tagline": "Hi, I’m Marcelle — a Senior Product Designer working from discovery to delivery on products that combine strategy, behavior, and artificial intelligence.",
+    "cta_resume": "Resume",
+    "cta_connect": "Let’s talk",
     "years_value": "13+",
     "projects_value": "5+",
     "markets_value": "2"
+  },
+  "aboutStats": {
+    "years_label": "Years of experience",
+    "years_description": "A proven track record delivering outcome-focused design solutions.",
+    "projects_label": "As a Product Designer",
+    "projects_description": "Applying strategy and research to turn behavior into product decisions.",
+    "markets_label": "AI platforms",
+    "markets_description": "Products with AI built into the experience and into my own workflow."
   },
   "cases": {
     "title": "Cases",

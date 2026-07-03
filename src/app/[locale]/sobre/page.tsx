@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { About } from '@/components/sections/About';
+import { AboutStats } from '@/components/sections/AboutStats';
 import { Racional } from '@/components/sections/Racional';
 import { Experience } from '@/components/sections/Experience';
 import { Skills } from '@/components/sections/Skills';
@@ -32,6 +33,7 @@ export default async function SobrePage() {
   return (
     <>
       <About />
+      <AboutStats />
       <Racional />
       <Experience items={experience} />
       <Skills />
