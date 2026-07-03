@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 /* ── bilingual content ──────────────────────────────────── */
 const content = {
   pt: {
-    title: 'Product Designer · UX Strategy',
+    title: 'Senior Product Designer · UX Strategy',
     location: 'Rio de Janeiro, RJ',
     summary: 'Product Designer com mais de 13 anos de atuação em produtos digitais. Especializada em UX Strategy, pesquisa com usuários e design de experiências B2B em SaaS, EdTech e e-commerce de larga escala. Histórico de redesenho de fluxos críticos, estruturação de design systems e validação de hipóteses orientadas a dados e comportamento do usuário.',
     skillSections: [
@@ -53,7 +53,7 @@ const content = {
     },
   },
   en: {
-    title: 'Product Designer · UX Strategy',
+    title: 'Senior Product Designer · UX Strategy',
     location: 'Rio de Janeiro, Brazil',
     summary: 'Product Designer with 13+ years of experience in digital products. Specialized in UX Strategy, user research, and design of B2B experiences in SaaS, EdTech, and large-scale e-commerce. Track record of redesigning critical flows, building design systems, and validating hypotheses through data and user behavior.',
     skillSections: [
