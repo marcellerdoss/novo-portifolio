@@ -20,7 +20,9 @@
     "font_decrease": "Diminuir texto",
     "font_increase": "Aumentar texto",
     "back_to_top": "Voltar ao topo",
-    "nav_label": "Navegação principal"
+    "nav_label": "Navegação principal",
+    "open_menu": "Abrir menu",
+    "close_menu": "Fechar menu"
   },
   "case": {
     "view_label": "Visualização:",
@@ -46,7 +48,7 @@
     "cta_secondary": "Currículo"
   },
   "about": {
-    "tagline": "Oi, sou a Marcelle, Senior Product Designer atuando do discovery à entrega em produtos que unem estratégia, comportamento e inteligência artificial.",
+    "tagline": "Oi, sou a Marcelle,\nProduct Designer atuando do discovery à entrega em produtos que unem estratégia, comportamento e inteligência artificial.",
     "cta_resume": "Currículo",
     "years_value": "13+",
     "projects_value": "5+",

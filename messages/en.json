@@ -20,7 +20,9 @@
     "font_decrease": "Decrease text size",
     "font_increase": "Increase text size",
     "back_to_top": "Back to top",
-    "nav_label": "Primary navigation"
+    "nav_label": "Primary navigation",
+    "open_menu": "Open menu",
+    "close_menu": "Close menu"
   },
   "case": {
     "view_label": "View:",
@@ -46,7 +48,7 @@
     "cta_secondary": "Download CV"
   },
   "about": {
-    "tagline": "Hi, I’m Marcelle, a Senior Product Designer working from discovery to delivery on products that combine strategy, behavior, and artificial intelligence.",
+    "tagline": "Hi, I’m Marcelle,\nProduct Designer working from discovery to delivery on products that combine strategy, behavior, and artificial intelligence.",
     "cta_resume": "Resume",
     "years_value": "13+",
     "projects_value": "5+",
