@@ -30,7 +30,7 @@ export function Header() {
           {/* Mobile dark */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/images/social/favicon-rosa.svg"
+            src="/images/social/favicon-bege.svg"
             alt="Marcelle Rocha"
             className="md:hidden hidden dark:block"
             style={{ width: 'auto', height: '28px' }}
