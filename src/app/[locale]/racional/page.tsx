@@ -187,28 +187,38 @@ export default async function RacionalPage({ params }: Props) {
         },
       ];
 
-  const sections = en
+  const homeSections = en
     ? [
-        { page: 'Home', section: 'Hero', why: 'Immediate identity. Who I am and what I do in 3 seconds.' },
-        { page: 'Home', section: 'Marquee', why: 'Skills in motion as a fast repertoire signal, before the work proof.' },
-        { page: 'Home', section: 'Cases', why: 'Work proof before any text about me. The portfolio shows before it tells.' },
-        { page: 'Home', section: 'Articles', why: 'Signal of depth. Those who write about the field master the field.' },
-        { page: 'Home', section: 'Contact', why: 'Fast CTA for whoever is already convinced by the cases alone.' },
-        { page: '/sobre', section: 'About', why: 'Personal context and purpose. A dedicated page for those who want to go deeper before deciding.' },
-        { page: '/sobre', section: 'Design (Racional)', why: 'Process and thinking behind my work. A signal of product and UX maturity.' },
-        { page: '/sobre', section: 'Experience', why: 'Professional timeline. Builds historical trust and shows scope evolution.' },
-        { page: '/sobre', section: 'Skills & Education', why: 'Technical validation: tools, skills and certifications organized by category.' },
+        { section: 'Hero', why: 'Immediate identity. Who I am and what I do in 3 seconds.' },
+        { section: 'Marquee', why: 'Skills in motion as a fast repertoire signal, before the work proof.' },
+        { section: 'Cases', why: 'Work proof before any text about me. The portfolio shows before it tells.' },
+        { section: 'Articles', why: 'Signal of depth. Those who write about the field master the field.' },
+        { section: 'Contact', why: 'Fast CTA for whoever is already convinced by the cases alone.' },
       ]
     : [
-        { page: 'Home', section: 'Hero', why: 'Identidade imediata. Quem sou e o que faço em 3 segundos.' },
-        { page: 'Home', section: 'Marquee', why: 'Competências em movimento como sinal rápido de repertório, antes da prova de trabalho.' },
-        { page: 'Home', section: 'Cases', why: 'Prova de trabalho antes de qualquer texto sobre mim. O portfólio mostra antes de contar.' },
-        { page: 'Home', section: 'Artigos', why: 'Sinal de profundidade. Quem escreve sobre o campo domina o campo.' },
-        { page: 'Home', section: 'Contato', why: 'CTA rápido para quem já se convenceu só com os cases.' },
-        { page: '/sobre', section: 'Sobre', why: 'Contexto pessoal e propósito. Página própria para quem quer se aprofundar antes de decidir.' },
-        { page: '/sobre', section: 'Racional', why: 'Processo e forma de pensar por trás do trabalho. Sinal de maturidade em produto e UX.' },
-        { page: '/sobre', section: 'Trajetória', why: 'Linha do tempo profissional. Cria confiança histórica e mostra evolução de escopo.' },
-        { page: '/sobre', section: 'Skills & Formação', why: 'Validação técnica: ferramentas, competências e certificações organizadas por categoria.' },
+        { section: 'Hero', why: 'Identidade imediata. Quem sou e o que faço em 3 segundos.' },
+        { section: 'Marquee', why: 'Competências em movimento como sinal rápido de repertório, antes da prova de trabalho.' },
+        { section: 'Cases', why: 'Prova de trabalho antes de qualquer texto sobre mim. O portfólio mostra antes de contar.' },
+        { section: 'Artigos', why: 'Sinal de profundidade. Quem escreve sobre o campo domina o campo.' },
+        { section: 'Contato', why: 'CTA rápido para quem já se convenceu só com os cases.' },
+      ];
+
+  const sobreSections = en
+    ? [
+        { section: 'About', why: 'Personal context and purpose. Only makes sense for those who already decided to go deeper.' },
+        { section: 'Stats', why: 'Numeric credibility (years, projects, markets) right after the personal intro.' },
+        { section: 'Design (Racional)', why: 'Process and thinking behind my work. A signal of product and UX maturity.' },
+        { section: 'Experience', why: 'Professional timeline. Builds historical trust and shows scope evolution.' },
+        { section: 'Skills & Education', why: 'Technical validation: tools, skills and certifications organized by category.' },
+        { section: 'Contact', why: 'Also closes the deep-dive page, for those who decide after reading everything.' },
+      ]
+    : [
+        { section: 'Sobre', why: 'Contexto pessoal e propósito. Só faz sentido para quem já decidiu se aprofundar.' },
+        { section: 'Números', why: 'Credibilidade numérica (anos, projetos, mercados) logo após a apresentação pessoal.' },
+        { section: 'Racional', why: 'Processo e forma de pensar por trás do trabalho. Sinal de maturidade em produto e UX.' },
+        { section: 'Trajetória', why: 'Linha do tempo profissional. Cria confiança histórica e mostra evolução de escopo.' },
+        { section: 'Skills & Formação', why: 'Validação técnica: ferramentas, competências e certificações organizadas por categoria.' },
+        { section: 'Contato', why: 'Fecha também a página de aprofundamento, para quem decide depois de ler tudo.' },
       ];
 
   const heuristics = en
@@ -497,19 +507,40 @@ export default async function RacionalPage({ params }: Props) {
             <H2 id="ai-heading">{en ? 'The order of sections is not random' : 'A ordem das seções não é aleatória'}</H2>
             <Body>
               {en
-                ? 'The homepage follows a fast trust funnel: introduction → work proof → depth signal → contact. Anyone who wants to go deeper before deciding navigates to /sobre, a dedicated page gathering purpose, process, career, and skills.'
-                : 'A home segue um funil de confiança rápido: apresentação → prova de trabalho → sinal de profundidade → contato. Quem quer se aprofundar antes de decidir navega até /sobre, uma página dedicada que reúne propósito, processo, trajetória e competências.'}
+                ? "The site's real navigation has two destinations: Cases (a home anchor) and About. Everything else is content within those two pages, not a separate stop — the table below shows what lives in each and why."
+                : 'A navegação real do site tem dois destinos: Cases (âncora na home) e Sobre. Todo o resto é conteúdo dentro dessas duas páginas, não uma parada à parte — a tabela abaixo mostra o que vive em cada uma e por quê.'}
             </Body>
-            <div className="mt-8 space-y-3">
-              {sections.map(({ page, section, why }) => (
-                <Card key={section}>
-                  <div className="flex items-center gap-2 mb-2">
-                    <p className="type-caption text-accent-magenta">{section}</p>
-                    <Tag>{page}</Tag>
-                  </div>
-                  <p className="type-body-sm text-fg-muted">{why}</p>
-                </Card>
-              ))}
+
+            <div className="mt-8 space-y-10">
+              <div>
+                <div className="flex items-center gap-2 mb-4">
+                  <H3>{en ? 'Homepage' : 'Home'}</H3>
+                  <Tag>/</Tag>
+                </div>
+                <div className="space-y-3">
+                  {homeSections.map(({ section, why }) => (
+                    <Card key={section}>
+                      <p className="type-caption text-accent-magenta mb-2">{section}</p>
+                      <p className="type-body-sm text-fg-muted">{why}</p>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <div className="flex items-center gap-2 mb-4">
+                  <H3>{en ? 'About page' : 'Página Sobre'}</H3>
+                  <Tag>/sobre</Tag>
+                </div>
+                <div className="space-y-3">
+                  {sobreSections.map(({ section, why }) => (
+                    <Card key={section}>
+                      <p className="type-caption text-accent-magenta mb-2">{section}</p>
+                      <p className="type-body-sm text-fg-muted">{why}</p>
+                    </Card>
+                  ))}
+                </div>
+              </div>
             </div>
           </section>
 
