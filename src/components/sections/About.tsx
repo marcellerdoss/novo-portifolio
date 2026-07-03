@@ -22,13 +22,13 @@ export function About() {
     <section
       id="sobre"
       aria-labelledby="about-heading"
-      className="min-h-screen flex flex-col bg-block-pink dark:bg-block-cream scroll-mt-28 py-4 pt-14 md:pt-8 2xl:pt-12"
+      className="min-h-screen flex flex-col bg-block-pink dark:bg-block-cream scroll-mt-28 py-6 pt-16 md:pt-10 2xl:pt-14"
     >
       <div className="max-w-6xl mx-auto px-6 w-full">
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8 md:gap-12 md:items-start">
+        <div className="grid grid-cols-1 md:grid-cols-[260px_1fr] gap-8 md:gap-14 md:items-center">
 
-          {/* Left — photo (1/3), natural ratio so it always fits its box without cropping, stats stacked below matching its width */}
-          <div className="flex flex-col gap-4">
+          {/* Left — photo, fixed width at its natural ratio (never crops), stats below matching its width */}
+          <div className="flex flex-col gap-3 w-full md:max-w-[260px]">
             <motion.div
               variants={fadeIn}
               initial="hidden"
@@ -40,7 +40,7 @@ export function About() {
                 src={siteConfig.about.photo}
                 alt={`Foto de ${siteConfig.name}`}
                 fill
-                sizes="(max-width: 768px) 80vw, 33vw"
+                sizes="(max-width: 768px) 60vw, 260px"
                 className="object-cover"
                 priority={false}
               />
@@ -51,22 +51,22 @@ export function About() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
-              className="grid grid-cols-3 gap-3 shrink-0"
+              className="grid grid-cols-3 gap-2 shrink-0"
             >
               {stats.map(({ value, label }) => (
                 <motion.div
                   key={label}
                   variants={fadeInUp}
-                  className="flex flex-col items-center justify-center text-center px-2 py-3 rounded-lg bg-white/70 dark:bg-white/5 border border-black/10 dark:border-white/10"
+                  className="flex flex-col items-center justify-center text-center px-1.5 py-2.5 rounded-lg bg-white/70 dark:bg-white/5 border border-black/10 dark:border-white/10"
                 >
-                  <p className="type-headline text-fg shrink-0">{value}</p>
-                  <p className="type-body-sm text-fg-subtle mt-1 whitespace-pre-line leading-normal">{label}</p>
+                  <p className="type-body-strong text-fg shrink-0">{value}</p>
+                  <p className="type-body-xs text-fg-subtle mt-0.5 whitespace-pre-line leading-snug">{label}</p>
                 </motion.div>
               ))}
             </motion.div>
           </div>
 
-          {/* Right — bio + CV download (2/3) */}
+          {/* Right — bio + CV download */}
           <motion.div
             variants={stagger}
             initial="hidden"
@@ -74,10 +74,10 @@ export function About() {
             viewport={{ once: true, amount: 0.2 }}
             className="flex flex-col"
           >
-            <motion.h2 id="about-heading" variants={fadeInUp} className="type-display-lg text-fg mb-2">
+            <motion.h2 id="about-heading" variants={fadeInUp} className="type-display-lg text-fg mb-3">
               {t('title')}
             </motion.h2>
-            <motion.div variants={fadeInUp} className="space-y-1.5 mb-2">
+            <motion.div variants={fadeInUp} className="space-y-2 mb-4 max-w-2xl">
               {t('bio').split('\n\n').map((paragraph, i) => (
                 <p key={i} className="type-body-sm text-fg-muted">{paragraph}</p>
               ))}
