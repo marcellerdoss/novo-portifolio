@@ -59,7 +59,7 @@ export function Hero() {
           </span>
 
           {/* Headline — col 1, row 2 */}
-          <h1 className="text-[clamp(2.5rem,4.5vw,4.5rem)] leading-[1.05] tracking-[-2px] md:col-start-1 md:row-start-2">
+          <h1 className="text-[clamp(2rem,4.5vw,4.5rem)] leading-[1.05] tracking-[-2px] md:col-start-1 md:row-start-2">
             <span className="block font-bold text-navy-600 dark:text-navy-200">
               {t('headline_1')}
             </span>
