@@ -50,35 +50,48 @@ const categories: SkillCategory[] = [
 type EducationItem = { name: string; institution: string };
 type EducationCategory = { label: { pt: string; en: string }; items: EducationItem[] };
 
-const educationCategories: EducationCategory[] = [
+const educationColumn1: EducationCategory[] = [
   {
     label: { pt: 'Pós-graduação', en: 'Postgraduate Studies' },
     items: [
       { name: 'UX e Design de Produtos Digitais', institution: 'PUC Minas' },
       { name: 'Gestão da Experiência do Consumidor', institution: 'ESPM' },
-      { name: 'Consumer Insights e UX', institution: 'COPPEAD UFRJ' },
     ],
   },
   {
-    label: { pt: 'Certificação', en: 'Certifications' },
+    label: { pt: 'Certificação', en: 'Certification' },
     items: [
-      { name: 'UX Research', institution: 'Mergo Escola de Design' },
-      { name: 'UX Metrics', institution: 'Mergo Escola de Design' },
-      { name: 'UX Writing', institution: 'Mergo Escola de Design' },
-      { name: 'Product Designer', institution: 'Mergo Escola de Design' },
-      { name: 'Design de Serviço', institution: 'Mergo Escola de Design' },
-      { name: 'Product Manager', institution: 'Product Arena' },
-      { name: 'Acessibilidade Digital no CX', institution: 'ESPM' },
-      { name: 'Design Thinking', institution: 'B2W Digital' },
-      { name: 'Metodologias Ágeis', institution: 'FGV Online' },
-      { name: 'Customer Success', institution: 'SEBRAE' },
-      { name: 'IA para Gestão de Produtos', institution: 'PRAGMA' },
+      { name: 'Consumer Insights e UX', institution: 'COPPEAD UFRJ' },
     ],
   },
   {
     label: { pt: 'Graduação', en: 'Undergraduate Studies' },
     items: [
       { name: 'Comunicação Social', institution: 'Estácio' },
+    ],
+  },
+];
+
+const educationCategories: EducationCategory[] = [
+  {
+    label: { pt: 'UX & Product Design', en: 'UX & Product Design' },
+    items: [
+      { name: 'UX Research', institution: 'Mergo Escola de Design' },
+      { name: 'UX Metrics', institution: 'Mergo Escola de Design' },
+      { name: 'UX Writing', institution: 'Mergo Escola de Design' },
+      { name: 'Product Designer', institution: 'Mergo Escola de Design' },
+      { name: 'Design de Serviço', institution: 'Mergo Escola de Design' },
+    ],
+  },
+  {
+    label: { pt: 'Estratégia & Método', en: 'Strategy & Methods' },
+    items: [
+      { name: 'Product Manager', institution: 'Product Arena' },
+      { name: 'Acessibilidade Digital no CX', institution: 'ESPM' },
+      { name: 'Design Thinking', institution: 'B2W Digital' },
+      { name: 'Metodologias Ágeis', institution: 'FGV Online' },
+      { name: 'Customer Success', institution: 'SEBRAE' },
+      { name: 'IA para Gestão de Produtos', institution: 'PRAGMA' },
     ],
   },
 ];
@@ -121,8 +134,23 @@ export function Skills({ inline }: Props) {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.1 }}
-      className="grid grid-cols-1 gap-8 max-w-2xl"
+      className="grid grid-cols-1 sm:grid-cols-3 gap-8"
     >
+      <motion.div variants={fadeInUp} className="space-y-6">
+        {educationColumn1.map(({ label, items }) => (
+          <div key={label.pt}>
+            <h3 className="type-caption text-accent-magenta mb-4">{label[locale]}</h3>
+            <div className="space-y-3">
+              {items.map((item) => (
+                <div key={item.name} className="flex flex-col gap-0.5">
+                  <span className="type-body text-fg leading-snug">{item.name}</span>
+                  <span className="type-body-sm text-fg-muted leading-snug">{item.institution}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </motion.div>
       {educationCategories.map(({ label, items }) => (
         <motion.div key={label.pt} variants={fadeInUp}>
           <h3 className="type-caption text-accent-magenta mb-4">{label[locale]}</h3>
