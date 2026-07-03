@@ -34,7 +34,7 @@ export function About() {
               alt={`Foto de ${siteConfig.name}`}
               fill
               sizes="(max-width: 768px) 90vw, 480px"
-              className="object-cover object-top"
+              className="object-cover object-[center_32%]"
               priority={false}
             />
           </motion.div>
