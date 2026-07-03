@@ -79,7 +79,7 @@
 
 /* ─── Semantic tokens — change between light / dark ─────── */
 :root {
-  --bg:           #fafafa;
+  --bg:           #FEF4EF;
   --bg-secondary: #ececea;
   --fg:           #131226;
   --fg-muted:     #404040;

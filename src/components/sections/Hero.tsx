@@ -28,6 +28,10 @@ function MrVector({ className }: { className?: string }) {
 export function Hero() {
   const t = useTranslations('hero');
 
+  const headline2 = t('headline_2');
+  const [headline2First, ...headline2Rest] = headline2.split(' ');
+  const headline2Remainder = headline2Rest.join(' ');
+
   return (
     <section
       id="home"
@@ -63,8 +67,11 @@ export function Hero() {
             <span className="block font-bold text-navy-600 dark:text-navy-200">
               {t('headline_1')}
             </span>
-            <span className="block font-extrabold text-accent-magenta">
-              {t('headline_2')}
+            <span className="block font-extrabold">
+              <span className="text-navy-600 dark:text-navy-200">{headline2First}</span>
+              {headline2Remainder && (
+                <span className="text-accent-magenta"> {headline2Remainder}</span>
+              )}
             </span>
           </h1>
 
