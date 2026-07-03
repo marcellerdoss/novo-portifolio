@@ -172,6 +172,11 @@ body {
   transition: background-color 200ms ease, color 200ms ease;
 }
 
+/* reCAPTCHA v3 badge — hidden per Google ToS, replaced by the notice text next to the contact form */
+.grecaptcha-badge {
+  visibility: hidden;
+}
+
 /* ─── Typography utility classes ─────────────────────────── */
 @layer utilities {
   .type-display-xl {

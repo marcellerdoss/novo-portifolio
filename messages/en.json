@@ -109,7 +109,8 @@
     "form_sent": "Message sent!",
     "form_success": "I received your message and will get back to you soon.",
     "form_error": "Something went wrong. Try again or email me directly.",
-    "form_subject_prefix": "Portfolio contact — "
+    "form_subject_prefix": "Portfolio contact — ",
+    "recaptcha_notice": "This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply."
   },
   "footer": {
     "credit": "Designed & built by",
