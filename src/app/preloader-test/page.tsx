@@ -209,7 +209,7 @@ export default function PreloaderTestPage() {
         }
 
         #mono-svg {
-          width: 300px;
+          width: clamp(160px, 55vw, 300px);
           height: auto;
           overflow: visible;
         }
