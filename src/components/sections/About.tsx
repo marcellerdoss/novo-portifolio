@@ -27,13 +27,13 @@ export function About() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            className="relative w-full md:w-auto md:h-[min(62vh,580px)] aspect-square shrink-0 rounded-lg overflow-hidden border border-black/10 dark:border-white/10"
+            className="relative w-full md:w-auto md:h-[min(74vh,680px)] aspect-square shrink-0 rounded-lg overflow-hidden border border-black/10 dark:border-white/10"
           >
             <Image
               src={siteConfig.about.photo}
               alt={`Foto de ${siteConfig.name}`}
               fill
-              sizes="(max-width: 768px) 90vw, 580px"
+              sizes="(max-width: 768px) 90vw, 680px"
               className="object-cover object-[center_32%]"
               priority={false}
             />
