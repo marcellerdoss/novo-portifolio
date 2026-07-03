@@ -189,26 +189,26 @@ export default async function RacionalPage({ params }: Props) {
 
   const sections = en
     ? [
-        { section: 'Hero', why: 'Immediate identity. Who I am and what I do in 3 seconds.' },
-        { section: 'Cases', why: 'Work proof before any text about me. The portfolio shows before it tells.' },
-        { section: 'About', why: 'Personal context. Only makes sense after seeing the work.' },
-        { section: 'Design', why: 'Process and thinking behind the portfolio. A signal of product and UX maturity.' },
-        { section: 'Skills', why: 'Technical validation. Tools and skills organized by category.' },
-        { section: 'Education', why: 'Educational credentials and certifications. Validates accumulated knowledge.' },
-        { section: 'Experience', why: 'Professional timeline. Builds historical trust and shows scope evolution.' },
-        { section: 'Articles', why: 'Signal of depth. Those who write about the field master the field.' },
-        { section: 'Contact', why: 'Final CTA. Appears after the user has been convinced.' },
+        { page: 'Home', section: 'Hero', why: 'Immediate identity. Who I am and what I do in 3 seconds.' },
+        { page: 'Home', section: 'Marquee', why: 'Skills in motion as a fast repertoire signal, before the work proof.' },
+        { page: 'Home', section: 'Cases', why: 'Work proof before any text about me. The portfolio shows before it tells.' },
+        { page: 'Home', section: 'Articles', why: 'Signal of depth. Those who write about the field master the field.' },
+        { page: 'Home', section: 'Contact', why: 'Fast CTA for whoever is already convinced by the cases alone.' },
+        { page: '/sobre', section: 'About', why: 'Personal context and purpose. A dedicated page for those who want to go deeper before deciding.' },
+        { page: '/sobre', section: 'Design (Racional)', why: 'Process and thinking behind my work. A signal of product and UX maturity.' },
+        { page: '/sobre', section: 'Experience', why: 'Professional timeline. Builds historical trust and shows scope evolution.' },
+        { page: '/sobre', section: 'Skills & Education', why: 'Technical validation: tools, skills and certifications organized by category.' },
       ]
     : [
-        { section: 'Hero', why: 'Identidade imediata. Quem sou e o que faço em 3 segundos.' },
-        { section: 'Cases', why: 'Prova de trabalho antes de qualquer texto sobre mim. O portfólio mostra antes de contar.' },
-        { section: 'Sobre', why: 'Contexto pessoal. Só faz sentido depois de ver o trabalho.' },
-        { section: 'Racional', why: 'Processo e pensamento por trás do portfólio. Sinal de maturidade em produto e UX.' },
-        { section: 'Skills', why: 'Validação técnica. Ferramentas e competências organizadas por categoria.' },
-        { section: 'Formação', why: 'Credenciais educacionais e certificações. Valida o conhecimento acumulado.' },
-        { section: 'Trajetória', why: 'Linha do tempo profissional. Cria confiança histórica e mostra evolução de escopo.' },
-        { section: 'Artigos', why: 'Sinal de profundidade. Quem escreve sobre o campo domina o campo.' },
-        { section: 'Contato', why: 'CTA final. Aparece depois que o usuário já foi convencido.' },
+        { page: 'Home', section: 'Hero', why: 'Identidade imediata. Quem sou e o que faço em 3 segundos.' },
+        { page: 'Home', section: 'Marquee', why: 'Competências em movimento como sinal rápido de repertório, antes da prova de trabalho.' },
+        { page: 'Home', section: 'Cases', why: 'Prova de trabalho antes de qualquer texto sobre mim. O portfólio mostra antes de contar.' },
+        { page: 'Home', section: 'Artigos', why: 'Sinal de profundidade. Quem escreve sobre o campo domina o campo.' },
+        { page: 'Home', section: 'Contato', why: 'CTA rápido para quem já se convenceu só com os cases.' },
+        { page: '/sobre', section: 'Sobre', why: 'Contexto pessoal e propósito. Página própria para quem quer se aprofundar antes de decidir.' },
+        { page: '/sobre', section: 'Racional', why: 'Processo e forma de pensar por trás do trabalho. Sinal de maturidade em produto e UX.' },
+        { page: '/sobre', section: 'Trajetória', why: 'Linha do tempo profissional. Cria confiança histórica e mostra evolução de escopo.' },
+        { page: '/sobre', section: 'Skills & Formação', why: 'Validação técnica: ferramentas, competências e certificações organizadas por categoria.' },
       ];
 
   const heuristics = en
@@ -253,7 +253,7 @@ export default async function RacionalPage({ params }: Props) {
           num: '07',
           title: 'Flexibility and efficiency of use',
           description: 'Shortcuts for experienced users, without disadvantaging beginners.',
-          example: 'Skip to content (Tab key) for keyboard users. Cases organized by category (Product Design, Strategy, Foundations) for direct navigation. Scroll anchor links in the header.',
+          example: 'Skip to content (Tab key) for keyboard users. Cases organized by category (Product Design, Metrics Framework, Strategic Report, Navigation Architecture) for direct navigation. Scroll anchor links in the header.',
         },
         {
           num: '08',
@@ -315,7 +315,7 @@ export default async function RacionalPage({ params }: Props) {
           num: '07',
           title: 'Flexibilidade e eficiência de uso',
           description: 'Atalhos para usuários experientes, sem prejudicar novatos.',
-          example: 'Skip to content (tecla Tab) para usuários de teclado. Cases organizados por categoria (Product Design, Strategy, Foundations) para navegação direta. Scroll anchor links no header.',
+          example: 'Skip to content (tecla Tab) para usuários de teclado. Cases organizados por categoria (Product Design, Framework de Métricas, Relatório Estratégico, Arquitetura de Navegação) para navegação direta. Scroll anchor links no header.',
         },
         {
           num: '08',
@@ -497,13 +497,16 @@ export default async function RacionalPage({ params }: Props) {
             <H2 id="ai-heading">{en ? 'The order of sections is not random' : 'A ordem das seções não é aleatória'}</H2>
             <Body>
               {en
-                ? 'The homepage sequence follows a trust funnel: quick introduction → work proof → career depth → written thinking → contact. Each section qualifies the user before asking for more of their attention.'
-                : 'A sequência da homepage segue um funil de confiança: apresentação rápida → prova de trabalho → profundidade de trajetória → pensamento escrito → contato. Cada seção qualifica o usuário antes de pedir mais atenção dele.'}
+                ? 'The homepage follows a fast trust funnel: introduction → work proof → depth signal → contact. Anyone who wants to go deeper before deciding navigates to /sobre, a dedicated page gathering purpose, process, career, and skills.'
+                : 'A home segue um funil de confiança rápido: apresentação → prova de trabalho → sinal de profundidade → contato. Quem quer se aprofundar antes de decidir navega até /sobre, uma página dedicada que reúne propósito, processo, trajetória e competências.'}
             </Body>
             <div className="mt-8 space-y-3">
-              {sections.map(({ section, why }) => (
+              {sections.map(({ page, section, why }) => (
                 <Card key={section}>
-                  <p className="type-caption text-accent-magenta mb-2">{section}</p>
+                  <div className="flex items-center gap-2 mb-2">
+                    <p className="type-caption text-accent-magenta">{section}</p>
+                    <Tag>{page}</Tag>
+                  </div>
                   <p className="type-body-sm text-fg-muted">{why}</p>
                 </Card>
               ))}
@@ -589,6 +592,7 @@ export default async function RacionalPage({ params }: Props) {
               <div className="mt-6 space-y-6 p-6 rounded-[16px] bg-surface-soft border border-border overflow-x-auto">
                 <ColorScaleRow
                   name={en ? 'Magenta · reference scale (token: #B4225E)' : 'Magenta · escala de referência (token: #B4225E)'}
+                  brandStep="600"
                   steps={[
                     { stop: '50',  hex: '#FEF0F6' },
                     { stop: '100', hex: '#FCD9E8' },
@@ -596,7 +600,7 @@ export default async function RacionalPage({ params }: Props) {
                     { stop: '300', hex: '#EC83B0' },
                     { stop: '400', hex: '#E35492' },
                     { stop: '500', hex: '#DB337C' },
-                    { stop: '600', hex: '#C8236A' },
+                    { stop: '600', hex: '#B4225E' },
                     { stop: '700', hex: '#931F51' },
                     { stop: '800', hex: '#631738' },
                     { stop: '900', hex: '#380F21' },
@@ -867,10 +871,10 @@ export default async function RacionalPage({ params }: Props) {
             </div>
           </section>
 
-          {/* ── 9. Aprendizados ──────────────────────────────── */}
+          {/* ── 8. Aprendizados ──────────────────────────────── */}
           <Divider />
           <section aria-labelledby="final-heading" className="mb-16">
-            <SectionLabel>{en ? '09 · Learnings' : '09 · Aprendizados'}</SectionLabel>
+            <SectionLabel>{en ? '08 · Learnings' : '08 · Aprendizados'}</SectionLabel>
             <H2 id="final-heading">{en ? 'Treating your own portfolio as a product' : 'Tratar o próprio portfólio como produto'}</H2>
             <div className="space-y-4">
               <Body>

@@ -27,13 +27,13 @@ export function AccessibilityBar() {
         { label: 'Skip to content',  short: 'Content',       num: '1', href: '#main-content' },
         { label: 'Skip to menu',     short: 'Menu',          num: '2', href: '#main-nav' },
         { label: 'Skip to footer',   short: 'Footer',        num: '3', href: '#footer' },
-        { label: 'Accessibility',    short: 'A11y',          num: '4', href: '/racional' },
+        { label: 'Accessibility',    short: 'A11y',          num: '4', href: '/racional#a11y-heading' },
       ]
     : [
         { label: 'Ir para o conteúdo', short: 'Conteúdo',   num: '1', href: '#main-content' },
         { label: 'Ir para o menu',     short: 'Menu',        num: '2', href: '#main-nav' },
         { label: 'Ir para o rodapé',   short: 'Rodapé',      num: '3', href: '#footer' },
-        { label: 'Acessibilidade',     short: 'A11y',        num: '4', href: '/racional' },
+        { label: 'Acessibilidade',     short: 'A11y',        num: '4', href: '/racional#a11y-heading' },
       ];
 
   const btnBase =
