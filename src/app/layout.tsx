@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
 import { ThemeProvider } from '@/components/providers/ThemeProvider';
+import { Preloader } from '@/components/layout/Preloader';
 import './globals.css';
 
 const inter = Inter({
@@ -75,6 +76,7 @@ export default function RootLayout({
         ` }} />
       </head>
       <body className="min-h-full flex flex-col">
+        <Preloader />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
         </ThemeProvider>
