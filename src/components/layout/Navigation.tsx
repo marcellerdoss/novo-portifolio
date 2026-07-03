@@ -16,7 +16,19 @@ export function Navigation({ className, onClick }: Props) {
   const isAbout = pathname === '/sobre' || pathname === '/about';
 
   return (
-    <nav id="main-nav" aria-label="Navegação principal" tabIndex={-1}>
+    <nav id="main-nav" aria-label="Navegação principal" tabIndex={-1} className="flex items-center gap-4">
+      <Link
+        href={{ pathname: '/', hash: '#cases' }}
+        onClick={onClick}
+        className={cn(
+          'type-body-sm transition-colors duration-150',
+          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg rounded',
+          'text-fg hover:text-accent-magenta dark:hover:text-magenta-300',
+          className,
+        )}
+      >
+        {t('cases')}
+      </Link>
       <Link
         href="/sobre"
         onClick={onClick}
