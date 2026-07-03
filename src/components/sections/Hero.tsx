@@ -48,19 +48,17 @@ export function Hero() {
         initial={false}
         animate="visible"
       >
-        {/* Caption */}
-        <motion.span
-          variants={fadeInUp}
-          className="type-caption text-accent-magenta"
-        >
-          {t('greeting')}
-        </motion.span>
-
-        {/* Headline left | Description right */}
+        {/* Grid: 3fr | 2fr — caption + headline left, description bottom-right */}
         <motion.div
           variants={fadeInUp}
-          className="grid grid-cols-1 gap-8 md:grid-cols-[3fr_2fr] md:gap-12 md:items-end"
+          className="grid grid-cols-1 gap-y-6 md:grid-cols-[3fr_2fr] md:gap-x-12 md:gap-y-8"
         >
+          {/* Caption — left column */}
+          <span className="type-caption text-accent-magenta">
+            {t('greeting')}
+          </span>
+
+          {/* Headline — left column, row 2 */}
           <h1 className="text-[clamp(2.5rem,4.5vw,4.5rem)] leading-[1.05] tracking-[-2px]">
             <span className="block font-bold text-navy-600 dark:text-navy-200">
               {t('headline_1')}
@@ -70,7 +68,8 @@ export function Hero() {
             </span>
           </h1>
 
-          <p className="type-body-sm text-fg-subtle leading-relaxed">
+          {/* Description — right column, row 3 (below headline, same X) */}
+          <p className="type-body-sm text-fg-subtle leading-relaxed md:col-start-2 md:row-start-3">
             {t('description')}
           </p>
         </motion.div>
