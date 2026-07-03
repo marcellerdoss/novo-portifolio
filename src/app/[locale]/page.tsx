@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: 'website',
       url: locale === 'en' ? 'https://marcellerocha.com.br/en' : 'https://marcellerocha.com.br',
       images: [{
-        url: '/images/social/og-image-navy-bege.png',
+        url: '/images/social/og-image-navy-light.png',
         width: 1200,
         height: 630,
         alt: title,
@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: 'summary_large_image',
       title,
       description,
-      images: ['/images/social/og-image-navy-bege.png'],
+      images: ['/images/social/og-image-navy-light.png'],
     },
     alternates: {
       canonical: locale === 'en' ? '/en' : '/',

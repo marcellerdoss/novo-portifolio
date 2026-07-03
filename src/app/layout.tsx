@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     title: 'Marcelle Rocha | Produto estratégico',
     description: 'Design centrado em comportamento e decisão. Produtos digitais construídos com estratégia, intenção e foco em impacto.',
     images: [{
-      url: '/images/social/og-image-navy-bege.png',
+      url: '/images/social/og-image-navy-light.png',
       width: 1200,
       height: 630,
       alt: 'Marcelle Rocha | Produto estratégico',
@@ -44,11 +44,11 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Marcelle Rocha | Produto estratégico',
     description: 'Design centrado em comportamento e decisão. Produtos digitais construídos com estratégia, intenção e foco em impacto.',
-    images: ['/images/social/og-image-navy-bege.png'],
+    images: ['/images/social/og-image-navy-light.png'],
   },
   icons: {
-    icon: [{ url: '/icon.svg', type: 'image/svg+xml' }],
-    shortcut: '/icon.svg',
+    icon: [{ url: '/images/social/favicon-navy-mono.png', type: 'image/png', sizes: '74x74' }],
+    shortcut: '/images/social/favicon-navy-mono.png',
   },
   robots: { index: false, follow: false },
 };

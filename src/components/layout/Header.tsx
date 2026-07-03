@@ -22,7 +22,7 @@ export function Header() {
           {/* Mobile: só o monograma */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/images/social/favicon-navy.svg"
+            src="/images/social/monograma-navy.svg"
             alt="Marcelle Rocha"
             className="md:hidden dark:hidden"
             style={{ width: 'auto', height: '28px' }}
@@ -30,7 +30,7 @@ export function Header() {
           {/* Mobile dark */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/images/social/favicon-bege.svg"
+            src="/images/social/monograma-light.svg"
             alt="Marcelle Rocha"
             className="hidden max-md:dark:block"
             style={{ width: 'auto', height: '28px' }}
@@ -46,7 +46,7 @@ export function Header() {
           />
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/images/social/logo-header-marcelle-rocha-bege.svg"
+            src="/images/social/logo-header-marcelle-rocha-light.svg"
             alt="Marcelle Rocha"
             className="hidden md:dark:block"
             style={{ width: 'auto', height: '28px' }}

@@ -145,7 +145,7 @@ export default function PreloaderTestPage() {
           />
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/images/social/logo-header-marcelle-rocha-bege.svg"
+            src="/images/social/logo-header-marcelle-rocha-light.svg"
             alt="Marcelle Rocha"
             className="hidden dark:block"
             style={{ width: 'auto', height: '28px' }}
