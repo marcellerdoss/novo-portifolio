@@ -4,6 +4,7 @@ import { AboutStats } from '@/components/sections/AboutStats';
 import { Racional } from '@/components/sections/Racional';
 import { Experience } from '@/components/sections/Experience';
 import { Skills } from '@/components/sections/Skills';
+import { Contact } from '@/components/sections/Contact';
 import { BackToTop } from '@/components/ui/BackToTop';
 import { getExperience } from '@/lib/experience';
 
@@ -37,6 +38,7 @@ export default async function SobrePage() {
       <Racional />
       <Experience items={experience} />
       <Skills />
+      <Contact />
       <BackToTop />
     </>
   );
