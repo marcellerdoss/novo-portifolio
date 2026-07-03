@@ -60,7 +60,7 @@ export function About() {
                 href={siteConfig.cv[locale]}
                 download
                 variant="secondary"
-                size="sm"
+                size="md"
               >
                 {t('cta_resume')}
                 <Download size={16} aria-hidden="true" />
