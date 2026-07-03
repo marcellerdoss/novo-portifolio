@@ -43,7 +43,7 @@ export function Hero() {
       </div>
 
       <motion.div
-        className="relative max-w-6xl mx-auto px-6 w-full flex-1 flex flex-col justify-between gap-6 py-8"
+        className="relative max-w-6xl mx-auto px-6 w-full flex flex-col gap-6 pt-6 pb-16"
         variants={stagger}
         initial={false}
         animate="visible"

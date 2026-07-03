@@ -25,10 +25,12 @@ const content = {
       { label: 'IA & Ferramentas',  items: ['Plataformas com IA', 'Figma Make', 'Claude Code', 'Claude Design'] },
       { label: 'Soft Skills',       items: ['Comunicação', 'Storytelling', 'Liderança'] },
     ],
-    education: [
+    postGraduation: [
       { name: 'UX e Design de Produtos Digitais',    institution: 'PUC Minas' },
       { name: 'Gestão da Experiência do Consumidor', institution: 'ESPM' },
       { name: 'Consumer Insights e UX',              institution: 'COPPEAD UFRJ' },
+    ],
+    graduation: [
       { name: 'Comunicação Social',                  institution: 'Estácio' },
     ],
     certifications: [
@@ -43,8 +45,9 @@ const content = {
       { name: 'IA para Gestão de Produtos',          institution: 'PRAGMA' },
     ],
     labels: {
-      education: 'Formação',
+      postGraduation: 'Pós-graduação',
       certifications: 'Certificações',
+      graduation: 'Graduação',
       experience: 'Experiência Profissional',
       footer: 'marcellerocha.com.br · Portfólio completo disponível online',
     },
@@ -60,10 +63,12 @@ const content = {
       { label: 'AI & Tools',     items: ['AI Platforms', 'Figma Make', 'Claude Code', 'Claude Design'] },
       { label: 'Soft Skills',    items: ['Communication', 'Storytelling', 'Leadership'] },
     ],
-    education: [
+    postGraduation: [
       { name: 'UX and Digital Product Design',       institution: 'PUC Minas' },
       { name: 'Consumer Experience Management',      institution: 'ESPM' },
       { name: 'Consumer Insights and UX',            institution: 'COPPEAD UFRJ' },
+    ],
+    graduation: [
       { name: 'Social Communication',                institution: 'Estácio' },
     ],
     certifications: [
@@ -78,8 +83,9 @@ const content = {
       { name: 'AI for Product Management',           institution: 'PRAGMA' },
     ],
     labels: {
-      education: 'Education',
+      postGraduation: 'Postgraduate Studies',
       certifications: 'Certifications',
+      graduation: 'Undergraduate Studies',
       experience: 'Professional Experience',
       footer: 'marcellerocha.com.br · Full portfolio available online',
     },
@@ -198,9 +204,9 @@ export default async function CurriculoPage({ params }: Props) {
             ))}
 
             <div className="avoid-break">
-              <Label>{c.labels.education}</Label>
+              <Label>{c.labels.postGraduation}</Label>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '7px' }}>
-                {c.education.map(item => (
+                {c.postGraduation.map(item => (
                   <div key={item.name}>
                     <p style={{ margin: 0, fontSize: '10px', fontWeight: 520, color: C.navy, lineHeight: 1.4 }}>{item.name}</p>
                     <p style={{ margin: 0, fontSize: '10px', color: C.subtle, lineHeight: 1.3 }}>{item.institution}</p>
@@ -213,6 +219,18 @@ export default async function CurriculoPage({ params }: Props) {
               <Label>{c.labels.certifications}</Label>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '7px', marginTop: '7px' }}>
                 {c.certifications.map(item => (
+                  <div key={item.name}>
+                    <p style={{ margin: 0, fontSize: '10px', fontWeight: 520, color: C.navy, lineHeight: 1.4 }}>{item.name}</p>
+                    <p style={{ margin: 0, fontSize: '10px', color: C.subtle, lineHeight: 1.3 }}>{item.institution}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="avoid-break">
+              <Label>{c.labels.graduation}</Label>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '7px' }}>
+                {c.graduation.map(item => (
                   <div key={item.name}>
                     <p style={{ margin: 0, fontSize: '10px', fontWeight: 520, color: C.navy, lineHeight: 1.4 }}>{item.name}</p>
                     <p style={{ margin: 0, fontSize: '10px', color: C.subtle, lineHeight: 1.3 }}>{item.institution}</p>
