@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { BackToTop } from '@/components/ui/BackToTop';
 import { ScrollProgress } from '@/components/ui/ScrollProgress';
+import { Contact } from '@/components/sections/Contact';
 import { Button } from '@/components/ui/Button';
 import { ArrowRight, Download, ArrowUpRight, ChevronUp } from 'lucide-react';
 
@@ -956,6 +957,8 @@ export default async function RacionalPage({ params }: Props) {
 
           </div>{/* fim grid */}
         </div>
+
+        <Contact />
       </div>
     </>
   );

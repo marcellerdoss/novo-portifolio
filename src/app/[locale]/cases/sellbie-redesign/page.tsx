@@ -7,6 +7,7 @@ import { CaseMdxContent } from '@/components/case/CaseMdxContent';
 import { routing } from '@/i18n/routing';
 import { ScrollProgress } from '@/components/ui/ScrollProgress';
 import { CasePageShell } from '@/components/case/CasePageShell';
+import { Contact } from '@/components/sections/Contact';
 import { CaseEditorialWrapper } from '@/components/case/CaseEditorialWrapper';
 import { getCaseNav } from '@/lib/casesConfig';
 import { CaseOverviewLayout } from '@/components/case/CaseOverviewLayout';
@@ -292,6 +293,8 @@ export default async function SellbieRedesignPage({ params }: Props) {
 
         </CaseOverviewLayout>
       </CasePageShell>
+
+      <Contact />
     </div>
   );
 }
