@@ -433,10 +433,10 @@ export default async function RacionalPage({ params }: Props) {
       <ScrollProgress />
       <BackToTop />
 
-      <div className="min-h-screen bg-bg">
+      <div className="min-h-screen bg-[#FDFAF4] dark:bg-block-cream">
 
         {/* ── Hero ──────────────────────────────────────────── */}
-        <section className="py-section bg-bg border-b border-border">
+        <section className="py-section bg-[#FDFAF4] dark:bg-block-cream border-b border-border">
           <div className="max-w-6xl mx-auto px-6">
             <p className="type-caption text-accent-magenta mb-4">
               {en ? 'Project Design' : 'Design do Projeto'}
