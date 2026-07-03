@@ -50,7 +50,7 @@ export function About() {
             <motion.h2
               id="about-heading"
               variants={fadeInUp}
-              className="type-display-lg text-fg mb-6 max-w-2xl"
+              className="type-display-lg text-navy-600 dark:text-navy-200 mb-6 max-w-2xl"
             >
               {t('tagline')}
             </motion.h2>
