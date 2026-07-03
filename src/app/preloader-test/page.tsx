@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { ThemeToggle } from '@/components/ui/ThemeToggle';
 
 export default function PreloaderTestPage() {
   const startedRef = useRef(false);
@@ -149,11 +150,14 @@ export default function PreloaderTestPage() {
             className="hidden dark:block"
             style={{ width: 'auto', height: '28px' }}
           />
-          <nav className="hidden md:flex items-center gap-6 text-sm text-fg-muted">
-            <span>Cases</span>
-            <span>Racional</span>
-            <span>Currículo</span>
-          </nav>
+          <div className="flex items-center gap-4">
+            <nav className="hidden md:flex items-center gap-6 text-sm text-fg-muted">
+              <span>Cases</span>
+              <span>Racional</span>
+              <span>Currículo</span>
+            </nav>
+            <ThemeToggle ariaLabel="Alternar tema" />
+          </div>
         </div>
       </header>
 
@@ -165,6 +169,10 @@ export default function PreloaderTestPage() {
         <p className="max-w-[36rem] text-fg-muted">
           Esta é a página de teste do preloader — o conteúdo real da home carrega aqui embaixo assim
           que a animação termina, pra você ver os dois coordenados.
+        </p>
+        <p className="max-w-[36rem] text-sm text-fg-subtle">
+          Use o botão de sol/lua no canto superior direito pra trocar de tema — depois é só recarregar
+          a página pra ver o preloader animando na cor escolhida.
         </p>
       </main>
 
