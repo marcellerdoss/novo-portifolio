@@ -21,13 +21,13 @@ export function About() {
       <div className="max-w-6xl mx-auto px-6 w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-14 md:items-center">
 
-          {/* Left — photo, 50% width, cropped to a balanced ratio */}
+          {/* Left — photo, 50% width, cropped to a square */}
           <motion.div
             variants={fadeIn}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            className="relative w-full aspect-[4/5] rounded-lg overflow-hidden border border-black/10 dark:border-white/10"
+            className="relative w-full aspect-square rounded-lg overflow-hidden border border-black/10 dark:border-white/10"
           >
             <Image
               src={siteConfig.about.photo}

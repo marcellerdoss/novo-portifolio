@@ -52,33 +52,33 @@ type EducationCategory = { label: { pt: string; en: string }; items: EducationIt
 
 const educationCategories: EducationCategory[] = [
   {
-    label: { pt: 'Pós-graduação', en: 'Graduate Education' },
+    label: { pt: 'Pós-graduação', en: 'Postgraduate Studies' },
     items: [
       { name: 'UX e Design de Produtos Digitais', institution: 'PUC Minas' },
       { name: 'Gestão da Experiência do Consumidor', institution: 'ESPM' },
       { name: 'Consumer Insights e UX', institution: 'COPPEAD UFRJ' },
-      { name: 'Comunicação Social', institution: 'Estácio' },
     ],
   },
   {
-    label: { pt: 'UX & Product Design', en: 'UX & Product Design' },
+    label: { pt: 'Certificação', en: 'Certifications' },
     items: [
       { name: 'UX Research', institution: 'Mergo Escola de Design' },
       { name: 'UX Metrics', institution: 'Mergo Escola de Design' },
       { name: 'UX Writing', institution: 'Mergo Escola de Design' },
       { name: 'Product Designer', institution: 'Mergo Escola de Design' },
       { name: 'Design de Serviço', institution: 'Mergo Escola de Design' },
-    ],
-  },
-  {
-    label: { pt: 'Estratégia & Método', en: 'Strategy & Methods' },
-    items: [
       { name: 'Product Manager', institution: 'Product Arena' },
       { name: 'Acessibilidade Digital no CX', institution: 'ESPM' },
       { name: 'Design Thinking', institution: 'B2W Digital' },
       { name: 'Metodologias Ágeis', institution: 'FGV Online' },
       { name: 'Customer Success', institution: 'SEBRAE' },
       { name: 'IA para Gestão de Produtos', institution: 'PRAGMA' },
+    ],
+  },
+  {
+    label: { pt: 'Graduação', en: 'Undergraduate Studies' },
+    items: [
+      { name: 'Comunicação Social', institution: 'Estácio' },
     ],
   },
 ];
@@ -121,7 +121,7 @@ export function Skills({ inline }: Props) {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.1 }}
-      className="grid grid-cols-1 sm:grid-cols-3 gap-8"
+      className="grid grid-cols-1 gap-8 max-w-2xl"
     >
       {educationCategories.map(({ label, items }) => (
         <motion.div key={label.pt} variants={fadeInUp}>
