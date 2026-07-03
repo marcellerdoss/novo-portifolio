@@ -21,7 +21,7 @@ export function Navigation({ className, onClick }: Props) {
         href={{ pathname: '/', hash: '#cases' }}
         onClick={onClick}
         className={cn(
-          'type-body-sm transition-colors duration-150',
+          'hidden md:inline type-body-sm transition-colors duration-150',
           'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg rounded',
           'text-fg hover:text-accent-magenta dark:hover:text-magenta-300',
           className,

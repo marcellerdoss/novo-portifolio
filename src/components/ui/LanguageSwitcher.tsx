@@ -24,7 +24,7 @@ export function LanguageSwitcher({ ariaLabel = 'Mudar idioma' }: Props) {
             locale={lang}
             aria-current={locale === lang ? 'true' : undefined}
             className={cn(
-              'type-body-sm uppercase px-2 py-2 rounded transition-colors duration-150',
+              'type-body-sm uppercase px-1 md:px-2 py-2 rounded transition-colors duration-150',
               'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg',
               locale === lang
                 ? 'text-accent-magenta font-[540]'
