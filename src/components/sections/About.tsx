@@ -16,7 +16,7 @@ export function About() {
     <section
       id="sobre"
       aria-labelledby="about-heading"
-      className="min-h-screen flex flex-col bg-block-pink dark:bg-block-cream scroll-mt-28 py-6 pt-16 md:pt-10 2xl:pt-14"
+      className="min-h-screen flex flex-col bg-block-pink dark:bg-block-cream scroll-mt-28 py-6 pt-16 md:pt-8 2xl:pt-12"
     >
       <div className="max-w-6xl mx-auto px-6 w-full">
         <div className="flex flex-col md:flex-row md:items-center gap-8 md:gap-14">
@@ -27,13 +27,13 @@ export function About() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            className="relative w-full md:w-auto md:h-[min(52vh,480px)] aspect-square shrink-0 rounded-lg overflow-hidden border border-black/10 dark:border-white/10"
+            className="relative w-full md:w-auto md:h-[min(62vh,580px)] aspect-square shrink-0 rounded-lg overflow-hidden border border-black/10 dark:border-white/10"
           >
             <Image
               src={siteConfig.about.photo}
               alt={`Foto de ${siteConfig.name}`}
               fill
-              sizes="(max-width: 768px) 90vw, 480px"
+              sizes="(max-width: 768px) 90vw, 580px"
               className="object-cover object-[center_32%]"
               priority={false}
             />
