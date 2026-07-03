@@ -644,7 +644,7 @@ export default async function RacionalPage({ params }: Props) {
                   steps={[
                     { stop: '50',  hex: '#F2F2FA' },
                     { stop: '100', hex: '#E2E1F4' },
-                    { stop: '200', hex: '#C0BEEA' },
+                    { stop: '200', hex: '#FAFAFA' },
                     { stop: '300', hex: '#9593D8' },
                     { stop: '400', hex: '#6B67C0' },
                     { stop: '500', hex: '#4B469F' },
