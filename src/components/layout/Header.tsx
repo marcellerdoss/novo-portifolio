@@ -15,7 +15,7 @@ export function Header() {
         {/* Logo */}
         <Link
           href="/"
-          className="flex items-center min-h-[44px] hover:opacity-70 transition-opacity duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg rounded"
+          className="flex items-center shrink-0 min-h-[44px] hover:opacity-70 transition-opacity duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg rounded"
           aria-label="Marcelle Rocha"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
