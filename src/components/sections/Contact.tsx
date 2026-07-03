@@ -150,7 +150,7 @@ function ContactForm({ email: _email }: { email: string }) {
         {status === 'error' && (
           <p className="type-body-sm text-red-300">{t('form_error')}</p>
         )}
-        <p className="type-caption text-white/40">{t('recaptcha_notice')}</p>
+        <p className="text-[10px] leading-tight text-white/40 mt-2">{t('recaptcha_notice')}</p>
       </div>
     </form>
   );
