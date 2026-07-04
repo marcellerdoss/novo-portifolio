@@ -51,6 +51,13 @@ export function About() {
             viewport={{ once: true, amount: 0.2 }}
             className="flex flex-col flex-1"
           >
+            <motion.span
+              variants={fadeInUp}
+              className="type-caption text-accent-magenta mb-2 block"
+            >
+              {t('caption')}
+            </motion.span>
+
             <motion.h2
               id="about-heading"
               variants={fadeInUp}
