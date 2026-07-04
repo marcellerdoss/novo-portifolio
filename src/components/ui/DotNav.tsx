@@ -51,7 +51,7 @@ export function DotNav() {
   return (
     <nav
       aria-label="Navegação por seções"
-      className="group fixed top-1/2 right-[40px] -translate-y-1/2 z-40 flex flex-col items-end gap-4"
+      className="group fixed top-1/2 right-[40px] -translate-y-1/2 z-40 flex flex-col items-end gap-2"
     >
       {sections.map((section) => {
         const isActive = section.id === activeId;
@@ -62,10 +62,10 @@ export function DotNav() {
             onClick={() => handleClick(section.id)}
             aria-current={isActive ? 'true' : undefined}
             aria-label={section.label}
-            className="flex items-center gap-3 py-1"
+            className="flex items-center gap-2 py-0.5"
           >
             <span
-              className={`hidden sm:inline-block whitespace-nowrap rounded-md bg-bg/95 px-2 py-1 shadow-sm text-[11px] font-bold uppercase tracking-[0.12em] opacity-0 -translate-x-2 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-x-0 ${
+              className={`hidden sm:inline-block whitespace-nowrap rounded-sm bg-bg px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.1em] opacity-0 -translate-x-2 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-x-0 ${
                 isActive ? 'text-fg' : 'text-fg-subtle'
               }`}
             >
