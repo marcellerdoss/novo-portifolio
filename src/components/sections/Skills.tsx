@@ -47,27 +47,27 @@ const categories: SkillCategory[] = [
   },
 ];
 
-type EducationItem = { name: string; institution: string };
+type EducationItem = { name: { pt: string; en: string }; institution: string };
 type EducationCategory = { label: { pt: string; en: string }; items: EducationItem[] };
 
 const educationColumn1: EducationCategory[] = [
   {
     label: { pt: 'Pós-graduação', en: 'Postgraduate Studies' },
     items: [
-      { name: 'UX e Design de Produtos Digitais', institution: 'PUC Minas' },
-      { name: 'Gestão da Experiência do Consumidor', institution: 'ESPM' },
+      { name: { pt: 'UX e Design de Produtos Digitais', en: 'UX and Digital Product Design' }, institution: 'PUC Minas' },
+      { name: { pt: 'Gestão da Experiência do Consumidor', en: 'Consumer Experience Management' }, institution: 'ESPM' },
     ],
   },
   {
     label: { pt: 'Certificação', en: 'Certification' },
     items: [
-      { name: 'Consumer Insights e UX', institution: 'COPPEAD UFRJ' },
+      { name: { pt: 'Consumer Insights e UX', en: 'Consumer Insights and UX' }, institution: 'COPPEAD UFRJ' },
     ],
   },
   {
     label: { pt: 'Graduação', en: 'Undergraduate Studies' },
     items: [
-      { name: 'Comunicação Social', institution: 'Estácio' },
+      { name: { pt: 'Comunicação Social', en: 'Social Communication' }, institution: 'Estácio' },
     ],
   },
 ];
@@ -76,22 +76,22 @@ const educationCategories: EducationCategory[] = [
   {
     label: { pt: 'UX & Product Design', en: 'UX & Product Design' },
     items: [
-      { name: 'UX Research', institution: 'Mergo Escola de Design' },
-      { name: 'UX Metrics', institution: 'Mergo Escola de Design' },
-      { name: 'UX Writing', institution: 'Mergo Escola de Design' },
-      { name: 'Product Designer', institution: 'Mergo Escola de Design' },
-      { name: 'Design de Serviço', institution: 'Mergo Escola de Design' },
+      { name: { pt: 'UX Research', en: 'UX Research' }, institution: 'Mergo Escola de Design' },
+      { name: { pt: 'UX Metrics', en: 'UX Metrics' }, institution: 'Mergo Escola de Design' },
+      { name: { pt: 'UX Writing', en: 'UX Writing' }, institution: 'Mergo Escola de Design' },
+      { name: { pt: 'Product Designer', en: 'Product Designer' }, institution: 'Mergo Escola de Design' },
+      { name: { pt: 'Design de Serviço', en: 'Service Design' }, institution: 'Mergo Escola de Design' },
     ],
   },
   {
     label: { pt: 'Estratégia & Método', en: 'Strategy & Methods' },
     items: [
-      { name: 'Product Manager', institution: 'Product Arena' },
-      { name: 'Acessibilidade Digital no CX', institution: 'ESPM' },
-      { name: 'Design Thinking', institution: 'B2W Digital' },
-      { name: 'Metodologias Ágeis', institution: 'FGV Online' },
-      { name: 'Customer Success', institution: 'SEBRAE' },
-      { name: 'IA para Gestão de Produtos', institution: 'PRAGMA' },
+      { name: { pt: 'Product Manager', en: 'Product Manager' }, institution: 'Product Arena' },
+      { name: { pt: 'Acessibilidade Digital no CX', en: 'Digital Accessibility in CX' }, institution: 'ESPM' },
+      { name: { pt: 'Design Thinking', en: 'Design Thinking' }, institution: 'B2W Digital' },
+      { name: { pt: 'Metodologias Ágeis', en: 'Agile Methodologies' }, institution: 'FGV Online' },
+      { name: { pt: 'Customer Success', en: 'Customer Success' }, institution: 'SEBRAE' },
+      { name: { pt: 'IA para Gestão de Produtos', en: 'AI for Product Management' }, institution: 'PRAGMA' },
     ],
   },
 ];
@@ -142,8 +142,8 @@ export function Skills({ inline }: Props) {
             <h3 className="type-caption text-accent-magenta mb-4">{label[locale]}</h3>
             <div className="space-y-3">
               {items.map((item) => (
-                <div key={item.name} className="flex flex-col gap-0.5">
-                  <span className="type-body text-fg leading-snug">{item.name}</span>
+                <div key={item.name.pt} className="flex flex-col gap-0.5">
+                  <span className="type-body text-fg leading-snug">{item.name[locale]}</span>
                   <span className="type-body-sm text-fg-muted leading-snug">{item.institution}</span>
                 </div>
               ))}
@@ -156,8 +156,8 @@ export function Skills({ inline }: Props) {
           <h3 className="type-caption text-accent-magenta mb-4">{label[locale]}</h3>
           <div className="space-y-3">
             {items.map((item) => (
-              <div key={item.name} className="flex flex-col gap-0.5">
-                <span className="type-body text-fg leading-snug">{item.name}</span>
+              <div key={item.name.pt} className="flex flex-col gap-0.5">
+                <span className="type-body text-fg leading-snug">{item.name[locale]}</span>
                 <span className="type-body-sm text-fg-muted leading-snug">{item.institution}</span>
               </div>
             ))}
