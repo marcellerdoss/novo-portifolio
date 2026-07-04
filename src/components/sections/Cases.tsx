@@ -242,7 +242,7 @@ export function CasesSection(_props: Props) {
   const locale = useLocale() as 'pt' | 'en';
 
   return (
-    <section id="cases" className="py-section bg-[#FDFAF4] dark:bg-block-cream scroll-mt-28">
+    <section id="cases" data-label="Cases" className="py-section bg-[#FDFAF4] dark:bg-block-cream scroll-mt-28">
       <div className="max-w-6xl mx-auto px-6">
 
         <div className="space-y-16 md:space-y-24">
