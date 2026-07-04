@@ -10,6 +10,12 @@ export function Preloader() {
   const isHomeRef = useRef(HOME_PATHS.has(pathname));
   const startedRef = useRef(false);
 
+  // uma vez que o app montou com sucesso, libera o auto-reload do
+  // global-error.tsx para poder reagir a um proximo ChunkLoadError
+  useEffect(() => {
+    sessionStorage.removeItem('chunk-error-reloaded');
+  }, []);
+
   useEffect(() => {
     if (!isHomeRef.current) return;
 
