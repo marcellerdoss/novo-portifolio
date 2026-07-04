@@ -168,7 +168,6 @@ export function Contact() {
   return (
     <section
       id="contato"
-      data-label="Contato"
       aria-labelledby="contact-heading"
       className="py-section bg-block-navy scroll-mt-28"
     >

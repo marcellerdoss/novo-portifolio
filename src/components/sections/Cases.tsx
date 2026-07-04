@@ -161,13 +161,16 @@ const allCases: CaseItem[] = [
 function CaseRow({ card, index, locale }: { card: CaseItem; index: number; locale: 'pt' | 'en' }) {
   const reversed = index % 2 !== 0;
   const eager = index < 4;
+  const slug = card.href.replace('/cases/', '');
   return (
-    <motion.div
+    <motion.section
+      id={slug}
+      data-label={card.title[locale]}
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.5 }}
-      className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 md:items-center"
+      className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 md:items-center scroll-mt-28"
     >
       {/* Imagem */}
       <Link
@@ -234,7 +237,7 @@ function CaseRow({ card, index, locale }: { card: CaseItem; index: number; local
           <ArrowUpRight size={12} aria-hidden="true" className="shrink-0" />
         </Link>
       </div>
-    </motion.div>
+    </motion.section>
   );
 }
 
@@ -242,7 +245,7 @@ export function CasesSection(_props: Props) {
   const locale = useLocale() as 'pt' | 'en';
 
   return (
-    <section id="cases" data-label="Cases" className="py-section bg-[#FDFAF4] dark:bg-block-cream scroll-mt-28">
+    <section id="cases" className="py-section bg-[#FDFAF4] dark:bg-block-cream scroll-mt-28">
       <div className="max-w-6xl mx-auto px-6">
 
         <div className="space-y-16 md:space-y-24">

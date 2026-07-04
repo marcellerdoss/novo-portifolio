@@ -65,7 +65,7 @@ export function DotNav() {
             className="flex items-center gap-3 py-1"
           >
             <span
-              className={`hidden sm:inline-block whitespace-nowrap text-[11px] font-bold uppercase tracking-[0.12em] opacity-0 -translate-x-2 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-x-0 ${
+              className={`hidden sm:inline-block whitespace-nowrap rounded-md bg-bg/95 px-2 py-1 shadow-sm text-[11px] font-bold uppercase tracking-[0.12em] opacity-0 -translate-x-2 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-x-0 ${
                 isActive ? 'text-fg' : 'text-fg-subtle'
               }`}
             >

@@ -35,7 +35,6 @@ export function Hero() {
   return (
     <section
       id="home"
-      data-label="Início"
       aria-label="Apresentação"
       className="relative min-h-screen flex flex-col bg-bg overflow-hidden pt-12 md:pt-16 2xl:pt-24"
     >
