@@ -87,7 +87,7 @@ const educationCategories: EducationCategory[] = [
     label: { pt: 'Estratégia & Método', en: 'Strategy & Methods' },
     items: [
       { name: { pt: 'Product Manager', en: 'Product Manager' }, institution: 'Product Arena' },
-      { name: { pt: 'Acessibilidade Digital no CX', en: 'Digital Accessibility in CX' }, institution: 'ESPM' },
+      { name: { pt: 'Acessibilidade Digital', en: 'Digital Accessibility' }, institution: 'ESPM' },
       { name: { pt: 'Design Thinking', en: 'Design Thinking' }, institution: 'B2W Digital' },
       { name: { pt: 'Metodologias Ágeis', en: 'Agile Methodologies' }, institution: 'FGV Online' },
       { name: { pt: 'Customer Success', en: 'Customer Success' }, institution: 'SEBRAE' },
