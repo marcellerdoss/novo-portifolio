@@ -1,13 +1,18 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 
 const HOME_PATHS = new Set(['/', '/en']);
 
 export function Preloader() {
   const pathname = usePathname();
-  const isHomeRef = useRef(HOME_PATHS.has(pathname));
+  // lazy initializer: computado uma unica vez, na entrada real do site.
+  // navegacao client-side subsequente (Link) nao reavalia isso, pois o
+  // layout raiz nunca remonta — e por isso o unmount precisa ser feito
+  // via estado do React (nao DOM direto), ou o React perde a referencia
+  // do no e quebra na proxima reconciliacao (removeChild/insertBefore)
+  const [visible, setVisible] = useState(() => HOME_PATHS.has(pathname));
   const startedRef = useRef(false);
 
   // uma vez que o app montou com sucesso, libera o auto-reload do
@@ -17,7 +22,7 @@ export function Preloader() {
   }, []);
 
   useEffect(() => {
-    if (!isHomeRef.current) return;
+    if (!visible) return;
 
     function initPreloader() {
       if (startedRef.current) return;
@@ -93,11 +98,12 @@ export function Preloader() {
         }, 200);
       }, 1700);
 
-      // 4. fecha o preloader e revela o site
+      // 4. fecha o preloader e revela o site — o unmount final e feito
+      //    via setVisible (React), nunca via preloader.remove() direto
       setTimeout(() => {
         preloader.classList.add('hide');
         document.body.classList.remove('loading');
-        setTimeout(() => preloader.remove(), 600);
+        setTimeout(() => setVisible(false), 600);
       }, 3200);
     }
 
@@ -117,7 +123,7 @@ export function Preloader() {
 
   // so roda na entrada real do site pela home (pt "/" ou "/en"); navegacao
   // interna de volta pra home nao reexecuta, pois o layout raiz nunca remonta
-  if (!isHomeRef.current) return null;
+  if (!visible) return null;
 
   return (
     <>
