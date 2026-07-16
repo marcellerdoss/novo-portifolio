@@ -61,7 +61,7 @@ export default async function SellbieRedesignPage({ params }: Props) {
   const en = locale === 'en';
   const { prev, next } = getCaseNav('sellbie-redesign');
 
-  const mdPath = path.join(process.cwd(), 'docs', 'cases', 'sellbie-redesign.md');
+  const mdPath = path.join(process.cwd(), 'docs', 'cases', en ? 'sellbie-redesign.en.md' : 'sellbie-redesign.md');
   const mdSource = fs.existsSync(mdPath)
     ? fs.readFileSync(mdPath, 'utf8').replace(/\]\(\.\.\/\.\.\//g, '](/')
     : '';

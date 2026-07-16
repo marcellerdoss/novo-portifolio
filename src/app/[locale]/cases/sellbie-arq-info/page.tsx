@@ -59,7 +59,7 @@ export default async function SellbieArqInfoPage({ params }: Props) {
   const en = locale === 'en';
   const { prev, next } = getCaseNav('sellbie-arq-info');
 
-  const mdPath = path.join(process.cwd(), 'docs', 'cases', 'sellbie-arq-info.md');
+  const mdPath = path.join(process.cwd(), 'docs', 'cases', en ? 'sellbie-arq-info.en.md' : 'sellbie-arq-info.md');
   const mdSource = fs.existsSync(mdPath)
     ? fs.readFileSync(mdPath, 'utf8').replace(/\]\(\.\.\/\.\.\//g, '](/')
     : '';

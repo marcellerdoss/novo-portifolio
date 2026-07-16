@@ -60,7 +60,7 @@ export default async function JgCentralAjudaPage({ params }: Props) {
   const en = locale === 'en';
   const { prev, next } = getCaseNav('jg-central-ajuda');
 
-  const mdPath = path.join(process.cwd(), 'docs', 'cases', 'jg-central-ajuda.md');
+  const mdPath = path.join(process.cwd(), 'docs', 'cases', en ? 'jg-central-ajuda.en.md' : 'jg-central-ajuda.md');
   const mdSource = fs.existsSync(mdPath)
     ? fs.readFileSync(mdPath, 'utf8').replace(/\]\(\.\.\/\.\.\//g, '](/')
     : '';

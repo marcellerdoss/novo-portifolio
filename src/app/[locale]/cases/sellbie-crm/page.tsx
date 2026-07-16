@@ -59,7 +59,7 @@ export default async function SellbieCrmPage({ params }: Props) {
   const en = locale === 'en';
   const { prev, next } = getCaseNav('sellbie-crm');
 
-  const mdPath = path.join(process.cwd(), 'docs', 'cases', 'sellbie-crm.md');
+  const mdPath = path.join(process.cwd(), 'docs', 'cases', en ? 'sellbie-crm.en.md' : 'sellbie-crm.md');
   const mdSource = fs.existsSync(mdPath)
     ? fs.readFileSync(mdPath, 'utf8').replace(/\]\(\.\.\/\.\.\//g, '](/')
     : '';

@@ -60,7 +60,7 @@ export default async function SellbieCashbackPage({ params }: Props) {
   const en = locale === 'en';
   const { prev, next } = getCaseNav('sellbie-cashback');
 
-  const mdPath = path.join(process.cwd(), 'docs', 'cases', 'sellbie-cashback.md');
+  const mdPath = path.join(process.cwd(), 'docs', 'cases', en ? 'sellbie-cashback.en.md' : 'sellbie-cashback.md');
   const mdSource = fs.existsSync(mdPath)
     ? fs.readFileSync(mdPath, 'utf8').replace(/\]\(\.\.\/\.\.\//g, '](/')
     : '';

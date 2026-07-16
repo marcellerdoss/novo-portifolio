@@ -67,7 +67,7 @@ export default async function SellbieJornadasPage({ params }: Props) {
   const en = locale === 'en';
   const { prev, next } = getCaseNav('sellbie-jornadas');
 
-  const mdPath = path.join(process.cwd(), 'docs', 'cases', 'sellbie-jornadas.md');
+  const mdPath = path.join(process.cwd(), 'docs', 'cases', en ? 'sellbie-jornadas.en.md' : 'sellbie-jornadas.md');
   const mdSource = fs.existsSync(mdPath)
     ? fs.readFileSync(mdPath, 'utf8').replace(/\]\(\.\.\/\.\.\//g, '](/')
     : '';

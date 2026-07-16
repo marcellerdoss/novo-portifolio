@@ -60,7 +60,7 @@ export default async function JgAlfabetizacaoPage({ params }: Props) {
   const en = locale === 'en';
   const { prev, next } = getCaseNav('jg-alfabetizacao');
 
-  const mdPath = path.join(process.cwd(), 'docs', 'cases', 'jg-alfabetizacao.md');
+  const mdPath = path.join(process.cwd(), 'docs', 'cases', en ? 'jg-alfabetizacao.en.md' : 'jg-alfabetizacao.md');
   const mdSource = fs.existsSync(mdPath)
     ? fs.readFileSync(mdPath, 'utf8').replace(/\]\(\.\.\/\.\.\//g, '](/')
     : '';
