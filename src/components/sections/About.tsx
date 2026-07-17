@@ -31,7 +31,7 @@ export function About() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            className="relative w-full md:w-auto md:h-[min(74vh,680px)] aspect-square shrink-0 rounded-lg overflow-hidden border border-black/10 dark:border-white/10"
+            className="relative w-full md:w-auto md:h-[min(74vh,680px)] aspect-square shrink-0 rounded-pill overflow-hidden border border-black/10 dark:border-white/10"
           >
             <Image
               src={siteConfig.about.photo}
