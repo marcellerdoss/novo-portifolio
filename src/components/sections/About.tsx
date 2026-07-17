@@ -12,9 +12,9 @@ export function About() {
   const t = useTranslations('about');
   const locale = useLocale() as 'pt' | 'en';
 
-  const tagline = t('tagline');
-  const highlight = locale === 'en' ? 'from discovery to delivery' : 'do discovery à entrega';
-  const [taglineBefore, taglineAfter] = tagline.split(highlight);
+  const headline2 = t('headline_2');
+  const [headline2First, ...headline2Rest] = headline2.split(' ');
+  const headline2Remainder = headline2Rest.join(' ');
 
   return (
     <section
@@ -43,7 +43,7 @@ export function About() {
             />
           </motion.div>
 
-          {/* Right — tagline + CTA */}
+          {/* Right — eyebrow + headline + support text + CTA */}
           <motion.div
             variants={stagger}
             initial="hidden"
@@ -61,12 +61,23 @@ export function About() {
             <motion.h2
               id="about-heading"
               variants={fadeInUp}
-              className="type-display-lg text-navy-600 dark:text-navy-200 mb-6 max-w-2xl whitespace-pre-line"
+              className="type-display-lg text-navy-600 dark:text-navy-200 mb-6 max-w-2xl"
             >
-              {taglineBefore}
-              <span className="text-accent-magenta">{highlight}</span>
-              {taglineAfter}
+              <span className="block">{t('headline_1')}</span>
+              <span className="block">
+                <span>{headline2First}</span>
+                {headline2Remainder && (
+                  <span className="text-accent-magenta"> {headline2Remainder}</span>
+                )}
+              </span>
             </motion.h2>
+
+            <motion.p
+              variants={fadeInUp}
+              className="type-body text-fg-muted mb-6 max-w-xl whitespace-pre-line"
+            >
+              {t('description')}
+            </motion.p>
 
             <motion.div variants={fadeInUp}>
               <LinkButton

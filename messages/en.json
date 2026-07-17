@@ -48,8 +48,10 @@
     "cta_secondary": "Download CV"
   },
   "about": {
-    "caption": "About me",
-    "tagline": "Hi, I’m Marcelle,\nProduct Designer working from discovery to delivery on products that combine strategy, behavior, and artificial intelligence.",
+    "caption": "Hey! I'm Marcelle, Product Designer.",
+    "headline_1": "Curiosity to understand.",
+    "headline_2": "Strategy to build.",
+    "description": "I believe good products start long before the interface. They come from curiosity — understanding people, asking the right questions, and turning different perspectives into clearer decisions.\n\nThat same curiosity still shapes how I observe behavior, connect research, business, and technology, and turn complex challenges into experiences that are simple, useful, and consistent. I like working collaboratively, building solutions that balance people's needs, product goals, and technical feasibility.\n\nMore than designing screens, I believe in building understanding. That's how I connect people, product, and technology to create experiences that make sense for the people who use them, for the business, and for the teams who build them.",
     "cta_resume": "Resume",
     "years_value": "13+",
     "projects_value": "5+",
