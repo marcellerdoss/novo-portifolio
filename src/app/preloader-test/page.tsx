@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
+import { CaseExpandDemo } from './CaseExpandDemo';
 
 export default function PreloaderTestPage() {
   const startedRef = useRef(false);
@@ -175,6 +176,8 @@ export default function PreloaderTestPage() {
           a página pra ver o preloader animando na cor escolhida.
         </p>
       </main>
+
+      <CaseExpandDemo />
 
       <style>{`
         :root {
