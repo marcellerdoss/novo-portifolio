@@ -6,7 +6,6 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { AccessibilityBar } from '@/components/layout/AccessibilityBar';
 import { LocaleLang } from '@/components/layout/LocaleLang';
-import { CaseTransitionProvider } from '@/components/providers/CaseTransitionProvider';
 
 type Props = {
   children: React.ReactNode;
@@ -29,14 +28,12 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
       <LocaleLang />
-      <CaseTransitionProvider>
-        <AccessibilityBar />
-        <Header />
-        <main id="main-content" className="flex-1 pt-[6.25rem]">
-          {children}
-        </main>
-        <Footer />
-      </CaseTransitionProvider>
+      <AccessibilityBar />
+      <Header />
+      <main id="main-content" className="flex-1 pt-[6.25rem]">
+        {children}
+      </main>
+      <Footer />
     </NextIntlClientProvider>
   );
 }

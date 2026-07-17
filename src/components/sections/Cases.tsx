@@ -6,7 +6,6 @@ import { useLocale } from 'next-intl';
 import { ArrowUpRight } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 import { buttonVariants } from '@/components/ui/Button';
-import { useCaseTransition } from '@/components/providers/CaseTransitionProvider';
 import type { Case } from '@/lib/types';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -163,13 +162,6 @@ function CaseRow({ card, index, locale }: { card: CaseItem; index: number; local
   const reversed = index % 2 !== 0;
   const eager = index < 4;
   const slug = card.href.replace('/cases/', '');
-  const { triggerCaseTransition } = useCaseTransition();
-
-  const handleCaseClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    triggerCaseTransition(e.clientX, e.clientY, card.href);
-  };
-
   return (
     <motion.section
       id={slug}
@@ -185,7 +177,6 @@ function CaseRow({ card, index, locale }: { card: CaseItem; index: number; local
         href={card.href}
         aria-label={card.title[locale]}
         tabIndex={-1}
-        onClick={handleCaseClick}
         className={`relative aspect-[4/3] rounded-xl overflow-hidden block transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(0,0,0,0.07)] dark:hover:shadow-[0_4px_24px_rgba(0,0,0,0.35)]${reversed ? ' md:order-2' : ' md:order-1'}`}
         style={{ backgroundColor: card.accentBg }}
       >
@@ -241,7 +232,7 @@ function CaseRow({ card, index, locale }: { card: CaseItem; index: number; local
         <p className="type-body text-fg-muted mb-6">
           {card.description[locale]}
         </p>
-        <Link href={card.href} onClick={handleCaseClick} className={buttonVariants({ variant: 'secondary', size: 'sm' }) + ' w-fit'}>
+        <Link href={card.href} className={buttonVariants({ variant: 'secondary', size: 'sm' }) + ' w-fit'}>
           {locale === 'en' ? 'See case' : 'Ver case'}{' '}
           <ArrowUpRight size={12} aria-hidden="true" className="shrink-0" />
         </Link>
