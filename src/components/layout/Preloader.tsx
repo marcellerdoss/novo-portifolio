@@ -13,6 +13,7 @@ export function Preloader() {
   // via estado do React (nao DOM direto), ou o React perde a referencia
   // do no e quebra na proxima reconciliacao (removeChild/insertBefore)
   const [visible, setVisible] = useState(() => HOME_PATHS.has(pathname));
+  const [prevPathname, setPrevPathname] = useState(pathname);
   const startedRef = useRef(false);
 
   // uma vez que o app montou com sucesso, libera o auto-reload do
@@ -20,6 +21,20 @@ export function Preloader() {
   useEffect(() => {
     sessionStorage.removeItem('chunk-error-reloaded');
   }, []);
+
+  // se o usuario navegar pra fora da home antes da animacao terminar (ex:
+  // clica em "Sobre" enquanto o preloader ainda esta rodando), ele fica
+  // "preso" tocando por cima da pagina nova, ja que e um overlay fixed
+  // alheio a rota. Ajuste de estado durante a renderizacao (nao em efeito)
+  // pra esconder na hora assim que a rota muda — padrao recomendado pelo
+  // React pra "adjusting state when a prop changes" (sem usar refs).
+  if (pathname !== prevPathname) {
+    setPrevPathname(pathname);
+    if (visible && !HOME_PATHS.has(pathname)) {
+      document.body.classList.remove('loading');
+      setVisible(false);
+    }
+  }
 
   useEffect(() => {
     if (!visible) return;
