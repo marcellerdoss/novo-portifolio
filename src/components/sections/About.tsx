@@ -74,7 +74,7 @@ export function About() {
 
             <motion.p
               variants={fadeInUp}
-              className="type-body text-fg-muted mb-6 max-w-xl whitespace-pre-line"
+              className="type-body text-fg-muted mb-6 max-w-2xl whitespace-pre-line"
             >
               {t('description')}
             </motion.p>
