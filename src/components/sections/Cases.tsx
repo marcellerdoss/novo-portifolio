@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { ArrowUpRight } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 import { buttonVariants } from '@/components/ui/Button';
@@ -243,10 +243,22 @@ function CaseRow({ card, index, locale }: { card: CaseItem; index: number; local
 
 export function CasesSection(_props: Props) {
   const locale = useLocale() as 'pt' | 'en';
+  const t = useTranslations('cases');
 
   return (
-    <section id="cases" className="py-section bg-[#FDFAF4] dark:bg-block-cream scroll-mt-28">
+    <section id="cases" aria-labelledby="cases-heading" className="py-section bg-[#FDFAF4] dark:bg-block-cream scroll-mt-28">
       <div className="max-w-6xl mx-auto px-6">
+
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-8 md:mb-12"
+        >
+          <h2 id="cases-heading" className="type-display-lg text-fg">{t('title')}</h2>
+          <p className="type-body text-fg-muted mt-2">{t('subtitle')}</p>
+        </motion.div>
 
         <div className="space-y-16 md:space-y-24">
           {allCases.map((card, i) => (
