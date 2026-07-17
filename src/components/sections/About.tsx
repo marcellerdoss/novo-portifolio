@@ -65,10 +65,8 @@ export function About() {
             >
               <span className="block">{t('headline_1')}</span>
               <span className="block">
-                <span>{headline2First}</span>
-                {headline2Remainder && (
-                  <span className="text-accent-magenta"> {headline2Remainder}</span>
-                )}
+                <span className="text-accent-magenta">{headline2First}</span>
+                {headline2Remainder && <span> {headline2Remainder}</span>}
               </span>
             </motion.h2>
 
