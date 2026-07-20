@@ -5,8 +5,8 @@ import { BlogClient } from '@/components/blog/BlogClient';
 type Props = { params: Promise<{ locale: string }> };
 
 const titles: Record<string, string> = {
-  pt: 'Blog — Reflexões sobre design e produto',
-  en: 'Blog — Thoughts on design and product',
+  pt: 'Blog · Reflexões sobre design e produto',
+  en: 'Blog · Thoughts on design and product',
 };
 const descs: Record<string, string> = {
   pt: 'Artigos sobre UX, design de produto, research e design system.',

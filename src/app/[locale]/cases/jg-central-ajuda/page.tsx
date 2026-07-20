@@ -23,12 +23,12 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   return {
-    title: locale === 'en' ? 'Jovens Gênios — Help Center · Marcelle Rocha' : 'Jovens Gênios — Central de Ajuda · Marcelle Rocha',
+    title: locale === 'en' ? 'Jovens Gênios · Help Center · Marcelle Rocha' : 'Jovens Gênios · Central de Ajuda · Marcelle Rocha',
     description: locale === 'en'
-      ? 'Design of the Jovens Gênios help center — profile navigation, contextualized search and empty states that keep users on track.'
-      : 'Design da central de ajuda do Jovens Gênios — navegação por perfil, busca contextualizada e empty states que mantêm o usuário no caminho certo.',
+      ? 'Design of the Jovens Gênios help center: profile navigation, contextualized search and empty states that keep users on track.'
+      : 'Design da central de ajuda do Jovens Gênios: navegação por perfil, busca contextualizada e empty states que mantêm o usuário no caminho certo.',
     openGraph: {
-      title: locale === 'en' ? 'Jovens Gênios — Help Center' : 'Jovens Gênios — Central de Ajuda',
+      title: locale === 'en' ? 'Jovens Gênios · Help Center' : 'Jovens Gênios · Central de Ajuda',
       description: locale === 'en' ? 'Help center with three profiles, filtered search and smart empty states.' : 'Central de ajuda com três perfis, busca filtrada e empty states inteligentes.',
       locale: locale === 'en' ? 'en_US' : 'pt_BR',
       type: 'article',
@@ -130,8 +130,8 @@ export default async function JgCentralAjudaPage({ params }: Props) {
               <SectionHeading>{en ? 'The first question the center answers is "who are you"' : 'A primeira pergunta que a central responde é "quem é você"'}</SectionHeading>
               <Body>
                 {en
-                  ? 'Jovens Gênios has three user types with completely different needs — an educator looks for how to set up a class; an explorer wants to know how to access an activity; a guardian needs to understand the subscription. A generic help center would force each to mentally filter what\'s relevant to them. The solution was to make profile selection the first gesture — before any search or category.'
-                  : 'O Jovens Gênios tem três tipos de usuário com necessidades completamente diferentes — um educador procura como configurar uma turma; um explorador quer saber como acessar uma atividade; um responsável precisa entender a assinatura. Uma central de ajuda genérica obrigaria cada um a filtrar mentalmente o que é relevante para si. A solução foi tornar a escolha de perfil o primeiro gesto — antes de qualquer busca ou categoria.'}
+                  ? 'Jovens Gênios has three user types with completely different needs: an educator looks for how to set up a class; an explorer wants to know how to access an activity; a guardian needs to understand the subscription. A generic help center would force each to mentally filter what\'s relevant to them. The solution was to make profile selection the first gesture, before any search or category.'
+                  : 'O Jovens Gênios tem três tipos de usuário com necessidades completamente diferentes: um educador procura como configurar uma turma; um explorador quer saber como acessar uma atividade; um responsável precisa entender a assinatura. Uma central de ajuda genérica obrigaria cada um a filtrar mentalmente o que é relevante para si. A solução foi tornar a escolha de perfil o primeiro gesto, antes de qualquer busca ou categoria.'}
               </Body>
             </div>
             <CaseImg
@@ -149,17 +149,17 @@ export default async function JgCentralAjudaPage({ params }: Props) {
               <SectionHeading>{en ? 'Each profile with visual identity and pre-filtered content' : 'Cada perfil com identidade visual e conteúdo pré-filtrado'}</SectionHeading>
               <Body>
                 {en
-                  ? 'When choosing a profile, the user doesn\'t see a generic list of categories — they see categories with pre-applied filter and visual identity that reinforces that content is for them. Educators see class and curriculum management categories; Explorers, activities and progress; Guardians, subscription and parental control. The same category system, three different readings.'
-                  : 'Ao escolher o perfil, o usuário não vê uma lista genérica de categorias — vê categorias com filtro pré-aplicado e identidade visual que reforça que aquele conteúdo é para ele. Educadores veem categorias de gestão de turma e currículo; Exploradores, de atividades e progresso; Responsáveis, de assinatura e controle parental. O mesmo sistema de categorias, três leituras diferentes.'}
+                  ? 'When choosing a profile, the user doesn\'t see a generic list of categories. They see categories with pre-applied filter and visual identity that reinforces that content is for them. Educators see class and curriculum management categories; Explorers, activities and progress; Guardians, subscription and parental control. The same category system, three different readings.'
+                  : 'Ao escolher o perfil, o usuário não vê uma lista genérica de categorias. Vê categorias com filtro pré-aplicado e identidade visual que reforça que aquele conteúdo é para ele. Educadores veem categorias de gestão de turma e currículo; Exploradores, de atividades e progresso; Responsáveis, de assinatura e controle parental. O mesmo sistema de categorias, três leituras diferentes.'}
               </Body>
             </div>
             <CaseCarousel
               images={[
-                { src: '/images/cases/jovens-genios/central-de-ajuda/jg-central-ajuda-categorias-educadores.png', alt: en ? 'Educators category — pre-applied filter and own visual identity' : 'Categoria Educadores — filtro pré-aplicado e identidade visual própria' },
-                { src: '/images/cases/jovens-genios/central-de-ajuda/jg-central-ajuda-categorias-exploradores.png', alt: en ? 'Explorers category — content filtered for the profile' : 'Categoria Exploradores — conteúdo filtrado para o perfil' },
-                { src: '/images/cases/jovens-genios/central-de-ajuda/jg-central-ajuda-categorias-responsaveis.png', alt: en ? 'Guardians category — content filtered for the profile' : 'Categoria Responsáveis — conteúdo filtrado para o perfil' },
+                { src: '/images/cases/jovens-genios/central-de-ajuda/jg-central-ajuda-categorias-educadores.png', alt: en ? 'Educators category: pre-applied filter and own visual identity' : 'Categoria Educadores: filtro pré-aplicado e identidade visual própria' },
+                { src: '/images/cases/jovens-genios/central-de-ajuda/jg-central-ajuda-categorias-exploradores.png', alt: en ? 'Explorers category: content filtered for the profile' : 'Categoria Exploradores: conteúdo filtrado para o perfil' },
+                { src: '/images/cases/jovens-genios/central-de-ajuda/jg-central-ajuda-categorias-responsaveis.png', alt: en ? 'Guardians category: content filtered for the profile' : 'Categoria Responsáveis: conteúdo filtrado para o perfil' },
               ]}
-              caption={en ? 'Educators, Explorers and Guardians — same category system, three different readings' : 'Educadores, Exploradores e Responsáveis — mesmo sistema de categorias, três leituras diferentes'}
+              caption={en ? 'Educators, Explorers and Guardians: same category system, three different readings' : 'Educadores, Exploradores e Responsáveis: mesmo sistema de categorias, três leituras diferentes'}
             />
           </section>
 
@@ -171,8 +171,8 @@ export default async function JgCentralAjudaPage({ params }: Props) {
               <SectionHeading>{en ? 'Reading without dead ends' : 'Leitura sem beco sem saída'}</SectionHeading>
               <Body>
                 {en
-                  ? 'The article screen was designed to keep the user oriented during reading and to never leave them without a next step. The side navigation keeps the category structure visible while content scrolls; contextual support remains accessible without interrupting reading. Those who reach the end of the article without resolution see clear actions — not an empty screen.'
-                  : 'A tela de artigo foi desenhada para manter o usuário orientado durante a leitura e para nunca deixá-lo sem próximo passo. A navegação lateral mantém a estrutura da categoria visível enquanto o conteúdo rola; o suporte contextual fica acessível sem interromper a leitura. Quem chega ao fim do artigo sem resolver vê ações claras — não uma tela vazia.'}
+                  ? 'The article screen was designed to keep the user oriented during reading and to never leave them without a next step. The side navigation keeps the category structure visible while content scrolls; contextual support remains accessible without interrupting reading. Those who reach the end of the article without resolution see clear actions, not an empty screen.'
+                  : 'A tela de artigo foi desenhada para manter o usuário orientado durante a leitura e para nunca deixá-lo sem próximo passo. A navegação lateral mantém a estrutura da categoria visível enquanto o conteúdo rola; o suporte contextual fica acessível sem interromper a leitura. Quem chega ao fim do artigo sem resolver vê ações claras, não uma tela vazia.'}
               </Body>
             </div>
             <CaseImg
@@ -190,8 +190,8 @@ export default async function JgCentralAjudaPage({ params }: Props) {
               <SectionHeading>{en ? 'Results that already know who they\'re for' : 'Resultados que já sabem para quem são'}</SectionHeading>
               <Body>
                 {en
-                  ? 'The search inherits the profile selected at entry — those searching as an educator see results filtered for educators, with explicit context of which category each article belongs to. The user doesn\'t need to mentally re-filter what\'s relevant. The profile chosen at the start of the journey persists and works in favor of each subsequent query.'
-                  : 'A busca herda o perfil selecionado na entrada — quem busca como educador vê resultados filtrados para educadores, com contexto explícito de qual categoria cada artigo pertence. O usuário não precisa re-filtrar mentalmente o que é relevante. O perfil escolhido no início da jornada persiste e trabalha a favor de cada consulta subsequente.'}
+                  ? 'The search inherits the profile selected at entry: those searching as an educator see results filtered for educators, with explicit context of which category each article belongs to. The user doesn\'t need to mentally re-filter what\'s relevant. The profile chosen at the start of the journey persists and works in favor of each subsequent query.'
+                  : 'A busca herda o perfil selecionado na entrada: quem busca como educador vê resultados filtrados para educadores, com contexto explícito de qual categoria cada artigo pertence. O usuário não precisa re-filtrar mentalmente o que é relevante. O perfil escolhido no início da jornada persiste e trabalha a favor de cada consulta subsequente.'}
               </Body>
             </div>
             <CaseCarousel
@@ -200,7 +200,7 @@ export default async function JgCentralAjudaPage({ params }: Props) {
                 { src: '/images/cases/jovens-genios/central-de-ajuda/jg-central-ajuda-busca-empty-states-sugestao.png', alt: en ? 'Empty state with typo and correction suggestion' : 'Empty state com erro de digitação e sugestão de correção' },
                 { src: '/images/cases/jovens-genios/central-de-ajuda/jg-central-ajuda-busca-empty-states-sugestao-filtro.png', alt: en ? 'Empty state with no result in profile with expansion suggestion' : 'Empty state sem resultado no perfil com sugestão de ampliar' },
               ]}
-              caption={en ? 'Profile-filtered results, typo and no result — all search states' : 'Resultados filtrados por perfil, erro de digitação e sem resultado — todos os estados da busca'}
+              caption={en ? 'Profile-filtered results, typo and no result: all search states' : 'Resultados filtrados por perfil, erro de digitação e sem resultado: todos os estados da busca'}
             />
           </section>
 
@@ -212,8 +212,8 @@ export default async function JgCentralAjudaPage({ params }: Props) {
               <SectionHeading>{en ? 'No result isn\'t the end of the journey' : 'Sem resultado não é o fim da jornada'}</SectionHeading>
               <Body>
                 {en
-                  ? 'Two empty state scenarios were designed separately because they have different causes and deserve different responses. A typo asks for a correction suggestion — the system shows what was probably meant. A search with no result in the current profile asks for an expansion offer — the system suggests searching the general base before routing to human support.'
-                  : 'Dois cenários de empty state foram desenhados separadamente porque têm causas diferentes e merecem respostas diferentes. Um erro de digitação pede uma sugestão de correção — o sistema mostra o que provavelmente quis dizer. Uma busca sem resultado no perfil atual pede uma oferta de ampliação — o sistema sugere buscar na base geral antes de encaminhar para o suporte humano.'}
+                  ? 'Two empty state scenarios were designed separately because they have different causes and deserve different responses. A typo asks for a correction suggestion: the system shows what was probably meant. A search with no result in the current profile asks for an expansion offer: the system suggests searching the general base before routing to human support.'
+                  : 'Dois cenários de empty state foram desenhados separadamente porque têm causas diferentes e merecem respostas diferentes. Um erro de digitação pede uma sugestão de correção: o sistema mostra o que provavelmente quis dizer. Uma busca sem resultado no perfil atual pede uma oferta de ampliação: o sistema sugere buscar na base geral antes de encaminhar para o suporte humano.'}
               </Body>
             </div>
           </section>
@@ -226,8 +226,8 @@ export default async function JgCentralAjudaPage({ params }: Props) {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
                 { stat: '3', label: { pt: 'Perfis com navegação e conteúdo independentes',               en: 'Profiles with independent navigation and content' } },
-                { stat: '2', label: { pt: 'Empty states distintos — causa diferente, resposta diferente', en: 'Distinct empty states — different cause, different response' } },
-                { stat: '0', label: { pt: 'Becos sem saída — toda tela tem próximo passo',               en: 'Dead ends — every screen has a next step' } },
+                { stat: '2', label: { pt: 'Empty states distintos: causa diferente, resposta diferente', en: 'Distinct empty states: different cause, different response' } },
+                { stat: '0', label: { pt: 'Becos sem saída: toda tela tem próximo passo',               en: 'Dead ends: every screen has a next step' } },
               ].map(({ stat, label }) => (
                 <div key={label.pt} className="border border-border rounded-[16px] p-8" style={{ backgroundColor: ACCENT_BG }}>
                   <p className="type-headline mb-2" style={{ color: ACCENT_TEXT }}>{stat}</p>

@@ -115,7 +115,7 @@
     "form_sent": "Mensagem enviada!",
     "form_success": "Recebi sua mensagem e em breve entro em contato.",
     "form_error": "Algo deu errado. Tente novamente ou me envie um e-mail diretamente.",
-    "form_subject_prefix": "Contato do portfólio — ",
+    "form_subject_prefix": "Contato do portfólio: ",
     "recaptcha_notice": "Este site é protegido pelo reCAPTCHA e se aplicam a Política de Privacidade e os Termos de Serviço do Google."
   },
   "footer": {

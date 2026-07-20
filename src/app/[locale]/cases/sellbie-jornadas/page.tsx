@@ -22,12 +22,12 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   return {
-    title: locale === 'en' ? 'Sellbie — Customer Journeys · Marcelle Rocha' : 'Sellbie Jornadas — Marcelle Rocha',
+    title: locale === 'en' ? 'Sellbie · Customer Journeys · Marcelle Rocha' : 'Sellbie Jornadas · Marcelle Rocha',
     description: locale === 'en'
-      ? 'Design of Sellbie\'s customer journey automation module — multichannel flow canvas with triggers, intervals, channels and branching logic.'
-      : 'Design do módulo de automação de jornadas do cliente da Sellbie — canvas de fluxo multicanal com gatilhos, intervalos, canais e lógica de ramificação.',
+      ? 'Design of Sellbie\'s customer journey automation module: multichannel flow canvas with triggers, intervals, channels and branching logic.'
+      : 'Design do módulo de automação de jornadas do cliente da Sellbie: canvas de fluxo multicanal com gatilhos, intervalos, canais e lógica de ramificação.',
     openGraph: {
-      title: locale === 'en' ? 'Sellbie — Customer Journeys' : 'Sellbie — Jornadas do cliente',
+      title: locale === 'en' ? 'Sellbie · Customer Journeys' : 'Sellbie · Jornadas do cliente',
       description: locale === 'en' ? 'Multichannel automation canvas with 20+ triggers, branches and template library.' : 'Canvas de automação multicanal com mais de 20 gatilhos, branches e biblioteca de templates.',
       locale: locale === 'en' ? 'en_US' : 'pt_BR',
       type: 'article',
@@ -137,14 +137,14 @@ export default async function SellbieJornadasPage({ params }: Props) {
               <SectionHeading>{en ? 'Before Journeys, only linearity existed' : 'Antes das Jornadas, só existia linearidade'}</SectionHeading>
               <Body>
                 {en
-                  ? 'Recurring Campaign was the most Sellbie offered in automation. It worked for simple cases — but didn\'t allow branching, conditionals or reacting to customer behavior. A customer who didn\'t open the email received exactly the same sequence as someone who bought.'
-                  : 'A Campanha Recorrente era o máximo que a Sellbie oferecia em automação. Ela funcionava para casos simples — mas não permitia ramificação, condicional ou reação ao comportamento do cliente. Um cliente que não abriu o e-mail recebia exatamente a mesma sequência de quem comprou.'}
+                  ? 'Recurring Campaign was the most Sellbie offered in automation. It worked for simple cases, but didn\'t allow branching, conditionals or reacting to customer behavior. A customer who didn\'t open the email received exactly the same sequence as someone who bought.'
+                  : 'A Campanha Recorrente era o máximo que a Sellbie oferecia em automação. Ela funcionava para casos simples, mas não permitia ramificação, condicional ou reação ao comportamento do cliente. Um cliente que não abriu o e-mail recebia exatamente a mesma sequência de quem comprou.'}
               </Body>
             </div>
             <CaseImg
               src="/images/cases/sellbie/jornadas/sellbie-jornadas-campanha-recorrente-antes.png"
-              alt={en ? 'Recurring Campaign before Journeys — linear without branching' : 'Campanha Recorrente antes das Jornadas — linear sem ramificação'}
-              caption={en ? 'Recurring Campaign before Journeys — linear, without branching.' : 'Campanha Recorrente antes das Jornadas — linear, sem ramificação.'}
+              alt={en ? 'Recurring Campaign before Journeys: linear without branching' : 'Campanha Recorrente antes das Jornadas: linear sem ramificação'}
+              caption={en ? 'Recurring Campaign before Journeys: linear, without branching.' : 'Campanha Recorrente antes das Jornadas: linear, sem ramificação.'}
             />
           </section>
 
@@ -163,7 +163,7 @@ export default async function SellbieJornadasPage({ params }: Props) {
             <CaseImg
               src="/images/cases/sellbie/jornadas/sellbie-jornadas-visao-geral-cards.png"
               alt={en ? 'Overview cards with status and channels' : 'Visão geral em cards com status e canais'}
-              caption={en ? 'Overview cards — status, channels and identification at a glance.' : 'Visão geral em cards — status, canais e identificação em leitura rápida.'}
+              caption={en ? 'Overview cards: status, channels and identification at a glance.' : 'Visão geral em cards: status, canais e identificação em leitura rápida.'}
             />
           </section>
 
@@ -175,14 +175,14 @@ export default async function SellbieJornadasPage({ params }: Props) {
               <SectionHeading>{en ? 'Before building the flow, define the context' : 'Antes de construir o fluxo, definir o contexto'}</SectionHeading>
               <Body>
                 {en
-                  ? 'No canvas starts from scratch without poorly answered questions later. The creation panel captures name, objective and audience before opening the editor — decisions that impact every step of the flow and would change the structural design of the journey if left for later.'
-                  : 'Nenhum canvas começa do zero sem perguntas mal-respondidas depois. O painel de criação captura nome, objetivo e público antes de abrir o editor — decisões que impactam cada step do fluxo e que mudariam o design estrutural da jornada se deixadas para depois.'}
+                  ? 'No canvas starts from scratch without poorly answered questions later. The creation panel captures name, objective and audience before opening the editor (decisions that impact every step of the flow and would change the structural design of the journey if left for later).'
+                  : 'Nenhum canvas começa do zero sem perguntas mal-respondidas depois. O painel de criação captura nome, objetivo e público antes de abrir o editor (decisões que impactam cada step do fluxo e que mudariam o design estrutural da jornada se deixadas para depois).'}
               </Body>
             </div>
             <CaseImg
               src="/images/cases/sellbie/jornadas/sellbie-jornadas-painel-criacao.png"
               alt={en ? 'Creation panel with basic data before the canvas' : 'Painel de criação com dados básicos antes do canvas'}
-              caption={en ? 'Creation panel — basic data before entering the canvas.' : 'Painel de criação — dados básicos antes de entrar no canvas.'}
+              caption={en ? 'Creation panel: basic data before entering the canvas.' : 'Painel de criação: dados básicos antes de entrar no canvas.'}
             />
           </section>
 
@@ -191,17 +191,17 @@ export default async function SellbieJornadasPage({ params }: Props) {
           <section className="space-y-8">
             <div>
               <Eyebrow>{en ? '04 · Triggers' : '04 · Gatilhos'}</Eyebrow>
-              <SectionHeading>{en ? 'More than 20 triggers — physical store and e-commerce in the same canvas' : 'Mais de 20 gatilhos — loja física e e-commerce no mesmo canvas'}</SectionHeading>
+              <SectionHeading>{en ? 'More than 20 triggers: physical store and e-commerce in the same canvas' : 'Mais de 20 gatilhos: loja física e e-commerce no mesmo canvas'}</SectionHeading>
               <Body>
                 {en
-                  ? 'One of the biggest conceptual challenges was organizing the heterogeneity of available triggers. Purchase behavior, email engagement, cart abandonment, store visit — all in the same panel, without looking like an endless list. Category organization with search solved discoverability without sacrificing reach.'
-                  : 'Um dos maiores desafios de conceito foi organizar a heterogeneidade dos gatilhos disponíveis. Comportamento de compra, engajamento com e-mail, abandono de carrinho, visita em loja — tudo no mesmo painel, sem parecer uma lista infinita. A organização por categoria com busca resolveu a descoberta sem sacrificar o alcance.'}
+                  ? 'One of the biggest conceptual challenges was organizing the heterogeneity of available triggers. Purchase behavior, email engagement, cart abandonment, store visit, all in the same panel, without looking like an endless list. Category organization with search solved discoverability without sacrificing reach.'
+                  : 'Um dos maiores desafios de conceito foi organizar a heterogeneidade dos gatilhos disponíveis. Comportamento de compra, engajamento com e-mail, abandono de carrinho, visita em loja, tudo no mesmo painel, sem parecer uma lista infinita. A organização por categoria com busca resolveu a descoberta sem sacrificar o alcance.'}
               </Body>
             </div>
             <CaseImg
               src="/images/cases/sellbie/jornadas/sellbie-jornadas-gatilhos-canvas.png"
               alt={en ? 'Canvas with triggers panel organized by category' : 'Canvas com painel de gatilhos organizados por categoria'}
-              caption={en ? 'More than 20 triggers organized by category — physical store and e-commerce in the same canvas.' : 'Mais de 20 gatilhos organizados por categoria — loja física e e-commerce no mesmo canvas.'}
+              caption={en ? 'More than 20 triggers organized by category: physical store and e-commerce in the same canvas.' : 'Mais de 20 gatilhos organizados por categoria: loja física e e-commerce no mesmo canvas.'}
             />
           </section>
 
@@ -213,14 +213,14 @@ export default async function SellbieJornadasPage({ params }: Props) {
               <SectionHeading>{en ? 'Settings that govern the entire journey' : 'Configurações que governam a jornada inteira'}</SectionHeading>
               <Body>
                 {en
-                  ? 'Entry frequency, early exit criteria and execution windows are decisions that affect all contacts in the flow. Treating them as global configurations — separate from individual steps — avoids silent errors and makes clear that these rules have journey scope, not channel scope.'
-                  : 'Frequência de entrada, critérios de saída antecipada e janelas de execução são decisões que afetam todos os contatos no fluxo. Tratá-las como configurações globais — separadas dos steps individuais — evita erros silenciosos e deixa claro que essas regras têm escopo de jornada, não de canal.'}
+                  ? 'Entry frequency, early exit criteria and execution windows are decisions that affect all contacts in the flow. Treating them as global configurations (separate from individual steps) avoids silent errors and makes clear that these rules have journey scope, not channel scope.'
+                  : 'Frequência de entrada, critérios de saída antecipada e janelas de execução são decisões que afetam todos os contatos no fluxo. Tratá-las como configurações globais (separadas dos steps individuais) evita erros silenciosos e deixa claro que essas regras têm escopo de jornada, não de canal.'}
               </Body>
             </div>
             <CaseImg
               src="/images/cases/sellbie/jornadas/sellbie-jornadas-configuracoes-jornada.png"
               alt={en ? 'Global entry, frequency and exit settings' : 'Configurações globais de entrada, frequência e saída'}
-              caption={en ? 'Global settings — entry, frequency and exit before building the flow.' : 'Configurações globais — entrada, frequência e saída antes de construir o fluxo.'}
+              caption={en ? 'Global settings: entry, frequency and exit before building the flow.' : 'Configurações globais: entrada, frequência e saída antes de construir o fluxo.'}
             />
           </section>
 
@@ -229,18 +229,18 @@ export default async function SellbieJornadasPage({ params }: Props) {
           <section className="space-y-8">
             <div>
               <Eyebrow>{en ? '06 · Channels' : '06 · Canais'}</Eyebrow>
-              <SectionHeading>{en ? 'Each channel with its own logic — same visual language' : 'Cada canal com sua própria lógica — mesma linguagem visual'}</SectionHeading>
+              <SectionHeading>{en ? 'Each channel with its own logic, same visual language' : 'Cada canal com sua própria lógica, mesma linguagem visual'}</SectionHeading>
               <Body>
                 {en
-                  ? 'Email, WhatsApp and SMS have completely different behaviors and restrictions — but need to coexist in the same canvas without creating pattern inconsistency. Each channel panel was designed with the medium\'s specific options, but sharing the same configuration structure.'
-                  : 'E-mail, WhatsApp e SMS têm comportamentos e restrições completamente diferentes — mas precisam coexistir no mesmo canvas sem criar inconsistência de padrão. Cada painel de canal foi desenhado com as opções específicas do meio, mas compartilhando a mesma estrutura de configuração.'}
+                  ? 'Email, WhatsApp and SMS have completely different behaviors and restrictions, but need to coexist in the same canvas without creating pattern inconsistency. Each channel panel was designed with the medium\'s specific options, but sharing the same configuration structure.'
+                  : 'E-mail, WhatsApp e SMS têm comportamentos e restrições completamente diferentes, mas precisam coexistir no mesmo canvas sem criar inconsistência de padrão. Cada painel de canal foi desenhado com as opções específicas do meio, mas compartilhando a mesma estrutura de configuração.'}
               </Body>
             </div>
             <div className="flex flex-wrap justify-center gap-6">
               <CaseImageFrame
                 src="/images/cases/sellbie/jornadas/sellbie-jornadas-canal-email.png"
                 alt={en ? 'Email channel with template, sender and tracking' : 'Canal E-mail com template, remetente e rastreamento'}
-                caption={en ? 'Email — template, sender and tracking' : 'E-mail — template, remetente e rastreamento'}
+                caption={en ? 'Email: template, sender and tracking' : 'E-mail: template, remetente e rastreamento'}
                 pair fixedHeight={320} imgWidth={336} imgHeight={550}
               />
               <CaseImageFrame
@@ -252,7 +252,7 @@ export default async function SellbieJornadasPage({ params }: Props) {
               <CaseImageFrame
                 src="/images/cases/sellbie/jornadas/sellbie-jornadas-canal-sms.png"
                 alt={en ? 'SMS channel with explicit restrictions' : 'Canal SMS com restrições explícitas'}
-                caption={en ? 'SMS — explicit restrictions' : 'SMS — restrições explícitas'}
+                caption={en ? 'SMS: explicit restrictions' : 'SMS: restrições explícitas'}
                 pair fixedHeight={320} imgWidth={344} imgHeight={558}
               />
             </div>
@@ -266,15 +266,15 @@ export default async function SellbieJornadasPage({ params }: Props) {
               <SectionHeading>{en ? 'The interval that also validates channel compatibility' : 'O intervalo que também valida compatibilidade de canal'}</SectionHeading>
               <Body>
                 {en
-                  ? 'The interval step seems simple — it defines how long to wait before the next step. But when the following channel operates in specific time windows, the interval needs to signal the incompatibility before the user publishes the journey with a silent error embedded.'
-                  : 'O step de intervalo parece simples — define quanto tempo esperar antes do próximo step. Mas quando o canal seguinte opera em janelas de horário específicas, o intervalo precisa sinalizar a incompatibilidade antes que o usuário publique a jornada com um erro silencioso embutido.'}
+                  ? 'The interval step seems simple: it defines how long to wait before the next step. But when the following channel operates in specific time windows, the interval needs to signal the incompatibility before the user publishes the journey with a silent error embedded.'
+                  : 'O step de intervalo parece simples: define quanto tempo esperar antes do próximo step. Mas quando o canal seguinte opera em janelas de horário específicas, o intervalo precisa sinalizar a incompatibilidade antes que o usuário publique a jornada com um erro silencioso embutido.'}
               </Body>
             </div>
             <div className="flex flex-wrap justify-center gap-6">
               <CaseImageFrame
                 src="/images/cases/sellbie/jornadas/sellbie-jornadas-step-intervalo-1.png"
                 alt={en ? 'Interval step with wait time and schedule' : 'Step de intervalo com tempo de espera e horário'}
-                caption={en ? 'Interval — wait time and schedule' : 'Intervalo — tempo de espera e horário'}
+                caption={en ? 'Interval: wait time and schedule' : 'Intervalo: tempo de espera e horário'}
                 pair fixedHeight={320} imgWidth={344} imgHeight={576}
               />
               <CaseImageFrame
@@ -294,14 +294,14 @@ export default async function SellbieJornadasPage({ params }: Props) {
               <SectionHeading>{en ? 'The flow reacts to behavior, not the calendar' : 'O fluxo reage ao comportamento, não ao calendário'}</SectionHeading>
               <Body>
                 {en
-                  ? 'The path split step is the heart of Journeys\' differentiator. A customer who opened the email follows one path; who didn\'t, another. The journey stops being a linear sequence and becomes a system that responds to what each person actually did — or didn\'t do.'
-                  : 'O step de divisão de caminho é o coração do diferencial das Jornadas. Um cliente que abriu o e-mail segue um caminho; quem não abriu, outro. A jornada deixa de ser uma sequência linear e passa a ser um sistema que responde ao que cada pessoa realmente fez — ou deixou de fazer.'}
+                  ? 'The path split step is the heart of Journeys\' differentiator. A customer who opened the email follows one path; who didn\'t, another. The journey stops being a linear sequence and becomes a system that responds to what each person actually did (or didn\'t do).'
+                  : 'O step de divisão de caminho é o coração do diferencial das Jornadas. Um cliente que abriu o e-mail segue um caminho; quem não abriu, outro. A jornada deixa de ser uma sequência linear e passa a ser um sistema que responde ao que cada pessoa realmente fez (ou deixou de fazer).'}
               </Body>
             </div>
             <CaseImg
               src="/images/cases/sellbie/jornadas/sellbie-jornadas-acoes-steps.png"
-              alt={en ? 'Path split — flow reacts to customer behavior' : 'Dividir caminho — fluxo reage ao comportamento do cliente'}
-              caption={en ? 'Path split — the flow reacts to behavior, not the calendar.' : 'Dividir caminho — o fluxo reage ao comportamento, não ao calendário.'}
+              alt={en ? 'Path split: flow reacts to customer behavior' : 'Dividir caminho: fluxo reage ao comportamento do cliente'}
+              caption={en ? 'Path split: the flow reacts to behavior, not the calendar.' : 'Dividir caminho: o fluxo reage ao comportamento, não ao calendário.'}
             />
           </section>
 
@@ -313,14 +313,14 @@ export default async function SellbieJornadasPage({ params }: Props) {
               <SectionHeading>{en ? 'Entering the journey before the event happens' : 'Entrar na jornada antes do evento acontecer'}</SectionHeading>
               <Body>
                 {en
-                  ? 'Birthday journeys and special dates need advance notice — a message on the day is already too late for certain categories. Early entry allows the contact to enter the flow days before the trigger, with automatic state signaling so the team knows the journey is in preparation.'
-                  : 'Jornadas de aniversário e datas especiais precisam de antecedência — uma mensagem no dia já é tarde demais para certas categorias. A entrada antecipada permite que o contato entre no fluxo dias antes do gatilho, com sinalização automática do estado para que o time saiba que a jornada está em preparação.'}
+                  ? 'Birthday journeys and special dates need advance notice: a message on the day is already too late for certain categories. Early entry allows the contact to enter the flow days before the trigger, with automatic state signaling so the team knows the journey is in preparation.'
+                  : 'Jornadas de aniversário e datas especiais precisam de antecedência: uma mensagem no dia já é tarde demais para certas categorias. A entrada antecipada permite que o contato entre no fluxo dias antes do gatilho, com sinalização automática do estado para que o time saiba que a jornada está em preparação.'}
               </Body>
             </div>
             <CaseImg
               src="/images/cases/sellbie/jornadas/sellbie-jornadas-entrada-antecipada.png"
               alt={en ? 'Early entry with automatic signaling' : 'Entrada antecipada com sinalização automática'}
-              caption={en ? 'Early entry — journey starts before the event with automatic signaling.' : 'Entrada antecipada — jornada começa antes do evento com sinalização automática.'}
+              caption={en ? 'Early entry: journey starts before the event with automatic signaling.' : 'Entrada antecipada: jornada começa antes do evento com sinalização automática.'}
             />
           </section>
 
@@ -346,12 +346,12 @@ export default async function SellbieJornadasPage({ params }: Props) {
 
           <section className="space-y-6">
             <Eyebrow>{en ? 'Outcome' : 'Resultado'}</Eyebrow>
-            <SectionHeading>{en ? 'From canvas to product — what this module delivered' : 'Do canvas ao produto — o que esse módulo entregou'}</SectionHeading>
+            <SectionHeading>{en ? 'From canvas to product: what this module delivered' : 'Do canvas ao produto: o que esse módulo entregou'}</SectionHeading>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
                 { stat: '20+',  label: { pt: 'Gatilhos disponíveis no lançamento',                      en: 'Triggers available at launch' } },
-                { stat: '3',    label: { pt: 'Canais nativos — e-mail, WhatsApp e SMS',                  en: 'Native channels — email, WhatsApp and SMS' } },
-                { stat: '0→1',  label: { pt: 'Módulo inteiramente novo — sem legado',                    en: 'Brand new module — no legacy' } },
+                { stat: '3',    label: { pt: 'Canais nativos: e-mail, WhatsApp e SMS',                  en: 'Native channels: email, WhatsApp and SMS' } },
+                { stat: '0→1',  label: { pt: 'Módulo inteiramente novo: sem legado',                    en: 'Brand new module: no legacy' } },
               ].map(({ stat, label }) => (
                 <div key={label.pt} className="border border-border rounded-[16px] p-8" style={{ backgroundColor: ACCENT_BG }}>
                   <p className="type-headline mb-2" style={{ color: ACCENT_TEXT }}>{stat}</p>

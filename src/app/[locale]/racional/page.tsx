@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const en = locale === 'en';
   return {
-    title: en ? 'Project Design — Marcelle Rocha' : 'Design do Projeto — Marcelle Rocha',
+    title: en ? 'Project Design · Marcelle Rocha' : 'Design do Projeto · Marcelle Rocha',
     description: en
       ? 'How this portfolio was designed and built as a UX product: design system, Nielsen heuristics, accessibility, dark mode, and technical stack.'
       : 'Como este portfólio foi concebido e construído como um produto de UX: design system, heurísticas de Nielsen, acessibilidade, dark mode e stack técnica.',
@@ -508,8 +508,8 @@ export default async function RacionalPage({ params }: Props) {
             <H2 id="ai-heading">{en ? 'The order of sections is not random' : 'A ordem das seções não é aleatória'}</H2>
             <Body>
               {en
-                ? "The site's real navigation has two destinations: Cases (a home anchor) and About. Everything else is content within those two pages, not a separate stop — the table below shows what lives in each and why."
-                : 'A navegação real do site tem dois destinos: Cases (âncora na home) e Sobre. Todo o resto é conteúdo dentro dessas duas páginas, não uma parada à parte — a tabela abaixo mostra o que vive em cada uma e por quê.'}
+                ? "The site's real navigation has two destinations: Cases (a home anchor) and About. Everything else is content within those two pages, not a separate stop. The table below shows what lives in each and why."
+                : 'A navegação real do site tem dois destinos: Cases (âncora na home) e Sobre. Todo o resto é conteúdo dentro dessas duas páginas, não uma parada à parte. A tabela abaixo mostra o que vive em cada uma e por quê.'}
             </Body>
 
             <div className="mt-8 space-y-10">
@@ -911,7 +911,7 @@ export default async function RacionalPage({ params }: Props) {
             <div className="space-y-4">
               <Body>
                 {en
-                  ? 'The biggest lesson from this project: designers tend to treat their own portfolio as a visual exercise. When treated as a product — with a defined user, hypotheses, grounded decisions, and iterations — the result is more coherent and harder to question.'
+                  ? 'The biggest lesson from this project: designers tend to treat their own portfolio as a visual exercise. When treated as a product, with a defined user, hypotheses, grounded decisions, and iterations, the result is more coherent and harder to question.'
                   : 'A maior lição deste projeto: designers tendem a tratar o próprio portfólio como um exercício visual. Quando tratado como produto, com usuário definido, hipóteses, decisões embasadas e iterações, o resultado é mais coerente e mais difícil de questionar.'}
               </Body>
               <Body>

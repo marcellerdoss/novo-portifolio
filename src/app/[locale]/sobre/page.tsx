@@ -16,8 +16,8 @@ const titles: Record<string, string> = {
 };
 
 const descriptions: Record<string, string> = {
-  pt: 'Conheça Marcelle Rocha — Product Designer com foco em comportamento, estratégia e impacto.',
-  en: 'Meet Marcelle Rocha — Product Designer focused on behavior, strategy, and impact.',
+  pt: 'Conheça Marcelle Rocha, Product Designer com foco em comportamento, estratégia e impacto.',
+  en: 'Meet Marcelle Rocha, Product Designer focused on behavior, strategy, and impact.',
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

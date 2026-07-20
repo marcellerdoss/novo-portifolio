@@ -22,12 +22,12 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   return {
-    title: locale === 'en' ? 'Sellbie — Product Metrics · Marcelle Rocha' : 'Sellbie — Métricas de Produto · Marcelle Rocha',
+    title: locale === 'en' ? 'Sellbie · Product Metrics · Marcelle Rocha' : 'Sellbie · Métricas de Produto · Marcelle Rocha',
     description: locale === 'en'
-      ? 'Structuring product metrics at Sellbie with the HEART framework — goals, signals and objectives defined for five product modules.'
-      : 'Estruturação de métricas de produto na Sellbie com o framework HEART — metas, sinais e objetivos definidos para cinco módulos do produto.',
+      ? 'Structuring product metrics at Sellbie with the HEART framework: goals, signals and objectives defined for five product modules.'
+      : 'Estruturação de métricas de produto na Sellbie com o framework HEART: metas, sinais e objetivos definidos para cinco módulos do produto.',
     openGraph: {
-      title: locale === 'en' ? 'Sellbie — Product Metrics' : 'Sellbie — Métricas de Produto',
+      title: locale === 'en' ? 'Sellbie · Product Metrics' : 'Sellbie · Métricas de Produto',
       description: locale === 'en' ? 'HEART framework applied to five Sellbie modules.' : 'Framework HEART aplicado a cinco módulos da Sellbie.',
       locale: locale === 'en' ? 'en_US' : 'pt_BR',
       type: 'article',
@@ -129,14 +129,14 @@ export default async function SellbieMetricasPage({ params }: Props) {
               <SectionHeading>{en ? 'The structure that connects quality to results' : 'A estrutura que conecta qualidade a resultado'}</SectionHeading>
               <Body>
                 {en
-                  ? 'HEART organizes experience quality into five dimensions — Happiness, Engagement, Adoption, Retention and Task Success. For each dimension of each module, we defined a product goal, the observable signals indicating progress and the concrete objectives that make the goal measurable. Without this structure, the team measured what was easy to measure, not what mattered.'
-                  : 'O HEART organiza a qualidade de experiência em cinco dimensões — Happiness, Engagement, Adoption, Retention e Task Success. Para cada dimensão de cada módulo, definimos uma meta de produto, os sinais observáveis que indicam progresso e os objetivos concretos que tornam a meta mensurável. Sem essa estrutura, a equipe media o que era fácil medir, não o que importava.'}
+                  ? 'HEART organizes experience quality into five dimensions (Happiness, Engagement, Adoption, Retention and Task Success). For each dimension of each module, we defined a product goal, the observable signals indicating progress and the concrete objectives that make the goal measurable. Without this structure, the team measured what was easy to measure, not what mattered.'
+                  : 'O HEART organiza a qualidade de experiência em cinco dimensões (Happiness, Engagement, Adoption, Retention e Task Success). Para cada dimensão de cada módulo, definimos uma meta de produto, os sinais observáveis que indicam progresso e os objetivos concretos que tornam a meta mensurável. Sem essa estrutura, a equipe media o que era fácil medir, não o que importava.'}
               </Body>
             </div>
             <CaseImg
               src="/images/cases/sellbie/metricas/sellbie-metricas-heart-estrutura-mae.png"
               alt={en ? 'HEART framework with each metric connected to goal, signal and objective' : 'Framework HEART com cada métrica conectada a meta, sinal e objetivo'}
-              caption={en ? 'HEART Framework — each metric connected to a product goal, signal and objective.' : 'Framework HEART — cada métrica conectada a meta, sinal e objetivo de produto.'}
+              caption={en ? 'HEART Framework: each metric connected to a product goal, signal and objective.' : 'Framework HEART: cada métrica conectada a meta, sinal e objetivo de produto.'}
             />
           </section>
 
@@ -145,17 +145,17 @@ export default async function SellbieMetricasPage({ params }: Props) {
           <section className="space-y-8">
             <div>
               <Eyebrow>{en ? '02 · Application' : '02 · Aplicação'}</Eyebrow>
-              <SectionHeading>{en ? 'Five modules with the same structure — comparable results' : 'Cinco módulos com a mesma estrutura — resultados comparáveis'}</SectionHeading>
+              <SectionHeading>{en ? 'Five modules with the same structure: comparable results' : 'Cinco módulos com a mesma estrutura: resultados comparáveis'}</SectionHeading>
               <Body>
                 {en
-                  ? 'Applying HEART to different modules with different structures creates a comparability problem. The decision was to keep exactly the same template for all five modules — Campaigns, Journeys, Contacts, Store and Reports — so the product team could compare equivalent dimensions across different areas and prioritize investments with a common criterion.'
-                  : 'Aplicar o HEART a módulos diferentes com estruturas diferentes cria um problema de comparabilidade. A decisão foi manter exatamente o mesmo template para todos os cinco módulos — Campanhas, Jornadas, Contatos, Loja e Relatórios — de modo que o time de produto pudesse comparar dimensões equivalentes entre áreas distintas e priorizar investimentos com um critério comum.'}
+                  ? 'Applying HEART to different modules with different structures creates a comparability problem. The decision was to keep exactly the same template for all five modules (Campaigns, Journeys, Contacts, Store and Reports), so the product team could compare equivalent dimensions across different areas and prioritize investments with a common criterion.'
+                  : 'Aplicar o HEART a módulos diferentes com estruturas diferentes cria um problema de comparabilidade. A decisão foi manter exatamente o mesmo template para todos os cinco módulos (Campanhas, Jornadas, Contatos, Loja e Relatórios), de modo que o time de produto pudesse comparar dimensões equivalentes entre áreas distintas e priorizar investimentos com um critério comum.'}
               </Body>
             </div>
             <CaseImg
               src="/images/cases/sellbie/metricas/sellbie-metricas-heart-modulos-lado-a-lado.png"
               alt={en ? 'Five modules with the same HEART structure side by side' : 'Cinco módulos com a mesma estrutura HEART lado a lado'}
-              caption={en ? 'Five modules with the same HEART structure — comparable results across areas.' : 'Cinco módulos com a mesma estrutura HEART — resultados comparáveis entre áreas.'}
+              caption={en ? 'Five modules with the same HEART structure: comparable results across areas.' : 'Cinco módulos com a mesma estrutura HEART: resultados comparáveis entre áreas.'}
             />
           </section>
 
@@ -163,7 +163,7 @@ export default async function SellbieMetricasPage({ params }: Props) {
 
           <section className="space-y-6">
             <Eyebrow>{en ? 'Outcome' : 'Resultado'}</Eyebrow>
-            <SectionHeading>{en ? 'Metrics the team uses — not just documents' : 'Métricas que o time usa — não só documenta'}</SectionHeading>
+            <SectionHeading>{en ? 'Metrics the team uses, not just documents' : 'Métricas que o time usa, não só documenta'}</SectionHeading>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
                 { stat: '5',          label: { pt: 'Módulos cobertos com a mesma estrutura HEART',           en: 'Modules covered with the same HEART structure' } },

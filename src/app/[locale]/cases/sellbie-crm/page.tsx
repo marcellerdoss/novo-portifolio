@@ -22,12 +22,12 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   return {
-    title: locale === 'en' ? 'Sellbie — CRM Diagnostic Report · Marcelle Rocha' : 'Sellbie — Relatório CRM · Marcelle Rocha',
+    title: locale === 'en' ? 'Sellbie · CRM Diagnostic Report · Marcelle Rocha' : 'Sellbie · Relatório CRM · Marcelle Rocha',
     description: locale === 'en'
-      ? 'Design of Sellbie\'s CRM diagnostic report — Healthscore, integrated funnel and base generator in a tool used by the Customer Success team.'
-      : 'Design do relatório de diagnóstico CRM da Sellbie — Healthscore, funil integrado e gerador de base em uma ferramenta usada pelo time de Customer Success.',
+      ? 'Design of Sellbie\'s CRM diagnostic report: Healthscore, integrated funnel and base generator in a tool used by the Customer Success team.'
+      : 'Design do relatório de diagnóstico CRM da Sellbie: Healthscore, funil integrado e gerador de base em uma ferramenta usada pelo time de Customer Success.',
     openGraph: {
-      title: locale === 'en' ? 'Sellbie — CRM Diagnostic Report' : 'Sellbie — Relatório CRM',
+      title: locale === 'en' ? 'Sellbie · CRM Diagnostic Report' : 'Sellbie · Relatório CRM',
       description: locale === 'en' ? 'Healthscore, integrated funnel and base generator for Sellbie\'s CS team.' : 'Healthscore, funil integrado e gerador de base para o CS da Sellbie.',
       locale: locale === 'en' ? 'en_US' : 'pt_BR',
       type: 'article',
@@ -129,14 +129,14 @@ export default async function SellbieCrmPage({ params }: Props) {
               <SectionHeading>{en ? 'What CS used before the report existed' : 'O que o CS usava antes de existir o relatório'}</SectionHeading>
               <Body>
                 {en
-                  ? 'Before any wireframe, we mapped what the CS team actually used to prepare a diagnostic meeting — exported spreadsheets, screenshots, manual notes and data fragmented across three different systems. The survey made clear where the friction was: data wasn\'t lacking, consolidation was.'
-                  : 'Antes de qualquer wireframe, mapeamos o que o time de CS realmente usava para preparar uma reunião de diagnóstico — planilhas exportadas, prints de tela, anotações manuais e dados fragmentados em três sistemas diferentes. O levantamento deixou claro onde estava o atrito: não faltava dado, faltava consolidação.'}
+                  ? 'Before any wireframe, we mapped what the CS team actually used to prepare a diagnostic meeting: exported spreadsheets, screenshots, manual notes and data fragmented across three different systems. The survey made clear where the friction was: data wasn\'t lacking, consolidation was.'
+                  : 'Antes de qualquer wireframe, mapeamos o que o time de CS realmente usava para preparar uma reunião de diagnóstico: planilhas exportadas, prints de tela, anotações manuais e dados fragmentados em três sistemas diferentes. O levantamento deixou claro onde estava o atrito: não faltava dado, faltava consolidação.'}
               </Body>
             </div>
             <CaseImg
               src="/images/cases/sellbie/crm/sellbie-crm-relatorio-mapa-oportunidades.png"
               alt={en ? 'Materials CS used before the report' : 'Materiais que o CS usava antes do relatório'}
-              caption={en ? 'Materials CS used before — starting point for understanding gaps.' : 'Materiais que o CS usava antes — ponto de partida para entender lacunas.'}
+              caption={en ? 'Materials CS used before: starting point for understanding gaps.' : 'Materiais que o CS usava antes: ponto de partida para entender lacunas.'}
             />
           </section>
 
@@ -145,11 +145,11 @@ export default async function SellbieCrmPage({ params }: Props) {
           <section className="space-y-8">
             <div>
               <Eyebrow>{en ? '02 · Definition' : '02 · Definição'}</Eyebrow>
-              <SectionHeading>{en ? 'From problem to expected outcome — without skipping steps' : 'Do problema ao resultado esperado — sem pular etapas'}</SectionHeading>
+              <SectionHeading>{en ? 'From problem to expected outcome, without skipping steps' : 'Do problema ao resultado esperado, sem pular etapas'}</SectionHeading>
               <Body>
                 {en
-                  ? 'The opportunity map translated each friction identified in the discovery into a product gap and connected each gap to a candidate solution and the expected outcome for CS. This mapping was what defined the report\'s scope — and what was left out of the first version.'
-                  : 'O mapa de oportunidades traduziu cada atrito identificado no discovery em uma lacuna do produto e conectou cada lacuna a uma solução candidata e ao resultado esperado para o CS. Esse mapeamento foi o que definiu o escopo do relatório — e o que ficou de fora da primeira versão.'}
+                  ? 'The opportunity map translated each friction identified in the discovery into a product gap and connected each gap to a candidate solution and the expected outcome for CS. This mapping was what defined the report\'s scope, and what was left out of the first version.'
+                  : 'O mapa de oportunidades traduziu cada atrito identificado no discovery em uma lacuna do produto e conectou cada lacuna a uma solução candidata e ao resultado esperado para o CS. Esse mapeamento foi o que definiu o escopo do relatório, e o que ficou de fora da primeira versão.'}
               </Body>
             </div>
           </section>
@@ -162,14 +162,14 @@ export default async function SellbieCrmPage({ params }: Props) {
               <SectionHeading>{en ? 'CS arrives at the meeting with the diagnosis ready' : 'O CS chega na reunião com o diagnóstico pronto'}</SectionHeading>
               <Body>
                 {en
-                  ? 'The dashboard centralizes the client\'s Healthscore, automatic behavior-based recommendations and key usage indicators in one place. CS no longer needs to assemble the diagnosis — they arrive at the meeting to discuss what the report has already identified.'
-                  : 'O dashboard centraliza o Healthscore do cliente, as recomendações automáticas baseadas em comportamento e os principais indicadores de uso em um único lugar. O CS não precisa mais montar o diagnóstico — ele chega à reunião para discutir o que o relatório já identificou.'}
+                  ? 'The dashboard centralizes the client\'s Healthscore, automatic behavior-based recommendations and key usage indicators in one place. CS no longer needs to assemble the diagnosis. They arrive at the meeting to discuss what the report has already identified.'
+                  : 'O dashboard centraliza o Healthscore do cliente, as recomendações automáticas baseadas em comportamento e os principais indicadores de uso em um único lugar. O CS não precisa mais montar o diagnóstico. Ele chega à reunião para discutir o que o relatório já identificou.'}
               </Body>
             </div>
             <CaseImg
               src="/images/cases/sellbie/crm/sellbie-crm-relatorio-make-1-dashboard.png"
               alt={en ? 'Diagnostic dashboard with Healthscore and recommendations' : 'Dashboard de diagnóstico com Healthscore e recomendações'}
-              caption={en ? 'Diagnostic dashboard — CS arrives at the meeting with Healthscore and recommendations ready.' : 'Dashboard de diagnóstico — CS chega na reunião com Healthscore e recomendações prontas.'}
+              caption={en ? 'Diagnostic dashboard: CS arrives at the meeting with Healthscore and recommendations ready.' : 'Dashboard de diagnóstico: CS chega na reunião com Healthscore e recomendações prontas.'}
             />
           </section>
 
@@ -188,7 +188,7 @@ export default async function SellbieCrmPage({ params }: Props) {
             <CaseImg
               src="/images/cases/sellbie/crm/sellbie-crm-relatorio-make-2-analise-funil-integrado.png"
               alt={en ? 'Integrated funnel with bottleneck visible automatically' : 'Funil integrado com gargalo visível automaticamente'}
-              caption={en ? 'Integrated funnel — the bottleneck appears automatically.' : 'Funil integrado — o gargalo aparece automaticamente.'}
+              caption={en ? 'Integrated funnel: the bottleneck appears automatically.' : 'Funil integrado: o gargalo aparece automaticamente.'}
             />
           </section>
 
@@ -200,14 +200,14 @@ export default async function SellbieCrmPage({ params }: Props) {
               <SectionHeading>{en ? 'Diagnosis and action in the same place' : 'Diagnóstico e ação no mesmo lugar'}</SectionHeading>
               <Body>
                 {en
-                  ? 'The report doesn\'t end at reading — it ends at action. The embedded base generator allows CS to create a contact segment directly from the diagnosis, without switching screens or exporting data. The loop closes within the tool: see the problem, understand the cause and act on it.'
-                  : 'O relatório não termina na leitura — ele termina na ação. O gerador de base embutido permite que o CS crie um segmento de contatos diretamente do diagnóstico, sem trocar de tela ou exportar dados. O loop fecha dentro da ferramenta: ver o problema, entender a causa e agir sobre ela.'}
+                  ? 'The report doesn\'t end at reading. It ends at action. The embedded base generator allows CS to create a contact segment directly from the diagnosis, without switching screens or exporting data. The loop closes within the tool: see the problem, understand the cause and act on it.'
+                  : 'O relatório não termina na leitura. Ele termina na ação. O gerador de base embutido permite que o CS crie um segmento de contatos diretamente do diagnóstico, sem trocar de tela ou exportar dados. O loop fecha dentro da ferramenta: ver o problema, entender a causa e agir sobre ela.'}
               </Body>
             </div>
             <CaseImg
               src="/images/cases/sellbie/crm/sellbie-crm-relatorio-make-3-gerador.png"
               alt={en ? 'Base generator within the report' : 'Gerador de base dentro do relatório'}
-              caption={en ? 'Base generator within the report — diagnosis and action in the same place.' : 'Gerador de base dentro do relatório — diagnóstico e ação no mesmo lugar.'}
+              caption={en ? 'Base generator within the report: diagnosis and action in the same place.' : 'Gerador de base dentro do relatório: diagnóstico e ação no mesmo lugar.'}
             />
           </section>
 
@@ -219,7 +219,7 @@ export default async function SellbieCrmPage({ params }: Props) {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
                 { stat: '3 → 1',      label: { pt: 'Sistemas consultados pelo CS antes de cada reunião',         en: 'Systems consulted by CS before each meeting' } },
-                { stat: 'Healthscore', label: { pt: 'Automático — sem cálculo manual pelo analista',              en: 'Automatic — no manual calculation by the analyst' } },
+                { stat: 'Healthscore', label: { pt: 'Automático: sem cálculo manual pelo analista',              en: 'Automatic: no manual calculation by the analyst' } },
                 { stat: '1 tela',     label: { pt: 'Do diagnóstico à geração de base de contatos',               en: 'From diagnosis to contact base generation' } },
               ].map(({ stat, label }) => (
                 <div key={label.pt} className="border border-border rounded-[16px] p-8" style={{ backgroundColor: ACCENT_BG }}>

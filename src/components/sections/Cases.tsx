@@ -81,8 +81,8 @@ const allCases: CaseItem[] = [
     category: { pt: 'Product Design', en: 'Product Design' },
     title: { pt: 'Central de Ajuda segmentada por perfil', en: 'Profile-segmented Help Center' },
     description: {
-      pt: 'Reestruturação da central de ajuda com arquitetura segmentada por perfil — Educadores, Exploradores e Responsáveis — com busca dedicada e estrutura validada e implementada no Zendesk.',
-      en: 'Help center restructured with profile-segmented architecture — Educators, Explorers, and Guardians — with dedicated search validated and implemented in Zendesk.',
+      pt: 'Reestruturação da central de ajuda com arquitetura segmentada por perfil (Educadores, Exploradores e Responsáveis), com busca dedicada e estrutura validada e implementada no Zendesk.',
+      en: 'Help center restructured with profile-segmented architecture (Educators, Explorers, and Guardians), with dedicated search validated and implemented in Zendesk.',
     },
     tags: { pt: ['Arquitetura de Informação', 'Pesquisa', 'Personalização'], en: ['Information Architecture', 'Research', 'Personalization'] },
     href: '/cases/jg-central-ajuda',

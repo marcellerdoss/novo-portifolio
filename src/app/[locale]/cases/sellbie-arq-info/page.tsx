@@ -22,12 +22,12 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   return {
-    title: locale === 'en' ? 'Sellbie — Information Architecture · Marcelle Rocha' : 'Sellbie — Arquitetura de Informação · Marcelle Rocha',
+    title: locale === 'en' ? 'Sellbie · Information Architecture · Marcelle Rocha' : 'Sellbie · Arquitetura de Informação · Marcelle Rocha',
     description: locale === 'en'
-      ? 'Restructuring Sellbie\'s information architecture — content inventory, card sorting and navigation reorganization based on heuristics.'
-      : 'Reestruturação da arquitetura de informação da Sellbie — inventário de conteúdo, card sorting e reorganização da navegação com base em heurísticas.',
+      ? 'Restructuring Sellbie\'s information architecture: content inventory, card sorting and navigation reorganization based on heuristics.'
+      : 'Reestruturação da arquitetura de informação da Sellbie: inventário de conteúdo, card sorting e reorganização da navegação com base em heurísticas.',
     openGraph: {
-      title: locale === 'en' ? 'Sellbie — Information Architecture' : 'Sellbie — Arquitetura de Informação',
+      title: locale === 'en' ? 'Sellbie · Information Architecture' : 'Sellbie · Arquitetura de Informação',
       description: locale === 'en' ? 'Content inventory, card sorting and navigation restructuring for Sellbie.' : 'Inventário de conteúdo, card sorting e reestruturação da navegação da Sellbie.',
       locale: locale === 'en' ? 'en_US' : 'pt_BR',
       type: 'article',
@@ -129,14 +129,14 @@ export default async function SellbieArqInfoPage({ params }: Props) {
               <SectionHeading>{en ? 'Map before reorganizing' : 'Mapear antes de reorganizar'}</SectionHeading>
               <Body>
                 {en
-                  ? 'No navigation restructuring starts with the solution. The content inventory listed every interface item — labels, sections, sub-sections, actions and entities — before any grouping decision. In FigJam, the volume became visible: duplicates, naming inconsistencies and items without a clear place appeared before any questions about the redesign.'
-                  : 'Nenhuma reestruturação de navegação começa pela solução. O inventário de conteúdo levantou cada item da interface — labels, seções, sub-seções, ações e entidades — antes de qualquer decisão de agrupamento. No FigJam, o volume ficou visível: duplicidades, inconsistências de nomenclatura e itens sem lugar claro apareceram antes de qualquer pergunta sobre o redesign.'}
+                  ? 'No navigation restructuring starts with the solution. The content inventory listed every interface item (labels, sections, sub-sections, actions and entities) before any grouping decision. In FigJam, the volume became visible: duplicates, naming inconsistencies and items without a clear place appeared before any questions about the redesign.'
+                  : 'Nenhuma reestruturação de navegação começa pela solução. O inventário de conteúdo levantou cada item da interface (labels, seções, sub-seções, ações e entidades) antes de qualquer decisão de agrupamento. No FigJam, o volume ficou visível: duplicidades, inconsistências de nomenclatura e itens sem lugar claro apareceram antes de qualquer pergunta sobre o redesign.'}
               </Body>
             </div>
             <CaseImg
               src="/images/cases/sellbie/arquitetura/sellbie-arq-info-inventario-figjam.png"
               alt={en ? 'Content inventory in FigJam' : 'Inventário de conteúdo no FigJam'}
-              caption={en ? 'Content inventory in FigJam — starting point before any decision.' : 'Inventário de conteúdo no FigJam — ponto de partida antes de qualquer decisão.'}
+              caption={en ? 'Content inventory in FigJam: starting point before any decision.' : 'Inventário de conteúdo no FigJam: ponto de partida antes de qualquer decisão.'}
             />
           </section>
 
@@ -148,8 +148,8 @@ export default async function SellbieArqInfoPage({ params }: Props) {
               <SectionHeading>{en ? 'The criterion before reorganizing' : 'O critério antes de reorganizar'}</SectionHeading>
               <Body>
                 {en
-                  ? 'Card sorting without a criterion generates results that are hard to interpret. Abby Covert\'s heuristics — findability, accessibility, clarity, communication, usefulness, credibility, controllability — served as a common basis among participants, making grouping choices discussable for objective reasons, not preference.'
-                  : 'Card sorting sem critério gera resultados difíceis de interpretar. As heurísticas de Abby Covert — findability, accessibility, clarity, communication, usefulness, credibility, controllability — serviram como base comum entre os participantes, tornando as escolhas de agrupamento discutíveis por razões objetivas, não por preferência.'}
+                  ? 'Card sorting without a criterion generates results that are hard to interpret. Abby Covert\'s heuristics (findability, accessibility, clarity, communication, usefulness, credibility, controllability) served as a common basis among participants, making grouping choices discussable for objective reasons, not preference.'
+                  : 'Card sorting sem critério gera resultados difíceis de interpretar. As heurísticas de Abby Covert (findability, accessibility, clarity, communication, usefulness, credibility, controllability) serviram como base comum entre os participantes, tornando as escolhas de agrupamento discutíveis por razões objetivas, não por preferência.'}
               </Body>
             </div>
             <CaseImg
@@ -167,14 +167,14 @@ export default async function SellbieArqInfoPage({ params }: Props) {
               <SectionHeading>{en ? 'Consensus and divergences that guided groupings' : 'Consensos e divergências que orientaram os agrupamentos'}</SectionHeading>
               <Body>
                 {en
-                  ? 'Card sorting revealed where users\' mental models converged and where they diverged from the current product model. Strong consensus became direct groupings in the new sitemap; divergences indicated where the nomenclature was ambiguous — and required design decisions, not just organizational ones.'
-                  : 'O card sorting revelou onde os modelos mentais dos usuários convergiam e onde divergiam do modelo atual do produto. Consensos fortes tornaram-se agrupamentos diretos no novo sitemap; divergências indicaram onde a nomenclatura estava ambígua — e exigiram decisões de design, não apenas de organização.'}
+                  ? 'Card sorting revealed where users\' mental models converged and where they diverged from the current product model. Strong consensus became direct groupings in the new sitemap; divergences indicated where the nomenclature was ambiguous, and required design decisions, not just organizational ones.'
+                  : 'O card sorting revelou onde os modelos mentais dos usuários convergiam e onde divergiam do modelo atual do produto. Consensos fortes tornaram-se agrupamentos diretos no novo sitemap; divergências indicaram onde a nomenclatura estava ambígua, e exigiram decisões de design, não apenas de organização.'}
               </Body>
             </div>
             <CaseImg
               src="/images/cases/sellbie/arquitetura/sellbie-arq-info-card-sorting-resultado.png"
               alt={en ? 'Card sorting result with consensus and divergences' : 'Resultado do card sorting com consensos e divergências'}
-              caption={en ? 'Card sorting from two participants — consensus and divergences that guided groupings.' : 'Card sorting de dois participantes — consensos e divergências que orientaram os agrupamentos.'}
+              caption={en ? 'Card sorting from two participants: consensus and divergences that guided groupings.' : 'Card sorting de dois participantes: consensos e divergências que orientaram os agrupamentos.'}
             />
           </section>
 

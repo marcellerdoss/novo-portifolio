@@ -73,7 +73,7 @@ export function CaseZoom({
       {/* Zoom panel */}
       <div>
         <p className="type-caption text-fg-subtle mb-2">
-          Zoom — {zoomLabel}
+          Zoom: {zoomLabel}
         </p>
         <div
           className="relative h-[260px] rounded-[12px] overflow-hidden"

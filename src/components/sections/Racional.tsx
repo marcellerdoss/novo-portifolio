@@ -21,8 +21,8 @@ const phases = [
     question: { pt: 'Quais são e de onde vêm os problemas?', en: 'What are the problems and where do they come from?' },
     practiceCard: {
       title: { pt: 'Leitura de contexto',    en: 'Context reading' },
-      text:  { pt: 'Conduzo pesquisas qualitativas, entrevistas com usuários, desk research e benchmarking para entender o contexto real — não só o que foi pedido, mas o problema que precisa ser resolvido.',
-               en: 'I conduct qualitative research, user interviews, desk research and benchmarking to understand the real context — not just what was asked, but the problem that needs to be solved.' },
+      text:  { pt: 'Conduzo pesquisas qualitativas, entrevistas com usuários, desk research e benchmarking para entender o contexto real: não só o que foi pedido, mas o problema que precisa ser resolvido.',
+               en: 'I conduct qualitative research, user interviews, desk research and benchmarking to understand the real context: not just what was asked, but the problem that needs to be solved.' },
     },
     trajectoryCard: {
       title: { pt: 'Ampliação de repertório', en: 'Expanding repertoire' },
@@ -71,8 +71,8 @@ const phases = [
     },
     trajectoryCard: {
       title: { pt: 'Aprendizado contínuo com entrega', en: 'Continuous learning through delivery' },
-      text:  { pt: 'Acompanho a implementação porque o design não termina no Figma. Termina — ou começa de verdade — no comportamento real do usuário.',
-               en: 'I follow implementation because design doesn\'t end in Figma. It ends — or truly begins — in real user behavior.' },
+      text:  { pt: 'Acompanho a implementação porque o design não termina no Figma. Termina (ou começa de verdade) no comportamento real do usuário.',
+               en: 'I follow implementation because design doesn\'t end in Figma. It ends (or truly begins) in real user behavior.' },
     },
   },
 ];
