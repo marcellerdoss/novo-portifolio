@@ -284,6 +284,8 @@ components:
     padding: 10px 16px
 ---
 
+> **Source of truth is the live code**, not this file: `src/app/globals.css` for tokens and `src/app/[locale]/racional/page.tsx` (the portfolio's own design-system page) for how they're used. This doc is a derived reference for the Claude Design canvas, regenerate it from the code when they diverge; never treat it as authoritative over what ships.
+
 ## Overview
 
 Marcelle Rocha's portfolio is, at the system level, an **editorial navy frame on warm paper**. The chrome, top nav, body copy, footer, primary CTA, stays quiet: `Inter` variable type at unusually fine weights (320 to 540), navy `{colors.primary}` ink on a warm off-white `{colors.bg}` canvas, hairline `{colors.border}` dividers, and pill-shaped CTAs. There are no gradients and only one soft shadow role; hierarchy is carried by type weight and by colour, not by elevation.
