@@ -45,3 +45,7 @@ next-env.d.ts
 
 # Claude Design seeded canvas (regenerate with seed-canvas.mjs)
 docs/design-canvas/portfolio-design-system.html
+
+# No stray backup / divergent source copies (use git history instead)
+*.backup.*
+/docs/backup/
