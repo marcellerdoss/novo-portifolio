@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;320;330;340;400;480;540;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin: 0; font-family: 'Inter', system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: #B4225E; } a:hover { color: #B4225E; }
+    .lbl { font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.6px; text-transform: uppercase; color: #666666; }
+    .eyebrow { font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: 0.6px; text-transform: uppercase; color: #B4225E; }
+    .tag { display: inline-flex; font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-size: 12px; font-weight: 400; letter-spacing: 0.6px; text-transform: uppercase; line-height: 1; border-radius: 9999px; padding: 4px 12px; }
+    .btn-sec { display: inline-flex; align-items: center; gap: 8px; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 480; letter-spacing: -0.14px; line-height: 1; border-radius: 50px; padding: 8px 16px; }
+  </style>
+</helmet>
+<div style="width: 1296px; font-family: 'Inter', sans-serif;">
+
+  <!-- LIGHT -->
+  <div style="background: #FEF4EF; color: #131226; padding: 48px 56px;">
+    <div style="font-size: 24px; font-weight: 540; letter-spacing: -0.24px; margin: 0 0 4px;">Cards &amp; Case Card</div>
+    <div style="font-size: 14px; font-weight: 330; color: #404040; margin: 0 0 32px;">Card &middot; radius-lg 24, padding 24, hairline border &middot; hover scale 1.02 + soft shadow</div>
+
+    <div style="display: flex; gap: 40px; align-items: flex-start; margin-bottom: 44px;">
+      <div style="text-align: center;">
+        <div style="width: 320px; background: #FEF4EF; border: 1px solid #e6e6e6; border-radius: 24px; padding: 24px;">
+          <div class="eyebrow" style="margin-bottom: 10px;">Framework</div>
+          <div style="font-size: 24px; font-weight: 540; letter-spacing: -0.24px; margin-bottom: 8px;">HEART</div>
+          <div style="font-size: 16px; font-weight: 330; line-height: 1.45; color: #404040;">Estrutura&ccedil;&atilde;o de m&eacute;tricas de produto conectando neg&oacute;cio a sinais de experi&ecirc;ncia.</div>
+        </div>
+        <div class="lbl" style="margin-top: 10px;">Card &middot; rest</div>
+      </div>
+      <div style="text-align: center;">
+        <div style="width: 320px; background: #FEF4EF; border: 1px solid #e6e6e6; border-radius: 24px; padding: 24px; transform: scale(1.02); box-shadow: 0 4px 24px rgba(0,0,0,0.06);">
+          <div class="eyebrow" style="margin-bottom: 10px;">Framework</div>
+          <div style="font-size: 24px; font-weight: 540; letter-spacing: -0.24px; margin-bottom: 8px;">HEART</div>
+          <div style="font-size: 16px; font-weight: 330; line-height: 1.45; color: #404040;">Estrutura&ccedil;&atilde;o de m&eacute;tricas de produto conectando neg&oacute;cio a sinais de experi&ecirc;ncia.</div>
+        </div>
+        <div class="lbl" style="margin-top: 10px;">Card &middot; hover</div>
+      </div>
+    </div>
+
+    <div class="eyebrow" style="margin-bottom: 16px;">Case card &middot; editorial row (2-col, alternating order)</div>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px; align-items: center;">
+      <!-- image frame with laptop mockup -->
+      <div style="position: relative; aspect-ratio: 4 / 3; border-radius: 32px; background: #F9F7F8; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.07);">
+        <div style="position: absolute; inset: 20px; display: flex; align-items: center; justify-content: center;">
+          <div style="position: relative; width: 78%;">
+            <div style="border: 5px solid #1A1A1A; border-bottom: none; border-radius: 8px 8px 0 0; background: #ECECEA; aspect-ratio: 16 / 10; overflow: hidden; display: flex; flex-direction: column; gap: 8px; padding: 18px;">
+              <div style="width: 40%; height: 8px; border-radius: 2px; background: #B4225E;"></div>
+              <div style="width: 85%; height: 6px; border-radius: 2px; background: #808080;"></div>
+              <div style="width: 70%; height: 6px; border-radius: 2px; background: #b8b8b8;"></div>
+              <div style="width: 78%; height: 6px; border-radius: 2px; background: #b8b8b8;"></div>
+            </div>
+            <div style="height: 5px; background: #1A1A1A;"></div>
+            <div style="margin: 0 auto; width: 65%; height: 4px; background: #404040; border-radius: 0 0 6px 6px;"></div>
+          </div>
+        </div>
+      </div>
+      <!-- text -->
+      <div>
+        <div class="eyebrow" style="margin-bottom: 12px;">Sellbie &middot; Product Design</div>
+        <div style="font-size: 24px; font-weight: 540; line-height: 1.3; letter-spacing: -0.24px; margin-bottom: 16px;">Redesign do core da plataforma</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;">
+          <span class="tag" style="border: 1px solid #e6e6e6; color: #666;">UX Research</span>
+          <span class="tag" style="border: 1px solid #e6e6e6; color: #666;">Redesign</span>
+          <span class="tag" style="border: 1px solid #e6e6e6; color: #666;">Omnichannel</span>
+        </div>
+        <div style="font-size: 18px; font-weight: 320; line-height: 1.45; letter-spacing: -0.18px; color: #404040; margin-bottom: 24px;">Como unificamos tr&ecirc;s padr&otilde;es de navega&ccedil;&atilde;o incompat&iacute;veis e redesenhamos o fluxo de cria&ccedil;&atilde;o de envios, reduzindo o abandono no m&oacute;dulo principal.</div>
+        <span class="btn-sec" style="background: transparent; border: 1px solid #131226; color: #131226;">Ver case
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"></path><path d="M7 7h10v10"></path></svg></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- DARK -->
+  <div style="background: #121124; color: #ffffff; padding: 48px 56px;">
+    <div style="font-size: 24px; font-weight: 540; letter-spacing: -0.24px; margin: 0 0 24px;">Cards &middot; dark</div>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px; align-items: center;">
+      <div style="position: relative; aspect-ratio: 4 / 3; border-radius: 32px; background: #131226; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.35);">
+        <div style="position: absolute; inset: 20px; display: flex; align-items: center; justify-content: center;">
+          <div style="position: relative; width: 78%;">
+            <div style="border: 5px solid #ffffff; border-bottom: none; border-radius: 8px 8px 0 0; background: rgba(255,255,255,0.1); aspect-ratio: 16 / 10; overflow: hidden; display: flex; flex-direction: column; gap: 8px; padding: 18px;">
+              <div style="width: 40%; height: 8px; border-radius: 2px; background: #EC83B0;"></div>
+              <div style="width: 85%; height: 6px; border-radius: 2px; background: rgba(255,255,255,0.55);"></div>
+              <div style="width: 70%; height: 6px; border-radius: 2px; background: rgba(255,255,255,0.3);"></div>
+              <div style="width: 78%; height: 6px; border-radius: 2px; background: rgba(255,255,255,0.3);"></div>
+            </div>
+            <div style="height: 5px; background: #ffffff;"></div>
+            <div style="margin: 0 auto; width: 65%; height: 4px; background: rgba(255,255,255,0.7); border-radius: 0 0 6px 6px;"></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="eyebrow" style="margin-bottom: 12px; color: #B4225E;">Sellbie &middot; Product Design</div>
+        <div style="font-size: 24px; font-weight: 540; line-height: 1.3; letter-spacing: -0.24px; margin-bottom: 16px;">Redesign do core da plataforma</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;">
+          <span class="tag" style="border: 1px solid rgba(255,255,255,0.12); color: #a1a1aa;">UX Research</span>
+          <span class="tag" style="border: 1px solid rgba(255,255,255,0.12); color: #a1a1aa;">Redesign</span>
+        </div>
+        <div style="font-size: 18px; font-weight: 320; line-height: 1.45; letter-spacing: -0.18px; color: #e4e4e7; margin-bottom: 24px;">Como unificamos tr&ecirc;s padr&otilde;es de navega&ccedil;&atilde;o incompat&iacute;veis e redesenhamos o fluxo de cria&ccedil;&atilde;o de envios.</div>
+        <span class="btn-sec" style="background: transparent; border: 1px solid #fff; color: #fff;">Ver case
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"></path><path d="M7 7h10v10"></path></svg></span>
+      </div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

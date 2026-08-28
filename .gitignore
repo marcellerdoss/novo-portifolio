@@ -42,3 +42,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Claude Design seeded canvas (regenerate with seed-canvas.mjs)
+docs/design-canvas/portfolio-design-system.html

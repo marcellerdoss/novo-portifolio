@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;320;340;400;480;540;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin: 0; font-family: 'Inter', system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: #B4225E; } a:hover { color: #B4225E; }
+    .mono { font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; }
+    .eyebrow { font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: 0.6px; text-transform: uppercase; color: #B4225E; }
+    .item { display: flex; align-items: baseline; gap: 12px; padding: 12px 0; border-bottom: 1px solid #e6e6e6; }
+    .num { font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: #666; width: 28px; flex-shrink: 0; }
+    .nm { font-size: 18px; font-weight: 480; letter-spacing: -0.18px; }
+    .ds { font-size: 15px; font-weight: 330; color: #404040; }
+  </style>
+</helmet>
+<div style="width: 640px; background: #FEF4EF; color: #131226; padding: 56px 56px 48px;">
+
+  <div class="eyebrow" style="margin-bottom: 16px;">Design system reference</div>
+  <div style="font-size: 44px; font-weight: 340; line-height: 1.05; letter-spacing: -1px; margin-bottom: 12px;">Marcelle Rocha<br>portf&oacute;lio</div>
+  <div style="font-size: 16px; font-weight: 330; line-height: 1.5; color: #404040; margin-bottom: 8px; max-width: 46ch;">Frame editorial navy sobre papel quente, interrompido por color-blocks pastel. Inter vari&aacute;vel, um &uacute;nico accent magenta, CTAs pill. Tema claro + dark (.dark) + alto contraste.</div>
+  <div class="mono" style="font-size: 12px; color: #666; margin-bottom: 36px;">source &middot; docs/design.md &nbsp;|&nbsp; base 8px &nbsp;|&nbsp; max-width 1152</div>
+
+  <div class="eyebrow" style="margin-bottom: 8px;">Nesta tela</div>
+  <div>
+    <div class="item"><span class="num">01</span><span class="nm">Foundations</span></div>
+    <div class="ds" style="margin: -4px 0 4px 40px;">paleta light / dark / alto contraste, escala Inter, spacing 8px, radius</div>
+    <div class="item"><span class="num">02</span><span class="nm">Buttons</span></div>
+    <div class="ds" style="margin: -4px 0 4px 40px;">primary / secondary / ghost / icon, 4 tamanhos, estados, swap magenta no dark</div>
+    <div class="item"><span class="num">03</span><span class="nm">Badges &amp; Tags</span></div>
+    <div class="ds" style="margin: -4px 0 4px 40px;">badge default / category / active, tag-pill de case</div>
+    <div class="item"><span class="num">04</span><span class="nm">Cards &amp; Case Card</span></div>
+    <div class="ds" style="margin: -4px 0 4px 40px;">Card plain / hover, linha editorial de case com mockup de device</div>
+    <div class="item"><span class="num">05</span><span class="nm">Colour Blocks</span></div>
+    <div class="ds" style="margin: -4px 0 4px 40px;">cream / pink / coral / navy, com equivalentes dark</div>
+    <div class="item"><span class="num">06</span><span class="nm">Chrome</span></div>
+    <div class="ds" style="margin: -4px 0 0 40px;">accessibility bar, header / nav, marquee strip, footer</div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

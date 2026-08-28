@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;320;330;400;440;480;540;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin: 0; font-family: 'Inter', system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: #B4225E; } a:hover { color: #B4225E; }
+    .lbl { font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.6px; text-transform: uppercase; color: #666666; margin: 0 0 10px; }
+    .cap { font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: 0.6px; text-transform: uppercase; }
+    .skip { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.66px; text-transform: uppercase; color: rgba(255,255,255,0.8); }
+    .navlink { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 330; letter-spacing: -0.14px; }
+  </style>
+</helmet>
+<div style="width: 1296px; font-family: 'Inter', sans-serif; background: #FEF4EF; color: #131226; padding: 48px 56px;">
+
+  <div style="font-size: 24px; font-weight: 540; letter-spacing: -0.24px; margin: 0 0 4px;">Chrome</div>
+  <div style="font-size: 14px; font-weight: 330; color: #404040; margin: 0 0 36px;">fixed stack: accessibility bar 44 &rarr; header 56 &middot; marquee 36 &middot; footer</div>
+
+  <!-- ACCESSIBILITY BAR -->
+  <div class="lbl">Accessibility bar &middot; 44px &middot; #09081c</div>
+  <div style="height: 44px; background: #09081c; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; margin-bottom: 32px; border-radius: 4px; overflow: hidden;">
+    <div style="display: flex; align-items: center; gap: 4px;">
+      <span class="skip">Ir para o conte&uacute;do <span style="opacity: 0.4;">[1]</span></span>
+      <span style="color: rgba(255,255,255,0.2); margin: 0 8px;">|</span>
+      <span class="skip">Menu <span style="opacity: 0.4;">[2]</span></span>
+      <span style="color: rgba(255,255,255,0.2); margin: 0 8px;">|</span>
+      <span class="skip">Rodap&eacute; <span style="opacity: 0.4;">[3]</span></span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 20px;">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.4);">Contraste:</span>
+        <span style="width: 24px; height: 24px; border-radius: 9999px; background: #000; border: 2px solid rgba(255,255,255,0.5); display: inline-block;"></span>
+        <span style="width: 24px; height: 24px; border-radius: 9999px; background: #fff; border: 2px solid #fff; display: inline-block;"></span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 4px; color: rgba(255,255,255,0.6);">
+        <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.66px;">A-</span>
+        <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.66px; color: #fff;">A+</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER LIGHT -->
+  <div class="lbl">Header / nav &middot; 56px &middot; light</div>
+  <div style="height: 56px; background: #FEF4EF; border: 1px solid #e6e6e6; border-left: none; border-right: none; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; margin-bottom: 8px;">
+    <span style="font-size: 18px; font-weight: 600; letter-spacing: -0.3px;">Marcelle Rocha</span>
+    <div style="display: flex; align-items: center; gap: 16px;">
+      <span class="navlink" style="color: #131226;">Cases</span>
+      <span class="navlink" style="color: #B4225E; font-weight: 540;">Sobre</span>
+      <span style="width: 1px; height: 20px; background: #e6e6e6; margin: 0 4px;"></span>
+      <span style="color: #131226; display: inline-flex;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"></path></svg></span>
+      <span style="color: #131226; display: inline-flex;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg></span>
+    </div>
+  </div>
+  <div class="cap" style="color: #666; font-size: 10px; margin-bottom: 28px;">nav link hover &rarr; accent-magenta &middot; active &rarr; magenta + weight 540</div>
+
+  <!-- HEADER DARK -->
+  <div class="lbl">Header / nav &middot; dark</div>
+  <div style="height: 56px; background: #121124; border-top: 1px solid rgba(255,255,255,0.12); border-bottom: 1px solid rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: space-between; padding: 0 24px; margin-bottom: 32px;">
+    <span style="font-size: 18px; font-weight: 600; letter-spacing: -0.3px; color: #fff;">Marcelle Rocha</span>
+    <div style="display: flex; align-items: center; gap: 16px;">
+      <span class="navlink" style="color: #fff;">Cases</span>
+      <span class="navlink" style="color: #EC83B0; font-weight: 540;">Sobre</span>
+      <span style="width: 1px; height: 20px; background: rgba(255,255,255,0.12); margin: 0 4px;"></span>
+      <span style="color: #fff; display: inline-flex;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg></span>
+    </div>
+  </div>
+
+  <!-- MARQUEE -->
+  <div class="lbl">Marquee strip &middot; 36px &middot; block-navy #211F4A</div>
+  <div style="height: 36px; background: #211F4A; display: flex; align-items: center; gap: 32px; padding: 0 24px; margin-bottom: 32px; overflow: hidden; border-radius: 4px;">
+    <span class="cap" style="color: rgba(255,255,255,0.7);">UX Strategy</span><span class="cap" style="color: rgba(255,255,255,0.3);">&middot;</span>
+    <span class="cap" style="color: rgba(255,255,255,0.7);">Product Design</span><span class="cap" style="color: rgba(255,255,255,0.3);">&middot;</span>
+    <span class="cap" style="color: rgba(255,255,255,0.7);">UX Research</span><span class="cap" style="color: rgba(255,255,255,0.3);">&middot;</span>
+    <span class="cap" style="color: rgba(255,255,255,0.7);">Design System</span><span class="cap" style="color: rgba(255,255,255,0.3);">&middot;</span>
+    <span class="cap" style="color: rgba(255,255,255,0.7);">Figma Make</span><span class="cap" style="color: rgba(255,255,255,0.3);">&middot;</span>
+    <span class="cap" style="color: rgba(255,255,255,0.7);">Acessibilidade</span>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="lbl">Footer &middot; #09081c</div>
+  <div style="background: #09081c; padding: 48px; border-radius: 4px;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; padding-bottom: 40px;">
+      <div>
+        <div style="font-size: 24px; font-weight: 540; line-height: 1.3; letter-spacing: -0.24px; color: #fff; margin-bottom: 4px;">Marcelle Rocha</div>
+        <div style="font-size: 16px; font-weight: 330; color: #B4225E;">Product Designer | UX | CX</div>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: flex-end;">
+        <div class="cap" style="color: rgba(255,255,255,0.5); margin-bottom: 12px;">Feito com cuidado por <span style="color: rgba(255,255,255,0.7);">Marcelle</span></div>
+        <div style="display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,0.15); border-radius: 32px; padding: 10px 16px;">
+          <span style="font-size: 16px; font-weight: 440; color: rgba(255,255,255,0.8);">Ver o racional</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"></path><path d="M7 7h10v10"></path></svg>
+        </div>
+      </div>
+    </div>
+    <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px;">
+      <div class="cap" style="color: rgba(255,255,255,0.5);">&copy; 2026 Marcelle. Todos os direitos reservados.</div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

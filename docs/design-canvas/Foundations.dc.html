@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;320;340;400;480;540;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin: 0; font-family: 'Inter', system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: #B4225E; } a:hover { color: #B4225E; }
+    .mono { font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; }
+    .lbl { font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.6px; text-transform: uppercase; color: #666666; }
+    .eyebrow { font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: 0.6px; text-transform: uppercase; color: #B4225E; }
+    .sec { font-size: 24px; font-weight: 540; letter-spacing: -0.24px; margin: 0 0 20px; color: #131226; }
+  </style>
+</helmet>
+<div style="background: #FEF4EF; color: #131226; padding: 56px 64px; width: 1312px;">
+
+  <div style="font-size: 32px; font-weight: 700; letter-spacing: -0.32px; margin: 0 0 6px;">Foundations</div>
+  <div style="font-size: 16px; font-weight: 330; color: #404040; margin: 0 0 8px;">Marcelle Rocha portfolio &middot; design system reference</div>
+  <div style="height: 1px; background: #e6e6e6; margin: 24px 0 48px;"></div>
+
+  <!-- COLORS -->
+  <div class="sec">Colour</div>
+
+  <div class="eyebrow" style="margin-bottom: 16px;">Light &middot; semantic</div>
+  <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 40px;">
+    <div style="width: 150px;"><div style="height: 72px; border-radius: 8px; background: #FEF4EF; border: 1px solid #e6e6e6;"></div><div style="margin-top: 8px; font-size: 13px; font-weight: 540;">bg</div><div class="mono" style="font-size: 11px; color: #666;">#FEF4EF</div></div>
+    <div style="width: 150px;"><div style="height: 72px; border-radius: 8px; background: #ececea; border: 1px solid #e6e6e6;"></div><div style="margin-top: 8px; font-size: 13px; font-weight: 540;">bg-secondary</div><div class="mono" style="font-size: 11px; color: #666;">#ececea</div></div>
+    <div style="width: 150px;"><div style="height: 72px; border-radius: 8px; background: #131226;"></div><div style="margin-top: 8px; font-size: 13px; font-weight: 540;">fg / primary</div><div class="mono" style="font-size: 11px; color: #666;">#131226</div></div>
+    <div style="width: 150px;"><div style="height: 72px; border-radius: 8px; background: #404040;"></div><div style="margin-top: 8px; font-size: 13px; font-weight: 540;">fg-muted</div><div class="mono" style="font-size: 11px; color: #666;">#404040</div></div>
+    <div style="width: 150px;"><div style="height: 72px; border-radius: 8px; background: #666666;"></div><div style="margin-top: 8px; font-size: 13px; font-weight: 540;">fg-subtle</div><div class="mono" style="font-size: 11px; color: #666;">#666666</div></div>
+    <div style="width: 150px;"><div style="height: 72px; border-radius: 8px; background: #B4225E;"></div><div style="margin-top: 8px; font-size: 13px; font-weight: 540;">accent-magenta</div><div class="mono" style="font-size: 11px; color: #666;">#B4225E</div></div>
+    <div style="width: 150px;"><div style="height: 72px; border-radius: 8px; background: #F9F7F8; border: 1px solid #e6e6e6;"></div><div style="margin-top: 8px; font-size: 13px; font-weight: 540;">case-preview-bg</div><div class="mono" style="font-size: 11px; color: #666;">#F9F7F8</div></div>
+    <div style="width: 150px;"><div style="height: 72px; border-radius: 8px; background: #1ea64a;"></div><div style="margin-top: 8px; font-size: 13px; font-weight: 540;">success</div><div class="mono" style="font-size: 11px; color: #666;">#1ea64a</div></div>
+  </div>
+
+  <div class="eyebrow" style="margin-bottom: 16px;">Dark &middot; semantic (.dark)</div>
+  <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 40px;">
+    <div style="width: 150px;"><div style="height: 72px; border-radius: 8px; background: #121124;"></div><div style="margin-top: 8px; font-size: 13px; font-weight: 540;">bg</div><div class="mono" style="font-size: 11px; color: #666;">#121124</div></div>
+    <div style="width: 150px;"><div style="height: 72px; border-radius: 8px; background: #1f1d3d;"></div><div style="margin-top: 8px; font-size: 13px; font-weight: 540;">bg-secondary</div><div class="mono" style="font-size: 11px; color: #666;">#1f1d3d</div></div>
+    <div style="width: 150px;"><div style="height: 72px; border-radius: 8px; background: #1a1836;"></div><div style="margin-top: 8px; font-size: 13px; font-weight: 540;">surface-soft</div><div class="mono" style="font-size: 11px; color: #666;">#1a1836</div></div>
+    <div style="width: 150px;"><div style="height: 72px; border-radius: 8px; background: #ffffff; border: 1px solid #e6e6e6;"></div><div style="margin-top: 8px; font-size: 13px; font-weight: 540;">fg</div><div class="mono" style="font-size: 11px; color: #666;">#ffffff</div></div>
+    <div style="width: 150px;"><div style="height: 72px; border-radius: 8px; background: #e4e4e7;"></div><div style="margin-top: 8px; font-size: 13px; font-weight: 540;">fg-muted</div><div class="mono" style="font-size: 11px; color: #666;">#e4e4e7</div></div>
+    <div style="width: 150px;"><div style="height: 72px; border-radius: 8px; background: #a1a1aa;"></div><div style="margin-top: 8px; font-size: 13px; font-weight: 540;">fg-subtle</div><div class="mono" style="font-size: 11px; color: #666;">#a1a1aa</div></div>
+    <div style="width: 150px;"><div style="height: 72px; border-radius: 8px; background: #DB337C;"></div><div style="margin-top: 8px; font-size: 13px; font-weight: 540;">magenta-500 hover</div><div class="mono" style="font-size: 11px; color: #666;">#DB337C</div></div>
+    <div style="width: 150px;"><div style="height: 72px; border-radius: 8px; background: #EC83B0;"></div><div style="margin-top: 8px; font-size: 13px; font-weight: 540;">magenta-300 nav</div><div class="mono" style="font-size: 11px; color: #666;">#EC83B0</div></div>
+  </div>
+
+  <div class="eyebrow" style="margin-bottom: 16px;">Colour blocks &middot; light / dark</div>
+  <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 40px;">
+    <div style="width: 150px;"><div style="height: 72px; border-radius: 8px; background: #f4ecd6;"></div><div style="margin-top: 8px; font-size: 13px; font-weight: 540;">cream</div><div class="mono" style="font-size: 11px; color: #666;">#f4ecd6 / #1e1c31</div></div>
+    <div style="width: 150px;"><div style="height: 72px; border-radius: 8px; background: #efd4d4;"></div><div style="margin-top: 8px; font-size: 13px; font-weight: 540;">pink</div><div class="mono" style="font-size: 11px; color: #666;">#efd4d4 / #261724</div></div>
+    <div style="width: 150px;"><div style="height: 72px; border-radius: 8px; background: #f3c9b6;"></div><div style="margin-top: 8px; font-size: 13px; font-weight: 540;">coral</div><div class="mono" style="font-size: 11px; color: #666;">#f3c9b6 / #2b1410</div></div>
+    <div style="width: 150px;"><div style="height: 72px; border-radius: 8px; background: #211F4A;"></div><div style="margin-top: 8px; font-size: 13px; font-weight: 540;">navy (inverse)</div><div class="mono" style="font-size: 11px; color: #666;">#211F4A</div></div>
+    <div style="width: 150px;"><div style="height: 72px; border-radius: 8px; background: #FDFAF4; border: 1px solid #e6e6e6;"></div><div style="margin-top: 8px; font-size: 13px; font-weight: 540;">cases-section</div><div class="mono" style="font-size: 11px; color: #666;">#FDFAF4</div></div>
+    <div style="width: 150px;"><div style="height: 72px; border-radius: 8px; background: #09081c;"></div><div style="margin-top: 8px; font-size: 13px; font-weight: 540;">footer / a11y bar</div><div class="mono" style="font-size: 11px; color: #666;">#09081c</div></div>
+  </div>
+
+  <div class="eyebrow" style="margin-bottom: 16px;">High-contrast mode (.high-contrast)</div>
+  <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 12px;">
+    <div style="width: 150px;"><div style="height: 72px; border-radius: 8px; background: #000000;"></div><div style="margin-top: 8px; font-size: 13px; font-weight: 540;">bg</div><div class="mono" style="font-size: 11px; color: #666;">#000000</div></div>
+    <div style="width: 150px;"><div style="height: 72px; border-radius: 8px; background: #ffffff; border: 1px solid #e6e6e6;"></div><div style="margin-top: 8px; font-size: 13px; font-weight: 540;">fg</div><div class="mono" style="font-size: 11px; color: #666;">#ffffff</div></div>
+    <div style="width: 150px;"><div style="height: 72px; border-radius: 8px; background: #FFFE80;"></div><div style="margin-top: 8px; font-size: 13px; font-weight: 540;">fg-subtle</div><div class="mono" style="font-size: 11px; color: #666;">#FFFE80</div></div>
+    <div style="width: 150px;"><div style="height: 72px; border-radius: 8px; background: #B4225E;"></div><div style="margin-top: 8px; font-size: 13px; font-weight: 540;">accent kept</div><div class="mono" style="font-size: 11px; color: #666;">#B4225E</div></div>
+  </div>
+
+  <div style="height: 1px; background: #e6e6e6; margin: 48px 0;"></div>
+
+  <!-- TYPOGRAPHY -->
+  <div class="sec">Typography &middot; Inter variable</div>
+  <div>
+    <div style="display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid #e6e6e6;">
+      <div class="lbl" style="width: 120px; flex-shrink: 0;">display-xl</div>
+      <div style="flex-grow: 1; font-size: 80px; font-weight: 340; line-height: 1.0; letter-spacing: -1.6px;">Estrat&eacute;gia</div>
+      <div class="mono" style="width: 160px; flex-shrink: 0; font-size: 11px; color: #666;">80 &middot; 340 &middot; 1.0 &middot; -1.6</div>
+    </div>
+    <div style="display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid #e6e6e6;">
+      <div class="lbl" style="width: 120px; flex-shrink: 0;">display-lg</div>
+      <div style="flex-grow: 1; font-size: 32px; font-weight: 700; line-height: 1.15; letter-spacing: -0.32px;">Cases selecionados</div>
+      <div class="mono" style="width: 160px; flex-shrink: 0; font-size: 11px; color: #666;">32 &middot; 700 &middot; 1.15 &middot; -0.32</div>
+    </div>
+    <div style="display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid #e6e6e6;">
+      <div class="lbl" style="width: 120px; flex-shrink: 0;">headline</div>
+      <div style="flex-grow: 1; font-size: 24px; font-weight: 540; line-height: 1.3; letter-spacing: -0.24px;">Redesign do core da plataforma</div>
+      <div class="mono" style="width: 160px; flex-shrink: 0; font-size: 11px; color: #666;">24 &middot; 540 &middot; 1.3 &middot; -0.24</div>
+    </div>
+    <div style="display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid #e6e6e6;">
+      <div class="lbl" style="width: 120px; flex-shrink: 0;">subhead</div>
+      <div style="flex-grow: 1; font-size: 24px; font-weight: 340; line-height: 1.3; letter-spacing: -0.24px;">Design centrado em comportamento e decis&atilde;o</div>
+      <div class="mono" style="width: 160px; flex-shrink: 0; font-size: 11px; color: #666;">24 &middot; 340 &middot; 1.3 &middot; -0.24</div>
+    </div>
+    <div style="display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid #e6e6e6;">
+      <div class="lbl" style="width: 120px; flex-shrink: 0;">body-lg</div>
+      <div style="flex-grow: 1; font-size: 20px; font-weight: 330; line-height: 1.4; letter-spacing: -0.2px;">Produtos digitais construídos com estrat&eacute;gia e inten&ccedil;&atilde;o.</div>
+      <div class="mono" style="width: 160px; flex-shrink: 0; font-size: 11px; color: #666;">20 &middot; 330 &middot; 1.4 &middot; -0.2</div>
+    </div>
+    <div style="display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid #e6e6e6;">
+      <div class="lbl" style="width: 120px; flex-shrink: 0;">body</div>
+      <div style="flex-grow: 1; font-size: 18px; font-weight: 320; line-height: 1.45; letter-spacing: -0.18px; color: #404040;">Como unificamos tr&ecirc;s padr&otilde;es de navega&ccedil;&atilde;o incompat&iacute;veis e redesenhamos o fluxo principal.</div>
+      <div class="mono" style="width: 160px; flex-shrink: 0; font-size: 11px; color: #666;">18 &middot; 320 &middot; 1.45 &middot; -0.18</div>
+    </div>
+    <div style="display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid #e6e6e6;">
+      <div class="lbl" style="width: 120px; flex-shrink: 0;">body-strong</div>
+      <div style="flex-grow: 1; font-size: 18px; font-weight: 480; line-height: 1.45; letter-spacing: -0.18px;">&Ecirc;nfase dentro do corpo de texto</div>
+      <div class="mono" style="width: 160px; flex-shrink: 0; font-size: 11px; color: #666;">18 &middot; 480 &middot; 1.45 &middot; -0.18</div>
+    </div>
+    <div style="display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid #e6e6e6;">
+      <div class="lbl" style="width: 120px; flex-shrink: 0;">body-sm</div>
+      <div style="flex-grow: 1; font-size: 16px; font-weight: 330; line-height: 1.45; letter-spacing: -0.14px;">Nav links, badges, footer links</div>
+      <div class="mono" style="width: 160px; flex-shrink: 0; font-size: 11px; color: #666;">16 &middot; 330 &middot; 1.45 &middot; -0.14</div>
+    </div>
+    <div style="display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid #e6e6e6;">
+      <div class="lbl" style="width: 120px; flex-shrink: 0;">btn</div>
+      <div style="flex-grow: 1; font-size: 16px; font-weight: 480; line-height: 1.0; letter-spacing: -0.14px;">Ver case</div>
+      <div class="mono" style="width: 160px; flex-shrink: 0; font-size: 11px; color: #666;">16 &middot; 480 &middot; 1.0 &middot; -0.14</div>
+    </div>
+    <div style="display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid #e6e6e6;">
+      <div class="lbl" style="width: 120px; flex-shrink: 0;">caption &middot; mono</div>
+      <div class="mono" style="flex-grow: 1; font-size: 12px; font-weight: 400; line-height: 1.0; letter-spacing: 0.6px; text-transform: uppercase;">Sellbie &middot; Product Design</div>
+      <div class="mono" style="width: 160px; flex-shrink: 0; font-size: 11px; color: #666;">12 &middot; 400 &middot; +0.6 &middot; UC</div>
+    </div>
+  </div>
+
+  <div style="height: 1px; background: #e6e6e6; margin: 48px 0;"></div>
+
+  <!-- SPACING -->
+  <div class="sec">Spacing &middot; 8px base</div>
+  <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 8px;">
+    <div style="display: flex; align-items: center; gap: 20px;"><div class="lbl" style="width: 110px;">hair &middot; 1</div><div style="height: 20px; width: 1px; background: #B4225E;"></div></div>
+    <div style="display: flex; align-items: center; gap: 20px;"><div class="lbl" style="width: 110px;">xxs &middot; 4</div><div style="height: 20px; width: 4px; background: #B4225E;"></div></div>
+    <div style="display: flex; align-items: center; gap: 20px;"><div class="lbl" style="width: 110px;">xs &middot; 8</div><div style="height: 20px; width: 8px; background: #B4225E;"></div></div>
+    <div style="display: flex; align-items: center; gap: 20px;"><div class="lbl" style="width: 110px;">sm &middot; 12</div><div style="height: 20px; width: 12px; background: #B4225E;"></div></div>
+    <div style="display: flex; align-items: center; gap: 20px;"><div class="lbl" style="width: 110px;">md &middot; 16</div><div style="height: 20px; width: 16px; background: #B4225E;"></div></div>
+    <div style="display: flex; align-items: center; gap: 20px;"><div class="lbl" style="width: 110px;">lg &middot; 24</div><div style="height: 20px; width: 24px; background: #B4225E;"></div></div>
+    <div style="display: flex; align-items: center; gap: 20px;"><div class="lbl" style="width: 110px;">xl &middot; 32</div><div style="height: 20px; width: 32px; background: #B4225E;"></div></div>
+    <div style="display: flex; align-items: center; gap: 20px;"><div class="lbl" style="width: 110px;">xxl &middot; 48</div><div style="height: 20px; width: 48px; background: #B4225E;"></div></div>
+    <div style="display: flex; align-items: center; gap: 20px;"><div class="lbl" style="width: 110px;">section &middot; 96</div><div style="height: 20px; width: 96px; background: #B4225E;"></div><span class="mono" style="font-size: 11px; color: #666;">&rarr; 48 on tablet / mobile</span></div>
+  </div>
+
+  <div style="height: 1px; background: #e6e6e6; margin: 48px 0;"></div>
+
+  <!-- RADIUS -->
+  <div class="sec">Border radius</div>
+  <div style="display: flex; flex-wrap: wrap; gap: 24px;">
+    <div style="text-align: center;"><div style="width: 96px; height: 96px; background: #ececea; border: 1px solid #e6e6e6; border-radius: 4px;"></div><div class="lbl" style="margin-top: 8px;">xs &middot; 4</div></div>
+    <div style="text-align: center;"><div style="width: 96px; height: 96px; background: #ececea; border: 1px solid #e6e6e6; border-radius: 8px;"></div><div class="lbl" style="margin-top: 8px;">sm / md &middot; 8</div></div>
+    <div style="text-align: center;"><div style="width: 96px; height: 96px; background: #ececea; border: 1px solid #e6e6e6; border-radius: 24px;"></div><div class="lbl" style="margin-top: 8px;">lg &middot; 24</div></div>
+    <div style="text-align: center;"><div style="width: 96px; height: 96px; background: #ececea; border: 1px solid #e6e6e6; border-radius: 32px;"></div><div class="lbl" style="margin-top: 8px;">xl &middot; 32</div></div>
+    <div style="text-align: center;"><div style="width: 140px; height: 56px; background: #ececea; border: 1px solid #e6e6e6; border-radius: 50px;"></div><div class="lbl" style="margin-top: 8px;">pill &middot; 50</div></div>
+    <div style="text-align: center;"><div style="width: 56px; height: 56px; background: #ececea; border: 1px solid #e6e6e6; border-radius: 9999px;"></div><div class="lbl" style="margin-top: 8px;">full</div></div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

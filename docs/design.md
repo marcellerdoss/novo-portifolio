@@ -1,119 +1,150 @@
 ---
-version: alpha
-name: Figma-design-analysis
-description: "A confident black-and-white editorial frame interrupted by oversized, hand-cut pastel color blocks. The marketing canvas is rigorously monochrome — figmaSans variable type, pure white surfaces, pure black ink, pill-shaped CTAs — while each story section drops the page into a saturated lime, lavender, cream, mint, or pink panel that reads like a sticky note placed on a clean desk. The result is a design system that feels both technical and joyful — a tool for serious work, made by people who like color."
+version: 1.0
+name: Marcelle-Rocha-portfolio-design-system
+description: "An editorial navy-and-magenta system on a warm off-white canvas, interrupted by oversized hand-cut pastel color-block sections. The chrome is quiet and confident (Inter variable type at fine weights, navy ink, pill CTAs, hairline borders) while story sections drop into saturated cream, pink, coral, or deep-navy panels. Ships a full class-based dark theme and a WCAG high-contrast mode. The result reads as a serious strategy tool made by someone who likes colour."
 
 colors:
-  primary: "#000000"
+  # ─── Core ───
+  primary: "#131226"          # navy — every primary CTA, headline ink, logo
   on-primary: "#ffffff"
   ink: "#000000"
   canvas: "#ffffff"
   inverse-canvas: "#000000"
   inverse-ink: "#ffffff"
-  on-inverse-soft: "#ffffff"
+  accent-magenta: "#B4225E"   # the single brand accent — eyebrows, links, dark-mode primary CTA
+  semantic-success: "#1ea64a"
+
+  # ─── Semantic — light theme ───
+  bg: "#FEF4EF"               # warm off-white page canvas
+  bg-secondary: "#ececea"
+  fg: "#131226"
+  fg-muted: "#404040"
+  fg-subtle: "#666666"
+  border: "#e6e6e6"
+  surface-soft: "#ececea"
+  case-preview-bg: "#F9F7F8"
   hairline: "#e6e6e6"
   hairline-soft: "#f1f1f1"
-  surface-soft: "#f7f7f5"
-  block-lime: "#dceeb1"
-  block-lilac: "#c5b0f4"
+
+  # ─── Semantic — dark theme (.dark) ───
+  bg-dark: "#121124"
+  bg-secondary-dark: "#1f1d3d"
+  fg-dark: "#ffffff"
+  fg-muted-dark: "#e4e4e7"
+  fg-subtle-dark: "#a1a1aa"
+  border-dark: "rgba(255,255,255,0.12)"
+  surface-soft-dark: "#1a1836"
+  case-preview-bg-dark: "#131226"
+
+  # ─── Pastel color blocks — light ───
   block-cream: "#f4ecd6"
   block-pink: "#efd4d4"
-  block-mint: "#c8e6cd"
   block-coral: "#f3c9b6"
-  block-navy: "#1f1d3d"
-  accent-magenta: "#ff3d8b"
-  semantic-success: "#1ea64a"
-  overlay-scrim: "#000000"
+  block-navy: "#211F4A"
+  cases-section-bg: "#FDFAF4"   # near-cream ground behind the home Cases list
+
+  # ─── Pastel color blocks — dark equivalents ───
+  block-cream-dark: "#1e1c31"
+  block-pink-dark: "#261724"
+  block-coral-dark: "#2b1410"
+
+  # ─── Named stops used inside components ───
+  navy-200: "#FAFAFA"          # hero headline ink, dark theme
+  navy-600: "#38347E"          # hero headline ink, light theme
+  navy-800: "#211F4A"          # trajectory cards bg, dark
+  magenta-300: "#EC83B0"       # nav link hover, dark
+  magenta-500: "#DB337C"       # primary button hover, dark
+  pink-50: "#FDF5F5"           # trajectory cards bg, light
+  neutral-100: "#ECECEA"       # device-mockup screen, light
+  neutral-500: "#808080"
+  neutral-700: "#404040"
+  neutral-900: "#1A1A1A"       # device-mockup bezel, light
+  footer-bg: "#09081c"         # near-black — footer and the top accessibility bar
+
+  # ─── High-contrast mode (.high-contrast) ───
+  hc-bg: "#000000"
+  hc-fg: "#ffffff"
+  hc-subtle: "#FFFE80"
+  hc-border: "#ffffff"
 
 typography:
   display-xl:
-    fontFamily: figmaSans
-    fontSize: 86px
+    fontFamily: Inter
+    fontSize: 80px
     fontWeight: 340
     lineHeight: 1.00
-    letterSpacing: -1.72px
-    fontFeature: kern
+    letterSpacing: -1.60px
   display-lg:
-    fontFamily: figmaSans
-    fontSize: 64px
-    fontWeight: 340
-    lineHeight: 1.10
-    letterSpacing: -0.96px
-    fontFeature: kern
-  headline:
-    fontFamily: figmaSans
-    fontSize: 26px
-    fontWeight: 540
-    lineHeight: 1.35
-    letterSpacing: -0.26px
-    fontFeature: kern
-  subhead:
-    fontFamily: figmaSans
-    fontSize: 26px
-    fontWeight: 340
-    lineHeight: 1.35
-    letterSpacing: -0.26px
-    fontFeature: kern
-  card-title:
-    fontFamily: figmaSans
-    fontSize: 24px
+    fontFamily: Inter
+    fontSize: 32px
     fontWeight: 700
-    lineHeight: 1.45
-    letterSpacing: 0
-    fontFeature: kern
+    lineHeight: 1.15
+    letterSpacing: -0.32px
+  headline:
+    fontFamily: Inter
+    fontSize: 24px
+    fontWeight: 540
+    lineHeight: 1.30
+    letterSpacing: -0.24px
+  subhead:
+    fontFamily: Inter
+    fontSize: 24px
+    fontWeight: 340
+    lineHeight: 1.30
+    letterSpacing: -0.24px
   body-lg:
-    fontFamily: figmaSans
+    fontFamily: Inter
     fontSize: 20px
     fontWeight: 330
     lineHeight: 1.40
-    letterSpacing: -0.14px
-    fontFeature: kern
+    letterSpacing: -0.20px
   body:
-    fontFamily: figmaSans
+    fontFamily: Inter
     fontSize: 18px
     fontWeight: 320
     lineHeight: 1.45
-    letterSpacing: -0.26px
-    fontFeature: kern
+    letterSpacing: -0.18px
+  body-strong:
+    fontFamily: Inter
+    fontSize: 18px
+    fontWeight: 480
+    lineHeight: 1.45
+    letterSpacing: -0.18px
   body-sm:
-    fontFamily: figmaSans
+    fontFamily: Inter
     fontSize: 16px
     fontWeight: 330
     lineHeight: 1.45
     letterSpacing: -0.14px
-    fontFeature: kern
-  link:
-    fontFamily: figmaSans
-    fontSize: 20px
-    fontWeight: 480
-    lineHeight: 1.40
+  body-xs:
+    fontFamily: Inter
+    fontSize: 12px
+    fontWeight: 330
+    lineHeight: 1.45
     letterSpacing: -0.10px
-    fontFeature: kern
+  btn:
+    fontFamily: Inter
+    fontSize: 16px
+    fontWeight: 480
+    lineHeight: 1.00
+    letterSpacing: -0.14px
   button:
-    fontFamily: figmaSans
+    fontFamily: Inter
     fontSize: 20px
     fontWeight: 480
     lineHeight: 1.40
     letterSpacing: -0.10px
-    fontFeature: kern
-  eyebrow:
-    fontFamily: figmaMono
-    fontSize: 18px
-    fontWeight: 400
-    lineHeight: 1.30
-    letterSpacing: 0.54px
-    fontFeature: kern
   caption:
-    fontFamily: figmaMono
+    fontFamily: mono
     fontSize: 12px
     fontWeight: 400
     lineHeight: 1.00
     letterSpacing: 0.60px
-    fontFeature: kern
+    textTransform: uppercase
 
 rounded:
-  xs: 2px
-  sm: 6px
+  xs: 4px
+  sm: 8px
   md: 8px
   lg: 24px
   xl: 32px
@@ -135,265 +166,263 @@ components:
   button-primary:
     backgroundColor: "{colors.primary}"
     textColor: "{colors.on-primary}"
-    typography: "{typography.button}"
+    typography: "{typography.btn}"
     rounded: "{rounded.pill}"
-    padding: 10px 20px
-  button-primary-pressed:
-    backgroundColor: "{colors.primary}"
-    textColor: "{colors.on-primary}"
-    typography: "{typography.button}"
-    rounded: "{rounded.pill}"
-  button-secondary:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.ink}"
-    typography: "{typography.button}"
-    rounded: "{rounded.pill}"
-    padding: 8px 18px 10px
-  button-tertiary-text:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.ink}"
-    typography: "{typography.link}"
-    rounded: "{rounded.full}"
-    padding: 8px 12px
-  button-icon-circular:
-    backgroundColor: "{colors.surface-soft}"
-    textColor: "{colors.ink}"
-    typography: "{typography.button}"
-    rounded: "{rounded.full}"
-    size: 40px
-  button-icon-circular-inverse:
-    backgroundColor: "{colors.on-inverse-soft}"
-    textColor: "{colors.inverse-ink}"
-    typography: "{typography.button}"
-    rounded: "{rounded.full}"
-    size: 40px
-  button-magenta-promo:
+    padding: 12px 20px
+  button-primary-dark:
     backgroundColor: "{colors.accent-magenta}"
     textColor: "{colors.on-primary}"
-    typography: "{typography.button}"
+    typography: "{typography.btn}"
     rounded: "{rounded.pill}"
-    padding: 10px 18px
-  pricing-tab-default:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.ink}"
-    typography: "{typography.button}"
+    padding: 12px 20px
+  button-secondary:
+    backgroundColor: transparent
+    textColor: "{colors.fg}"
+    border: "1px solid {colors.fg}"
+    typography: "{typography.btn}"
     rounded: "{rounded.pill}"
-    padding: 8px 18px
-  pricing-tab-selected:
+    padding: 12px 20px
+  button-ghost:
+    backgroundColor: transparent
+    textColor: "{colors.fg}"
+    typography: "{typography.btn}"
+    rounded: "{rounded.full}"
+    padding: 12px 20px
+  button-icon:
+    backgroundColor: "{colors.surface-soft}"
+    textColor: "{colors.fg}"
+    rounded: "{rounded.full}"
+    size: 40px
+  badge-default:
+    backgroundColor: "{colors.bg}"
+    textColor: "{colors.fg}"
+    border: "1px solid {colors.border}"
+    typography: "{typography.body-sm}"
+    rounded: "{rounded.pill}"
+    padding: 8px 12px
+  badge-category:
+    backgroundColor: "{colors.bg-secondary}"
+    textColor: "{colors.fg-muted}"
+    typography: "{typography.body-sm}"
+    rounded: "{rounded.pill}"
+    padding: 8px 12px
+  badge-active:
     backgroundColor: "{colors.primary}"
     textColor: "{colors.on-primary}"
-    typography: "{typography.button}"
+    typography: "{typography.body-sm}"
     rounded: "{rounded.pill}"
-    padding: 8px 18px
-  text-input:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.ink}"
-    typography: "{typography.body}"
-    rounded: "{rounded.md}"
-    padding: 12px 14px
-  text-input-focused:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.ink}"
-    typography: "{typography.body}"
-    rounded: "{rounded.md}"
-    padding: 12px 14px
-  pricing-card:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.ink}"
+    padding: 8px 12px
+  tag-pill:
+    backgroundColor: transparent
+    textColor: "{colors.fg-subtle}"
+    border: "1px solid {colors.border}"
+    typography: "{typography.caption}"
+    rounded: "{rounded.full}"
+    padding: 4px 12px
+  card:
+    backgroundColor: "{colors.bg}"
+    textColor: "{colors.fg}"
+    border: "1px solid {colors.border}"
     typography: "{typography.body}"
     rounded: "{rounded.lg}"
     padding: 24px
-  pricing-card-feature-row:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.ink}"
-    typography: "{typography.body-sm}"
-    rounded: "{rounded.xs}"
-  color-block-section:
-    backgroundColor: "{colors.block-lime}"
-    textColor: "{colors.ink}"
+  card-hover:
+    backgroundColor: "{colors.bg}"
+    border: "1px solid {colors.border}"
+    rounded: "{rounded.lg}"
+    padding: 24px
+    shadow: "0 4px 24px rgba(0,0,0,0.06)"
+    transform: "scale(1.02)"
+  case-card-image:
+    backgroundColor: "{colors.case-preview-bg}"
+    rounded: "{rounded.xl}"
+    aspectRatio: "4 / 3"
+    shadow: "0 4px 20px rgba(0,0,0,0.07)"
+  color-block-cream:
+    backgroundColor: "{colors.block-cream}"
+    textColor: "{colors.fg}"
     typography: "{typography.subhead}"
     rounded: "{rounded.lg}"
     padding: 48px
-  color-block-section-lilac:
-    backgroundColor: "{colors.block-lilac}"
-    textColor: "{colors.ink}"
+  color-block-pink:
+    backgroundColor: "{colors.block-pink}"
+    textColor: "{colors.fg}"
     typography: "{typography.subhead}"
     rounded: "{rounded.lg}"
     padding: 48px
-  color-block-section-navy:
+  color-block-coral:
+    backgroundColor: "{colors.block-coral}"
+    textColor: "{colors.fg}"
+    typography: "{typography.subhead}"
+    rounded: "{rounded.lg}"
+    padding: 48px
+  color-block-navy:
     backgroundColor: "{colors.block-navy}"
     textColor: "{colors.inverse-ink}"
     typography: "{typography.subhead}"
     rounded: "{rounded.lg}"
     padding: 48px
-  promo-banner-lilac:
-    backgroundColor: "{colors.block-lilac}"
-    textColor: "{colors.ink}"
-    typography: "{typography.body-sm}"
-    rounded: "{rounded.md}"
-    padding: 16px 24px
-  template-card:
-    backgroundColor: "{colors.surface-soft}"
-    textColor: "{colors.ink}"
-    typography: "{typography.body-sm}"
-    rounded: "{rounded.md}"
-    padding: 16px
-  feature-illustration-tile:
-    backgroundColor: "{colors.surface-soft}"
-    textColor: "{colors.ink}"
-    typography: "{typography.eyebrow}"
-    rounded: "{rounded.md}"
-    padding: 24px
   top-nav:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.ink}"
+    backgroundColor: "{colors.bg}"
+    textColor: "{colors.fg}"
+    border: "1px solid {colors.border}"
     typography: "{typography.body-sm}"
-    rounded: "{rounded.xs}"
     height: 56px
-  marquee-strip:
-    backgroundColor: "{colors.inverse-canvas}"
-    textColor: "{colors.inverse-ink}"
-    typography: "{typography.body-sm}"
-    rounded: "{rounded.xs}"
-    height: 36px
-  comparison-checkmark:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.semantic-success}"
-    typography: "{typography.body-sm}"
-    rounded: "{rounded.full}"
-    size: 16px
-  footer:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.ink}"
+  accessibility-bar:
+    backgroundColor: "{colors.footer-bg}"
+    textColor: "{colors.on-primary}"
     typography: "{typography.caption}"
-    rounded: "{rounded.xs}"
-    padding: 64px 32px
+    height: 44px
+  marquee-strip:
+    backgroundColor: "{colors.block-navy}"
+    textColor: "{colors.on-primary}"
+    typography: "{typography.caption}"
+    height: 36px
+  footer:
+    backgroundColor: "{colors.footer-bg}"
+    textColor: "{colors.on-primary}"
+    border: "1px solid rgba(255,255,255,0.10)"
+    typography: "{typography.caption}"
+    padding: 48px 24px
+  link-card:
+    backgroundColor: transparent
+    textColor: "{colors.fg-muted}"
+    border: "1px solid {colors.border}"
+    typography: "{typography.body-sm}"
+    rounded: "{rounded.xl}"
+    padding: 10px 16px
 ---
 
 ## Overview
 
-Figma's marketing canvas is, at the system level, an editor-clean black-and-white frame. The chrome — top nav, body type, footer, primary CTA — is monochrome. Headlines are oversized `{typography.display-xl}` set in `figmaSans` with aggressive negative tracking, body copy hovers around weight 320–340 of the same variable family, and small mono `{typography.eyebrow}` and `{typography.caption}` labels (figmaMono, all-caps, positive tracking) act as section markers. Every CTA is a pill — `{rounded.pill}` — and the primary action across the entire site is the same black `{components.button-primary}` paired with the same white `{components.button-secondary}`.
+Marcelle Rocha's portfolio is, at the system level, an **editorial navy frame on warm paper**. The chrome, top nav, body copy, footer, primary CTA, stays quiet: `Inter` variable type at unusually fine weights (320 to 540), navy `{colors.primary}` ink on a warm off-white `{colors.bg}` canvas, hairline `{colors.border}` dividers, and pill-shaped CTAs. There are no gradients and only one soft shadow role; hierarchy is carried by type weight and by colour, not by elevation.
 
-What makes the design unique is what happens **between** those monochrome bookends: the page repeatedly drops into oversized pastel **color-block sections** — lime, lavender, cream, mint, pink, coral, and a deep navy — that span the full content width with `{rounded.lg}` corners and `{spacing.xxl}` interior padding. These blocks are where the storytelling lives. They aren't accents tucked into a card; they take over a whole viewport's worth of vertical space, like a designer arranging giant sticky notes on a clean wall. FigJam is the most pastel-saturated, the home page rotates through the full set, and the pricing page ends with a lime FAQ panel — same vocabulary, different rhythm per route.
+What gives the system its character is what happens **between** the quiet sections: the page drops into oversized **pastel color-block sections**, cream, pink, coral, and a deep navy, that span the content width with `{rounded.lg}` corners and `{spacing.xxl}` interior padding. On the home page the Cases list sits on a near-cream `{colors.cases-section-bg}` ground; inside case studies the story panels rotate through the block palette. These blocks read like hand-cut paper placed on a clean desk, technical and warm at once.
 
-This is a system built on contrast: the monochrome chrome makes the color blocks feel intentional rather than decorative, and the color blocks make the monochrome chrome feel like editorial paper rather than enterprise SaaS. Density is generous, line-heights are tight on display sizes, and the interface never reaches for shadows or gradients to do the work that color blocks and confident typography already do.
+A single accent, `{colors.accent-magenta}`, does all the pointing: mono eyebrows, inline link hovers, the active nav item, and, in dark mode, the primary button fill itself. It is never a section colour.
+
+Unlike a marketing site, this portfolio ships **three themes**: the light editorial default, a full class-based **dark theme** (`.dark`) with a parallel navy palette, and a WCAG **high-contrast mode** (`.high-contrast`) that collapses everything to pure black, pure white, and a single yellow for subtle text.
 
 **Key Characteristics:**
-- Monochrome system core: `{colors.primary}` (black) and `{colors.canvas}` (white) carry every CTA, every body line, every footer link.
-- Oversized pastel **color-block sections** (`{colors.block-lime}`, `{colors.block-lilac}`, `{colors.block-cream}`, `{colors.block-mint}`, `{colors.block-pink}`, `{colors.block-coral}`, `{colors.block-navy}`) define the narrative rhythm of every long-form page.
-- Pill is the only button shape — `{rounded.pill}` for text CTAs, `{rounded.full}` for icon buttons. No square buttons anywhere.
-- `figmaSans` variable typeface used at unusually fine weight increments (320, 330, 340, 450, 480, 540) — the type system reads as a single voice that flexes rather than a multi-weight family.
-- Tight negative letter-spacing on display sizes (-1.72px at 86px, -0.96px at 64px) creates a confident editorial cadence.
-- `figmaMono` reserved for category labels, eyebrows, and captions — always uppercase, positive tracking — to flag taxonomy without competing with display type.
-- Color-block page rhythm (home): white hero → marquee strip → white feature → lime systems block → navy ship-products block → coral developer block → white template grid → white footer.
+- Navy-on-warm-paper core: `{colors.primary}` and `{colors.bg}` carry every headline, body line, and primary CTA in light mode.
+- Oversized pastel **color-block sections** (`{colors.block-cream}`, `{colors.block-pink}`, `{colors.block-coral}`, `{colors.block-navy}`) define the narrative rhythm of the home page and every case study.
+- One accent only: `{colors.accent-magenta}` for eyebrows, link hover, active state, and the dark-mode primary button. No second accent.
+- `Inter` variable at fine weight increments (320, 330, 340, 480, 540, 700) reads as a single voice flexing, not a stepped weight family.
+- Pill for every text CTA (`{rounded.pill}`), circle for every icon button (`{rounded.full}`). No square buttons.
+- Tight negative letter-spacing that scales with size (-1.60px at 80px, near-zero at body) for an editorial display cadence.
+- Monospace reserved for uppercase eyebrows and captions, `{typography.caption}`, never body.
+- Full dark theme + high-contrast mode are first-class, not afterthoughts.
+- Motion is restrained: `fadeInUp` + `stagger` on scroll-in (Framer Motion), an expanding clip-path circle when opening a case, all suppressed under `prefers-reduced-motion`.
 
 ## Colors
 
-> Source pages: figma.com (home), /design/, /figjam/brainstorming-tool/, /pricing/, /contact/.
-
 ### Brand & Accent
-- **Black** ({colors.primary}): The system primary. Every primary CTA, every headline, every body line, the marquee strip, the inverse canvas of dark sections.
-- **White** ({colors.on-primary}): Inverse text on black surfaces; also the canvas color used as the foreground of secondary pill buttons (`{components.button-secondary}`).
-- **Magenta Promo** ({colors.accent-magenta}): A single saturated CTA pink reserved for promotional inline buttons — appears, for example, on the lilac "Save your spot" Release Notes banner. Use scarcely; it is not a section color.
+- **Navy** (`{colors.primary}` `#131226`): the system primary. Every primary CTA in light mode, every headline, the logo, body ink. Also the value of `{colors.fg}`.
+- **On-Primary** (`#ffffff`): text on navy and magenta surfaces.
+- **Accent Magenta** (`{colors.accent-magenta}` `#B4225E`): the only accent. Uppercase mono eyebrows (`type-caption`), inline link hover, the active nav item (`font-weight: 540`), the footer role line, and, in dark mode, the entire fill of `button-primary`. Use once or twice per view, never as a decorative wash.
+- **Success Green** (`{colors.semantic-success}` `#1ea64a`): glyph fill for positive/validated states. Not a surface.
 
-### Surface
-- **Canvas** ({colors.canvas}): Default page background and the body of every white card.
-- **Inverse Canvas** ({colors.inverse-canvas}): Footer, marquee strip, and a subset of "ship products"-style story sections.
-- **Surface Soft** ({colors.surface-soft}): Off-white tile background used for icon buttons, template cards, and feature illustration tiles when they sit on the white canvas.
-- **Hairline** ({colors.hairline}): 1px borders on form inputs, pricing cards, and table dividers.
-- **Hairline Soft** ({colors.hairline-soft}): Even subtler dividers — comparison-table row separators and footer column rules.
-- **Block Lime** ({colors.block-lime}): The signature **systems / FAQ / contact-form** color block. Recurs across home, pricing, contact.
-- **Block Lilac** ({colors.block-lilac}): Hero block on `/design/`; also the inline Release Notes promo banner.
-- **Block Cream** ({colors.block-cream}): Soft warm background — FigJam hero strip, template-grid section.
-- **Block Mint** ({colors.block-mint}): FigJam pastel section.
-- **Block Pink** ({colors.block-pink}): FigJam pastel section.
-- **Block Coral** ({colors.block-coral}): "Ship products" coral story block on home.
-- **Block Navy** ({colors.block-navy}): Deep indigo story block — only place dark surfaces appear above the footer.
+### Surface — light
+- **Canvas** (`{colors.bg}` `#FEF4EF`): warm off-white page background. Every plain `Card` also uses this.
+- **Secondary** (`{colors.bg-secondary}` `#ececea`): category chips, muted fills.
+- **Surface Soft** (`{colors.surface-soft}` `#ececea`): icon-button background on light ground.
+- **Case Preview** (`{colors.case-preview-bg}` `#F9F7F8`): the neutral ground behind device mockups in case cards.
+- **Border / Hairline** (`{colors.border}` `#e6e6e6`): 1px dividers, card strokes, secondary-button outline, tag-pill outline.
 
-### Text
-- **Ink** ({colors.ink}): All headline, body, and caption type on light surfaces. There is no softer mid-gray text role on marketing — body copy is always black at weight 320–340, and weight (not opacity) carries the hierarchy.
-- **Inverse Ink** ({colors.inverse-ink}): Type on inverse-canvas surfaces (footer, marquee strip, navy color block).
-- **On-Inverse Soft** ({colors.on-inverse-soft}): White used at ~16% opacity for circular icon-button surfaces against dark sections (token captures the base color; the translucency is applied at render time).
+### Surface — dark (`.dark`)
+- **Canvas** (`#121124`), **Secondary** (`#1f1d3d`), **Surface Soft** (`#1a1836`), **Case Preview** (`#131226`).
+- **Border** `rgba(255,255,255,0.12)`.
+- **Text**: `fg` `#ffffff`, `fg-muted` `#e4e4e7`, `fg-subtle` `#a1a1aa`.
 
-### Semantic
-- **Success Green** ({colors.semantic-success}): Comparison-table checkmarks on pricing. Used as a glyph fill, not a surface.
-- **Overlay Scrim** ({colors.overlay-scrim}): Black used at ~60% opacity behind modal / video-overlay surfaces (token captures the base; opacity applied at render time).
+### Text — light
+- **Ink** (`{colors.fg}` `#131226`): headlines and primary body.
+- **Muted** (`{colors.fg-muted}` `#404040`): descriptions, secondary body, the default paragraph colour inside case prose.
+- **Subtle** (`{colors.fg-subtle}` `#666666`): captions, tag pills, metadata.
+
+### Color Blocks
+Full-width pastel panels, `{rounded.lg}` corners, `{spacing.xxl}` interior padding. Each has a documented dark-mode equivalent.
+- **Cream** (`{colors.block-cream}` `#f4ecd6` / dark `#1e1c31`): the default / most common block. Home Cases ground uses a lighter sibling, `{colors.cases-section-bg}` `#FDFAF4`.
+- **Pink** (`{colors.block-pink}` `#efd4d4` / dark `#261724`).
+- **Coral** (`{colors.block-coral}` `#f3c9b6` / dark `#2b1410`).
+- **Navy** (`{colors.block-navy}` `#211F4A`): the one inverse block; also the fill of the `marquee-strip`. Text goes `{colors.inverse-ink}`.
+
+### Named component stops
+`navy-600` `#38347E` and `navy-200` `#FAFAFA` are the hero headline inks (light / dark). `magenta-300` `#EC83B0` and `magenta-500` `#DB337C` are dark-mode nav-hover and button-hover. `footer-bg` `#09081c` is the near-black shared by the footer and the top accessibility bar.
+
+### High-contrast mode (`.high-contrast`)
+`bg` `#000000`, `fg` `#ffffff`, `fg-subtle` `#FFFE80` (yellow), `border` `#ffffff`. All color blocks flatten to `#111111` / `#000000`. The logo is forced to pure white via `filter: brightness(0) invert(1)`. Accent magenta is retained. Honour this mode when designing any new surface.
 
 ## Typography
 
 ### Font Family
+- **Inter** — loaded via `next/font` as a variable font (`--font-inter`), weight axis exercised at 320, 330, 340, 480, 540, 700. Fallback stack: `system-ui, -apple-system, BlinkMacSystemFont, sans-serif`. This is the single voice of the system.
+- **Mono** — `ui-monospace, "JetBrains Mono", Menlo, monospace` (no custom mono is bundled; a system monospace renders). Used **only** for `{typography.caption}`: uppercase, 12px, positive `0.60px` tracking. Eyebrow labels and captions only, never a paragraph.
 
-- **figmaSans** — Figma's proprietary variable typeface; fallback stack `figmaSans Fallback, SF Pro Display, system-ui, helvetica`. Variable weight axis is exercised at unusually fine increments (320, 330, 340, 450, 480, 540, 700) — the design system reads as a single voice modulating rather than a stepped weight family.
-- **figmaMono** — Proprietary monospace; fallback `figmaMono Fallback, SF Mono, menlo`. Used exclusively for eyebrow labels and captions, always uppercase with positive letter-spacing.
-
-OpenType `kern` is enabled across every role.
+Base body on `<body>` is 18px / weight 320 / line-height 1.45 / `-0.26px`.
 
 ### Hierarchy
 
 | Token | Size | Weight | Line Height | Letter Spacing | Use |
 |---|---|---|---|---|---|
-| `{typography.display-xl}` | 86px | 340 | 1.00 | -1.72px | Hero headlines (home, FigJam) |
-| `{typography.display-lg}` | 64px | 340 | 1.10 | -0.96px | Section opener headlines |
-| `{typography.headline}` | 26px | 540 | 1.35 | -0.26px | Story-block titles inside color blocks |
-| `{typography.subhead}` | 26px | 340 | 1.35 | -0.26px | Long-form intro paragraphs that sit at near-headline scale |
-| `{typography.card-title}` | 24px | 700 | 1.45 | 0 | Pricing-tier titles, feature card titles |
-| `{typography.body-lg}` | 20px | 330 | 1.40 | -0.14px | Lead body copy on hero, contact form labels |
-| `{typography.body}` | 18px | 320 | 1.45 | -0.26px | Default body |
-| `{typography.body-sm}` | 16px | 330 | 1.45 | -0.14px | Card body, footer link list |
-| `{typography.link}` | 20px | 480 | 1.40 | -0.10px | Inline link emphasis |
-| `{typography.button}` | 20px | 480 | 1.40 | -0.10px | All pill buttons, primary and secondary |
-| `{typography.eyebrow}` | 18px | 400 | 1.30 | 0.54px | figmaMono uppercase section eyebrows |
-| `{typography.caption}` | 12px | 400 | 1.00 | 0.60px | figmaMono uppercase captions, footer column heads |
+| `{typography.display-xl}` | 80px | 340 | 1.00 | -1.60px | Hero headline (via `clamp(2rem, 4.5vw, 4.5rem)` in practice) |
+| `{typography.display-lg}` | 32px | 700 | 1.15 | -0.32px | Section opener headings (`Cases` title, page H1s) |
+| `{typography.headline}` | 24px | 540 | 1.30 | -0.24px | Case-card titles, footer brand, story-block titles |
+| `{typography.subhead}` | 24px | 340 | 1.30 | -0.24px | Near-headline intro paragraphs inside color blocks |
+| `{typography.body-lg}` | 20px | 330 | 1.40 | -0.20px | Lead paragraphs |
+| `{typography.body}` | 18px | 320 | 1.45 | -0.18px | Default body, case descriptions (`{colors.fg-muted}`) |
+| `{typography.body-strong}` | 18px | 480 | 1.45 | -0.18px | Emphasis within body |
+| `{typography.body-sm}` | 16px | 330 | 1.45 | -0.14px | Nav links, badges, footer links, card body |
+| `{typography.body-xs}` | 12px | 330 | 1.45 | -0.10px | Fine print |
+| `{typography.btn}` | 16px | 480 | 1.00 | -0.14px | Button label (all Button sizes) |
+| `{typography.button}` | 20px | 480 | 1.40 | -0.10px | Large inline link / button emphasis |
+| `{typography.caption}` | 12px | 400 | 1.00 | +0.60px | **mono**, uppercase — eyebrows, metadata, footer captions |
+
+### Responsive type
+
+| Token | Tablet (641–1536px) | Mobile (≤640px) |
+|---|---|---|
+| `display-xl` | 44px, -1px | 36px, 1.10, -0.5px |
+| `display-lg` | 24px, -0.2px | 28px |
+| `headline` / `subhead` | 20px, 1.35 | 20px, 1.40, -0.20px |
+| `body` | 16px, 1.55 | — |
+
+Section vertical padding (`py-section`) drops from **96px** to **48px** at both the tablet and mobile breakpoints.
 
 ### Principles
-
-- **Weight, not size, carries hierarchy on body copy.** A 20px paragraph at weight 330 sits next to a 20px link at weight 480 — the eye reads emphasis without scale change.
-- **Negative letter-spacing scales with size.** Display-xl pulls -1.72px; subhead pulls only -0.26px. Body copy stays near-zero. The result is editorial-feeling display type without sacrificing readability at body size.
-- **Mono is taxonomy, not body.** figmaMono is reserved for eyebrows and captions — never used to set a paragraph.
-- **Tight line-heights on display, generous on body.** Display sizes run 1.00–1.10; body runs 1.40–1.45. The contrast reinforces that headlines are graphics and body copy is for reading.
-
-### Note on Font Substitutes
-
-If implementing without access to figmaSans / figmaMono, suitable open-source substitutes are **Inter** (or **Geist**) for the sans, and **JetBrains Mono** (or **Geist Mono**) for the mono. Inter at variable weights closely matches the fine-grained weight axis figmaSans uses; expect to manually adjust line-heights down by ~0.02 to compensate for Inter's slightly taller x-height.
+- **Weight, not size, carries body hierarchy.** An 18px paragraph at 320 sits beside 18px emphasis at 480; the eye reads emphasis without a scale jump.
+- **Negative tracking scales with size.** -1.60px at display, near-zero at body.
+- **Mono is taxonomy.** Uppercase 12px captions flag category; never set a sentence in mono.
+- **Tight leading on display (1.00–1.15), generous on body (1.40–1.45).**
 
 ## Layout
 
 ### Spacing System
-
-- **Base unit**: 8px.
-- **Tokens (front matter)**: `{spacing.hair}` 1px · `{spacing.xxs}` 4px · `{spacing.xs}` 8px · `{spacing.sm}` 12px · `{spacing.md}` 16px · `{spacing.lg}` 24px · `{spacing.xl}` 32px · `{spacing.xxl}` 48px · `{spacing.section}` 96px.
-- Section interior padding: `{spacing.xxl}` (48px) on color-block sections.
-- Card interior padding: `{spacing.lg}` (24px) on pricing cards and template tiles.
-- Form input padding: `{spacing.sm}` 12px vertical · 14px horizontal.
-- Button padding: `{spacing.xs}` 8px vertical · `{spacing.lg}` 24px horizontal for pill buttons (the asymmetric `8px 18px 10px` extracted on `button-secondary` nudges the type optically inside the pill).
-- Universal rhythm constant: `{spacing.section}` (96px) — the vertical gap between major content sections holds across home, pricing, and FigJam pages.
+- **Base unit 8px.** Tokens: `{spacing.hair}` 1 · `{spacing.xxs}` 4 · `{spacing.xs}` 8 · `{spacing.sm}` 12 · `{spacing.md}` 16 · `{spacing.lg}` 24 · `{spacing.xl}` 32 · `{spacing.xxl}` 48 · `{spacing.section}` 96.
+- Color-block interior padding: `{spacing.xxl}` (48px).
+- Card interior padding: `{spacing.lg}` (24px).
+- Section rhythm: `{spacing.section}` (96px desktop → 48px tablet/mobile).
+- Case-list item gap: 96px desktop / 64px mobile (`space-y-24` / `space-y-16`).
 
 ### Grid & Container
+- Max content width **1152px** (`max-w-6xl`), centred, side gutters `{spacing.lg}`–`{spacing.xl}` (16–24px on the nav, 24px on sections).
+- Case rows are a 2-column grid (`1fr 1fr`) with `gap: 32–48px`, image and text swapping order on alternate rows (`md:order-*`).
+- Hero uses a `3fr / 2fr` grid with explicit row/column placement; the description sits under the headline aligned to the 2fr column.
 
-- Max content width sits around 1280px (one of the explicit breakpoints), with side gutters that scale from `{spacing.xxl}` on desktop down to `{spacing.lg}` on mobile.
-- Three- and four-column grids on the desktop pricing comparison and FigJam template galleries.
-- Color-block sections break the column grid — they span content width with full bleed inside the rounded `{rounded.lg}` corners, then place a single editorial column of headline + body inside.
+### Fixed chrome stack (top of viewport)
+1. **Accessibility bar** — `height: 44px`, `{colors.footer-bg}` ground, at `top: 0`, `z-50`.
+2. **Header** — `height: 56px`, `{colors.bg}` ground, `border-b {colors.border}`, at `top: 44px`, `z-40`.
 
-### Whitespace Philosophy
-
-White space is used to make the color blocks feel deliberate. Between every colored panel and the next, the page returns to white canvas with `{spacing.section}` of breathing room. Inside a color block, the type itself is given generous side margins (often more than 1/4 of the block's width on each side) so the panel reads as a poster, not a wall of copy.
+Content offsets below both. `scroll-mt` of ~112px (`scroll-mt-28`) keeps anchored sections clear of the fixed chrome.
 
 ## Elevation & Depth
 
 | Level | Treatment | Use |
 |---|---|---|
-| 0 (flat) | No shadow, no border | Default for color-block sections, inverse-canvas footer, hero |
-| 1 (hairline) | 1px `{colors.hairline}` border on `{colors.canvas}` | Pricing cards, form inputs, comparison table cells |
-| 2 (soft elevation) | Subtle drop shadow approx 0 4px 16px rgba(0,0,0,0.06) | Floating template tiles, dropdown menus |
-| 3 (modal) | Stronger shadow + `{colors.overlay-scrim}` behind | Video / image lightbox overlays |
+| 0 (flat) | No shadow, no border | Color-block sections, hero, marquee, footer |
+| 1 (hairline) | 1px `{colors.border}` on `{colors.bg}` | Cards, secondary button, tag pills, nav bottom edge |
+| 2 (soft) | `0 4px 24px rgba(0,0,0,0.06)` light · `0 4px 24px rgba(0,0,0,0.35)` dark | `Card` hover, case-card image hover (paired with `translateY(-4px)` / `scale(1.02)`) |
 
-Figma's marketing system is shadow-light by design — the color blocks substitute for traditional elevation. Where most SaaS sites use a shadowed white card to draw attention, Figma uses a saturated background panel. This makes the rare actual shadow (e.g., a floating template card hovering over a cream section) feel like an exception worth noticing.
-
-### Decorative Depth
-
-- **Color-block sections** are the primary depth device. The change from white canvas to lime / lavender / cream is the section break.
-- **Sticky-note style component thumbnails** in FigJam — slightly off-axis pastel rectangles arranged like notes on a board — read as collage, not card-stack.
-- **Embedded product UI mocks** (Figma Design panels, FigJam canvas snippets) appear as flat compositions on color blocks; their internal shadows are subtle and stay within the mock.
+Shadow is rare and only ever appears on hover. The change from warm canvas to a pastel block **is** the section break, colour does the work elevation would do elsewhere. Never put a drop shadow on a color-block section.
 
 ## Shapes
 
@@ -401,178 +430,127 @@ Figma's marketing system is shadow-light by design — the color blocks substitu
 
 | Token | Value | Use |
 |---|---|---|
-| `{rounded.xs}` | 2px | Anchor / link decoration corners |
-| `{rounded.sm}` | 6px | Small chips, sub-nav tabs |
-| `{rounded.md}` | 8px | Form inputs, list items, image frames |
-| `{rounded.lg}` | 24px | Pricing cards, color-block sections, large image containers |
-| `{rounded.xl}` | 32px | Hero feature panels, oversized callouts |
-| `{rounded.pill}` | 50px | All text CTAs (primary, secondary, tab toggles) |
-| `{rounded.full}` | 9999px | Circular icon buttons, comparison-table checkmark glyphs |
+| `{rounded.xs}` | 4px | Small inline decorations, focus-ring rounding |
+| `{rounded.sm}` / `{rounded.md}` | 8px | Inputs, image frames, small tiles |
+| `{rounded.lg}` | 24px | `Card`, color-block sections, large containers |
+| `{rounded.xl}` | 32px | Case-card image frames, the footer rationale link-card |
+| `{rounded.pill}` | 50px | All text CTAs and badges |
+| `{rounded.full}` | 9999px | Icon buttons, tag pills, contrast toggles |
 
-### Photography & Illustration Geometry
-
-- Image frames use `{rounded.md}` (8px) — generous enough to feel friendly, conservative enough to read as editorial.
-- Template thumbnails on the home grid sit in `{rounded.md}` tiles with `{spacing.md}` interior padding around the embedded preview.
-- FigJam pastel sticky-note component thumbnails preserve a small `{rounded.sm}` corner that mimics actual sticky paper.
-- No avatar circles appear in marketing surfaces — Figma's marketing avoids personification.
+### Geometry notes
+- Case-card images: `{rounded.xl}` frame, `aspect-ratio: 4 / 3`, filled with `{colors.case-preview-bg}` and a CSS-drawn **device mockup** (a phone bezel at ~42% width with a notch, or a laptop lid with a stand). Bezel is `{colors.neutral-900}` in light / white in dark.
+- No avatar circles in chrome; the About page photo uses rounded corners matching the CV button radius, not a circle.
 
 ## Components
 
 ### Buttons
 
-**`button-primary`** — The black "Get started for free" pill that appears in the top nav, every hero, and every closing CTA.
-- Background `{colors.primary}`, text `{colors.on-primary}`, type `{typography.button}`, padding 10px 20px, rounded `{rounded.pill}`.
-- Pressed state lives in `button-primary-pressed` (same surface; the live site relies on micro-scale rather than a darkened fill).
+Shared: `inline-flex`, `gap: 8px`, `type-btn` label, `transition-all 150ms`, `focus-visible: ring-2 ring-{colors.fg} ring-offset-2`, `active: scale(0.97)` (icon: `scale(0.95)`), `disabled: opacity 0.5`.
 
-**`button-secondary`** — White pill with black text. Used for tertiary navigation actions ("Contact sales") and as the visual counterpart to the primary pill.
-- Background `{colors.canvas}`, text `{colors.ink}`, type `{typography.button}`, padding 8px 18px 10px (asymmetric vertical to optically center the type), rounded `{rounded.pill}`. No border.
+**`button-primary`** — navy pill. `{colors.primary}` bg, `{colors.on-primary}` text, `{rounded.pill}`, hover `opacity: 0.85`.
+- **Dark mode (`button-primary-dark`)**: fill becomes `{colors.accent-magenta}`, hover `{colors.magenta-500}` at full opacity. This magenta-in-dark swap is a brand signature.
 
-**`button-tertiary-text`** — Plain text link styled as a button hit target inside top nav and footer.
-- Background `{colors.canvas}`, text `{colors.ink}`, type `{typography.link}`, rounded `{rounded.full}` (hit target only), padding `{spacing.xs}` `{spacing.sm}`.
+**`button-secondary`** — outline pill. Transparent bg, `1px solid {colors.fg}`, `{colors.fg}` text, `{rounded.pill}`, hover `bg: {colors.fg}/10` (dark: `white/10`). The "See case" / "Ver case" button uses this at size `sm` with a trailing `ArrowUpRight` 12px icon.
 
-**`button-icon-circular`** — 40px circular icon button used for carousel controls, social links, and inline actions on light surfaces.
-- Background `{colors.surface-soft}`, text `{colors.ink}`, rounded `{rounded.full}`, size 40px.
+**`button-ghost`** — text only. `{colors.fg}` text, `{rounded.full}` hit area, hover `underline` with `4px` offset.
 
-**`button-icon-circular-inverse`** — Same shape, used on inverse-canvas / dark color blocks.
-- Background `{colors.on-inverse-soft}` (translucent white), text `{colors.inverse-ink}`, rounded `{rounded.full}`, size 40px.
+**`button-icon`** — `40 × 40`, `{rounded.full}`, `{colors.surface-soft}` bg, hover `bg: {colors.fg}/10`.
 
-**`button-magenta-promo`** — Saturated pink pill used only inside promotional surfaces such as the lilac "Save your spot" Release Notes banner. Reserved for moments where Figma's product team wants the CTA to pop against an already-colored panel.
-- Background `{colors.accent-magenta}`, text `{colors.on-primary}`, type `{typography.button}`, rounded `{rounded.pill}`, padding 10px 18px.
+**Sizes** (all variants except icon): `xs` 12/4 · `sm` 16/8 · `md` 20/12 · `lg` 24/16 (px horizontal / py vertical, in px).
 
-### Pricing Tabs
+### Badges & Tags
 
-**`pricing-tab-default`** + **`pricing-tab-selected`** — The pill-toggle that switches between Starter / Professional / Organization / Enterprise on `/pricing/`.
-- Default: `{colors.canvas}` background, `{colors.ink}` text, rounded `{rounded.pill}`.
-- Selected: `{colors.primary}` background, `{colors.on-primary}` text — exactly the same surface as `button-primary`, which makes the selected tab feel like an active CTA, not a passive state.
+**`badge-default`** — `{colors.bg}` bg, `1px {colors.border}`, `{colors.fg}` text, `{rounded.pill}`, `8px 12px`, `type-body-sm`. Interactive variant adds `cursor-pointer`, hover `border-color: {colors.fg}`.
 
-### Inputs & Forms
+**`badge-category`** — `{colors.bg-secondary}` bg, `{colors.fg-muted}` text, no border.
 
-**`text-input`** + **`text-input-focused`** — Form fields on `/contact/` and pricing seat-count steppers.
-- Background `{colors.canvas}`, text `{colors.ink}`, type `{typography.body}`, rounded `{rounded.md}`, padding 12px 14px.
-- Focused state retains the same surface — focus is communicated via ring, not via fill change.
+**`badge-active`** — `{colors.primary}` bg, `{colors.on-primary}` text. Selected filter state.
 
-### Cards & Containers
+**`tag-pill`** — the skill/keyword pill on case cards. Transparent, `1px {colors.border}`, `{colors.fg-subtle}` text, `{typography.caption}` (uppercase mono), `{rounded.full}`, `4px 12px`.
 
-**`pricing-card`** — Each tier on `/pricing/`.
-- Background `{colors.canvas}`, text `{colors.ink}`, type `{typography.body}`, rounded `{rounded.lg}`, padding `{spacing.lg}`. Stroked with `{colors.hairline}` rather than shadowed.
+### Cards
 
-**`pricing-card-feature-row`** — Single row inside the comparison table.
-- Background `{colors.canvas}`, text `{colors.ink}`, type `{typography.body-sm}`. Row separator is `{colors.hairline-soft}`.
+**`card`** — `{colors.bg}` bg, `1px {colors.border}`, `{rounded.lg}` (24px), `{spacing.lg}` (24px) padding.
 
-**`template-card`** — Thumbnail tile in the home "Explore what people are making" grid and the FigJam template gallery.
-- Background `{colors.surface-soft}`, text `{colors.ink}`, type `{typography.body-sm}`, rounded `{rounded.md}`, padding `{spacing.md}`.
+**`card-hover`** — adds `transition-all 200ms ease-out`, `hover: scale(1.02)` + soft shadow (`0 4px 24px rgba(0,0,0,0.06)`, dark `0.35`).
 
-**`feature-illustration-tile`** — Larger composition tile that holds a product UI mock or pastel illustration.
-- Background `{colors.surface-soft}`, text `{colors.ink}`, type `{typography.eyebrow}`, rounded `{rounded.md}`, padding `{spacing.lg}`.
+**`case-card`** — a 2-column editorial row, not a boxed card. Left: a `{rounded.xl}` image frame on `{colors.case-preview-bg}` with a CSS device mockup, hover `translateY(-4px)` + shadow. Right: mono eyebrow `{company} · {category}` in `{colors.accent-magenta}`, `{typography.headline}` title, a row of `tag-pill`s, `{typography.body}` description in `{colors.fg-muted}`, then a `button-secondary` size `sm`.
 
 ### Color-Block Sections (signature)
 
-The defining surface of Figma's marketing. Each is a full-content-width panel with `{rounded.lg}` corners and `{spacing.xxl}` interior padding. Variants:
-
-**`color-block-section`** — lime ground for "systems" stories (home), pricing FAQ, and the contact form.
-- Background `{colors.block-lime}`, text `{colors.ink}`, type `{typography.subhead}`, rounded `{rounded.lg}`, padding `{spacing.xxl}`.
-
-**`color-block-section-lilac`** — lavender ground for `/design/` hero and FigJam highlight sections.
-- Background `{colors.block-lilac}`, otherwise identical structure.
-
-**`color-block-section-navy`** — deep indigo ground for the home "Ship products" story block. The only inverse color-block surface above the footer.
-- Background `{colors.block-navy}`, text `{colors.inverse-ink}`, otherwise identical structure.
-
-(Cream, mint, pink, and coral block variants follow the same shape with their respective `{colors.block-*}` surface.)
-
-### Promo Banner
-
-**`promo-banner-lilac`** — The Release Notes / "Save your spot" inline banner that floats above the contact form.
-- Background `{colors.block-lilac}`, text `{colors.ink}`, type `{typography.body-sm}`, rounded `{rounded.md}`, padding `{spacing.md}` `{spacing.lg}`. Carries a `button-magenta-promo` on the right edge.
+Full-content-width panel, `{rounded.lg}` corners, `{spacing.xxl}` interior padding, no shadow. Variants: `color-block-cream` (default), `color-block-pink`, `color-block-coral`, `color-block-navy` (inverse text). Each has a dark-mode background equivalent (see Colors). Let the warm canvas return between two blocks so each reads as deliberate; don't stack two blocks in one viewport.
 
 ### Navigation
 
-**`top-nav`** — Sticky white bar with logo, primary nav links, sign-in link, and the right-anchored `button-secondary` ("Contact sales") + `button-primary` ("Get started for free") pair.
-- Background `{colors.canvas}`, text `{colors.ink}`, type `{typography.body-sm}`, height 56px.
-- Mobile: collapses primary links into a hamburger that opens a full-canvas overlay; the two pill CTAs remain visible on the bar.
+**`top-nav`** — fixed bar, `{colors.bg}` ground, `border-b {colors.border}`, `height: 56px`, max-width 1152px. Left: SVG logo (monogram on mobile, full wordmark ≥768px), 28px tall. Right: two nav links + a hairline-divided cluster of `LanguageSwitcher` and `ThemeToggle`.
+- **Nav link** — `{typography.body-sm}`, `{colors.fg}`, hover `{colors.accent-magenta}` (dark: `{colors.magenta-300}`). Active page: `{colors.accent-magenta}` at weight 540.
 
-**`marquee-strip`** — Thin black ribbon directly under the nav that scrolls through customer logos in white.
-- Background `{colors.inverse-canvas}`, text `{colors.inverse-ink}`, type `{typography.body-sm}`, height 36px.
+**`accessibility-bar`** — fixed above the header, `{colors.footer-bg}` ground, `height: 44px`. Skip links (uppercase 11px, `letter-spacing 0.06em`) on the left; contrast toggle (two 24px circles, black + white) and A-/A+ font-size controls on the right. Focus rings are white here.
 
-### Comparison Glyphs
-
-**`comparison-checkmark`** — Green check used in the pricing comparison matrix.
-- Background `{colors.canvas}`, glyph color `{colors.semantic-success}`, rounded `{rounded.full}`, size 16px.
+**`marquee-strip`** — `{colors.block-navy}` ground, `height: 36px`, a single infinite `translateX` scroll (`32s linear`) of `{typography.caption}` skill keywords in `{colors.on-primary}/70` separated by `·` in `/30`. `aria-hidden`; animation removed under `prefers-reduced-motion`.
 
 ### Footer
 
-**`footer`** — Dense link grid on white canvas with the wordmark "Figma" set in display weight at the top-left.
-- Background `{colors.canvas}`, text `{colors.ink}`, type `{typography.caption}` for column headings and small links, padding `{spacing.section}` top/bottom · `{spacing.xl}` sides.
+**`footer`** — `{colors.footer-bg}` `#09081c` ground, `border-top: rgba(255,255,255,0.10)`, `{spacing.xxl}` vertical padding, max-width 1152px. Two columns: left is the brand (`{typography.headline}` white name + `{typography.body-sm}` magenta role line "Product Designer | UX | CX"); right is a mono credit caption over a `link-card` (`{rounded.xl}`, `1px rgba(255,255,255,0.15)`, hover border `/35` + `bg white/0.04`) linking to `/racional` with a trailing arrow. A hairline bottom bar holds the mono copyright.
 
 ## Do's and Don'ts
 
 ### Do
-
-- Reserve `{colors.primary}` for genuine primary CTAs and selected states (e.g., `pricing-tab-selected`). Don't use it as a decorative accent.
-- When introducing a story section, choose **one** color block from the `{colors.block-*}` family and let it span full content width with `{rounded.lg}` corners and `{spacing.xxl}` interior padding.
-- Keep type in `figmaSans` at variable weights — pick from 320, 330, 340, 480, 540, 700 to express hierarchy. Avoid intermediate weights outside this set.
-- Use `figmaMono` only for eyebrows and captions, always uppercase, with the documented positive letter-spacing.
-- Compose every CTA as a pill (`{rounded.pill}`) and every icon button as a circle (`{rounded.full}`).
-- Allow the page to **return to white canvas** between every two color blocks so each block reads as deliberate.
-- Pair `button-primary` and `button-secondary` whenever a section needs both a primary action and a sales / secondary action — the black-and-white pair is the brand signature.
+- Keep `{colors.primary}` for genuine primary CTAs and headline ink. In dark mode the primary CTA is `{colors.accent-magenta}` — keep that swap.
+- Pick **one** block colour per story section and let it span full content width with `{rounded.lg}` corners and `{spacing.xxl}` padding.
+- Set type in `Inter` at the documented weights (320, 330, 340, 480, 540, 700). Don't reach for weights outside that set.
+- Use mono (`{typography.caption}`) only for uppercase eyebrows, metadata, and captions.
+- Compose every text CTA as a pill (`{rounded.pill}`), every icon button as a circle (`{rounded.full}`).
+- Design every new surface for all three themes: light, `.dark`, and `.high-contrast`.
+- Let the warm canvas return between two color blocks.
+- Suppress non-essential motion under `prefers-reduced-motion`.
 
 ### Don't
-
-- Don't introduce mid-gray text. Body hierarchy comes from `figmaSans` weight, not from opacity.
-- Don't add drop shadows to color-block sections — the color is the depth device.
-- Don't introduce new accent colors outside the documented `{colors.block-*}` palette and `{colors.accent-magenta}`. Adding, e.g., a saturated brand orange would break the system.
-- Don't combine more than one color block visible inside a single viewport — Figma's pacing always lets the white canvas separate them.
-- Don't square off CTAs. Square buttons read as a different brand.
-- Don't put `figmaMono` in body copy — it's a taxonomy tool, not a reading typeface.
-- Don't replace the `pricing-tab-selected` black fill with a colored tab; the brand pattern is "selected = primary surface".
+- Don't introduce a second accent colour. Magenta is the only one; a new brand hue breaks the system.
+- Don't rely on opacity for text hierarchy on light ground, use the `fg` / `fg-muted` / `fg-subtle` steps.
+- Don't put a drop shadow on a color-block section, colour is the depth device.
+- Don't square off CTAs or use a rectangular icon button.
+- Don't set body copy in mono.
+- Don't stack two color blocks inside a single viewport.
+- Don't use pure `{colors.ink}` `#000000` as the light-mode text colour, the ink is navy `#131226`.
 
 ## Responsive Behavior
 
 ### Breakpoints
+Tailwind v4 defaults, with two custom media ranges in `globals.css`:
 
-| Name | Width | Key Changes |
+| Name | Width | Key changes |
 |---|---|---|
-| 4k | 1920px | Max content width holds at 1280px; gutters expand |
-| Desktop-XL | 1440px | Default desktop layout |
-| Desktop | 1400px | Comparison table column widths normalize |
-| Desktop-S | 1280px | Pricing 4-up tier grid maintained |
-| Tablet | 960px | Pricing collapses 4-up → 2-up; nav becomes hamburger |
-| Mobile-L | 768px | Color-block sections become full-bleed (no rounded corners on edges) |
-| Mobile | 560px | Display-xl reduces from 86px to ~48px; pill CTAs go full-width |
-| Mobile-XS | 559px | Two-column footer collapses to single column |
+| Mobile | ≤640px | `display-xl` → 36px; section padding 96 → 48px; single-column grids; header shows monogram only |
+| Tablet / notebook | 641–1536px | `display-xl` → 44px; `headline`/`subhead` → 20px; `body` → 16px/1.55; section padding 96 → 48px |
+| `md` | ≥768px | Case rows go 2-column; full logo wordmark; nav labels inline |
+| `2xl` | ≥1536px | Hero top padding grows to `{spacing.section}` scale |
 
-### Touch Targets
+### Touch targets
+- Header logo link carries `min-height: 44px`.
+- Icon button 40px; contrast toggles 24px inside a 44px bar.
+- Nav and skip links keep `py` padding to stay ≥ 44px effective.
 
-- Pill buttons (`button-primary`, `button-secondary`) maintain a minimum 44px tap height across all viewports — achieved by combining `{typography.button}` 20px line-height with the documented vertical padding.
-- Circular icon buttons (`button-icon-circular`) are 40px on desktop and grow to 44px on touch viewports.
-- Form input minimum tap target on `/contact/` is 48px high.
+### Collapsing strategy
+- **Header**: full wordmark → monogram below `md`; nav stays inline (only two items).
+- **Case rows**: 2-column → stacked single column below `md`, image always first when stacked.
+- **Color blocks**: keep `{rounded.lg}` corners at all sizes; interior padding may relax on mobile.
+- **Accessibility bar**: skip links 2–4 hide below `sm`, leaving "Content" + controls.
 
-### Collapsing Strategy
+## Motion
 
-- **Nav**: desktop horizontal nav with two right-anchored pills collapses to a hamburger overlay below 960px. The two pills (`Contact sales`, `Get started for free`) stay visible on the bar above 560px and stack in the overlay below.
-- **Pricing tier grid**: 4-up → 2-up at 960px → 1-up below 768px. The pill toggle stays horizontal and scrolls horizontally if needed below 560px.
-- **Color-block sections**: above 768px the section keeps `{spacing.xxl}` of canvas around it so the rounded corners read; below 768px the corners are removed and the block bleeds to viewport edge for a poster effect.
-- **Comparison table**: below 960px the matrix collapses into per-tier accordions to avoid horizontal scroll.
-
-### Image Behavior
-
-- Product UI mocks inside color blocks scale proportionally and never crop. Below 768px they shrink rather than reflow.
-- Template thumbnails in the home grid use lazy loading and animate in on scroll.
-- Sticky-note style FigJam thumbnails maintain their slight off-axis rotation across breakpoints — the rotation is a brand signal, not a desktop-only flourish.
-
-## Iteration Guide
-
-1. Focus on ONE component at a time and reference it by its `components:` token name (e.g., `{components.button-primary}`, `{components.color-block-section}`).
-2. When introducing a new section, decide **first** which `{colors.block-*}` token it sits on; the surface choice is the most consequential decision.
-3. Default body type to `{typography.body}`; reach for `{typography.subhead}` or `{typography.headline}` only inside a color block.
-4. Run `npx @google/design.md lint DESIGN.md` after edits — `broken-ref`, `contrast-ratio`, and `orphaned-tokens` warnings flag issues automatically.
-5. Add new variants as separate component entries (`-pressed`, `-selected`) — do not bury them in prose.
-6. Keep `{colors.primary}` scarce. If two `button-primary` instances appear in the same viewport, the section is doing too much — neutralize one to `button-secondary`.
-7. Treat `{colors.accent-magenta}` as a single-shot color: one promo CTA per page, never two.
+- **Library**: Framer Motion. Shared variants in `src/lib/animations.ts`.
+- **`fadeInUp`**: `opacity 0 → 1`, `y 24 → 0`, `duration 0.5`, ease `[0, 0, 0.58, 1]`. The default scroll-in for sections (`whileInView`, `viewport once`).
+- **`stagger`**: `staggerChildren 0.12` (fast variant `0.05`).
+- **`slideInLeft`**: `x -28 → 0` for lateral reveals.
+- **Hero scroll indicator**: a `ChevronDown` bobbing `y: [0, 6, 0]` on a 1.6s loop.
+- **Preloader**: concentric target-rings animation on first load; must release on route change (owned by React state, never DOM removal).
+- **Case open transition**: an overlay `motion.div` with an animated `clip-path: circle()` expanding from the click point, covering the screen before `router.push` and fading out after the pathname changes. Defined in `CaseTransitionProvider`.
+- All decorative motion is disabled under `@media (prefers-reduced-motion: reduce)`.
 
 ## Known Gaps
 
-- The exact pastel hex values of `{colors.block-*}` are derived from screenshot pixels; the production source likely uses named tokens that aren't exposed via CSS variables. Treat the documented hex values as faithful approximations rather than exact brand specs.
-- Dark mode is not documented because the marketing site does not ship a dark theme — the closest analog is the navy color-block (`color-block-section-navy`) and the inverse-canvas footer.
-- Form-field error and validation styling is not visible on `/contact/` because no error states render in the static screenshot. Inputs have hairline borders and rounded `{rounded.md}` corners; error treatment is not documented.
-- The animated marquee-strip and color-block reveal animations are not documented (per the no-interaction policy).
+- No custom monospace is bundled; `{typography.caption}` renders in whatever system mono is available (`JetBrains Mono` if installed, else `ui-monospace`). If a bundled mono is added later, wire it to `--font-jetbrains`.
+- Form input / error-state styling is minimal in the current build (hairline border, `{rounded.md}`); validation treatment is not yet systematised.
+- The `{colors.block-*}` dark equivalents are hand-tuned approximations of the light pastels, not algorithmic.
+- Per-project case accent tokens exist (`--color-project-*`) but currently almost all resolve to the same cream/pink/coral set; treat them as a hook for future per-case theming rather than a live varied palette.

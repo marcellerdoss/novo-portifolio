@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;320;340;400;480;540;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin: 0; font-family: 'Inter', system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: #B4225E; } a:hover { color: #B4225E; }
+    .eyebrow { font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: 0.6px; text-transform: uppercase; }
+    .block { border-radius: 24px; padding: 48px; }
+    .b-eyebrow { font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: 0.6px; text-transform: uppercase; margin: 0 0 16px; }
+    .b-head { font-size: 24px; font-weight: 340; line-height: 1.3; letter-spacing: -0.24px; margin: 0 0 12px; }
+    .b-body { font-size: 18px; font-weight: 320; line-height: 1.45; letter-spacing: -0.18px; max-width: 44ch; }
+    .lbl { font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.6px; text-transform: uppercase; color: #666666; margin-top: 8px; }
+    .lbl-d { color: #a1a1aa; }
+  </style>
+</helmet>
+<div style="width: 1216px; font-family: 'Inter', sans-serif;">
+
+  <!-- LIGHT -->
+  <div style="background: #FEF4EF; color: #131226; padding: 48px 56px;">
+    <div style="font-size: 24px; font-weight: 540; letter-spacing: -0.24px; margin: 0 0 4px;">Colour Blocks</div>
+    <div style="font-size: 14px; font-weight: 330; color: #404040; margin: 0 0 32px;">full-width story panels &middot; radius-lg 24 &middot; padding xxl 48 &middot; no shadow, colour is the depth device</div>
+
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px;">
+      <div>
+        <div class="block" style="background: #f4ecd6; color: #131226;">
+          <div class="b-eyebrow" style="color: #B4225E;">O processo</div>
+          <div class="b-head">Imers&atilde;o na BNCC e pesquisa com educadoras</div>
+          <div class="b-body">Valida&ccedil;&atilde;o pedag&oacute;gica que habilitou a IA preditiva em um segmento novo.</div>
+        </div>
+        <div class="lbl">cream &middot; #f4ecd6 &middot; default block</div>
+      </div>
+      <div>
+        <div class="block" style="background: #efd4d4; color: #131226;">
+          <div class="b-eyebrow" style="color: #B4225E;">A descoberta</div>
+          <div class="b-head">Tr&ecirc;s padr&otilde;es de navega&ccedil;&atilde;o incompat&iacute;veis</div>
+          <div class="b-body">Card sorting com usu&aacute;rios e invent&aacute;rio de conte&uacute;do guiaram a nova arquitetura.</div>
+        </div>
+        <div class="lbl">pink &middot; #efd4d4</div>
+      </div>
+      <div>
+        <div class="block" style="background: #f3c9b6; color: #131226;">
+          <div class="b-eyebrow" style="color: #B4225E;">O impacto</div>
+          <div class="b-head">Redu&ccedil;&atilde;o do abandono no m&oacute;dulo principal</div>
+          <div class="b-body">Fluxo de cria&ccedil;&atilde;o de envios redesenhado ponta a ponta.</div>
+        </div>
+        <div class="lbl">coral &middot; #f3c9b6</div>
+      </div>
+      <div>
+        <div class="block" style="background: #211F4A; color: #ffffff;">
+          <div class="b-eyebrow" style="color: #EC83B0;">Em n&uacute;meros</div>
+          <div class="b-head">20+ gatilhos, 3 canais, ramifica&ccedil;&atilde;o comportamental</div>
+          <div class="b-body" style="color: rgba(255,255,255,0.8);">O &uacute;nico bloco inverso. Tamb&eacute;m &eacute; o fundo da marquee.</div>
+        </div>
+        <div class="lbl">navy &middot; #211F4A &middot; inverse text</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DARK -->
+  <div style="background: #121124; color: #ffffff; padding: 48px 56px;">
+    <div style="font-size: 24px; font-weight: 540; letter-spacing: -0.24px; margin: 0 0 24px;">Colour Blocks &middot; dark equivalents</div>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px;">
+      <div>
+        <div class="block" style="background: #1e1c31; color: #e4e4e7;">
+          <div class="b-eyebrow" style="color: #B4225E;">O processo</div>
+          <div class="b-head">Imers&atilde;o na BNCC</div>
+          <div class="b-body" style="color: #a1a1aa;">Pesquisa com educadoras e valida&ccedil;&atilde;o pedag&oacute;gica.</div>
+        </div>
+        <div class="lbl lbl-d">cream &rarr; #1e1c31</div>
+      </div>
+      <div>
+        <div class="block" style="background: #261724; color: #e4e4e7;">
+          <div class="b-eyebrow" style="color: #B4225E;">A descoberta</div>
+          <div class="b-head">Card sorting</div>
+          <div class="b-body" style="color: #a1a1aa;">Invent&aacute;rio de conte&uacute;do e valida&ccedil;&atilde;o estruturada.</div>
+        </div>
+        <div class="lbl lbl-d">pink &rarr; #261724</div>
+      </div>
+      <div>
+        <div class="block" style="background: #2b1410; color: #e4e4e7;">
+          <div class="b-eyebrow" style="color: #B4225E;">O impacto</div>
+          <div class="b-head">Abandono reduzido</div>
+          <div class="b-body" style="color: #a1a1aa;">Fluxo redesenhado ponta a ponta.</div>
+        </div>
+        <div class="lbl lbl-d">coral &rarr; #2b1410</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>
