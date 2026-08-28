@@ -1,7 +1,7 @@
 {
   "artboards": [
     { "file": "Main.dc.html", "x": 0, "y": 0, "w": 760, "h": 820, "title": "Overview" },
-    { "file": "Foundations.dc.html", "x": 0, "y": 960, "w": 1450, "h": 2620, "title": "01 · Foundations" },
+    { "file": "Foundations.dc.html", "x": 0, "y": 960, "w": 1450, "h": 3180, "title": "01 · Foundations" },
     { "file": "Buttons.dc.html", "x": 1580, "y": 0, "w": 1150, "h": 1220, "title": "02 · Buttons" },
     { "file": "BadgesTags.dc.html", "x": 1580, "y": 1360, "w": 1150, "h": 840, "title": "03 · Badges & Tags" },
     { "file": "Cards.dc.html", "x": 1580, "y": 2340, "w": 1320, "h": 1520, "title": "04 · Cards & Case Card" },

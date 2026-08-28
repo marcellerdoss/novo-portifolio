@@ -1,7 +1,7 @@
 ---
 version: 1.0
 name: Marcelle-Rocha-portfolio-design-system
-description: "An editorial navy-and-magenta system on a warm off-white canvas, interrupted by oversized hand-cut pastel color-block sections. The chrome is quiet and confident (Inter variable type at fine weights, navy ink, pill CTAs, hairline borders) while story sections drop into saturated cream, pink, coral, or deep-navy panels. Ships a full class-based dark theme and a WCAG high-contrast mode. The result reads as a serious strategy tool made by someone who likes colour."
+description: "An editorial navy-and-magenta system on a warm off-white canvas (#FEF4EF), where whole sections take a full-bleed background tint (deep navy, warm cream, dusty pink) to mark rhythm. The chrome is quiet and confident: Inter variable type at fine weights, navy ink, pill CTAs, hairline borders. Ships a full class-based dark theme and a WCAG high-contrast mode. The result reads as a serious strategy tool made by someone who likes colour."
 
 colors:
   # ─── Core ───
@@ -36,16 +36,16 @@ colors:
   surface-soft-dark: "#1a1836"
   case-preview-bg-dark: "#131226"
 
-  # ─── Pastel color blocks — light ───
-  block-cream: "#f4ecd6"
-  block-pink: "#efd4d4"
-  block-coral: "#f3c9b6"
-  block-navy: "#211F4A"
-  cases-section-bg: "#FDFAF4"   # near-cream ground behind the home Cases list
+  # ─── Section-tint colours (block-*) — full-bleed section backgrounds, not panels ───
+  block-navy: "#211F4A"          # inverse sections: Contact, About stats, marquee strip
+  block-pink: "#efd4d4"          # light bg of the About section (dark pair: block-cream)
+  block-cream: "#f4ecd6"         # used direct only in details (timeline borders); as a section bg it is the DARK pair for cream/pink light sections
+  cases-section-bg: "#FDFAF4"    # light ground of the Cases section (Formação uses #F9F7F8)
+  block-coral: "#f3c9b6"         # scale defined (see Colour scales) but NOT used as a surface anywhere yet
 
-  # ─── Pastel color blocks — dark equivalents ───
-  block-cream-dark: "#1e1c31"
-  block-pink-dark: "#261724"
+  # ─── Section-tint dark equivalents ───
+  block-cream-dark: "#1e1c31"    # dark bg for Cases / Formação / About
+  block-pink-dark: "#261724"     # documented on /racional; About dark actually resolves to block-cream
   block-coral-dark: "#2b1410"
 
   # ─── Named stops used inside components ───
@@ -128,12 +128,7 @@ typography:
     fontWeight: 480
     lineHeight: 1.00
     letterSpacing: -0.14px
-  button:
-    fontFamily: Inter
-    fontSize: 20px
-    fontWeight: 480
-    lineHeight: 1.40
-    letterSpacing: -0.10px
+    # the ONLY button type token (class .type-btn). `.type-button` 20/480 exists in globals.css but is unused — do not reach for it.
   caption:
     fontFamily: mono
     fontSize: 12px
@@ -200,13 +195,13 @@ components:
     typography: "{typography.body-sm}"
     rounded: "{rounded.pill}"
     padding: 8px 12px
-  badge-category:
+  badge-category:   # defined in Badge.tsx, NOT used anywhere in the portfolio today
     backgroundColor: "{colors.bg-secondary}"
     textColor: "{colors.fg-muted}"
     typography: "{typography.body-sm}"
     rounded: "{rounded.pill}"
     padding: 8px 12px
-  badge-active:
+  badge-active:     # defined in Badge.tsx, NOT used anywhere in the portfolio today
     backgroundColor: "{colors.primary}"
     textColor: "{colors.on-primary}"
     typography: "{typography.body-sm}"
@@ -238,30 +233,26 @@ components:
     rounded: "{rounded.xl}"
     aspectRatio: "4 / 3"
     shadow: "0 4px 20px rgba(0,0,0,0.07)"
-  color-block-cream:
-    backgroundColor: "{colors.block-cream}"
-    textColor: "{colors.fg}"
-    typography: "{typography.subhead}"
-    rounded: "{rounded.lg}"
-    padding: 48px
-  color-block-pink:
-    backgroundColor: "{colors.block-pink}"
-    textColor: "{colors.fg}"
-    typography: "{typography.subhead}"
-    rounded: "{rounded.lg}"
-    padding: 48px
-  color-block-coral:
-    backgroundColor: "{colors.block-coral}"
-    textColor: "{colors.fg}"
-    typography: "{typography.subhead}"
-    rounded: "{rounded.lg}"
-    padding: 48px
-  color-block-navy:
-    backgroundColor: "{colors.block-navy}"
+  # ─── Section tints: FULL-BLEED section backgrounds. No rounded corners, no inner
+  #     padding of their own — they sit on a `py-section` (96px) block and span the
+  #     viewport. Applied as `<lightHex> dark:bg-block-*`. NOT rounded panels. ───
+  section-tint-navy:
+    backgroundColor: "{colors.block-navy}"   # #211F4A, both themes
     textColor: "{colors.inverse-ink}"
-    typography: "{typography.subhead}"
-    rounded: "{rounded.lg}"
-    padding: 48px
+    padding: "96px 0"                          # py-section; content still in the 1152 container
+    usedIn: "Contact, About (stats band), marquee strip"
+  section-tint-cream:
+    backgroundColor: "#FDFAF4"                 # Cases; Formação uses #F9F7F8
+    textColor: "{colors.fg}"
+    darkBackgroundColor: "{colors.block-cream-dark}"  # #1e1c31
+    padding: "96px 0"
+    usedIn: "Cases list, Formação/Skills"
+  section-tint-pink:
+    backgroundColor: "{colors.block-pink}"     # #efd4d4
+    textColor: "{colors.fg}"
+    darkBackgroundColor: "{colors.block-cream-dark}"  # #1e1c31 (About dark resolves to cream)
+    padding: "96px 0"
+    usedIn: "About section"
   top-nav:
     backgroundColor: "{colors.bg}"
     textColor: "{colors.fg}"
@@ -297,7 +288,7 @@ components:
 
 Marcelle Rocha's portfolio is, at the system level, an **editorial navy frame on warm paper**. The chrome, top nav, body copy, footer, primary CTA, stays quiet: `Inter` variable type at unusually fine weights (320 to 540), navy `{colors.primary}` ink on a warm off-white `{colors.bg}` canvas, hairline `{colors.border}` dividers, and pill-shaped CTAs. There are no gradients and only one soft shadow role; hierarchy is carried by type weight and by colour, not by elevation.
 
-What gives the system its character is what happens **between** the quiet sections: the page drops into oversized **pastel color-block sections**, cream, pink, coral, and a deep navy, that span the content width with `{rounded.lg}` corners and `{spacing.xxl}` interior padding. On the home page the Cases list sits on a near-cream `{colors.cases-section-bg}` ground; inside case studies the story panels rotate through the block palette. These blocks read like hand-cut paper placed on a clean desk, technical and warm at once.
+What gives the system its rhythm is the **section tint**: whole sections take a full-bleed background colour instead of sitting on the default warm canvas. The `{colors.block-navy}` band (Contact, the About stats, the marquee) is the inverse moment, white type on deep indigo. The Cases list sits on a near-cream `{colors.cases-section-bg}` ground, the About section on `{colors.block-pink}`, and all of those pair to `{colors.block-cream-dark}` in dark mode. These are background washes on `py-section` blocks, not rounded panels and not cards, the colour change *is* the section break.
 
 A single accent, `{colors.accent-magenta}`, does all the pointing: mono eyebrows, inline link hovers, the active nav item, and, in dark mode, the primary button fill itself. It is never a section colour.
 
@@ -305,7 +296,7 @@ Unlike a marketing site, this portfolio ships **three themes**: the light editor
 
 **Key Characteristics:**
 - Navy-on-warm-paper core: `{colors.primary}` and `{colors.bg}` carry every headline, body line, and primary CTA in light mode.
-- Oversized pastel **color-block sections** (`{colors.block-cream}`, `{colors.block-pink}`, `{colors.block-coral}`, `{colors.block-navy}`) define the narrative rhythm of the home page and every case study.
+- **Section tints**: `block-*` colours are full-bleed section backgrounds (not rounded panels). `{colors.block-navy}` for inverse sections, `{colors.block-pink}` / warm off-whites (`#FDFAF4`, `#F9F7F8`) for light sections, `{colors.block-cream-dark}` as their dark-mode pair. `{colors.block-coral}` has a full colour scale but no surface use yet.
 - One accent only: `{colors.accent-magenta}` for eyebrows, link hover, active state, and the dark-mode primary button. No second accent.
 - `Inter` variable at fine weight increments (320, 330, 340, 480, 540, 700) reads as a single voice flexing, not a stepped weight family.
 - Pill for every text CTA (`{rounded.pill}`), circle for every icon button (`{rounded.full}`). No square buttons.
@@ -339,18 +330,30 @@ Unlike a marketing site, this portfolio ships **three themes**: the light editor
 - **Muted** (`{colors.fg-muted}` `#404040`): descriptions, secondary body, the default paragraph colour inside case prose.
 - **Subtle** (`{colors.fg-subtle}` `#666666`): captions, tag pills, metadata.
 
-### Color Blocks
-Full-width pastel panels, `{rounded.lg}` corners, `{spacing.xxl}` interior padding. Each has a documented dark-mode equivalent.
-- **Cream** (`{colors.block-cream}` `#f4ecd6` / dark `#1e1c31`): the default / most common block. Home Cases ground uses a lighter sibling, `{colors.cases-section-bg}` `#FDFAF4`.
-- **Pink** (`{colors.block-pink}` `#efd4d4` / dark `#261724`).
-- **Coral** (`{colors.block-coral}` `#f3c9b6` / dark `#2b1410`).
-- **Navy** (`{colors.block-navy}` `#211F4A`): the one inverse block; also the fill of the `marquee-strip`. Text goes `{colors.inverse-ink}`.
+### Section tints (`block-*`)
+These are **full-bleed section backgrounds**, not panels: no rounded corners, no interior padding of their own. A section gets one via `className="<lightHex> dark:bg-block-*"` on a `py-section` block; the content stays inside the 1152 container.
+- **Navy** (`{colors.block-navy}` `#211F4A`, both themes): the inverse tint, white type. Used on the Contact section, the About stats band, and as the `marquee-strip` fill.
+- **Cream** (light `#FDFAF4` on Cases, `#F9F7F8` on Formação; dark `{colors.block-cream-dark}` `#1e1c31`): the warm neutral tint for content sections.
+- **Pink** (`{colors.block-pink}` `#efd4d4`; dark resolves to `{colors.block-cream-dark}` `#1e1c31`): the About section only.
+- **Cream token direct** (`{colors.block-cream}` `#f4ecd6`): used raw only in small details, the Experience timeline dot borders and date text.
+- **Coral** (`{colors.block-coral}` `#f3c9b6`) and **`block-pink-dark` `#261724`**: have full colour scales (below) and are documented on `/racional`, but neither is currently a live surface.
+
+### Colour scales (50 → 900)
+Every brand hue has a full ramp, documented on `/racional`. Convention: **50–200** backgrounds and hover, **300–400** borders and icons, **500–600** WCAG-AA text on white, **700–900** body and headings.
+- **Magenta** (base **600** = `#B4225E`): 50 `#FEF0F6` · 100 `#FCD9E8` · 200 `#F5B2CF` · 300 `#EC83B0` · 400 `#E35492` · 500 `#DB337C` · **600 `#B4225E`** · 700 `#931F51` · 800 `#631738` · 900 `#380F21`.
+- **Navy** (base **900** = `#131226`): 50 `#F2F2FA` · 100 `#E2E1F4` · 300 `#9593D8` · 400 `#6B67C0` · 500 `#4B469F` · 600 `#38347E` · 700 `#2B2861` · 800 `#211F4A` · **900 `#131226`**.
+- **Neutral** (warm, base **50** = `#FAFAFA`): **50 `#FAFAFA`** · 100 `#ECECEA` · 200 `#DDDDDA` · 300 `#D4D4D2` · 400 `#ABABAA` · 500 `#808080` · 600 `#666666` · 700 `#404040` · 800 `#282828` · 900 `#1A1A1A`.
+- **Cream** (base **100** = `#F4ECD6`): 50 `#FDFAF4` · **100 `#F4ECD6`** · 200 `#E5D3A4` · 300 `#CFB268` · 400 `#AF8E41` · 500 `#816937` · 600 `#5C4D2D` · 700 `#3B3221` · 800 `#28241A`.
+- **Pink** (base **100** = `#EFD4D4`): 50 `#FDF5F5` · **100 `#EFD4D4`** · 200 `#DEAAAA` · 300 `#CA7878` · 400 `#AF4B4B` · 500 `#803C3C` · 600 `#5E3131` · 700 `#412525` · 800 `#281A1A`.
+- **Coral** (base **100** = `#F3C9B6`): **50 `#FEF4EF` — this is `{colors.bg}`** · 100 `#F3C9B6` · 200 `#ECAA8A` · 300 `#E27E55` · 400 `#CA5B2B` · 500 `#954728` · 600 `#6B3724` · 700 `#45271C` · 800 `#2C1C16`.
 
 ### Named component stops
 `navy-600` `#38347E` and `navy-200` `#FAFAFA` are the hero headline inks (light / dark). `magenta-300` `#EC83B0` and `magenta-500` `#DB337C` are dark-mode nav-hover and button-hover. `footer-bg` `#09081c` is the near-black shared by the footer and the top accessibility bar.
 
+> **Token drift to reconcile:** `globals.css` sets `--bg: #FEF4EF` (coral-50, the warm tint the live site uses), but the `/racional` page still shows a `bg` swatch of `#fafafa` and its dark-mode token table lists `--bg` light as `#fafafa`. Treat `#FEF4EF` as current; update `/racional` when convenient.
+
 ### High-contrast mode (`.high-contrast`)
-`bg` `#000000`, `fg` `#ffffff`, `fg-subtle` `#FFFE80` (yellow), `border` `#ffffff`. All color blocks flatten to `#111111` / `#000000`. The logo is forced to pure white via `filter: brightness(0) invert(1)`. Accent magenta is retained. Honour this mode when designing any new surface.
+`bg` `#000000`, `fg` `#ffffff`, `fg-subtle` `#FFFE80` (yellow), `border` `#ffffff`. All section tints flatten to `#111111` / `#000000`. The logo is forced to pure white via `filter: brightness(0) invert(1)`. Accent magenta is retained. Honour this mode when designing any new surface.
 
 ## Typography
 
@@ -418,11 +421,11 @@ Content offsets below both. `scroll-mt` of ~112px (`scroll-mt-28`) keeps anchore
 
 | Level | Treatment | Use |
 |---|---|---|
-| 0 (flat) | No shadow, no border | Color-block sections, hero, marquee, footer |
+| 0 (flat) | No shadow, no border | Tinted sections, hero, marquee, footer |
 | 1 (hairline) | 1px `{colors.border}` on `{colors.bg}` | Cards, secondary button, tag pills, nav bottom edge |
 | 2 (soft) | `0 4px 24px rgba(0,0,0,0.06)` light · `0 4px 24px rgba(0,0,0,0.35)` dark | `Card` hover, case-card image hover (paired with `translateY(-4px)` / `scale(1.02)`) |
 
-Shadow is rare and only ever appears on hover. The change from warm canvas to a pastel block **is** the section break, colour does the work elevation would do elsewhere. Never put a drop shadow on a color-block section.
+Shadow is rare and only ever appears on hover. The change from plain warm canvas to a tinted section **is** the section break, colour does the work elevation would do elsewhere. Never put a drop shadow on a tinted section.
 
 ## Shapes
 
@@ -432,7 +435,7 @@ Shadow is rare and only ever appears on hover. The change from warm canvas to a 
 |---|---|---|
 | `{rounded.xs}` | 4px | Small inline decorations, focus-ring rounding |
 | `{rounded.sm}` / `{rounded.md}` | 8px | Inputs, image frames, small tiles |
-| `{rounded.lg}` | 24px | `Card`, color-block sections, large containers |
+| `{rounded.lg}` | 24px | `Card` and large containers (`/racional` uses a 16px sibling); NOT section tints |
 | `{rounded.xl}` | 32px | Case-card image frames, the footer rationale link-card |
 | `{rounded.pill}` | 50px | All text CTAs and badges |
 | `{rounded.full}` | 9999px | Icon buttons, tag pills, contrast toggles |
@@ -476,9 +479,14 @@ Shared: `inline-flex`, `gap: 8px`, `type-btn` label, `transition-all 150ms`, `fo
 
 **`case-card`** — a 2-column editorial row, not a boxed card. Left: a `{rounded.xl}` image frame on `{colors.case-preview-bg}` with a CSS device mockup, hover `translateY(-4px)` + shadow. Right: mono eyebrow `{company} · {category}` in `{colors.accent-magenta}`, `{typography.headline}` title, a row of `tag-pill`s, `{typography.body}` description in `{colors.fg-muted}`, then a `button-secondary` size `sm`.
 
-### Color-Block Sections (signature)
+### Section tints (signature)
 
-Full-content-width panel, `{rounded.lg}` corners, `{spacing.xxl}` interior padding, no shadow. Variants: `color-block-cream` (default), `color-block-pink`, `color-block-coral`, `color-block-navy` (inverse text). Each has a dark-mode background equivalent (see Colors). Let the warm canvas return between two blocks so each reads as deliberate; don't stack two blocks in one viewport.
+Not a component you place, a **background colour on a whole section**. A `py-section` (96px) block gets `className="<lightHex> dark:bg-block-*"`; the inner content stays in the 1152 container. No rounded corners, no shadow, no extra padding, the tint spans the full viewport width and the colour change is the section break.
+- **`section-tint-navy`** — `{colors.block-navy}` `#211F4A` in both themes, white type. The inverse moment: Contact, the About stats band, the marquee strip.
+- **`section-tint-cream`** — `#FDFAF4` (Cases) or `#F9F7F8` (Formação) in light, `{colors.block-cream-dark}` `#1e1c31` in dark.
+- **`section-tint-pink`** — `{colors.block-pink}` `#efd4d4` in light (About section), `{colors.block-cream-dark}` `#1e1c31` in dark.
+
+Adjacent sections alternate tinted / plain-canvas so each tint reads as deliberate; don't run two different tints back to back.
 
 ### Navigation
 
@@ -497,18 +505,19 @@ Full-content-width panel, `{rounded.lg}` corners, `{spacing.xxl}` interior paddi
 
 ### Do
 - Keep `{colors.primary}` for genuine primary CTAs and headline ink. In dark mode the primary CTA is `{colors.accent-magenta}` — keep that swap.
-- Pick **one** block colour per story section and let it span full content width with `{rounded.lg}` corners and `{spacing.xxl}` padding.
+- Set a section apart with one **full-bleed tint** (`section-tint-navy` / `-cream` / `-pink`), never a rounded pastel panel. Alternate tinted and plain-canvas sections.
 - Set type in `Inter` at the documented weights (320, 330, 340, 480, 540, 700). Don't reach for weights outside that set.
 - Use mono (`{typography.caption}`) only for uppercase eyebrows, metadata, and captions.
 - Compose every text CTA as a pill (`{rounded.pill}`), every icon button as a circle (`{rounded.full}`).
 - Design every new surface for all three themes: light, `.dark`, and `.high-contrast`.
-- Let the warm canvas return between two color blocks.
+- Let the plain warm canvas return between two tinted sections.
 - Suppress non-essential motion under `prefers-reduced-motion`.
 
 ### Don't
 - Don't introduce a second accent colour. Magenta is the only one; a new brand hue breaks the system.
 - Don't rely on opacity for text hierarchy on light ground, use the `fg` / `fg-muted` / `fg-subtle` steps.
-- Don't put a drop shadow on a color-block section, colour is the depth device.
+- Don't put a drop shadow on a tinted section, colour is the depth device.
+- Don't wrap a section tint in rounded corners or give it card padding, it is a full-bleed background, not a panel.
 - Don't square off CTAs or use a rectangular icon button.
 - Don't set body copy in mono.
 - Don't stack two color blocks inside a single viewport.
@@ -554,3 +563,5 @@ Tailwind v4 defaults, with two custom media ranges in `globals.css`:
 - Form input / error-state styling is minimal in the current build (hairline border, `{rounded.md}`); validation treatment is not yet systematised.
 - The `{colors.block-*}` dark equivalents are hand-tuned approximations of the light pastels, not algorithmic.
 - Per-project case accent tokens exist (`--color-project-*`) but currently almost all resolve to the same cream/pink/coral set; treat them as a hook for future per-case theming rather than a live varied palette.
+- `Badge` variants `category` and `active`, and the `{colors.block-coral}` surface, are defined but unused; `.type-button` (20/480) is defined but unused (buttons use `.type-btn`). Kept in the token record for completeness, not for new work.
+- `{colors.block-pink}` dark pair is listed as `#261724` on `/racional`, but the About section (the only `block-pink` surface) actually swaps to `{colors.block-cream-dark}` `#1e1c31` in dark. `#261724` is effectively unused.

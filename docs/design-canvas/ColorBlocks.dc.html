@@ -12,85 +12,44 @@
     body { margin: 0; font-family: 'Inter', system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased; }
     a { color: #B4225E; } a:hover { color: #B4225E; }
     .eyebrow { font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: 0.6px; text-transform: uppercase; }
-    .block { border-radius: 24px; padding: 48px; }
-    .b-eyebrow { font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: 0.6px; text-transform: uppercase; margin: 0 0 16px; }
-    .b-head { font-size: 24px; font-weight: 340; line-height: 1.3; letter-spacing: -0.24px; margin: 0 0 12px; }
-    .b-body { font-size: 18px; font-weight: 320; line-height: 1.45; letter-spacing: -0.18px; max-width: 44ch; }
-    .lbl { font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.6px; text-transform: uppercase; color: #666666; margin-top: 8px; }
-    .lbl-d { color: #a1a1aa; }
+    .lbl { font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.6px; text-transform: uppercase; color: #666666; }
+    .sect-h { font-size: 32px; font-weight: 700; line-height: 1.15; letter-spacing: -0.32px; margin: 0 0 8px; }
+    .sect-b { font-size: 18px; font-weight: 320; line-height: 1.45; letter-spacing: -0.18px; }
   </style>
 </helmet>
 <div style="width: 1216px; font-family: 'Inter', sans-serif;">
 
-  <!-- LIGHT -->
-  <div style="background: #FEF4EF; color: #131226; padding: 48px 56px;">
-    <div style="font-size: 24px; font-weight: 540; letter-spacing: -0.24px; margin: 0 0 4px;">Colour Blocks</div>
-    <div style="font-size: 14px; font-weight: 330; color: #404040; margin: 0 0 32px;">full-width story panels &middot; radius-lg 24 &middot; padding xxl 48 &middot; no shadow, colour is the depth device</div>
-
-    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px;">
-      <div>
-        <div class="block" style="background: #f4ecd6; color: #131226;">
-          <div class="b-eyebrow" style="color: #B4225E;">O processo</div>
-          <div class="b-head">Imers&atilde;o na BNCC e pesquisa com educadoras</div>
-          <div class="b-body">Valida&ccedil;&atilde;o pedag&oacute;gica que habilitou a IA preditiva em um segmento novo.</div>
-        </div>
-        <div class="lbl">cream &middot; #f4ecd6 &middot; default block</div>
-      </div>
-      <div>
-        <div class="block" style="background: #efd4d4; color: #131226;">
-          <div class="b-eyebrow" style="color: #B4225E;">A descoberta</div>
-          <div class="b-head">Tr&ecirc;s padr&otilde;es de navega&ccedil;&atilde;o incompat&iacute;veis</div>
-          <div class="b-body">Card sorting com usu&aacute;rios e invent&aacute;rio de conte&uacute;do guiaram a nova arquitetura.</div>
-        </div>
-        <div class="lbl">pink &middot; #efd4d4</div>
-      </div>
-      <div>
-        <div class="block" style="background: #f3c9b6; color: #131226;">
-          <div class="b-eyebrow" style="color: #B4225E;">O impacto</div>
-          <div class="b-head">Redu&ccedil;&atilde;o do abandono no m&oacute;dulo principal</div>
-          <div class="b-body">Fluxo de cria&ccedil;&atilde;o de envios redesenhado ponta a ponta.</div>
-        </div>
-        <div class="lbl">coral &middot; #f3c9b6</div>
-      </div>
-      <div>
-        <div class="block" style="background: #211F4A; color: #ffffff;">
-          <div class="b-eyebrow" style="color: #EC83B0;">Em n&uacute;meros</div>
-          <div class="b-head">20+ gatilhos, 3 canais, ramifica&ccedil;&atilde;o comportamental</div>
-          <div class="b-body" style="color: rgba(255,255,255,0.8);">O &uacute;nico bloco inverso. Tamb&eacute;m &eacute; o fundo da marquee.</div>
-        </div>
-        <div class="lbl">navy &middot; #211F4A &middot; inverse text</div>
-      </div>
-    </div>
+  <div style="background: #FEF4EF; color: #131226; padding: 44px 56px 8px;">
+    <div style="font-size: 24px; font-weight: 540; letter-spacing: -0.24px; margin: 0 0 4px;">Section tints (block-*)</div>
+    <div style="font-size: 14px; font-weight: 330; color: #404040; margin: 0 0 4px;">n&atilde;o s&atilde;o pain&eacute;is arredondados: s&atilde;o fundos de se&ccedil;&atilde;o full-bleed, aplicados em <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px;">py-section</span>, no padr&atilde;o <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px;">hex-claro dark:bg-block-*</span></div>
   </div>
 
-  <!-- DARK -->
-  <div style="background: #121124; color: #ffffff; padding: 48px 56px;">
-    <div style="font-size: 24px; font-weight: 540; letter-spacing: -0.24px; margin: 0 0 24px;">Colour Blocks &middot; dark equivalents</div>
-    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px;">
-      <div>
-        <div class="block" style="background: #1e1c31; color: #e4e4e7;">
-          <div class="b-eyebrow" style="color: #B4225E;">O processo</div>
-          <div class="b-head">Imers&atilde;o na BNCC</div>
-          <div class="b-body" style="color: #a1a1aa;">Pesquisa com educadoras e valida&ccedil;&atilde;o pedag&oacute;gica.</div>
-        </div>
-        <div class="lbl lbl-d">cream &rarr; #1e1c31</div>
-      </div>
-      <div>
-        <div class="block" style="background: #261724; color: #e4e4e7;">
-          <div class="b-eyebrow" style="color: #B4225E;">A descoberta</div>
-          <div class="b-head">Card sorting</div>
-          <div class="b-body" style="color: #a1a1aa;">Invent&aacute;rio de conte&uacute;do e valida&ccedil;&atilde;o estruturada.</div>
-        </div>
-        <div class="lbl lbl-d">pink &rarr; #261724</div>
-      </div>
-      <div>
-        <div class="block" style="background: #2b1410; color: #e4e4e7;">
-          <div class="b-eyebrow" style="color: #B4225E;">O impacto</div>
-          <div class="b-head">Abandono reduzido</div>
-          <div class="b-body" style="color: #a1a1aa;">Fluxo redesenhado ponta a ponta.</div>
-        </div>
-        <div class="lbl lbl-d">coral &rarr; #2b1410</div>
-      </div>
+  <!-- NAVY - full bleed inverse section (Contact / AboutStats / Marquee) -->
+  <div style="background: #211F4A; color: #ffffff; padding: 56px;">
+    <div class="eyebrow" style="color: #EC83B0; margin-bottom: 16px;">bg-block-navy &middot; #211F4A</div>
+    <div class="sect-h">Vamos conversar</div>
+    <div class="sect-b" style="color: rgba(255,255,255,0.8); max-width: 52ch;">Se&ccedil;&atilde;o inversa full-bleed. Usada em Contact, About (stats) e como fundo da marquee. &Eacute; o &uacute;nico bloco com texto claro.</div>
+  </div>
+
+  <!-- PINK - About section light -->
+  <div style="background: #efd4d4; color: #131226; padding: 56px;">
+    <div class="eyebrow" style="color: #B4225E; margin-bottom: 16px;">bg-block-pink &middot; #efd4d4 &nbsp;&rarr;&nbsp; dark: bg-block-cream #1e1c31</div>
+    <div class="sect-h">Sobre</div>
+    <div class="sect-b" style="color: #404040; max-width: 52ch;">Fundo da se&ccedil;&atilde;o "Sobre" no modo claro. No dark vira cream (#1e1c31). Tamb&eacute;m aparece na faixa do header da sidebar do /racional.</div>
+  </div>
+
+  <!-- CREAM - Cases / Formação -->
+  <div style="background: #FDFAF4; color: #131226; padding: 56px;">
+    <div class="eyebrow" style="color: #B4225E; margin-bottom: 16px;">#FDFAF4 / #F9F7F8 &nbsp;&rarr;&nbsp; dark: bg-block-cream #1e1c31</div>
+    <div class="sect-h">Cases selecionados</div>
+    <div class="sect-b" style="color: #404040; max-width: 52ch;">Fundo claro das se&ccedil;&otilde;es Cases e Forma&ccedil;&atilde;o (#FDFAF4 e #F9F7F8). No dark, ambas usam block-cream. O token block-cream #f4ecd6 aparece direto s&oacute; em detalhes (bordas da timeline de Experi&ecirc;ncia).</div>
+  </div>
+
+  <div style="background: #FEF4EF; color: #131226; padding: 32px 56px 44px;">
+    <div class="lbl" style="margin-bottom: 10px;">Tokens que existem mas n&atilde;o s&atilde;o superf&iacute;cie hoje</div>
+    <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+      <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 40px; height: 40px; border-radius: 8px; background: #f4ecd6; border: 1px solid #e6e6e6;"></span><span class="lbl">block-cream #f4ecd6 &middot; s&oacute; detalhes</span></div>
+      <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 40px; height: 40px; border-radius: 8px; background: #f3c9b6; border: 1px solid #e6e6e6;"></span><span class="lbl">coral #f3c9b6 &middot; escala definida, sem uso de superf&iacute;cie</span></div>
     </div>
   </div>
 
