@@ -36,40 +36,42 @@ export function PasswordGateForm({ redirectTo }: { redirectTo: string }) {
 
   return (
     <form onSubmit={handleSubmit} className="flex w-full max-w-[24rem] flex-col gap-3">
-      <label htmlFor="site-password" className="type-body-sm text-fg-subtle">
+      <label htmlFor="site-password" className="type-body-sm text-fg-subtle text-left">
         Código de acesso
       </label>
-      <div className="relative">
-        <input
-          id="site-password"
-          type={visible ? 'text' : 'password'}
-          autoFocus
-          value={password}
-          onChange={(event) => {
-            setPassword(event.target.value);
-            setError(false);
-          }}
-          className="type-body w-full rounded-md border border-border bg-bg px-4 py-3 pr-12 text-fg outline-none focus:ring-2 focus:ring-accent-magenta"
-          placeholder="Digite o código"
-        />
-        <button
-          type="button"
-          onClick={() => setVisible((v) => !v)}
-          aria-label={visible ? 'Ocultar senha' : 'Mostrar senha'}
-          aria-pressed={visible}
-          className="absolute inset-y-0 right-0 flex w-12 items-center justify-center text-fg-muted hover:text-fg transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg rounded-md"
-        >
-          {visible ? <EyeOff size={18} aria-hidden="true" /> : <Eye size={18} aria-hidden="true" />}
-        </button>
+      <div className="flex items-start gap-3">
+        <div className="relative flex-1">
+          <input
+            id="site-password"
+            type={visible ? 'text' : 'password'}
+            autoFocus
+            value={password}
+            onChange={(event) => {
+              setPassword(event.target.value);
+              setError(false);
+            }}
+            className="type-body w-full rounded-md border border-border bg-bg px-4 py-3 pr-12 text-fg outline-none focus:ring-2 focus:ring-accent-magenta"
+            placeholder="Digite o código"
+          />
+          <button
+            type="button"
+            onClick={() => setVisible((v) => !v)}
+            aria-label={visible ? 'Ocultar senha' : 'Mostrar senha'}
+            aria-pressed={visible}
+            className="absolute inset-y-0 right-0 flex w-12 items-center justify-center text-fg-muted hover:text-fg transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg rounded-md"
+          >
+            {visible ? <EyeOff size={18} aria-hidden="true" /> : <Eye size={18} aria-hidden="true" />}
+          </button>
+        </div>
+        <Button type="submit" size="lg" disabled={loading || !password} className="shrink-0">
+          {loading ? 'Verificando...' : 'Entrar'}
+        </Button>
       </div>
       {error && (
-        <p className="type-body-sm text-accent-magenta">
+        <p className="type-body-sm text-accent-magenta text-left">
           Código incorreto. Tente novamente.
         </p>
       )}
-      <Button type="submit" size="lg" disabled={loading || !password} className="mt-2 self-start">
-        {loading ? 'Verificando...' : 'Entrar'}
-      </Button>
       <p className="type-body-sm text-fg-subtle mt-4">
         Não tem o código? Me chama pelo{' '}
         <a
