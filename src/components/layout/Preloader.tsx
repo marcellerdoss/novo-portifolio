@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 
-const HOME_PATHS = new Set(['/', '/en']);
+const HOME_PATHS = new Set(['/', '/en', '/senha']);
 
 export function Preloader() {
   const pathname = usePathname();

@@ -36,7 +36,7 @@ export function PasswordGateForm({ redirectTo }: { redirectTo: string }) {
 
   return (
     <form onSubmit={handleSubmit} className="flex w-full max-w-[24rem] flex-col gap-sm">
-      <label htmlFor="site-password" className="type-body-sm text-fg-subtle text-left">
+      <label htmlFor="site-password" className="sr-only">
         Código de acesso
       </label>
       <div className="flex gap-sm">
