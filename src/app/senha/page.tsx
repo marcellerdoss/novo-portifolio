@@ -15,17 +15,17 @@ export default async function SenhaPage({
   const redirectTo = from && from.startsWith('/') ? from : '/';
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center gap-8 bg-bg px-6 text-center">
-      <div className="flex flex-col gap-2">
-        <h1 className="type-display-lg text-fg">
-          <span className="block text-5xl md:text-6xl">Olá!</span>
-          <span className="block mt-1">Que bom receber sua visita :)</span>
-        </h1>
-        <p className="type-body-sm text-fg-subtle">
+    <div className="flex min-h-screen flex-col items-center justify-center gap-lg bg-bg px-6 text-center">
+      <h1 className="text-fg">
+        <span className="type-display-lg block">Olá!</span>
+        <span className="type-subhead block mt-xxs">Que bom receber sua visita :)</span>
+      </h1>
+      <div className="flex flex-col items-center gap-sm">
+        <p className="type-body-lg text-fg-muted">
           Digite o código de acesso para conhecer meu trabalho.
         </p>
+        <PasswordGateForm redirectTo={redirectTo} />
       </div>
-      <PasswordGateForm redirectTo={redirectTo} />
     </div>
   );
 }
