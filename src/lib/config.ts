@@ -3,6 +3,7 @@ export const siteConfig = {
   role: 'Product Designer',
   contact: {
     email: 'marcelle.rdoss@gmail.com',
+    whatsapp: 'https://wa.me/5521979165494',
     linkedin: 'https://www.linkedin.com/in/marcelle-rocha-dos-santos/',
     behance: '',
     github: '',

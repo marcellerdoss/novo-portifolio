@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Eye, EyeOff } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
+import { siteConfig } from '@/lib/config';
 
 export function PasswordGateForm({ redirectTo }: { redirectTo: string }) {
   const router = useRouter();
@@ -36,7 +37,7 @@ export function PasswordGateForm({ redirectTo }: { redirectTo: string }) {
   return (
     <form onSubmit={handleSubmit} className="flex w-full max-w-[24rem] flex-col gap-3">
       <label htmlFor="site-password" className="type-body-sm text-fg-subtle">
-        Senha de acesso
+        Código de acesso
       </label>
       <div className="relative">
         <input
@@ -49,7 +50,7 @@ export function PasswordGateForm({ redirectTo }: { redirectTo: string }) {
             setError(false);
           }}
           className="type-body w-full rounded-md border border-border bg-bg px-4 py-3 pr-12 text-fg outline-none focus:ring-2 focus:ring-accent-magenta"
-          placeholder="Digite a senha"
+          placeholder="Digite o código"
         />
         <button
           type="button"
@@ -63,12 +64,31 @@ export function PasswordGateForm({ redirectTo }: { redirectTo: string }) {
       </div>
       {error && (
         <p className="type-body-sm text-accent-magenta">
-          Senha incorreta. Tente novamente.
+          Código incorreto. Tente novamente.
         </p>
       )}
       <Button type="submit" size="lg" disabled={loading || !password} className="mt-2 self-start">
         {loading ? 'Verificando...' : 'Entrar'}
       </Button>
+      <p className="type-body-sm text-fg-subtle mt-4">
+        Não tem o código? Me chama pelo{' '}
+        <a
+          href={siteConfig.contact.whatsapp}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-fg underline underline-offset-4 hover:text-accent-magenta"
+        >
+          WhatsApp
+        </a>{' '}
+        ou{' '}
+        <a
+          href={`mailto:${siteConfig.contact.email}`}
+          className="text-fg underline underline-offset-4 hover:text-accent-magenta"
+        >
+          e-mail
+        </a>
+        . Vou adorar conversar com você!
+      </p>
     </form>
   );
 }
