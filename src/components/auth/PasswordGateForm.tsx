@@ -52,7 +52,7 @@ export function PasswordGateForm({ redirectTo }: { redirectTo: string }) {
             }}
             aria-describedby={error ? 'site-password-error' : undefined}
             aria-invalid={error || undefined}
-            className="type-body h-full w-full rounded-md border border-border bg-bg px-4 py-3 pr-12 text-fg outline-none focus:ring-2 focus:ring-accent-magenta"
+            className="type-body h-full w-full rounded-md border border-fg/20 bg-fg/10 px-4 py-3 pr-12 text-fg placeholder:text-fg/40 outline-none focus:ring-2 focus:ring-fg/40"
             placeholder="Digite o código"
           />
           <button
