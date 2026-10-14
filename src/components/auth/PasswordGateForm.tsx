@@ -63,47 +63,45 @@ export function PasswordGateForm({ redirectTo }: { redirectTo: string }) {
       <label htmlFor="site-password" className="sr-only">
         Código de acesso
       </label>
-      <div className="flex gap-sm">
-        <div className="relative flex-1">
-          <input
-            id="site-password"
-            type={visible ? 'text' : 'password'}
-            autoFocus
-            value={password}
-            onChange={(event) => {
-              setPassword(event.target.value);
-              setError(false);
-            }}
-            aria-describedby={error ? 'site-password-error' : undefined}
-            aria-invalid={error || undefined}
-            className="type-body h-full w-full rounded-md border border-border bg-bg px-4 py-3 pr-12 text-fg outline-none focus:ring-2 focus:ring-accent-magenta"
-            placeholder="Digite o código"
-          />
-          <button
-            type="button"
-            onClick={() => setVisible((v) => !v)}
-            aria-label={visible ? 'Ocultar código' : 'Mostrar código'}
-            aria-pressed={visible}
-            className="absolute inset-y-0 right-0 flex w-12 items-center justify-center text-fg-muted hover:text-fg transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg rounded-md"
-          >
-            {visible ? <EyeOff size={18} aria-hidden="true" /> : <Eye size={18} aria-hidden="true" />}
-          </button>
-        </div>
-        <Button
-          ref={buttonRef}
-          type="submit"
-          size="lg"
-          disabled={loading || !password}
-          className="shrink-0 disabled:opacity-70!"
+      <div className="relative">
+        <input
+          id="site-password"
+          type={visible ? 'text' : 'password'}
+          autoFocus
+          value={password}
+          onChange={(event) => {
+            setPassword(event.target.value);
+            setError(false);
+          }}
+          aria-describedby={error ? 'site-password-error' : undefined}
+          aria-invalid={error || undefined}
+          className="type-body w-full rounded-md border border-border bg-bg px-4 py-3 pr-12 text-fg outline-none focus:ring-2 focus:ring-accent-magenta"
+          placeholder="Digite o código"
+        />
+        <button
+          type="button"
+          onClick={() => setVisible((v) => !v)}
+          aria-label={visible ? 'Ocultar código' : 'Mostrar código'}
+          aria-pressed={visible}
+          className="absolute inset-y-0 right-0 flex w-12 items-center justify-center text-fg-muted hover:text-fg transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg rounded-md"
         >
-          {loading ? 'Verificando...' : 'Entrar'}
-        </Button>
+          {visible ? <EyeOff size={18} aria-hidden="true" /> : <Eye size={18} aria-hidden="true" />}
+        </button>
       </div>
+      <Button
+        ref={buttonRef}
+        type="submit"
+        size="lg"
+        disabled={loading || !password}
+        className="w-full bg-accent-magenta! hover:bg-magenta-500! disabled:opacity-70!"
+      >
+        {loading ? 'Verificando...' : 'Entrar'}
+      </Button>
       {error && (
         <p
           id="site-password-error"
           role="alert"
-          className="type-body-sm text-accent-magenta dark:text-magenta-300 text-left"
+          className="type-body-sm text-accent-magenta dark:text-magenta-300"
         >
           Código incorreto. Tente novamente.
         </p>
