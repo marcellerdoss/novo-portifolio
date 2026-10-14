@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const LINE_1 = 'Olá!';
 const LINE_2 = 'Que bom receber sua visita :)';
@@ -17,15 +17,23 @@ function randomCharDelay() {
   return MIN_CHAR_MS + Math.random() * (MAX_CHAR_MS - MIN_CHAR_MS);
 }
 
-export function TypingGreeting() {
+export function TypingGreeting({ onDone }: { onDone?: () => void }) {
   const [charsRevealed, setCharsRevealed] = useState(0);
+  const onDoneRef = useRef(onDone);
+
+  useEffect(() => {
+    onDoneRef.current = onDone;
+  }, [onDone]);
 
   useEffect(() => {
     let timeoutId: ReturnType<typeof setTimeout> | undefined;
     let started = false;
 
     function scheduleNext(count: number) {
-      if (count >= TOTAL) return;
+      if (count >= TOTAL) {
+        onDoneRef.current?.();
+        return;
+      }
       // pausa maior logo apos terminar de digitar "Ola!" (count === 4)
       const delay = count === LINE_1.length ? BREATH_AFTER_LINE1_MS : randomCharDelay();
       timeoutId = setTimeout(() => {
@@ -42,7 +50,10 @@ export function TypingGreeting() {
       // (sem setState direto no corpo do efeito, so dentro do callback)
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (reduceMotion) {
-        timeoutId = setTimeout(() => setCharsRevealed(TOTAL), 0);
+        timeoutId = setTimeout(() => {
+          setCharsRevealed(TOTAL);
+          onDoneRef.current?.();
+        }, 0);
         return;
       }
       scheduleNext(0);

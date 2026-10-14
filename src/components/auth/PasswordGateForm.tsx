@@ -6,7 +6,13 @@ import { Eye, EyeOff } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { siteConfig } from '@/lib/config';
 
-export function PasswordGateForm({ redirectTo }: { redirectTo: string }) {
+export function PasswordGateForm({
+  redirectTo,
+  focusWhenReady,
+}: {
+  redirectTo: string;
+  focusWhenReady?: boolean;
+}) {
   const router = useRouter();
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
@@ -16,6 +22,13 @@ export function PasswordGateForm({ redirectTo }: { redirectTo: string }) {
   const [expanded, setExpanded] = useState(false);
   const [origin, setOrigin] = useState<{ x: number; y: number } | null>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  // so foca o campo quando o resto da tela e revelado (depois da digitacao
+  // do titulo) - autoFocus estatico focaria um campo ainda invisivel.
+  useEffect(() => {
+    if (focusWhenReady) inputRef.current?.focus();
+  }, [focusWhenReady]);
 
   // onda magenta expandindo do botao, ecoando o alvo/aneis do Preloader
   // sem reexecutar a animacao inteira (monograma + aneis) de novo.
@@ -65,9 +78,9 @@ export function PasswordGateForm({ redirectTo }: { redirectTo: string }) {
       </label>
       <div className="relative">
         <input
+          ref={inputRef}
           id="site-password"
           type={visible ? 'text' : 'password'}
-          autoFocus
           value={password}
           onChange={(event) => {
             setPassword(event.target.value);

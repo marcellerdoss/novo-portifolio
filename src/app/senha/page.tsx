@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
-import { PasswordGateForm } from '@/components/auth/PasswordGateForm';
-import { TypingGreeting } from '@/components/auth/TypingGreeting';
+import { SenhaScreen } from '@/components/auth/SenhaScreen';
 
 export const metadata: Metadata = {
   title: 'Acesso restrito',
@@ -15,15 +14,5 @@ export default async function SenhaPage({
   const { from } = await searchParams;
   const redirectTo = from && from.startsWith('/') ? from : '/';
 
-  return (
-    <div className="flex min-h-screen flex-col items-center justify-center gap-lg bg-bg px-6 text-center">
-      <TypingGreeting />
-      <div className="flex flex-col items-center gap-sm">
-        <p className="type-body-lg text-fg-muted">
-          Digite o código de acesso para conhecer meu trabalho.
-        </p>
-        <PasswordGateForm redirectTo={redirectTo} />
-      </div>
-    </div>
-  );
+  return <SenhaScreen redirectTo={redirectTo} />;
 }
