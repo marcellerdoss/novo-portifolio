@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Eye, EyeOff } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { siteConfig } from '@/lib/config';
@@ -10,15 +10,24 @@ export function PasswordGateForm({ redirectTo }: { redirectTo: string }) {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [visible, setVisible] = useState(false);
-  const [unlocked, setUnlocked] = useState(false);
+  const [transitioning, setTransitioning] = useState(false);
+  const [expanded, setExpanded] = useState(false);
+  const [origin, setOrigin] = useState<{ x: number; y: number } | null>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
+  // onda magenta expandindo do botao, ecoando o alvo/aneis do Preloader
+  // sem reexecutar a animacao inteira (monograma + aneis) de novo.
   useEffect(() => {
-    if (!unlocked) return;
+    if (!transitioning) return;
+    const raf = requestAnimationFrame(() => setExpanded(true));
     const timeout = setTimeout(() => {
       window.location.href = redirectTo;
-    }, 500);
-    return () => clearTimeout(timeout);
-  }, [unlocked, redirectTo]);
+    }, 700);
+    return () => {
+      cancelAnimationFrame(raf);
+      clearTimeout(timeout);
+    };
+  }, [transitioning, redirectTo]);
 
   async function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
@@ -37,7 +46,11 @@ export function PasswordGateForm({ redirectTo }: { redirectTo: string }) {
       return;
     }
 
-    setUnlocked(true);
+    const rect = buttonRef.current?.getBoundingClientRect();
+    if (rect) {
+      setOrigin({ x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 });
+    }
+    setTransitioning(true);
   }
 
   return (
@@ -72,6 +85,7 @@ export function PasswordGateForm({ redirectTo }: { redirectTo: string }) {
           </button>
         </div>
         <Button
+          ref={buttonRef}
           type="submit"
           size="lg"
           disabled={loading || !password}
@@ -111,20 +125,23 @@ export function PasswordGateForm({ redirectTo }: { redirectTo: string }) {
         Vou adorar conversar com você!
       </p>
 
-      <div
-        aria-hidden={!unlocked}
-        className={`fixed inset-0 z-50 flex items-center justify-center bg-bg transition-opacity duration-300 ${
-          unlocked ? 'opacity-100' : 'pointer-events-none opacity-0'
-        }`}
-      >
+      {transitioning && origin && (
         <div
-          className="h-10 w-10 animate-spin rounded-full border-2 border-accent-magenta border-t-transparent"
           aria-hidden="true"
+          className="pointer-events-none fixed z-50 rounded-full bg-accent-magenta"
+          style={{
+            left: origin.x,
+            top: origin.y,
+            width: 24,
+            height: 24,
+            transform: `translate(-50%, -50%) scale(${expanded ? 100 : 0})`,
+            transition: 'transform 700ms cubic-bezier(0.32, 0, 0.4, 1)',
+          }}
         />
-        <span className="sr-only" role="status">
-          Entrando...
-        </span>
-      </div>
+      )}
+      <span className="sr-only" role="status">
+        {transitioning ? 'Entrando...' : ''}
+      </span>
     </form>
   );
 }
