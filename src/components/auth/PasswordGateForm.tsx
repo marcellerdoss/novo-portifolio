@@ -31,7 +31,7 @@ export function PasswordGateForm({ redirectTo }: { redirectTo: string }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex w-full max-w-sm flex-col gap-3">
+    <form onSubmit={handleSubmit} className="flex w-full max-w-[24rem] flex-col gap-3">
       <label htmlFor="site-password" className="type-body-sm text-[var(--fg-subtle)]">
         Senha de acesso
       </label>
