@@ -1,13 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import { Eye, EyeOff } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { siteConfig } from '@/lib/config';
 
 export function PasswordGateForm({ redirectTo }: { redirectTo: string }) {
-  const router = useRouter();
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -30,8 +28,10 @@ export function PasswordGateForm({ redirectTo }: { redirectTo: string }) {
       return;
     }
 
-    router.push(redirectTo);
-    router.refresh();
+    // navegacao "dura" (nao router.push): o Preloader so toca em carregamento
+    // real de pagina na home, entao a entrada no site precisa ser um load de
+    // verdade pra manter a animacao de entrada depois do gate de senha.
+    window.location.href = redirectTo;
   }
 
   return (
@@ -52,7 +52,7 @@ export function PasswordGateForm({ redirectTo }: { redirectTo: string }) {
             }}
             aria-describedby={error ? 'site-password-error' : undefined}
             aria-invalid={error || undefined}
-            className="type-body h-full w-full rounded-md border border-fg/20 bg-fg/10 px-4 py-3 pr-12 text-fg placeholder:text-fg/40 outline-none focus:ring-2 focus:ring-fg/40"
+            className="type-body h-full w-full rounded-md border border-border bg-bg px-4 py-3 pr-12 text-fg outline-none focus:ring-2 focus:ring-accent-magenta"
             placeholder="Digite o código"
           />
           <button
