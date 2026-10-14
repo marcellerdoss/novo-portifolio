@@ -5,27 +5,47 @@ import { useEffect, useState } from 'react';
 const LINE_1 = 'Olá!';
 const LINE_2 = 'Que bom receber sua visita :)';
 const TOTAL = LINE_1.length + LINE_2.length;
-const TYPE_SPEED_MS = 45;
+
+// velocidade de digitacao humana: intervalo randomico por caractere (nao
+// um tick fixo e robotico), com uma pausa maior pra "respirar" depois do
+// "Ola!" antes de continuar a segunda linha.
+const MIN_CHAR_MS = 90;
+const MAX_CHAR_MS = 190;
+const BREATH_AFTER_LINE1_MS = 700;
+
+function randomCharDelay() {
+  return MIN_CHAR_MS + Math.random() * (MAX_CHAR_MS - MIN_CHAR_MS);
+}
 
 export function TypingGreeting() {
   const [charsRevealed, setCharsRevealed] = useState(0);
 
   useEffect(() => {
-    let typingInterval: ReturnType<typeof setInterval> | undefined;
+    let timeoutId: ReturnType<typeof setTimeout> | undefined;
     let started = false;
+
+    function scheduleNext(count: number) {
+      if (count >= TOTAL) return;
+      // pausa maior logo apos terminar de digitar "Ola!" (count === 4)
+      const delay = count === LINE_1.length ? BREATH_AFTER_LINE1_MS : randomCharDelay();
+      timeoutId = setTimeout(() => {
+        const next = count + 1;
+        setCharsRevealed(next);
+        scheduleNext(next);
+      }, delay);
+    }
 
     function startTyping() {
       if (started) return;
       started = true;
-      // prefers-reduced-motion: pula pro texto completo no primeiro tick
+      // prefers-reduced-motion: pula pro texto completo direto
       // (sem setState direto no corpo do efeito, so dentro do callback)
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      let count = 0;
-      typingInterval = setInterval(() => {
-        count = reduceMotion ? TOTAL : count + 1;
-        setCharsRevealed(count);
-        if (count >= TOTAL && typingInterval) clearInterval(typingInterval);
-      }, TYPE_SPEED_MS);
+      if (reduceMotion) {
+        timeoutId = setTimeout(() => setCharsRevealed(TOTAL), 0);
+        return;
+      }
+      scheduleNext(0);
     }
 
     // a tela de senha fica atras do Preloader por ~3.8s (ver HOME_PATHS em
@@ -33,7 +53,7 @@ export function TypingGreeting() {
     // Espera o #preloader sumir do DOM antes de comecar a "digitar".
     if (!document.getElementById('preloader')) {
       startTyping();
-      return () => clearInterval(typingInterval);
+      return () => clearTimeout(timeoutId);
     }
 
     const observer = new MutationObserver(() => {
@@ -49,7 +69,7 @@ export function TypingGreeting() {
     return () => {
       observer.disconnect();
       clearTimeout(fallback);
-      clearInterval(typingInterval);
+      clearTimeout(timeoutId);
     };
   }, []);
 
