@@ -17,7 +17,10 @@ export default async function SenhaPage({
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-8 bg-bg px-6 text-center">
       <div className="flex flex-col gap-2">
-        <h1 className="type-display-lg text-fg">Oi! Que bom receber sua visita. 💜</h1>
+        <h1 className="text-fg">
+          <span className="type-display-xl block">Olá!</span>
+          <span className="type-display-lg block mt-1">Que bom receber sua visita :)</span>
+        </h1>
         <p className="type-body-sm text-fg-subtle">
           Digite o código de acesso para conhecer meu trabalho.
         </p>
