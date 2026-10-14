@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Eye, EyeOff } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { siteConfig } from '@/lib/config';
@@ -10,6 +10,15 @@ export function PasswordGateForm({ redirectTo }: { redirectTo: string }) {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [visible, setVisible] = useState(false);
+  const [unlocked, setUnlocked] = useState(false);
+
+  useEffect(() => {
+    if (!unlocked) return;
+    const timeout = setTimeout(() => {
+      window.location.href = redirectTo;
+    }, 500);
+    return () => clearTimeout(timeout);
+  }, [unlocked, redirectTo]);
 
   async function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
@@ -28,10 +37,7 @@ export function PasswordGateForm({ redirectTo }: { redirectTo: string }) {
       return;
     }
 
-    // navegacao "dura" (nao router.push): o Preloader so toca em carregamento
-    // real de pagina na home, entao a entrada no site precisa ser um load de
-    // verdade pra manter a animacao de entrada depois do gate de senha.
-    window.location.href = redirectTo;
+    setUnlocked(true);
   }
 
   return (
@@ -104,6 +110,21 @@ export function PasswordGateForm({ redirectTo }: { redirectTo: string }) {
         <br />
         Vou adorar conversar com você!
       </p>
+
+      <div
+        aria-hidden={!unlocked}
+        className={`fixed inset-0 z-50 flex items-center justify-center bg-bg transition-opacity duration-300 ${
+          unlocked ? 'opacity-100' : 'pointer-events-none opacity-0'
+        }`}
+      >
+        <div
+          className="h-10 w-10 animate-spin rounded-full border-2 border-accent-magenta border-t-transparent"
+          aria-hidden="true"
+        />
+        <span className="sr-only" role="status">
+          Entrando...
+        </span>
+      </div>
     </form>
   );
 }
