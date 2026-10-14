@@ -100,7 +100,9 @@ export function PasswordGateForm({ redirectTo }: { redirectTo: string }) {
         >
           e-mail
         </a>
-        . Vou adorar conversar com você!
+        .
+        <br />
+        Vou adorar conversar com você!
       </p>
     </form>
   );
