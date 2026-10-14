@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { Button } from '@/components/ui/Button';
 
 export function PasswordGateForm({ redirectTo }: { redirectTo: string }) {
   const router = useRouter();
@@ -32,7 +33,7 @@ export function PasswordGateForm({ redirectTo }: { redirectTo: string }) {
 
   return (
     <form onSubmit={handleSubmit} className="flex w-full max-w-[24rem] flex-col gap-3">
-      <label htmlFor="site-password" className="type-body-sm text-[var(--fg-subtle)]">
+      <label htmlFor="site-password" className="type-body-sm text-fg-subtle">
         Senha de acesso
       </label>
       <input
@@ -44,21 +45,17 @@ export function PasswordGateForm({ redirectTo }: { redirectTo: string }) {
           setPassword(event.target.value);
           setError(false);
         }}
-        className="rounded-md border border-[var(--border-token)] bg-[var(--bg)] px-4 py-3 text-[var(--fg)] outline-none focus:border-[var(--color-accent-magenta)]"
+        className="type-body rounded-md border border-border bg-bg px-4 py-3 text-fg outline-none focus:ring-2 focus:ring-accent-magenta"
         placeholder="Digite a senha"
       />
       {error && (
-        <p className="type-body-sm text-[var(--color-accent-magenta)]">
+        <p className="type-body-sm text-accent-magenta">
           Senha incorreta. Tente novamente.
         </p>
       )}
-      <button
-        type="submit"
-        disabled={loading || !password}
-        className="type-btn mt-2 rounded-md bg-primary px-4 py-3 text-white transition-opacity disabled:opacity-50"
-      >
+      <Button type="submit" size="lg" disabled={loading || !password} className="mt-2 self-start">
         {loading ? 'Verificando...' : 'Entrar'}
-      </button>
+      </Button>
     </form>
   );
 }

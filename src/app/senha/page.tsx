@@ -15,10 +15,10 @@ export default async function SenhaPage({
   const redirectTo = from && from.startsWith('/') ? from : '/';
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center gap-8 bg-[var(--bg)] px-6 text-center">
+    <div className="flex min-h-screen flex-col items-center justify-center gap-8 bg-bg px-6 text-center">
       <div className="flex flex-col gap-2">
-        <h1 className="type-headline text-[var(--fg)]">Acesso restrito</h1>
-        <p className="type-body-sm text-[var(--fg-subtle)]">
+        <h1 className="type-display-lg text-fg">Acesso restrito</h1>
+        <p className="type-body-sm text-fg-subtle">
           Este portfólio está protegido por senha. Digite-a para continuar.
         </p>
       </div>
