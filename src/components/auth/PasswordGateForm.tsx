@@ -1,11 +1,13 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { Eye, EyeOff } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { siteConfig } from '@/lib/config';
 
 export function PasswordGateForm({ redirectTo }: { redirectTo: string }) {
+  const router = useRouter();
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -21,13 +23,16 @@ export function PasswordGateForm({ redirectTo }: { redirectTo: string }) {
     if (!transitioning) return;
     const raf = requestAnimationFrame(() => setExpanded(true));
     const timeout = setTimeout(() => {
-      window.location.href = redirectTo;
+      // router.push (navegacao client-side) em vez de hard reload: o layout
+      // raiz nunca remonta, entao o Preloader (que so ativa num mount novo)
+      // nao toca de novo depois da onda - sem precisar de nenhuma flag.
+      router.push(redirectTo);
     }, 700);
     return () => {
       cancelAnimationFrame(raf);
       clearTimeout(timeout);
     };
-  }, [transitioning, redirectTo]);
+  }, [transitioning, redirectTo, router]);
 
   async function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
