@@ -90,12 +90,12 @@ export function TypingGreeting({ onDone }: { onDone?: () => void }) {
   const typingLine2 = !typingLine1 && revealedLine2 < LINE_2.length;
 
   return (
-    <h1 className="text-[clamp(2rem,4.5vw,4.5rem)] leading-[1.05] tracking-[-2px] text-navy-600 dark:text-navy-200">
-      <span className="block font-bold">
+    <h1 className="type-headline text-left text-fg">
+      <span className="block">
         {LINE_1.slice(0, revealedLine1)}
         {typingLine1 && <Caret />}
       </span>
-      <span className="block font-extrabold">
+      <span className="block">
         {LINE_2.slice(0, revealedLine2)}
         {typingLine2 && <Caret />}
       </span>

@@ -9,7 +9,9 @@ export function SenhaScreen({ redirectTo }: { redirectTo: string }) {
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-lg bg-bg px-6 text-center">
-      <TypingGreeting onDone={() => setTypingDone(true)} />
+      <div className="w-full max-w-[26rem] rounded-lg bg-surface-soft px-lg py-lg">
+        <TypingGreeting onDone={() => setTypingDone(true)} />
+      </div>
       <div
         aria-hidden={!typingDone}
         className={`flex flex-col items-center gap-sm transition-opacity duration-500 ${
