@@ -17,7 +17,7 @@ export function SenhaScreen({ redirectTo }: { redirectTo: string }) {
         }`}
       >
         <p className="type-body-lg text-fg-muted">
-          Digite o código de acesso para conhecer meu trabalho.
+          Para conhecer meu trabalho, digite o código de acesso:
         </p>
         <PasswordGateForm redirectTo={redirectTo} focusWhenReady={typingDone} />
       </div>
