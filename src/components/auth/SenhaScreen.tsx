@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { PasswordGateForm } from './PasswordGateForm';
 import { siteConfig } from '@/lib/config';
@@ -24,44 +24,77 @@ function randomCharDelay() {
   return MIN_CHAR_MS + Math.random() * (MAX_CHAR_MS - MIN_CHAR_MS);
 }
 
-function readPauseFor(text: string) {
-  return Math.max(MIN_READ_PAUSE_MS, text.length * READ_PAUSE_MS_PER_CHAR);
+function readPauseFor(length: number) {
+  return Math.max(MIN_READ_PAUSE_MS, length * READ_PAUSE_MS_PER_CHAR);
+}
+
+// estado de digitacao compartilhado por qualquer bolha (texto puro ou com
+// links) - conta so os caracteres (totalLength), quem desenha o conteudo
+// e cada componente.
+function useTypewriter(totalLength: number, enabled: boolean, onSent?: () => void) {
+  const [revealed, setRevealed] = useState(0);
+  const [sent, setSent] = useState(false);
+  const onSentRef = useRef(onSent);
+
+  useEffect(() => {
+    onSentRef.current = onSent;
+  }, [onSent]);
+
+  useEffect(() => {
+    if (!enabled) return;
+    let timeoutId: ReturnType<typeof setTimeout> | undefined;
+
+    function finish() {
+      setSent(true);
+      onSentRef.current?.();
+    }
+
+    function scheduleNext(count: number) {
+      if (count >= totalLength) {
+        timeoutId = setTimeout(finish, readPauseFor(totalLength));
+        return;
+      }
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduceMotion) {
+        setRevealed(totalLength);
+        finish();
+        return;
+      }
+      timeoutId = setTimeout(() => {
+        const next = count + 1;
+        setRevealed(next);
+        scheduleNext(next);
+      }, randomCharDelay());
+    }
+
+    scheduleNext(0);
+    return () => clearTimeout(timeoutId);
+  }, [enabled, totalLength]);
+
+  return { revealed, sent };
 }
 
 // mensagens de ajuda: so aparecem depois de uma senha errada, uma de cada
 // vez (cada uma so comeca quando a anterior termina). As de texto puro
-// digitam igual a instrucao; a de contato (com links) so entra com fade,
-// ja que nao da pra "digitar" um link.
+// digitam igual a instrucao; a de contato (com links) digita igual, so que
+// em pedacos (alguns viram <a>, pro link funcionar assim que aparece).
+type Segment = { text: string; href?: string; external?: boolean };
 type HelpMessage =
   | { id: string; kind: 'typed'; text: string }
-  | { id: string; kind: 'static'; content: ReactNode };
+  | { id: string; kind: 'link'; segments: Segment[] };
 
 const HELP_MESSAGES: HelpMessage[] = [
   { id: 'sem-codigo', kind: 'typed', text: 'Não tem o código?' },
   {
     id: 'contato',
-    kind: 'static',
-    content: (
-      <>
-        Me chama pelo{' '}
-        <a
-          href={siteConfig.contact.whatsapp}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-fg underline underline-offset-4 hover:text-accent-magenta"
-        >
-          WhatsApp
-        </a>{' '}
-        ou me manda um{' '}
-        <a
-          href={`mailto:${siteConfig.contact.email}`}
-          className="text-fg underline underline-offset-4 hover:text-accent-magenta whitespace-nowrap"
-        >
-          e-mail
-        </a>
-        .
-      </>
-    ),
+    kind: 'link',
+    segments: [
+      { text: 'Me chama pelo ' },
+      { text: 'WhatsApp', href: siteConfig.contact.whatsapp, external: true },
+      { text: ' ou me manda um ' },
+      { text: 'e-mail', href: `mailto:${siteConfig.contact.email}` },
+      { text: '.' },
+    ],
   },
   { id: 'adorar', kind: 'typed', text: 'Vou adorar conversar com você :)' },
 ];
@@ -97,45 +130,7 @@ function TypedBubble({
   onSent?: () => void;
   colorClass?: string;
 }) {
-  const [revealed, setRevealed] = useState(0);
-  const [sent, setSent] = useState(false);
-  const onSentRef = useRef(onSent);
-
-  useEffect(() => {
-    onSentRef.current = onSent;
-  }, [onSent]);
-
-  useEffect(() => {
-    if (!enabled) return;
-    let timeoutId: ReturnType<typeof setTimeout> | undefined;
-
-    function finish() {
-      setSent(true);
-      onSentRef.current?.();
-    }
-
-    function scheduleNext(count: number) {
-      if (count >= text.length) {
-        timeoutId = setTimeout(finish, readPauseFor(text));
-        return;
-      }
-      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (reduceMotion) {
-        setRevealed(text.length);
-        finish();
-        return;
-      }
-      timeoutId = setTimeout(() => {
-        const next = count + 1;
-        setRevealed(next);
-        scheduleNext(next);
-      }, randomCharDelay());
-    }
-
-    scheduleNext(0);
-    return () => clearTimeout(timeoutId);
-  }, [enabled, text]);
-
+  const { revealed, sent } = useTypewriter(text.length, enabled, onSent);
   const typing = enabled && revealed < text.length;
 
   return (
@@ -152,49 +147,58 @@ function TypedBubble({
   );
 }
 
-// bolha estatica (sem digitacao) - pro conteudo com link, que nao da pra
-// "digitar". Avisa o pai depois de um instante, pra manter a sequencia.
-function StaticBubble({
+// mesma digitacao caractere-a-caractere do TypedBubble, so que o texto e
+// dividido em pedacos - os que tem `href` viram <a> assim que comecam a
+// aparecer (o link ja funciona com a palavra parcialmente digitada).
+function TypedLinkBubble({
+  segments,
   enabled,
   onSent,
-  readPauseMs = MIN_READ_PAUSE_MS,
-  children,
 }: {
+  segments: Segment[];
   enabled: boolean;
   onSent?: () => void;
-  readPauseMs?: number;
-  children: ReactNode;
 }) {
-  // uma vez mostrada, a bolha fica (nao esconde quando enabled vira false
-  // ao passar a vez pra proxima mensagem).
-  const [shown, setShown] = useState(false);
-  const onSentRef = useRef(onSent);
+  const totalLength = segments.reduce((sum, seg) => sum + seg.text.length, 0);
+  const { revealed, sent } = useTypewriter(totalLength, enabled, onSent);
+  const typing = enabled && revealed < totalLength;
 
-  useEffect(() => {
-    onSentRef.current = onSent;
-  }, [onSent]);
+  const offsets: number[] = [];
+  segments.reduce((sum, seg) => {
+    offsets.push(sum);
+    return sum + seg.text.length;
+  }, 0);
 
-  useEffect(() => {
-    if (!enabled) return;
-    const showTimeout = setTimeout(() => setShown(true), 0);
-    const advanceTimeout = setTimeout(() => onSentRef.current?.(), readPauseMs);
-    return () => {
-      clearTimeout(showTimeout);
-      clearTimeout(advanceTimeout);
-    };
-  }, [enabled, readPauseMs]);
-
-  if (!shown) return null;
+  const rendered = segments.map((seg, i) => {
+    const segRevealed = Math.max(0, Math.min(seg.text.length, revealed - offsets[i]));
+    const slice = seg.text.slice(0, segRevealed);
+    if (!slice) return null;
+    if (seg.href) {
+      return (
+        <a
+          key={i}
+          href={seg.href}
+          target={seg.external ? '_blank' : undefined}
+          rel={seg.external ? 'noopener noreferrer' : undefined}
+          className="text-fg underline underline-offset-4 hover:text-accent-magenta"
+        >
+          {slice}
+        </a>
+      );
+    }
+    return <span key={i}>{slice}</span>;
+  });
 
   return (
     <motion.div
       layout="position"
       initial={{ opacity: 0, y: 12 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, ease: EASE }}
+      animate={{ opacity: 1, y: 0, scale: sent ? [1, 1.035, 1] : 1 }}
+      transition={{ duration: sent ? 0.32 : 0.4, ease: EASE }}
       className={bubbleClassName()}
     >
-      {children}
+      {rendered}
+      {typing && <Cursor />}
     </motion.div>
   );
 }
@@ -303,14 +307,12 @@ export function SenhaScreen({ redirectTo }: { redirectTo: string }) {
               onSent={() => setHelpStage((s) => s + 1)}
             />
           ) : (
-            <StaticBubble
+            <TypedLinkBubble
               key={msg.id}
+              segments={msg.segments}
               enabled={i === helpStage}
               onSent={() => setHelpStage((s) => s + 1)}
-              readPauseMs={2400}
-            >
-              {msg.content}
-            </StaticBubble>
+            />
           )
         )}
 
@@ -348,20 +350,12 @@ export function SenhaScreen({ redirectTo }: { redirectTo: string }) {
         }
       >
         {readyToType && messages}
-
-        {/* enquanto a conversa nao "comecou de verdade" (1a tentativa),
-            o campo fica junto do grupo centralizado - igual ao estado
-            vazio do ChatGPT */}
-        {!hasSubmitted && readyToType && composer && (
-          <motion.div layout="position" transition={{ duration: 0.6, ease: EASE }} className="w-full max-w-[30rem]">
-            {composer}
-          </motion.div>
-        )}
       </div>
 
-      {/* a partir da 1a tentativa, o campo vira fixo na base da tela -
-          chat de verdade, nao cola mais no grupo centralizado do inicio */}
-      {hasSubmitted && composer && (
+      {/* campo sempre fixo na base da tela, desde que aparece - nunca fica
+          "preso" ao grupo de mensagens, entao nao se mexe conforme as
+          bolhas da saudacao vao surgindo uma a uma */}
+      {readyToType && composer && (
         <div className="fixed inset-x-0 bottom-0 z-10 bg-bg px-6 py-3">
           <div className="mx-auto w-full max-w-[30rem]">{composer}</div>
         </div>
