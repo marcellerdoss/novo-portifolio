@@ -56,11 +56,13 @@ const HELP_MESSAGES: HelpMessage[] = [
   { id: 'adorar', kind: 'typed', text: 'Vou adorar conversar com você!' },
 ];
 
+// bolinha magenta (mesma usada no titulo da v1 e no #dot do Preloader),
+// dimensionada em `em` pra acompanhar o tamanho da fonte de cada bolha.
 function Cursor() {
   return (
     <span
       aria-hidden="true"
-      className="ml-0.5 inline-block h-[0.85em] w-[0.08em] translate-y-[0.12em] animate-pulse bg-current align-middle"
+      className="ml-1 inline-block h-[0.45em] w-[0.45em] animate-pulse rounded-full bg-accent-magenta align-baseline"
     />
   );
 }
