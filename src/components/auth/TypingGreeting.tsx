@@ -90,7 +90,7 @@ export function TypingGreeting({ onDone }: { onDone?: () => void }) {
   const typingLine2 = !typingLine1 && revealedLine2 < LINE_2.length;
 
   return (
-    <h1 className="text-[clamp(2rem,4.5vw,4.5rem)] leading-[1.05] tracking-[-2px] text-navy-600 dark:text-navy-200">
+    <h1 className="text-[1.125rem] leading-[1.05] tracking-[-2px] text-navy-600 dark:text-navy-200">
       <span className="block font-bold">
         {LINE_1.slice(0, revealedLine1)}
         {typingLine1 && <Caret />}
