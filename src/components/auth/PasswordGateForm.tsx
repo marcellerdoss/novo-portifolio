@@ -6,12 +6,15 @@ import { ArrowUp, Eye, EyeOff } from 'lucide-react';
 export function PasswordGateForm({
   redirectTo,
   focusWhenReady,
+  error,
+  onError,
 }: {
   redirectTo: string;
   focusWhenReady?: boolean;
+  error: boolean;
+  onError: (hasError: boolean) => void;
 }) {
   const [password, setPassword] = useState('');
-  const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [visible, setVisible] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -25,7 +28,7 @@ export function PasswordGateForm({
   async function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
     setLoading(true);
-    setError(false);
+    onError(false);
 
     const response = await fetch('/api/site-password', {
       method: 'POST',
@@ -34,7 +37,7 @@ export function PasswordGateForm({
     });
 
     if (!response.ok) {
-      setError(true);
+      onError(true);
       setLoading(false);
       return;
     }
@@ -58,7 +61,7 @@ export function PasswordGateForm({
           value={password}
           onChange={(event) => {
             setPassword(event.target.value);
-            setError(false);
+            onError(false);
           }}
           aria-describedby={error ? 'site-password-error' : undefined}
           aria-invalid={error || undefined}
@@ -83,15 +86,6 @@ export function PasswordGateForm({
           <ArrowUp size={18} aria-hidden="true" />
         </button>
       </div>
-      {error && (
-        <p
-          id="site-password-error"
-          role="alert"
-          className="type-body-sm text-accent-magenta dark:text-magenta-300"
-        >
-          Código incorreto. Tente novamente.
-        </p>
-      )}
     </form>
   );
 }
