@@ -31,7 +31,9 @@ export function TypingGreeting({ onDone }: { onDone?: () => void }) {
 
     function scheduleNext(count: number) {
       if (count >= TOTAL) {
-        onDoneRef.current?.();
+        // mesma pausa de respiro usada entre "Ola!" e a segunda linha,
+        // agora tambem no final antes de avisar que terminou
+        timeoutId = setTimeout(() => onDoneRef.current?.(), BREATH_AFTER_LINE1_MS);
         return;
       }
       // pausa maior logo apos terminar de digitar "Ola!" (count === 4)
