@@ -13,6 +13,9 @@ const ERROR_TEXT = 'Código incorreto. Tente novamente.';
 // "da IA" streamando, igual GPT/Claude, nao o ritmo humano do greeting)
 const MIN_CHAR_MS = 15;
 const MAX_CHAR_MS = 35;
+// pausa depois de cada bolha terminar, antes da proxima comecar a digitar -
+// da tempo de ler a mensagem antes de ja vir a seguinte
+const READ_PAUSE_MS = 1100;
 
 function randomCharDelay() {
   return MIN_CHAR_MS + Math.random() * (MAX_CHAR_MS - MIN_CHAR_MS);
@@ -104,7 +107,7 @@ function TypedBubble({
 
     function scheduleNext(count: number) {
       if (count >= text.length) {
-        timeoutId = setTimeout(finish, 250);
+        timeoutId = setTimeout(finish, READ_PAUSE_MS);
         return;
       }
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -155,7 +158,7 @@ function StaticBubble({ enabled, onSent, children }: { enabled: boolean; onSent?
   useEffect(() => {
     if (!enabled) return;
     const showTimeout = setTimeout(() => setShown(true), 0);
-    const advanceTimeout = setTimeout(() => onSentRef.current?.(), 500);
+    const advanceTimeout = setTimeout(() => onSentRef.current?.(), READ_PAUSE_MS);
     return () => {
       clearTimeout(showTimeout);
       clearTimeout(advanceTimeout);
