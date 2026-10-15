@@ -10,16 +10,22 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 const INSTRUCTION_TEXT = 'Digite o código de acesso para conhecer meu trabalho';
 const ERROR_TEXT = 'Quase lá! Confere o código e tenta mais uma vez. 💗';
 const SUCCESS_TEXT = 'Prontinho! Fique à vontade ✨';
-// digitacao das mensagens de chat: mais rapida que a do titulo (resposta
-// "da IA" streamando, igual GPT/Claude, nao o ritmo humano do greeting)
-const MIN_CHAR_MS = 15;
-const MAX_CHAR_MS = 35;
+// digitacao das mensagens de chat: ritmo de streaming de IA, mas devagar o
+// suficiente pra acompanhar lendo enquanto aparece
+const MIN_CHAR_MS = 35;
+const MAX_CHAR_MS = 70;
 // pausa depois de cada bolha terminar, antes da proxima comecar a digitar -
-// da tempo de ler a mensagem antes de ja vir a seguinte
-const READ_PAUSE_MS = 1100;
+// proporcional ao tamanho do texto, pra dar tempo real de ler cada linha
+// (nao so um intervalo fixo, que fica curto demais pra frases longas)
+const MIN_READ_PAUSE_MS = 1400;
+const READ_PAUSE_MS_PER_CHAR = 55;
 
 function randomCharDelay() {
   return MIN_CHAR_MS + Math.random() * (MAX_CHAR_MS - MIN_CHAR_MS);
+}
+
+function readPauseFor(text: string) {
+  return Math.max(MIN_READ_PAUSE_MS, text.length * READ_PAUSE_MS_PER_CHAR);
 }
 
 // mensagens de ajuda: so aparecem depois de uma senha errada, uma de cada
@@ -72,7 +78,9 @@ function Cursor() {
 }
 
 function bubbleClassName(colorClass = 'text-fg') {
-  return `type-body-sm max-w-full self-start rounded-2xl rounded-bl-sm bg-surface-soft px-4 py-2 text-left ${colorClass}`;
+  // text-pretty evita palavra viuva sozinha na ultima linha quando o
+  // texto quebra em mais de uma linha
+  return `type-body-sm max-w-full self-start text-pretty rounded-2xl rounded-bl-sm bg-surface-soft px-4 py-2 text-left ${colorClass}`;
 }
 
 // bolha que digita um texto caractere por caractere (com cursor), e ao
@@ -108,7 +116,7 @@ function TypedBubble({
 
     function scheduleNext(count: number) {
       if (count >= text.length) {
-        timeoutId = setTimeout(finish, READ_PAUSE_MS);
+        timeoutId = setTimeout(finish, readPauseFor(text));
         return;
       }
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -146,7 +154,17 @@ function TypedBubble({
 
 // bolha estatica (sem digitacao) - pro conteudo com link, que nao da pra
 // "digitar". Avisa o pai depois de um instante, pra manter a sequencia.
-function StaticBubble({ enabled, onSent, children }: { enabled: boolean; onSent?: () => void; children: ReactNode }) {
+function StaticBubble({
+  enabled,
+  onSent,
+  readPauseMs = MIN_READ_PAUSE_MS,
+  children,
+}: {
+  enabled: boolean;
+  onSent?: () => void;
+  readPauseMs?: number;
+  children: ReactNode;
+}) {
   // uma vez mostrada, a bolha fica (nao esconde quando enabled vira false
   // ao passar a vez pra proxima mensagem).
   const [shown, setShown] = useState(false);
@@ -159,12 +177,12 @@ function StaticBubble({ enabled, onSent, children }: { enabled: boolean; onSent?
   useEffect(() => {
     if (!enabled) return;
     const showTimeout = setTimeout(() => setShown(true), 0);
-    const advanceTimeout = setTimeout(() => onSentRef.current?.(), READ_PAUSE_MS);
+    const advanceTimeout = setTimeout(() => onSentRef.current?.(), readPauseMs);
     return () => {
       clearTimeout(showTimeout);
       clearTimeout(advanceTimeout);
     };
-  }, [enabled]);
+  }, [enabled, readPauseMs]);
 
   if (!shown) return null;
 
@@ -282,7 +300,12 @@ export function SenhaScreen({ redirectTo }: { redirectTo: string }) {
                   onSent={() => setHelpStage((s) => s + 1)}
                 />
               ) : (
-                <StaticBubble key={msg.id} enabled={i === helpStage} onSent={() => setHelpStage((s) => s + 1)}>
+                <StaticBubble
+                  key={msg.id}
+                  enabled={i === helpStage}
+                  onSent={() => setHelpStage((s) => s + 1)}
+                  readPauseMs={2400}
+                >
                   {msg.content}
                 </StaticBubble>
               )
