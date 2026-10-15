@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { TypingGreeting } from './TypingGreeting';
+import { TypingText } from './TypingText';
 import { PasswordGateForm } from './PasswordGateForm';
 
 // easing suave usado no resto do site (fadeInUp em lib/animations.ts);
@@ -28,9 +29,11 @@ export function SenhaScreen({ redirectTo }: { redirectTo: string }) {
             transition={{ duration: 0.9, ease: EASE, delay: 0.3 }}
             className="flex flex-col items-center gap-sm"
           >
-            <p className="type-body-lg text-fg-muted">
-              Para conhecer meu trabalho, digite o código de acesso:
-            </p>
+            <TypingText
+              text="Para conhecer meu trabalho, digite o código de acesso:"
+              enabled={typingDone}
+              className="type-body-lg text-fg-muted"
+            />
             <PasswordGateForm redirectTo={redirectTo} focusWhenReady={typingDone} />
           </motion.div>
         )}
