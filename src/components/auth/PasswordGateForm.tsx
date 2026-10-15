@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { ArrowUp, Eye, EyeOff } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 
 export function PasswordGateForm({
   redirectTo,
@@ -16,7 +16,6 @@ export function PasswordGateForm({
 }) {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
-  const [visible, setVisible] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
   // so foca o campo quando o resto da tela e revelado (depois da digitacao
@@ -52,12 +51,12 @@ export function PasswordGateForm({
       <label htmlFor="site-password" className="sr-only">
         Código de acesso
       </label>
-      {/* barra de composicao tipo chat de IA: input + olho + enviar, tudo num so campo pill */}
+      {/* barra de composicao tipo chat de IA: input + enviar, tudo num so campo pill */}
       <div className="flex w-full items-center gap-1 rounded-pill border border-fg/20 bg-bg py-1.5 pl-5 pr-1.5 focus-within:border-fg/50">
         <input
           ref={inputRef}
           id="site-password"
-          type={visible ? 'text' : 'password'}
+          type="password"
           value={password}
           onChange={(event) => {
             setPassword(event.target.value);
@@ -68,15 +67,6 @@ export function PasswordGateForm({
           className="type-body w-full bg-transparent py-1.5 text-fg outline-none"
           placeholder="Digite o código"
         />
-        <button
-          type="button"
-          onClick={() => setVisible((v) => !v)}
-          aria-label={visible ? 'Ocultar código' : 'Mostrar código'}
-          aria-pressed={visible}
-          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-fg-muted transition-colors duration-150 hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg"
-        >
-          {visible ? <EyeOff size={18} aria-hidden="true" /> : <Eye size={18} aria-hidden="true" />}
-        </button>
         <button
           type="submit"
           disabled={loading || !password}
