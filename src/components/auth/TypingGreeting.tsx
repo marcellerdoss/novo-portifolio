@@ -109,7 +109,7 @@ function Caret() {
   return (
     <span
       aria-hidden="true"
-      className="ml-1 inline-block h-[0.28em] w-[0.28em] translate-y-[-0.1em] animate-pulse rounded-full bg-accent-magenta align-middle"
+      className="ml-1 inline-block h-[0.45em] w-[0.45em] animate-pulse rounded-full bg-accent-magenta align-baseline"
     />
   );
 }
