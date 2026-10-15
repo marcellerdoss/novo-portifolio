@@ -10,19 +10,9 @@ import { siteConfig } from '@/lib/config';
 const EASE = [0.22, 1, 0.36, 1] as const;
 const MESSAGE_STAGGER_MS = 700;
 
-// cada item do "texto da tela" vira sua propria mensagem, revelada uma de
-// cada vez - simulando uma IA mandando varias mensagens em sequencia.
-const MESSAGES: { id: string; content: ReactNode }[] = [
-  {
-    id: 'instrucao',
-    content: (
-      <>
-        Para conhecer meu trabalho,
-        <br />
-        digite o código de acesso:
-      </>
-    ),
-  },
+// mensagens de ajuda: so aparecem depois de uma senha errada (uma de cada
+// vez, logo apos o feedback de erro) - nao fazem parte do fluxo inicial.
+const HELP_MESSAGES: { id: string; content: ReactNode }[] = [
   { id: 'sem-codigo', content: 'Não tem o código?' },
   {
     id: 'contato',
@@ -67,19 +57,25 @@ function MessageBubble({ children }: { children: ReactNode }) {
 
 export function SenhaScreen({ redirectTo }: { redirectTo: string }) {
   const [typingDone, setTypingDone] = useState(false);
-  const [revealedCount, setRevealedCount] = useState(0);
   const [error, setError] = useState(false);
+  const [hasFailedOnce, setHasFailedOnce] = useState(false);
+  const [helpRevealedCount, setHelpRevealedCount] = useState(0);
 
-  // revela as mensagens estaticas uma de cada vez, feito a IA "mandando"
-  // varias mensagens em sequencia apos o titulo terminar de digitar.
+  function handleError(hasError: boolean) {
+    setError(hasError);
+    if (hasError) setHasFailedOnce(true);
+  }
+
+  // mensagens de ajuda so comecam a aparecer (uma de cada vez) depois da
+  // primeira senha errada, logo apos a bolha de erro.
   useEffect(() => {
-    if (!typingDone || revealedCount >= MESSAGES.length) return;
+    if (!hasFailedOnce || helpRevealedCount >= HELP_MESSAGES.length) return;
     const timeout = setTimeout(
-      () => setRevealedCount((c) => c + 1),
-      revealedCount === 0 ? 400 : MESSAGE_STAGGER_MS
+      () => setHelpRevealedCount((c) => c + 1),
+      helpRevealedCount === 0 ? 500 : MESSAGE_STAGGER_MS
     );
     return () => clearTimeout(timeout);
-  }, [typingDone, revealedCount]);
+  }, [hasFailedOnce, helpRevealedCount]);
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-lg bg-bg px-6 text-center">
@@ -93,9 +89,25 @@ export function SenhaScreen({ redirectTo }: { redirectTo: string }) {
           transition={{ duration: 0.6, ease: EASE }}
           className="flex w-full max-w-[26rem] flex-col items-start gap-sm"
         >
-          {MESSAGES.map(
-            (msg, i) => i < revealedCount && <MessageBubble key={msg.id}>{msg.content}</MessageBubble>
-          )}
+          <MessageBubble>Digite o código de acesso para conhecer meu trabalho</MessageBubble>
+
+          {/* campo de resposta ancorado logo apos a instrucao, nao flutua
+              separado com seu proprio atraso */}
+          <motion.div
+            layout="position"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: EASE }}
+            className="w-full max-w-[18rem] self-center"
+          >
+            <PasswordGateForm
+              redirectTo={redirectTo}
+              focusWhenReady={typingDone}
+              error={error}
+              onError={handleError}
+            />
+          </motion.div>
+
           {error && (
             <MessageBubble>
               <span className="text-accent-magenta dark:text-magenta-300">
@@ -103,22 +115,10 @@ export function SenhaScreen({ redirectTo }: { redirectTo: string }) {
               </span>
             </MessageBubble>
           )}
-        </motion.div>
-      )}
 
-      {typingDone && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5, ease: EASE }}
-          className="w-full max-w-[18rem]"
-        >
-          <PasswordGateForm
-            redirectTo={redirectTo}
-            focusWhenReady={typingDone}
-            error={error}
-            onError={setError}
-          />
+          {HELP_MESSAGES.map(
+            (msg, i) => i < helpRevealedCount && <MessageBubble key={msg.id}>{msg.content}</MessageBubble>
+          )}
         </motion.div>
       )}
     </div>
