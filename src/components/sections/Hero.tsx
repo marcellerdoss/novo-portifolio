@@ -64,10 +64,10 @@ export function Hero() {
 
           {/* Headline — col 1, row 2 (spans as colunas p/ caber em 2 linhas no desktop) */}
           <h1 className="text-[clamp(2rem,4.5vw,4.5rem)] leading-[1.05] tracking-[-2px] md:col-start-1 md:col-span-2 md:row-start-2">
-            <span className="block font-bold text-navy-600 dark:text-navy-200">
-              {t('headline_1')}
+            <span className="md:block font-bold text-navy-600 dark:text-navy-200">
+              {t('headline_1')}{' '}
             </span>
-            <span className="block font-extrabold">
+            <span className="md:block font-extrabold">
               <span className="text-navy-600 dark:text-navy-200">{headline2First}</span>
               {headline2Remainder && (
                 <span className="text-accent-magenta"> {headline2Remainder}</span>
