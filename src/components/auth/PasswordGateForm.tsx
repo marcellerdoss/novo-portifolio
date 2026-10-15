@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { ArrowUp, Eye, EyeOff } from 'lucide-react';
-import { siteConfig } from '@/lib/config';
 
 export function PasswordGateForm({
   redirectTo,
@@ -93,27 +92,6 @@ export function PasswordGateForm({
           Código incorreto. Tente novamente.
         </p>
       )}
-      <p className="type-body-xs text-fg-subtle mt-md w-[22rem] max-w-[90vw]">
-        Não tem o código? Me chama pelo{' '}
-        <a
-          href={siteConfig.contact.whatsapp}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-fg underline underline-offset-4 hover:text-accent-magenta"
-        >
-          WhatsApp
-        </a>{' '}
-        ou{' '}
-        <a
-          href={`mailto:${siteConfig.contact.email}`}
-          className="text-fg underline underline-offset-4 hover:text-accent-magenta whitespace-nowrap"
-        >
-          e-mail
-        </a>
-        .
-        <br />
-        Vou adorar conversar com você!
-      </p>
     </form>
   );
 }
