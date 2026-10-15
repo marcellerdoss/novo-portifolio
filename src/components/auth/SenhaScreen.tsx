@@ -21,9 +21,9 @@ export function SenhaScreen({ redirectTo }: { redirectTo: string }) {
         <TypingGreeting onDone={() => setTypingDone(true)} />
         {typingDone && (
           <motion.div
-            initial={{ clipPath: 'inset(0% 0 100% 0)' }}
-            animate={{ clipPath: 'inset(0% 0 0% 0)' }}
-            transition={{ duration: 5, ease: EASE, delay: 1 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 2, ease: EASE, delay: 1 }}
             className="flex flex-col items-center gap-sm"
           >
             <p className="type-body-lg text-fg-muted">
