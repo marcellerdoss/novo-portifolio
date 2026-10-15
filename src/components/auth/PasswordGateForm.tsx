@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { useRouter } from 'next/navigation';
 import { Eye, EyeOff } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { siteConfig } from '@/lib/config';
@@ -13,15 +12,10 @@ export function PasswordGateForm({
   redirectTo: string;
   focusWhenReady?: boolean;
 }) {
-  const router = useRouter();
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [visible, setVisible] = useState(false);
-  const [transitioning, setTransitioning] = useState(false);
-  const [expanded, setExpanded] = useState(false);
-  const [origin, setOrigin] = useState<{ x: number; y: number } | null>(null);
-  const buttonRef = useRef<HTMLButtonElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   // so foca o campo quando o resto da tela e revelado (depois da digitacao
@@ -29,23 +23,6 @@ export function PasswordGateForm({
   useEffect(() => {
     if (focusWhenReady) inputRef.current?.focus();
   }, [focusWhenReady]);
-
-  // onda magenta expandindo do botao, ecoando o alvo/aneis do Preloader
-  // sem reexecutar a animacao inteira (monograma + aneis) de novo.
-  useEffect(() => {
-    if (!transitioning) return;
-    const raf = requestAnimationFrame(() => setExpanded(true));
-    const timeout = setTimeout(() => {
-      // router.push (navegacao client-side) em vez de hard reload: o layout
-      // raiz nunca remonta, entao o Preloader (que so ativa num mount novo)
-      // nao toca de novo depois da onda - sem precisar de nenhuma flag.
-      router.push(redirectTo);
-    }, 700);
-    return () => {
-      cancelAnimationFrame(raf);
-      clearTimeout(timeout);
-    };
-  }, [transitioning, redirectTo, router]);
 
   async function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
@@ -64,11 +41,9 @@ export function PasswordGateForm({
       return;
     }
 
-    const rect = buttonRef.current?.getBoundingClientRect();
-    if (rect) {
-      setOrigin({ x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 });
-    }
-    setTransitioning(true);
+    // hard reload (nao router.push): o Preloader so ativa num mount novo de
+    // verdade, entao o loader de entrada toca de novo depois do acesso.
+    window.location.href = redirectTo;
   }
 
   return (
@@ -102,7 +77,6 @@ export function PasswordGateForm({
         </button>
       </div>
       <Button
-        ref={buttonRef}
         type="submit"
         size="lg"
         disabled={loading || !password}
@@ -140,24 +114,6 @@ export function PasswordGateForm({
         <br />
         Vou adorar conversar com você!
       </p>
-
-      {transitioning && origin && (
-        <div
-          aria-hidden="true"
-          className="pointer-events-none fixed z-50 rounded-full bg-accent-magenta"
-          style={{
-            left: origin.x,
-            top: origin.y,
-            width: 24,
-            height: 24,
-            transform: `translate(-50%, -50%) scale(${expanded ? 100 : 0})`,
-            transition: 'transform 700ms cubic-bezier(0.32, 0, 0.4, 1)',
-          }}
-        />
-      )}
-      <span className="sr-only" role="status">
-        {transitioning ? 'Entrando...' : ''}
-      </span>
     </form>
   );
 }
