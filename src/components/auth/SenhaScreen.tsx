@@ -205,6 +205,7 @@ export function SenhaScreen({ redirectTo }: { redirectTo: string }) {
   const [quebomSent, setQuebomSent] = useState(false);
   const [instructionSent, setInstructionSent] = useState(false);
   const [error, setError] = useState(false);
+  const [errorBubbleVisible, setErrorBubbleVisible] = useState(false);
   const [errorKey, setErrorKey] = useState(0);
   const [hasFailedOnce, setHasFailedOnce] = useState(false);
   const [errorSent, setErrorSent] = useState(false);
@@ -245,6 +246,7 @@ export function SenhaScreen({ redirectTo }: { redirectTo: string }) {
     setError(hasError);
     if (hasError) {
       setHasFailedOnce(true);
+      setErrorBubbleVisible(true);
       setErrorSent(false);
       setErrorKey((k) => k + 1);
     }
@@ -277,11 +279,14 @@ export function SenhaScreen({ redirectTo }: { redirectTo: string }) {
         <TypedBubble text={INSTRUCTION_TEXT} enabled={quebomSent} onSent={() => setInstructionSent(true)} />
       )}
 
-      {error && (
+      {/* uma vez mostrada, a bolha de erro fica no historico - nao some so
+          porque o usuario comecou a editar a senha de novo (error volta a
+          false so pra tirar o estado visual do campo, nao apaga a msg) */}
+      {errorBubbleVisible && (
         <TypedBubble
           key={errorKey}
           text={ERROR_TEXT}
-          enabled={error}
+          enabled={errorBubbleVisible}
           onSent={() => setErrorSent(true)}
           colorClass="text-accent-magenta dark:text-magenta-300"
         />
@@ -338,7 +343,7 @@ export function SenhaScreen({ redirectTo }: { redirectTo: string }) {
       <div
         className={
           hasSubmitted
-            ? 'flex min-h-screen flex-col items-center gap-lg bg-bg px-6 pb-28 pt-16 text-center'
+            ? 'flex min-h-screen flex-col items-center gap-lg bg-bg px-6 pb-20 pt-16 text-center'
             : 'flex min-h-screen flex-col items-center justify-center gap-lg bg-bg px-6 py-10 text-center'
         }
       >
