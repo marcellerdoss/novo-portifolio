@@ -1,8 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { Eye, EyeOff } from 'lucide-react';
-import { Button } from '@/components/ui/Button';
+import { ArrowUp, Eye, EyeOff } from 'lucide-react';
 import { siteConfig } from '@/lib/config';
 
 export function PasswordGateForm({
@@ -51,7 +50,8 @@ export function PasswordGateForm({
       <label htmlFor="site-password" className="sr-only">
         Código de acesso
       </label>
-      <div className="relative w-full">
+      {/* barra de composicao tipo chat de IA: input + olho + enviar, tudo num so campo pill */}
+      <div className="flex w-full items-center gap-1 rounded-pill border border-fg/20 bg-bg py-1.5 pl-5 pr-1.5 focus-within:border-fg/50">
         <input
           ref={inputRef}
           id="site-password"
@@ -63,7 +63,7 @@ export function PasswordGateForm({
           }}
           aria-describedby={error ? 'site-password-error' : undefined}
           aria-invalid={error || undefined}
-          className="type-body w-full rounded-md border border-fg/20 bg-bg px-4 py-3 pr-12 text-fg outline-none focus:border-fg/50"
+          className="type-body w-full bg-transparent py-1.5 text-fg outline-none"
           placeholder="Digite o código"
         />
         <button
@@ -71,19 +71,19 @@ export function PasswordGateForm({
           onClick={() => setVisible((v) => !v)}
           aria-label={visible ? 'Ocultar código' : 'Mostrar código'}
           aria-pressed={visible}
-          className="absolute inset-y-0 right-0 flex w-12 items-center justify-center text-fg-muted hover:text-fg transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg rounded-md"
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-fg-muted transition-colors duration-150 hover:text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg"
         >
           {visible ? <EyeOff size={18} aria-hidden="true" /> : <Eye size={18} aria-hidden="true" />}
         </button>
+        <button
+          type="submit"
+          disabled={loading || !password}
+          aria-label="Enviar"
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent-magenta text-white transition-colors duration-150 hover:bg-magenta-500 disabled:bg-neutral-500 disabled:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg"
+        >
+          <ArrowUp size={18} aria-hidden="true" />
+        </button>
       </div>
-      <Button
-        type="submit"
-        size="lg"
-        disabled={loading || !password}
-        className="w-full bg-accent-magenta! hover:bg-magenta-500! disabled:bg-neutral-500! disabled:opacity-100!"
-      >
-        {loading ? 'Verificando...' : 'Entrar'}
-      </Button>
       {error && (
         <p
           id="site-password-error"
