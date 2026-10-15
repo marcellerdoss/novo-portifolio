@@ -93,7 +93,7 @@ export function PasswordGateForm({
           Código incorreto. Tente novamente.
         </p>
       )}
-      <p className="type-body-xs text-fg-subtle mt-md">
+      <p className="type-body-xs text-fg-subtle mt-md w-[22rem] max-w-[90vw]">
         Não tem o código? Me chama pelo{' '}
         <a
           href={siteConfig.contact.whatsapp}
