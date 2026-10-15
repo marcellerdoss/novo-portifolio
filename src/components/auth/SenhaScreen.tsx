@@ -8,7 +8,8 @@ import { siteConfig } from '@/lib/config';
 // curva suave de desaceleracao longa, pra transicao lenta/gradual
 const EASE = [0.22, 1, 0.36, 1] as const;
 const INSTRUCTION_TEXT = 'Digite o código de acesso para conhecer meu trabalho';
-const ERROR_TEXT = 'Código incorreto. Tente novamente.';
+const ERROR_TEXT = 'Quase lá! Confere o código e tenta mais uma vez. 💗';
+const SUCCESS_TEXT = 'Prontinho! Fique à vontade ✨';
 // digitacao das mensagens de chat: mais rapida que a do titulo (resposta
 // "da IA" streamando, igual GPT/Claude, nao o ritmo humano do greeting)
 const MIN_CHAR_MS = 15;
@@ -45,7 +46,7 @@ const HELP_MESSAGES: HelpMessage[] = [
         >
           WhatsApp
         </a>{' '}
-        ou{' '}
+        ou me manda um{' '}
         <a
           href={`mailto:${siteConfig.contact.email}`}
           className="text-fg underline underline-offset-4 hover:text-accent-magenta whitespace-nowrap"
@@ -56,7 +57,7 @@ const HELP_MESSAGES: HelpMessage[] = [
       </>
     ),
   },
-  { id: 'adorar', kind: 'typed', text: 'Vou adorar conversar com você!' },
+  { id: 'adorar', kind: 'typed', text: 'Vou adorar conversar com você :)' },
 ];
 
 // bolinha magenta (mesma usada no titulo da v1 e no #dot do Preloader),
@@ -190,6 +191,7 @@ export function SenhaScreen({ redirectTo }: { redirectTo: string }) {
   const [hasFailedOnce, setHasFailedOnce] = useState(false);
   const [errorSent, setErrorSent] = useState(false);
   const [helpStage, setHelpStage] = useState(0);
+  const [success, setSuccess] = useState(false);
 
   // a tela de senha fica atras do Preloader por ~3.8s (ver HOME_PATHS em
   // Preloader.tsx); sem isso, a 1a bolha comeca a digitar escondida atras dele.
@@ -228,6 +230,10 @@ export function SenhaScreen({ redirectTo }: { redirectTo: string }) {
       setErrorSent(false);
       setErrorKey((k) => k + 1);
     }
+  }
+
+  function handleSuccess() {
+    setSuccess(true);
   }
 
   return (
@@ -281,16 +287,29 @@ export function SenhaScreen({ redirectTo }: { redirectTo: string }) {
                 </StaticBubble>
               )
             )}
+
+          {/* senha certa: mostra a msg de sucesso e só navega (com
+              navegacao dura, pro Preloader tocar de novo) depois dela
+              ser lida - evita pular direto pro preloader sem feedback */}
+          {success && (
+            <TypedBubble
+              text={SUCCESS_TEXT}
+              enabled={success}
+              onSent={() => {
+                window.location.href = redirectTo;
+              }}
+            />
+          )}
         </motion.div>
       )}
 
-      {instructionSent && (
+      {instructionSent && !success && (
         <motion.div layout="position" transition={{ duration: 0.6, ease: EASE }} className="w-full max-w-[26rem]">
           <PasswordGateForm
-            redirectTo={redirectTo}
             focusWhenReady={instructionSent}
             error={error}
             onError={handleError}
+            onSuccess={handleSuccess}
           />
         </motion.div>
       )}

@@ -4,15 +4,15 @@ import { useEffect, useRef, useState } from 'react';
 import { ArrowUp } from 'lucide-react';
 
 export function PasswordGateForm({
-  redirectTo,
   focusWhenReady,
   error,
   onError,
+  onSuccess,
 }: {
-  redirectTo: string;
   focusWhenReady?: boolean;
   error: boolean;
   onError: (hasError: boolean) => void;
+  onSuccess: () => void;
 }) {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -41,9 +41,7 @@ export function PasswordGateForm({
       return;
     }
 
-    // hard reload (nao router.push): o Preloader so ativa num mount novo de
-    // verdade, entao o loader de entrada toca de novo depois do acesso.
-    window.location.href = redirectTo;
+    onSuccess();
   }
 
   return (
