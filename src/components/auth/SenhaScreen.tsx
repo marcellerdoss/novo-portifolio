@@ -8,7 +8,7 @@ import { siteConfig } from '@/lib/config';
 // curva suave de desaceleracao longa, pra transicao lenta/gradual
 const EASE = [0.22, 1, 0.36, 1] as const;
 const INSTRUCTION_TEXT = 'Para conhecer meu trabalho, digite o código de acesso';
-const ERROR_TEXT = 'Quase lá! Confere o código e tenta mais uma vez. 💗';
+const ERROR_TEXT = 'Quase lá! Confere o código e tenta mais uma vez. 🤞';
 const SUCCESS_TEXT = 'Prontinho! Fique à vontade ✨';
 // digitacao das mensagens de chat: ritmo de streaming de IA, mas devagar o
 // suficiente pra acompanhar lendo enquanto aparece
