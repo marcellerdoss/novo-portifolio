@@ -6,9 +6,7 @@ import { TypingGreeting } from './TypingGreeting';
 import { TypingText } from './TypingText';
 import { PasswordGateForm } from './PasswordGateForm';
 
-// easing suave usado no resto do site (fadeInUp em lib/animations.ts);
-// aqui com duracao maior e um atraso pra nao competir com o reflow do
-// titulo subindo - a instrucao "entra" bem depois dele ja ter acomodado.
+// mesmo easing suave usado no resto do site (fadeInUp em lib/animations.ts)
 const EASE = [0, 0, 0.58, 1] as const;
 
 export function SenhaScreen({ redirectTo }: { redirectTo: string }) {
@@ -24,9 +22,9 @@ export function SenhaScreen({ redirectTo }: { redirectTo: string }) {
         <TypingGreeting onDone={() => setTypingDone(true)} />
         {typingDone && (
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: EASE, delay: 0.3 }}
+            initial={{ clipPath: 'inset(0% 0 100% 0)' }}
+            animate={{ clipPath: 'inset(0% 0 0% 0)' }}
+            transition={{ duration: 1.6, ease: EASE, delay: 0.3 }}
             className="flex flex-col items-center gap-sm"
           >
             <TypingText
