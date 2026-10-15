@@ -103,11 +103,13 @@ export function TypingGreeting({ onDone }: { onDone?: () => void }) {
   );
 }
 
+// bolinha magenta (mesma cor do #dot do Preloader), dimensionada em `em`
+// pra acompanhar o tamanho da fonte do titulo
 function Caret() {
   return (
     <span
       aria-hidden="true"
-      className="ml-1 inline-block h-[0.85em] w-[0.06em] translate-y-[0.08em] animate-pulse bg-current align-middle"
+      className="ml-1 inline-block h-[0.28em] w-[0.28em] translate-y-[-0.1em] animate-pulse rounded-full bg-accent-magenta align-middle"
     />
   );
 }
