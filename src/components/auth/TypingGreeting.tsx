@@ -95,7 +95,7 @@ export function TypingGreeting({ onDone }: { onDone?: () => void }) {
         {LINE_1.slice(0, revealedLine1)}
         {typingLine1 && <Caret />}
       </span>
-      <span className="block font-extrabold">
+      <span className="block font-bold">
         {LINE_2.slice(0, revealedLine2)}
         {typingLine2 && <Caret />}
       </span>
