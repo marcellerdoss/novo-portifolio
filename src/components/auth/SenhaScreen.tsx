@@ -14,7 +14,7 @@ export function SenhaScreen({ redirectTo }: { redirectTo: string }) {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-lg bg-bg px-6 text-center">
       <motion.div
-        layout
+        layout="position"
         transition={{ duration: 3.5, ease: EASE }}
         className="flex flex-col items-center gap-lg"
       >

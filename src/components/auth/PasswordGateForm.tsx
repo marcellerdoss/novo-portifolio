@@ -80,7 +80,7 @@ export function PasswordGateForm({
         type="submit"
         size="lg"
         disabled={loading || !password}
-        className="w-full bg-accent-magenta! hover:bg-magenta-500! disabled:bg-neutral-700! disabled:opacity-100!"
+        className="w-full bg-accent-magenta! hover:bg-magenta-500! disabled:bg-neutral-500! disabled:opacity-100!"
       >
         {loading ? 'Verificando...' : 'Entrar'}
       </Button>
