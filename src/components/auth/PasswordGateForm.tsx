@@ -63,7 +63,7 @@ export function PasswordGateForm({
           }}
           aria-describedby={error ? 'site-password-error' : undefined}
           aria-invalid={error || undefined}
-          className="type-body w-full rounded-md border border-border bg-bg px-4 py-3 pr-12 text-fg outline-none focus:ring-2 focus:ring-accent-magenta"
+          className="type-body w-full rounded-md border border-fg/20 bg-bg px-4 py-3 pr-12 text-fg outline-none focus:ring-2 focus:ring-fg/40"
           placeholder="Digite o código"
         />
         <button
