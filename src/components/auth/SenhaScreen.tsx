@@ -260,18 +260,19 @@ export function SenhaScreen({ redirectTo }: { redirectTo: string }) {
     setSuccess(true);
   }
 
-  // igual ao ChatGPT: enquanto nao ha nenhuma troca ainda (so a saudacao
-  // inicial), titulo + campo ficam centralizados juntos no meio da tela.
-  // Assim que o usuario envia a 1a tentativa (certa ou errada), a conversa
-  // "comeca de verdade" e o layout muda pro modo chat-log: mensagens no
-  // topo, campo fixo na base da tela.
-  const hasSubmitted = hasFailedOnce || success;
+  // janela de mensagens com altura travada (~3 bolhas visiveis por vez) -
+  // conforme novas chegam, rola sozinha pro fim e as mais antigas saem de
+  // vista por cima. Isso mantem a altura total do bloco (mensagens + campo)
+  // constante desde o inicio, entao nada no centro da tela se desloca.
+  const scrollRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight });
+  });
 
   const messages = (
-    <motion.div
-      layout="position"
-      transition={{ duration: 0.6, ease: EASE }}
-      className="flex w-full max-w-[30rem] flex-col items-start gap-sm"
+    <div
+      ref={scrollRef}
+      className="flex h-40 w-full max-w-[30rem] flex-col items-start justify-end gap-sm overflow-y-auto"
     >
       <TypedBubble text="Olá!" enabled={readyToType} onSent={() => setOlaSent(true)} />
 
@@ -328,38 +329,22 @@ export function SenhaScreen({ redirectTo }: { redirectTo: string }) {
           }}
         />
       )}
-    </motion.div>
+    </div>
   );
 
   const composer = !success && (
     <PasswordGateForm focusWhenReady={instructionSent} error={error} onError={handleError} onSuccess={handleSuccess} />
   );
 
-  // importante: so um `return`/uma arvore de JSX pra tudo que envolve
-  // `messages` - se existissem dois `return`s com wrappers diferentes pra
-  // cada fase, o React desmontava e remontava TODAS as bolhas na hora da
-  // transicao (title+mensagens digitadas do zero de novo). Trocar so a
-  // className do mesmo container preserva o estado de cada bolha.
+  // bloco unico centralizado na tela (mensagens + campo). A janela de
+  // mensagens tem altura travada (acima), entao esse bloco nunca cresce -
+  // tudo fica parado no centro da tela o tempo todo, sem precisar de um
+  // composer fixo separado.
   return (
-    <>
-      <div
-        className={
-          hasSubmitted
-            ? 'flex min-h-screen flex-col items-center gap-lg bg-bg px-6 pb-20 pt-16 text-center'
-            : 'flex min-h-screen flex-col items-center justify-center gap-lg bg-bg px-6 py-10 text-center'
-        }
-      >
-        {readyToType && messages}
-      </div>
+    <div className="flex min-h-screen flex-col items-center justify-center gap-lg bg-bg px-6 py-10 text-center">
+      {readyToType && messages}
 
-      {/* campo sempre fixo na base da tela, desde que aparece - nunca fica
-          "preso" ao grupo de mensagens, entao nao se mexe conforme as
-          bolhas da saudacao vao surgindo uma a uma */}
-      {readyToType && composer && (
-        <div className="fixed inset-x-0 bottom-0 z-10 bg-bg px-6 py-3">
-          <div className="mx-auto w-full max-w-[30rem]">{composer}</div>
-        </div>
-      )}
-    </>
+      {readyToType && composer && <div className="w-full max-w-[30rem]">{composer}</div>}
+    </div>
   );
 }
