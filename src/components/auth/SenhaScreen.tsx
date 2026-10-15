@@ -196,9 +196,11 @@ export function SenhaScreen({ redirectTo }: { redirectTo: string }) {
 
   return (
     <>
-      {/* area de mensagens: cresce normalmente, com espaco reservado
-          embaixo pro composer fixo nao cobrir o conteudo */}
-      <div className="flex min-h-screen flex-col items-center gap-lg bg-bg px-6 pb-36 pt-[14vh] text-center">
+      {/* area de mensagens: centralizada verticalmente na tela (titulo
+          comeca no meio sozinho; conforme as bolhas entram, o bloco todo
+          recentraliza e o titulo "sobe" naturalmente, aproximando o
+          conteudo do composer fixo embaixo). */}
+      <div className="flex min-h-screen flex-col items-center justify-center gap-lg bg-bg px-6 text-center">
         <motion.div layout="position" transition={{ duration: 0.6, ease: EASE }}>
           <TypingGreeting onDone={() => setTypingDone(true)} />
         </motion.div>
@@ -242,10 +244,12 @@ export function SenhaScreen({ redirectTo }: { redirectTo: string }) {
       </div>
 
       {/* composer fixo embaixo da tela, igual a barra de um chat de IA
-          (nao acompanha o scroll das mensagens) */}
+          (nao acompanha o scroll das mensagens). Largura travada igual a
+          do bloco de texto (max-w-[26rem]), pra nao ficar mais estreito
+          que as bolhas de mensagem acima. */}
       {instructionSent && (
-        <div className="fixed inset-x-0 bottom-0 z-10 bg-bg px-6 py-4">
-          <div className="mx-auto w-full max-w-[18rem]">
+        <div className="fixed inset-x-0 bottom-0 z-10 bg-bg px-6 py-3">
+          <div className="mx-auto w-full max-w-[26rem]">
             <PasswordGateForm
               redirectTo={redirectTo}
               focusWhenReady={instructionSent}
