@@ -15,7 +15,7 @@ export function SenhaScreen({ redirectTo }: { redirectTo: string }) {
     <div className="flex min-h-screen flex-col items-center justify-center gap-lg bg-bg px-6 text-center">
       <motion.div
         layout
-        transition={{ duration: 2, ease: EASE }}
+        transition={{ duration: 3.5, ease: EASE }}
         className="flex flex-col items-center gap-lg"
       >
         <TypingGreeting onDone={() => setTypingDone(true)} />
