@@ -47,11 +47,11 @@ export function PasswordGateForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex w-full max-w-[18rem] flex-col gap-sm">
+    <form onSubmit={handleSubmit} className="flex w-full max-w-[18rem] flex-col items-center gap-sm">
       <label htmlFor="site-password" className="sr-only">
         Código de acesso
       </label>
-      <div className="relative">
+      <div className="relative w-full">
         <input
           ref={inputRef}
           id="site-password"
