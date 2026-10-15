@@ -47,10 +47,6 @@ export const metadata: Metadata = {
     description: 'Design centrado em comportamento e decisão. Produtos digitais construídos com estratégia, intenção e foco em impacto.',
     images: ['/images/social/og-image-navy-light.png'],
   },
-  icons: {
-    icon: [{ url: '/images/social/favicon-navy-mono.png', type: 'image/png', sizes: '74x74' }],
-    shortcut: '/images/social/favicon-navy-mono.png',
-  },
   robots: { index: false, follow: false },
 };
 
