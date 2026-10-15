@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { motion } from 'framer-motion';
-import { TypingGreeting } from './TypingGreeting';
 import { PasswordGateForm } from './PasswordGateForm';
 import { siteConfig } from '@/lib/config';
 
@@ -177,13 +176,45 @@ function StaticBubble({ enabled, onSent, children }: { enabled: boolean; onSent?
 }
 
 export function SenhaScreen({ redirectTo }: { redirectTo: string }) {
-  const [typingDone, setTypingDone] = useState(false);
+  const [readyToType, setReadyToType] = useState(false);
+  const [olaSent, setOlaSent] = useState(false);
+  const [quebomSent, setQuebomSent] = useState(false);
   const [instructionSent, setInstructionSent] = useState(false);
   const [error, setError] = useState(false);
   const [errorKey, setErrorKey] = useState(0);
   const [hasFailedOnce, setHasFailedOnce] = useState(false);
   const [errorSent, setErrorSent] = useState(false);
   const [helpStage, setHelpStage] = useState(0);
+
+  // a tela de senha fica atras do Preloader por ~3.8s (ver HOME_PATHS em
+  // Preloader.tsx); sem isso, a 1a bolha comeca a digitar escondida atras dele.
+  // Espera o #preloader sumir do DOM antes de liberar a digitacao.
+  useEffect(() => {
+    let fallback: ReturnType<typeof setTimeout> | undefined;
+    let observer: MutationObserver | undefined;
+
+    function markReady() {
+      fallback = setTimeout(() => setReadyToType(true), 0);
+    }
+
+    if (!document.getElementById('preloader')) {
+      markReady();
+    } else {
+      observer = new MutationObserver(() => {
+        if (!document.getElementById('preloader')) {
+          observer?.disconnect();
+          markReady();
+        }
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
+      fallback = setTimeout(markReady, 5000);
+    }
+
+    return () => {
+      observer?.disconnect();
+      if (fallback) clearTimeout(fallback);
+    };
+  }, []);
 
   function handleError(hasError: boolean) {
     setError(hasError);
@@ -195,70 +226,69 @@ export function SenhaScreen({ redirectTo }: { redirectTo: string }) {
   }
 
   return (
-    <>
-      {/* area de mensagens: centralizada verticalmente na tela (titulo
-          comeca no meio sozinho; conforme as bolhas entram, o bloco todo
-          recentraliza e o titulo "sobe" naturalmente, aproximando o
-          conteudo do composer fixo embaixo). */}
-      <div className="flex min-h-screen flex-col items-center justify-center gap-lg bg-bg px-6 text-center">
-        <motion.div layout="position" transition={{ duration: 0.6, ease: EASE }}>
-          <TypingGreeting onDone={() => setTypingDone(true)} />
-        </motion.div>
+    // bloco unico centralizado na tela - mensagens e o campo de senha
+    // sobem/descem juntos conforme o conteudo muda, sem um composer
+    // fixo separado grudado na borda inferior.
+    <div className="flex min-h-screen flex-col items-center justify-center gap-lg bg-bg px-6 py-10 text-center">
+      {readyToType && (
+        <motion.div
+          layout="position"
+          transition={{ duration: 0.6, ease: EASE }}
+          className="flex w-full max-w-[26rem] flex-col items-start gap-sm"
+        >
+          <TypedBubble text="Olá!" enabled={readyToType} onSent={() => setOlaSent(true)} />
 
-        {typingDone && (
-          <motion.div
-            layout="position"
-            transition={{ duration: 0.6, ease: EASE }}
-            className="flex w-full max-w-[26rem] flex-col items-start gap-sm"
-          >
-            <TypedBubble text={INSTRUCTION_TEXT} enabled={typingDone} onSent={() => setInstructionSent(true)} />
-
-            {error && (
-              <TypedBubble
-                key={errorKey}
-                text={ERROR_TEXT}
-                enabled={error}
-                onSent={() => setErrorSent(true)}
-                colorClass="text-accent-magenta dark:text-magenta-300"
-              />
-            )}
-
-            {hasFailedOnce &&
-              errorSent &&
-              HELP_MESSAGES.map((msg, i) =>
-                i > helpStage ? null : msg.kind === 'typed' ? (
-                  <TypedBubble
-                    key={msg.id}
-                    text={msg.text}
-                    enabled={i === helpStage}
-                    onSent={() => setHelpStage((s) => s + 1)}
-                  />
-                ) : (
-                  <StaticBubble key={msg.id} enabled={i === helpStage} onSent={() => setHelpStage((s) => s + 1)}>
-                    {msg.content}
-                  </StaticBubble>
-                )
-              )}
-          </motion.div>
-        )}
-      </div>
-
-      {/* composer fixo embaixo da tela, igual a barra de um chat de IA
-          (nao acompanha o scroll das mensagens). Largura travada igual a
-          do bloco de texto (max-w-[26rem]), pra nao ficar mais estreito
-          que as bolhas de mensagem acima. */}
-      {instructionSent && (
-        <div className="fixed inset-x-0 bottom-0 z-10 bg-bg px-6 py-3">
-          <div className="mx-auto w-full max-w-[26rem]">
-            <PasswordGateForm
-              redirectTo={redirectTo}
-              focusWhenReady={instructionSent}
-              error={error}
-              onError={handleError}
+          {olaSent && (
+            <TypedBubble
+              text="Que bom receber sua visita :)"
+              enabled={olaSent}
+              onSent={() => setQuebomSent(true)}
             />
-          </div>
-        </div>
+          )}
+
+          {quebomSent && (
+            <TypedBubble text={INSTRUCTION_TEXT} enabled={quebomSent} onSent={() => setInstructionSent(true)} />
+          )}
+
+          {error && (
+            <TypedBubble
+              key={errorKey}
+              text={ERROR_TEXT}
+              enabled={error}
+              onSent={() => setErrorSent(true)}
+              colorClass="text-accent-magenta dark:text-magenta-300"
+            />
+          )}
+
+          {hasFailedOnce &&
+            errorSent &&
+            HELP_MESSAGES.map((msg, i) =>
+              i > helpStage ? null : msg.kind === 'typed' ? (
+                <TypedBubble
+                  key={msg.id}
+                  text={msg.text}
+                  enabled={i === helpStage}
+                  onSent={() => setHelpStage((s) => s + 1)}
+                />
+              ) : (
+                <StaticBubble key={msg.id} enabled={i === helpStage} onSent={() => setHelpStage((s) => s + 1)}>
+                  {msg.content}
+                </StaticBubble>
+              )
+            )}
+        </motion.div>
       )}
-    </>
+
+      {instructionSent && (
+        <motion.div layout="position" transition={{ duration: 0.6, ease: EASE }} className="w-full max-w-[26rem]">
+          <PasswordGateForm
+            redirectTo={redirectTo}
+            focusWhenReady={instructionSent}
+            error={error}
+            onError={handleError}
+          />
+        </motion.div>
+      )}
+    </div>
   );
 }
