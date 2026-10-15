@@ -7,7 +7,7 @@ import { siteConfig } from '@/lib/config';
 
 // curva suave de desaceleracao longa, pra transicao lenta/gradual
 const EASE = [0.22, 1, 0.36, 1] as const;
-const INSTRUCTION_TEXT = 'Digite o código de acesso para conhecer meu trabalho';
+const INSTRUCTION_TEXT = 'Para conhecer meu trabalho, digite o código de acesso';
 const ERROR_TEXT = 'Quase lá! Confere o código e tenta mais uma vez. 💗';
 const SUCCESS_TEXT = 'Prontinho! Fique à vontade ✨';
 // digitacao das mensagens de chat: ritmo de streaming de IA, mas devagar o
@@ -74,29 +74,17 @@ function useTypewriter(totalLength: number, enabled: boolean, onSent?: () => voi
   return { revealed, sent };
 }
 
-// mensagens de ajuda: so aparecem depois de uma senha errada, uma de cada
-// vez (cada uma so comeca quando a anterior termina). As de texto puro
-// digitam igual a instrucao; a de contato (com links) digita igual, so que
-// em pedacos (alguns viram <a>, pro link funcionar assim que aparece).
+// mensagem de ajuda: so aparece depois de uma senha errada. Digita igual
+// as outras, em pedacos - os que tem `href` viram <a> assim que comecam
+// a aparecer (o link ja funciona com a palavra parcialmente digitada).
 type Segment = { text: string; href?: string; external?: boolean };
-type HelpMessage =
-  | { id: string; kind: 'typed'; text: string }
-  | { id: string; kind: 'link'; segments: Segment[] };
 
-const HELP_MESSAGES: HelpMessage[] = [
-  { id: 'sem-codigo', kind: 'typed', text: 'Não tem o código?' },
-  {
-    id: 'contato',
-    kind: 'link',
-    segments: [
-      { text: 'Me chama pelo ' },
-      { text: 'WhatsApp', href: siteConfig.contact.whatsapp, external: true },
-      { text: ' ou me manda um ' },
-      { text: 'e-mail', href: `mailto:${siteConfig.contact.email}` },
-      { text: '.' },
-    ],
-  },
-  { id: 'adorar', kind: 'typed', text: 'Vou adorar conversar com você :)' },
+const HELP_SEGMENTS: Segment[] = [
+  { text: 'Se não tiver o código, me chama pelo ' },
+  { text: 'WhatsApp', href: siteConfig.contact.whatsapp, external: true },
+  { text: ' ou me manda um ' },
+  { text: 'e-mail', href: `mailto:${siteConfig.contact.email}` },
+  { text: '. Vou adorar conversar com você :)' },
 ];
 
 // bolinha magenta (mesma usada no titulo da v1 e no #dot do Preloader),
@@ -213,7 +201,6 @@ export function SenhaScreen({ redirectTo }: { redirectTo: string }) {
   const [errorKey, setErrorKey] = useState(0);
   const [hasFailedOnce, setHasFailedOnce] = useState(false);
   const [errorSent, setErrorSent] = useState(false);
-  const [helpStage, setHelpStage] = useState(0);
   const [success, setSuccess] = useState(false);
 
   // a tela de senha fica atras do Preloader por ~3.8s (ver HOME_PATHS em
@@ -272,7 +259,7 @@ export function SenhaScreen({ redirectTo }: { redirectTo: string }) {
   const messages = (
     <div
       ref={scrollRef}
-      className="flex h-40 w-full max-w-[30rem] flex-col items-start justify-end gap-sm overflow-y-auto"
+      className="flex h-40 w-full max-w-[30rem] flex-col items-start justify-end gap-sm overflow-y-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
     >
       <TypedBubble text="Olá!" enabled={readyToType} onSent={() => setOlaSent(true)} />
 
@@ -297,25 +284,7 @@ export function SenhaScreen({ redirectTo }: { redirectTo: string }) {
         />
       )}
 
-      {hasFailedOnce &&
-        errorSent &&
-        HELP_MESSAGES.map((msg, i) =>
-          i > helpStage ? null : msg.kind === 'typed' ? (
-            <TypedBubble
-              key={msg.id}
-              text={msg.text}
-              enabled={i === helpStage}
-              onSent={() => setHelpStage((s) => s + 1)}
-            />
-          ) : (
-            <TypedLinkBubble
-              key={msg.id}
-              segments={msg.segments}
-              enabled={i === helpStage}
-              onSent={() => setHelpStage((s) => s + 1)}
-            />
-          )
-        )}
+      {hasFailedOnce && errorSent && <TypedLinkBubble segments={HELP_SEGMENTS} enabled={errorSent} />}
 
       {/* senha certa: mostra a msg de sucesso e só navega (com navegacao
           dura, pro Preloader tocar de novo) depois dela ser lida - evita
