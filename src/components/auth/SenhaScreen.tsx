@@ -15,7 +15,7 @@ export function SenhaScreen({ redirectTo }: { redirectTo: string }) {
     <div className="flex min-h-screen flex-col items-center justify-center gap-lg bg-bg px-6 text-center">
       <motion.div
         layout
-        transition={{ duration: 1.1, ease: EASE }}
+        transition={{ duration: 2, ease: EASE }}
         className="flex flex-col items-center gap-lg"
       >
         <TypingGreeting onDone={() => setTypingDone(true)} />
@@ -23,7 +23,7 @@ export function SenhaScreen({ redirectTo }: { redirectTo: string }) {
           <motion.div
             initial={{ clipPath: 'inset(0% 0 100% 0)' }}
             animate={{ clipPath: 'inset(0% 0 0% 0)' }}
-            transition={{ duration: 2.6, ease: EASE, delay: 0.5 }}
+            transition={{ duration: 5, ease: EASE, delay: 1 }}
             className="flex flex-col items-center gap-sm"
           >
             <p className="type-body-lg text-fg-muted">
