@@ -19,6 +19,10 @@ const MAX_CHAR_MS = 70;
 // (nao so um intervalo fixo, que fica curto demais pra frases longas)
 const MIN_READ_PAUSE_MS = 1400;
 const READ_PAUSE_MS_PER_CHAR = 55;
+// pausa especifica antes da msg de ajuda (WhatsApp/e-mail) aparecer depois
+// do erro - bem maior que o padrao, pra dar tempo real da pessoa tentar
+// digitar o codigo de novo antes de empurrar a sugestao de contato
+const ERROR_TO_HELP_PAUSE_MS = 10000;
 
 function randomCharDelay() {
   return MIN_CHAR_MS + Math.random() * (MAX_CHAR_MS - MIN_CHAR_MS);
@@ -31,7 +35,7 @@ function readPauseFor(length: number) {
 // estado de digitacao compartilhado por qualquer bolha (texto puro ou com
 // links) - conta so os caracteres (totalLength), quem desenha o conteudo
 // e cada componente.
-function useTypewriter(totalLength: number, enabled: boolean, onSent?: () => void) {
+function useTypewriter(totalLength: number, enabled: boolean, onSent?: () => void, pauseMs?: number) {
   const [revealed, setRevealed] = useState(0);
   const [sent, setSent] = useState(false);
   const onSentRef = useRef(onSent);
@@ -51,7 +55,7 @@ function useTypewriter(totalLength: number, enabled: boolean, onSent?: () => voi
 
     function scheduleNext(count: number) {
       if (count >= totalLength) {
-        timeoutId = setTimeout(finish, readPauseFor(totalLength));
+        timeoutId = setTimeout(finish, pauseMs ?? readPauseFor(totalLength));
         return;
       }
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -69,7 +73,7 @@ function useTypewriter(totalLength: number, enabled: boolean, onSent?: () => voi
 
     scheduleNext(0);
     return () => clearTimeout(timeoutId);
-  }, [enabled, totalLength]);
+  }, [enabled, totalLength, pauseMs]);
 
   return { revealed, sent };
 }
@@ -112,13 +116,15 @@ function TypedBubble({
   enabled,
   onSent,
   colorClass,
+  pauseMs,
 }: {
   text: string;
   enabled: boolean;
   onSent?: () => void;
   colorClass?: string;
+  pauseMs?: number;
 }) {
-  const { revealed, sent } = useTypewriter(text.length, enabled, onSent);
+  const { revealed, sent } = useTypewriter(text.length, enabled, onSent, pauseMs);
   const typing = enabled && revealed < text.length;
 
   return (
@@ -281,6 +287,7 @@ export function SenhaScreen({ redirectTo }: { redirectTo: string }) {
           enabled={errorBubbleVisible}
           onSent={() => setErrorSent(true)}
           colorClass="text-accent-magenta dark:text-magenta-300"
+          pauseMs={ERROR_TO_HELP_PAUSE_MS}
         />
       )}
 
